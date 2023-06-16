@@ -36,3 +36,25 @@ models:
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
+    BD:
+      valuechain:
+        +database: valuechain_db
+        +schema: public
+      marketing:
+        +database: marketing_db
+        +schema: public
+      supplydemand:
+        +database: supplydemand_db
+        +schema: public
+    DE:
+      +database: PARTS_DB
+      +schema: logistics
+    EF:
+      +database: DATAMART_DB
+      +schema: public
+
+snapshots:
+  HOKYUNOKI_MIERUKA:
+    BD:
+      +target_database: valuechain_db
+      +target_schema: dbt_snapshots
