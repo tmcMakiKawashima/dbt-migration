@@ -56,5 +56,6 @@ models:
 snapshots:
   HOKYUNOKI_MIERUKA:
     BD:
-      +target_database: valuechain_db
-      +target_schema: dbt_snapshots
+      valuechain:
+        +target_database: valuechain_db
+        +target_schema: dbt_snapshots
