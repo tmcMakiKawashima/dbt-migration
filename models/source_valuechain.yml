@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: snowpipe_db_valuechain
+    database: Snowpipe_DB
+    schema: VALUECHAIN
+    tables:
+      - name: DXDAIH99
+        # identifier: DXDAIH99
+
+# loaded_at_field: LDTS
+# freshness:
+#   warn_after: { count: 1, period: hour }
+#   error_after: { count: 24, period: hour }
