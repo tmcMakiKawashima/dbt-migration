@@ -7,6 +7,8 @@ sources:
     tables:
       - name: DXDAIH99
         # identifier: DXDAIH99
+      - name: KTRLA01VZZ0KVN00G4
+        # identifier: KTRLA01VZZ0KVN00G4
 
 # loaded_at_field: LDTS
 # freshness:
