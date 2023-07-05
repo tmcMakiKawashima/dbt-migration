@@ -57,7 +57,7 @@ with substr_dvnp0710 as (
         substr(raw_data, 357, 16)::VARCHAR(16) as MTUSERID,
         substr(raw_data, 373, 26)::VARCHAR(26) as MTTIMEX,
         substr(raw_data, 399, 12)::VARCHAR(12) as FILLER,
-        LDTS
+        current_timestamp as LDTS
     from {{ ref('raw_dvnp0710') }}
 )
 select * from substr_dvnp0710
