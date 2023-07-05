@@ -9,6 +9,8 @@ sources:
         # identifier: DXDAIH99
       - name: KTRLA01VZZ0KVN00G4
         # identifier: KTRLA01VZZ0KVN00G4
+      - name: KTRLA01VZZ0KVN00G5
+        # identifier: KTRLA01VZZ0KVN00G5
 
 # loaded_at_field: LDTS
 # freshness:
