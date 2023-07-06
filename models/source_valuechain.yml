@@ -5,8 +5,13 @@ sources:
     database: Snowpipe_DB
     schema: VALUECHAIN
     tables:
-      - name: DXDAIH99
-        # identifier: DXDAIH99
+      - name: raw_tbdaihl
+        identifier: DXDAIH99
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 120
       - name: KTRLA01VZZ0KVN00G4
         # identifier: KTRLA01VZZ0KVN00G4
 
