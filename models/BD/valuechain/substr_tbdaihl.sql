@@ -18,6 +18,6 @@ with substr_tbdaihl as (
         substr(raw_data, 100, 20)::VARCHAR(20) as HINBAN,
         substr(raw_data, 120, 1)::VARCHAR(1) as MEKAKB,
         LDTS
-    from {{ ref('raw_tbdaihl') }}
+    from {{ source('snowpipe_db_valuechain', 'raw_tbdaihl') }}
 )
 select * from substr_tbdaihl

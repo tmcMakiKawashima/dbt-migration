@@ -2,31 +2,24 @@
 
 with stg_tbdaihl as (
     select
-        -- to_char(rtrim(KYOUHAN)) as KYOUHAN,
-        rtrim(KYOUHAN) as KYOUHAN,
-        rtrim(HATUHINB) as HATUHINB,
-        rtrim(HATUMKBN) as HATUMKBN,
-        rtrim(CHUMON) as CHUMON,
-        rtrim(ODERSYU) as ODERSYU,
-        -- IFF(rtrim(USERCD) = '', '', LPAD(rtrim(USERCD), length(USERCD), '0')) as USERCD, -- コード／区分
-        -- IFF(rtrim(USERCD) = '', rtrim(USERCD), LPAD(rtrim(USERCD), length(USERCD), '0')) as USERCD, -- コード／区分
-        -- IFF(rtrim(USERCD) = '', '', LPAD(rtrim(USERCD), length(USERCD), '0'))::VARCHAR(length(USERCD)) as USERCD, -- コード／区分
+        rtrim(KYOUHAN, ' 　')::VARCHAR(5) as KYOUHAN, -- 英数字
+        rtrim(HATUHINB, ' 　')::VARCHAR(20) as HATUHINB, -- 英数字
+        rtrim(HATUMKBN, ' 　')::VARCHAR(1) as HATUMKBN, -- 英数字
+        rtrim(CHUMON, ' 　')::VARCHAR(5) as CHUMON, -- 英数字
+        rtrim(ODERSYU, ' 　')::VARCHAR(2) as ODERSYU, -- 英数字
         IFF(rtrim(USERCD) = '', '', LPAD(rtrim(USERCD), length(USERCD), '0'))::VARCHAR(5) as USERCD, -- コード／区分
-        rtrim(KAISYA) as KAISYA,
-        rtrim(TCHUMON) as TCHUMON,
-        -- rtrim(HATTYUHI) as HATTYUHI, -- 日付
-        IFF(rtrim(HATTYUHI) = '', '', LPAD(rtrim(HATTYUHI), length(HATTYUHI), '0')) as HATTYUHI, -- 日付
-        -- to_date(IFF(rtrim(HATTYUHI) = '', '19700101', rtrim(HATTYUHI)), 'YYYYMMDD') as HATTYUHI, -- 日付
-        rtrim(FRMKBN) as FRMKBN,
-        rtrim(FRMNO) as FRMNO,
-        rtrim(HANKATA) as HANKATA,
-        rtrim(HATTYUSUS) as HATTYUSUS,
-        -- to_decimal(IFF(rtrim(HATTYUSU) = '', 0, rtrim(HATTYUSU))) as HATTYUSU, -- 数量／金額／数値
-        IFF(rtrim(HATTYUSU) = '', 0, rtrim(HATTYUSU))::DECIMAL(5) as HATTYUSU, -- 数量／金額／数値
-        rtrim(TORITOKB) as TORITOKB,
-        rtrim(HINBAN) as HINBAN,
-        rtrim(MEKAKB) as MEKAKB,
-        LDTS,
+        rtrim(KAISYA, ' 　')::VARCHAR(2) as KAISYA, -- 英数字
+        rtrim(TCHUMON, ' 　')::VARCHAR(14) as TCHUMON, -- 英数字
+        IFF(rtrim(HATTYUHI) = '', '', LPAD(rtrim(HATTYUHI), length(HATTYUHI), '0'))::VARCHAR(8) as HATTYUHI, -- 日付
+        rtrim(FRMKBN, ' 　')::VARCHAR(3) as FRMKBN, -- 英数字
+        rtrim(FRMNO, ' 　')::VARCHAR(7) as FRMNO, -- 英数字
+        rtrim(HANKATA, ' 　')::VARCHAR(20) as HANKATA, -- 英数字
+        rtrim(HATTYUSUS, ' 　')::VARCHAR(1) as HATTYUSUS, -- 英数字
+        to_decimal(IFF(rtrim(HATTYUSU) = '', 0, rtrim(HATTYUSU)))::DECIMAL(5) as HATTYUSU, -- 数量／金額／数値
+        rtrim(TORITOKB, ' 　')::VARCHAR(1) as TORITOKB, -- 英数字
+        rtrim(HINBAN, ' 　')::VARCHAR(20) as HINBAN, -- 英数字
+        rtrim(MEKAKB, ' 　')::VARCHAR(1) as MEKAKB, -- 英数字
+        current_timestamp as LDTS,
         RANK() over (partition by KYOUHAN, HATUHINB, HATUMKBN, CHUMON, ODERSYU, USERCD, KAISYA, TCHUMON, HATTYUHI order by LDTS desc) aggkey
     from {{ ref('substr_tbdaihl') }}
 )
