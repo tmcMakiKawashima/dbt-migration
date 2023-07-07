@@ -5,7 +5,7 @@
         unique_key="KYOUHAN ||'-'|| HATUHINB ||'-'|| HATUMKBN ||'-'|| CHUMON ||'-'|| ODERSYU ||'-'|| USERCD ||'-'|| KAISYA ||'-'|| TCHUMON ||'-'|| HATTYUHI",
 
         strategy='timestamp',
-        updated_at='LDTS',
+        updated_at='LDTSB',
         invalidate_hard_deletes=True,
     )
 }}
