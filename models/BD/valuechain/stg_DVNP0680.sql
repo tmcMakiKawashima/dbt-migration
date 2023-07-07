@@ -1,6 +1,6 @@
 {{ config(materialized='table') }}
 
-with stg_DVNP0680 as (
+with stg_dvnp0680 as (
     select
         rtrim(ORDRKEY,' 　')::VARCHAR(11) as ORDRKEY,  -- 英数字
         rtrim(KOKAGKBN,' 　')::VARCHAR(1) as KOKAGKBN,  -- 英数字
@@ -30,8 +30,8 @@ with stg_DVNP0680 as (
         rtrim(ZUIZIRTU,' 　')::VARCHAR(3) as ZUIZIRTU,  -- 英数字
         rtrim(BETMKCD,' 　')::VARCHAR(4) as BETMKCD,  -- 英数字
         rtrim(JYUSYYMD,' 　')::VARCHAR(8) as JYUSYYMD,  -- 英数字
-        rtrim(JUCHUSU,' 　')::VARCHAR(6) as JUCHUSU,  -- 英数字
-        rtrim(PROJUSUU6,' 　')::VARCHAR(6) as PROJUSUU6,  -- 英数字
+        to_decimal(IFF(rtrim(JUCHUSU) = '',0,rtrim(JUCHUSU)))::DECIMAL(6) as JUCHUSU,  -- 数量／金額／数値
+        to_decimal(IFF(rtrim(PROJUSUU6) = '',0,rtrim(PROJUSUU6)))::DECIMAL(6) as PROJUSUU6,  -- 数量／金額／数値
         rtrim(TARIFCD,' 　')::VARCHAR(3) as TARIFCD,  -- 英数字
         rtrim(TOKTANKA9,' 　')::VARCHAR(9) as TOKTANKA9,  -- 英数字
         rtrim(TANSJYMD,' 　')::VARCHAR(8) as TANSJYMD,  -- 英数字
@@ -59,11 +59,9 @@ with stg_DVNP0680 as (
         rtrim(MTUSERID,' 　')::VARCHAR(16) as MTUSERID,  -- 英数字
         rtrim(MTTIMEX,' 　')::VARCHAR(26) as MTTIMEX,  -- 英数字
         rtrim(FILLER,' 　')::VARCHAR(45) as FILLER,  -- 英数字
-        LDTS,
-        RANK() over (partition by ORDRKEY, JYUSYYMD order by MTTIMEX, LDTS desc) aggkey
-    from {{ ref('substr_DVNP0680') }}
+        LDTS, -- B層のLDTS
+        RANK() over (partition by ORDRKEY, JUCHUYMD order by MTTIMEX desc, LDTS desc) aggkey
+    from {{ ref('substr_dvnp0680') }}
 )
-select * from stg_DVNP0680
+select * from stg_dvnp0680
 where aggkey = 1
-
-        

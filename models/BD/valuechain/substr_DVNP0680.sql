@@ -1,4 +1,4 @@
-with substr_DVNP0680 as (
+with substr_dvnp0680 as (
     select
         substr(raw_data, 1, 11)::VARCHAR(11) as ORDRKEY,
         substr(raw_data, 12, 1)::VARCHAR(1) as KOKAGKBN,
@@ -57,8 +57,8 @@ with substr_DVNP0680 as (
         substr(raw_data, 209, 16)::VARCHAR(16) as MTUSERID,
         substr(raw_data, 225, 26)::VARCHAR(26) as MTTIMEX,
         substr(raw_data, 251, 45)::VARCHAR(45) as FILLER,
-        current_timestamp as LDTS
-    from {{ ref('raw_DVNP0680') }}
+        LDTS
+    from {{ source('snowpipe_db_valuechain', 'raw_dvnp0680') }}
 )
-select * from substr_DVNP0680
+select * from substr_dvnp0680
         

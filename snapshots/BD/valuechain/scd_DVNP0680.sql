@@ -1,4 +1,4 @@
-{% snapshot scd_DVNP0680 %}
+{% snapshot scd_dvnp0680 %}
 
 {{
     config(
@@ -10,6 +10,6 @@
     )
 }}
 
-select * from {{ ref('stg_DVNP0680') }}
+select * from {{ ref('stg_dvnp0680') }}
 
 {% endsnapshot %}
