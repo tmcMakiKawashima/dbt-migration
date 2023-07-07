@@ -75,20 +75,12 @@ sources:
             tests:
               - fixed_length:
                   length: 120
-<<<<<<< models/source_valuechain.yml
-      - name: raw_dvnp0710
-        identifier: KTRLA01VZZ0KVN00G4
-=======
       - name: raw_tbdaiml
         identifier: DXDAIM99
->>>>>>> models/source_valuechain.yml
         columns:
           - name: RAW_DATA
             tests:
               - fixed_length:
-<<<<<<< models/source_valuechain.yml
-                  length: 410
-=======
                   length: 492
       - name: raw_tbnsyus
         identifier: DXNSYU99
@@ -118,7 +110,6 @@ sources:
             tests:
               - fixed_length:
                   length: 400
->>>>>>> models/source_valuechain.yml
 
 # loaded_at_field: LDTS
 # freshness:
