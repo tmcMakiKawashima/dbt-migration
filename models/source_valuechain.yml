@@ -5,12 +5,111 @@ sources:
     database: Snowpipe_DB
     schema: VALUECHAIN
     tables:
-      - name: DXDAIH99
-        # identifier: DXDAIH99
-      - name: KTRLA01VZZ0KVN00G4
-        # identifier: KTRLA01VZZ0KVN00G4
-      - name: KTRLA01VZZ0KVN00G5
-        # identifier: KTRLA01VZZ0KVN00G5
+      - name: raw_dvnp5770
+        identifier: KTRLA01VZZ0KVN00G0
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 475
+      - name: raw_dvnp4330
+        identifier: KTRLA01VZZ0KVN00G1
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 270
+      - name: raw_dvnp4520
+        identifier: KTRLA01VZZ0KVN00G2
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 295
+      - name: raw_dvnp6490
+        identifier: KTRLA01VZZ0KVN00G3
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 900
+      - name: raw_dvsf509a
+        identifier: KTRLA01VZZ0KVS00M6
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 250
+      - name: raw_dvnp0710
+        identifier: KTRLA01VZZ0KVN00G4
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 410
+      - name: raw_dvnp0680
+        identifier: KTRLA01VZZ0KVN00G5
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 295
+      - name: raw_dvnp0700
+        identifier: KTRLA01VZZ0KVN00G6
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 340
+      - name: raw_dvnp054a
+        identifier: KTRLA01VZZ0KVN00G7
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 170
+      - name: raw_tbdaihl
+        identifier: DXDAIH99
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 120
+      - name: raw_tbdaiml
+        identifier: DXDAIM99
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 492
+      - name: raw_tbnsyus
+        identifier: DXNSYU99
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 368
+      - name: raw_tbuserm
+        identifier: DXUSER99
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 368
+      - name: raw_tbdaikl
+        identifier: DXDAIK99
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 283
+      - name: raw_tbsmksk
+        identifier: DXC03399
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 400
 
 # loaded_at_field: LDTS
 # freshness:
