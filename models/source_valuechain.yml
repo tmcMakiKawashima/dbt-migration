@@ -12,8 +12,13 @@ sources:
             tests:
               - fixed_length:
                   length: 120
-      - name: KTRLA01VZZ0KVN00G4
-        # identifier: KTRLA01VZZ0KVN00G4
+      - name: raw_dvnp0710
+        identifier: KTRLA01VZZ0KVN00G4
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 410
 
 # loaded_at_field: LDTS
 # freshness:

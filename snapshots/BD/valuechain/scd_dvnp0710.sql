@@ -5,7 +5,7 @@
         unique_key="ORDRKEY ||'-'|| JURRSYMD ||'-'|| TANSKKEY",
 
         strategy='timestamp',
-        updated_at='LDTS',
+        updated_at='LDTSB',
         invalidate_hard_deletes=True,
     )
 }}
