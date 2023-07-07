@@ -19,7 +19,8 @@ with stg_tbdaihl as (
         rtrim(TORITOKB, ' 　')::VARCHAR(1) as TORITOKB, -- 英数字
         rtrim(HINBAN, ' 　')::VARCHAR(20) as HINBAN, -- 英数字
         rtrim(MEKAKB, ' 　')::VARCHAR(1) as MEKAKB, -- 英数字
-        current_timestamp as LDTS,
+        LDTS as LDTSB, -- B層のLDTS
+        current_timestamp as LDTSD, -- D層のLDTS
         RANK() over (partition by KYOUHAN, HATUHINB, HATUMKBN, CHUMON, ODERSYU, USERCD, KAISYA, TCHUMON, HATTYUHI order by LDTS desc) aggkey
     from {{ ref('substr_tbdaihl') }}
 )
