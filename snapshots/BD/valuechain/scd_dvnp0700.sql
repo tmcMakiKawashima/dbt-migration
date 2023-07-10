@@ -1,8 +1,8 @@
-{% snapshot scd_DVNP0700 %}
+{% snapshot scd_dvnp0700 %}
 
 {{
     config(
-        unique_key="ORDRKEY ||'-'|| TANSKKEY",
+        unique_key="ORDRKEY ||'-'|| TANSKKEY ||'-'|| JUCHUYMD",
 
         strategy='timestamp',
         updated_at='LDTS',
@@ -10,6 +10,6 @@
     )
 }}
 
-select * from {{ ref('stg_DVNP0700') }}
+select * from {{ ref('stg_dvnp0700') }}
 
 {% endsnapshot %}

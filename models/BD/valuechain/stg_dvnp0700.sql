@@ -1,6 +1,6 @@
 {{ config(materialized='table') }}
 
-with stg_DVNP0700 as (
+with stg_dvnp0700 as (
     select
         rtrim(ORDRKEY,' 　')::VARCHAR(11) as ORDRKEY,  -- 英数字
         rtrim(TANSKKEY,' 　')::VARCHAR(11) as TANSKKEY,  -- 英数字
@@ -47,9 +47,9 @@ with stg_DVNP0700 as (
         rtrim(MTTIME,' 　')::VARCHAR(26) as MTTIME,  -- 英数字
         rtrim(JUCHUYMD,' 　')::VARCHAR(8) as JUCHUYMD,  -- 英数字
         rtrim(DUMMY,' 　')::VARCHAR(9) as DUMMY,  -- 英数字
-        LDTS,
-        RANK() over (partition by ORDRKEY, TANSKKEY order by MTTIME, LDTS desc) aggkey
-    from {{ ref('substr_DVNP0700') }}
+        LDTS, -- B層のLDTS
+        RANK() over (partition by ORDRKEY, TANSKKEY, JUCHUYMD order by MTTIME desc, LDTS desc) aggkey
+    from {{ ref('substr_dvnp0700') }}
 )
-select * from stg_DVNP0700
+select * from stg_dvnp0700
 where aggkey = 1

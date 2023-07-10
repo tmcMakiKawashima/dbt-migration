@@ -1,4 +1,4 @@
-with substr_DVNP0700 as (
+with substr_dvnp0700 as (
     select
         substr(raw_data, 1, 11)::VARCHAR(11) as ORDRKEY,
         substr(raw_data, 12, 11)::VARCHAR(11) as TANSKKEY,
@@ -45,8 +45,8 @@ with substr_DVNP0700 as (
         substr(raw_data, 298, 26)::VARCHAR(26) as MTTIME,
         substr(raw_data, 324, 8)::VARCHAR(8) as JUCHUYMD,
         substr(raw_data, 332, 9)::VARCHAR(9) as DUMMY,
-        current_timestamp as LDTS
-    from {{ ref('raw_DVNP0700') }}
+        LDTS
+    from {{ source('snowpipe_db_valuechain', 'raw_dvnp0700') }}
 )
-select * from substr_DVNP0700
+select * from substr_dvnp0700
         
