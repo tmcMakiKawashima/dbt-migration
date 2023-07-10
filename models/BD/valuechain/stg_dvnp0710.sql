@@ -59,8 +59,7 @@ with stg_dvnp0710 as (
         rtrim(MTUSERID,' 　')::VARCHAR(16) as MTUSERID,  -- 英数字
         rtrim(MTTIMEX,' 　')::VARCHAR(26) as MTTIMEX,  -- 英数字
         rtrim(FILLER,' 　')::VARCHAR(12) as FILLER,  -- 英数字
-        LDTS as LDTSB, -- B層のLDTS
-        current_timestamp as LDTSD, -- D層のLDTS
+        LDTS, -- B層のLDTS
         RANK() over (partition by ORDRKEY, JURRSYMD, TANSKKEY order by MTTIMEX desc, LDTS desc) aggkey
     from {{ ref('substr_dvnp0710') }}
 )
