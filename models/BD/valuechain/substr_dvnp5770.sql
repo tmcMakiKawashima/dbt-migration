@@ -91,6 +91,6 @@ with substr_dvnp5770 as (
         substr(raw_data, 422, 5)::VARCHAR(5) as ATESKCD,
         substr(raw_data, 427, 49)::VARCHAR(49) as FILLER2,
         LDTS
-    from {{ source('snowpipe_db_valuechain','raw_dvnp5770') }}
+    from {{source('snowpipe_db_valuechain','raw_dvnp5770')}}
 )
 select * from substr_dvnp5770

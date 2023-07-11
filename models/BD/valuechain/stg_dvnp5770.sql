@@ -9,7 +9,7 @@ with stg_dvnp5770 as (
         rtrim(YUSOKBN,' 　')::VARCHAR(1) as YUSOKBN,  --英数字
         rtrim(ORDENO,' 　')::VARCHAR(5) as ORDENO,  -- 英数字
         rtrim(JHINBAN,' 　')::VARCHAR(20) as JHINBAN,  -- 英数字
-        to_decimal(IFF(rtrim(JUCHU5) = '',0,rtrim(JUCHU5)))::DECIMAL(5) as JUCHU5,  -- 英数字
+        to_decimal(IFF(rtrim(JUCHU5) = '',0,rtrim(JUCHU5)))::DECIMAL(5) as JUCHU5,  -- 数量／金額／数値
         rtrim(BOCD,' 　')::VARCHAR(1) as BOCD,  --英数字
         rtrim(RIMAK1,' 　')::VARCHAR(10) as RIMAK1,  -- 英数字
         rtrim(RIMAK2,' 　')::VARCHAR(1) as RIMAK2,  -- 英数字
@@ -91,7 +91,7 @@ with stg_dvnp5770 as (
         rtrim(IKO15JIFLG,' 　')::VARCHAR(1) as IKO15JIFLG,  --英数字
         rtrim(ERMSG15,' 　')::VARCHAR(15) as ERMSG15,  -- 英数字
         rtrim(ATESKCD,' 　')::VARCHAR(5) as ATESKCD,  --英数字
-        rtrim(FILLER2)::VARCHAR(49) as FILLER2,  -- 英数字
+        rtrim(FILLER2,' 　')::VARCHAR(49) as FILLER2,  -- 英数字
         LDTS 
     from {{ ref('substr_dvnp5770') }}
 )
