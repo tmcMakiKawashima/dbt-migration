@@ -14,7 +14,7 @@ with stg_tbdaihl as (
         rtrim(FRMKBN, ' 　')::VARCHAR(3) as FRMKBN, -- 英数字
         rtrim(FRMNO, ' 　')::VARCHAR(7) as FRMNO, -- 英数字
         rtrim(HANKATA, ' 　')::VARCHAR(20) as HANKATA, -- 英数字
-        rtrim(HATTYUSUS, ' 　')::VARCHAR(1) as HATTYUSUS, -- 英数字
+        rtrim("HATTYUSU-S", ' 　')::VARCHAR(1) as "HATTYUSU-S", -- 英数字
         to_decimal(IFF(rtrim(HATTYUSU) = '', 0, rtrim(HATTYUSU)))::DECIMAL(5) as HATTYUSU, -- 数量／金額／数値
         rtrim(TORITOKB, ' 　')::VARCHAR(1) as TORITOKB, -- 英数字
         rtrim(HINBAN, ' 　')::VARCHAR(20) as HINBAN, -- 英数字
