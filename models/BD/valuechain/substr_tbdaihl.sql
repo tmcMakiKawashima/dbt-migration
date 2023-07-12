@@ -12,7 +12,7 @@ with substr_tbdaihl as (
         substr(raw_data, 63, 3)::VARCHAR(3) as FRMKBN,
         substr(raw_data, 66, 7)::VARCHAR(7) as FRMNO,
         substr(raw_data, 73, 20)::VARCHAR(20) as HANKATA,
-        substr(raw_data, 93, 1)::VARCHAR(1) as HATTYUSUS,
+        substr(raw_data, 93, 1)::VARCHAR(1) as "HATTYUSU-S",
         substr(raw_data, 94, 5)::VARCHAR(5) as HATTYUSU,
         substr(raw_data, 99, 1)::VARCHAR(1) as TORITOKB,
         substr(raw_data, 100, 20)::VARCHAR(20) as HINBAN,
