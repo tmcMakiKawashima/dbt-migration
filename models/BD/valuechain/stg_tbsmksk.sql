@@ -10,9 +10,8 @@ with stg_tbsmksk as (
         rtrim(TSIWAKECD1, ' 　')::VARCHAR(2) as TSIWAKECD1, -- 英数字
         rtrim(TSIWAKECD2, ' 　')::VARCHAR(2) as TSIWAKECD2, -- 英数字
         rtrim(FILLER, ' 　')::VARCHAR(369) as FILLER, -- 英数字
-        LDTS, -- B層のLDTS
-        RANK() over (partition by ID, KYOUHAN, KYOTEN, YOBI order by LDTS desc) aggkey
+        LDTS -- B層のLDTS
     from {{ ref('substr_tbsmksk') }}
 )
 select * from stg_tbsmksk
-where aggkey = 1
+where LDTS = (select max(LDTS) from stg_tbsmksk)
