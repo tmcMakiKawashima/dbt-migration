@@ -1,0 +1,40 @@
+with nyusyukko as (
+    select * from {{ref('nyusyukko_x_shimuke')}}
+),
+syukkaippan as (
+    select
+        DLRCD, -- 仕向先CD
+        ORDESYBT, -- オーダー種別
+        YUSOKBN, -- 輸送CD
+        ORDENO, -- 注文NO
+        JHINBAN, -- 受注品番
+        JUCHUYMD, -- 受注日
+        TKSKBN, -- ★設計書に記載なし：一般直送区分
+        KYOTNKBN, -- ★設計書に記載なし：拠点区分
+        SHINBAN, -- 出荷品番
+        SUM(SYKSU6) SYUKKASU, -- 出庫数_符号有★出荷数？
+        MAX(SYUKKAYMD) SYUKKAYMD, -- 出荷日
+        CASENO6 DENNO -- ★設計書に記載なし：ケースNO★リネームいる？
+    from {{ref('stg_dvnp5770')}} -- 国内出荷実績一般
+    group by
+        DLRCD, -- 仕向先CD
+        ORDESYBT, -- オーダー種別
+        YUSOKBN, -- 輸送CD
+        ORDENO, -- 注文NO
+        JHINBAN, -- 受注品番
+        JUCHUYMD, -- 受注日
+        TKSKBN, -- 一般直送区分
+        KYOTNKBN, -- ★設計書に記載なし：拠点区分
+        SHINBAN, -- 出荷品番
+        CASENO6 -- ケースNO
+)
+select
+     nyusyukko.*
+    ,syukkaippan.*
+from syukkaippan
+left outer join nyusyukko
+on syukkaippan.DLRCD = nyusyukko.SHIMUKESAKI_NYUKO -- 仕向先CD/共販店コード＋支社コード
+and syukkaippan.ORDENO = nyusyukko.CHUMON_NO_NYUKO -- 注文No/Right(リマーク2,5)
+and syukkaippan.SHINBAN = nyusyukko.HINBAN_NYUKO -- 出荷品番/品番
+and syukkaippan.SYUKKAYMD = nyusyukko.JDATE_NYUKO -- 出荷日/受注日
+and syukkaippan.DENNO = nyusyukko.DENNOJ_NYUKO -- ケースNo/伝票№ 自拠点(イシュ№）
