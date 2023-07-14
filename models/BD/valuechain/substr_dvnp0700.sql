@@ -40,7 +40,7 @@ with substr_dvnp0700 as (
         substr(raw_data, 267, 12)::VARCHAR(12) as SKZTIME,
         substr(raw_data, 279, 1)::VARCHAR(1) as SKZFLG,
         substr(raw_data, 280, 1)::VARCHAR(1) as CANZMFLG,
-        substr(raw_data, 281, 1)::VARCHAR(1) as BNKTKBNR1,
+        substr(raw_data, 281, 1)::VARCHAR(1) as BUNKATUKBN,
         substr(raw_data, 282, 16)::VARCHAR(16) as MTUSERID,
         substr(raw_data, 298, 26)::VARCHAR(26) as MTTIME,
         substr(raw_data, 324, 8)::VARCHAR(8) as JUCHUYMD,
