@@ -5,6 +5,7 @@ with jh as (
 ss as (
     select
          ORDRKEY -- オーダーキー
+        ,JUCHUYMD -- 受注日
         ,listagg(distinct(SHINBAN), ',') SHINBAN -- 出荷品番
         ,sum(BOSU) BOSU -- B_O数
         ,max(BOSKSTIME) BOSKSTIME -- B_O作成日時
@@ -23,11 +24,12 @@ select
     ,jh.SYUBETSU -- オーダー種別
     ,jh.JUCHUSU -- 受注数
     ,jh.RIMAK1 -- リマークⅠ
-    ,jh.,RIMAK2 -- リマークⅡ
+    ,jh.RIMAK2 -- リマークⅡ
     ,ss.SHINBAN -- 出荷品番
     ,ss.BOSU -- B_O数
     ,ss.BOSKSTIME -- B_O作成日時
     ,ss.KAKUNOUKBN -- 格納拠点区分
 from jh
 left outer join ss
-on jh.ORDRKEY = ss.ORDRKEY
+on jh.ORDRKEY = ss.ORDRKEY -- オーダーキー
+and jh.JUCHUYMD = ss.JUCHUYMD -- 受注日

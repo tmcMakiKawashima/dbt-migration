@@ -1,6 +1,6 @@
 with nyusyukko as (
     select
-        KYOUHAN KYOUHAN_NYUKO, -- 共販店コード★リネームいる？
+        KYOUHAN KYOUHAN_NYUKO, -- 共販店コード
         HINBAN HINBAN_NYUKO, -- 品番
         DENNOJ DENNOJ_NYUKO, -- 伝票№ 自拠点(イシュ№）
         SUM(SYUKAJ) NYUKOSU, -- 更新数  自拠点出荷処理数

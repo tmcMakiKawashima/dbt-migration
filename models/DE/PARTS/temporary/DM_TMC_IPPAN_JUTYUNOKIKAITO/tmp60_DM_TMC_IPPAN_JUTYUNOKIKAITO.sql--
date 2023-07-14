@@ -1,6 +1,6 @@
 with
     temp50 as (select * from {{ ref("tmp50_DM_TMC_IPPAN_JUTYUNOKIKAITO") }}),
-    tehai as (select * from {{ref('stg_DVSF509A')}}) -- 手配看板マスタ
+    tehai as (select * from {{ref('stg_DVSF509A')}}) -- 手配かんばんマスタ
 select
      temp50.*
     ,tehai.KAKNOUKBN -- 格納拠点区分

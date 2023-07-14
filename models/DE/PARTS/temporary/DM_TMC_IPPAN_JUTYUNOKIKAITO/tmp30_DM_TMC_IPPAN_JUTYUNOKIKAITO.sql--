@@ -7,7 +7,7 @@ with temp20 as (
           , JURRSYMD -- 受注リリース日
           , SIIRECD -- 仕入先CD
           , max(MARTFLG) MARTFLG -- マル超FLG
-        from {{ref('stg_DVNP6490')}} -- BO納期管理資料累積ファイル
+        from {{ref('stg_dvnp6490')}} -- BO納期管理資料累積ファイル
         where KOKAGKBN = '1' -- 国内海外区分
         group by 
             ORDRKEY -- オーダーキー

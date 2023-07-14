@@ -24,7 +24,7 @@ with
             max(HNKKBN) HNKKBN, -- 最新回答区分
             max(HNTAYTIME) HNTAYTIME, -- 最新棚入予定日時
             max(IPSYYTMIE) IPSYYTMIE -- インプット出荷予定日時
-        from {{ref('stg_DVNP0710')}} where KOKAGKBN = '1' -- 国内海外区分
+        from {{ref('stg_dvnp0710')}} where KOKAGKBN = '1' -- 国内海外区分
         group by ORDRKEY -- オーダーキー
                , JURRSYMD -- 受注リリース日
         )
@@ -37,5 +37,5 @@ select
     bo.HSSYYTIME -- 初回出荷予定日時
 from temp10
 left outer join bonokikkaito bo
-on temp10.ORDRKEY = bo.ORDRKEY
-and temp10.JUCHUYMD = bo.JURRSYMD
+on temp10.ORDRKEY = bo.ORDRKEY -- オーダーキー
+and temp10.JUCHUYMD = bo.JURRSYMD -- 受注日/受注リリース日
