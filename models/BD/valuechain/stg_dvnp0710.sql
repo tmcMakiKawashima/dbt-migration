@@ -57,10 +57,10 @@ with stg_dvnp0710 as (
         rtrim(IPSYYTMIE,' 　')::VARCHAR(12) as IPSYYTMIE,  -- 英数字
         rtrim(IPFYTYMD,' 　')::VARCHAR(8) as IPFYTYMD,  -- 英数字
         rtrim(MTUSERID,' 　')::VARCHAR(16) as MTUSERID,  -- 英数字
-        rtrim(MTTIMEX,' 　')::VARCHAR(26) as MTTIMEX,  -- 英数字
+        rtrim(MTTIME,' 　')::VARCHAR(26) as MTTIME,  -- 英数字
         rtrim(FILLER,' 　')::VARCHAR(12) as FILLER,  -- 英数字
         LDTS, -- B層のLDTS
-        RANK() over (partition by ORDRKEY, JURRSYMD, TANSKKEY order by MTTIMEX desc, LDTS desc) aggkey
+        RANK() over (partition by ORDRKEY, JURRSYMD, TANSKKEY order by MTTIME desc, LDTS desc) aggkey
     from {{ ref('substr_dvnp0710') }}
 )
 select * from stg_dvnp0710
