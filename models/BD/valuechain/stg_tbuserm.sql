@@ -100,10 +100,10 @@ with stg_tbuserm as (
         to_decimal(IFF(rtrim("KKRIT15-F") = '',0,rtrim("KKRIT15-F")))::DECIMAL(1) as "KKRIT15-F",  -- 数量／金額／数値
         IFF(rtrim(DAIKOKAIF) = '','',LPAD(rtrim(DAIKOKAIF),length(DAIKOKAIF),'0'))::VARCHAR(2) as DAIKOKAIF,  -- コード/区分
         IFF(rtrim(USRZKKBN) = '','',LPAD(rtrim(USRZKKBN),length(USRZKKBN),'0'))::VARCHAR(1) as USRZKKBN,  -- コード/区分
-        to_decimal(IFF(rtrim(KSHGRF) = '',0,rtrim(KSHGRF)))::VARCHAR(1) as KSHGRF,  -- フラグ
-        to_decimal(IFF(rtrim(FAXAUMGF) = '',0,rtrim(FAXAUMGF)))::VARCHAR(1) as FAXAUMGF,  -- フラグ
+        IFF(rtrim(KSHGRF) = '','',LPAD(rtrim(KSHGRF),length(KSHGRF),'0'))::VARCHAR(1) as KSHGRF,  -- フラグ
+        IFF(rtrim(FAXAUMGF) = '','',LPAD(rtrim(FAXAUMGF),length(FAXAUMGF),'0'))::VARCHAR(1) as FAXAUMGF,  -- フラグ
         rtrim(FAXBNG,' 　')::VARCHAR(12) as FAXBNG,  -- 英数字
-        to_decimal(IFF(rtrim(JJGF) = '',0,rtrim(JJGF)))::VARCHAR(1) as JJGF,  -- フラグ
+        IFF(rtrim(JJGF) = '','',LPAD(rtrim(JJGF),length(JJGF),'0'))::VARCHAR(1) as JJGF,  -- フラグ
         IFF(rtrim(BSTEN) = '','',LPAD(rtrim(BSTEN),length(BSTEN),'0'))::VARCHAR(2) as BSTEN,  -- コード/区分
         IFF(rtrim(BSHA0) = '','',LPAD(rtrim(BSHA0),length(BSHA0),'0'))::VARCHAR(2) as BSHA0,  -- コード/区分
         IFF(rtrim(BSHA1) = '','',LPAD(rtrim(BSHA1),length(BSHA1),'0'))::VARCHAR(2) as BSHA1,  -- コード/区分
