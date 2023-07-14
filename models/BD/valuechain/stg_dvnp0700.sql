@@ -42,7 +42,7 @@ with stg_dvnp0700 as (
         rtrim(SKZTIME,' 　')::VARCHAR(12) as SKZTIME,  -- 英数字
         rtrim(SKZFLG,' 　')::VARCHAR(1) as SKZFLG,  -- 英数字
         rtrim(CANZMFLG,' 　')::VARCHAR(1) as CANZMFLG,  -- 英数字
-        rtrim(BNKTKBNR1,' 　')::VARCHAR(1) as BNKTKBNR1,  -- 英数字
+        rtrim(BUNKATUKBN,' 　')::VARCHAR(1) as BUNKATUKBN,  -- 英数字
         rtrim(MTUSERID,' 　')::VARCHAR(16) as MTUSERID,  -- 英数字
         rtrim(MTTIME,' 　')::VARCHAR(26) as MTTIME,  -- 英数字
         rtrim(JUCHUYMD,' 　')::VARCHAR(8) as JUCHUYMD,  -- 英数字
