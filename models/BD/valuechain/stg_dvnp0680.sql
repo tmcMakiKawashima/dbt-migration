@@ -11,7 +11,7 @@ with stg_dvnp0680 as (
         rtrim(JUCHUYMD,' 　')::VARCHAR(8) as JUCHUYMD,  -- 英数字
         rtrim(ITEMNO,' 　')::VARCHAR(4) as ITEMNO,  -- 英数字
         rtrim(JHINBAN,' 　')::VARCHAR(20) as JHINBAN,  -- 英数字
-        rtrim(ORDESYBT,' 　')::VARCHAR(2) as ORDESYBT,  -- 英数字
+        rtrim(SYUBETSU,' 　')::VARCHAR(2) as SYUBETSU,  -- 英数字
         rtrim(ORDRTYPE,' 　')::VARCHAR(1) as ORDRTYPE,  -- 英数字
         rtrim(ORDTSYRI,' 　')::VARCHAR(1) as ORDTSYRI,  -- 英数字
         rtrim(KNKYUDO1,' 　')::VARCHAR(1) as KNKYUDO1,  -- 英数字
@@ -43,24 +43,24 @@ with stg_dvnp0680 as (
         rtrim(SIMKMEIJP,' 　')::VARCHAR(3) as SIMKMEIJP,  -- 英数字
         rtrim(YUSTGTCD,' 　')::VARCHAR(8) as YUSTGTCD,  -- 英数字
         rtrim(ORDRCYCL,' 　')::VARCHAR(1) as ORDRCYCL,  -- 英数字
-        rtrim(DISKSMSCD,' 　')::VARCHAR(7) as DISKSMSCD,  -- 英数字
+        rtrim(SDLRCD,' 　')::VARCHAR(7) as SDLRCD,  -- 英数字
         rtrim(PSHUKAKBN,' 　')::VARCHAR(1) as PSHUKAKBN,  -- 英数字
         rtrim(DOUKNHUKAKBN,' 　')::VARCHAR(1) as DOUKNHUKAKBN,  -- 英数字
         rtrim(SYTYUBANFLG,' 　')::VARCHAR(1) as SYTYUBANFLG,  -- 英数字
         rtrim(TANDKBAN,' 　')::VARCHAR(1) as TANDKBAN,  -- 英数字
         rtrim(KNPKTCD,' 　')::VARCHAR(1) as KNPKTCD,  -- 英数字
         rtrim(HANSTSAKCD,' 　')::VARCHAR(3) as HANSTSAKCD,  -- 英数字
-        rtrim(SNTTSRYOKEY,' 　')::VARCHAR(3) as SNTTSRYOKEY,  -- 英数字
+        rtrim(ETCTES,' 　')::VARCHAR(3) as ETCTES,  -- 英数字
         rtrim(KESSAI,' 　')::VARCHAR(2) as KESSAI,  -- 英数字
         rtrim(TATNKBN,' 　')::VARCHAR(1) as TATNKBN,  -- 英数字
         rtrim(TNDKINV,' 　')::VARCHAR(1) as TNDKINV,  -- 英数字
         rtrim(TARIFDKN,' 　')::VARCHAR(1) as TARIFDKN,  -- 英数字
         rtrim(PFCD,' 　')::VARCHAR(2) as PFCD,  -- 英数字
         rtrim(MTUSERID,' 　')::VARCHAR(16) as MTUSERID,  -- 英数字
-        rtrim(MTTIMEX,' 　')::VARCHAR(26) as MTTIMEX,  -- 英数字
+        rtrim(MTTIME,' 　')::VARCHAR(26) as MTTIME,  -- 英数字
         rtrim(FILLER,' 　')::VARCHAR(45) as FILLER,  -- 英数字
         LDTS, -- B層のLDTS
-        RANK() over (partition by ORDRKEY, JUCHUYMD order by MTTIMEX desc, LDTS desc) aggkey
+        RANK() over (partition by ORDRKEY, JUCHUYMD order by MTTIME desc, LDTS desc) aggkey
     from {{ ref('substr_dvnp0680') }}
 )
 select * from stg_dvnp0680
