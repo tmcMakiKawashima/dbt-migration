@@ -55,7 +55,7 @@ with substr_dvnp0710 as (
         substr(raw_data, 337, 12)::VARCHAR(12) as IPSYYTMIE,
         substr(raw_data, 349, 8)::VARCHAR(8) as IPFYTYMD,
         substr(raw_data, 357, 16)::VARCHAR(16) as MTUSERID,
-        substr(raw_data, 373, 26)::VARCHAR(26) as MTTIMEX,
+        substr(raw_data, 373, 26)::VARCHAR(26) as MTTIME,
         substr(raw_data, 399, 12)::VARCHAR(12) as FILLER,
         LDTS
     from {{ source('snowpipe_db_valuechain', 'raw_dvnp0710') }}
