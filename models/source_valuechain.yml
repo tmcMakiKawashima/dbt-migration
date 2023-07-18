@@ -67,7 +67,7 @@ sources:
           - name: RAW_DATA
             tests:
               - fixed_length:
-                  length: 170
+                  length: 158
       - name: raw_tbdaihl
         identifier: DXDAIH99
         columns:
