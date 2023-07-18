@@ -111,7 +111,6 @@ sources:
               - fixed_length:
                   length: 400
 
-
 # loaded_at_field: LDTS
 # freshness:
 #   warn_after: { count: 1, period: hour }
