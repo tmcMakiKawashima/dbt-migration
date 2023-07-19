@@ -1,6 +1,5 @@
 with substr_dvnp4520 as (
     select
-        substr(raw_data, 1, 1)::VARCHAR(1) as MNTKBN,
         substr(raw_data, 2, 4)::VARCHAR(4) as DATAKBN4,
         substr(raw_data, 6, 6)::VARCHAR(6) as JUSINNO,
         substr(raw_data, 12, 2)::VARCHAR(2) as RENBAN2,
@@ -19,7 +18,7 @@ with substr_dvnp4520 as (
         substr(raw_data, 76, 1)::VARCHAR(1) as KYOSEICD,
         substr(raw_data, 77, 8)::VARCHAR(8) as TKBETTAN,
         substr(raw_data, 85, 4)::VARCHAR(4) as WARIRITU,
-        substr(raw_data, 89, 3)::VARCHAR(3) as SIMKMEIJP6,
+        substr(raw_data, 89, 3)::VARCHAR(3) as SIMKMEIJP,
         substr(raw_data, 92, 20)::VARCHAR(20) as SIMKMEIK,
         substr(raw_data, 112, 4)::VARCHAR(4) as SIIRECD,
         substr(raw_data, 116, 20)::VARCHAR(20) as SHINBAN,
@@ -47,7 +46,6 @@ with substr_dvnp4520 as (
         substr(raw_data, 257, 4)::VARCHAR(4) as HINMKCD,
         substr(raw_data, 261, 1)::VARCHAR(1) as GKKBN,
         substr(raw_data, 262, 6)::VARCHAR(6) as ENDKI,
-        substr(raw_data, 268, 28)::VARCHAR(28) as FILLER,
         LDTS
     from {{ source('snowpipe_db_valuechain', 'raw_dvnp4520') }}
 )
