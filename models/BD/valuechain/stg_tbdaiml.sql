@@ -84,7 +84,7 @@ with stg_tbdaiml as (
         IFF(rtrim(TANTEKI) = '', '', LPAD(rtrim(TANTEKI), length(TANTEKI), '0'))::VARCHAR(3) as TANTEKI, -- コード／区分
         IFF(rtrim(SSHINMOK) = '', '', LPAD(rtrim(SSHINMOK), length(SSHINMOK), '0'))::VARCHAR(2) as SSHINMOK, -- コード／区分
         rtrim(GAITOLES, ' 　')::VARCHAR(1) as GAITOLES, -- 英数字
-        to_decimal(IFF(rtrim(PKANFLG) = '', 0, rtrim(PKANFLG)))::VARCHAR(1) as PKANFLG, -- フラグ
+        IFF(rtrim(PKANFLG) = '', '', LPAD(rtrim(PKANFLG), length(PKANFLG), '0'))::VARCHAR(1) as PKANFLG, -- フラグ
         rtrim(HATYUHIN, ' 　')::VARCHAR(20) as HATYUHIN, -- 英数字
         rtrim(HATYUMKB, ' 　')::VARCHAR(1) as HATYUMKB, -- 英数字
         rtrim(NYUKOHIN, ' 　')::VARCHAR(20) as NYUKOHIN, -- 英数字
