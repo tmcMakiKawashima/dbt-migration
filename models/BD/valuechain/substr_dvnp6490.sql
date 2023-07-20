@@ -1,6 +1,5 @@
 with substr_dvnp6490 as (
     select
-        substr(raw_data, 1, 1)::VARCHAR(1) as MNTKBN,
         substr(raw_data, 2, 11)::VARCHAR(11) as ORDRKEY,
         substr(raw_data, 13, 8)::VARCHAR(8) as JURRSYMD,
         substr(raw_data, 21, 11)::VARCHAR(11) as TANSKKEY,
@@ -155,9 +154,8 @@ with substr_dvnp6490 as (
         substr(raw_data, 837, 8)::VARCHAR(8) as JCJSK7KNIGKNM2F,
         substr(raw_data, 845, 8)::VARCHAR(8) as JCJSK7KNIGKNM3F,
         substr(raw_data, 853, 4)::VARCHAR(4) as KGIHIRITUF,
-        substr(raw_data, 857, 5)::VARCHAR(5) as FILLER,
+        substr(raw_data, 857, 5)::VARCHAR(5) as FILLER2,
         substr(raw_data, 862, 4)::VARCHAR(4) as HKANRI,
-        substr(raw_data, 866, 35)::VARCHAR(35) as FILLER2,
         LDTS
     from {{ source('snowpipe_db_valuechain', 'raw_dvnp6490') }}
 )
