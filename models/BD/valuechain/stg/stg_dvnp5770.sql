@@ -4,7 +4,7 @@ with stg_dvnp5770 as (
     select
         rtrim(MNTKBN,' 　')::VARCHAR(1) as MNTKBN,  --英数字
         rtrim(DATAKBN4,' 　')::VARCHAR(4) as DATAKBN4,  --英数字
-        trim(DLRCD,' 　')::VARCHAR(7) as DLRCD,  --英数字
+        rtrim(DLRCD,' 　')::VARCHAR(7) as DLRCD,  --英数字
         rtrim(ORDESYBT,' 　')::VARCHAR(2) as ORDESYBT,  -- 英数字
         rtrim(YUSOKBN,' 　')::VARCHAR(1) as YUSOKBN,  --英数字
         rtrim(ORDENO,' 　')::VARCHAR(5) as ORDENO,  -- 英数字
