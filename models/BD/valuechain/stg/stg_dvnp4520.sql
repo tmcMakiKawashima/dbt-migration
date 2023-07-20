@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}
-
 with stg_dvnp4520 as (
     select
         rtrim(DATAKBN4,' 　')::VARCHAR(4) as DATAKBN4,  -- 英数字

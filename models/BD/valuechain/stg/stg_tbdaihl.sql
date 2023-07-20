@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}
-
 with stg_tbdaihl as (
     select
         rtrim(KYOUHAN, ' 　')::VARCHAR(5) as KYOUHAN, -- 英数字

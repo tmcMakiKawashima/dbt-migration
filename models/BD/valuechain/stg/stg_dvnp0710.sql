@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}
-
 with stg_dvnp0710 as (
     select
         rtrim(MNTKBN,' 　')::VARCHAR(1) as MNTKBN,  -- 英数字

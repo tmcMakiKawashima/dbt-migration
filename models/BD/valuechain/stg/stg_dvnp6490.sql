@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}
-
 with stg_dvnp6490 as (
     select
         rtrim(ORDRKEY,' 　')::VARCHAR(11) as ORDRKEY,  -- 英数字

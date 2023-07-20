@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}
-
 with stg_dvsf509a as (
     select
         rtrim(TYOTATHB,' 　')::VARCHAR(20) as TYOTATHB,  -- 英数字

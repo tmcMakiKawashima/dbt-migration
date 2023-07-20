@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}
-
 with stg_tbsmksk as (
     select
         rtrim(ID, ' 　')::VARCHAR(3) as ID, -- 英数字

@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}
-
 with stg_dvnp054a as (
   select
     rtrim(DLRCD, ' 　')::VARCHAR(7) as DLRCD,  -- 英数字
