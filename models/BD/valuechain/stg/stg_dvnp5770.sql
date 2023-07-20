@@ -22,7 +22,7 @@ with stg_dvnp5770 as (
         rtrim(JUCHUKAITOCD,' 　')::VARCHAR(2) as JUCHUKAITOCD,   --英数字
         rtrim(SYORIYMD,' 　')::VARCHAR(8) as SYORIYMD,  --英数字
         rtrim(JUCHUYMD,' 　')::VARCHAR(8) as JUCHUYMD,  --英数字
-        rtrim(SIMKMEIJP6,' 　')::VARCHAR(3) as SIMKMEIJP6,  -- 英数字
+        rtrim(SIMKMEIJP,' 　')::VARCHAR(3) as SIMKMEIJP,  -- 英数字
         rtrim(SIMKMEIK,' 　')::VARCHAR(20) as SIMKMEIK,  -- 英数字
         rtrim(GYOSYACD,' 　')::VARCHAR(2) as GYOSYACD,  --英数字
         rtrim(TKSKBN,' 　')::VARCHAR(1) as TKSKBN,  --英数字
@@ -39,7 +39,7 @@ with stg_dvnp5770 as (
         rtrim(BUNSUU7,' 　')::VARCHAR(7) as BUNSUU7,  --英数字
         to_decimal(IFF(rtrim(SYKSU6) = '',0,rtrim(SYKSU6)))::DECIMAL(6) as SYKSU6,  -- 数量／金額／数値
         rtrim(CASECD,' 　')::VARCHAR(2) as CASECD,  --英数字
-        rtrim(TOKSGODRGRPNO,' 　')::VARCHAR(1) as TOKSGODRGRPNO,  -- 英数字
+        rtrim(OGNOTOKSGODRGRPNO,' 　')::VARCHAR(1) as OGNOTOKSGODRGRPNO,  -- 英数字
         rtrim(SYKIKICD,' 　')::VARCHAR(2) as SYKIKICD,  --英数字
         rtrim(ZOON,' 　')::VARCHAR(3) as ZOON,  -- 英数字
         rtrim(PCPSYUYAKKBN,' 　')::VARCHAR(1) as PCPSYUYAKKBN,  --英数字
@@ -55,7 +55,7 @@ with stg_dvnp5770 as (
         rtrim(CASEW,' 　')::VARCHAR(3) as CASEW,  --英数字
         rtrim(HASUCOREKBN,' 　')::VARCHAR(1) as HASUCOREKBN,  --英数字
         rtrim(KYOSEIKBN,' 　')::VARCHAR(1) as KYOSEIKBN,  --英数字
-        rtrim(PTOPFLG,' 　')::VARCHAR(1) as PTOPFLG,  --英数字
+        rtrim(PTOPFLGPTOPFLG,' 　')::VARCHAR(1) as PTOPFLGPTOPFLG,  --英数字
         rtrim(BINNO,' 　')::VARCHAR(3) as BINNO,  -- 英数字
         rtrim(YUSOKBN2,' 　')::VARCHAR(1) as YUSOKBN2,  --英数字
         rtrim(BINPTN,' 　')::VARCHAR(2) as BINPTN,  -- 英数字
