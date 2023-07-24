@@ -45,6 +45,12 @@ models:
       supplydemand:
         +database: supplydemand_db
         +schema: public
+    DD:
+      supplydemand:
+        +database: supplydemand_db
+        +schema: public
+        stg:
+          +materialized: table
     DE:
       +database: PARTS_DB
       +schema: logistics
