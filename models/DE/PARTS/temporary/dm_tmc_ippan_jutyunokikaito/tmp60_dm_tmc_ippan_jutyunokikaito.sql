@@ -1,5 +1,5 @@
 with
-    temp50 as (select * from {{ ref("tmp50_DM_TMC_IPPAN_JUTYUNOKIKAITO") }}),
+    temp50 as (select * from {{ ref("tmp50_dm_tmc_ippan_jutyunokikaito") }}),
     tehai as (select * from {{ref('stg_dvsf509a')}}) -- 手配かんばんマスタ
 select
      temp50.*

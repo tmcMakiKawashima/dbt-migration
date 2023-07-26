@@ -1,6 +1,6 @@
 with
     temp10 as (
-        select * from {{ ref("tmp10_DM_TMC_IPPAN_JUTYUNOKIKAITO") }}
+        select * from {{ ref("tmp10_dm_tmc_ippan_jutyunokikaito") }}
         ),
     bonokikkaito as (
         select 

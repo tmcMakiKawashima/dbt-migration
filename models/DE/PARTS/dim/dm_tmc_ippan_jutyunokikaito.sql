@@ -42,5 +42,5 @@ with
             THIBUSYOCD M_THIBUSYOCD, -- メーカー手配担当部署CD
             THITATOCD M_THITATOCD, -- メーカー手配担当者CD
             TEHAIKBN M_TEHAIKBN -- メーカー手配区分
-        from {{ ref("tmp60_DM_TMC_IPPAN_JUTYUNOKIKAITO") }})
+        from {{ ref("tmp60_dm_tmc_ippan_jutyunokikaito") }})
 select * from tmp60
