@@ -13,3 +13,5 @@ sources:
         identifier: ST_HANBAIKT_SYARYO_HAIGEN_FRMKBN
       - name: raw_st_jpsalecar_frmkbn
         identifier: ST_JPSALECAR_AQUA_JPSEISAN_FRMKBN
+      - name: raw_st_jpsalecar
+        identifier: ST_JPSALECAR_AQUA_JPSEISAN
