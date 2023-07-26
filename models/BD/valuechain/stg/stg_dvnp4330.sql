@@ -18,7 +18,7 @@ with stg_dvnp4330 as (
         rtrim(SYUKKAYMD,' 　')::VARCHAR(8) as SYUKKAYMD,  --英数字
         rtrim(KAITOUKBN,' 　')::VARCHAR(1)  as KAITOUKBN,  --英数字
         rtrim(DAITITYP,' 　')::VARCHAR(2) as DAITITYP,  --英数字
-        rtrim(SIRISSUE_NO,' 　')::VARCHAR(6) as SIRISSUE_NO,  --英数字
+        rtrim(SIRISSUENO,' 　')::VARCHAR(6) as SIRISSUENO,  --英数字
         rtrim(NOUBAN,' 　')::VARCHAR(6) as NOUBAN,  --英数字
         rtrim(SYKNO,' 　')::VARCHAR(5) as SYKNO,  --英数字
         rtrim(GKKBNG,' 　')::VARCHAR(1)  as GKKBNG,  --英数字
