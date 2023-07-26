@@ -52,14 +52,14 @@ with stg_tbnsyus as (
         rtrim(DENNO1, ' 　')::VARCHAR(6) as DENNO1, -- 英数字
         rtrim(DENNO2, ' 　')::VARCHAR(6) as DENNO2, -- 英数字
         rtrim(DENNO3, ' 　')::VARCHAR(6) as DENNO3, -- 英数字
-        to_decimal(IFF(rtrim("SDATE-Y") = '', 0, rtrim("SDATE-Y")))::DECIMAL(4) as "SDATE-Y", -- 数量／金額／数値
-        to_decimal(IFF(rtrim("SDATE-M") = '', 0, rtrim("SDATE-M")))::DECIMAL(2) as "SDATE-M", -- 数量／金額／数値
-        to_decimal(IFF(rtrim("SDATE-D") = '', 0, rtrim("SDATE-D")))::DECIMAL(2) as "SDATE-D", -- 数量／金額／数値
-        to_decimal(IFF(rtrim("TIME-H") = '', 0, rtrim("TIME-H")))::DECIMAL(2) as "TIME-H", -- 数量／金額／数値
-        to_decimal(IFF(rtrim("TIME-M") = '', 0, rtrim("TIME-M")))::DECIMAL(2) as "TIME-M", -- 数量／金額／数値
-        to_decimal(IFF(rtrim("JDATE-Y") = '', 0, rtrim("JDATE-Y")))::DECIMAL(4) as "JDATE-Y", -- 数量／金額／数値
-        to_decimal(IFF(rtrim("JDATE-M") = '', 0, rtrim("JDATE-M")))::DECIMAL(2) as "JDATE-M", -- 数量／金額／数値
-        to_decimal(IFF(rtrim("JDATE-D") = '', 0, rtrim("JDATE-D")))::DECIMAL(2) as "JDATE-D", -- 数量／金額／数値
+        rtrim("SDATE-Y", ' 　')::VARCHAR(4) as "SDATE-Y", -- 英数字
+        rtrim("SDATE-M", ' 　')::VARCHAR(2) as "SDATE-M", -- 英数字
+        rtrim("SDATE-D", ' 　')::VARCHAR(2) as "SDATE-D", -- 英数字
+        rtrim("TIME-H", ' 　')::VARCHAR(2) as "TIME-H", -- 英数字
+        rtrim("TIME-M", ' 　')::VARCHAR(2) as "TIME-M", -- 英数字
+        rtrim("JDATE-Y", ' 　')::VARCHAR(4) as "JDATE-Y", -- 英数字
+        rtrim("JDATE-M", ' 　')::VARCHAR(2) as "JDATE-M", -- 英数字
+        rtrim("JDATE-D", ' 　')::VARCHAR(2) as "JDATE-D", -- 英数字
         IFF(rtrim(GENKACD) = '', '', LPAD(rtrim(GENKACD), length(GENKACD), '0'))::VARCHAR(1) as GENKACD, -- コード／区分
         rtrim("KN-S", ' 　')::VARCHAR(1) as "KN-S", -- 英数字
         to_decimal(IFF(rtrim(KN) = '', 0, rtrim(KN)))::DECIMAL(7) as KN, -- 数量／金額／数値
