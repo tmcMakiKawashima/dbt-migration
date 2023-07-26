@@ -1,28 +1,46 @@
+{{ config(materialized='table') }}
+
 with
     tmp60 as (
         select
-            DLRCD M_DLRCD,
-            YUSOKBN M_YUSOKBN,
-            ODRNO M_ORDENO,
-            JUCHUYMD M_JUCHUYMD,
-            JHINBAN M_JHINBAN,
-            SYUBETSU M_SYUBETSU,
-            SHINBAN M_SHINBAN,
-            BOSU M_BOSU,
-            BOSKSTIME M_BOSKSTIME,
-            hnnoytime M_HNNOYTIME,
-            hnsyytime M_HNSYYTIME,
-            hntoytime M_HNTOYTIME,
-            hsnoytime M_HSNOYTIME,
-            hssyytime M_HSSYYTIME,
-            MARTFLG M_MARTFLG,
-            SYUKKAYMD M_SYUKKAYMD,
-            SYUKKASU M_SYUKKASU,
-            NYUKOYMD,
-            NYUKOSU,
-            KAKNOUKBN M_KAKNOUKBN,
-            THIBUSYOCD M_THIBUSYOCD,
-            THITATOCD M_THITATOCD,
-            TEHAIKBN M_TEHAIKBN
+            DLRCD M_DLRCD, -- メーカー仕向先CD
+            YUSOKBN M_YUSOKBN, -- メーカー輸送CD
+            ODRNO M_ORDENO, -- メーカー注文NO
+            JUCHUYMD M_JUCHUYMD, -- メーカー受注日
+            JHINBAN M_JHINBAN, -- メーカー受注品番
+            JUCHUSU M_JUCHUSU, -- メーカー受注数
+            SYUBETSU M_SYUBETSU, -- メーカーオーダー種別
+            RIMAK1 M_RIMAK1, -- メーカーリマークⅠ
+            RIMAK2 M_RIMAK2, -- メーカーリマークⅡ
+            SHINBAN M_SHINBAN, -- メーカー出荷品番
+            BOSU M_BOSU, -- メーカーBO数
+            BOSKSTIME M_BOSKSTIME, -- メーカーBO作成日時
+            MKAITOCD M_MKAITOCD, -- メーカー未回答CD
+            HNKKBN M_HNKKBN, -- メーカー最新回答区分
+            HNNOYTIME M_HNNOYTIME, -- メーカー最新納入予定日時
+            HNTAYTIME M_HNTAYTIME, -- メーカー最新棚入予定日時
+            HNSYYTIME M_HNSYYTIME, -- メーカー最新出荷予定日時
+            HNTOYTIME M_HNTOYTIME, -- メーカー最新到着予定日時
+            HOKKBN M_HOKKBN, -- メーカー前回回答区分
+            HONOYTIME M_HONOYTIME, -- メーカー前回納入予定日時
+            HOTAYTIME M_HOTAYTIME, -- メーカー前回棚入予定日時
+            HOSYYTIME M_HOSYYTIME, -- メーカー前回出荷予定日時
+            HOTOYTIME M_HOTOYTIME, -- メーカー前回到着予定日時
+            HSKKBN M_HSKKBN, -- メーカー初回回答区分
+            HSNOYTIME M_HSNOYTIME, -- メーカー初回納入予定日時
+            HSTAYTIME M_HSTAYTIME, -- メーカー初回棚入予定日時
+            HSSYYTIME M_HSSYYTIME, -- メーカー初回出荷予定日時
+            HSTOYTIME M_HSTOYTIME, -- メーカー初回到着予定日時
+            PTOPFLG M_PTOPFLG, -- メーカーPTOPFLG
+            IPSYYTMIE M_IPSYYTMIE, -- メーカーインプット出荷予定日時
+            MARTFLG M_MARTFLG, -- メーカーマル超FLG
+            SYUKKAYMD M_SYUKKAYMD, -- メーカー出荷日
+            SYUKKASU M_SYUKKASU, -- メーカー出荷数
+            NYUKOYMD NYUKOYMD, -- ＴＭＰ入庫日
+            NYUKOSU NYUKOSU, -- ＴＭＰ入庫数
+            KAKUNOUKBN M_KAKNOUKBN, -- メーカー格納拠点区分
+            THIBUSYOCD M_THIBUSYOCD, -- メーカー手配担当部署CD
+            THITATOCD M_THITATOCD, -- メーカー手配担当者CD
+            TEHAIKBN M_TEHAIKBN -- メーカー手配区分
         from {{ ref("tmp60_DM_TMC_IPPAN_JUTYUNOKIKAITO") }})
 select * from tmp60

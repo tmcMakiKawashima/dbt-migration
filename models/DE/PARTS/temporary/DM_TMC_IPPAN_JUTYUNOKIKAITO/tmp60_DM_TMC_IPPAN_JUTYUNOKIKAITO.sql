@@ -1,16 +1,17 @@
 with
     temp50 as (select * from {{ ref("tmp50_DM_TMC_IPPAN_JUTYUNOKIKAITO") }}),
-    tehai as (select * from {{ref('stg_DVSF509A')}})
+    tehai as (select * from {{ref('stg_dvsf509a')}}) -- 手配かんばんマスタ
 select
      temp50.*
-    ,tehai.KAKNOUKBN
-    ,tehai.THIBUSYOCD
-    ,tehai.THITATOCD
-    ,tehai.TEHAIKBN
+    ,tehai.KAKNOUKBN -- 格納拠点区分
+    ,tehai.THIBUSYOCD -- 手配担当部署CD
+    ,tehai.THITATOCD -- 手配担当者CD
+    ,tehai.TEHAIKBN -- 手配区分
 from temp50
 left outer join tehai
+-- 調達品番が出荷品番のリストの中に存在する場合
 on ARRAY_CONTAINS(tehai.TYOTATHB::variant,SPLIT(temp50.SHINBAN,',')) 
-and temp50.KAKUNOUKBN = tehai.KAKNOUKBN
-and TO_VARCHAR(CURRENT_DATE,'yyyyMMdd') >= tehai.TEKIYOKAISIYMD
-and TO_VARCHAR(CURRENT_DATE,'yyyyMMdd') <= tehai.TEKIYOSYURYOYMD
-and temp50.SIIRECD = tehai.SRSIRSKCD
+and temp50.KAKUNOUKBN = tehai.KAKNOUKBN -- 格納拠点区分
+and TO_VARCHAR(CURRENT_DATE,'yyyyMMdd') >= tehai.TEKIYOKAISIYMD -- 適用開始日
+and TO_VARCHAR(CURRENT_DATE,'yyyyMMdd') <= tehai.TEKIYOSYURYOYMD -- 適用終了日
+and temp50.SIIRECD = tehai.SRSIRSKCD -- 仕入先CD/商流仕入先CD

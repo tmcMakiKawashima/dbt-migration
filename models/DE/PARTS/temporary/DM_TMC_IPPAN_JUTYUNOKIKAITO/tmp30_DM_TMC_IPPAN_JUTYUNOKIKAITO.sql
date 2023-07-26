@@ -2,17 +2,23 @@ with temp20 as (
     select * from {{ ref("tmp20_DM_TMC_IPPAN_JUTYUNOKIKAITO") }}
     ),
     bokanri as (
-        select ORDRKEY, JURRSYMD, SIIRECD, max(IFF(MARTFLG is null, '',  MARTFLG)) MARTFLG
-        from {{ref('stg_DVNP6490')}} where KOKAGKBN = '1'
-        group by ORDRKEY, JURRSYMD, SIIRECD
+        select 
+            ORDRKEY -- オーダーキー
+          , JURRSYMD -- 受注リリース日
+          , SIIRECD -- 仕入先CD
+          , max(MARTFLG) MARTFLG -- マル超FLG
+        from {{ref('stg_dvnp6490')}} -- BO納期管理資料累積ファイル
+        where KOKAGKBN = '1' -- 国内海外区分
+        group by 
+            ORDRKEY -- オーダーキー
+          , JURRSYMD -- 受注リリース日
+          , SIIRECD -- 仕入先CD
         )
 select
      temp20.*
-    ,bokanri.MARTFLG
-    ,bokanri.SIIRECD
+    ,bokanri.MARTFLG -- マル超FLG
+    ,bokanri.SIIRECD -- 仕入先CD
 from temp20
 left outer join bokanri
-on temp20.ORDRKEY = bokanri.ORDRKEY
-and temp20.JUCHUYMD = bokanri.JURRSYMD
-    {# and IFF(temp20.TANSKKEY is null, '', temp20.TANSKKEY) = IFF(bokanri.TANSKKEY is null, '', bokanri.TANSKKEY) #}
-
+on temp20.ORDRKEY = bokanri.ORDRKEY -- オーダーキー
+and temp20.JUCHUYMD = bokanri.JURRSYMD -- 受注日/受注リリース日
