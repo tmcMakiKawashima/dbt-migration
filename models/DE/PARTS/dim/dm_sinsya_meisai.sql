@@ -2,7 +2,6 @@
 
 with dm_sinsya_meisai as(
   select
-    ST_MD5_SINSYAODNO_LINK,
     HKATA,
     FLNO,
     TSHAMEIA,
@@ -16,10 +15,7 @@ with dm_sinsya_meisai as(
     TOYTDD,
     TODD,
     NSQBDY,
-    NSDD,
-    CUNO,
-    EDANO,
-    YM
+    NSDD
   from {{ref('tmp20_dm_sinsya_meisai')}}
   where rnk = 1
 )
