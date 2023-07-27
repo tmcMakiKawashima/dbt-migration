@@ -9,12 +9,10 @@ syukkaippan as (
         ORDENO, -- 注文NO
         JHINBAN, -- 受注品番
         JUCHUYMD, -- 受注日
-        TKSKBN, -- ★設計書に記載なし：一般直送区分
-        KYOTNKBN, -- ★設計書に記載なし：拠点区分
         SHINBAN, -- 出荷品番
-        SUM(SYKSU6) SYUKKASU, -- 出庫数_符号有★出荷数？
+        SUM(SYKSU6) SYUKKASU, -- 出庫数_符号有　出荷数
         MAX(SYUKKAYMD) SYUKKAYMD, -- 出荷日
-        CASENO6 DENNO -- ★設計書に記載なし：ケースNO★リネームいる？
+        CASENO6 DENNO -- ケースNO
     from {{ref('stg_dvnp5770')}} -- 国内出荷実績一般
     group by
         DLRCD, -- 仕向先CD
@@ -24,13 +22,19 @@ syukkaippan as (
         JHINBAN, -- 受注品番
         JUCHUYMD, -- 受注日
         TKSKBN, -- 一般直送区分
-        KYOTNKBN, -- ★設計書に記載なし：拠点区分
         SHINBAN, -- 出荷品番
         CASENO6 -- ケースNO
 )
 select
      nyusyukko.*
-    ,syukkaippan.*
+    ,syukkaippan.DLRCD -- 仕向先CD
+    ,syukkaippan.ORDESYBT -- オーダー種別
+    ,syukkaippan.YUSOKBN -- 輸送CD
+    ,syukkaippan.ORDENO -- 注文NO
+    ,syukkaippan.JHINBAN -- 受注品番
+    ,syukkaippan.JUCHUYMD -- 受注日
+    ,syukkaippan.SYUKKASU -- 出庫数_符号有　出荷数
+    ,syukkaippan.SYUKKAYMD -- 出荷日
 from syukkaippan
 left outer join nyusyukko
 on syukkaippan.DLRCD = nyusyukko.SHIMUKESAKI_NYUKO -- 仕向先CD/共販店コード＋支社コード

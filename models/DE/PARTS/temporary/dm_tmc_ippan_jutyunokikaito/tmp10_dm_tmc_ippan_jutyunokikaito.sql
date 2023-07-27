@@ -10,14 +10,14 @@ ss as (
         ,sum(BOSU) BOSU -- B_O数
         ,max(BOSKSTIME) BOSKSTIME -- B_O作成日時
         ,max(KAKNOUKBN) KAKUNOUKBN -- 格納拠点区分
-    from {{ref('stg_dvnp0700')}} -- オーダー情報ファイル
+    from {{ref('stg_dvnp0700')}} -- オーダー指示ステータスファイル
     group by ORDRKEY -- オーダーキー
            , JUCHUYMD -- 受注日
 )
 select 
      jh.ORDRKEY -- オーダーキー
     ,jh.DLRCD -- 仕向先CD
-    ,IFF(jh.YUSOKBN) YUSOKBN -- 輸送CD
+    ,jh.YUSOKBN -- 輸送CD
     ,jh.ODRNO -- オーダーNO
     ,jh.JUCHUYMD -- 受注日
     ,jh.JHINBAN -- 受注品番

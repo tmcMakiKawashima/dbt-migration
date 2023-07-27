@@ -33,7 +33,7 @@ with temp30 as (
         max(IPSYYTMIE) IPSYYTMIE, -- インプット出荷予定日時
         KAKUNOUKBN, -- 格納拠点区分
         SIIRECD -- 仕入先CD
-    from {{ref('tmp30_DM_TMC_IPPAN_JUTYUNOKIKAITO')}}
+    from {{ref('tmp30_dm_tmc_ippan_jutyunokikaito')}}
     group by 
           DLRCD -- 仕向先CD
         , YUSOKBN -- 輸送CD
@@ -56,7 +56,7 @@ temp40 as (
         JUCHUYMD, -- 受注日
         sum(SYUKKASU) SYUKKASU, -- 出荷数
         max(SYUKKAYMD) SYUKKAYMD -- 出荷日
-    from {{ref('tmp40_DM_TMC_IPPAN_JUTYUNOKIKAITO')}}
+    from {{ref('tmp40_dm_tmc_ippan_jutyunokikaito')}}
     group by
           DLRCD -- 仕向先CD
         , ORDESYBT -- オーダー種別
