@@ -57,8 +57,11 @@ models:
         stg:
           +materialized: table
     DE:
-      +database: PARTS_DB
-      +schema: logistics
+      PARTS:
+        +database: PARTS_DB
+        +schema: logistics
+        dim:
+          +materialized: table
     EF:
       +database: DATAMART_DB
       +schema: public

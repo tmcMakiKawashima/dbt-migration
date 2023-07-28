@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}
-
 with
     tmp60 as (
         select

@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}
-
 with dm_sinsya_meisai as(
   select
     HKATA,
