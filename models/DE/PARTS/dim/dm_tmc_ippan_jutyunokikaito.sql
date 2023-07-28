@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}
-
 with
     tmp60 as (
         select
@@ -21,10 +19,10 @@ with
             HNTAYTIME M_HNTAYTIME, -- メーカー最新棚入予定日時
             HNSYYTIME M_HNSYYTIME, -- メーカー最新出荷予定日時
             HNTOYTIME M_HNTOYTIME, -- メーカー最新到着予定日時
-            HOKKBN M_HOKKBN -- メーカー前回回答区分
-            HONOYTIME M_HONOYTIME -- メーカー前回納入予定日時
-            HOTAYTIME M_HOTAYTIME -- メーカー前回棚入予定日時
-            HOSYYTIME M_HOSYYTIME -- メーカー前回出荷予定日時
+            HOKKBN M_HOKKBN, -- メーカー前回回答区分
+            HONOYTIME M_HONOYTIME, -- メーカー前回納入予定日時
+            HOTAYTIME M_HOTAYTIME, -- メーカー前回棚入予定日時
+            HOSYYTIME M_HOSYYTIME, -- メーカー前回出荷予定日時
             HOTOYTIME M_HOTOYTIME, -- メーカー前回到着予定日時
             HSKKBN M_HSKKBN, -- メーカー初回回答区分
             HSNOYTIME M_HSNOYTIME, -- メーカー初回納入予定日時
@@ -42,5 +40,5 @@ with
             THIBUSYOCD M_THIBUSYOCD, -- メーカー手配担当部署CD
             THITATOCD M_THITATOCD, -- メーカー手配担当者CD
             TEHAIKBN M_TEHAIKBN -- メーカー手配区分
-        from {{ ref("tmp60_DM_TMC_IPPAN_JUTYUNOKIKAITO") }})
+        from {{ ref("tmp60_dm_tmc_ippan_jutyunokikaito") }})
 select * from tmp60

@@ -1,5 +1,5 @@
 with temp20 as (
-    select * from {{ ref("tmp20_DM_TMC_IPPAN_JUTYUNOKIKAITO") }}
+    select * from {{ ref("tmp20_dm_tmc_ippan_jutyunokikaito") }}
     ),
     bokanri as (
         select 

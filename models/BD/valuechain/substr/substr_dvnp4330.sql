@@ -16,7 +16,7 @@ with substr_dvnp4330 as (
       substr(raw_data, 68, 8)::VARCHAR(8) as SYUKKAYMD,
       substr(raw_data, 76, 1)::VARCHAR(1)  as KAITOUKBN,
       substr(raw_data, 77, 2)::VARCHAR(2) as DAITITYP,
-      substr(raw_data, 79, 6)::VARCHAR(6) as SIRISSUE_NO,
+      substr(raw_data, 79, 6)::VARCHAR(6) as SIRISSUENO,
       substr(raw_data, 85, 6)::VARCHAR(6) as NOUBAN,
       substr(raw_data, 91, 5)::VARCHAR(5) as SYKNO,
       substr(raw_data, 96, 1)::VARCHAR(1)  as GKKBNG,
