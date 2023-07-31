@@ -1,4 +1,4 @@
-with dm_sinsya_meisai as(
+with dm_shinsya_meisai as(
   select
     HKATA,
     FLNO,
@@ -14,7 +14,7 @@ with dm_sinsya_meisai as(
     TODD,
     NSQBDY,
     NSDD
-  from {{ref('tmp20_dm_sinsya_meisai')}}
+  from {{ref('tmp20_dm_shinsya_meisai')}}
   where rnk = 1
 )
-select * from dm_sinsya_meisai
+select * from dm_shinsya_meisai
