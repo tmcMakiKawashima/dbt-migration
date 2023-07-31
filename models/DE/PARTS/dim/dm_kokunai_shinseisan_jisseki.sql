@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}
-
 with
   H_H as (select * from {{ ref('stg_h_hanbaikt_frmkbn') }}), -- 配車原始(フレーム区分)HUB
   LK_H as (select * from {{ ref('stg_lk_hanbaikt_frmkbn')}}), -- 配車原始(フレーム区分)LINK

@@ -1,4 +1,3 @@
-{{ config(materialized='table') }}
 with temp20 as (
     select
         tehai_DLRCD M_DLRCD,  --メーカー仕向先CD
