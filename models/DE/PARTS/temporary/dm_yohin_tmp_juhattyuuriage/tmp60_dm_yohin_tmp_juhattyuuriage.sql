@@ -38,7 +38,7 @@ with
             , ODERSYU
             , HATTYUHI
             , KJUSRNM
-            , SYUKKOSU
+            , SUM(SYUKKOSU) SYUKKOSU
             , MAX(SYUKKOYMD) SYUKKOYMD
         from {{ ref('tmp50_dm_yohin_tmp_juhattyuuriage') }}
         group by all
