@@ -111,6 +111,15 @@ sources:
               - fixed_length:
                   length: 400
 
+  - name: valuechain_db_public
+    database: VALUECHAIN_DB
+    schema: PUBLIC
+    tables:
+      - name: raw_o_cvs11jyuchuu
+        identifier: O_CVS11JYUCHUU
+      - name: raw_dm_pno
+        identifier: DM_PNO
+
 # loaded_at_field: LDTS
 # freshness:
 #   warn_after: { count: 1, period: hour }

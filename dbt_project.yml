@@ -46,6 +46,11 @@ models:
         +database: supplydemand_db
         +schema: public
     DD:
+      valuechain:
+        +database: valuechain_db
+        +schema: public
+        stg:
+          +materialized: table
       marketing:
         +database: marketing_db
         +schema: public
