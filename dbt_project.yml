@@ -68,8 +68,11 @@ models:
         dim:
           +materialized: table
     EF:
-      +database: DATAMART_DB
-      +schema: public
+      DATAMART:
+        +database: DATAMART_DB
+        +schema: public
+        dim:
+          +materialized: table
 
 snapshots:
   HOKYUNOKI_MIERUKA:
