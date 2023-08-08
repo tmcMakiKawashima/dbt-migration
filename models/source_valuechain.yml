@@ -117,8 +117,6 @@ sources:
     tables:
       - name: raw_o_cvs11jyuchuu
         identifier: O_CVS11JYUCHUU
-      - name: raw_dm_pno
-        identifier: DM_PNO
 
 # loaded_at_field: LDTS
 # freshness:
