@@ -37,6 +37,7 @@ select
     , ML.DENNO2
     , ML.DENNO3
     , ML.DENNO4
+    , ML.KYOUHAN as tbdaiml_KYOUHAN -- nullチェック用
 from KL
     left outer join ML
         on KL.KYOUHAN = ML.KYOUHAN

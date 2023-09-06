@@ -18,6 +18,7 @@ select
      temp20.*
     ,bokanri.MARTFLG -- マル超FLG
     ,bokanri.SIIRECD -- 仕入先CD
+    ,bokanri.ORDRKEY as dvnp6490_ORDRKEY --オーダーキー nullチェック用
 from temp20
 left outer join bokanri
 on temp20.ORDRKEY = bokanri.ORDRKEY -- オーダーキー
