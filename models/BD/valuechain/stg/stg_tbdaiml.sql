@@ -123,7 +123,7 @@ with stg_tbdaiml as (
         rtrim(KAKAKUSKB, ' 　')::VARCHAR(1) as KAKAKUSKB, -- 英数字
         to_decimal(IFF(rtrim(DAIMEIREN) = '', 0, rtrim(DAIMEIREN)))::DECIMAL(8) as DAIMEIREN, -- 数量／金額／数値
         LDTS, -- B層のLDTS
-        RANK() over (partition by KYOUHAN, HASSIN, USERCD, KAISYA, TCHUMON, HINBAN, MEKAKB, HIKIATE1 order by LDTS desc) aggkey
+        RANK() over (partition by KYOUHAN, HASSIN, USERCD, KAISYA, TCHUMON, HINBAN, MEKAKB order by LDTS desc) aggkey
     from {{ ref('substr_tbdaiml') }}
 )
 select * from stg_tbdaiml

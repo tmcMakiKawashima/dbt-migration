@@ -48,7 +48,7 @@ with stg_tbdaikl as (
         IFF(rtrim(CANCEL) = '', '', LPAD(rtrim(CANCEL), length(CANCEL), '0'))::VARCHAR(8) as CANCEL, -- 日付
         IFF(rtrim(SYUKTEN) = '', '', LPAD(rtrim(SYUKTEN), length(SYUKTEN), '0'))::VARCHAR(2) as SYUKTEN, -- コード／区分
         LDTS, -- B層のLDTS
-        RANK() over (partition by KYOUHAN, HASSIN, USERCD, KAISYA, TCHUMON, JZNJUSIN order by LDTS desc) aggkey
+        RANK() over (partition by KYOUHAN, HASSIN, USERCD, KAISYA, TCHUMON order by LDTS desc) aggkey
     from {{ ref('substr_tbdaikl') }}
 )
 select * from stg_tbdaikl
