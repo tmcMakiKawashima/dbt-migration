@@ -6,7 +6,8 @@ select
       temp30.*
     , temp40.makercd
     , temp40.syukkosu
-    , temp40.syukkoymd    
+    , temp40.syukkoymd
+    , temp40.kyouhan as tmp40_kyouhan -- nullチェック用    
 from temp30
     left outer join temp40
         on temp30.kyouhan_ml = temp40.kyouhan

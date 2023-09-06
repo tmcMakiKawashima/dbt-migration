@@ -29,6 +29,7 @@ select
     ,ss.BOSU -- B_O数
     ,ss.BOSKSTIME -- B_O作成日時
     ,ss.KAKUNOUKBN -- 格納拠点区分
+    ,ss.ORDRKEY as dvnp0700_ORDRKEY --オーダーキー　nullチェック用
 from jh
 left outer join ss
 on jh.ORDRKEY = ss.ORDRKEY -- オーダーキー

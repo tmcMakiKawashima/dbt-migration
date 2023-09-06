@@ -70,6 +70,7 @@ select temp30.*
      , temp40.NYUKOYMD -- 入庫日
      , temp40.SYUKKASU -- 出荷数
      , temp40.SYUKKAYMD -- 出荷日
+     , temp40.DLRCD as tmp40_DLRCD --仕向先CD nullチェック用
 from temp30
 left outer join temp40
 on temp30.DLRCD = temp40.DLRCD -- 仕向先CD
