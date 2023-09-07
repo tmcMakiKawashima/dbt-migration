@@ -49,7 +49,7 @@ select
     bo.HNKKBN, -- 最新回答区分
     bo.HNTAYTIME, -- 最新棚入予定日時
     bo.IPSYYTMIE, -- インプット出荷予定日時
-    bo.ORDRKEY as dvnp0710_ORDRKEY --オーダーキー nullチェック用
+    bo.ORDRKEY as check2_ORDRKEY --オーダーキー nullチェック用
 from temp10
 left outer join bonokikkaito bo
 on temp10.ORDRKEY = bo.ORDRKEY -- オーダーキー

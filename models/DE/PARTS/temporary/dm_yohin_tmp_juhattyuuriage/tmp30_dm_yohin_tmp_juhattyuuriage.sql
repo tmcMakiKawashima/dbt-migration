@@ -6,7 +6,7 @@ select
     temp20.*
   , UM.KJUSRNM
   , UM.HANBAITEN
-  , UM.KYOUHAN as tbuserm_KYOUHAN -- nullチェック用
+  , UM.KYOUHAN as check2_KYOUHAN -- nullチェック用
 from temp20
     left outer join UM
         on temp20.KYOUHAN_ML = UM.KYOUHAN
