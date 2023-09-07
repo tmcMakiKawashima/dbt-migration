@@ -55,10 +55,10 @@ select
     , atopshimuke.SMKMEIJPJS
     , hinban.PNAME
     , IFF(tasshimuke.SISHACD is null, '', tasshimuke.SISHACD) as SISHACD
-    , atopjuchu.JHINBAN as o_cvs11jyuchuu_JHINBAN --nullチェック用
-    , hinban.PNO as dm_pno_PNO --nullチェック用
-    , tasshimuke.KYOUHAN as tbsmksk_KYOUHAN --nullチェック用
-    , atopshimuke.DLRCD as dvnp054a_DLRCD --nullチェック用
+    , atopjuchu.JHINBAN as check_JHINBAN --nullチェック用
+    , hinban.PNO as check_PNO --nullチェック用
+    , tasshimuke.KYOUHAN as check4_KYOUHAN --nullチェック用
+    , atopshimuke.DLRCD as check_DLRCD --nullチェック用
 from temp50
     left outer join atopjuchu
         on temp50.HATYUHIN = atopjuchu.JHINBAN

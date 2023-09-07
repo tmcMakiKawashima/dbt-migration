@@ -40,7 +40,7 @@ select
     ,nyusyukko.CHUMON_NO_NYUKO --リマーク２ ※右から5桁目
     -- 支社コード ※[入出庫ファイル]共販店コード　＋　[TAS仕向先テーブル]支社コード
     ,nyusyukko.KYOUHAN_NYUKO || shimuke.SISHACD SHIMUKESAKI_NYUKO
-    ,shimuke.KYOUHAN as tbsmksk_KYOUHAN --共販店コード nullチェック用
+    ,shimuke.KYOUHAN as check_KYOUHAN --共販店コード nullチェック用
 from nyusyukko
 left outer join shimuke
 on nyusyukko.KYOUHAN_NYUKO = shimuke.KYOUHAN -- 共販店コード
