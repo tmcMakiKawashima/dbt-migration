@@ -35,6 +35,7 @@ select
     ,syukkaippan.JUCHUYMD -- 受注日
     ,syukkaippan.SYUKKASU -- 出庫数_符号有　出荷数
     ,syukkaippan.SYUKKAYMD -- 出荷日
+    ,syukkaippan.CASENO6 -- ケースNO
 from syukkaippan
 left outer join nyusyukko
 on syukkaippan.DLRCD = nyusyukko.SHIMUKESAKI_NYUKO -- 仕向先CD/共販店コード＋支社コード
