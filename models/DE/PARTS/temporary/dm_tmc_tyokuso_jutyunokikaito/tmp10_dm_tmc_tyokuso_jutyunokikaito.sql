@@ -35,7 +35,7 @@ tyokuso as (
         SHINBAN,  --出荷品番
         SIRISSUENO  --仕入先ISSUE_NO
 )
-select nyusyukko.* exclude SHIMUKESAKI_NYUKO, tyokuso.* exclude (SIRISSUENO, TKSKBN)
+select nyusyukko.* exclude SHIMUKESAKI_NYUKO, tyokuso.* exclude (TKSKBN)
 from tyokuso
 left outer join nyusyukko
 on  tyokuso.DLRCD = nyusyukko.SHIMUKESAKI_NYUKO  --仕向先CD/共販店コード＋支社コード
