@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: tmp10_dm_tmc_ippan_jutyunokikaito
+    tests:
+      - unique_values
+  - name: tmp20_dm_tmc_ippan_jutyunokikaito
+    tests:
+      - unique_values
+  - name: tmp30_dm_tmc_ippan_jutyunokikaito
+    tests:
+      - unique_values
+  - name: tmp40_dm_tmc_ippan_jutyunokikaito
+    tests:
+      - unique_values
+  - name: tmp50_dm_tmc_ippan_jutyunokikaito
+    tests:
+      - unique_values
+  - name: tmp60_dm_tmc_ippan_jutyunokikaito
+    tests:
+      - unique_values
+  - name: nyusyukko_x_shimuke
+    tests:
+      - unique_values

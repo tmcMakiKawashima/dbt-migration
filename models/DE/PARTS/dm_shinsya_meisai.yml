@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: tmp20_dm_shinsya_meisai
+    tests:
+      - unique_values
+  - name: dm_shinsya_meisai
+    tests:
+      - unique_values

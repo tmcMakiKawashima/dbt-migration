@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: tmp10_dm_yohin_tmp_juhattyuuriage
+    tests:
+      - unique_values
+  - name: tmp20_dm_yohin_tmp_juhattyuuriage
+    tests:
+      - unique_values
+  - name: tmp30_dm_yohin_tmp_juhattyuuriage
+    tests:
+      - unique_values
+  - name: tmp50_dm_yohin_tmp_juhattyuuriage
+    tests:
+      - unique_values
+  - name: tmp60_dm_yohin_tmp_juhattyuuriage
+    tests:
+      - unique_values

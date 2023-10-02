@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: tmp10_dm_yohin_daiatari
+    tests:
+      - unique_values
+  - name: tmp20_dm_yohin_daiatari
+    tests:
+      - unique_values
+  - name: tmp30_dm_yohin_daiatari
+    tests:
+      - unique_values
+  - name: dm_yohin_daiatari
+    tests:
+      - unique_values
