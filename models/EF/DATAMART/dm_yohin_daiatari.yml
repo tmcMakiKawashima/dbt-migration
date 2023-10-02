@@ -10,6 +10,10 @@ models:
   - name: tmp30_dm_yohin_daiatari
     tests:
       - unique_values
+    columns:
+      - name: M_JHINBAN
+        tests:
+          - outer_join_not_null
   - name: dm_yohin_daiatari
     tests:
       - unique_values

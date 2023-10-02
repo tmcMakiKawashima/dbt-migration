@@ -1,6 +1,11 @@
 version: 2
 
 models:
+  - name: tmp10_dm_shinsya_meisai
+    columns:
+      - name: MD5_SINSYAODNO_HUB
+        tests:
+          - outer_join_not_null
   - name: tmp20_dm_shinsya_meisai
     tests:
       - unique_values
