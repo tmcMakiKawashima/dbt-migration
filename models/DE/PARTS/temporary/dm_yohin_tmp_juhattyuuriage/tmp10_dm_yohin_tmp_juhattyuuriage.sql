@@ -21,6 +21,7 @@ select
     , KL.TYAKKO
     , KL.ZAIHATYU
     , KL.KINHATYU
+    , KL.LDTS -- snapshot作成用
 --ML
     , ML.HINBAN
     , ML.HATYUHIN
