@@ -40,6 +40,7 @@ with
             , KJUSRNM
             , SUM(SYUKKOSU) SYUKKOSU
             , MAX(SYUKKOYMD) SYUKKOYMD
+            , LDTS -- snapshot作成用
         from {{ ref('tmp50_dm_yohin_tmp_juhattyuuriage') }}
         group by all
     ),
