@@ -30,6 +30,7 @@ select
     ,ss.BOSKSTIME -- B_O作成日時
     ,ss.KAKUNOUKBN -- 格納拠点区分
     ,ss.ORDRKEY as check_ORDRKEY --オーダーキー　nullチェック用
+    ,jh.LDTS -- snapshot作成用
 from jh
 left outer join ss
 on jh.ORDRKEY = ss.ORDRKEY -- オーダーキー

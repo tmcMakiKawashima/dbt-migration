@@ -32,7 +32,8 @@ with temp30 as (
         max(HNTAYTIME) HNTAYTIME, -- 最新棚入予定日時
         max(IPSYYTMIE) IPSYYTMIE, -- インプット出荷予定日時
         KAKUNOUKBN, -- 格納拠点区分
-        SIIRECD -- 仕入先CD
+        SIIRECD, -- 仕入先CD
+        max(LDTS) LDTS -- snapshot作成用
     from {{ref('tmp30_dm_tmc_ippan_jutyunokikaito')}}
     group by 
           DLRCD -- 仕向先CD
