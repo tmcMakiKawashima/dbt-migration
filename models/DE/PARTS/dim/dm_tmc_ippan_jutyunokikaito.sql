@@ -40,6 +40,7 @@ with
             THIBUSYOCD M_THIBUSYOCD, -- メーカー手配担当部署CD
             THITATOCD M_THITATOCD, -- メーカー手配担当者CD
             TEHAIKBN M_TEHAIKBN, -- メーカー手配区分
-            '' as M_KEIKANISSU  --メーカー経過日数
+            '' as M_KEIKANISSU,  --メーカー経過日数
+            LDTS -- snapshot作成用
         from {{ ref("tmp60_dm_tmc_ippan_jutyunokikaito") }})
 select * from tmp60
