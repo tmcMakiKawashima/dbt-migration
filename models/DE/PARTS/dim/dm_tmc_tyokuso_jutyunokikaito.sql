@@ -39,7 +39,8 @@ with temp20 as (
         '' as M_THIBUSYOCD,  --メーカー手配担当部署ＣＤ
         '' as M_THITATOCD,  --メーカー手配担当者CD
         '' as M_TEHAIKBN,  --メーカー手配区分
-        '' as M_KEIKANISSU  --メーカー経過日数
+        '' as M_KEIKANISSU,  --メーカー経過日数
+        LDTS LDTS -- snapshot作成用
     from {{ref('tmp20_dm_tmc_tyokuso_jutyunokikaito')}}
 )
 select * from temp20
