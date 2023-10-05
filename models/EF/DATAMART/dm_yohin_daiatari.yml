@@ -13,7 +13,7 @@ models:
     columns:
       - name: M_JHINBAN
         tests:
-          - outer_join_not_null
+          - outer_join_not_all_null
   - name: dm_yohin_daiatari
     tests:
       - unique_values

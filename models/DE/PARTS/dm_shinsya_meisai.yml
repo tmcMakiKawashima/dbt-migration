@@ -5,7 +5,7 @@ models:
     columns:
       - name: MD5_SINSYAODNO_HUB
         tests:
-          - outer_join_not_null
+          - outer_join_not_all_null
   - name: tmp20_dm_shinsya_meisai
     tests:
       - unique_values

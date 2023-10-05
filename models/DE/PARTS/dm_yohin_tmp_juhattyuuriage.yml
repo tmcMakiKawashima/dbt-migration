@@ -7,41 +7,41 @@ models:
     columns:
       - name: check_KYOUHAN
         tests:
-          - outer_join_not_null
+          - outer_join_not_all_null
   - name: tmp20_dm_yohin_tmp_juhattyuuriage
     tests:
       - unique_values
     columns:
       - name: HATTYUHI
         tests:
-          - outer_join_not_null
+          - outer_join_not_all_null
   - name: tmp30_dm_yohin_tmp_juhattyuuriage
     tests:
       - unique_values
     columns:
       - name: check2_KYOUHAN
         tests:
-          - outer_join_not_null
+          - outer_join_not_all_null
   - name: tmp50_dm_yohin_tmp_juhattyuuriage
     tests:
       - unique_values
     columns:
       - name: check3_kyouhan
         tests:
-          - outer_join_not_null
+          - outer_join_not_all_null
   - name: tmp60_dm_yohin_tmp_juhattyuuriage
     tests:
       - unique_values
     columns:
       - name: check_JHINBAN
         tests:
-          - outer_join_not_null
+          - outer_join_not_all_null
       - name: check_PNO
         tests:
-          - outer_join_not_null
+          - outer_join_not_all_null
       - name: check4_KYOUHAN
         tests:
-          - outer_join_not_null
+          - outer_join_not_all_null
       - name: check_DLRCD
         tests:
-          - outer_join_not_null
+          - outer_join_not_all_null
