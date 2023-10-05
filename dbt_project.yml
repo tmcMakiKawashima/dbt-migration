@@ -84,3 +84,7 @@ snapshots:
       parts:
         +target_database: parts_db
         +target_schema: dbt_snapshots
+    EF:
+      datamart:
+        +target_database: datamart_db
+        +target_schema: dbt_snapshots
