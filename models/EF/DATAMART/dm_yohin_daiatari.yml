@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: tmp10_dm_yohin_daiatari
+    tests:
+      - unique_values
+  - name: tmp20_dm_yohin_daiatari
+    tests:
+      - unique_values
+  - name: tmp30_dm_yohin_daiatari
+    tests:
+      - unique_values
+    columns:
+      - name: M_JHINBAN
+        tests:
+          - outer_join_not_all_null
+  - name: dm_yohin_juchunoki_kaito
+    tests:
+      - unique_values

@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: tmp10_dm_tmc_ippan_jutyunokikaito
+    tests:
+      - unique_values
+    columns:
+      - name: check_ORDRKEY
+        tests:
+          - outer_join_not_all_null
+  - name: tmp20_dm_tmc_ippan_jutyunokikaito
+    tests:
+      - unique_values
+    columns:
+      - name: check2_ORDRKEY
+        tests:
+          - outer_join_not_all_null
+  - name: tmp30_dm_tmc_ippan_jutyunokikaito
+    tests:
+      - unique_values
+    columns:
+      - name: check3_ORDRKEY
+        tests:
+          - outer_join_not_all_null
+  - name: tmp40_dm_tmc_ippan_jutyunokikaito
+    tests:
+      - unique_values
+    columns:
+      - name: SHIMUKESAKI_NYUKO
+        tests:
+          - outer_join_not_all_null
+  - name: tmp50_dm_tmc_ippan_jutyunokikaito
+    tests:
+      - unique_values
+    columns:
+      - name: check_DLRCD
+        tests:
+          - outer_join_not_all_null
+  - name: tmp60_dm_tmc_ippan_jutyunokikaito
+    tests:
+      - unique_values
+    columns:
+      - name: KAKNOUKBN
+        tests:
+          - outer_join_not_all_null
+  - name: nyusyukko_x_shimuke
+    tests:
+      - unique_values
+    columns:
+      - name: check_KYOUHAN
+        tests:
+          - outer_join_not_all_null
