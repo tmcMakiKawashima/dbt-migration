@@ -2,7 +2,7 @@
 
 {{
     config(
-        unique_key="KYOUHAN ||'-'|| USERCD ||'-'|| KAISYA ||'-'|| TCHUMON ||'-'|| HINBAN ||'-'|| JZNJUSIN",
+        unique_key="KYOUHAN ||'-'|| USERCD ||'-'|| KAISYA ||'-'|| TCHUMON ||'-'|| HINBAN ||'-'|| JZNJUSIN ||'-'|| IFF(CHUMON is null, '', CHUMON) ||'-'|| IFF(ODERSYU is null, '', ODERSYU) ||'-'|| IFF(HATTYUHI is null, '', HATTYUHI)",
 
         strategy='timestamp',
         updated_at='LDTS',

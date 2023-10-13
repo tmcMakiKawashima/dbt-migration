@@ -79,5 +79,6 @@ tyoku as (
     where SUBSTR(M_ORDENO,0,2) = 'ZZ' -- メーカーオーダーNO（先頭２桁）
 )
 select * from ippan
-union
+union all
 select * from tyoku
+order by M_DLRCD, M_YUSOKBN, M_ORDENO, M_JUCHUYMD, M_JHINBAN, M_SYUBETSU

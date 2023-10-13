@@ -2,7 +2,7 @@
 
 {{
     config(
-        unique_key="USERCD ||'-'|| KAISYA ||'-'|| DLRCD ||'-'|| TCHUMON ||'-'|| JUCHUYMD ||'-'|| HINBAN",
+        unique_key="USERCD ||'-'|| KAISYA ||'-'|| DLRCD ||'-'|| TCHUMON ||'-'|| JUCHUYMD ||'-'|| HINBAN ||'-'|| IFF(CHUMON is null, '', CHUMON) ||'-'|| IFF(HACHUYMD is null, '', HACHUYMD)",
 
         strategy='timestamp',
         updated_at='LDTS',
