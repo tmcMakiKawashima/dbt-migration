@@ -1,17 +1,125 @@
 with
-    temp50 as (select * from {{ ref("tmp50_dm_tmc_ippan_jutyunokikaito") }}),
-    tehai as (select * from {{ref('stg_dvsf509a')}}) -- 手配かんばんマスタ
-select
-     temp50.*
-    ,tehai.KAKNOUKBN -- 格納拠点区分
-    ,tehai.THIBUSYOCD -- 手配担当部署CD
-    ,tehai.THITATOCD -- 手配担当者CD
-    ,tehai.TEHAIKBN -- 手配区分
-from temp50
-left outer join tehai
--- 調達品番が出荷品番のリストの中に存在する場合
-on ARRAY_CONTAINS(tehai.TYOTATHB::variant,SPLIT(temp50.SHINBAN,',')) 
-and temp50.KAKUNOUKBN = tehai.KAKNOUKBN -- 格納拠点区分
-and TO_VARCHAR(CURRENT_DATE,'yyyyMMdd') >= tehai.TEKIYOKAISIYMD -- 適用開始日
-and TO_VARCHAR(CURRENT_DATE,'yyyyMMdd') <= tehai.TEKIYOSYURYOYMD -- 適用終了日
-and temp50.SIIRECD = tehai.SRSIRSKCD -- 仕入先CD/商流仕入先CD
+    temp40 as (
+        select
+            dlrcd,
+            yusokbn,
+            odrno,
+            juchuymd,
+            jhinban,
+            syubetsu,
+            juchusu,
+            rimak1,
+            rimak2,
+            hnskiboymd,
+            hoskiboymd,
+            hsskiboymd,
+            skibohenkokaisu,
+            hnhonyoyakuymd,
+            hshonyoyakuymd,
+            hnnksyytime,
+            honksyytime,
+            hsnksyytime,
+            allnosicansu,
+            hnnosicansu,
+            hnnosicantime,
+            honosicantime,
+            hsnosicantime,
+            nosicankaisu,
+            iphonyoyakuymd,
+            kariyoyakuymd,
+            hnnosikbn,
+            hsnosikbn,
+            honosikbn,
+            kaknoukbn,
+            jurrsymd,
+            srsirskcd,
+            kozyocd,
+            brsirskcd,
+            nonukyokbn,
+            ukeirecd,
+            nonyutni,
+            picloke,
+            sykikicd,
+            sksijbsy,
+            thibusyocd,
+            thitatocd,
+            tehaikbn,
+            zaihikbn,
+            cycle4,
+            kjnziknisu3,
+            kjnziksu,
+            anzenzaikonisu,
+            anznzksu,
+            nonyult,
+            nbscd,
+            orosibacd,
+            brsirskkojocd,
+            keikanissu,
+            hnnoytime,
+            hnsyytime,
+            hntoytime,
+            hsnoytime,
+            hssyytime,
+            ptopflg,
+            hskkbn,
+            hstaytime,
+            hstoytime,
+            hokkbn,
+            honoytime,
+            hotaytime,
+            hosyytime,
+            hotoytime,
+            mkaitocd,
+            hnkkbn,
+            hntaytime,
+            ipsyytmie,
+            martflg,
+            listagg(shinban, ',') shinban,
+            sum(bosu) bosu,
+            max(boskstime) boskstime,
+            max(pendid) pendid,
+            sum(pensu) pensu,
+            min(pentime) pentime,
+            min(skzflg) skzflg,
+            min(canzmflg) canzmflg,
+            min(m_nokishiteiyoyakuymd) m_nokishiteiyoyakuymd,
+            max(syukkokan) m_pikcptime,
+            max(konkan) m_paktime
+        from {{ ref("tmp40_DM_TMC_IPPAN_JUTYUNOKIKAITO") }}
+        group by all
+    ),
+    temp50 as (
+        select
+            sum(nyukosu) nyukosu,
+            max(nyukoymd) nyukoymd,
+            dlrcd,
+            ordesybt,
+            yusokbn,
+            ordeno,
+            jhinban,
+            juchuymd,
+            sum(syksu6) syukkasu,
+            max(syukkaymd) syukkaymd
+        from {{ ref("tmp50_DM_TMC_IPPAN_JUTYUNOKIKAITO") }}
+        group by all
+    )
+select temp40.*, temp50.* exclude(dlrcd, ordesybt, yusokbn, ordeno, jhinban, juchuymd)
+-- shinban.shinban
+from temp40
+left outer join
+    temp50
+    on temp40.dlrcd = temp50.dlrcd
+    and temp40.syubetsu = temp50.ordesybt
+    and temp40.yusokbn = temp50.yusokbn
+    and temp40.odrno = temp50.ordeno
+    and temp40.juchuymd = temp50.juchuymd
+    and temp40.jhinban = temp50.jhinban
+    -- left outer join
+    -- shinban
+    -- on temp40.dlrcd = shinban.dlrcd
+    -- and temp40.syubetsu = shinban.syubetsu
+    -- and temp40.yusokbn = shinban.yusokbn
+    -- and temp40.odrno = shinban.odrno
+    -- and temp40.juchuymd = shinban.juchuymd
+    -- and temp40.jhinban = shinban.jhinban
+    

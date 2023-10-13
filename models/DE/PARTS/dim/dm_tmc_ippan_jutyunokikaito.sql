@@ -1,46 +1,98 @@
 with
     tmp60 as (
         select
-            DLRCD M_DLRCD, -- メーカー仕向先CD
-            YUSOKBN M_YUSOKBN, -- メーカー輸送CD
-            ODRNO M_ORDENO, -- メーカー注文NO
-            JUCHUYMD M_JUCHUYMD, -- メーカー受注日
-            JHINBAN M_JHINBAN, -- メーカー受注品番
-            JUCHUSU M_JUCHUSU, -- メーカー受注数
-            SYUBETSU M_SYUBETSU, -- メーカーオーダー種別
-            RIMAK1 M_RIMAK1, -- メーカーリマークⅠ
-            RIMAK2 M_RIMAK2, -- メーカーリマークⅡ
-            SHINBAN M_SHINBAN, -- メーカー出荷品番
-            BOSU M_BOSU, -- メーカーBO数
-            BOSKSTIME M_BOSKSTIME, -- メーカーBO作成日時
-            MKAITOCD M_MKAITOCD, -- メーカー未回答CD
-            HNKKBN M_HNKKBN, -- メーカー最新回答区分
-            HNNOYTIME M_HNNOYTIME, -- メーカー最新納入予定日時
-            HNTAYTIME M_HNTAYTIME, -- メーカー最新棚入予定日時
-            HNSYYTIME M_HNSYYTIME, -- メーカー最新出荷予定日時
-            HNTOYTIME M_HNTOYTIME, -- メーカー最新到着予定日時
-            HOKKBN M_HOKKBN, -- メーカー前回回答区分
-            HONOYTIME M_HONOYTIME, -- メーカー前回納入予定日時
-            HOTAYTIME M_HOTAYTIME, -- メーカー前回棚入予定日時
-            HOSYYTIME M_HOSYYTIME, -- メーカー前回出荷予定日時
-            HOTOYTIME M_HOTOYTIME, -- メーカー前回到着予定日時
-            HSKKBN M_HSKKBN, -- メーカー初回回答区分
-            HSNOYTIME M_HSNOYTIME, -- メーカー初回納入予定日時
-            HSTAYTIME M_HSTAYTIME, -- メーカー初回棚入予定日時
-            HSSYYTIME M_HSSYYTIME, -- メーカー初回出荷予定日時
-            HSTOYTIME M_HSTOYTIME, -- メーカー初回到着予定日時
-            PTOPFLG M_PTOPFLG, -- メーカーPTOPFLG
-            IPSYYTMIE M_IPSYYTMIE, -- メーカーインプット出荷予定日時
-            MARTFLG M_MARTFLG, -- メーカーマル超FLG
-            SYUKKAYMD M_SYUKKAYMD, -- メーカー出荷日
-            SYUKKASU M_SYUKKASU, -- メーカー出荷数
-            NYUKOYMD NYUKOYMD, -- ＴＭＰ入庫日
-            NYUKOSU NYUKOSU, -- ＴＭＰ入庫数
-            KAKUNOUKBN M_KAKNOUKBN, -- メーカー格納拠点区分
-            THIBUSYOCD M_THIBUSYOCD, -- メーカー手配担当部署CD
-            THITATOCD M_THITATOCD, -- メーカー手配担当者CD
-            TEHAIKBN M_TEHAIKBN, -- メーカー手配区分
-            '' as M_KEIKANISSU,  --メーカー経過日数
-            LDTS -- snapshot作成用
-        from {{ ref("tmp60_dm_tmc_ippan_jutyunokikaito") }})
-select * from tmp60
+            dlrcd m_dlrcd,
+            yusokbn m_yusokbn,
+            odrno m_ordeno,
+            juchuymd m_juchuymd,
+            jhinban m_jhinban,
+            juchusu m_juchusu,
+            syubetsu m_syubetsu,
+            rimak1 m_rimak1,
+            rimak2 m_rimak2,
+            shinban m_shinban,
+            bosu m_bosu,
+            boskstime m_boskstime,
+            mkaitocd m_mkaitocd,
+            hnkkbn m_hnkkbn,
+            hnnoytime m_hnnoytime,
+            hntaytime m_hntaytime,
+            hnsyytime m_hnsyytime,
+            hntoytime m_hntoytime,
+            hokkbn m_hokkbn,
+            honoytime m_honoytime,
+            hotaytime m_hotaytime,
+            hosyytime m_hosyytime,
+            hotoytime m_hotoytime,
+            hskkbn m_hskkbn,
+            hsnoytime m_hsnoytime,
+            hstaytime m_hstaytime,
+            hssyytime m_hssyytime,
+            hstoytime m_hstoytime,
+            ptopflg m_ptopflg,
+            ipsyytmie m_ipsyytmie,
+            martflg m_martflg,
+            syukkaymd m_syukkaymd,
+            syukkasu m_syukkasu,
+            nyukoymd,
+            nyukosu,
+            kaknoukbn m_kaknoukbn,
+            thibusyocd m_thibusyocd,
+            thitatocd m_thitatocd,
+            tehaikbn m_tehaikbn,
+            keikanissu m_keikanissu,
+            pendid m_pendid,
+            pensu m_pensu,
+            pentime m_pentime,
+            skzflg m_skzflg,
+            canzmflg m_canzmflg,
+            pentime m_nokishiteiyoyakuymd,
+            hnskiboymd m_hnskiboymd,
+            hoskiboymd m_hoskiboymd,
+            hsskiboymd m_hsskiboymd,
+            skibohenkokaisu m_skibohenkokaisu,
+            hnhonyoyakuymd m_hnhonyoyakuymd,
+            hshonyoyakuymd m_hshonyoyakuymd,
+            hnnksyytime m_hnnksyytime,
+            honksyytime m_honksyytime,
+            hsnksyytime m_hsnksyytime,
+            allnosicansu m_allnosicansu,
+            hnnosicansu m_hnnosicansu,
+            hnnosicantime m_hnnosicantime,
+            honosicantime m_honosicantime,
+            hsnosicantime m_hsnosicantime,
+            nosicankaisu m_nosicankaisu,
+            iphonyoyakuymd m_iphonyoyakuymd,
+            kariyoyakuymd m_kariyoyakuymd,
+            hnnosikbn m_hnnosikbn,
+            hsnosikbn m_hsnosikbn,
+            honosikbn m_honosikbn,
+            -- オーダー指示ファイル
+            jurrsymd m_jurrsymd,
+            srsirskcd m_srsirskcd,
+            kozyocd m_kozyocd,
+            brsirskcd m_brsirskcd,
+            nonukyokbn m_nonukyokbn,
+            ukeirecd m_ukeirecd,
+            nonyutni m_nonyutni,
+            picloke m_picloke,
+            sykikicd m_sykikicd,
+            sksijbsy m_sksijbsy,
+            -- 手配かんばん
+            zaihikbn m_zaihikbn,
+            cycle4 m_cycle4,
+            kjnziknisu3 m_kjnziknisu3,
+            kjnziksu m_kjnziksu,
+            anzenzaikonisu m_anzenzaikonisu,
+            anznzksu m_anznzksu,
+            nonyult m_nonyult,
+            nbscd m_nbscd,
+            orosibacd m_orosibacd,
+            brsirskkojocd m_brsirskkojocd,
+            --新入出荷　出荷実績累計
+            m_pikcptime,
+            m_paktime
+        from {{ ref("tmp60_DM_TMC_IPPAN_JUTYUNOKIKAITO") }}
+    )
+select *
+from tmp60
