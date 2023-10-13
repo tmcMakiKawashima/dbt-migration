@@ -28,7 +28,7 @@ with
                 partition by dlrcd, yusokbn, odrno, juchuymd, jhinban, syubetsu
                 order by daitityp, shinban
             ) rownum
-        from {{ ref("tmp20_DM_TMC_IPPAN_JUTYUNOKIKAITO") }}
+        from {{ ref("tmp20_dm_tmc_ippan_jutyunokikaito") }}
     )
 select *
 from temp20_tehai

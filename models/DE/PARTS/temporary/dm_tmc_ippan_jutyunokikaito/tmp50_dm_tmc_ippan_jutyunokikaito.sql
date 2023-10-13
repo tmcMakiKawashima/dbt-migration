@@ -14,7 +14,7 @@ with
             syksu6,
             syukkaymd,
             caseno6
-        from {{ ref("stg_DVNP5770") }}
+        from {{ ref("stg_dvnp5770") }}
     )
 select nyusyukko.* exclude(shimukesaki_nyuko, chumon_no_nyuko, hinban_nyuko), syukkaippan.*
 from syukkaippan

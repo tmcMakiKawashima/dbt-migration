@@ -55,7 +55,7 @@ with
             max(iff(ipsyytmie is null, '', ipsyytmie)) ipsyytmie,
             -- BO納期管理資料
             max(iff(martflg is null, '', martflg)) martflg
-        from {{ ref("tmp10_DM_TMC_IPPAN_JUTYUNOKIKAITO") }}
+        from {{ ref("tmp10_dm_tmc_ippan_jutyunokikaito") }}
         group by all
     ),
     odr_shiji_status as (
@@ -82,8 +82,8 @@ with
                 then substr(pentime, 1, 8)
             end m_nokishiteiyoyakuymd,
             odrno
-        from {{ ref("stg_DVNP0700_odrno") }}
-    -- from {{ ref("stg_DVNP0700") }}
+        from {{ ref("stg_dvnp0700_odrno") }}
+    -- from {{ ref("stg_dvnp0700") }}
     ),
     odr_shiji as (
         select
@@ -104,7 +104,7 @@ with
             daitityp,
             shinban,
             ldts
-        from {{ ref("stg_CVN06DODRSHIJI") }}
+        from {{ ref("stg_cvn06dodrshiji") }}
     ),
     syukkajissekiruikei as (
         select
@@ -115,7 +115,7 @@ with
             shinban,
             max(syukkokan) syukkokan,
             max(konkan) konkan
-        from {{ ref("stg_QLQXN190") }}
+        from {{ ref("stg_qlqxn190") }}
         group by all
     )  -- 参照カラムしかstgに置いていないため＊検索（仮開発用）
 select

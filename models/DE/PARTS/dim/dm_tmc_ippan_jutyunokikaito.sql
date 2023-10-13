@@ -92,7 +92,7 @@ with
             --新入出荷　出荷実績累計
             m_pikcptime,
             m_paktime
-        from {{ ref("tmp60_DM_TMC_IPPAN_JUTYUNOKIKAITO") }}
+        from {{ ref("tmp60_dm_tmc_ippan_jutyunokikaito") }}
     )
 select *
 from tmp60

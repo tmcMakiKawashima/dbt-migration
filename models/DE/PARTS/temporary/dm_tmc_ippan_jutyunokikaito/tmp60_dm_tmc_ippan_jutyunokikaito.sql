@@ -85,7 +85,7 @@ with
             min(m_nokishiteiyoyakuymd) m_nokishiteiyoyakuymd,
             max(syukkokan) m_pikcptime,
             max(konkan) m_paktime
-        from {{ ref("tmp40_DM_TMC_IPPAN_JUTYUNOKIKAITO") }}
+        from {{ ref("tmp40_dm_tmc_ippan_jutyunokikaito") }}
         group by all
     ),
     temp50 as (
@@ -100,7 +100,7 @@ with
             juchuymd,
             sum(syksu6) syukkasu,
             max(syukkaymd) syukkaymd
-        from {{ ref("tmp50_DM_TMC_IPPAN_JUTYUNOKIKAITO") }}
+        from {{ ref("tmp50_dm_tmc_ippan_jutyunokikaito") }}
         group by all
     )
 select temp40.*, temp50.* exclude(dlrcd, ordesybt, yusokbn, ordeno, jhinban, juchuymd)

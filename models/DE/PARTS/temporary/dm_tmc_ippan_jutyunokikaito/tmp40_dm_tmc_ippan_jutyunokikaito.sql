@@ -1,5 +1,5 @@
 with
-    temp30 as (select * from {{ ref("tmp30_DM_TMC_IPPAN_JUTYUNOKIKAITO") }}),
+    temp30 as (select * from {{ ref("tmp30_dm_tmc_ippan_jutyunokikaito") }}),
     tehai_kanban as (
         select
             tyotathb,
@@ -23,11 +23,11 @@ with
             nbscd,
             orosibacd,
             brsirskkojocd
-        from {{ ref("stg_DVSF509A") }}
+        from {{ ref("stg_dvsf509a") }}
     ),
     syukkabin as (
         select dlrcd, syubetsu, yusokbn, max(keikanissu) keikanissu
-        from {{ ref("stg_CVN35DSYUKABIN") }}
+        from {{ ref("stg_cvn35dsyukabin") }}
         group by all
     )
 select
