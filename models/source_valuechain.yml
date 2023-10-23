@@ -110,6 +110,20 @@ sources:
             tests:
               - fixed_length:
                   length: 400
+      - name: raw_tbbofll
+        identifier: DXBOFL99
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 247
+      - name: raw_cvn35dsyukabin
+        identifier: KTRLA01VZZ0KVN00G8
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 100
 
   - name: valuechain_db_public
     database: VALUECHAIN_DB
