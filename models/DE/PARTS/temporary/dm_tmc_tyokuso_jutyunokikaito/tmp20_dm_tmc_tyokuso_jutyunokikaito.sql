@@ -35,7 +35,8 @@ tyokutehai as (
         SIIRECD,  --仕入先CD
         sum(JUCHU5) JUCHU5,  --受注数_直送
         max(RIMAK1) RIMAK1,  --リマーク1
-        max(RIMAK2) RIMAK2  --リマーク2
+        max(RIMAK2) RIMAK2,  --リマーク2
+        max(LDTS) LDTS -- snapshot作成用
     from {{ref('stg_dvnp4520')}}  --直送出荷手配
     group by
         DLRCD,  --仕向先CD

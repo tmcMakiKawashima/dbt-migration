@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: tmp10_dm_tmc_tyokuso_jutyunokikaito
+    tests:
+      - unique_values
+    columns:
+      - name: CHUMON_NO_NYUKO
+        tests:
+          - outer_join_not_all_null
+  - name: tmp20_dm_tmc_tyokuso_jutyunokikaito
+    tests:
+      - unique_values
+    columns:
+      - name: DLRCD
+        tests:
+          - outer_join_not_all_null

@@ -33,7 +33,8 @@ with ippan as (
             M_THIBUSYOCD, -- メーカー手配担当部署CD
             M_THITATOCD, -- メーカー手配担当者CD
             M_TEHAIKBN, -- メーカー手配区分
-            M_KEIKANISSU -- メーカー経過日数
+            M_KEIKANISSU, -- メーカー経過日数
+            LDTS -- snapshot作成用
     from {{ref('dm_tmc_ippan_jutyunokikaito')}} -- TMC一般オーダー受注納期回答DM
     where SUBSTR(M_ORDENO,0,2) = 'ZZ' -- メーカーオーダーNO（先頭２桁）
 ),
@@ -72,10 +73,12 @@ tyoku as (
             M_THIBUSYOCD, -- メーカー手配担当部署CD
             M_THITATOCD, -- メーカー手配担当者CD
             M_TEHAIKBN, -- メーカー手配区分
-            M_KEIKANISSU -- メーカー経過日数
+            M_KEIKANISSU, -- メーカー経過日数
+            LDTS -- snapshot作成用
     from {{ref('dm_tmc_tyokuso_jutyunokikaito')}} -- TMC直送オーダー受注納期回答DM
     where SUBSTR(M_ORDENO,0,2) = 'ZZ' -- メーカーオーダーNO（先頭２桁）
 )
 select * from ippan
-union
+union all
 select * from tyoku
+order by M_DLRCD, M_YUSOKBN, M_ORDENO, M_JUCHUYMD, M_JHINBAN, M_SYUBETSU

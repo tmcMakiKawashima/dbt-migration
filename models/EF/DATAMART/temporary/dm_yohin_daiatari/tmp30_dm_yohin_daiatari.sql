@@ -86,7 +86,8 @@ select
     M_KAKNOUKBN as M_KAKNOUKBN, --トヨタ格納拠点区分（メーカー格納拠点区分）
     M_THIBUSYOCD,   --トヨタ手配部署コード（メーカー手配担当部署CD）
     M_THITATOCD,    --トヨタ手配担当者コード（メーカー手配担当者CD）
-    M_TEHAIKBN      --トヨタ手配区分（メーカー手配区分）
+    M_TEHAIKBN,     --トヨタ手配区分（メーカー手配区分）
+    temp20.LDTS LDTS -- snapshot作成用
 from temp20
 left outer join jutyunokikaito
 on SHIMUKE_CD = M_DLRCD -- 仕向先コード/メーカー仕向先CD

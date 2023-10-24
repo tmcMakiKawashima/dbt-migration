@@ -33,4 +33,6 @@ select
     , temp.SISHACD
     , temp.SMKMEIJPJH
     , temp.SMKMEIJPJS
+    , temp.LDTS -- snapshot作成用
 from temp
+order by KYOUHAN, USERCD, KAISYA, TCHUMON, HINBAN, JZNJUSIN, CHUMON, ODERSYU, HATTYUHI
