@@ -131,6 +131,13 @@ sources:
             tests:
               - fixed_length:
                   length: 400
+      - name: raw_tbchznl
+        identifier: DXCHZN99
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 272
 
   - name: valuechain_db_public
     database: VALUECHAIN_DB
