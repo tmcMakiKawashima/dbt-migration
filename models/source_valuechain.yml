@@ -116,7 +116,7 @@ sources:
           - name: RAW_DATA
             tests:
               - fixed_length:
-                  length: 247
+                  length: 274
       - name: raw_cvn35dsyukabin
         identifier: KTRLA01VZZ0KVN00G8
         columns:
