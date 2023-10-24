@@ -1,81 +1,81 @@
 with stg_tbbofll as (
     select
-      rtrim(KYOUHAN, ' 　')::VARCHAR(5) as KYOUHAN, --英数字
-      rtrim(HINBAN, ' 　')::VARCHAR(20) as HINBAN, --英数字
-      rtrim(MKBN, ' 　')::VARCHAR(1) as MKBN, --英数字
-      IFF(rtrim(NYUKKTEN) = '', '', LPAD(rtrim(NYUKKTEN), length(NYUKKTEN), '0'))::VARCHAR(2)as NYUKKTEN, --コード/区分
-      IFF(rtrim(JCHUYMD) = '', '', LPAD(rtrim(JCHUYMD), length(JCHUYMD), '0'))::VARCHAR(8)as JCHUYMD, --日付
-      IFF(rtrim(JCHUTIME) = '', '', LPAD(rtrim(JCHUTIME), length(JCHUTIME), '0'))::VARCHAR(4)as JCHUTIME, --時間
-      rtrim(JDENNO, ' 　')::VARCHAR(6) as JDENNO, --英数字
-      rtrim(CHUMON, ' 　')::VARCHAR(5) as CHUMON, --英数字
-      IFF(rtrim(BOKTEN) = '', '', LPAD(rtrim(BOKTEN), length(BOKTEN), '0'))::VARCHAR(2)as BOKTEN, --コード/区分
-      IFF(rtrim(SKANKTEN) = '', '', LPAD(rtrim(SKANKTEN), length(SKANKTEN), '0'))::VARCHAR(2)as SKANKTEN, --コード/区分
-      IFF(rtrim(USERCD) = '', '', LPAD(rtrim(USERCD), length(USERCD), '0'))::VARCHAR(5)as USERCD, --コード/区分
-      IFF(rtrim(INKTEN) = '', '', LPAD(rtrim(INKTEN), length(INKTEN), '0'))::VARCHAR(2)as INKTEN, --コード/区分
-      rtrim(JCHUKBN, ' 　')::VARCHAR(1) as JCHUKBN, --英数字
-      IFF(rtrim(NOUHKBN) = '', '', LPAD(rtrim(NOUHKBN), length(NOUHKBN), '0'))::VARCHAR(1)as NOUHKBN, --コード/区分
-      IFF(rtrim(FLNOUHKBN) = '', '', LPAD(rtrim(FLNOUHKBN), length(FLNOUHKBN), '0'))::VARCHAR(1)as FLNOUHKBN, --コード/区分
-      rtrim(JTANTOU, ' 　')::VARCHAR(5) as JTANTOU, --英数字
-      rtrim(UTANTOU, ' 　')::VARCHAR(2) as UTANTOU, --英数字
-      IFF(rtrim(DENK) = '', '', LPAD(rtrim(DENK), length(DENK), '0'))::VARCHAR(2)as DENK, --コード/区分
-      rtrim(FLCD, ' 　')::VARCHAR(1) as FLCD, --英数字
-      rtrim(REMARK1, ' 　')::VARCHAR(10) as REMARK1, --英数字
-      rtrim(REMARK2, ' 　')::VARCHAR(10) as REMARK2, --英数字
-      rtrim(RIYUU, ' 　')::VARCHAR(3) as RIYUU, --英数字
-      IFF(rtrim(SETYMD) = '', '', LPAD(rtrim(SETYMD), length(SETYMD), '0'))::VARCHAR(8)as SETYMD, --日付
-      IFF(rtrim(KASISAKIU) = '', '', LPAD(rtrim(KASISAKIU), length(KASISAKIU), '0'))::VARCHAR(5)as KASISAKIU, --コード区分
-      IFF(rtrim(KASYUU) = '', '', LPAD(rtrim(KASYUU), length(KASYUU), '0'))::VARCHAR(5)as KASYUU, --コード区分
-      IFF(rtrim(C80FLG) = '', '', LPAD(rtrim(C80FLG), length(C80FLG), '0'))::VARCHAR(1)as C80FLG, --フラグ
-      rtrim(URIKBN, ' 　')::VARCHAR(1) as URIKBN, --英数字
-      rtrim(URISFLG, ' 　')::VARCHAR(1) as URISFLG, --英数字
-      IFF(rtrim(GENKACD) = '', '', LPAD(rtrim(GENKACD), length(GENKACD), '0'))::VARCHAR(1)as GENKACD, --コード/区分
-      to_decimal(IFF(rtrim(PRICEKN) = '', 0,
-                 concat(rtrim("PRICEKN-S", ' 　'), rtrim(PRICEKN))))::DECIMAL(7)as PRICEKN, --数量/金額/数値
-      to_decimal(IFF(rtrim(NOUHBAIK) = '', 0,
-                 concat(rtrim("NOUHBAIK-S", ' 　'), rtrim(NOUHBAIK))))::DECIMAL(7)as NOUHBAIK, --数量/金額/数値
-      to_decimal(IFF(rtrim(TEKIBAIK) = '', 0,
-                 concat(rtrim("TEKIBAIK-S", ' 　'), rtrim(TEKIBAIK))))::DECIMAL(7)as TEKIBAIK, --数量/金額/数値
-      to_decimal(IFF(rtrim(PRICELP) = '', 0,
-                 concat(rtrim("PRICELP-S", ' 　'), rtrim(PRICELP))))::DECIMAL(7)as PRICELP, --数量/金額/数値
-      rtrim(ZANTEIKK, ' 　')::VARCHAR(1) as ZANTEIKK, --英数字
-      rtrim(KCLAS, ' 　')::VARCHAR(2) as KCLAS, --英数字
-      IFF(rtrim(HINSIJ) = '', '', LPAD(rtrim(HINSIJ), length(HINSIJ), '0'))::VARCHAR(1)as HINSIJ, --コード/区分
-      IFF(rtrim(TANTEKI) = '', '', LPAD(rtrim(TANTEKI), length(TANTEKI), '0'))::VARCHAR(3)as TANTEKI, --コード/区分
-      IFF(rtrim(SSHINMOK) = '', '', LPAD(rtrim(SSHINMOK), length(SSHINMOK), '0'))::VARCHAR(2)as SSHINMOK, --コード/区分
-      rtrim(GAITOLES, ' 　')::VARCHAR(1) as GAITOLES, --英数字
-      IFF(rtrim(PKANFLG) = '', '', LPAD(rtrim(PKANFLG), length(PKANFLG), '0'))::VARCHAR(1)as PKANFLG, --フラグ
-      rtrim(BUNRICD, ' 　')::VARCHAR(1) as BUNRICD, --英数字
-      IFF(rtrim(NYUKAYD) = '', '', LPAD(rtrim(NYUKAYD), length(NYUKAYD), '0'))::VARCHAR(8)as NYUKAYD,  --日付
-      IFF(rtrim(NYUTIME) = '', '', LPAD(rtrim(NYUTIME), length(NYUTIME), '0'))::VARCHAR(4)as NYUTIME, --時間
-      rtrim(NYUKAYK, ' 　')::VARCHAR(1) as NYUKAYK, --英数字
-      rtrim(DAIHIN, ' 　')::VARCHAR(20) as DAIHIN, --英数字
-      rtrim(DAIMKBN, ' 　')::VARCHAR(1) as DAIMKBN, --英数字
-      to_decimal(IFF(rtrim(JCHUSU) = '', 0,
-                 concat(rtrim("JCHUSU-S", ' 　'), rtrim(JCHUSU))))::DECIMAL(5)as JCHUSU, --数量/金額/数値
-      to_decimal(IFF(rtrim(BOSU) = '', 0,
-                 concat(rtrim("BOSU-S", ' 　'), rtrim(BOSU))))::DECIMAL(5)as BOSU, --数量/金額/数値
-      rtrim(ZENSUFLG, ' 　')::VARCHAR(1) as ZENSUFLG, --英数字
-      to_decimal(IFF(rtrim(SYUKKEI) = '', 0,
-                 concat(rtrim("SYUKKEI-S", ' 　'), rtrim(SYUKKEI))))::DECIMAL(5)as SYUKKEI, --数量/金額/数値
-      to_decimal(IFF(rtrim(HKYYKSU) = '', 0,
-                 concat(rtrim("HKYYKSU-S", ' 　'), rtrim(HKYYKSU))))::DECIMAL(5)as HKYYKSU, --数量/金額/数値
-      rtrim(SYUKKFLG, ' 　')::VARCHAR(1) as SYUKKFLG, --英数字
-      to_decimal(IFF(rtrim(BOKCNT) = '', 0, rtrim(BOKCNT)))::DECIMAL(2)as BOKCNT, --数量/金額/数値
-      IFF(rtrim(NDASIYMD) = '', '', LPAD(rtrim(NDASIYMD), length(NDASIYMD), '0'))::VARCHAR(8)as NDASIYMD, --日付
-      IFF(rtrim(NDASITIME) = '', '', LPAD(rtrim(NDASITIME), length(NDASITIME), '0'))::VARCHAR(4)as NDASITIME, --時間
-      rtrim(SYUKDENNO, ' 　')::VARCHAR(6) as SYUKDENNO, --英数字
-      IFF(rtrim(SASYOTM) = '', '', LPAD(rtrim(SASYOTM), length(SASYOTM), '0'))::VARCHAR(4)as SASYOTM, --時間
-      IFF(rtrim(MNTYMD) = '', '', LPAD(rtrim(MNTYMD), length(MNTYMD), '0'))::VARCHAR(8)as MNTYMD, --日付
-      rtrim(DAITAIFLG, ' 　')::VARCHAR(1) as DAITAIFLG, --英数字
-      rtrim(FFFLG, ' 　')::VARCHAR(1) as FFFLG, --英数字
-      rtrim(PTOPFLG, ' 　')::VARCHAR(1) as PTOPFLG, --英数字
-      IFF(rtrim(IDORJECT) = '', '', LPAD(rtrim(IDORJECT), length(IDORJECT), '0'))::VARCHAR(1)as IDORJECT,  --フラグ
-      IFF(rtrim(ITAKUKBN) = '', '', LPAD(rtrim(ITAKUKBN), length(ITAKUKBN), '0'))::VARCHAR(1)as ITAKUKBN, --コード/区分
-      IFF(rtrim(PTOPSEQ) = '', '', LPAD(rtrim(PTOPSEQ), length(PTOPSEQ), '0'))::VARCHAR(11)as PTOPSEQ, --コード/区分
-      rtrim(KAKAKUSKB, ' 　')::VARCHAR(1) as KAKAKUSKB, --英数字
-      rtrim(NJKBN, ' 　')::VARCHAR(1) as NJKBN, --英数字,
-      LDTS, --B層のLDTS
-      RANK() over(partition by KYOUHAN, HINBAN, MKBN, NYUKKTEN, CHUMON, USERCD, URISFLG, JCHUYMD order by LDTS desc) aggkey
+      rtrim(kyouhan, ' 　')::varchar(5) as kyouhan, --英数字
+      rtrim(hinban, ' 　')::varchar(20) as hinban, --英数字
+      rtrim(mkbn, ' 　')::varchar(1) as mkbn, --英数字
+      iff(rtrim(nyukkten) = '', '', lpad(rtrim(nyukkten), length(nyukkten), '0'))::varchar(2)as nyukkten, --コード/区分
+      iff(rtrim(jchuymd) = '', '', lpad(rtrim(jchuymd), length(jchuymd), '0'))::varchar(8)as jchuymd, --日付
+      iff(rtrim(jchutime) = '', '', lpad(rtrim(jchutime), length(jchutime), '0'))::varchar(4)as jchutime, --時間
+      rtrim(jdenno, ' 　')::varchar(6) as jdenno, --英数字
+      rtrim(chumon, ' 　')::varchar(5) as chumon, --英数字
+      iff(rtrim(bokten) = '', '', lpad(rtrim(bokten), length(bokten), '0'))::varchar(2)as bokten, --コード/区分
+      iff(rtrim(skankten) = '', '', lpad(rtrim(skankten), length(skankten), '0'))::varchar(2)as skankten, --コード/区分
+      iff(rtrim(usercd) = '', '', lpad(rtrim(usercd), length(usercd), '0'))::varchar(5)as usercd, --コード/区分
+      iff(rtrim(inkten) = '', '', lpad(rtrim(inkten), length(inkten), '0'))::varchar(2)as inkten, --コード/区分
+      rtrim(jchukbn, ' 　')::varchar(1) as jchukbn, --英数字
+      iff(rtrim(nouhkbn) = '', '', lpad(rtrim(nouhkbn), length(nouhkbn), '0'))::varchar(1)as nouhkbn, --コード/区分
+      iff(rtrim(flnouhkbn) = '', '', lpad(rtrim(flnouhkbn), length(flnouhkbn), '0'))::varchar(1)as flnouhkbn, --コード/区分
+      rtrim(jtantou, ' 　')::varchar(5) as jtantou, --英数字
+      rtrim(utantou, ' 　')::varchar(2) as utantou, --英数字
+      iff(rtrim(denk) = '', '', lpad(rtrim(denk), length(denk), '0'))::varchar(2)as denk, --コード/区分
+      rtrim(flcd, ' 　')::varchar(1) as flcd, --英数字
+      rtrim(remark1, ' 　')::varchar(10) as remark1, --英数字
+      rtrim(remark2, ' 　')::varchar(10) as remark2, --英数字
+      rtrim(riyuu, ' 　')::varchar(3) as riyuu, --英数字
+      iff(rtrim(setymd) = '', '', lpad(rtrim(setymd), length(setymd), '0'))::varchar(8)as setymd, --日付
+      iff(rtrim(kasisakiu) = '', '', lpad(rtrim(kasisakiu), length(kasisakiu), '0'))::varchar(5)as kasisakiu, --コード区分
+      iff(rtrim(kasyuu) = '', '', lpad(rtrim(kasyuu), length(kasyuu), '0'))::varchar(5)as kasyuu, --コード区分
+      iff(rtrim(c80flg) = '', '', lpad(rtrim(c80flg), length(c80flg), '0'))::varchar(1)as c80flg, --フラグ
+      rtrim(urikbn, ' 　')::varchar(1) as urikbn, --英数字
+      rtrim(urisflg, ' 　')::varchar(1) as urisflg, --英数字
+      iff(rtrim(genkacd) = '', '', lpad(rtrim(genkacd), length(genkacd), '0'))::varchar(1)as genkacd, --コード/区分
+      to_decimal(iff(rtrim(pricekn) = '', 0,
+                 concat(rtrim("PRICEKN-S", ' 　'), rtrim(pricekn))))::decimal(7)as pricekn, --数量/金額/数値
+      to_decimal(iff(rtrim(nouhbaik) = '', 0,
+                 concat(rtrim("NOUHBAIK-S", ' 　'), rtrim(nouhbaik))))::decimal(7)as nouhbaik, --数量/金額/数値
+      to_decimal(iff(rtrim(tekibaik) = '', 0,
+                 concat(rtrim("TEKIBAIK-S", ' 　'), rtrim(tekibaik))))::decimal(7)as tekibaik, --数量/金額/数値
+      to_decimal(iff(rtrim(pricelp) = '', 0,
+                 concat(rtrim("PRICELP-S", ' 　'), rtrim(pricelp))))::decimal(7)as pricelp, --数量/金額/数値
+      rtrim(zanteikk, ' 　')::varchar(1) as zanteikk, --英数字
+      rtrim(kclas, ' 　')::varchar(2) as kclas, --英数字
+      iff(rtrim(hinsij) = '', '', lpad(rtrim(hinsij), length(hinsij), '0'))::varchar(1)as hinsij, --コード/区分
+      iff(rtrim(tanteki) = '', '', lpad(rtrim(tanteki), length(tanteki), '0'))::varchar(3)as tanteki, --コード/区分
+      iff(rtrim(sshinmok) = '', '', lpad(rtrim(sshinmok), length(sshinmok), '0'))::varchar(2)as sshinmok, --コード/区分
+      rtrim(gaitoles, ' 　')::varchar(1) as gaitoles, --英数字
+      iff(rtrim(pkanflg) = '', '', lpad(rtrim(pkanflg), length(pkanflg), '0'))::varchar(1)as pkanflg, --フラグ
+      rtrim(bunricd, ' 　')::varchar(1) as bunricd, --英数字
+      iff(rtrim(nyukayd) = '', '', lpad(rtrim(nyukayd), length(nyukayd), '0'))::varchar(8)as nyukayd,  --日付
+      iff(rtrim(nyutime) = '', '', lpad(rtrim(nyutime), length(nyutime), '0'))::varchar(4)as nyutime, --時間
+      rtrim(nyukayk, ' 　')::varchar(1) as nyukayk, --英数字
+      rtrim(daihin, ' 　')::varchar(20) as daihin, --英数字
+      rtrim(daimkbn, ' 　')::varchar(1) as daimkbn, --英数字
+      to_decimal(iff(rtrim(jchusu) = '', 0,
+                 concat(rtrim("JCHUSU-S", ' 　'), rtrim(jchusu))))::decimal(5)as jchusu, --数量/金額/数値
+      to_decimal(iff(rtrim(bosu) = '', 0,
+                 concat(rtrim("BOSU-S", ' 　'), rtrim(bosu))))::decimal(5)as bosu, --数量/金額/数値
+      rtrim(zensuflg, ' 　')::varchar(1) as zensuflg, --英数字
+      to_decimal(iff(rtrim(syukkei) = '', 0,
+                 concat(rtrim("SYUKKEI-S", ' 　'), rtrim(syukkei))))::decimal(5)as syukkei, --数量/金額/数値
+      to_decimal(iff(rtrim(hkyyksu) = '', 0,
+                 concat(rtrim("HKYYKSU-S", ' 　'), rtrim(hkyyksu))))::decimal(5)as hkyyksu, --数量/金額/数値
+      rtrim(syukkflg, ' 　')::varchar(1) as syukkflg, --英数字
+      to_decimal(iff(rtrim(bokcnt) = '', 0, rtrim(bokcnt)))::decimal(2)as bokcnt, --数量/金額/数値
+      iff(rtrim(ndasiymd) = '', '', lpad(rtrim(ndasiymd), length(ndasiymd), '0'))::varchar(8)as ndasiymd, --日付
+      iff(rtrim(ndasitime) = '', '', lpad(rtrim(ndasitime), length(ndasitime), '0'))::varchar(4)as ndasitime, --時間
+      rtrim(syukdenno, ' 　')::varchar(6) as syukdenno, --英数字
+      iff(rtrim(sasyotm) = '', '', lpad(rtrim(sasyotm), length(sasyotm), '0'))::varchar(4)as sasyotm, --時間
+      iff(rtrim(mntymd) = '', '', lpad(rtrim(mntymd), length(mntymd), '0'))::varchar(8)as mntymd, --日付
+      rtrim(daitaiflg, ' 　')::varchar(1) as daitaiflg, --英数字
+      rtrim(ffflg, ' 　')::varchar(1) as ffflg, --英数字
+      rtrim(ptopflg, ' 　')::varchar(1) as ptopflg, --英数字
+      iff(rtrim(idorject) = '', '', lpad(rtrim(idorject), length(idorject), '0'))::varchar(1)as idorject,  --フラグ
+      iff(rtrim(itakukbn) = '', '', lpad(rtrim(itakukbn), length(itakukbn), '0'))::varchar(1)as itakukbn, --コード/区分
+      iff(rtrim(ptopseq) = '', '', lpad(rtrim(ptopseq), length(ptopseq), '0'))::varchar(11)as ptopseq, --コード/区分
+      rtrim(kakakuskb, ' 　')::varchar(1) as kakakuskb, --英数字
+      rtrim(njkbn, ' 　')::varchar(1) as njkbn, --英数字,
+      ldts, --b層のldts
+      rank() over(partition by kyouhan, hinban, mkbn, nyukkten, chumon, usercd, urisflg, jchuymd order by ldts desc) aggkey
     from {{ ref('substr_tbbofll') }}
 )
 select * from stg_tbbofll
