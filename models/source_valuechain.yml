@@ -68,6 +68,13 @@ sources:
             tests:
               - fixed_length:
                   length: 158
+      - name: raw_shkjissekiruikei
+        identifier: KTRLA03UZZ0KV80001
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 1283
       - name: raw_tbdaihl
         identifier: DXDAIH99
         columns:
