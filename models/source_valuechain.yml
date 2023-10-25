@@ -68,6 +68,13 @@ sources:
             tests:
               - fixed_length:
                   length: 158
+      - name: raw_shkjissekiruikei
+        identifier: KTRLA03UZZ0KV80001
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 1283
       - name: raw_cvn06dodrshiji
         identifier: KTRLA01VZZ0KVN00GA
         columns:
@@ -117,6 +124,34 @@ sources:
             tests:
               - fixed_length:
                   length: 400
+      - name: raw_tbbofll
+        identifier: DXBOFL99
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 274
+      - name: raw_cvn35dsyukabin
+        identifier: KTRLA01VZZ0KVN00G8
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 100
+      - name: raw_cvn18nosiodrjyoho
+        identifier: KTRLA01VZZ0KVN00G9
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 400
+      - name: raw_tbchznl
+        identifier: DXCHZN99
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 272
 
   - name: valuechain_db_public
     database: VALUECHAIN_DB
