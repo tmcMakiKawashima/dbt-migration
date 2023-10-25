@@ -8,7 +8,11 @@ with
                 when denno2 <> '' then denno2
                 when denno1 <> '' then denno1
                 else dennoj
-            end as denno
+            end as denno,
+            lpad(rtrim("JDATE-Y"),length("JDATE-Y"),'0') ||
+            lpad(rtrim("JDATE-M"),length("JDATE-M"),'0') ||
+            lpad(rtrim("JDATE-D"),length("JDATE-D"),'0') 
+            as jdate
         from {{ ref('stg_tbnsyus') }}
         where gdenk = '05' and dsyubets = '1' and origin = '1'
     )
@@ -30,7 +34,8 @@ select
     ns.hkkanymd,
     ns.kakuhositei,
     ns.honbuigai,
-    nk.makercd
+    nk.makercd,
+    ns.ldts -- snapshot作成用
 from nokishiteijutyuchikuseki ns
     left outer join nyusyukko nk
         on case

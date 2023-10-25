@@ -31,7 +31,8 @@ with
             syukayotei_max,
             syukayoteibinno_max,
             kakuhositei,
-            honbuigai
+            honbuigai,
+            ldts -- snapshot作成用
         from {{ ref('tmp50_dm_hosyuhin_tmp_juhattyuuriage') }}
     )
 select *
