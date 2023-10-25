@@ -159,6 +159,13 @@ sources:
             tests:
               - fixed_length:
                   length: 204
+      - name: raw_tbnokjs
+        identifier: DXNOKJ99
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 327
 
   - name: valuechain_db_public
     database: VALUECHAIN_DB
