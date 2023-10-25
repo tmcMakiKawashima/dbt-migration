@@ -145,6 +145,13 @@ sources:
             tests:
               - fixed_length:
                   length: 272
+      - name: raw_tbnoukifl
+        identifier: DXNOUK99
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 204
 
   - name: valuechain_db_public
     database: VALUECHAIN_DB
