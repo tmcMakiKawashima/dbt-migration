@@ -75,6 +75,13 @@ sources:
             tests:
               - fixed_length:
                   length: 1283
+      - name: raw_cvn06dodrshiji
+        identifier: KTRLA01VZZ0KVN00GA
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 500
       - name: raw_tbdaihl
         identifier: DXDAIH99
         columns:
@@ -145,6 +152,20 @@ sources:
             tests:
               - fixed_length:
                   length: 272
+      - name: raw_tbnoukifl
+        identifier: DXNOUK99
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 204
+      - name: raw_tbnokjs
+        identifier: DXNOKJ99
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 327
 
   - name: valuechain_db_public
     database: VALUECHAIN_DB
