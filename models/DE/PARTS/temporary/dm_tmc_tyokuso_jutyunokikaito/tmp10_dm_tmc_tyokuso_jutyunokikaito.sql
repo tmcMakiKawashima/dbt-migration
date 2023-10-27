@@ -43,7 +43,7 @@ tyokuso as (
         sirissueno,  --仕入先issue_no
         siirecd --仕入先cd
 )
-select nyusyukko.* exclude shimukesaki_nyuko, tyokuso.* exclude (tkskbn)
+select nyusyukko.*, tyokuso.* exclude (tkskbn)
 from tyokuso
 left outer join nyusyukko
 on  tyokuso.dlrcd = nyusyukko.shimukesaki_nyuko  --仕向先cd/共販店コード＋支社コード

@@ -22,7 +22,7 @@ tmp10 as (
         sum(juchu5) juchu5, --受注数（直送）
         max(rimak1) rimak1, --リマークⅰ
         max(rimak2) rimak2, --リマークⅱ
-        ldts
+        max(ldts) ldts --union結合用
     from {{ ref('tmp10_dm_tmc_tyokuso_jutyunokikaito') }}
     where jusinno = '' and renban2 = ''
     group by
@@ -33,8 +33,7 @@ tmp10 as (
         jhinban, --受注品番
         juchuymd, --受注日
         shinban, --出荷品番
-        siirecd, --仕入先cd
-        ldts
+        siirecd --仕入先cd
 )
 select * from temp20
 union
