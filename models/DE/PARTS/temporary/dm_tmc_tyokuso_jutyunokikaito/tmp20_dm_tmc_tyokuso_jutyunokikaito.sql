@@ -1,58 +1,48 @@
 with temp10 as (
     select
-        DLRCD,  --仕向先CD
-        ORDESYBT,  --オーダー種別
-        YUSOKBN,  --輸送CD
-        JUCHUYMD,  --受注日
-        ORDENO,  --注文No
-        max(NYUKOYMD) NYUKOYMD,  --入庫日
-        sum(NYUKOSU) NYUKOSU,  --入庫数
-        JHINBAN,  --受注品番
-        listagg(distinct(SHINBAN), ',') SHINBAN,  --出荷品番
-        sum(SYUKKASU) SYUKKASU,  --出荷数
-        max(SYUKKAYMD) SYUKKAYMD  --出荷日      
+        dlrcd,  --仕向先cd
+        ordesybt,  --オーダー種別
+        yusokbn,  --輸送cd
+        ordeno,  --注文no
+        jhinban,  --受注品番
+        juchuymd,  --受注日
+        shinban,  --出荷品番
+        sum(nyukosu) nyukosu,  --入庫数
+        max(nyukoymd) nyukoymd,  --入庫日
+        sum(syukkasu) syukkasu,  --出荷数
+        max(syukkaymd) syukkaymd  --出荷日      
     from {{ref('tmp10_dm_tmc_tyokuso_jutyunokikaito')}}
-    group by 
-            DLRCD,  --仕向先CD
-            ORDESYBT, --オーダー種別
-            YUSOKBN, --輸送CD
-            ORDENO, --注文No
-            JHINBAN, --受注品番
-            JUCHUYMD  --受注日
+    where jusinno <> ''
+    and renban2 <> ''
+    group by all
 ),
 tyokutehai as (
     select
-        DLRCD tehai_DLRCD,  --仕向先CD
-        IFF(YUSOKBN is null, '', YUSOKBN) tehai_YUSOKBN,  --輸送CD
-        ORDENO tehai_ORDENO,  --注文No
-        JUCHUYMD tehai_JUCHUYMD,  --受注日
-        JHINBAN tehai_JHINBAN,  --受注品番
-        ORDESYBT tehai_ORDESYBT,  --オーダー種別
-        sum(BOSU5) BOSU5,  --B_O数_直送
-        max(BORENYMD) BORENYMD,  --B_O連絡日
-        max(HENKAIYMD) HENKAIYMD,  --変更後回答日
-        max(HNOKIKTYMD) HNOKIKTYMD,  --本納期回答日
-        SIIRECD,  --仕入先CD
-        sum(JUCHU5) JUCHU5,  --受注数_直送
-        max(RIMAK1) RIMAK1,  --リマーク1
-        max(RIMAK2) RIMAK2,  --リマーク2
-        max(LDTS) LDTS -- snapshot作成用
+        dlrcd,  --仕向先cd
+        iff(yusokbn is null, '', yusokbn) yusokbn,  --輸送cd
+        ordeno,  --注文no
+        juchuymd,  --受注日
+        jhinban,  --受注品番
+        ordesybt,  --オーダー種別
+        sum(bosu5) bosu5,  --b_o数_直送
+        max(borenymd) borenymd,  --b_o連絡日
+        max(henkaiymd) henkaiymd,  --変更後回答日
+        max(hnokiktymd) hnokiktymd,  --本納期回答日
+        siirecd,  --仕入先cd
+        sum(juchu5) juchu5,  --受注数_直送
+        max(rimak1) rimak1,  --リマーク1
+        max(rimak2) rimak2,  --リマーク2
+        max(ldts) ldts -- snapshot作成用
     from {{ref('stg_dvnp4520')}}  --直送出荷手配
-    group by
-        DLRCD,  --仕向先CD
-        YUSOKBN,  --輸送CD
-        ORDENO,  --注文NO
-        JUCHUYMD,  --受注日
-        JHINBAN,  --受注品番
-        ORDESYBT,  --オーダー種別
-        SIIRECD  --仕入先CD
+    where jusinno <> '' and renban2 <> ''
+    group by all
 )
-select temp10.*, tyokutehai.*
+select temp10.* exclude(dlrcd, yusokbn, ordeno, juchuymd, jhinban, ordesybt), tyokutehai.*
 from tyokutehai
 left outer join temp10
-on tyokutehai.tehai_DLRCD = temp10.DLRCD --仕向先CD
-and tyokutehai.tehai_ORDESYBT = temp10.ORDESYBT  --オーダー種別
-and tyokutehai.tehai_YUSOKBN = temp10.YUSOKBN  --輸送CD
-and tyokutehai.tehai_ORDENO = temp10.ORDENO  --注文No
-and tyokutehai.tehai_JUCHUYMD = temp10.JUCHUYMD  --受注日
-and tyokutehai.tehai_JHINBAN = temp10.JHINBAN  --受注品番
+on tyokutehai.dlrcd = temp10.dlrcd --仕向先cd
+and tyokutehai.ordesybt = temp10.ordesybt  --オーダー種別
+and tyokutehai.yusokbn = temp10.yusokbn  --輸送cd
+and tyokutehai.ordeno = temp10.ordeno  --注文no
+and tyokutehai.juchuymd = temp10.juchuymd  --受注日
+and tyokutehai.jhinban = temp10.jhinban  --受注品番
