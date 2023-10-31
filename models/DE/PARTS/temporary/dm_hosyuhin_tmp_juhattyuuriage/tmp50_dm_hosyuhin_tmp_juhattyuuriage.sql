@@ -22,16 +22,24 @@ select
     case
         when
             (
-                ( -- 注文No上１桁が’P'または’Q'かつ納期仕向先テーブルが結合されている
-                    (substr(temp40.chumon, 1, 1) in ('P', 'Q')) and (noki.kyouhan is not null)
-                  -- オーダー種別が’11’かつ納期仕向先テーブルの引当・在補区分が’1’または’3’
-                    and temp40.odrsbetu = '11' and (noki.hikizaikbn in ('1','3'))
+                (   -- 注文No上１桁が’P'または’Q'
+                    substr(temp40.chumon, 1, 1) in ('P', 'Q') 
+                    -- かつ納期仕向先テーブルが結合されている
+                    and noki.kyouhan is not null
+                    -- かつオーダー種別が’11’
+                    and temp40.odrsbetu = '11' 
+                    -- かつ納期仕向先テーブルの引当・在補区分が’1’または’3’
+                    and noki.hikizaikbn in ('1','3')
                 )
                 or 
-                ( -- 注文No上１桁が’P'または’Q'かつ納期仕向先テーブルが結合されている
-                    (substr(temp40.chumon, 1, 1) in ('P', 'Q')) and (noki.kyouhan is not null)
-                  -- オーダー種別が’12’かつ納期仕向先テーブルの引当・在補区分が’2’または’3’
-                    and temp40.odrsbetu = '12' and (noki.hikizaikbn in ('2', '3'))
+                (   -- 注文No上１桁が’P'または’Q'
+                    substr(temp40.chumon, 1, 1) in ('P', 'Q')
+                    -- かつ納期仕向先テーブルが結合されている
+                    and noki.kyouhan is not null
+                    -- オーダー種別が’12’
+                    and temp40.odrsbetu = '12' 
+                    -- かつ納期仕向先テーブルの引当・在補区分が’2’または’3’
+                    and noki.hikizaikbn in ('2', '3')
                 )
             )
         then iff(noki.nokismkskcd is null, '', noki.nokismkskcd) -- 納期仕向先テーブル.納期仕向先コード
