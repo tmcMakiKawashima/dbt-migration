@@ -1,25 +1,34 @@
-with temp20 as (
-    select * from {{ ref("tmp20_dm_tmc_ippan_jutyunokikaito") }}
-    ),
-    bokanri as (
-        select 
-            ORDRKEY -- オーダーキー
-          , JURRSYMD -- 受注リリース日
-          , SIIRECD -- 仕入先CD
-          , max(MARTFLG) MARTFLG -- マル超FLG
-        from {{ref('stg_dvnp6490')}} -- BO納期管理資料累積ファイル
-        where KOKAGKBN = '1' -- 国内海外区分
-        group by 
-            ORDRKEY -- オーダーキー
-          , JURRSYMD -- 受注リリース日
-          , SIIRECD -- 仕入先CD
-        )
+with
+    temp20 as (select * from {{ ref("tmp20_dm_tmc_ippan_jutyunokikaito") }}),
+    temp20_tehai as (select * from {{ ref("tmp20_tehai_dm_tmc_ippan_jutyunokikaito") }})
 select
-     temp20.*
-    ,bokanri.MARTFLG -- マル超FLG
-    ,bokanri.SIIRECD -- 仕入先CD
-    ,bokanri.ORDRKEY as check3_ORDRKEY --オーダーキー nullチェック用
+    temp20.* exclude (
+        kaknoukbn, -- 格納拠点区分
+        jurrsymd, -- 受注リリース日
+        srsirskcd, -- 商流仕入先CD
+        kozyocd, -- 工場CD
+        brsirskcd, -- 物流仕入先CD
+        nonukyokbn, -- 納入拠点区分
+        ukeirecd, -- 受入CD
+        nonyutni, -- 納入単位
+        picloke, -- 出庫ロケ
+        sykikicd, -- 職域CD
+        sksijbsy -- 出庫指示場所（ラベル出力場所）
+    ),
+    tehai.* exclude(
+        dlrcd, -- 仕向先CD
+        syubetsu, -- オーダー種別
+        yusokbn, -- 輸送CD
+        odrno, -- オーダーNo
+        juchuymd, -- 受注日
+        jhinban -- 受注品番
+    )
 from temp20
-left outer join bokanri
-on temp20.ORDRKEY = bokanri.ORDRKEY -- オーダーキー
-and temp20.JUCHUYMD = bokanri.JURRSYMD -- 受注日/受注リリース日
+left outer join
+    temp20_tehai tehai
+    on temp20.dlrcd = tehai.dlrcd -- 仕向先CD
+    and temp20.syubetsu = tehai.syubetsu -- オーダー種別
+    and temp20.yusokbn = tehai.yusokbn -- 輸送CD
+    and temp20.odrno = tehai.odrno -- オーダーNo
+    and temp20.juchuymd = tehai.juchuymd -- 受注日
+    and temp20.jhinban = tehai.jhinban -- 受注品番

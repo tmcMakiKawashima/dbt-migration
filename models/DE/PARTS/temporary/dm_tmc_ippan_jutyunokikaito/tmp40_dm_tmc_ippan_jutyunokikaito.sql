@@ -1,45 +1,66 @@
-with nyusyukko as (
-    select * from {{ref('nyusyukko_x_shimuke')}}
-),
-syukkaippan as (
-    select
-        DLRCD, -- 仕向先CD
-        ORDESYBT, -- オーダー種別
-        YUSOKBN, -- 輸送CD
-        ORDENO, -- 注文NO
-        JHINBAN, -- 受注品番
-        JUCHUYMD, -- 受注日
-        SHINBAN, -- 出荷品番
-        SUM(SYKSU6) SYUKKASU, -- 出庫数_符号有　出荷数
-        MAX(SYUKKAYMD) SYUKKAYMD, -- 出荷日
-        CASENO6 DENNO -- ケースNO
-    from {{ref('stg_dvnp5770')}} -- 国内出荷実績一般
-    group by
-        DLRCD, -- 仕向先CD
-        ORDESYBT, -- オーダー種別
-        YUSOKBN, -- 輸送CD
-        ORDENO, -- 注文NO
-        JHINBAN, -- 受注品番
-        JUCHUYMD, -- 受注日
-        TKSKBN, -- 一般直送区分
-        SHINBAN, -- 出荷品番
-        CASENO6 -- ケースNO
-)
+with
+    temp30 as (select * from {{ ref("tmp30_dm_tmc_ippan_jutyunokikaito") }}),
+    tehai_kanban as (
+        select
+            tyotathb, -- 調達品番
+            kaknoukbn, -- 格納拠点区分
+            tekiyokaisiymd, -- 適用開始日
+            tekiyosyuryoymd, -- 適用終了日
+            hinbankaisiymd, -- 品番適用開始日
+            hinbansryoymd, -- 品番適用終了日
+            tehaikaisiymd, -- 手配開始日
+            tehaisryoymd, -- 手配終了日
+            --
+            thibusyocd, -- 手配担当部署CD
+            thitatocd, -- 手配担当者CD
+            tehaikbn, -- 手配区分
+            zaihikbn, -- 在非区分
+            cycle4, -- サイクル
+            kjnziknisu3, -- 基準在庫日数
+            kjnziksu, -- 基準在庫数
+            anzenzaikonisu, -- 安全在庫日数
+            anznzksu, -- 安全在庫数
+            nonyult, -- 納入L/T
+            nbscd, -- 納入拠点CD
+            orosibacd, -- 降し場CD
+            brsirskkojocd -- 物流仕入先工場CD
+        from {{ ref("stg_dvsf509a") }} -- 手配かんばんマスタ
+    ),
+    syukkabin as (
+        select 
+            dlrcd, -- 仕向先CD
+            syubetsu, -- オーダー種別
+            yusokbn, -- 輸送区分
+            max(keikanissu) keikanissu -- 経過日数
+        from {{ ref("stg_cvn35dsyukabin") }} -- 出荷便TBL
+        group by all
+    )
 select
-     nyusyukko.*
-    ,syukkaippan.DLRCD -- 仕向先CD
-    ,syukkaippan.ORDESYBT -- オーダー種別
-    ,syukkaippan.YUSOKBN -- 輸送CD
-    ,syukkaippan.ORDENO -- 注文NO
-    ,syukkaippan.JHINBAN -- 受注品番
-    ,syukkaippan.JUCHUYMD -- 受注日
-    ,syukkaippan.SYUKKASU -- 出庫数_符号有　出荷数
-    ,syukkaippan.SYUKKAYMD -- 出荷日
-    ,syukkaippan.DENNO -- ケースNO
-from syukkaippan
-left outer join nyusyukko
-on syukkaippan.DLRCD = nyusyukko.SHIMUKESAKI_NYUKO -- 仕向先CD/共販店コード＋支社コード
-and syukkaippan.ORDENO = nyusyukko.CHUMON_NO_NYUKO -- 注文No/Right(リマーク2,5)
-and syukkaippan.SHINBAN = nyusyukko.HINBAN_NYUKO -- 出荷品番/品番
-and syukkaippan.SYUKKAYMD = nyusyukko.JDATE_NYUKO -- 出荷日/受注日
-and syukkaippan.DENNO = nyusyukko.DENNOJ_NYUKO -- ケースNo/伝票№ 自拠点(イシュ№）
+    temp30.*,
+    tehai.* exclude(
+        tyotathb, -- 調達品番
+        kaknoukbn, -- 格納拠点区分
+        tekiyokaisiymd, -- 適用開始日
+        tekiyosyuryoymd, -- 適用終了日
+        hinbankaisiymd, -- 品番適用開始日
+        hinbansryoymd, -- 品番適用終了日
+        tehaikaisiymd, -- 手配開始日
+        tehaisryoymd -- 手配終了日
+    ),
+    syukkabin.keikanissu -- 経過日数
+from temp30
+left outer join
+    tehai_kanban tehai
+    on temp30.tehai_shinban = tehai.tyotathb -- 出荷品番(手配情報取得対象品番)/調達品番
+    and temp30.kaknoukbn = tehai.kaknoukbn -- 格納拠点区分
+    and temp30.juchuymd >= tehai.tekiyokaisiymd -- 受注日/適用開始日
+    and temp30.juchuymd <= tehai.tekiyosyuryoymd -- 受注日/適用終了日
+    and temp30.juchuymd >= tehai.hinbankaisiymd -- 受注日/品番適用開始日
+    and temp30.juchuymd <= tehai.hinbansryoymd -- 受注日/品番適用終了日
+    and temp30.juchuymd >= tehai.tehaikaisiymd -- 受注日/手配開始日
+    and temp30.juchuymd <= tehai.tehaisryoymd -- 受注日/手配終了日
+left outer join
+    syukkabin
+    on temp30.dlrcd = syukkabin.dlrcd -- 仕向先CD
+    and temp30.syubetsu = syukkabin.syubetsu -- オーダー種別
+    and iff(temp30.yusokbn = '1', '1', '*') = syukkabin.yusokbn -- 輸送区分
