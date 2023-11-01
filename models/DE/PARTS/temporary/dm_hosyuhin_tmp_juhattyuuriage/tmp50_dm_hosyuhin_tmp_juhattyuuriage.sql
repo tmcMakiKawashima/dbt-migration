@@ -68,5 +68,5 @@ from temp40
         and temp40.nyukkten = noki.nyukkten
         and temp40.makercd = noki.makercd
         and iff(temp40.makercd = '70000', temp40.ktenkbn, '') 
-            = noki.ktenkbn -- 輸送区分
+            = noki.ktenkbn -- 拠点区分
     --
