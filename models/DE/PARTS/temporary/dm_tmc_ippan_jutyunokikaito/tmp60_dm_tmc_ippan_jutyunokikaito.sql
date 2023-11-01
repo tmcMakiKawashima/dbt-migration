@@ -75,7 +75,7 @@ with
             hntaytime, -- 最新棚入予定日時
             ipsyytmie, -- インプット出荷予定日時
             martflg, -- マル超FLG
-            listagg(shinban, ',') shinban, -- 出荷品番
+            listagg(distinct shinban, ',') shinban, -- 出荷品番
             sum(bosu) bosu, -- B_O数
             max(boskstime) boskstime, -- B_O作成日時
             max(pendid) pendid, -- ペンディングID
