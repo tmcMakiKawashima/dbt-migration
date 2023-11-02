@@ -20,11 +20,11 @@ juhattyu as (
 select
     case
         when
-            try_to_date(nokiymd, 'yyyymmdd') <= try_to_date(shitei, 'yyyymmdd')
+            try_to_date(nokiymd, 'yyyyMMdd') <= try_to_date(shitei, 'yyyyMMdd')
         then
             '◯'
         when
-            try_to_date(nokiymd, 'yyyymmdd') > try_to_date(shitei, 'yyyymmdd')
+            try_to_date(nokiymd, 'yyyyMMdd') > try_to_date(shitei, 'yyyyMMdd')
         then
             '✕'
         else
@@ -32,11 +32,11 @@ select
     end tmp_nokijunsyu, --[TMP]納期遵守
     case
         when
-            try_to_date(nokiymd, 'yyyymmdd') <= try_to_date(shitei, 'yyyymmdd')
+            try_to_date(nokiymd, 'yyyyMMdd') <= try_to_date(shitei, 'yyyyMMdd')
         then
             3
         when
-            try_to_date(nokiymd, 'yyyymmdd') > try_to_date(shitei, 'yyyymmdd')
+            try_to_date(nokiymd, 'yyyyMMdd') > try_to_date(shitei, 'yyyyMMdd')
         then
             1
         else
@@ -44,22 +44,22 @@ select
     end tmp_nokijunsyu_priority, --[TMP]納期遵守（ソート優先度）
     case
         when
-            try_to_date(nokiymd, 'yyyymmdd') is not null
-            and try_to_date(shitei, 'yyyymmdd') is not null
+            try_to_date(nokiymd, 'yyyyMMdd') is not null
+            and try_to_date(shitei, 'yyyyMMdd') is not null
         then
             datediff(
-                day, try_to_date(shitei, 'yyyymmdd'), try_to_date(nokiymd, 'yyyymmdd')
+                day, try_to_date(shitei, 'yyyyMMdd'), try_to_date(nokiymd, 'yyyyMMdd')
             )
         else
             null
     end tmp_nokiokuredays, --[TMP]納期差
     case
         when
-            try_to_date(m_hntotime, 'yyyymmdd') <= try_to_date(nyukayd, 'yyyymmdd')
+            try_to_date(m_hntotime, 'yyyyMMdd') <= try_to_date(nyukayd, 'yyyyMMdd')
         then
             '◯'
         when
-            try_to_date(m_hntotime, 'yyyymmdd') > try_to_date(nyukayd, 'yyyymmdd')
+            try_to_date(m_hntotime, 'yyyyMMdd') > try_to_date(nyukayd, 'yyyyMMdd')
         then
             '✕'
         else
@@ -67,11 +67,11 @@ select
     end m_nokijunsyu, --参考[メーカー]納期遵守（推定）
     case
         when
-            try_to_date(m_hntotime, 'yyyymmdd') <= try_to_date(nyukayd, 'yyyymmdd')
+            try_to_date(m_hntotime, 'yyyyMMdd') <= try_to_date(nyukayd, 'yyyyMMdd')
         then
             '3'
         when
-            try_to_date(m_hntotime, 'yyyymmdd') > try_to_date(nyukayd, 'yyyymmdd')
+            try_to_date(m_hntotime, 'yyyyMMdd') > try_to_date(nyukayd, 'yyyyMMdd')
         then
             '1'
         else
@@ -79,13 +79,13 @@ select
     end m_nokijunsyu_priority, --参考[メーカー]納期遵守（ソート優先度）
     case
         when
-            try_to_date(m_hntotime, 'yyyymmdd') is not null
-            and try_to_date(nyukayd, 'yyyymmdd') is not null
+            try_to_date(m_hntotime, 'yyyyMMdd') is not null
+            and try_to_date(nyukayd, 'yyyyMMdd') is not null
         then
             datediff(
                 day,
-                try_to_date(m_hntotime, 'yyyymmdd'),
-                try_to_date(nyukayd, 'yyyymmdd')
+                try_to_date(m_hntotime, 'yyyyMMdd'),
+                try_to_date(nyukayd, 'yyyyMMdd')
             )
         else
             null
@@ -223,11 +223,11 @@ select
     end m_hsnksyytime, --[メーカー]出荷予定日（初回）
     case
         when
-            try_to_date(m_syukkaymd, 'yyyymmdd') <= try_to_date(m_hnskiboymd, 'yyyymmdd')
+            try_to_date(m_syukkaymd, 'yyyyMMdd') <= try_to_date(m_hnskiboymd, 'yyyyMMdd')
         then
             '◯'
         when
-            try_to_date(m_syukkaymd, 'yyyymmdd') > try_to_date(m_hnskiboymd, 'yyyymmdd')
+            try_to_date(m_syukkaymd, 'yyyyMMdd') > try_to_date(m_hnskiboymd, 'yyyyMMdd')
         then
             '✕'
         else
@@ -235,11 +235,11 @@ select
     end m_kiboujunsyu, --[トヨタ]出荷希望日遵守
     case
         when
-            try_to_date(m_syukkaymd, 'yyyymmdd') <= try_to_date(m_hnskiboymd, 'yyyymmdd')
+            try_to_date(m_syukkaymd, 'yyyyMMdd') <= try_to_date(m_hnskiboymd, 'yyyyMMdd')
         then
             '3'
         when
-            try_to_date(m_syukkaymd, 'yyyymmdd') > try_to_date(m_hnskiboymd, 'yyyymmdd')
+            try_to_date(m_syukkaymd, 'yyyyMMdd') > try_to_date(m_hnskiboymd, 'yyyyMMdd')
         then
             '1'
         else
@@ -252,23 +252,23 @@ select
         then
             datediff(
                 day,
-                try_to_date(m_syukkaymd, 'yyyymmdd'), 
-                try_to_date(m_hnskiboymd, 'yyyymmdd')
+                try_to_date(m_syukkaymd, 'yyyyMMdd'), 
+                try_to_date(m_hnskiboymd, 'yyyyMMdd')
             )
         else
             null
     end m_kibouokuredays, --[トヨタ]出荷希望日差
     case
         when
-            try_to_date(m_syukkaymd, 'yyyymmdd') <= try_to_date(m_hsnksyytime, 'yyyymmdd')
+            try_to_date(m_syukkaymd, 'yyyyMMdd') <= try_to_date(m_hsnksyytime, 'yyyyMMdd')
         then
             '◯'
         when
-            try_to_date(m_syukkaymd, 'yyyymmdd') > try_to_date(m_hsnksyytime, 'yyyymmdd')
+            try_to_date(m_syukkaymd, 'yyyyMMdd') > try_to_date(m_hsnksyytime, 'yyyyMMdd')
         then
             '✕'
         when
-            try_to_date(m_hsnksyytime, 'yyyymmdd') is null
+            try_to_date(m_hsnksyytime, 'yyyyMMdd') is null
         then
             '✕(初回未回答)'
         else
@@ -276,15 +276,15 @@ select
     end m_hsnksyyjunsyu, --[トヨタ]初回回答遵守
     case
         when
-            try_to_date(m_syukkaymd, 'yyyymmdd') <= try_to_date(m_hsnksyytime, 'yyyymmdd')
+            try_to_date(m_syukkaymd, 'yyyyMMdd') <= try_to_date(m_hsnksyytime, 'yyyyMMdd')
         then
             '3'
         when
-            try_to_date(m_syukkaymd, 'yyyymmdd') > try_to_date(m_hsnksyytime, 'yyyymmdd')
+            try_to_date(m_syukkaymd, 'yyyyMMdd') > try_to_date(m_hsnksyytime, 'yyyyMMdd')
         then
             '1'
         when
-            try_to_date(m_hsnksyytime, 'yyyymmdd') is null
+            try_to_date(m_hsnksyytime, 'yyyyMMdd') is null
         then
             '1'
         else
