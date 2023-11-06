@@ -109,7 +109,7 @@ sources:
           - name: RAW_DATA
             tests:
               - fixed_length:
-                  length: 492
+                  length: 500
       - name: raw_tbnsyus
         identifier: DXNSYU99
         columns:
