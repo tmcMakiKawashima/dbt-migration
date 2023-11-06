@@ -3,7 +3,10 @@ with
     chuzan as (select * from {{ ref('stg_tbchznl') }})
 select
     temp10.*,
-    chuzan.hchuymd chuzan_hchuymd
+    chuzan.hchuymd chuzan_hchuymd,
+    --納期仕向
+    chuzan.odrsbetu,
+    chuzan.ktenkbn
 from temp10
     left outer join chuzan
         on temp10.kyouhan = chuzan.kyouhan

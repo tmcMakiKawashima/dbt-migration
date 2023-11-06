@@ -72,7 +72,7 @@ with temp40 as (
         '' as m_brsirskcd, --物流仕入先cd
         '' as m_nonukyokbn, --納入拠点区分
         '' as m_ukeirecd, --受入cd
-        '' as m_nonyutni, --納入単位
+        0 as m_nonyutni, --納入単位
         '' as m_picloke, --出庫ロケ
         '' as m_sykikicd, --職域cd
         '' as m_sksijbsy, --出庫指示場所（ラベル出力場所）
