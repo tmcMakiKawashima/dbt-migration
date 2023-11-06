@@ -80,7 +80,7 @@ select
 from nyusyukko
 left outer join shimuke
 on nyusyukko.kyouhan_nyuko = shimuke.kyouhan -- 共販店コード
-and nyusyukko.ukekten_nyuko = shimuke.kyoten -- 受入拠点/入庫拠点
+and nyusyukko.ukekten_nyuko = shimuke.kyoten -- 受入拠点/拠点コード
 left outer join shimuke_noki noki
 on nyusyukko.kyouhan_nyuko = noki.kyouhan --共販店コード
 and nyusyukko.ukekten_nyuko = noki.nyukkten --受入拠点/入庫拠点
