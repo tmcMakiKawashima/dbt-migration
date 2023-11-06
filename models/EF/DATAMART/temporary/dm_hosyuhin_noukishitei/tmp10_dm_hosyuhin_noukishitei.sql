@@ -206,8 +206,17 @@ select
     m_hnnosikbn, --[トヨタ]納指状態区分（最新）
     m_hsnosikbn, --[トヨタ]納指状態区分（初回）
     m_honosikbn, --[トヨタ]納指状態区分（前回）
-    iff(m_juchusu is null, 0 , m_juchusu)
-    - iff(m_allnosicansu is null, 0, m_allnosicansu) m_cannosizansu, --[メーカー]キャンセル後残数
+    case
+        when
+            m_juchusu is not null and m_allnosicansu is not null
+        then
+            m_juchusu - m_allnosicansu
+        when
+            m_juchusu is not null and m_allnosicansu is null
+        then
+            m_juchusu
+     else null
+    end m_cannosizansu, --[メーカー]キャンセル後残数
     case
         when
             m_hsnksyytime is not null
