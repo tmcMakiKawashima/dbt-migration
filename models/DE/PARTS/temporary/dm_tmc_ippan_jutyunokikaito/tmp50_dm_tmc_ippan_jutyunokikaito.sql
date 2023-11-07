@@ -30,7 +30,8 @@ select
     ,syukkaippan.denno -- ケースNO
 from syukkaippan
 left outer join nyusyukko
-on syukkaippan.dlrcd = nyusyukko.shimukesaki_nyuko -- 仕向先CD/共販店コード＋支社コード
+on syukkaippan.dlrcd = 
+   nyusyukko.kyouhan_nyuko || iff(nyusyukko.sishacd is null, '', nyusyukko.sishacd) -- 仕向先CD/共販店コード＋支社コード
 and syukkaippan.ordeno = nyusyukko.chumon_no_nyuko -- 注文NO/right(リマーク2,5)
 and syukkaippan.shinban = nyusyukko.hinban_nyuko -- 出荷品番/品番
 and syukkaippan.syukkaymd = nyusyukko.jdate_nyuko -- 出荷日/受注日
