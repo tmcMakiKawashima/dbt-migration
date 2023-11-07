@@ -7,7 +7,7 @@ select
     nyukoymd,  -- 入庫日
     jdate_nyuko,  -- 受注日
     chumon_no_nyuko,  -- リマーク2
-    shimukesaki_nyuko  -- 共販店コード＋支社コード
+    sishacd  -- 支社コード
 from {{ref('nyusyukko_x_shimuke')}}
 ),
 tyokuso as (
@@ -46,7 +46,7 @@ tyokuso as (
 select nyusyukko.*, tyokuso.* exclude (tkskbn)
 from tyokuso
 left outer join nyusyukko
-on  tyokuso.dlrcd = nyusyukko.shimukesaki_nyuko  --仕向先cd/共販店コード＋支社コード
+on  tyokuso.dlrcd = nyusyukko.kyouhan_nyuko || iff(nyusyukko.sishacd is null, '', nyusyukko.sishacd)  --仕向先cd/共販店コード＋支社コード
 and tyokuso.ordeno = nyusyukko.chumon_no_nyuko  --注文no/right(リマーク2,5)
 and tyokuso.shinban = nyusyukko.hinban_nyuko  --出荷品番/品番
 and tyokuso.syukkaymd = nyusyukko.jdate_nyuko  --出荷日/受注日
