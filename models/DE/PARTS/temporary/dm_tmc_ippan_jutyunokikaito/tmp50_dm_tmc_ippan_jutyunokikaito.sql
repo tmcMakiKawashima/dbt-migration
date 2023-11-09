@@ -28,6 +28,7 @@ select
     ,syukkaippan.syukkasu -- 出庫数_符号有　出荷数
     ,syukkaippan.syukkaymd -- 出荷日
     ,syukkaippan.denno -- ケースNO
+    ,syukkaippan.shinban -- 出荷品番
 from syukkaippan
 left outer join nyusyukko
 on syukkaippan.dlrcd = 
