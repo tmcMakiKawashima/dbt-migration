@@ -16,7 +16,8 @@ with nyusyukko as (
         ukekten ukekten_nyuko, -- 受入拠点
         right(remark2, 5) chumon_no_nyuko, --リマーク２ ※右から5桁目
         substr(remark2, 1, 2) ordersyu_nyuko, --リマーク２　※先頭2桁
-        makercd --メーカーコード
+        makercd, --メーカーコード
+        chokso -- 一般直送区分
     from {{ ref('stg_tbnsyus') }} -- 入出庫ファイル
     where gdenk in ('71', '72', '73', '74', '75', '78') -- 外部伝区
     and dsyubets = '6' -- データ種別:内部伝区
@@ -76,6 +77,9 @@ select
             shimuke.sishacd
     end as sishacd --支社コード
     --
+    ,nyusyukko.chokso -- 一般直送区分
+    ,nyusyukko.ukekten_nyuko -- 受入拠点
+    ,nyusyukko.makercd --メーカーコード
     ,shimuke.kyouhan as check_kyouhan --共販店コード nullチェック用
 from nyusyukko
 left outer join shimuke
