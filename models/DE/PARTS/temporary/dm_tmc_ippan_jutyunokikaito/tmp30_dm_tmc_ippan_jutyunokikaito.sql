@@ -13,7 +13,10 @@ select
         nonyutni, -- 納入単位
         picloke, -- 出庫ロケ
         sykikicd, -- 職域CD
-        sksijbsy -- 出庫指示場所（ラベル出力場所）
+        sksijbsy, -- 出庫指示場所（ラベル出力場所）
+        check1_ordrkey, --オーダーキー nullチェック用
+        check2_ordrkey, --オーダーキー nullチェック用
+        check3_ordrkey --オーダーキー nullチェック用
     ),
     tehai.* exclude(
         dlrcd, -- 仕向先CD

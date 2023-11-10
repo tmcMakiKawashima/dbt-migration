@@ -105,7 +105,12 @@ with
         from {{ ref("tmp50_dm_tmc_ippan_jutyunokikaito") }}
         group by all
     )
-select temp40.*, temp50.* exclude(dlrcd, ordesybt, yusokbn, ordeno, jhinban, juchuymd)
+select temp40.*, 
+       temp50.syukkasu,
+       temp50.syukkaymd,
+       temp50.nyukoymd,
+       temp50.nyukosu,
+       temp50.dlrcd as check_dlrcd -- 仕向先コード nullチェック用
 from temp40
 left outer join
     temp50
