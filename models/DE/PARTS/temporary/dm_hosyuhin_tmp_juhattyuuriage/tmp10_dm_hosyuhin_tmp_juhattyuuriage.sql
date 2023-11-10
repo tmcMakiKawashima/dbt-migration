@@ -35,7 +35,8 @@ select
     ns.kakuhositei,
     ns.honbuigai,
     nk.makercd,
-    ns.ldts -- snapshot作成用
+    ns.ldts, -- snapshot作成用
+    nk.kyouhan as check_kyouhan -- 共販店コード nullチェック用
 from nokishiteijutyuchikuseki ns
     left outer join nyusyukko nk
         on case

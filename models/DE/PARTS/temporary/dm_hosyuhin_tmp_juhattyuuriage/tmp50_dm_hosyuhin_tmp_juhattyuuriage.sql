@@ -11,7 +11,7 @@ with
     atopshimuke as (select * from {{ ref('stg_dvnp054a') }}),
     tbuserm as (select * from {{ ref('stg_tbuserm') }})
 select
-    temp40.*,
+    temp40.* exclude (check1_kyouhan, check2_kyouhan, check3_kyouhan, check4_kyouhan),
     tbuserm.hanbaiten,
     tbuserm.kjusrnm,
     atopjuchu.tkskbn,
@@ -44,7 +44,12 @@ select
             )
         then iff(noki.nokismkskcd is null, '', noki.nokismkskcd) -- 納期仕向先テーブル.納期仕向先コード
         else iff(tasshimuke.sishacd is null, '', tasshimuke.sishacd) -- 仕向先テーブル.支社コード
-    end as sishacd
+    end as sishacd,
+    atopjuchu.jhinban as check_jhinban, -- 受注品番 nullチェック用
+    hinban.pno as check_pno, -- 品番 nullチェック用
+    tasshimuke.kyouhan as check1_kyouhan, -- 共販店コード１ nullチェック用
+    atopshimuke.dlrcd as check_dlrcd, -- 仕向先CD nullチェック用
+    tbuserm.kyouhan as check2_kyouhan -- 共販店コード２ nullチェック用
     --
 from temp40
     left outer join atopjuchu
