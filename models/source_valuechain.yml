@@ -9,8 +9,3 @@ sources:
         identifier: O_CVS11JYUCHUU
       - name: substr_tbsmksk_noki
         identifier: substr_tbsmksk_noki
-
-# loaded_at_field: LDTS
-# freshness:
-#   warn_after: { count: 1, period: hour }
-#   error_after: { count: 24, period: hour }
