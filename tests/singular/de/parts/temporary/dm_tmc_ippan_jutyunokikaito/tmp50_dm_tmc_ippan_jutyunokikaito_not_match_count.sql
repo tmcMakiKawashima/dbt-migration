@@ -1,23 +1,24 @@
 {{ config(fail_calc = "cnt") }}
-
+--データ結合５のチェック
 select b.cnt - a.cnt as cnt
     from
     (
       select count(*) as cnt
       from (
         select
-          DLRCD, -- 仕向先CD
-          YUSOKBN, -- 輸送CD
-          ODRNO, -- オーダーNO
-          JUCHUYMD, -- 受注日
-          JHINBAN, -- 受注品番
-          SYUBETSU, -- オーダー種別
-          KAKUNOUKBN, -- 格納拠点区分
-          SIIRECD -- 仕入先CD
-        from {{ ref("tmp30_dm_tmc_ippan_jutyunokikaito") }}
+          dlrcd, -- 仕向先cd
+          ordesybt, -- オーダー種別
+          yusokbn, -- 輸送cd
+          ordeno, -- 注文no
+          jhinban, -- 受注品番
+          juchuymd, -- 受注日
+          tkskbn, -- 一般直送区分
+          shinban, -- 出荷品番
+          caseno6 -- ケースno
+        from {{ref('stg_dvnp5770')}} -- 国内出荷実績一般
         group by all
       )
     ) a, (
       select count(*) as cnt
-      from {{ ref("tmp50_dm_tmc_ippan_jutyunokikaito") }}
+      from {{ref("tmp50_dm_tmc_ippan_jutyunokikaito")}}
     ) b

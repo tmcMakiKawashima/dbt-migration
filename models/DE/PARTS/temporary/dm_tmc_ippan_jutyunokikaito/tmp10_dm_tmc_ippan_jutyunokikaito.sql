@@ -38,7 +38,8 @@ with
             case
                 when (hnhonyoyakuymd <> juchuymd) then juchuymd else ''
             end kariyoyakuymd, -- 仮予約日
-            nosikbn hnnosikbn -- 納指状態区分(最新)
+            nosikbn hnnosikbn, -- 納指状態区分(最新)
+            ordrkey as check1_ordrkey -- オーダーキー nullチェック用
         from {{ ref("stg_cvn18nosiodrjyoho_latest") }} -- 納指オーダー情報ファイル（最新）
     ),
     noshi_initial as (
@@ -74,14 +75,16 @@ with
             mkaitocd, -- 未回答ＣＤ
             hnkkbn, -- 最新回答区分
             hntaytime, -- 最新棚入予定日時
-            ipsyytmie -- インプット出荷予定日時
+            ipsyytmie, -- インプット出荷予定日時
+            ordrkey as check2_ordrkey -- オーダーキー nullチェック用
         from {{ ref("stg_dvnp0710") }} -- BO納期回答ファイル
         where kokagkbn = '1'
     ),
     bo_kanri as (
         select ordrkey, -- オーダーキー
                juchuymd, -- 受注日
-               martflg -- マル超FLG
+               martflg, -- マル超FLG
+               ordrkey as check3_ordrkey -- オーダーキー nullチェック用
         from {{ ref("stg_dvnp6490") }} -- BO納期管理資料累積ファイル
         where kokagkbn = '1'
     )

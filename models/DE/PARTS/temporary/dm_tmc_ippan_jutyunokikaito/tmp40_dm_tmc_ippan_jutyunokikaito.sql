@@ -23,7 +23,8 @@ with
             nonyult, -- 納入L/T
             nbscd, -- 納入拠点CD
             orosibacd, -- 降し場CD
-            brsirskkojocd -- 物流仕入先工場CD
+            brsirskkojocd, -- 物流仕入先工場CD
+            tyotathb as check_tyotathb --調達品番 nullチェック用
         from {{ ref("stg_dvsf509a") }} -- 手配かんばんマスタ
     ),
     syukkabin as (
@@ -47,7 +48,8 @@ select
         tehaikaisiymd, -- 手配開始日
         tehaisryoymd -- 手配終了日
     ),
-    syukkabin.keikanissu -- 経過日数
+    syukkabin.keikanissu, -- 経過日数
+    syukkabin.dlrcd as check_dlrcd -- 仕向先コード nullチェック用
 from temp30
 left outer join
     tehai_kanban tehai

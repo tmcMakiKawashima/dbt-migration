@@ -80,7 +80,6 @@ select
     ,nyusyukko.chokso -- 一般直送区分
     ,nyusyukko.ukekten_nyuko -- 受入拠点
     ,nyusyukko.makercd --メーカーコード
-    ,shimuke.kyouhan as check_kyouhan --共販店コード nullチェック用
 from nyusyukko
 left outer join shimuke
 on nyusyukko.kyouhan_nyuko = shimuke.kyouhan -- 共販店コード
