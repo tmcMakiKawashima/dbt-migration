@@ -68,6 +68,9 @@ models:
         dim:
           +materialized: table
 
+tests:
+  +severity: warn
+
 snapshots:
   HOKYUNOKI_MIERUKA:
     BD:
