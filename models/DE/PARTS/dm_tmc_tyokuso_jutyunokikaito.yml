@@ -2,16 +2,55 @@ version: 2
 
 models:
   - name: tmp10_dm_tmc_tyokuso_jutyunokikaito
-    tests:
-      - unique_values
     columns:
       - name: CHUMON_NO_NYUKO
         tests:
           - outer_join_not_all_null
-  - name: tmp20_dm_tmc_tyokuso_jutyunokikaito
     tests:
-      - unique_values
-    columns:
-      - name: DLRCD
-        tests:
-          - outer_join_not_all_null
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - ordeno
+            - shinban
+            - syukkaymd
+            - sirissueno
+  - name: tmp30_dm_tmc_tyokuso_jutyunokikaito
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - ordesybt
+            - yusokbn
+            - ordeno
+            - juchuymd
+            - shinban
+          where: "jhinban <> ''"
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - ordesybt
+            - yusokbn
+            - ordeno
+            - juchuymd
+            - jhinban
+          where: "jhinban = ''"
+  - name: tmp40_dm_tmc_tyokuso_jutyunokikaito
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - ordesybt
+            - yusokbn
+            - ordeno
+            - juchuymd
+            - shinban
+          where: "jhinban <> ''"
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - ordesybt
+            - yusokbn
+            - ordeno
+            - juchuymd
+            - jhinban
+          where: "jhinban = ''"

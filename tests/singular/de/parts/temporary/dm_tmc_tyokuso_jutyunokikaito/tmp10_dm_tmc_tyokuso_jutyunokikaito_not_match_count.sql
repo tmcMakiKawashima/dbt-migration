@@ -6,15 +6,16 @@ select b.cnt - a.cnt as cnt
       select count(*) as cnt
       from (
         select
-          DLRCD,  --仕向先CD
-          ORDESYBT,  --オーダー種別
-          YUSOKBN,  --輸送CD
-          JHINBAN,  --受注品番
-          JUCHUYMD,  --受注日
-          ORDENO,  --注文No
-          TKSKBN,  --一般直送区分
-          SHINBAN,  --出荷品番
-          SIRISSUENO  --仕入先ISSUE_NO
+          dlrcd,  --仕向先cd
+          ordesybt,  --オーダー種別
+          yusokbn,  --輸送cd
+          jhinban,  --受注品番
+          juchuymd,  --受注日
+          ordeno,  --注文no
+          tkskbn,  --一般直送区分
+          shinban,  --出荷品番
+          sirissueno,  --仕入先issue_no
+          siirecd --仕入先cd
         from {{ref('stg_dvnp4330')}}  --国内出荷実績直送
         group by all
       )
