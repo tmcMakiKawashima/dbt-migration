@@ -30,7 +30,7 @@ select c.cnt - (a.cnt  + b.cnt) as cnt
           siirecd --仕入先CD
         from {{ref('tmp10_dm_tmc_tyokuso_jutyunokikaito')}} --データ結合2結果(tmp10_dm_tmc_tyokuso_jutyunokikaito)
         where jusinno = '' --受信No
-        and RENBAN2 = '' --連番（直送）
+        and renban2 = '' --連番（直送）
         group by all
       )
     ) b, (
