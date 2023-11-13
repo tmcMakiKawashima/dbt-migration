@@ -24,7 +24,7 @@ with stg_tbbofll as (
       rtrim(riyuu, ' 　')::varchar(3) as riyuu, --英数字
       iff(rtrim(setymd) = '', '', lpad(rtrim(setymd), length(setymd), '0'))::varchar(8)as setymd, --日付
       iff(rtrim(kasisakiu) = '', '', lpad(rtrim(kasisakiu), length(kasisakiu), '0'))::varchar(5)as kasisakiu, --コード区分
-      iff(rtrim(kasyuu) = '', '', lpad(rtrim(kasyuu), length(kasyuu), '0'))::varchar(5)as kasyuu, --コード区分
+      iff(rtrim(kasyuu, 0) = '', '', lpad(rtrim(kasyuu), length(kasyuu), '0'))::varchar(5)as kasyuu, --コード区分
       iff(rtrim(c80flg) = '', '', lpad(rtrim(c80flg), length(c80flg), '0'))::varchar(1)as c80flg, --フラグ
       rtrim(urikbn, ' 　')::varchar(1) as urikbn, --英数字
       rtrim(urisflg, ' 　')::varchar(1) as urisflg, --英数字
