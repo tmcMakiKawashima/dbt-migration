@@ -14,10 +14,3 @@ select count(*) as cnt
             and m_thitatocd is null
             and m_tehaikbn is null
         )
-
-
-
-
-
-
-
