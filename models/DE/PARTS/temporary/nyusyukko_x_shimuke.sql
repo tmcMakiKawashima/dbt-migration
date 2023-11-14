@@ -38,6 +38,9 @@ shimuke as (
 shimuke_noki as (
     select * from {{ref('stg_tbsmksk_noki')}}
     where deletedate = '00000000'
+    -- 先頭１レコード抽出条件
+    and rownum = 1
+    --
 )
 select 
      nyusyukko.kyouhan_nyuko -- 共販店コード
