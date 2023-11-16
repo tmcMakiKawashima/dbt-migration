@@ -320,7 +320,8 @@ select
     m_orosibacd, --[トヨタ]降し場CD
     m_brsirskkojocd, --[トヨタ]物流仕入先工場CD
     m_pikcptime, --出庫完日
-    m_paktime --梱完日
+    m_paktime, --梱完日
+    current_timestamp as ldts -- dm作成時の時間
 from juhattyu jh
 left outer join nokikaito nk
 on jh.dlrcd = nk.m_dlrcd
