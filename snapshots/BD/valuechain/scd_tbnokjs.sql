@@ -2,13 +2,17 @@
 
 {{
     config(
-        unique_key="kyouhan ||'-'|| usercd ||'-'|| hinban ||'-'|| 
-                    mkbn ||'-'|| nyukkten ||'-'|| 
-                    concat(left(chumon, 1), right(chumon, 3)) ||'-'|| 
-                    jchuymd",
+        unique_key="concat_ws('-', 
+                    kyouhan,
+                    usercd,
+                    hinban,
+                    mkbn,
+                    nyukkten,
+                    concat(left(chumon, 1), right(chumon, 3)),
+                    jchuymd)",
 
         strategy='timestamp',
-        updated_at='LDTS',
+        updated_at='ldts',
         invalidate_hard_deletes=True,
     )
 }}
