@@ -7,6 +7,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - kyouhan
+            - usercd
             - hinban
             - mkbn
             - nyukkten
@@ -27,6 +28,7 @@ models:
             - nyukkten
             - chumon
             - jchuymd
+            - hchuymd
     columns:
       - name: check_kyouhan
         tests:
