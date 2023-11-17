@@ -8,7 +8,9 @@ models:
             - dlrcd
             - hinban
             - chumon
-            - jchuymd
+            - hchuymd
+          config:
+            where: "hchuymd is not null"
     columns:
       - name: m_juchuymd
         tests:
