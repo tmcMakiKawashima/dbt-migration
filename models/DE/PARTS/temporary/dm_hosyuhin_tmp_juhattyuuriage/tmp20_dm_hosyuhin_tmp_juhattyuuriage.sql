@@ -15,5 +15,4 @@ from temp10
         and temp10.mkbn = chuzan.mkbn
         and temp10.nyukkten = chuzan.nyukkten
         and temp10.chumon = chuzan.chumon
-        and temp10.jchuymd <= chuzan.hchuymd
-        and temp10.hchuymd >= chuzan.hchuymd
+        and temp10.sdate = chuzan.hchuymd
