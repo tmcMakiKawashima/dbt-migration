@@ -2,12 +2,18 @@
 
 {{
     config(
-        unique_key="kyouhan ||'-'|| hinban ||'-'|| mkbn ||'-'|| 
-                    jchuymd ||'-'|| jchutime ||'-'|| jdenno ||'-'|| 
-                    jdennoeda ||'-'|| kensu",
+        unique_key="concat_ws('-', 
+                    kyouhan, 
+                    hinban, 
+                    mkbn, 
+                    jchuymd, 
+                    jchutime, 
+                    jdenno, 
+                    jdennoeda, 
+                    kensu)",
 
         strategy='timestamp',
-        updated_at='LDTS',
+        updated_at='ldts',
         invalidate_hard_deletes=True,
     )
 }}
