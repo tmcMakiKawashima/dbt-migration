@@ -2,13 +2,14 @@ with
     temp20 as (select * from {{ ref('tmp20_dm_hosyuhin_tmp_juhattyuuriage') }}),
     bof as (select * from {{ ref('stg_tbbofll') }})
 select
-    temp20.*,
+    temp20.* exclude (check_kyouhan),
     bof.syukkei,
     bof.ndasiymd,
     case
         when bof.kasyuu <> '' then bof.kasyuu
         else bof.usercd
-    end kasyuu
+    end kasyuu,
+    bof.kyouhan as check_kyouhan -- 共販店コード nullチェック用
 from temp20
     left outer join bof
         on temp20.kyouhan = bof.kyouhan

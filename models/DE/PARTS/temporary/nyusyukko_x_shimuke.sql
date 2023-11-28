@@ -38,6 +38,9 @@ shimuke as (
 shimuke_noki as (
     select * from {{ref('stg_tbsmksk_noki')}}
     where deletedate = '00000000'
+    -- 先頭１レコード抽出条件
+    and rownum = 1
+    --
 )
 select 
      nyusyukko.kyouhan_nyuko -- 共販店コード
@@ -80,7 +83,6 @@ select
     ,nyusyukko.chokso -- 一般直送区分
     ,nyusyukko.ukekten_nyuko -- 受入拠点
     ,nyusyukko.makercd --メーカーコード
-    ,shimuke.kyouhan as check_kyouhan --共販店コード nullチェック用
 from nyusyukko
 left outer join shimuke
 on nyusyukko.kyouhan_nyuko = shimuke.kyouhan -- 共販店コード

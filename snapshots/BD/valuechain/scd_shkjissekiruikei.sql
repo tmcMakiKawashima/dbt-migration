@@ -1,11 +1,11 @@
-{% snapshot scd_cvn06dodrshiji %}
+{% snapshot scd_shkjissekiruikei %}
 
 {{
     config(
         unique_key="concat_ws('-', 
-                    ordrkey, 
-                    tanskkey, 
-                    juchuymd)",
+                    lpcl, 
+                    cyc_sno, 
+                    tkod_dt)",
 
         strategy='timestamp',
         updated_at='ldts',
@@ -13,6 +13,6 @@
     )
 }}
 
-select * from {{ ref('stg_cvn06dodrshiji') }}
+select * from {{ ref('stg_shkjissekiruikei') }}
 
 {% endsnapshot %}

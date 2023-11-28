@@ -86,7 +86,8 @@ with
                     or skzumsu > 0
                 then substr(pentime, 1, 8)
                 else ''
-            end m_nokishiteiyoyakuymd -- 納指予約日
+            end m_nokishiteiyoyakuymd, -- 納指予約日
+            ordrkey as check1_ordrkey -- オーダーキー nullチェック用
         -- オーダー指示ステータスファイル（オーダーNo付与したもの）
         from {{ ref("stg_dvnp0700_odrno") }}
         order by ordrkey, juchuymd, tanskkey, caseno, shinban
@@ -108,7 +109,8 @@ with
             picloke, -- 出庫ロケ
             sykikicd, -- 職域CD
             sksijbsy, -- 出庫指示場所（ラベル出力場所）
-            daitityp -- 代替関係タイプ
+            daitityp, -- 代替関係タイプ
+            ordrkey as check2_ordrkey -- オーダーキー nullチェック用
         from {{ ref("stg_cvn06dodrshiji") }} -- オーダー指示ファイル
         order by ordrkey, juchuymd, tanskkey
     ),
@@ -130,7 +132,8 @@ select
     oss.* exclude (ordrkey, juchuymd, caseno, odrno, jhinban, dlrcd),
     os.* exclude (ordrkey, juchuymd, tanskkey),
     sj.pik_cp_dttm,
-    sj.pak_dttm
+    sj.pak_dttm,
+    sj.od_key as check3_ordrkey -- オーダーキー nullチェック用
 from temp10
 left outer join
     odr_shiji_status oss -- オーダー指示ステータスファイル

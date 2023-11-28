@@ -5,14 +5,18 @@ with
     nouki_previous as (select * from {{ ref('stg_tbnoukifl_previous') }}),
     nouki_latest as (select * from {{ ref('stg_tbnoukifl_latest') }})
 select
-    temp30.*,
+    temp30.* exclude (check_kyouhan),
     nouki.nokiymd,
     nouki_initial.nokiymd syukayotei_min,
     nouki_initial.binno syukayoteibinno_min,
     nouki_previous.nokiymd syukayotei_prev,
     nouki_previous.binno syukayoteibinno_prev,
     nouki_latest.nokiymd syukayotei_max,
-    nouki_latest.binno syukayoteibinno_max
+    nouki_latest.binno syukayoteibinno_max,
+    nouki.kyouhan as check1_kyouhan, -- 共販店コード１ nullチェック用
+    nouki_initial.kyouhan as check2_kyouhan, -- 共販店コード２ nullチェック用
+    nouki_previous.kyouhan as check3_kyouhan, -- 共販店コード３ nullチェック用
+    nouki_latest.kyouhan as check4_kyouhan -- 共販店コード４ nullチェック用
 from temp30
     left outer join nouki
         on temp30.kyouhan = nouki.kyouhan

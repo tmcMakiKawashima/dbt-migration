@@ -1,4 +1,4 @@
-{% snapshot scd_tbnoukifl %}
+{% snapshot scd_tbchznl %}
 
 {{
     config(
@@ -6,11 +6,10 @@
                     kyouhan, 
                     hinban, 
                     mkbn, 
-                    jchuymd, 
-                    jchutime, 
-                    jdenno, 
-                    jdennoeda, 
-                    kensu)",
+                    nyukkten, 
+                    chumon, 
+                    makercd, 
+                    hchuymd)",
 
         strategy='timestamp',
         updated_at='ldts',
@@ -18,6 +17,6 @@
     )
 }}
 
-select * from {{ ref('stg_tbnoukifl') }}
+select * from {{ ref('stg_tbchznl') }}
 
 {% endsnapshot %}

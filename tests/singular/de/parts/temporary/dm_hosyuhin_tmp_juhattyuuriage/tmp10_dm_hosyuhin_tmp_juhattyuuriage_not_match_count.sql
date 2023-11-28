@@ -4,9 +4,8 @@ select b.cnt - a.cnt as cnt
     from
     (
       select count(*) as cnt
-      from {{ref("stg_dvnp0680")}} -- オーダー情報ファイル
-      where kokagkbn = '1' -- 国内海外区分
+      from {{ref("stg_tbnokjs")}} -- 納期指定受注蓄積F
     ) a, (
       select count(*) as cnt
-      from {{ref("tmp10_dm_tmc_ippan_jutyunokikaito")}}
+      from {{ref("tmp10_dm_hosyuhin_tmp_juhattyuuriage")}}
     ) b

@@ -24,7 +24,8 @@ with stg_tbnokjs as (
         rtrim(remark1,' 　')::varchar(10) as remark1,  -- 英数字
         rtrim(remark2,' 　')::varchar(10) as remark2,  -- 英数字
         rtrim(riyuu,' 　')::varchar(3) as riyuu,  -- 英数字
-        iff(rtrim(kasyuu) = '','',lpad(rtrim(kasyuu),length(kasyuu),'0'))::varchar(5) as kasyuu,  -- コード／区分
+        -- インシデントNo19対応（00000はブランクで結合する）
+        iff(rtrim(kasyuu, 0) = '','',lpad(rtrim(kasyuu),length(kasyuu),'0'))::varchar(5) as kasyuu,  -- コード／区分
         iff(rtrim(hanf) = '','',lpad(rtrim(hanf),length(hanf),'0'))::varchar(1) as hanf,  -- フラグ
         rtrim(urikbn,' 　')::varchar(1) as urikbn,  -- 英数字
         rtrim(urisflg,' 　')::varchar(1) as urisflg,  -- 英数字

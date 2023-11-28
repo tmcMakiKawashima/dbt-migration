@@ -1,10 +1,9 @@
-{% snapshot scd_cvn06dodrshiji %}
+{% snapshot scd_cvn18nosiodrjyoho_previous %}
 
 {{
     config(
         unique_key="concat_ws('-', 
                     ordrkey, 
-                    tanskkey, 
                     juchuymd)",
 
         strategy='timestamp',
@@ -13,6 +12,6 @@
     )
 }}
 
-select * from {{ ref('stg_cvn06dodrshiji') }}
+select * from {{ ref('stg_cvn18nosiodrjyoho_previous') }}
 
 {% endsnapshot %}

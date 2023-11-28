@@ -14,10 +14,10 @@ with stg_tbsmksk_noki as (
         --lpadの桁数を数値で記載（固定長ではなくCSVのため）
         iff(rtrim(deletedate) = '','',lpad(rtrim(deletedate),8,'0'))::varchar(8) as deletedate,  -- 日付
         ldts, -- B層のLDTS
+        -- nyusyukko x shimukeの絞り込みに利用
         row_number() over (
             partition by kyouhan, nyukkten, makercd 
             order by ktenkbn asc, ptnno desc) rownum
     from {{source('valuechain_db_public','substr_tbsmksk_noki')}}
 )
 select * from stg_tbsmksk_noki
-where rownum = 1

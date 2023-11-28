@@ -1,14 +1,15 @@
-{% snapshot scd_tbnokjs %}
+{% snapshot scd_tbbofll %}
 
 {{
     config(
-        unique_key="concat_ws('-', 
+        unique_key="concat_ws('-',
                     kyouhan,
-                    usercd,
                     hinban,
                     mkbn,
                     nyukkten,
-                    concat(left(chumon, 1), right(chumon, 3)),
+                    chumon,
+                    usercd,
+                    urisflg,
                     jchuymd)",
 
         strategy='timestamp',
@@ -17,6 +18,6 @@
     )
 }}
 
-select * from {{ ref('stg_tbnokjs') }}
+select * from {{ ref('stg_tbbofll') }}
 
 {% endsnapshot %}
