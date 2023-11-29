@@ -2,10 +2,18 @@
 
 {{
     config(
-        unique_key="USERCD ||'-'|| KAISYA ||'-'|| DLRCD ||'-'|| TCHUMON ||'-'|| JUCHUYMD ||'-'|| HINBAN ||'-'|| IFF(CHUMON is null, '', CHUMON) ||'-'|| IFF(HACHUYMD is null, '', HACHUYMD)",
+        unique_key="concat_ws('-',
+                    usercd,
+                    kaisya,
+                    dlrcd,
+                    tchumon,
+                    juchuymd,
+                    iff(hinban is null, '', hinban),
+                    iff(chumon is null, '', chumon),
+                    iff(hachuymd is null, '', hachuymd))",
 
         strategy='timestamp',
-        updated_at='LDTS',
+        updated_at='ldts',
         invalidate_hard_deletes=True,
     )
 }}
