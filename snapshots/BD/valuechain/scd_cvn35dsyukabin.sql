@@ -9,7 +9,8 @@
                     syukkakyotenkbn,
                     sykikicd,
                     satflg,
-                    haisyahhmm)",
+                    haisyahhmm,
+                    tekiyokaisiymd)",
 
         strategy='timestamp',
         updated_at='ldts',
