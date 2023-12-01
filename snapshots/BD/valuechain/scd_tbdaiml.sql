@@ -2,10 +2,18 @@
 
 {{
     config(
-        unique_key="KYOUHAN ||'-'|| HASSIN ||'-'|| USERCD ||'-'|| KAISYA ||'-'|| TCHUMON ||'-'|| HINBAN ||'-'|| MEKAKB ||'-'|| HIKIATE1",
+        unique_key="concat_ws('-',
+                    kyouhan,
+                    hassin,
+                    usercd,
+                    kaisya,
+                    tchumon,
+                    hinban,
+                    mekakb,
+                    jznjusin)",
 
         strategy='timestamp',
-        updated_at='LDTS',
+        updated_at='ldts',
         invalidate_hard_deletes=True,
     )
 }}
