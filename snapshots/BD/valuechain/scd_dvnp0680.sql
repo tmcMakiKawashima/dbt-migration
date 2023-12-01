@@ -2,11 +2,13 @@
 
 {{
     config(
-        unique_key="ORDRKEY ||'-'|| JYUSYYMD",
+        unique_key="concat_ws('-', 
+                    ordrkey,
+                    juchuymd)",
 
         strategy='timestamp',
-        updated_at='LDTS',
-        invalidate_hard_deletes=True,
+        updated_at='ldts',
+        invalidate_hard_deletes=true,
     )
 }}
 
