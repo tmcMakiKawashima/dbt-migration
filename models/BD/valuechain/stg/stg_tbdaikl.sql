@@ -1,54 +1,54 @@
 with stg_tbdaikl as (
     select
-        rtrim(KYOUHAN, ' 　')::VARCHAR(5) as KYOUHAN, -- 英数字
-        IFF(rtrim(USERCD) = '', '', LPAD(rtrim(USERCD), length(USERCD), '0'))::VARCHAR(5) as USERCD, -- コード／区分
-        rtrim(KAISYA, ' 　')::VARCHAR(2) as KAISYA, -- 英数字
-        rtrim(TCHUMON, ' 　')::VARCHAR(14) as TCHUMON, -- 英数字
-        rtrim(FRMKB, ' 　')::VARCHAR(3) as FRMKB, -- 英数字
-        rtrim(FRMNO, ' 　')::VARCHAR(7) as FRMNO, -- 英数字
-        rtrim(HANKATA, ' 　')::VARCHAR(20) as HANKATA, -- 英数字
-        rtrim(JYOTAI, ' 　')::VARCHAR(1) as JYOTAI, -- 英数字
-        rtrim(HASSIN, ' 　')::VARCHAR(5) as HASSIN, -- 英数字
-        rtrim(UTANTO, ' 　')::VARCHAR(2) as UTANTO, -- 英数字
-        rtrim(SENTER, ' 　')::VARCHAR(3) as SENTER, -- 英数字
-        rtrim(TENPO, ' 　')::VARCHAR(3) as TENPO, -- 英数字
-        rtrim(NOHINKB, ' 　')::VARCHAR(1) as NOHINKB, -- 英数字
-        rtrim(FNOHINKB, ' 　')::VARCHAR(1) as FNOHINKB, -- 英数字
-        rtrim(RIMARKU1, ' 　')::VARCHAR(8) as RIMARKU1, -- 英数字
-        rtrim(RIMARKU2, ' 　')::VARCHAR(10) as RIMARKU2, -- 英数字
-        rtrim(KYOTEN, ' 　')::VARCHAR(2) as KYOTEN, -- 英数字
-        IFF(rtrim(JZNJUSIN) = '', '', LPAD(rtrim(JZNJUSIN), length(JZNJUSIN), '0'))::VARCHAR(8) as JZNJUSIN, -- 日付
-        IFF(rtrim(JZNJUSIT) = '', '', LPAD(rtrim(JZNJUSIT), length(JZNJUSIT), '0'))::VARCHAR(4) as JZNJUSIT, -- 時間
-        IFF(rtrim(FINJUSIN) = '', '', LPAD(rtrim(FINJUSIN), length(FINJUSIN), '0'))::VARCHAR(8) as FINJUSIN, -- 日付
-        IFF(rtrim(FINJUSIT) = '', '', LPAD(rtrim(FINJUSIT), length(FINJUSIT), '0'))::VARCHAR(4) as FINJUSIT, -- 時間
-        IFF(rtrim(JUSIN) = '', '', LPAD(rtrim(JUSIN), length(JUSIN), '0'))::VARCHAR(8) as JUSIN, -- 日付
-        IFF(rtrim(JUSINT) = '', '', LPAD(rtrim(JUSINT), length(JUSINT), '0'))::VARCHAR(4) as JUSINT, -- 時間
-        IFF(rtrim(TTYOTE) = '', '', LPAD(rtrim(TTYOTE), length(TTYOTE), '0'))::VARCHAR(8) as TTYOTE, -- 日付
-        IFF(rtrim(ZAIYOTE) = '', '', LPAD(rtrim(ZAIYOTE), length(ZAIYOTE), '0'))::VARCHAR(8) as ZAIYOTE, -- 日付
-        IFF(rtrim(KINYOTE) = '', '', LPAD(rtrim(KINYOTE), length(KINYOTE), '0'))::VARCHAR(8) as KINYOTE, -- 日付
-        IFF(rtrim(ZAIKYOTE) = '', '', LPAD(rtrim(ZAIKYOTE), length(ZAIKYOTE), '0'))::VARCHAR(8) as ZAIKYOTE, -- 日付
-        IFF(rtrim(CANYOTE) = '', '', LPAD(rtrim(CANYOTE), length(CANYOTE), '0'))::VARCHAR(8) as CANYOTE, -- 日付
-        IFF(rtrim(MAETYAKO) = '', '', LPAD(rtrim(MAETYAKO), length(MAETYAKO), '0'))::VARCHAR(8) as MAETYAKO, -- 日付
-        IFF(rtrim(MAEZAIHO) = '', '', LPAD(rtrim(MAEZAIHO), length(MAEZAIHO), '0'))::VARCHAR(8) as MAEZAIHO, -- 日付
-        IFF(rtrim(MAEKNKYU) = '', '', LPAD(rtrim(MAEKNKYU), length(MAEKNKYU), '0'))::VARCHAR(8) as MAEKNKYU, -- 日付
-        IFF(rtrim(MAEZAIKO) = '', '', LPAD(rtrim(MAEZAIKO), length(MAEZAIKO), '0'))::VARCHAR(8) as MAEZAIKO, -- 日付
-        IFF(rtrim(MAECAN) = '', '', LPAD(rtrim(MAECAN), length(MAECAN), '0'))::VARCHAR(8) as MAECAN, -- 日付
-        IFF(rtrim(TYAKKO) = '', '', LPAD(rtrim(TYAKKO), length(TYAKKO), '0'))::VARCHAR(8) as TYAKKO, -- 日付
-        IFF(rtrim(TOSAIT) = '', '', LPAD(rtrim(TOSAIT), length(TOSAIT), '0'))::VARCHAR(4) as TOSAIT, -- 時間
-        rtrim(TOSAIJ, ' 　')::VARCHAR(4) as TOSAIJ, -- 英数字
-        IFF(rtrim(TORITUKT) = '', '', LPAD(rtrim(TORITUKT), length(TORITUKT), '0'))::VARCHAR(4) as TORITUKT, -- 時間
-        rtrim(TORITUKJ, ' 　')::VARCHAR(4) as TORITUKJ, -- 英数字
-        IFF(rtrim(KANSEI) = '', '', LPAD(rtrim(KANSEI), length(KANSEI), '0'))::VARCHAR(8) as KANSEI, -- 日付
-        IFF(rtrim(KANSEIT) = '', '', LPAD(rtrim(KANSEIT), length(KANSEIT), '0'))::VARCHAR(4) as KANSEIT, -- 時間
-        rtrim(KANSEIJ, ' 　')::VARCHAR(4) as KANSEIJ, -- 英数字
-        rtrim(ZAIHIKIF, ' 　')::VARCHAR(1) as ZAIHIKIF, -- 英数字
-        IFF(rtrim(ZENHIKDD) = '', '', LPAD(rtrim(ZENHIKDD), length(ZENHIKDD), '0'))::VARCHAR(8) as ZENHIKDD, -- 日付
-        IFF(rtrim(ZAIHATYU) = '', '', LPAD(rtrim(ZAIHATYU), length(ZAIHATYU), '0'))::VARCHAR(8) as ZAIHATYU, -- 日付
-        IFF(rtrim(KINHATYU) = '', '', LPAD(rtrim(KINHATYU), length(KINHATYU), '0'))::VARCHAR(8) as KINHATYU, -- 日付
-        IFF(rtrim(CANCEL) = '', '', LPAD(rtrim(CANCEL), length(CANCEL), '0'))::VARCHAR(8) as CANCEL, -- 日付
-        IFF(rtrim(SYUKTEN) = '', '', LPAD(rtrim(SYUKTEN), length(SYUKTEN), '0'))::VARCHAR(2) as SYUKTEN, -- コード／区分
-        LDTS, -- B層のLDTS
-        RANK() over (partition by KYOUHAN, HASSIN, USERCD, KAISYA, TCHUMON order by LDTS desc) aggkey
+        rtrim(kyouhan, ' 　')::varchar(5) as kyouhan, -- 英数字
+        iff(rtrim(usercd) = '', '', lpad(rtrim(usercd), length(usercd), '0'))::varchar(5) as usercd, -- コード／区分
+        rtrim(kaisya, ' 　')::varchar(2) as kaisya, -- 英数字
+        rtrim(tchumon, ' 　')::varchar(14) as tchumon, -- 英数字
+        rtrim(frmkb, ' 　')::varchar(3) as frmkb, -- 英数字
+        rtrim(frmno, ' 　')::varchar(7) as frmno, -- 英数字
+        rtrim(hankata, ' 　')::varchar(20) as hankata, -- 英数字
+        rtrim(jyotai, ' 　')::varchar(1) as jyotai, -- 英数字
+        rtrim(hassin, ' 　')::varchar(5) as hassin, -- 英数字
+        rtrim(utanto, ' 　')::varchar(2) as utanto, -- 英数字
+        rtrim(senter, ' 　')::varchar(3) as senter, -- 英数字
+        rtrim(tenpo, ' 　')::varchar(3) as tenpo, -- 英数字
+        rtrim(nohinkb, ' 　')::varchar(1) as nohinkb, -- 英数字
+        rtrim(fnohinkb, ' 　')::varchar(1) as fnohinkb, -- 英数字
+        rtrim(rimarku1, ' 　')::varchar(8) as rimarku1, -- 英数字
+        rtrim(rimarku2, ' 　')::varchar(10) as rimarku2, -- 英数字
+        rtrim(kyoten, ' 　')::varchar(2) as kyoten, -- 英数字
+        iff(rtrim(jznjusin) = '', '', lpad(rtrim(jznjusin), length(jznjusin), '0'))::varchar(8) as jznjusin, -- 日付
+        iff(rtrim(jznjusit) = '', '', lpad(rtrim(jznjusit), length(jznjusit), '0'))::varchar(4) as jznjusit, -- 時間
+        iff(rtrim(finjusin) = '', '', lpad(rtrim(finjusin), length(finjusin), '0'))::varchar(8) as finjusin, -- 日付
+        iff(rtrim(finjusit) = '', '', lpad(rtrim(finjusit), length(finjusit), '0'))::varchar(4) as finjusit, -- 時間
+        iff(rtrim(jusin) = '', '', lpad(rtrim(jusin), length(jusin), '0'))::varchar(8) as jusin, -- 日付
+        iff(rtrim(jusint) = '', '', lpad(rtrim(jusint), length(jusint), '0'))::varchar(4) as jusint, -- 時間
+        iff(rtrim(ttyote) = '', '', lpad(rtrim(ttyote), length(ttyote), '0'))::varchar(8) as ttyote, -- 日付
+        iff(rtrim(zaiyote) = '', '', lpad(rtrim(zaiyote), length(zaiyote), '0'))::varchar(8) as zaiyote, -- 日付
+        iff(rtrim(kinyote) = '', '', lpad(rtrim(kinyote), length(kinyote), '0'))::varchar(8) as kinyote, -- 日付
+        iff(rtrim(zaikyote) = '', '', lpad(rtrim(zaikyote), length(zaikyote), '0'))::varchar(8) as zaikyote, -- 日付
+        iff(rtrim(canyote) = '', '', lpad(rtrim(canyote), length(canyote), '0'))::varchar(8) as canyote, -- 日付
+        iff(rtrim(maetyako) = '', '', lpad(rtrim(maetyako), length(maetyako), '0'))::varchar(8) as maetyako, -- 日付
+        iff(rtrim(maezaiho) = '', '', lpad(rtrim(maezaiho), length(maezaiho), '0'))::varchar(8) as maezaiho, -- 日付
+        iff(rtrim(maeknkyu) = '', '', lpad(rtrim(maeknkyu), length(maeknkyu), '0'))::varchar(8) as maeknkyu, -- 日付
+        iff(rtrim(maezaiko) = '', '', lpad(rtrim(maezaiko), length(maezaiko), '0'))::varchar(8) as maezaiko, -- 日付
+        iff(rtrim(maecan) = '', '', lpad(rtrim(maecan), length(maecan), '0'))::varchar(8) as maecan, -- 日付
+        iff(rtrim(tyakko) = '', '', lpad(rtrim(tyakko), length(tyakko), '0'))::varchar(8) as tyakko, -- 日付
+        iff(rtrim(tosait) = '', '', lpad(rtrim(tosait), length(tosait), '0'))::varchar(4) as tosait, -- 時間
+        rtrim(tosaij, ' 　')::varchar(4) as tosaij, -- 英数字
+        iff(rtrim(toritukt) = '', '', lpad(rtrim(toritukt), length(toritukt), '0'))::varchar(4) as toritukt, -- 時間
+        rtrim(toritukj, ' 　')::varchar(4) as toritukj, -- 英数字
+        iff(rtrim(kansei) = '', '', lpad(rtrim(kansei), length(kansei), '0'))::varchar(8) as kansei, -- 日付
+        iff(rtrim(kanseit) = '', '', lpad(rtrim(kanseit), length(kanseit), '0'))::varchar(4) as kanseit, -- 時間
+        rtrim(kanseij, ' 　')::varchar(4) as kanseij, -- 英数字
+        rtrim(zaihikif, ' 　')::varchar(1) as zaihikif, -- 英数字
+        iff(rtrim(zenhikdd) = '', '', lpad(rtrim(zenhikdd), length(zenhikdd), '0'))::varchar(8) as zenhikdd, -- 日付
+        iff(rtrim(zaihatyu) = '', '', lpad(rtrim(zaihatyu), length(zaihatyu), '0'))::varchar(8) as zaihatyu, -- 日付
+        iff(rtrim(kinhatyu) = '', '', lpad(rtrim(kinhatyu), length(kinhatyu), '0'))::varchar(8) as kinhatyu, -- 日付
+        iff(rtrim(cancel) = '', '', lpad(rtrim(cancel), length(cancel), '0'))::varchar(8) as cancel, -- 日付
+        iff(rtrim(syukten) = '', '', lpad(rtrim(syukten), length(syukten), '0'))::varchar(2) as syukten, -- コード／区分
+        ldts, -- B層のLDTS
+        rank() over (partition by kyouhan, hassin, usercd, kaisya, tchumon, jznjusin order by ldts desc) aggkey
     from {{ ref('substr_tbdaikl') }}
 )
 select * from stg_tbdaikl
