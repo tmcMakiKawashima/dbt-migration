@@ -46,3 +46,4 @@ from KL
         and KL.USERCD = ML.USERCD
         and KL.KAISYA = ML.KAISYA
         and KL.TCHUMON = ML.TCHUMON
+        and KL.JZNJUSIN = ML.JZNJUSIN
