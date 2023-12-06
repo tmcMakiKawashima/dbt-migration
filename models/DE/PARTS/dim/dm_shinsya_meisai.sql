@@ -1,20 +1,21 @@
 with dm_shinsya_meisai as(
   select
-    HKATA,
-    FLNO,
-    TSHAMEIA,
-    TSHAMEIB,
-    TSHAMEIC,
-    TSHAMEID,
-    HDKB,
-    YOUTOKBN,
-    FTDD,
-    HIYTDD,
-    TOYTDD,
-    TODD,
-    NSQBDY,
-    NSDD
-  from {{ref('tmp20_dm_shinsya_meisai')}}
-  where rnk = 1
+    hkata,
+    flno,
+    tshameia,
+    tshameib,
+    tshameic,
+    tshameid,
+    hdkb,
+    youtokbn,
+    ftdd,
+    hiytdd,
+    toytdd,
+    todd,
+    nsqbdy,
+    nsdd,
+    jkeidd,
+    hanbkjdd
+  from {{ref('tmp30_dm_shinsya_meisai')}}
 )
 select * from dm_shinsya_meisai
