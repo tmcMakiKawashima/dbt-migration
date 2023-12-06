@@ -1,84 +1,84 @@
 with ippan as (
     select 
-            M_DLRCD, -- メーカー仕向先CD
-            M_YUSOKBN, -- メーカー輸送CD
-            M_ORDENO, -- メーカー注文NO
-            M_JUCHUYMD, -- メーカー受注日
-            M_JHINBAN, -- メーカー受注品番
-            -- M_JUCHUSU, -- メーカー受注数
-            M_SYUBETSU, -- メーカーオーダー種別
-            M_SHINBAN, -- メーカー出荷品番
-            M_BOSU, -- メーカーBO数
-            M_BOSKSTIME, -- メーカーBO作成日時
-            M_HNNOYTIME, -- メーカー最新納入予定日時
-            -- M_HNTAYTIME, -- メーカー最新棚入予定日時
-            M_HNSYYTIME, -- メーカー最新出荷予定日時
-            M_HNTOYTIME, -- メーカー最新到着予定日時
-            -- M_HONOYTIME, -- メーカー前回納入予定日時
-            -- M_HOTAYTIME, -- メーカー前回棚入予定日時
-            -- M_HOSYYTIME, -- メーカー前回出荷予定日時
-            -- M_HOTOYTIME, -- メーカー前回到着予定日時
-            M_HSNOYTIME, -- メーカー初回納入予定日時
-            -- M_HSTAYTIME, -- メーカー初回棚入予定日時
-            M_HSSYYTIME, -- メーカー初回出荷予定日時
-            -- M_HSTOYTIME, -- メーカー初回到着予定日時
-            -- M_PTOPFLG, -- メーカーPTOPFLG
-            -- M_IPSYYTMIE, -- メーカーインプット出荷予定日時
-            M_MARTFLG, -- メーカーマル超FLG
-            M_SYUKKAYMD, -- メーカー出荷日
-            M_SYUKKASU, -- メーカー出荷数
-            NYUKOYMD, -- ＴＭＰ入庫日
-            NYUKOSU, -- ＴＭＰ入庫数
-            M_KAKNOUKBN, -- メーカー格納拠点区分
-            M_THIBUSYOCD, -- メーカー手配担当部署CD
-            M_THITATOCD, -- メーカー手配担当者CD
-            M_TEHAIKBN, -- メーカー手配区分
-            M_KEIKANISSU, -- メーカー経過日数
-            LDTS -- snapshot作成用
-    from {{ref('dm_tmc_ippan_jutyunokikaito')}} -- TMC一般オーダー受注納期回答DM
-    where SUBSTR(M_ORDENO,0,2) = 'ZZ' -- メーカーオーダーNO（先頭２桁）
+            m_dlrcd, -- メーカー仕向先cd
+            m_yusokbn, -- メーカー輸送cd
+            m_ordeno, -- メーカー注文no
+            m_juchuymd, -- メーカー受注日
+            m_jhinban, -- メーカー受注品番
+            -- m_juchusu, -- メーカー受注数
+            m_syubetsu, -- メーカーオーダー種別
+            m_shinban, -- メーカー出荷品番
+            m_bosu, -- メーカーbo数
+            m_boskstime, -- メーカーbo作成日時
+            m_hnnoytime, -- メーカー最新納入予定日時
+            -- m_hntaytime, -- メーカー最新棚入予定日時
+            m_hnsyytime, -- メーカー最新出荷予定日時
+            m_hntoytime, -- メーカー最新到着予定日時
+            -- m_honoytime, -- メーカー前回納入予定日時
+            -- m_hotaytime, -- メーカー前回棚入予定日時
+            -- m_hosyytime, -- メーカー前回出荷予定日時
+            -- m_hotoytime, -- メーカー前回到着予定日時
+            m_hsnoytime, -- メーカー初回納入予定日時
+            -- m_hstaytime, -- メーカー初回棚入予定日時
+            m_hssyytime, -- メーカー初回出荷予定日時
+            -- m_hstoytime, -- メーカー初回到着予定日時
+            -- m_ptopflg, -- メーカーptopflg
+            -- m_ipsyytmie, -- メーカーインプット出荷予定日時
+            m_martflg, -- メーカーマル超flg
+            m_syukkaymd, -- メーカー出荷日
+            m_syukkasu, -- メーカー出荷数
+            nyukoymd, -- ｔｍｐ入庫日
+            nyukosu, -- ｔｍｐ入庫数
+            m_kaknoukbn, -- メーカー格納拠点区分
+            m_thibusyocd, -- メーカー手配担当部署cd
+            m_thitatocd, -- メーカー手配担当者cd
+            m_tehaikbn, -- メーカー手配区分
+            m_keikanissu, -- メーカー経過日数
+            ldts -- snapshot作成用
+    from {{ref('dm_tmc_ippan_jutyunokikaito')}} -- tmc一般オーダー受注納期回答dm
+    where substr(m_ordeno,0,2) = 'ZZ' -- メーカーオーダーno（先頭２桁）
 ),
 tyoku as (
     select 
-            M_DLRCD, -- メーカー仕向先CD
-            M_YUSOKBN, -- メーカー輸送CD
-            M_ORDENO, -- メーカー注文NO
-            M_JUCHUYMD, -- メーカー受注日
-            M_JHINBAN, -- メーカー受注品番
-            -- M_JUCHUSU, -- メーカー受注数
-            M_SYUBETSU, -- メーカーオーダー種別
-            M_SHINBAN, -- メーカー出荷品番
-            M_BOSU, -- メーカーBO数
-            M_BOSKSTIME, -- メーカーBO作成日時
-            M_HNNOYTIME, -- メーカー最新納入予定日時
-            -- M_HNTAYTIME, -- メーカー最新棚入予定日時
-            M_HNSYYTIME, -- メーカー最新出荷予定日時
-            M_HNTOYTIME, -- メーカー最新到着予定日時
-            -- M_HONOYTIME, -- メーカー前回納入予定日時
-            -- M_HOTAYTIME, -- メーカー前回棚入予定日時
-            -- M_HOSYYTIME, -- メーカー前回出荷予定日時
-            -- M_HOTOYTIME, -- メーカー前回到着予定日時
-            M_HSNOYTIME, -- メーカー初回納入予定日時
-            -- M_HSTAYTIME, -- メーカー初回棚入予定日時
-            M_HSSYYTIME, -- メーカー初回出荷予定日時
-            -- M_HSTOYTIME, -- メーカー初回到着予定日時
-            -- M_PTOPFLG, -- メーカーPTOPFLG
-            -- M_IPSYYTMIE, -- メーカーインプット出荷予定日時
-            M_MARTFLG, -- メーカーマル超FLG
-            M_SYUKKAYMD, -- メーカー出荷日
-            M_SYUKKASU, -- メーカー出荷数
-            NYUKOYMD, -- ＴＭＰ入庫日
-            NYUKOSU, -- ＴＭＰ入庫数
-            M_KAKNOUKBN, -- メーカー格納拠点区分
-            M_THIBUSYOCD, -- メーカー手配担当部署CD
-            M_THITATOCD, -- メーカー手配担当者CD
-            M_TEHAIKBN, -- メーカー手配区分
-            M_KEIKANISSU, -- メーカー経過日数
-            LDTS -- snapshot作成用
-    from {{ref('dm_tmc_tyokuso_jutyunokikaito')}} -- TMC直送オーダー受注納期回答DM
-    where SUBSTR(M_ORDENO,0,2) = 'ZZ' -- メーカーオーダーNO（先頭２桁）
+            m_dlrcd, -- メーカー仕向先cd
+            m_yusokbn, -- メーカー輸送cd
+            m_ordeno, -- メーカー注文no
+            m_juchuymd, -- メーカー受注日
+            m_jhinban, -- メーカー受注品番
+            -- m_juchusu, -- メーカー受注数
+            m_syubetsu, -- メーカーオーダー種別
+            m_shinban, -- メーカー出荷品番
+            m_bosu, -- メーカーbo数
+            m_boskstime, -- メーカーbo作成日時
+            m_hnnoytime, -- メーカー最新納入予定日時
+            -- m_hntaytime, -- メーカー最新棚入予定日時
+            m_hnsyytime, -- メーカー最新出荷予定日時
+            m_hntoytime, -- メーカー最新到着予定日時
+            -- m_honoytime, -- メーカー前回納入予定日時
+            -- m_hotaytime, -- メーカー前回棚入予定日時
+            -- m_hosyytime, -- メーカー前回出荷予定日時
+            -- m_hotoytime, -- メーカー前回到着予定日時
+            m_hsnoytime, -- メーカー初回納入予定日時
+            -- m_hstaytime, -- メーカー初回棚入予定日時
+            m_hssyytime, -- メーカー初回出荷予定日時
+            -- m_hstoytime, -- メーカー初回到着予定日時
+            -- m_ptopflg, -- メーカーptopflg
+            -- m_ipsyytmie, -- メーカーインプット出荷予定日時
+            m_martflg, -- メーカーマル超flg
+            m_syukkaymd, -- メーカー出荷日
+            m_syukkasu, -- メーカー出荷数
+            nyukoymd, -- ｔｍｐ入庫日
+            nyukosu, -- ｔｍｐ入庫数
+            m_kaknoukbn, -- メーカー格納拠点区分
+            m_thibusyocd, -- メーカー手配担当部署cd
+            m_thitatocd, -- メーカー手配担当者cd
+            m_tehaikbn, -- メーカー手配区分
+            m_keikanissu, -- メーカー経過日数
+            ldts -- snapshot作成用
+    from {{ref('dm_tmc_tyokuso_jutyunokikaito')}} -- tmc直送オーダー受注納期回答dm
+    where substr(m_ordeno,0,2) = 'ZZ' -- メーカーオーダーno（先頭２桁）
 )
 select * from ippan
 union all
 select * from tyoku
-order by M_DLRCD, M_YUSOKBN, M_ORDENO, M_JUCHUYMD, M_JHINBAN, M_SYUBETSU
+order by m_dlrcd, m_yusokbn, m_ordeno, m_juchuymd, m_jhinban, m_syubetsu
