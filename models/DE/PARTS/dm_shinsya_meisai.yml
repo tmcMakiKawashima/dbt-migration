@@ -9,6 +9,13 @@ models:
   - name: tmp20_dm_shinsya_meisai
     tests:
       - unique_values
-  - name: dm_shinsya_meisai
+  - name: tmp30_dm_shinsya_meisai
     tests:
-      - unique_values
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hkata
+            - flno
+    columns:
+      - name: check_dlrcd
+        tests:
+          - outer_join_not_all_null

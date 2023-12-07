@@ -11,3 +11,5 @@ sources:
         identifier: LK_SINSYAODNO_JPSALECAR
       - name: raw_st_sinsyaodno
         identifier: ST_SINSYAODNO_TCOM_SINSYAD
+      - name: raw_yohinhinban
+        identifier: TC125YOHINHINBAN
