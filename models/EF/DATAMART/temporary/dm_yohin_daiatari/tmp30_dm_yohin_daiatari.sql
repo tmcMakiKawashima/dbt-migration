@@ -43,7 +43,7 @@ select
         when dateadd(day, to_number(iff(m_keikanissu is null, 0, m_keikanissu))
                         , try_to_date(m_syukkaymd, 'yyyyMMdd')) is not null -- [メーカー]TMP到着日（推定）
         and  try_to_date(zaikyote,'yyyymmdd') is not null -- [TMP]納入予定日
-            then -- 出庫日 - 確定着工日
+            then -- [メーカー]TMP到着日（推定） - [TMP]納入予定日
                 datediff(day, try_to_date(zaikyote,'yyyymmdd')
                             , dateadd(day, to_number(iff(m_keikanissu is null, 0, m_keikanissu))
                                          , try_to_date(m_syukkaymd, 'yyyyMMdd')))
