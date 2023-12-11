@@ -16,11 +16,17 @@ models:
             - jznjusin
   - name: tmp30_dm_yohin_daiatari
     tests:
-      - unique_values
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - usercd
+            - tchumon
+            - juchuymd
+            - hinban
+            - chumon
+            - hachuymd
+            - m_ordesybt
     columns:
-      - name: M_JHINBAN
+      - name: m_ordesybt
         tests:
           - outer_join_not_all_null
-  - name: dm_yohin_juchunoki_kaito
-    tests:
-      - unique_values
