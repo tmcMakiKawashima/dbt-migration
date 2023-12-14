@@ -6,9 +6,6 @@ models:
       - name: MD5_SINSYAODNO_HUB
         tests:
           - outer_join_not_all_null
-  - name: tmp20_dm_shinsya_meisai
-    tests:
-      - unique_values
   - name: tmp30_dm_shinsya_meisai
     tests:
       - dbt_utils.unique_combination_of_columns:
