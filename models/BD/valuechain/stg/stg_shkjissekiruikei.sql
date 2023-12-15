@@ -212,7 +212,8 @@ with stg_shkjissekiruikei as (
         rtrim(szw, ' 　')::varchar(5) as szw, -- 英数字
         rtrim(szh, ' 　')::varchar(5) as szh, -- 英数字
         ldts, -- B層のLDTS
-        rank() over (partition by lpcl, cyc_sno, tkod_dt order by ldts desc) aggkey
+        row_number() over (partition by lpcl, cyc_sno, tkod_dt 
+                           order by ldts desc, pik_cp_dttm desc, pak_dttm desc) aggkey
     from {{ ref('substr_shkjissekiruikei') }}
 )
 select * from stg_shkjissekiruikei
