@@ -140,7 +140,8 @@ select
     m_brsirskkojocd,            --[トヨタ]物流仕入先工場cd
     m_pikcptime,                --出庫完日
     m_paktime,                  --梱完日
-    temp20.ldts ldts -- snapshot作成用
+    current_timestamp::TIMESTAMP_NTZ as ldts, -- dm作成時の時間
+    temp20.ldts as ldts_snapshot -- snapshot作成用
 from temp20
 left outer join jutyunokikaito
 on shimuke_cd = m_dlrcd -- 仕向先コード/メーカー仕向先cd
