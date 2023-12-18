@@ -1,3 +1,4 @@
+-- データ結合７
 with
     temp40 as (
         select

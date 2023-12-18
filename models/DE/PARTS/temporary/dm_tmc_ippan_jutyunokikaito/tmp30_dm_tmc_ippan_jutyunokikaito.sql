@@ -1,3 +1,4 @@
+-- データ結合３
 with
     temp20 as (select * from {{ ref("tmp20_dm_tmc_ippan_jutyunokikaito") }}),
     temp20_tehai as (select * from {{ ref("tmp20_tehai_dm_tmc_ippan_jutyunokikaito") }})
