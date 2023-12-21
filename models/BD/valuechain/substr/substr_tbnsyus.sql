@@ -136,6 +136,6 @@ with substr_tbnsyus as (
         substr(raw_data, 367, 1)::VARCHAR(1) as DOKUKAFLG,
         substr(raw_data, 368, 1)::VARCHAR(1) as KAKAKUSKB,
         LDTS
-    from {{ source('snowpipe_db_valuechain', 'raw_tbnsyus') }}
+    from {{ ref('replace_tbnsyus') }}
 )
 select * from substr_tbnsyus
