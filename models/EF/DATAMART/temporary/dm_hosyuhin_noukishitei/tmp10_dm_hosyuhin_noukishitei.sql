@@ -321,7 +321,8 @@ select
     m_brsirskkojocd, --[トヨタ]物流仕入先工場CD
     m_pikcptime, --出庫完日
     m_paktime, --梱完日
-    current_timestamp as ldts -- dm作成時の時間
+    current_timestamp::TIMESTAMP_NTZ as ldts, -- dm作成時の時間
+    jh.ldts as ldts_snapshot -- snapshot作成用
 from juhattyu jh
 left outer join nokikaito nk
 on jh.dlrcd = nk.m_dlrcd

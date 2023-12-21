@@ -13,7 +13,7 @@
                     iff(hachuymd is null, '', hachuymd))",
 
         strategy='timestamp',
-        updated_at='ldts',
+        updated_at='ldts_snapshot',
         invalidate_hard_deletes=True,
     )
 }}
