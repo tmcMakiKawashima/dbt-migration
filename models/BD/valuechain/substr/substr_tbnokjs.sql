@@ -90,6 +90,6 @@ with substr_tbnokjs as (
         substr(raw_data, 326, 1)::varchar(1) as kakuhositei,
         substr(raw_data, 327, 1)::varchar(1) as honbuigai,
         ldts
-    from {{ source('snowpipe_db_valuechain', 'raw_tbnokjs') }}
+    from {{ ref('replace_tbnokjs') }}
 )
 select * from substr_tbnokjs
