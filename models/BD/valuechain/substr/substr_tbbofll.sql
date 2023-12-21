@@ -75,6 +75,6 @@ with substr_tbbofll as (
       substr(raw_data, 273, 1)::varchar(1) as kakakuskb,
       substr(raw_data, 274, 1)::varchar(1) as njkbn,
       ldts
-    from {{ source('snowpipe_db_valuechain', 'raw_tbbofll') }}
+    from {{ ref('replace_tbbofll') }}
 )
 select * from substr_tbbofll
