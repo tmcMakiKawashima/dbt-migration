@@ -13,11 +13,8 @@ with stg_tbsmksk_noki as (
         rtrim(hikizaikbn,' 　')::varchar(1) as hikizaikbn,  -- 英数字
         --lpadの桁数を数値で記載（固定長ではなくCSVのため）
         iff(rtrim(deletedate) = '','',lpad(rtrim(deletedate),8,'0'))::varchar(8) as deletedate,  -- 日付
-        ldts, -- B層のLDTS
-        -- nyusyukko x shimukeの絞り込みに利用
-        row_number() over (
-            partition by kyouhan, nyukkten, makercd 
-            order by ktenkbn asc, ptnno desc) rownum
+        ldts -- B層のLDTS
     from {{source('valuechain_db_public','substr_tbsmksk_noki')}}
 )
 select * from stg_tbsmksk_noki
+where ldts = (select max(ldts) from stg_tbsmksk_noki)
