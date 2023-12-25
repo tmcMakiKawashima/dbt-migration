@@ -96,7 +96,6 @@ with
             sum(syukkasu) syukkasu, -- 出荷数
             max(syukkaymd) syukkaymd, -- 出荷日
             max(nyukoymd) nyukoymd, -- 入庫日
-            sum(nyukosu) nyukosu, -- 入庫数
             dlrcd, -- 仕向先CD
             ordesybt, -- オーダー種別
             yusokbn, -- 輸送CD
@@ -110,7 +109,6 @@ select temp40.*,
        temp50.syukkasu,
        temp50.syukkaymd,
        temp50.nyukoymd,
-       temp50.nyukosu,
        temp50.dlrcd as check_dlrcd -- 仕向先コード nullチェック用
 from temp40
 left outer join

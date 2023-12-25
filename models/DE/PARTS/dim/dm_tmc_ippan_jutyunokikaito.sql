@@ -46,7 +46,6 @@ with
 
             -- 入出庫ファイル
             nyukoymd, -- ＴＭＰ入庫日
-            nyukosu, -- ＴＭＰ入庫数
 
             -- オーダー指示ステータスファイル
             kaknoukbn m_kaknoukbn, -- メーカー格納拠点区分
