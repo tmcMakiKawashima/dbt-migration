@@ -1,3 +1,4 @@
+-- データ結合６
 with
     temp30 as (select * from {{ ref("tmp30_dm_tmc_ippan_jutyunokikaito") }}),
     tehai_kanban as (

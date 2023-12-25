@@ -1,4 +1,5 @@
 {{ config(materialized="table") }}
+-- データ結合２（手配情報）
 with
     temp20_tehai as (
         select

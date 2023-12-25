@@ -1,3 +1,4 @@
+-- データ結合１
 with
     order_joho as (
         select

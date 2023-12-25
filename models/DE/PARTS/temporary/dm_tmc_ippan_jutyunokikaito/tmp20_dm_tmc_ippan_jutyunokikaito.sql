@@ -1,4 +1,5 @@
 {{ config(materialized="table") }}
+-- データ結合２
 with
     temp10 as (
         select
