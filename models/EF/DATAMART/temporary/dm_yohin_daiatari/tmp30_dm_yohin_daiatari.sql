@@ -115,7 +115,6 @@ select
     --
     zaikyote as nonyuyoteiymd,  --tmp納入予定日（在庫引当予定日）
     nyukoymd,                   --tmp入庫日
-    nyukosu,                    --tmp入庫数
     syukkoymd,                  --tmp出庫日
     syukkosu,                   --tmp出庫数   
     '' as syukkaymd,            --tmp出荷日
