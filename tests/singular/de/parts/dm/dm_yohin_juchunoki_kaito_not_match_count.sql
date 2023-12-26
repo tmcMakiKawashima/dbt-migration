@@ -5,11 +5,11 @@ select c.cnt - a.cnt - b.cnt as cnt
     (
       select count(*) as cnt
       from {{ref('dm_tmc_ippan_jutyunokikaito')}} -- TMC一般オーダー受注納期回答DM
-      where SUBSTR(M_ORDENO,0,2) = 'ZZ' -- メーカーオーダーNO（先頭２桁）
+      where substr(m_ordeno,0,2) = 'ZZ' -- メーカーオーダーNO（先頭２桁）
     ) a, (
       select count(*) as cnt
       from {{ref('dm_tmc_tyokuso_jutyunokikaito')}} -- TMC直送オーダー受注納期回答DM
-      where SUBSTR(M_ORDENO,0,2) = 'ZZ' -- メーカーオーダーNO（先頭２桁）
+      where substr(m_ordeno,0,2) = 'ZZ' -- メーカーオーダーNO（先頭２桁）
     ) b, (
       select count(*) as cnt
       from {{ref('dm_yohin_juchunoki_kaito')}}

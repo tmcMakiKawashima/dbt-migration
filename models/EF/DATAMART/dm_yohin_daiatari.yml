@@ -1,6 +1,7 @@
 version: 2
 
 models:
+# データ結合１のチェック
   - name: tmp10_dm_yohin_daiatari
     tests:
       - unique_values
@@ -14,6 +15,7 @@ models:
             - tchumon
             - hinban
             - jznjusin
+# データ結合４のチェック
   - name: tmp30_dm_yohin_daiatari
     tests:
       - dbt_utils.unique_combination_of_columns:
