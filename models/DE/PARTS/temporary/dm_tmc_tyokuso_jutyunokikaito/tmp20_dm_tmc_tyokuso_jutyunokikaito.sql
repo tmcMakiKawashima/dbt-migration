@@ -1,4 +1,4 @@
-with temp10 as (
+with temp15 as (
     select
         dlrcd,  --仕向先cd
         ordesybt,  --オーダー種別
@@ -7,11 +7,10 @@ with temp10 as (
         jhinban,  --受注品番
         juchuymd,  --受注日
         shinban,  --出荷品番
-        sum(nyukosu) nyukosu,  --入庫数
         max(nyukoymd) nyukoymd,  --入庫日
         sum(syukkasu) syukkasu,  --出荷数
         max(syukkaymd) syukkaymd  --出荷日      
-    from {{ref('tmp10_dm_tmc_tyokuso_jutyunokikaito')}}
+    from {{ref('tmp15_dm_tmc_tyokuso_jutyunokikaito')}}
     where jusinno <> ''
     and renban2 <> ''
     group by all
@@ -37,12 +36,12 @@ tyokutehai as (
     where jusinno <> '' and renban2 <> ''
     group by all
 )
-select temp10.* exclude(dlrcd, yusokbn, ordeno, juchuymd, jhinban, ordesybt), tyokutehai.*
+select temp15.* exclude(dlrcd, yusokbn, ordeno, juchuymd, jhinban, ordesybt), tyokutehai.*
 from tyokutehai
-left outer join temp10
-on tyokutehai.dlrcd = temp10.dlrcd --仕向先cd
-and tyokutehai.ordesybt = temp10.ordesybt  --オーダー種別
-and tyokutehai.yusokbn = temp10.yusokbn  --輸送cd
-and tyokutehai.ordeno = temp10.ordeno  --注文no
-and tyokutehai.juchuymd = temp10.juchuymd  --受注日
-and tyokutehai.jhinban = temp10.jhinban  --受注品番
+left outer join temp15
+on tyokutehai.dlrcd = temp15.dlrcd --仕向先cd
+and tyokutehai.ordesybt = temp15.ordesybt  --オーダー種別
+and tyokutehai.yusokbn = temp15.yusokbn  --輸送cd
+and tyokutehai.ordeno = temp15.ordeno  --注文no
+and tyokutehai.juchuymd = temp15.juchuymd  --受注日
+and tyokutehai.jhinban = temp15.jhinban  --受注品番
