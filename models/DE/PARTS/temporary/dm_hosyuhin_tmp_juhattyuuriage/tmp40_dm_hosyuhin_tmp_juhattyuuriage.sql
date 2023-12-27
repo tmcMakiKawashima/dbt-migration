@@ -27,7 +27,7 @@ from temp30
         and temp30.jdenno = nouki.jdenno
         and temp30.jchuymd = nouki.jchuymd
         and temp30.jchutime = nouki.jchutime
-        and temp30.kasyuu = nouki.usercd
+        and temp30.bof_kasyuu = nouki.usercd
     left outer join nouki_initial
         on temp30.kyouhan = nouki_initial.kyouhan
         and temp30.hinban = nouki_initial.hinban
@@ -37,7 +37,7 @@ from temp30
         and temp30.jdenno = nouki_initial.jdenno
         and temp30.jchuymd = nouki_initial.jchuymd
         and temp30.jchutime = nouki_initial.jchutime
-        and temp30.kasyuu = nouki_initial.usercd
+        and temp30.bof_kasyuu = nouki_initial.usercd
     left outer join nouki_previous
         on temp30.kyouhan = nouki_previous.kyouhan
         and temp30.hinban = nouki_previous.hinban
@@ -47,7 +47,7 @@ from temp30
         and temp30.jdenno = nouki_previous.jdenno
         and temp30.jchuymd = nouki_previous.jchuymd
         and temp30.jchutime = nouki_previous.jchutime
-        and temp30.kasyuu = nouki_previous.usercd
+        and temp30.bof_kasyuu = nouki_previous.usercd
     left outer join nouki_latest
         on temp30.kyouhan = nouki_latest.kyouhan
         and temp30.hinban = nouki_latest.hinban
@@ -57,4 +57,4 @@ from temp30
         and temp30.jdenno = nouki_latest.jdenno
         and temp30.jchuymd = nouki_latest.jchuymd
         and temp30.jchutime = nouki_latest.jchutime
-        and temp30.kasyuu = nouki_latest.usercd
+        and temp30.bof_kasyuu = nouki_latest.usercd
