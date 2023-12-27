@@ -5,7 +5,7 @@ with
     tasshimuke as (select * from {{ ref('stg_tbsmksk') }}),
     -- 納期仕向
     tasshimuke_noki as (
-        select * from {{ ref("stg_tbsmksk_noki") }} where deletedate = '00000000'
+        select * from {{ ref("scd_tbsmksk_noki") }} where deletedate = '00000000'
     ),
     --
     atopshimuke as (select * from {{ ref('stg_dvnp054a') }}),
@@ -74,4 +74,8 @@ from temp40
         and temp40.makercd = noki.makercd
         and iff(temp40.makercd = '70000', temp40.ktenkbn, '') 
             = noki.ktenkbn -- 拠点区分
+        -- dbt_valid_from <= 発注日 < dbt_valid_to
+        and try_to_date(temp40.chuzan_hachuymd, 'yyyyMMdd') >= to_date(noki.dbt_valid_from)
+        and try_to_date(temp40.chuzan_hachuymd, 'yyyyMMdd') < 
+            iff(noki.dbt_valid_to is null, '9999-12-31', to_date(noki.dbt_valid_to))
     --
