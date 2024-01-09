@@ -21,23 +21,7 @@ with
         where gdenk = '05' and dsyubets = '1' and origin = '1'
     )
 select
-    ns.kyouhan,
-    ns.usercd,
-    ns.hinban,
-    ns.mkbn,
-    ns.nyukkten,
-    ns.jchuymd,
-    ns.jchutime,
-    ns.shitei,
-    ns.jdenno,
-    ns.chumon,
-    ns.nyukayd,
-    ns.jchusu,
-    ns.hchuymd,
-    ns.syuka,
-    ns.hkkanymd,
-    ns.kakuhositei,
-    ns.honbuigai,
+    ns.* exclude (ldts, aggkey),
     nk.makercd,
     nk.sdate,
     ns.ldts, -- snapshot作成用
