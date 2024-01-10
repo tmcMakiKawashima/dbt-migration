@@ -28,7 +28,7 @@ select c.cnt - (a.cnt  + b.cnt) as cnt
           juchuymd, --受注日
           shinban, --出荷品番
           siirecd --仕入先CD
-        from {{ref('tmp10_dm_tmc_tyokuso_jutyunokikaito')}} --データ結合2結果(tmp10_dm_tmc_tyokuso_jutyunokikaito)
+        from {{ref('tmp15_dm_tmc_tyokuso_jutyunokikaito')}} --データ結合2結果(tmp15_dm_tmc_tyokuso_jutyunokikaito)
         where jusinno = '' --受信No
         and renban2 = '' --連番（直送）
         group by all
