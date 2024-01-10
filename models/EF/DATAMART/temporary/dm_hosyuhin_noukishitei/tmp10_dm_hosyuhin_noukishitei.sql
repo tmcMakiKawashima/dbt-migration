@@ -104,7 +104,7 @@ select
     pname, --品番名称
     honbuigai, --[TMP]納期指定本部以外出庫対象
     kakuhositei, --[TMP]在庫確保タイミング指定対象
-    hchuymd, --[TMP]メーカー発注日
+    chuzan_hachuymd hchuymd, --[TMP]メーカー発注日
     m_syubetsu m_ordesybt, --[TMP]オーダー種別
     makercd, --[TMP]メーカーコード
     tkskbn m_tkskbn, --[メーカー]一般直送区分
@@ -170,7 +170,6 @@ select
     hkkanymd tyakukiboymd, --[TMP]メーカー到着希望日
     nyukayd nonyuyoteiymd, --[TMP]納入予定日
     nyukoymd, --[TMP]入庫日
-    nyukosu, --[TMP]入庫数
     ndasiymd syukkoymd, --[TMP]出庫日
     syukkei syukkosu, --[TMP]出庫数
     syukayotei_min, --[TMP]出荷予定日（初回）
@@ -321,6 +320,79 @@ select
     m_brsirskkojocd, --[トヨタ]物流仕入先工場CD
     m_pikcptime, --出庫完日
     m_paktime, --梱完日
+    mkbn tmp_mkbn, -- （tmp）メーカー区分
+    nyukkten tmp_nyukkten, -- （tmp）入庫拠点
+    renban tmp_renban, -- （tmp）連番
+    jchutime tmp_jchutime, -- （tmp）受注時間
+    jdenno tmp_jdenno, -- （tmp）受注伝票№
+    bokten tmp_bokten, -- （tmp）ｂ／ｏ管理拠点
+    skankten tmp_skankten, -- （tmp）物流主管拠点
+    inkten tmp_inkten, -- （tmp）入力拠点
+    jchukbn tmp_jchukbn, -- （tmp）受注区分
+    nouhkbn tmp_nouhkbn, -- （tmp）納品区分
+    flnouhkbn tmp_flnouhkbn, -- （tmp）フォロー納品区分
+    jtantou tmp_jtantou, -- （tmp）受注担当者
+    utantou tmp_utantou, -- （tmp）お客様発注担当者
+    denk tmp_denk, -- （tmp）伝区
+    flcd tmp_flcd, -- （tmp）フォローコード
+    remark1 tmp_remark1, -- （tmp）リマーク１
+    remark2 tmp_remark2, -- （tmp）リマーク２
+    riyuu tmp_riyuu, -- （tmp）理由コード
+    kasyuu tmp_kasyuu, -- （tmp）加修先お客様コード
+    hanf tmp_hanf, -- （tmp）販売店フラグ
+    urikbn tmp_urikbn, -- （tmp）売上区分
+    urisflg tmp_urisflg, -- （tmp）売上出庫フラグ
+    genkacd tmp_genkacd, -- （tmp）原価コード
+    pricekn tmp_pricekn, -- （tmp）ｋ／ｎ
+    nouhbaik tmp_nouhbaik, -- （tmp）納品書売価
+    tekibaik tmp_tekibaik, -- （tmp）適用売価
+    pricelp tmp_pricelp, -- （tmp）ｌ／ｐ
+    zanteikk tmp_zanteikk, -- （tmp）暫定価格フラグ
+    kclas tmp_kclas, -- （tmp）価格クラス
+    hinsij tmp_hinsij, -- （tmp）品番価格指示コード
+    tanteki tmp_tanteki, -- （tmp）単価適用コード
+    sshinmok tmp_sshinmok, -- （tmp）ｓｓ品目コード
+    gaitoles tmp_gaitoles, -- （tmp）該当レスコード
+    pkanflg tmp_pkanflg, -- （tmp）ピース換算フラグ
+    bunricd tmp_bunricd, -- （tmp）分離強制コード
+    nyutime tmp_nyutime, -- （tmp）入荷予定時間
+    nyukayk tmp_nyukayk, -- （tmp）入荷予定日区分
+    daihin tmp_daihin, -- （tmp）代替新品番
+    daimkbn tmp_daimkbn, -- （tmp）代替新品番　メーカー区分
+    hchuhzaikbn tmp_hchuhzaikbn, -- （tmp）発注引在区分
+    noshi_hachuymd tmp_hchuymd, -- （tmp）発注日
+    hisouktn tmp_hisouktn, -- （tmp）配送拠点
+    syakptn tmp_syakptn, -- （tmp）集約パターン
+    syakkbn tmp_syakkbn, -- （tmp）集約区分
+    hbinno tmp_hbinno, -- （tmp）配達便№
+    syukkbn tmp_syukkbn, -- （tmp）出庫区分
+    syukktn tmp_syukktn, -- （tmp）出庫拠点
+    nokiuri tmp_nokiuri, -- （tmp）納期指定売上日
+    binno tmp_binno, -- （tmp）便№
+    hkwatasitm tmp_hkwatasitm, -- （tmp）引渡時間
+    nokikbn tmp_nokikbn, -- （tmp）納期区分
+    hkkanymd tmp_hkkanymd, -- （tmp）ｂ／ｏ引当完了日（ｂ／ｏ処理日）
+    hkkantime tmp_hkkantime, -- （tmp）ｂ／ｏ引当完了時間（ｂ／ｏ処理時間）
+    syukknoymd tmp_syukknoymd, -- （tmp）出荷可能日
+    syukknotime tmp_syukknotime, -- （tmp）出荷可能時間
+    defkaito tmp_defkaito, -- （tmp）デフォルト回答フラグ
+    syoriflg tmp_syoriflg, -- （tmp）処理済フラグ
+    motokyouhan tmp_motokyouhan, -- （tmp）委託元共販店コード
+    motousercd tmp_motousercd, -- （tmp）委託元お客様コード
+    buturyuflg tmp_buturyuflg, -- （tmp）物流委託フラグ
+    kakakuskb tmp_kakakuskb, -- （tmp）価格決定識別
+    nokiknflg tmp_nokiknflg, -- （tmp）納期完了フラグ
+    skbseq tmp_skbseq, -- （tmp）識別ｓｅｑ
+    dainohin tmp_dainohin, -- （tmp）台当り納品方法
+    dailblumu tmp_dailblumu, -- （tmp）台当りラベル有無
+    noudaiseq tmp_noudaiseq, -- （tmp）納指台当りｓｅｑ
+    bincount tmp_bincount, -- （tmp）便当り台数カウント
+    binbinno tmp_binbinno, -- （tmp）便当り便№
+    binsimet tmp_binsimet, -- （tmp）便当り締時間
+    binsamcd tmp_binsamcd, -- （tmp）便当りサマリコード
+    binsyuarer tmp_binsyuarer, -- （tmp）便当り出庫エリア
+    jyurjflg tmp_jyurjflg, -- （tmp）受注時リジェクトフラグ
+    tsyukymd tmp_tsyukymd, -- （tmp）tmc出荷日
     current_timestamp::TIMESTAMP_NTZ as ldts, -- dm作成時の時間
     jh.ldts as ldts_snapshot -- snapshot作成用
 from juhattyu jh
@@ -328,4 +400,4 @@ left outer join nokikaito nk
 on jh.dlrcd = nk.m_dlrcd
 and jh.hinban = iff(jh.tkskbn = '4', nk.m_shinban, nk.m_jhinban)
 and jh.chumon = nk.m_ordeno
-and jh.hchuymd = nk.m_juchuymd
+and jh.chuzan_hachuymd = nk.m_juchuymd
