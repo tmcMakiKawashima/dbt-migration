@@ -79,4 +79,4 @@ on
             and noki.nokismkskcd = ''
     end
 and try_to_date(tyokuso.juchuymd, 'yyyyMMdd') >= to_date(noki.dbt_valid_from)
-and try_to_date(tyokuso.juchuymd, 'yyyyMMdd') < iff(noki.dbt_valid_to is null, '9999-12-31 00:00:00.000', to_date(noki.dbt_valid_to))
+and try_to_date(tyokuso.juchuymd, 'yyyyMMdd') < iff(noki.dbt_valid_to is null, '9999-12-31', to_date(noki.dbt_valid_to))
