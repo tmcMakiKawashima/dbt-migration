@@ -1,3 +1,4 @@
+-- データ結合１ 1-1
 {{ config(fail_calc = "cnt") }}
 
 select b.cnt - a.cnt as cnt

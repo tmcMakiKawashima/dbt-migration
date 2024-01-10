@@ -1,11 +1,26 @@
 version: 2
 
 models:
+  #データ結合１のチェック
   - name: tmp10_dm_tmc_tyokuso_jutyunokikaito
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - ordesybt
+            - yusokbn
+            - ordeno
+            - jhinban
+            - juchuymd
+            - shinban
+            - sirissueno
+            - siirecd
     columns:
-      - name: CHUMON_NO_NYUKO
+      - name: iff(kyoten is not null, kyoten, nyukkten)
         tests:
           - outer_join_not_all_null
+  #データ結合2のチェック
+  - name: tmp15_dm_tmc_tyokuso_jutyunokikaito
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -14,3 +29,11 @@ models:
             - shinban
             - syukkaymd
             - sirissueno
+            - ordesybt
+            - yusokbn
+            - jhinban
+            - juchuymd
+    columns:
+      - name: nyukoymd
+        tests:
+          - outer_join_not_all_null  

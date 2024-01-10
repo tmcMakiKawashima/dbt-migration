@@ -34,7 +34,6 @@ with temp40 as (
         syukkaymd m_syukkaymd,  --メーカー出荷日
         syukkasu m_syukkasu,  --メーカ出荷数
         nyukoymd,  --ｔｍｐ入庫日
-        nyukosu,  --ｔｍｐ入庫数
         '' as m_kaknoukbn,  --メーカー格納拠点区分
         '' as m_thibusyocd,  --メーカー手配担当部署ｃｄ
         '' as m_thitatocd,  --メーカー手配担当者cd
