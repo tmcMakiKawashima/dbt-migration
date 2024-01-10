@@ -8,7 +8,7 @@ select
     case
         when bof.kasyuu <> '' then bof.kasyuu
         else bof.usercd
-    end kasyuu,
+    end bof_kasyuu,
     bof.kyouhan as check_kyouhan -- 共販店コード nullチェック用
 from temp20
     left outer join bof

@@ -3,7 +3,7 @@ with
     chuzan as (select * from {{ ref('stg_tbchznl') }})
 select
     temp10.* exclude (check_kyouhan),
-    chuzan.hchuymd chuzan_hchuymd,
+    chuzan.hchuymd chuzan_hachuymd,
     --納期仕向
     chuzan.odrsbetu,
     chuzan.ktenkbn,
