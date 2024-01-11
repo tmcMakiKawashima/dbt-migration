@@ -6,6 +6,5 @@ select count(*) as cnt
     and (
             m_juchusu is not null
         and m_syukkasu is not null
-        and nyukosu is null
         )
     and m_juchusu < m_syukkasu
