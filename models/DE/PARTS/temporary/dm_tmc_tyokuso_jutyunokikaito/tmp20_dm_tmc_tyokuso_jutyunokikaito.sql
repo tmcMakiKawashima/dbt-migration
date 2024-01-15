@@ -9,7 +9,8 @@ with temp15 as (
         shinban,  --出荷品番
         max(nyukoymd) nyukoymd,  --入庫日
         sum(syukkasu) syukkasu,  --出荷数
-        max(syukkaymd) syukkaymd  --出荷日      
+        max(syukkaymd) syukkaymd,  --出荷日
+        max(jsksyseiymd) jsksyseiymd --実績修正日      
     from {{ref('tmp15_dm_tmc_tyokuso_jutyunokikaito')}}
     where jusinno <> ''
     and renban2 <> ''

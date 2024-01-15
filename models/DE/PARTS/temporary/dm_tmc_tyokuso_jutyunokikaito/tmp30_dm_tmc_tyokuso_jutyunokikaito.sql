@@ -7,6 +7,7 @@ tmp15 as (
         max(nyukoymd) nyukoymd, --入庫日
         sum(syukkasu) syukkasu, --出荷数
         max(syukkaymd) syukkaymd, --出荷日
+        max(jsksyseiymd) jsksyseiymd, -- 実績修正日
         dlrcd, --仕向先cd
         yusokbn, --輸送cd
         ordeno, --注文no
