@@ -1,0 +1,10 @@
+version: 2
+
+models:
+# 入出庫ファイル
+  - name: replace_tbnsyus
+    columns:
+      - name: raw_data
+        tests:
+          - fixed_length:
+              length: 368
