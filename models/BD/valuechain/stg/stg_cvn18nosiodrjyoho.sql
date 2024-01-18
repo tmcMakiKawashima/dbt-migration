@@ -1,4 +1,4 @@
-{{ config(materialized='ephemeral') }}
+{{ config(materialized='ephemeral', access='protected') }}
 
 with stg_cvn18nosiodrjyoho as (
     select
