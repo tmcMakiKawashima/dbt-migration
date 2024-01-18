@@ -8,3 +8,10 @@ models:
         tests:
           - fixed_length:
               length: 368
+# 納期受注蓄積ファイル
+  - name: replace_tbnokjs
+    columns:
+      - name: raw_data
+        tests:
+          - fixed_length:
+              length: 327
