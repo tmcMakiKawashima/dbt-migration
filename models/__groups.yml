@@ -1,0 +1,16 @@
+groups:
+  - name: marketing
+    owner:
+      name: marketing_owner
+  - name: supplydemand
+    owner:
+      name: supplydemand_owner
+  - name: valuechain
+    owner:
+      name: valuechain_owner
+  - name: parts
+    owner:
+      name: parts_owner
+  - name: datamart
+    owner:
+      name: datamart_owner
