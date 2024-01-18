@@ -8,6 +8,13 @@ models:
         tests:
           - fixed_length:
               length: 368
+# BOファイル
+  - name: replace_tbbofll
+    columns:
+      - name: raw_data
+        tests:
+          - fixed_length:
+              length: 274
 # 納期受注蓄積ファイル
   - name: replace_tbnokjs
     columns:
