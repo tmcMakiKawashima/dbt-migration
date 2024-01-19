@@ -2,10 +2,14 @@
 
 {{
     config(
-        unique_key="TYOTATHB ||'-'|| KAKNOUKBN ||'-'|| SRSIRSKCD ||'-'|| TEKIYOKAISIYMD",
+        unique_key="concat_ws('-',
+                    tyotathb,
+                    kaknoukbn,
+                    srsirskcd,
+                    tekiyokaisiymd)",
 
         strategy='timestamp',
-        updated_at='LDTS',
+        updated_at='mttime',
         invalidate_hard_deletes=True,
     )
 }}
