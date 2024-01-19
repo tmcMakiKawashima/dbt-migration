@@ -42,7 +42,9 @@ with stg_cvn18nosiodrjyoho as (
         rtrim(hdyoteiymd, ' 　')::varchar(8) as hdyoteiymd, -- 英数字
         rtrim(iphonyoyakuymd, ' 　')::varchar(8) as iphonyoyakuymd, -- 英数字
         rtrim(mtuserid, ' 　')::varchar(16) as mtuserid, -- 英数字
-        mttime, -- なにもしない
+        iff(try_to_timestamp_ntz(mttime,'yyyy-mm-dd-hh24.mi.ss.ff9') is null -- ブランクの場合nullになる対応でデフォルト値を設定
+            , '0001-01-01 00:00:00.000'
+            , try_to_timestamp_ntz(mttime,'yyyy-mm-dd-hh24.mi.ss.ff9')) mttime,
         ldts -- B層のLDTS
     from {{ ref('substr_cvn18nosiodrjyoho') }}
 )
