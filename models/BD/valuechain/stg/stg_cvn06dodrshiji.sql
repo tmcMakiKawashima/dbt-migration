@@ -104,7 +104,7 @@ with stg_cvn06dodrshiji as (
         rtrim(nyoteiymd,' 　')::varchar(8) as nyoteiymd,  -- 英数字
         rtrim(bohkymd,' 　')::varchar(8) as bohkymd,  -- 英数字
         rtrim(mtuserid,' 　')::varchar(16) as mtuserid,  -- 英数字
-        mttime,  -- なにもしない
+        try_to_timestamp_ntz(mttime,'yyyy-mm-dd-hh24.mi.ss.ff9') as mttime, --timestamp型
         rtrim(juchuymd,' 　')::varchar(8) as juchuymd,  -- 英数字
         ldts, -- b層のldts
         rank() over (
