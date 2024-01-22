@@ -1,19 +1,19 @@
 with stg_dvnp054a as (
   select
-    rtrim(DLRCD, ' 　')::VARCHAR(7) as DLRCD,  -- 英数字
-    rtrim(SMKMEIJPJH, ' 　')::VARCHAR(10) as SMKMEIJPJH, -- 全角10桁、２０バイト
-    rtrim(SMKMEIJPJS, ' 　')::VARCHAR(10) as SMKMEIJPJS, -- 全角10桁、２０バイト
-    rtrim(SMKMEIKJH, ' 　')::VARCHAR(20) as SMKMEIKJH,  -- 英数字
-    rtrim(SMKMEIKJS, ' 　')::VARCHAR(20) as SMKMEIKJS,  -- 英数字
-    rtrim(JUSYO1JP, ' 　')::VARCHAR(10) as JUSYO1JP, -- 全角10桁、２０バイト
-    rtrim(JUSYO2JP, ' 　')::VARCHAR(10) as JUSYO2JP, -- 全角10桁、２０バイト
-    rtrim(JUSYO3JP, ' 　')::VARCHAR(10) as JUSYO3JP, -- 全角10桁、２０バイト
-    rtrim(JUSYO4JP, ' 　')::VARCHAR(10) as JUSYO4JP, -- 全角10桁、２０バイト
-    rtrim(MTUSERID, ' 　')::VARCHAR(16) as MTUSERID,  -- 英数字
-    rtrim(MTTIME, ' 　')::VARCHAR(26) as MTTIME,  -- 英数字
-    rtrim(DUMMY, ' 　')::VARCHAR(9) as DUMMY,  -- 英数字
-    LDTS -- B層のLDTS
+    rtrim(dlrcd, ' 　')::varchar(7) as dlrcd,  -- 英数字
+    rtrim(smkmeijpjh, ' 　')::varchar(10) as smkmeijpjh, -- 全角10桁、２０バイト
+    rtrim(smkmeijpjs, ' 　')::varchar(10) as smkmeijpjs, -- 全角10桁、２０バイト
+    rtrim(smkmeikjh, ' 　')::varchar(20) as smkmeikjh,  -- 英数字
+    rtrim(smkmeikjs, ' 　')::varchar(20) as smkmeikjs,  -- 英数字
+    rtrim(jusyo1jp, ' 　')::varchar(10) as jusyo1jp, -- 全角10桁、２０バイト
+    rtrim(jusyo2jp, ' 　')::varchar(10) as jusyo2jp, -- 全角10桁、２０バイト
+    rtrim(jusyo3jp, ' 　')::varchar(10) as jusyo3jp, -- 全角10桁、２０バイト
+    rtrim(jusyo4jp, ' 　')::varchar(10) as jusyo4jp, -- 全角10桁、２０バイト
+    rtrim(mtuserid, ' 　')::varchar(16) as mtuserid,  -- 英数字
+    try_to_timestamp_ntz(mttime, 'yyyy-mm-dd-hh24.mi.ss.ff9') as mttime, -- timestamp型
+    rtrim(dummy, ' 　')::varchar(9) as dummy,  -- 英数字
+    ldts -- B層のLDTS
   from {{ ref('substr_dvnp054a') }}
 )
 select * from stg_dvnp054a
-where LDTS = (select max(LDTS) from stg_dvnp054a)
+where ldts = (select max(ldts) from stg_dvnp054a)
