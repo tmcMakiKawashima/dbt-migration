@@ -2,10 +2,17 @@
 
 {{
     config(
-        unique_key="ID ||'-'|| KYOUHAN ||'-'|| KYOTEN ||'-'|| YOBI",
+        unique_key="concat_ws('-', 
+                    id, 
+                    kyouhan, 
+                    kyoten,
+                    yobi)",
 
-        strategy='timestamp',
-        updated_at='LDTS',
+        strategy='check',
+        check_cols=['sishacd',
+                    'tsiwakecd1',
+                    'tsiwakecd2',
+                    'filler'],
         invalidate_hard_deletes=True,
     )
 }}
