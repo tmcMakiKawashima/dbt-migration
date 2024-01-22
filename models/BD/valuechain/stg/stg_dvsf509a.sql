@@ -51,7 +51,7 @@ with stg_dvsf509a as (
         rtrim(tekiyokaisiymd,' 　')::varchar(8) as tekiyokaisiymd,  -- 英数字
         rtrim(tekiyosyuryoymd,' 　')::varchar(8) as tekiyosyuryoymd,  -- 英数字
         rtrim(mtuserid,' 　')::varchar(16) as mtuserid,  -- 英数字
-        try_to_timestamp_ntz(mttime, 'yyyy-mm-dd-hh24.mi.ss.ff9') mttime,
+        try_to_timestamp_ntz(mttime, 'yyyy-mm-dd-hh24.mi.ss.ff9') mttime, -- timestamp型
         ldts -- B層のLDTS
     from {{ ref('substr_dvsf509a') }}
 )
