@@ -2,10 +2,13 @@
 
 {{
     config(
-        unique_key="ORDRKEY ||'-'|| JURRSYMD ||'-'|| TANSKKEY",
+        unique_key="concat_ws('-',
+                    ordrkey,
+                    jurrsymd,
+                    tanskkey)",
 
         strategy='timestamp',
-        updated_at='LDTS',
+        updated_at='mttime',
         invalidate_hard_deletes=True,
     )
 }}
