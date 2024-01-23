@@ -13,7 +13,7 @@ with stg_cvn35dsyukabin as (
         rtrim(totyakuhhmm, ' 　') as totyakuhhmm, --英数字
         rtrim(syukkasijihhmm, ' 　') as syukkasijihhmm, --英数字
         rtrim(mtuserid, ' 　') as mtuserid, --英数字
-        rtrim(mttime, ' 　') as mttime, --英数字
+        try_to_timestamp_ntz(mttime,'yyyy-mm-dd-hh24.mi.ss.ff9') as mttime, --timestamp型
         ldts
     from {{ ref('substr_cvn35dsyukabin') }}
 ),
