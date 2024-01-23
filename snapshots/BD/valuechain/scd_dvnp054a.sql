@@ -2,10 +2,10 @@
 
 {{
     config(
-        unique_key="DLRCD",
+        unique_key="dlrcd",
 
         strategy='timestamp',
-        updated_at='LDTS',
+        updated_at='mttime',
         invalidate_hard_deletes=True,
     )
 }}
