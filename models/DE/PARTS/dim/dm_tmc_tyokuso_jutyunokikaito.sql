@@ -39,7 +39,6 @@ with temp40 as (
         '' as m_thitatocd,  --メーカー手配担当者cd
         '' as m_tehaikbn,  --メーカー手配区分
         keikanissu m_keikanissu,  --メーカー経過日数
-        jsksyseiymd m_jsksyseiymd, -- 実績修正日
         '' as m_pendid, --ペンディングid
         0 as m_pensu, --ペンディング数
         '' as m_pentime, --ペンディング日時
