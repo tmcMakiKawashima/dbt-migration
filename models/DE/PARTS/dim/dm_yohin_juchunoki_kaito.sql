@@ -3,9 +3,8 @@ with ippan as (
     where substr(m_ordeno,0,2) = 'ZZ' -- メーカーオーダーNO（先頭２桁）
 ),
 tyoku as (
-    select * exclude(m_nonuhikiatnis, m_jsksyseiymd) from {{ ref('dm_tmc_tyokuso_jutyunokikaito') }}
+    select * exclude(m_nonuhikiatnis) from {{ ref('dm_tmc_tyokuso_jutyunokikaito') }}
     where substr(m_ordeno,0,2) = 'ZZ' -- メーカーオーダーNO（先頭２桁）
-      and m_jsksyseiymd = ''
 )
 select  
         m_dlrcd, -- メーカー仕向先cd
