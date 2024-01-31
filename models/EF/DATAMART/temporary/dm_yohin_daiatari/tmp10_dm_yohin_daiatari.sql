@@ -30,40 +30,30 @@ select j.*,
        s.sk_ymd, -- 終検日
        s.haisya_ymd, -- 配車日
     --tmp納期遵守(dm_yohin_tmp_juhattyuuriage)
-    case 
-        when try_to_date(j.syukkoymd,'yyyyMMdd') is not null -- 出庫日がnullでない
-         and try_to_date(to_char(j.tyakko),'yyyyMMdd') is not null -- 確定着工日がnullでない
-        then
-            case -- （TMP）出庫日が（販売店）着工日より過去の場合
-                when try_to_date(j.syukkoymd,'yyyyMMdd') < 
-                     try_to_date(to_char(j.tyakko),'yyyyMMdd')
-                then
-                    case
-                        when syukkosu >= jutyusu
-                        then '◯'    -- (TMP)出庫数が(TMP)受注数以上
-                        else '未判定' -- (TMP)出庫数が(TMP)受注数未満
-                    end
-                else '✕' -- （TMP）出庫日が（販売店）着工日より過去でない場合
-            end
-        else '未判定' -- 上記に該当しない場合
+    case
+        when try_to_date(j.syukkoymd,'yyyyMMdd') is not null -- 出庫日
+        and  try_to_date(to_char(j.tyakko),'yyyyMMdd') is not null -- 確定着工日
+            then
+                case -- 出庫日が確定着工日よりも過去の場合
+                    when try_to_date(j.syukkoymd,'yyyyMMdd') < 
+                         try_to_date(to_char(j.tyakko),'yyyyMMdd')
+                        then '◯'
+                        else '✕'
+                end
+            else '未判定'
     end tmp_nokijunsyu,
     --tmp納期遵守（ソート優先度）(dm_yohin_tmp_juhattyuuriage)
     case
-        when try_to_date(j.syukkoymd,'yyyyMMdd') is not null -- 出庫日がnullでない
-         and try_to_date(to_char(j.tyakko),'yyyyMMdd') is not null -- 確定着工日がnullでない
-        then 
-            case --  （TMP）出庫日が（販売店）着工日より過去の場合
-                when try_to_date(j.syukkoymd,'yyyyMMdd') < 
-                     try_to_date(to_char(j.tyakko),'yyyyMMdd')
-                then
-                    case
-                        when syukkosu >= jutyusu
-                        then 3 -- (TMP)出庫数が(TMP)受注数以上
-                        else 2 -- (TMP)出庫数が(TMP)受注数未満
-                    end
-                else 1 -- （TMP）出庫日が（販売店）着工日より過去でない場合
-            end
-        else 2 -- 上記に該当しない場合
+        when try_to_date(j.syukkoymd,'yyyyMMdd') is not null -- 出庫日
+        and  try_to_date(to_char(j.tyakko),'yyyyMMdd') is not null -- 確定着工日
+            then 
+                case -- 出庫日が確定着工日よりも過去の場合
+                     when try_to_date(j.syukkoymd,'yyyyMMdd') < 
+                          try_to_date(to_char(j.tyakko),'yyyyMMdd')
+                        then 3
+                        else 1
+                end
+            else 2
     end tmp_nokijunsyu_priority,
     --tmp納期遅延日数（暦日）(dm_yohin_tmp_juhattyuuriage)
     case

@@ -11,42 +11,32 @@ select
     --参考[メーカー]納期遵守（推定）
     case
         when dateadd(day, to_number(iff(m_keikanissu is null, 0, m_keikanissu))
-                        , try_to_date(m_syukkaymd, 'yyyyMMdd')) is not null -- [メーカー]TMP到着日（推定）がnullでない
-         and try_to_date(zaikyote,'yyyymmdd') is not null -- [TMP]納入予定日がnullでない
-        then
-            case -- [メーカー]TMP到着日（推定）が[TMP]納入予定日以前の場合
-                when dateadd(day, to_number(iff(m_keikanissu is null, 0, m_keikanissu))
+                        , try_to_date(m_syukkaymd, 'yyyyMMdd')) is not null -- [メーカー]TMP到着日（推定）
+        and  try_to_date(zaikyote,'yyyymmdd') is not null -- [TMP]納入予定日
+            then
+                case -- [メーカー]TMP到着日（推定）が[TMP]納入予定日以前の場合
+                    when dateadd(day, to_number(iff(m_keikanissu is null, 0, m_keikanissu))
                                     , try_to_date(m_syukkaymd, 'yyyyMMdd')) <= 
-                     try_to_date(zaikyote,'yyyymmdd')
-                then
-                    case
-                        when m_syukkasu >= m_juchusu
-                        then '◯' -- (メーカー)出荷数が(メーカー)受注数以上
-                        else '未判定' -- (メーカー)出荷数が(メーカー)受注数未満
-                    end
-                else '✕' -- [メーカー]TMP到着日（推定）が[TMP]納入予定日より未来日の場合
-            end
-        else '未判定' -- 上記に該当しない場合
+                         try_to_date(zaikyote,'yyyymmdd')
+                        then '◯'
+                        else '✕'
+                end
+            else '未判定'
     end m_nokijunsyu,
     --[メーカー]納期遵守（ソート優先度）
     case
         when dateadd(day, to_number(iff(m_keikanissu is null, 0, m_keikanissu))
-                        , try_to_date(m_syukkaymd, 'yyyyMMdd')) is not null -- [メーカー]TMP到着日（推定）がnullでない
-         and try_to_date(zaikyote,'yyyymmdd') is not null -- [TMP]納入予定日がnullでない
-        then 
-            case -- [メーカー]TMP到着日（推定）が[TMP]納入予定日以前の場合
-                when dateadd(day, to_number(iff(m_keikanissu is null, 0, m_keikanissu))
-                                , try_to_date(m_syukkaymd, 'yyyyMMdd')) <= 
-                     try_to_date(zaikyote,'yyyymmdd')
-                then
-                    case
-                        when m_syukkasu >= m_juchusu
-                        then 3 -- (メーカー)出荷数が(メーカー)受注数以上
-                        else 2 -- (メーカー)出荷数が(メーカー)受注数未満
-                    end
-                else 1
-            end
-        else 2 -- 上記に該当しない場合
+                        , try_to_date(m_syukkaymd, 'yyyyMMdd')) is not null -- [メーカー]TMP到着日（推定）
+        and  try_to_date(zaikyote,'yyyymmdd') is not null -- [TMP]納入予定日
+            then 
+                case -- [メーカー]TMP到着日（推定）が[TMP]納入予定日以前の場合
+                    when dateadd(day, to_number(iff(m_keikanissu is null, 0, m_keikanissu))
+                                    , try_to_date(m_syukkaymd, 'yyyyMMdd')) <= 
+                         try_to_date(zaikyote,'yyyymmdd')
+                        then 3
+                        else 1
+                end
+            else 2
     end m_nokijunsyu_priority,
     --参考[メーカー]納期差
     case
