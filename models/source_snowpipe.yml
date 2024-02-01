@@ -156,3 +156,10 @@ sources:
                   length: 204
       - name: raw_tbnokjs
         identifier: DXNOKJ99
+      - name: raw_ktrla025zz0kil3204
+        identifier: O_KTRLA025ZZ0KIL3204
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 29
