@@ -117,6 +117,11 @@ sources:
                   length: 500
       - name: raw_tbnsyus
         identifier: DXNSYU99
+        #columns:
+        #  - name: RAW_DATA
+        #    tests:
+        #      - fixed_length:
+        #          length: 368
       - name: raw_tbuserm
         identifier: DXUSER99
         columns:
@@ -140,6 +145,11 @@ sources:
                   length: 400
       - name: raw_tbbofll
         identifier: DXBOFL99
+        # columns:
+        #   - name: RAW_DATA
+        #     tests:
+        #       - fixed_length:
+        #           length: 274
       - name: raw_tbchznl
         identifier: DXCHZN99
         columns:
@@ -156,3 +166,8 @@ sources:
                   length: 204
       - name: raw_tbnokjs
         identifier: DXNOKJ99
+        # columns:
+        #   - name: RAW_DATA
+        #     tests:
+        #       - fixed_length:
+        #           length: 327

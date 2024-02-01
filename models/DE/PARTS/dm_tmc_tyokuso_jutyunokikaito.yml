@@ -33,8 +33,6 @@ models:
             - yusokbn
             - jhinban
             - juchuymd
-          config:
-            where: "jsksyseiymd = ''"
     columns:
       - name: nyukoymd
         tests:

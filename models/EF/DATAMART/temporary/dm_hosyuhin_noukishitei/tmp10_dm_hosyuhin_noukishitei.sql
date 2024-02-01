@@ -20,40 +20,26 @@ juhattyu as (
 select
     case
         when
-            try_to_date(nokiymd, 'yyyyMMdd') <= try_to_date(shitei, 'yyyyMMdd') -- (TMP)納期日が(販売店)納期指定日以前の場合
+            try_to_date(nokiymd, 'yyyyMMdd') <= try_to_date(shitei, 'yyyyMMdd')
         then
-            case
-                when
-                    jchusu <= syukkei --(TMP)出庫数が(TMP)受注数以上である場合
-                then
-                    '◯'
-                else -- (TMP)出庫数が(TMP)受注数未満である場合
-                    '未判定'
-            end
+            '◯'
         when
-            try_to_date(nokiymd, 'yyyyMMdd') > try_to_date(shitei, 'yyyyMMdd') -- (TMP)納期日が(販売店)納期指定日より未来日の場合
+            try_to_date(nokiymd, 'yyyyMMdd') > try_to_date(shitei, 'yyyyMMdd')
         then
             '✕'
-        else -- 上記に該当しない場合
+        else
             '未判定'
     end tmp_nokijunsyu, --[TMP]納期遵守
     case
         when
-            try_to_date(nokiymd, 'yyyyMMdd') <= try_to_date(shitei, 'yyyyMMdd') --(TMP)納期日が(販売店)納期指定日以前の場合
+            try_to_date(nokiymd, 'yyyyMMdd') <= try_to_date(shitei, 'yyyyMMdd')
         then
-            case
-                when
-                    jchusu <= syukkei -- (TMP)出庫数が(TMP)受注数以上である場合
-                then
-                    3
-                else -- (TMP) 出庫数が(TMP)受注数未満である場合
-                    2
-            end
+            3
         when
-            try_to_date(nokiymd, 'yyyyMMdd') > try_to_date(shitei, 'yyyyMMdd') -- (TMP)納期日が(販売店)納期指定日より未来日の場合
+            try_to_date(nokiymd, 'yyyyMMdd') > try_to_date(shitei, 'yyyyMMdd')
         then
             1
-        else -- 上記に該当しない場合
+        else
             2
     end tmp_nokijunsyu_priority, --[TMP]納期遵守（ソート優先度）
     case
@@ -69,41 +55,27 @@ select
     end tmp_nokiokuredays, --[TMP]納期差
     case
         when
-            try_to_date(m_hntotime, 'yyyyMMdd') <= try_to_date(nyukayd, 'yyyyMMdd') --(メーカー)TMP到着日（推定）が（TMP）納入予定日以前の場合
+            try_to_date(m_hntotime, 'yyyyMMdd') <= try_to_date(nyukayd, 'yyyyMMdd')
         then
-            case
-                when
-                    m_juchusu <= m_syukkasu -- （メーカー）出荷数が（メーカー）受注数以上である場合
-                then
-                    '◯'
-                else -- (メーカー)出荷数が（メーカー）受注数未満である場合
-                    '未判定'
-            end
+            '◯'
         when
-            try_to_date(m_hntotime, 'yyyyMMdd') > try_to_date(nyukayd, 'yyyyMMdd') -- (メーカー)TMP到着日（推定）が（TMP）納入予定日より未来日の場合
+            try_to_date(m_hntotime, 'yyyyMMdd') > try_to_date(nyukayd, 'yyyyMMdd')
         then
             '✕'
-        else -- 上記に該当しない場合
+        else
             '未判定'
     end m_nokijunsyu, --参考[メーカー]納期遵守（推定）
     case
         when
-            try_to_date(m_hntotime, 'yyyyMMdd') <= try_to_date(nyukayd, 'yyyyMMdd') -- (メーカー)TMP到着日（推定）が（TMP）納入予定日以前の場合
+            try_to_date(m_hntotime, 'yyyyMMdd') <= try_to_date(nyukayd, 'yyyyMMdd')
         then
-            case
-                when
-                    m_juchusu <= m_syukkasu -- (メーカー)出荷数が（メーカー）受注数以上である場合
-                then
-                    3
-                else -- (メーカー)出荷数が（メーカー）受注数未満である場合
-                    2
-            end
+            '3'
         when
-            try_to_date(m_hntotime, 'yyyyMMdd') > try_to_date(nyukayd, 'yyyyMMdd') -- (メーカー)TMP到着日（推定）が（TMP）納入予定日より未来日の場合
+            try_to_date(m_hntotime, 'yyyyMMdd') > try_to_date(nyukayd, 'yyyyMMdd')
         then
-            1
-        else -- 上記に該当しない場合
-            2
+            '1'
+        else
+            '2'
     end m_nokijunsyu_priority, --参考[メーカー]納期遵守（ソート優先度）
     case
         when
