@@ -86,13 +86,3 @@ snapshots:
       valuechain:
         +target_database: valuechain_db
         +target_schema: dbt_snapshots
-    DE:
-      parts:
-        +group: parts
-        +target_database: parts_db
-        +target_schema: dbt_snapshots
-    EF:
-      datamart:
-        +group: datamart
-        +target_database: datamart_db
-        +target_schema: dbt_snapshots
