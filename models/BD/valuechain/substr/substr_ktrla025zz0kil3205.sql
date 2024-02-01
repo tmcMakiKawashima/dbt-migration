@@ -1,0 +1,16 @@
+with substr_ktrla025zz0kil3205 as (
+    select
+        substr(raw_data, 1, 1)::varchar(1) as mtkbn,
+        substr(raw_data, 2, 9)::varchar(9) as strno,
+        substr(raw_data, 11, 4)::varchar(4) as dtlno,
+        substr(raw_data, 15, 8)::varchar(8) as sainyukodate,
+        substr(raw_data, 23, 1)::varchar(1) as choushikekkacd,
+        substr(raw_data, 24, 2)::varchar(2) as genincd,
+        substr(raw_data, 26, 2)::varchar(2) as hosyokbn,
+        substr(raw_data, 28, 12)::varchar(12) as hosyoseikyusyono,
+        substr(raw_data, 40, 1)::varchar(1) as fuguaisaigenkbn,
+        substr(raw_data, 41, 50)::varchar(50) as geninname,
+        ldts
+    from {{ source('snowpipe_db_valuechain', 'raw_ktrla025zz0kil3205') }}
+)
+select * from substr_ktrla025zz0kil3205
