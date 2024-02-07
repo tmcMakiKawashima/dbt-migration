@@ -117,11 +117,6 @@ sources:
                   length: 500
       - name: raw_tbnsyus
         identifier: DXNSYU99
-        #columns:
-        #  - name: RAW_DATA
-        #    tests:
-        #      - fixed_length:
-        #          length: 368
       - name: raw_tbuserm
         identifier: DXUSER99
         columns:
