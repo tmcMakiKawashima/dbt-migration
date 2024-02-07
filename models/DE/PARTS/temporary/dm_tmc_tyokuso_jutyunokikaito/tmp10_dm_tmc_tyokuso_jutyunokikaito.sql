@@ -17,6 +17,7 @@ with tyokuso as (
         sum(juchu5) as juchu5, -- 受注数（直送）
         max(rimak1) as rimak1, -- リマークⅠ
         max(rimak2) as rimak2, -- リマークⅡ
+        max(jsksyseiymd) as jsksyseiymd, -- 実績修正日
         max(ldts) ldts --union結合用
     from {{ref('stg_dvnp4330')}} -- 国内出荷実績直送
     group by
