@@ -1,0 +1,16 @@
+groups:
+  - name: marketing
+    owner:
+      email: maki_kawashima@mail.toyota.co.jp
+  - name: supplydemand
+    owner:
+      email: maki_kawashima@mail.toyota.co.jp
+  - name: valuechain
+    owner:
+      email: maki_kawashima@mail.toyota.co.jp
+  - name: parts
+    owner:
+      email: maki_kawashima@mail.toyota.co.jp
+  - name: datamart
+    owner:
+      email: maki_kawashima@mail.toyota.co.jp
