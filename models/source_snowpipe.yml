@@ -140,11 +140,6 @@ sources:
                   length: 400
       - name: raw_tbbofll
         identifier: DXBOFL99
-        # columns:
-        #   - name: RAW_DATA
-        #     tests:
-        #       - fixed_length:
-        #           length: 274
       - name: raw_tbchznl
         identifier: DXCHZN99
         columns:
