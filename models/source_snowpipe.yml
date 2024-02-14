@@ -156,3 +156,10 @@ sources:
                   length: 204
       - name: raw_tbnokjs
         identifier: DXNOKJ99
+      - name: raw_tbsmksk_noki
+        identifier: DXC22899
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 400
