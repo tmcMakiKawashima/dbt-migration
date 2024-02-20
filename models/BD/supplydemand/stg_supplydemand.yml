@@ -1,0 +1,42 @@
+
+version: 2
+
+models:
+  # 国内新生産実績
+  - name: stg_kokunaiseisan
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syadai_kt
+            - frmno
+            - frmkbn
+            - shamei
+            - sno
+          config:
+            severity: error
+    columns:
+      - name: syadai_kt
+        tests:
+          - not_null
+        config:
+          severity: error
+      - name: frmno
+        tests:
+          - not_null
+        config:
+          severity: error
+      - name: frmkbn
+        tests:
+          - not_null
+        config:
+          severity: error
+      - name: shamei
+        tests:
+          - not_null
+        config:
+          severity: error
+      - name: sno
+        tests:
+          - not_null
+        config:
+          severity: error

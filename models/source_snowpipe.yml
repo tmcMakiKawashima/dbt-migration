@@ -163,3 +163,15 @@ sources:
             tests:
               - fixed_length:
                   length: 400
+  - name: snowpipe_db_supplydemand
+    database: Snowpipe_DB
+    schema: public
+
+    tables:
+      - name: raw_nojfa560
+        identifier: NOJFA560
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 1563
