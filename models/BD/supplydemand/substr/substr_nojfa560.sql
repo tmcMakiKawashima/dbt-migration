@@ -49,7 +49,7 @@ with substr_nojfa560 as (
         substr(raw_data, 213, 2)::varchar(2) as kdlot_kbn,
         substr(raw_data, 215, 4)::varchar(4) as kdlotno,
         substr(raw_data, 219, 2)::varchar(2) as kdlotsub,
-        substr(raw_data, 221, 4)::varchar(5) as syasyu_cd,
+        substr(raw_data, 221, 4)::varchar(4) as syasyu_cd,
         substr(raw_data, 225, 4)::varchar(4) as prdreqm_y,
         substr(raw_data, 229, 2)::varchar(2) as prdreqm_m,
         substr(raw_data, 231, 12)::varchar(12) as tecsorder,

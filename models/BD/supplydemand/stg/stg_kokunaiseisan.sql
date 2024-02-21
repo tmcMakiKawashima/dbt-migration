@@ -229,7 +229,7 @@ with kokunaiseisan as (
         createuser::varchar(13) as createuser,
         createtime::varchar(26) as createtime,
         updateuser::varchar(13) as updateuser,
-        try_to_timestamp_ntz(updatetime, 'yyyy-mm-dd-hh24.mi.ss.ff9') as updatetime, -- timestamp型
+        try_to_timestamp_ntz(updatetime, 'yyyy-mm-dd hh24:mi:ss.ff9') as updatetime, -- timestamp型
         haisyaupd::varchar(26) as haisyaupd,
         ldts, -- B層のldts
         rank() over(
