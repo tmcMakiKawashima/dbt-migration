@@ -180,3 +180,10 @@ sources:
             tests:
               - fixed_length:
                   length: 450
+      - name: raw_nojfa560
+        identifier: nojfa560
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 1563
