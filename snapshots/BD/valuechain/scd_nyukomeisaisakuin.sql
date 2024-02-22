@@ -1,12 +1,12 @@
-{% snapshot scd_ktrla025zz0kil3203 %}
+{% snapshot scd_nyukomeisaisakuin %}
 
 {{
     config(
         unique_key="concat_ws('-',
-                    mtkbn,
-                    dlrcd,
-                    ordrno,
-                    sttldy,
+                    nyukohanbaitencd,
+                    jutyuno,
+                    seisany,
+                    seisanmd,
                     nyukono)",
 
         strategy='timestamp',
@@ -15,6 +15,6 @@
     )
 }}
 
-select * from {{ ref('stg_ktrla025zz0kil3203') }}
+select * from {{ ref('stg_nyukomeisaisakuin') }}
 
 {% endsnapshot %}
