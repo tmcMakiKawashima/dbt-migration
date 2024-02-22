@@ -157,7 +157,7 @@ sources:
       - name: raw_tbnokjs
         identifier: DXNOKJ99
       - name: raw_ktrla025zz0kil3210
-        identifier: O_KTRLA025ZZ0KIL3210
+        identifier: KTRLA025ZZ0KIL3210
         columns:
           - name: RAW_DATA
             tests:
