@@ -53,6 +53,13 @@ models:
         stg:
           +access: public
           +materialized: table
+      marketing:
+        +group: marketing
+        +database: marketing_db
+        +schema: public
+        stg:
+          +access: public
+          +materialized: table
     DD:
       valuechain:
         +group: valuechain
@@ -121,4 +128,8 @@ snapshots:
       supplydemand:
         +group: supplydemand
         +target_database: supplydemand_db
+        +target_schema: dbt_snapshots
+      marketing:
+        +group: marketing
+        +target_database: marketing_db
         +target_schema: dbt_snapshots
