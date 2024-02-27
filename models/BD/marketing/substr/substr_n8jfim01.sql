@@ -1,7 +1,7 @@
 with substr_n8jfim01 as (
     select
         substr(raw_data, 2, 11)::varchar(11) as hanbaino,
-        substr(raw_data, 13, 4)::varchar(14) as syasyu,
+        substr(raw_data, 13, 4)::varchar(4) as syasyu,
         substr(raw_data, 17, 1)::varchar(1) as kategoricd,
         substr(raw_data, 18, 1)::varchar(1) as kscd,
         substr(raw_data, 19, 11)::varchar(11) as mhanbaino,
