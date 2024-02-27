@@ -1,4 +1,4 @@
-with substr_KTRLA01EZZ0KA20001 as (
+with substr_ktrla01ezz0ka20001 as (
     select
         substr(raw_data, 2, 4)::varchar(4) as syasyu,
         substr(raw_data, 6, 3)::varchar(3) as siyoudai5,
@@ -16,5 +16,5 @@ with substr_KTRLA01EZZ0KA20001 as (
         ldts
     from {{ source('snowpipe_db_supplydemand', 'raw_specname') }}
 )
-select * from substr_KTRLA01EZZ0KA20001    
+select * from substr_ktrla01ezz0ka20001    
         
