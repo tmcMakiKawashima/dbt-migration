@@ -1,6 +1,15 @@
 version: 2
 
 models:
+#　発行承認管理
+  - name: stg_hakkosyonin
+    columns:
+      - name: hanbaino
+        tests:
+          - unique
+          - not_null
+        config:
+          - severity: error
 # 販売引当
   - name: stg_hanbaihikiate
     tests:
