@@ -25,6 +25,6 @@ with stg_hanbaihikiate as (
                     hkata
                 order by ldts desc
             ) aggkey
-        from {{ref('substr_N8JFIM04')}}
+        from {{ref('substr_n8jfim04')}}
 )
 select * from stg_hanbaihikiate where aggkey = 1
