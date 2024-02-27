@@ -1,6 +1,6 @@
 with stg_nyukoreki as (
     select
-        rtrim(delflg, ' 　')::varchar(1) as delflg,
+        iff(rtrim(delflg, ' 　') = 'D', '1', '0')::varchar(1) as delflg,
         rtrim(KBSYADAI, ' 　')::varchar(3) as KBSYADAI,
         rtrim(NOSYADAI, ' 　')::varchar(20) as NOSYADAI,
         split_part(NOSYADAI, '-', 1) as syadai_kt,
