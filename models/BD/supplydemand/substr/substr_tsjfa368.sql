@@ -1,4 +1,4 @@
-with substr_TSJFA368 as (
+with substr_tsjfa368 as (
     select
         substr(raw_data, 2, 4)::varchar(4) as datid,
         substr(raw_data, 6, 4)::varchar(4) as yy,
@@ -64,4 +64,4 @@ with substr_TSJFA368 as (
         ldts
     from {{ source('snowpipe_db_supplydemand', 'raw_haisyagenshi') }}
 )
-select * from substr_TSJFA368        
+select * from substr_tsjfa368        
