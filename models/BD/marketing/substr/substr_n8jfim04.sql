@@ -1,4 +1,4 @@
-with substr_N8JFIM04 as (
+with substr_n8jfim04 as (
     select
         substr(raw_data, 2, 11)::varchar(11) as hanbaino,
         substr(raw_data, 13, 20)::varchar(20) as kosyokata,
@@ -17,4 +17,4 @@ with substr_N8JFIM04 as (
         ldts
     from {{ source('snowpipe_db_marketing', 'raw_hanbaihikiate') }}
 )
-select * from substr_N8JFIM04
+select * from substr_n8jfim04
