@@ -74,7 +74,7 @@ with stg_haisyagenshi as (
                     frmno, hkata, frmkbn, shamei, sno
                 order by ldts desc
             ) aggkey
-        from {{ ref('substr_TSJFA368') }}
+        from {{ ref('substr_tsjfa368') }}
     )
 select *
 from stg_haisyagenshi
