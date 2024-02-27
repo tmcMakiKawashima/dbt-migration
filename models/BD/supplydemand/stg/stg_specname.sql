@@ -19,7 +19,7 @@ with stg_specname as (
                     syasyu, siyoudai5, siyousai5, sketa, skigo
                 order by sijikara desc, ldts desc
             ) aggkey
-        from {{ ref('substr_KTRLA01EZZ0KA20001') }}
+        from {{ ref('substr_ktrla01ezz0ka20001') }}
     )
 select *
 from stg_specname
