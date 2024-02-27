@@ -1,6 +1,6 @@
 with stg_goyoumeihosyo as (
     select
-        rtrim(delflg, ' 　')::varchar(1) as delflg,
+        iff(rtrim(delflg, ' 　') = 'D', '1', '0')::varchar(1) as delflg,
         rtrim(nyukono, ' 　')::varchar(9) as nyukono,
         rtrim(meisaino, ' 　')::varchar(4) as meisaino,
         rtrim(sainyukoymd, ' 　')::varchar(8) as sainyukoymd,
