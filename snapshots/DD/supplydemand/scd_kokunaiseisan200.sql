@@ -13,6 +13,6 @@
     )
 }}
 
-select * from {{ ref('scd_kokunaiseisan200') }}
+select * from {{ ref('stg_kokunaiseisan200') }}
 
 {% endsnapshot %}
