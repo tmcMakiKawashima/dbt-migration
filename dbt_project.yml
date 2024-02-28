@@ -133,3 +133,8 @@ snapshots:
         +group: marketing
         +target_database: marketing_db
         +target_schema: dbt_snapshots
+    DD:
+      supplydemand:
+        +group: supplydemand
+        +target_database: supplydemand_db
+        +target_schema: dbt_snapshots
