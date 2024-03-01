@@ -28,7 +28,6 @@ with stg_hakkosyonin as (
         rmailflg::varchar(1) as rmailflg,
         kataaddflg::varchar(1) as kataaddflg,
         katadelflg::varchar(1) as katadelflg,
-        bikou::varchar(300) as bikou,
         cd_sksifunc::varchar(9) as cd_sksifunc,
         cd_ksnfunc::varchar(9) as cd_ksnfunc,
         cd_sksisya::varchar(16) as cd_sksisya,

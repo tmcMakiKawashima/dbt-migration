@@ -28,13 +28,13 @@ with substr_n8jfim01 as (
         substr(raw_data, 158, 1)::varchar(1) as rmailflg,
         substr(raw_data, 159, 1)::varchar(1) as kataaddflg,
         substr(raw_data, 160, 1)::varchar(1) as katadelflg,
-        substr(raw_data, 161, 300)::varchar(300) as bikou,
-        substr(raw_data, 461, 9)::varchar(9) as cd_sksifunc,
-        substr(raw_data, 470, 9)::varchar(9) as cd_ksnfunc,
-        substr(raw_data, 479, 16)::varchar(16) as cd_sksisya,
-        substr(raw_data, 495, 16)::varchar(16) as cd_ksnsya,
-        substr(raw_data, 511, 26)::varchar(26) as dt_sakusei,
-        substr(raw_data, 537, 26)::varchar(26) as dt_kosin,
+        --備考カラム桁ずれ対応　以降のカラムは末尾からのsubstrで取り込む
+        substr(raw_data, -102, 9)::varchar(9) as cd_sksifunc,
+        substr(raw_data, -93, 9)::varchar(9) as cd_ksnfunc,
+        substr(raw_data, -84, 16)::varchar(16) as cd_sksisya,
+        substr(raw_data, -68, 16)::varchar(16) as cd_ksnsya,
+        substr(raw_data, -52, 26)::varchar(26) as dt_sakusei,
+        substr(raw_data, -26, 26)::varchar(26) as dt_kosin,
         ldts
     from {{source('snowpipe_db_marketing', 'raw_n8jfim01')}}
 )
