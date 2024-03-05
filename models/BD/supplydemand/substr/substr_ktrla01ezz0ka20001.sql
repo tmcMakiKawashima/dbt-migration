@@ -14,7 +14,7 @@ with substr_ktrla01ezz0ka20001 as (
         substr(raw_data, 103, 2)::varchar(2) as tutisufkata,
         substr(raw_data, 105, 14)::varchar(14) as mtdate,
         ldts
-    from {{ source('snowpipe_db_supplydemand', 'raw_specname') }}
+    from {{ source('snowpipe_db_supplydemand', 'raw_ktrla01ezz0ka20001') }}
 )
 select * from substr_ktrla01ezz0ka20001    
         
