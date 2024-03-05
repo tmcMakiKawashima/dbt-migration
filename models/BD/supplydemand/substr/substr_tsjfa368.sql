@@ -62,6 +62,6 @@ with substr_tsjfa368 as (
         substr(raw_data, 431, 5)::varchar(5) as seikyu,
         substr(raw_data, 436, 1)::varchar(1) as wrap,
         ldts
-    from {{ source('snowpipe_db_supplydemand', 'raw_haisyagenshi') }}
+    from {{ source('snowpipe_db_supplydemand', 'raw_tsjfa368') }}
 )
 select * from substr_tsjfa368        

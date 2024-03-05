@@ -173,7 +173,7 @@ sources:
     loaded_at_field: ldts
 
     tables:
-      - name: raw_haisyagenshi
+      - name: raw_tsjfa368
         identifier: tsjfa368
         columns:
           - name: raw_data
