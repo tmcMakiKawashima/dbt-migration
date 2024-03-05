@@ -187,7 +187,7 @@ sources:
             tests:
               - fixed_length:
                   length: 1563
-      - name: raw_specname
+      - name: raw_ktrla01ezz0ka20001
         identifier: ktrla01ezz0ka20001
         columns:
           - name: raw_data
