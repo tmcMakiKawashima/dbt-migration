@@ -15,6 +15,6 @@ with substr_n8jfim04 as (
         substr(raw_data, 124, 26)::varchar(26) as dt_sakusei,
         substr(raw_data, 150, 26)::varchar(26) as dt_kosin,
         ldts
-    from {{ source('snowpipe_db_marketing', 'raw_hanbaihikiate') }}
+    from {{ source('snowpipe_db_marketing', 'raw_n8jfim04') }}
 )
 select * from substr_n8jfim04

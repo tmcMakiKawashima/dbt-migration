@@ -210,7 +210,7 @@ sources:
             tests:
               - fixed_length:
                   length: 562      
-      - name: raw_hanbaihikiate
+      - name: raw_n8jfim04
         identifier: n8jfim04
         columns:
           - name: raw_data
