@@ -82,6 +82,14 @@ models:
         stg:
           +access: public
           +materialized: table
+      vinhis:
+        vinspec:
+            +group: vinhis_vinspec
+            +database: vinhis_db
+            +schema: vinspec
+            stg:
+              +access: public
+              +materialized: table
     DE:
       PARTS:
         +group: parts
@@ -90,6 +98,14 @@ models:
         dim:
           +access: public
           +materialized: table
+      vinhis:
+        +database: vinhis_db
+        spec:
+          +group: vinhis_spec
+          +schema: spec
+          dim:
+            +access: public
+            +materialized: table
     EF:
       DATAMART:
         +group: datamart
