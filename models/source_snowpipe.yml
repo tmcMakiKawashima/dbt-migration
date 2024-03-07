@@ -163,3 +163,38 @@ sources:
             tests:
               - fixed_length:
                   length: 400
+      - name: raw_ktrla025zz0kil3202
+        identifier: KTRLA025ZZ0KIL3202
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 109
+      - name: raw_ktrla025zz0kil3203
+        identifier: KTRLA025ZZ0KIL3203
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 31
+      - name: raw_ktrla025zz0kil3209
+        identifier: KTRLA025ZZ0KIL3209
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 51
+      - name: raw_ktrla025zz0kil3210
+        identifier: KTRLA025ZZ0KIL3210
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 10
+      - name: raw_ktrla025zz0kil3211
+        identifier: KTRLA025ZZ0KIL3211
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 40
