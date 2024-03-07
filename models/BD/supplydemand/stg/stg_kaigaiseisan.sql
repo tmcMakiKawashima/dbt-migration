@@ -66,7 +66,7 @@ with stg_kaigaiseisan as (
         copy_flg::varchar(1) as copy_flg,
         finline::varchar(1) as finline,
         fintp::varchar(2) as fintp,
-        asmline::varchar(1) asmline,
+        asmline::varchar(1) as asmline,
         paintline::varchar(1) as paintline,
         vlt_y::varchar(4) as vlt_y,
         vlt_m::varchar(2) as vlt_m,
