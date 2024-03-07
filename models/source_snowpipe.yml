@@ -184,6 +184,13 @@ sources:
             tests:
               - fixed_length:
                   length: 29
+      - name: raw_ktrla025zz0kil3205
+        identifier: KTRLA025ZZ0KIL3205
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 90
       - name: raw_ktrla025zz0kil3209
         identifier: KTRLA025ZZ0KIL3209
         columns:
