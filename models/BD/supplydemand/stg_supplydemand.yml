@@ -122,3 +122,41 @@ models:
           - not_null
         config:
           severity: error
+# 海外新生産実績
+  - name: stg_kaigaiseisan
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - frmno
+            - wmi
+            - vds
+            - mdlyr
+            - vin_vds_cd
+          config:
+            severity: error
+    columns:
+      - name: frmno
+        tests:
+          - not_null
+        config:
+          severity: error
+      - name: wmi
+        tests:
+          - not_null
+        config:
+          severity: error
+      - name: vds
+        tests:
+          - not_null
+        config:
+          severity: error
+      - name: mdlyr
+        tests:
+          - not_null
+        config:
+          severity: error
+      - name: vin_vds_cd
+        tests:
+          - not_null
+        config:
+          severity: error

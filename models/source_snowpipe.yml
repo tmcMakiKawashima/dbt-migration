@@ -194,6 +194,14 @@ sources:
             tests:
               - fixed_length:
                   length: 133
+      - name: raw_da5a212b
+        identifier: da5a212b
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 1563
+
   - name: snowpipe_db_marketing
     database: snowpipe_DB
     schema: marketing
