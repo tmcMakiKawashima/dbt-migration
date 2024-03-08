@@ -6,7 +6,7 @@
                     frmno,
                     wmi,
                     vds,
-                    mdmlyr,
+                    mdlyr,
                     vin_vds_cd,
                     sketa)",
                     
