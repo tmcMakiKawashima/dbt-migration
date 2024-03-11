@@ -1,3 +1,23 @@
+{{
+    config(
+        matrialized = 'incremental',
+        incremental_strategy = 'append',
+        post_hook = '
+            delete from {{this}}
+            where (syadai_kt, frmno, ldts) in (
+                with ranked as (
+                    select syadai_kt, frmno, ldts,
+                        rank() over(partition by syadai_kt, frmno order by ldts desc) as aggkey
+                    from {{this}}
+                )
+                select syadai_kt, frmno, ldts
+                from ranked
+                where aggkey <> 1
+                group by all
+            )
+            '
+    )
+}}
 with kokunaiseisan200 as (
     select syadai_kt, frmno, spec, '1' as sketa, substr(spec, 1, 1) as skigo, updatetime, ldts from {{ref('stg_kokunaiseisan')}} where skigo <> ' '
     union all
@@ -400,3 +420,7 @@ with kokunaiseisan200 as (
     select syadai_kt, frmno, spec, '200' as sketa, substr(spec, 200, 1) as skigo, updatetime, ldts from {{ref('stg_kokunaiseisan')}} where skigo <> ' '
 )
 select syadai_kt, frmno, sketa, skigo, updatetime, ldts from kokunaiseisan200
+
+{% if is_incremental() %}
+    where ldts > (select max(ldts) from {{this}})
+{% endif %}
