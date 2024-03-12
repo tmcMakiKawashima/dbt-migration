@@ -1,4 +1,4 @@
-{% snapshot scd_oemseisan %}
+{% snapshot scd_oemseisan200 %}
 
 {{
     config(
@@ -13,6 +13,6 @@
     )
 }}
 
-select * from {{ ref('stg_oemseisan') }}
+select * from {{ ref('stg_oemseisan200') }}
 
 {% endsnapshot %}
