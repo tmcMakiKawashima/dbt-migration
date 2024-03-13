@@ -11,6 +11,9 @@ groups:
   - name: parts
     owner:
       email: maki_kawashima@mail.toyota.co.jp
+  - name: vinhis
+    owner:
+      email: maki_kawashima@mail.toyota.co.jp
   - name: datamart
     owner:
       email: maki_kawashima@mail.toyota.co.jp
