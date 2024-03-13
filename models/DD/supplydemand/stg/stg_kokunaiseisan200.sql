@@ -1,6 +1,6 @@
 {{
     config(
-        matrialized = 'incremental',
+        materialized='incremental',
         incremental_strategy = 'append',
         post_hook = '
             delete from {{this}}
