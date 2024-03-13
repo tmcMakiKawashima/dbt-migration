@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: customerservice_db_public
+    database: CUSTOMERSERVICE_DB
+    schema: PUBLIC
+    tables:
+      - name: m_seibi_name
+        identifier: M_SEIBI_NAME
