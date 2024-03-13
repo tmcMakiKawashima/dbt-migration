@@ -3,6 +3,7 @@
 {{
     config(
         unique_key="concat_ws('-',
+                    syadai_kt,
                     frmno,
                     wmi,
                     vds,
