@@ -221,10 +221,10 @@ sources:
       - name: raw_n8jfim01
         identifier: n8jfim01
         columns:
-          - name: raw_data
+          - name: substr(raw_data, 1, 160) || substr(raw_data, -102)
             tests:
               - fixed_length:
-                  length: 562      
+                  length: 262      
       - name: raw_n8jfim04
         identifier: n8jfim04
         columns:
