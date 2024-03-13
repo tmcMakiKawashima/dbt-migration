@@ -39,7 +39,7 @@ with stg_kaigaiseisan as (
         dlrsuffix::varchar(2) as dlrsuffix,
         importduty_kbn::varchar(1) as importduty_kbn,
         haisya_ktcd::varchar(5) as haisya_ktcd,
-        haisya_kt::varchar(20) as haisya_kt,
+        haisya_kt::varchar(20) as haisyakt,
         ctl_kt::varchar(20) as ctl_kt,
         lo_ktcd::varchar(5) as lo_ktcd,
         lo_kt::varchar(20) as lo_kt,
