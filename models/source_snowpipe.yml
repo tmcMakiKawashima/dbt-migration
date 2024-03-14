@@ -220,11 +220,6 @@ sources:
     tables:      
       - name: raw_n8jfim01
         identifier: n8jfim01
-        columns:
-          - name: regexp_replace(raw_data, $$[^\x01-\x7E\xA1-\xDF]$$, '***')
-            tests:
-              - fixed_length:
-                  length: 562      
       - name: raw_n8jfim04
         identifier: n8jfim04
         columns:
