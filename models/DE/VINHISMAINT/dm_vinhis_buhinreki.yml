@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: tmp10_dm_vinhis_buhinreki
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syadai_kt
+            - frm_no
+            - nyuko_dlrcd
+            - jutyu_no
+            - payment_date
+            - nyuko_no
+            - nyuko_detail_no
+    columns:
+      - name: nyuko_no
+        tests:
+          - not_null
+  - name: dm_vinhis_buhinreki
+    columns:
+      - name: parts_cd
+        tests:
+          - outer_join_not_all_null
