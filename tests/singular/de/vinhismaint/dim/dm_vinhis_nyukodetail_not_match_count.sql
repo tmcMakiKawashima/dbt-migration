@@ -3,8 +3,8 @@ select b.cnt - a.cnt as cnt
     from
     (
       select count(*) as cnt
-      from {{ref("tmp20_dm_vinhis_nyukodetail")}}
+      from {{ref("tmp30_dm_vinhis_nyukodetail")}}
     ) a, (
       select count(*) as cnt
-      from {{ref("tmp30_dm_vinhis_nyukodetail")}}
+      from {{ref("dm_vinhis_nyukodetail")}}
     ) b
