@@ -10,7 +10,7 @@ with
             smeikana as dai_kana_name, -- スペック名称カナ
             smeieiji as dai_eiji_name, -- スペック名称英字
         from {{ ref("stg_specname") }} -- スペック名称
-        where skigo = ''
+        where skigo = ' '
     )
 select
     tmp20.*,
