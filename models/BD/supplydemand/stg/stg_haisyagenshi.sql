@@ -40,7 +40,7 @@ with stg_haisyagenshi as (
         tokcd::varchar(1) as tokcd,  -- なし
         skkbn::varchar(1) as skkbn,  -- なし
         tehkbn::varchar(2) as tehkbn,  -- なし
-        sketai::varchar(3) as sketai,  -- なし
+        rtrim(sketai,' 　')::varchar(3) as sketai,  -- 右blank
         kteki::varchar(1) as kteki,  -- なし
         "HAIKYMD.YY"::varchar(4) as haikymdyy,  -- なし
         "HAIKYMD.MM"::varchar(2) as haikymdmm,  -- なし
