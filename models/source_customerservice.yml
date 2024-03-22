@@ -5,5 +5,5 @@ sources:
     database: CUSTOMERSERVICE_DB
     schema: PUBLIC
     tables:
-      - name: m_parts_name
+      - name: stg_hinbanmeisyomaster
         identifier: M_PARTS_NAME
