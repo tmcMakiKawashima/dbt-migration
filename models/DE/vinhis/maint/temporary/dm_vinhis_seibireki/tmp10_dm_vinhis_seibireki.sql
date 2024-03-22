@@ -1,21 +1,6 @@
 with
     dm_vinhis_nyukodetail as (
-        select
-            syadai_kt, -- 車台型式
-            frm_no, -- フレームNo
-            nyuko_dlrcd, -- 入庫販売店コード
-            nyuko_dlrcd_name, -- 入庫販売店名称
-            uketuke_tenpo_cd, -- 受付店舗コード
-            uketuke_tenpo_name, -- 受付店舗名称
-            nyuko_kbn, -- 入庫区分
-            nyuko_kbn_name, -- 入庫区分名
-            nyuko_plan_date, -- 入庫予定日
-            uketuke_date, -- 受付日
-            soukou_km, -- 走行km
-            jutyu_no, -- 受注No
-            payment_date, -- 精算年月日
-            nyuko_no -- 入庫番号
-        from {{ ref("dm_vinhis_nyukodetail") }} -- VIN x 入庫明細
+        select * from {{ ref("dm_vinhis_nyukodetail") }} -- VIN x 入庫明細
     ),
     stg_seibireki as (
         select
@@ -24,26 +9,23 @@ with
             seibicd -- 整備コード
         from {{ ref("stg_seibireki") }} -- 整備歴
         where delflg = '0'
-    ),
-    tmp10_dm_vinhis_seibireki as (
-        select
-            dm_vinhis_nyukodetail.syadai_kt, -- 車台型式
-            dm_vinhis_nyukodetail.frm_no, -- フレームNo
-            dm_vinhis_nyukodetail.nyuko_dlrcd, -- 入庫販売店コード
-            dm_vinhis_nyukodetail.nyuko_dlrcd_name, -- 入庫販売店名称
-            dm_vinhis_nyukodetail.uketuke_tenpo_cd, -- 受付店舗コード
-            dm_vinhis_nyukodetail.uketuke_tenpo_name, -- 受付店舗名称
-            dm_vinhis_nyukodetail.nyuko_kbn, -- 入庫区分
-            dm_vinhis_nyukodetail.nyuko_kbn_name, -- 入庫区分名
-            dm_vinhis_nyukodetail.nyuko_plan_date, -- 入庫予定日
-            dm_vinhis_nyukodetail.uketuke_date, -- 受付日
-            dm_vinhis_nyukodetail.soukou_km, -- 走行km
-            dm_vinhis_nyukodetail.jutyu_no, -- 受注No
-            dm_vinhis_nyukodetail.payment_date, -- 精算年月日
-            dm_vinhis_nyukodetail.nyuko_no, -- 入庫番号
-            stg_seibireki.meisaino as nyuko_detail_no, -- 明細行番号
-            stg_seibireki.seibicd as seibi_cd -- 整備コード
-        from dm_vinhis_nyukodetail
-        inner join stg_seibireki on dm_vinhis_nyukodetail.nyuko_no = stg_seibireki.nyukono
     )
-select * from tmp10_dm_vinhis_seibireki
+select
+    dm_vinhis_nyukodetail.syadai_kt, -- 車台型式
+    dm_vinhis_nyukodetail.frm_no, -- フレームNo
+    dm_vinhis_nyukodetail.nyuko_dlrcd, -- 入庫販売店コード
+    dm_vinhis_nyukodetail.nyuko_dlrcd_name, -- 入庫販売店名称
+    dm_vinhis_nyukodetail.uketuke_tenpo_cd, -- 受付店舗コード
+    dm_vinhis_nyukodetail.uketuke_tenpo_name, -- 受付店舗名称
+    dm_vinhis_nyukodetail.nyuko_kbn, -- 入庫区分
+    dm_vinhis_nyukodetail.nyuko_kbn_name, -- 入庫区分名
+    dm_vinhis_nyukodetail.nyuko_plan_date, -- 入庫予定日
+    dm_vinhis_nyukodetail.uketuke_date, -- 受付日
+    dm_vinhis_nyukodetail.soukou_km, -- 走行km
+    dm_vinhis_nyukodetail.jutyu_no, -- 受注No
+    dm_vinhis_nyukodetail.payment_date, -- 精算年月日
+    dm_vinhis_nyukodetail.nyuko_no, -- 入庫番号
+    stg_seibireki.meisaino, -- 明細行番号
+    stg_seibireki.seibicd -- 整備コード
+from dm_vinhis_nyukodetail
+inner join stg_seibireki on dm_vinhis_nyukodetail.nyuko_no = stg_seibireki.nyukono
