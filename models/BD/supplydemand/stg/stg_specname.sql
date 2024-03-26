@@ -6,7 +6,7 @@ with stg_specname as (
         ltrim(sketa,'0')::varchar(3) as sketa,  -- 左ゼロ
         skigo::varchar(1) as skigo,  -- なし
         smeikanji::varchar(25) as smeikanji,  -- なし
-        smeikana::varchar(25) as smeikana,  -- なし
+        rtrim(smeikana,' 　')::varchar(25) as smeikana,  -- 右blank
         smeieiji::varchar(25) as smeieiji,  -- なし
         mtflg::varchar(1) as mtflg,  -- なし
         rtrim(sijikara,' 　')::varchar(9) as sijikara,  -- 右blank

@@ -6,11 +6,11 @@ with
             syasyu, -- 車種コード
             sketa, -- スペック桁
             skigo, -- スペック記号
-            shiyosai as saimoku_cd, -- 細目コード
+            trim(shiyosai) as saimoku_cd, -- 細目コード
             smeikana as sai_kana_name, -- スペック名称カナ
             smeieiji as sai_eiji_name, -- スペック名称英字
         from {{ ref("stg_specname") }} -- スペック名称
-        where skigo <> ''
+        where skigo <> ' '
     )
 select
     tmp30.*,
