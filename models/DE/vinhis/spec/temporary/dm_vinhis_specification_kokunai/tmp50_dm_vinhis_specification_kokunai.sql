@@ -1,6 +1,6 @@
 -- データ結合５
 with
-    tmp40 as (select * from {{ ref("tmp40_dm_vinhis_specification_kokunai") }}),
+    tmp40 as (select * from {{ ref('tmp40_dm_vinhis_specification_kokunai') }}),
     hakko as (
         select * from (
             select 
@@ -10,7 +10,7 @@ with
                 row_number() over (
                     partition by syasyu 
                     order by kirikaeym desc) as aggkey
-            from {{ ref("stg_hakkosyonin") }} -- 発行承認管理
+            from {{ ref('stg_hakkosyonin') }} -- 発行承認管理
         )
         -- 先頭１レコード抽出条件
         where aggkey= 1

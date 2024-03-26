@@ -5,15 +5,15 @@ with
             frmno, -- フレーム№ stg_kokunaiseisan
             syasyu_cd, -- 車種コードstg_kokunaiseisan
             haisya_kt, -- 配車型式 stg_kokunaiseisan
-            hanbai_kt, -- 販売型式 stg_haisyagenshi
-            daibun_cd, -- 大分類コード stg_specname
-            sketa_cd, -- スペック桁 stg_kokunaiseisan200
-            dai_kanji_name, -- 大分類技術名称（漢字） stg_specname（大分類）
+            hkata as hanbai_kt, -- 販売型式 stg_haisyagenshi
+            shiyodai as daibun_cd, -- 大分類コード stg_specname
+            sketa as sketa_cd, -- スペック桁 stg_kokunaiseisan200
+            smeikanji as dai_kanji_name, -- 大分類技術名称（漢字） stg_specname（大分類）
             dai_kana_name, -- 大分類技術名称（カナ） stg_specname（大分類）
             dai_eiji_name, -- 大分類技術名称（英字） stg_specname（大分類）
             null as dai_catalog_name, -- 大分類カタログ名称 null
-            saimoku_cd, -- 細目コード stg_specname（細目）
-            skigo_cd, -- スペック記号 stg_kokunaiseisan200
+            shiyosai as saimoku_cd, -- 細目コード stg_specname（細目）
+            skigo as skigo_cd, -- スペック記号 stg_kokunaiseisan200
             sai_kana_name, -- 細目技術名称（カナ） stg_specname（細目）
             sai_eiji_name, -- 細目技術名称（英字） stg_specname（細目）
             case 
@@ -30,9 +30,9 @@ with
                 else sai_catalog_name_kana
             end sai_catalog_name, -- 細目営業名称 mst_vinhis_specification_nameconvert
             null as gi_sotyaku_cd, -- 技術(車両仕様書)装着形態 null
-            hanbai_sotyaku_cd, -- 販売装着形態 stg_hanbaihikiate
+            hsochaku as hanbai_sotyaku_cd, -- 販売装着形態 stg_hanbaihikiate
             current_timestamp::timestamp_ntz as ldts -- load date 
-        from {{ ref("tmp70_dm_vinhis_specification_kokunai") }}
+        from {{ ref('tmp70_dm_vinhis_specification_kokunai') }}
     )
 select *
 from tmp70
