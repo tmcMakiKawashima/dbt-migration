@@ -1,13 +1,13 @@
 -- データ結合２
 with
-    tmp10 as (select * from {{ ref("tmp10_dm_vinhis_specification_kokunai") }}),
+    tmp10 as (select * from {{ ref('tmp10_dm_vinhis_specification_kokunai') }}),
     koku200 as (
         select
             syadai_kt, -- 車台型式
             frmno, -- フレームNo
-            sketa as sketa_cd, -- スペック桁
-            skigo as skigo_cd -- スペック記号
-        from {{ ref("stg_kokunaiseisan200") }} -- 国内生産実績 生産スペック200桁縦
+            sketa, -- スペック桁
+            skigo -- スペック記号
+        from {{ ref('stg_kokunaiseisan200') }} -- 国内生産実績 生産スペック200桁縦
     )
 select
     tmp10.*,
