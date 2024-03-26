@@ -9,8 +9,8 @@ with
             mdlyr, -- モデルイヤー
             vin_vds_cd, -- VINチェックディジット
             syasyu_cd, -- 車種コード
-            haisyakt as haisya_kt -- 配車型式
-        from {{ ref("stg_kaigaiseisan") }}  -- 海外新生産実績
+            haisyakt -- 配車型式
+        from {{ ref('stg_kaigaiseisan') }}  -- 海外新生産実績
     )
 select * 
 from kaigai
