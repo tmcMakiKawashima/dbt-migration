@@ -7,10 +7,10 @@ with
             syasyu, -- SMS車種コード
             sketa, -- スペック桁
             skigo, --スペック記号
-            shiyosai as saimoku_cd, -- 細目コード
-            smeikana as sai_kana_name, --スペック名称カナ
-            smeieiji as sai_eiji_name -- スペック名称英字
-        from {{ref('stg_specname')}}
+            shiyosai, -- 細目コード
+            smeikana, --スペック名称カナ
+            smeieiji -- スペック名称英字
+        from {{ref('stg_specname')}} -- スペック名称
         where skigo <> ' '
     )
 select
@@ -22,16 +22,16 @@ select
     tmp30.vin_vds_cd, -- チェックディジット stg_oemseisan
     tmp30.syasyu_cd, -- 車種コード stg_oemseisan,
     tmp30.haisyakt as haisya_kt, -- 配車型式 stg_oemseisan
-    tmp30.daibun_cd, -- 大分類コード stg_specname
-    tmp30.sketa_cd, -- スペック桁 stg_oemseisan200
-    tmp30.dai_kanji_name, -- 大分類技術名称（漢字） stg_specname（大分類）
-    tmp30.dai_kana_name, -- 大分類技術名称（カナ） stg_specname（大分類）
-    tmp30.dai_eiji_name, -- 大分類技術名称（英字） stg_specname（大分類）
+    tmp30.shiyodai as daibun_cd, -- 大分類コード stg_specname
+    tmp30.sketa as sketa_cd, -- スペック桁 stg_oemseisan200
+    tmp30.smeikanji as dai_kanji_name, -- 大分類技術名称（漢字） stg_specname（大分類）
+    tmp30.smeikana as dai_kana_name, -- 大分類技術名称（カナ） stg_specname（大分類）
+    tmp30.smeieiji as dai_eiji_name, -- 大分類技術名称（英字） stg_specname（大分類）
     null as dai_catalog_name, -- 大分類カタログ名称 null
-    spec.saimoku_cd, -- 細目コード stg_specname（細目）
-    tmp30.skigo_cd, -- スペック記号 stg_oemseisan200
-    spec.sai_kana_name, -- 細目技術名称（カナ） stg_specname（細目）
-    spec.sai_eiji_name, -- 細目技術名称（英字） stg_specname（細目）
+    spec.shiyosai as saimoku_cd, -- 細目コード stg_specname（細目）
+    tmp30.skigo as skigo_cd, -- スペック記号 stg_oemseisan200
+    spec.smeikana as sai_kana_name, -- 細目技術名称（カナ） stg_specname（細目）
+    spec.smeieiji as sai_eiji_name, -- 細目技術名称（英字） stg_specname（細目）
     null as saimoku_cd_std, --  細目コード名寄せ null
     null as sai_sales_name, -- 細目営業名称 null
     null as sai_catalog_name, -- 細目カタログ名称 null
@@ -40,5 +40,5 @@ select
 from tmp30
 left outer join spec
     on tmp30.syasyu_cd = spec.syasyu
-    and tmp30.sketa_cd = spec.sketa
-    and tmp30.skigo_cd = spec.skigo
+    and tmp30.sketa = spec.sketa
+    and tmp30.skigo = spec.skigo

@@ -11,6 +11,6 @@ with
             vin_vds_cd, --チェックディジット
             syasyu_cd, -- SMS車種コード
             haisyakt -- 配車型式 
-        from {{ref('stg_oemseisan')}}    
+        from {{ref('stg_oemseisan')}} -- 仕入実績
     )
 select * from oem
