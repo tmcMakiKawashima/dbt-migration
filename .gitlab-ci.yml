@@ -31,7 +31,7 @@ initialize:
     - dagster-cloud ci status
   artifacts:
     paths:
-      - $DAGSTER_BUILD_STATES
+      - $DAGSTER_BUILD_STATEDIR
     expire_in: 1 week
 
 build-image:
