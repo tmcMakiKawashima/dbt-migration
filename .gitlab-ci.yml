@@ -42,7 +42,6 @@ build-image:
   services:
     - docker:dind
   before_script:
-    - pip3.8 install awscli
     - echo $AWS_ECR_PASSWORD |docker login --username AWS --password-stdin $IMAGE_REGISTRY
   script:
     - docker build . -t $IMAGE_REGISTRY:$IMAGE_TAG
