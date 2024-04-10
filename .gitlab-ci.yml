@@ -1,5 +1,5 @@
 variables:
-  DAGSTER_CLOUD_ORGANIZATION: <organization-name>
+  DAGSTER_CLOUD_ORGANIZATION: toyotadataplatform
   DAGSTER_PROJECT_DIR: .
   DAGSTER_CLOUD_YAML_PATH: dagster_cloud.yaml
   IMAGE_REGISTRY: 085931761001.dkr.ecr.ap-northeast-1.amazonaws.com/dagster
