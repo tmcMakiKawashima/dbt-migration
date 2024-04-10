@@ -1,0 +1,6 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.dagster]
+module_name = "da_dxpf_edp_dagster_edp_infra_ope_sample"
