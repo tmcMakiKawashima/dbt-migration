@@ -37,7 +37,7 @@ initialize:
 build-image:
   stage: build
   dependencies:
-    - initizlize
+    - initialize
   image: docker:latest
   services:
     - docker:dind
