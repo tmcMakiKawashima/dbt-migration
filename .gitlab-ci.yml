@@ -29,11 +29,10 @@ initialize:
       --commit-hash=$CI_COMMIT_SHA
       --status-url=$CI_PIPELINE_URL
     -dagster-cloud ci status
-
-artifacts:
-  paths:
+  artifacts:
+   paths:
     - $DAGSTER_BUILD_STATES
-  expire_in: 1 week
+    expire_in: 1 week
 
 build-image:
   stage: build
