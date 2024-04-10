@@ -42,7 +42,9 @@ build-image:
   services:
     - docker:dind
   before_script:
-    - echo $CI_JOB_TOKEN |docker login --username $CI_REGISTER_USER --password-stdin $REGISTRY_URL
+    - apk add --no--cache curl jq python3 py3-pip
+    - pip3.8 install awscli
+    - echo $AWS_ECR_PASSWORD |docker login --username AWS --password-stdin $IMAGE_REGISTRY
   script:
     - docker build . -t $IMAGE_REGISTRY:$IMAGE_TAG
     - docker push $IMAGE_REGISTRY:$IMAGE_TAG
