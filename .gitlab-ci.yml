@@ -30,8 +30,8 @@ initialize:
       --status-url=$CI_PIPELINE_URL
     - dagster-cloud ci status
   artifacts:
-   paths:
-    - $DAGSTER_BUILD_STATES
+    paths:
+      - $DAGSTER_BUILD_STATES
     expire_in: 1 week
 
 build-image:
