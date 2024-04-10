@@ -28,7 +28,7 @@ initialize:
       --git-url=$CI_COMMIT_SHA
       --commit-hash=$CI_COMMIT_SHA
       --status-url=$CI_PIPELINE_URL
-    -dagster-cloud ci status
+    - dagster-cloud ci status
   artifacts:
    paths:
     - $DAGSTER_BUILD_STATES
