@@ -57,7 +57,6 @@ deploy-docker:
     - initialize
   image: ghcr.io/dagster-io/dagster-cloud-action:0.1.31
   script:
-    - whoami
     - dagster-cloud ci set-build-output --image-tag=$IMAGE_TAG
     - dagster-cloud ci deploy
 
