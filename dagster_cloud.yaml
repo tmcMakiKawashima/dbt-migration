@@ -3,5 +3,5 @@ locations:
     code_source:
       package_name: da_dxpf_edp_dagster_edp_infra_ope_sample
     build:
-      directory: ./da_dxpf_edp_dagster_edp_infra_ope_sample
+      directory: ./
       registry: 085931761001.dkr.ecr.ap-northeast-1.amazonaws.com/dagster
