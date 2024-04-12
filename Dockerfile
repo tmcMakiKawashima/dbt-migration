@@ -2,13 +2,13 @@ FROM python:3.10-slim
 
 RUN mkdir -p /opt/dagster/dagster_home /opt/dagster/app
 
-RUN pip install dagster-webserver dagster-postgres dagster-aws
+RUN pip3.8 install dagster-webserver dagster-postgres dagster-aws
 
-COPY repo.py workspace.yaml /opt/dagster/app/
+#COPY repo.py workspace.yaml /opt/dagster/app/
 
 ENV DAGSTER_HOME=/opt/dagster/dagster_home/
 
-COPY dagster.yaml /opt/dagster/dagster_home/
+#COPY dagster.yaml /opt/dagster/dagster_home/
 
 WORKDIR /opt/dagster/app
 

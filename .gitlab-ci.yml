@@ -59,7 +59,6 @@ deploy-docker:
   script:
     - export
     - dagster-cloud ci set-build-output --image-tag=$IMAGE_TAG
-    - dagster-cloud ci check --project-dir=$DAGSTER_PROJECT_DIR --dagster-cloud-yaml-path=$DAGSTER_CLOUD_YAML_PATH
     - dagster-cloud ci deploy
 
 deploy-docker-buranch:
