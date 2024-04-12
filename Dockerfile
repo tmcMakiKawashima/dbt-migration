@@ -20,6 +20,6 @@ WORKDIR /opt/dagster/app
 
 COPY . /opt/dagster/app
 
-RUN pip install dagster-cloud=1.7.0
+RUN pip install dagster-cloud==1.7.0
 
 #RUN pip install --upgrade pip
