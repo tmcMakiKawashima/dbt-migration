@@ -1,6 +1,6 @@
 FROM python:3.10-slim
 
-RUN mkdir -@ /opt/dagster/dagster_home /opt/dagster/app
+RUN mkdir -p /opt/dagster/dagster_home /opt/dagster/app
 
 RUN pip install dagster-webserver dagster-postgres dagster-aws
 
