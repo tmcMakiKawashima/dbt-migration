@@ -2,7 +2,7 @@ FROM python:3.10-slim
 
 RUN mkdir -p /opt/dagster/dagster_home /opt/dagster/app
 
-RUN pip3.8 install dagster-webserver dagster-postgres dagster-aws
+RUN sudo pip install dagster-webserver dagster-postgres dagster-aws
 
 #COPY repo.py workspace.yaml /opt/dagster/app/
 
