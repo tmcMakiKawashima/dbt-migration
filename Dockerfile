@@ -20,4 +20,6 @@ WORKDIR /opt/dagster/app
 
 COPY . /opt/dagster/app
 
-RUN pip install --upgrade pip
+RUN pip install -e .
+
+#RUN pip install --upgrade pip
