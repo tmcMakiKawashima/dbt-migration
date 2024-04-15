@@ -22,4 +22,6 @@ COPY . /opt/dagster/app
 
 RUN pip install -e .
 
+EXPOSE 4000
+
 #RUN pip install --upgrade pip
