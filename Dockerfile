@@ -24,7 +24,6 @@ RUN pip install -e .
 
 EXPOSE 44000
 
-CMD ["dagster", "api", "grpc", "-h", "0.0.0.0", "-p", "44000"]
 
 
 #RUN pip install --upgrade pip
