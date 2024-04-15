@@ -22,9 +22,9 @@ COPY . /opt/dagster/app
 
 RUN pip install -e .
 
-EXPOSE 3000
+EXPOSE 4000
 
-ENTRYPOINT ["dagster-webserver","--help"]
+CMD ["dagster", "api", "grpc", "-h", "0.0.0.0", "-p", "4000"]
 
 
 #RUN pip install --upgrade pip
