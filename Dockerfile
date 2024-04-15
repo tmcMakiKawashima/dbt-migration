@@ -22,6 +22,9 @@ COPY . /opt/dagster/app
 
 RUN pip install -e .
 
-EXPOSE 4000
+EXPOSE 44000
+
+ENTRYPOINT ["dagster-webserver", "-h", "0.0.0.0", "-p", "44000"]
+
 
 #RUN pip install --upgrade pip
