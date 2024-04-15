@@ -71,7 +71,7 @@ deploy-docker-buranch:
   image: ghcr.io/dagster-io/dagster-cloud-action:0.1.31
   script:
     - dagster-cloud ci set-build-output --image-tag=$IMAGE_TAG
-    - dagster-cloud ci deploy
+    - dagster-cloud ci deploy --port=44000
   environment:
     name: branch/$CI_COMMIT_REF_NAME
     on_stop: close-branch
