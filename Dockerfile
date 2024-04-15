@@ -24,7 +24,7 @@ RUN pip install -e .
 
 EXPOSE 3000
 
-ENTRYPOINT ["dagster-webserver"]
+ENTRYPOINT ["dagster-webserver","--help"]
 
 
 #RUN pip install --upgrade pip
