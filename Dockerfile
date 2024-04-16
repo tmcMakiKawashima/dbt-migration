@@ -7,3 +7,4 @@ COPY . /opt/dagster/app
 
 RUN pip install -e .
 
+EXPOSE 4000
