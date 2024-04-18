@@ -9,7 +9,7 @@ variables:
 stages:
   - setup
   - build
-  - deploy
+  - deploy 
 
 workflow:
   rules:
