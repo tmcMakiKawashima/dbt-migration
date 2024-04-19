@@ -33,6 +33,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   HOKYUNOKI_MIERUKA:
+    +copy_grants: true
     BB:
       valuechain:
         +group: valuechain
