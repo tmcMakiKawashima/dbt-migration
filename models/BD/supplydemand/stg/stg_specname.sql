@@ -14,7 +14,7 @@ with stg_specname as (
         tutisufkata::varchar(2) as tutisufkata,  -- なし
         try_to_timestamp_ntz(mtdate , 'yyyymmddhh24missff9') as mtdate,  -- timestamp
         ldts, -- b層のldts
-        rank() over (
+        row_number() over (
                 partition by
                     syasyu, siyoudai5, siyousai5, sketa, skigo
                 order by sijikara desc, ldts desc
