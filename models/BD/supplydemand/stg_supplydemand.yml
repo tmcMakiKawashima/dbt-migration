@@ -11,9 +11,9 @@ models:
             - frmkbn
             - shamei
             - sno
+            - sketai
           config:
             severity: error
-
     columns:
       - name: frmno
         tests:
@@ -36,6 +36,11 @@ models:
         config:
           severity: error
       - name: sno
+        tests:
+          - not_null
+        config:
+          severity: error
+      - name: sketai
         tests:
           - not_null
         config:

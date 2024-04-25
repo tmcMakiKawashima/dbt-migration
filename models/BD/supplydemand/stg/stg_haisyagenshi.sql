@@ -71,8 +71,8 @@ with stg_haisyagenshi as (
         ldts, -- b層のldts
         rank() over (
                 partition by
-                    frmno, hkata, frmkbn, shamei, sno
-                order by ldts desc
+                    frmno, hkata, frmkbn, shamei, sno, sketai
+                order by ldts desc, mtdate desc
             ) aggkey
         from {{ ref('substr_tsjfa368') }}
     )
