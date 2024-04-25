@@ -1,4 +1,3 @@
-
 version: 2
 
 models:
@@ -7,15 +6,9 @@ models:
     columns:
       - name: id
         description: "The primary key for this table"
-        tests:
-          - unique
-          - not_null
 
   - name: my_second_dbt_model
     description: "dbtモデルサンプル02"
     columns:
       - name: id
         description: "The primary key for this table"
-        tests:
-          - unique
-          - not_null

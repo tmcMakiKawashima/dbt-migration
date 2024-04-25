@@ -1,3 +1,5 @@
+import os
+
 from dagster import (
     Definitions,
     load_assets_from_modules,
@@ -11,10 +13,19 @@ from dagster import (
     asset
 )
 
+from dagster_fivetran import (
+    FivetranResource,
+    load_assets_from_fivetran_instance
+)
+
+from dagster_dbt import DbtCliResource
+
 from da_dxpf_edp_dagster_edp_infra_ope_sample import asset_sample01
 from da_dxpf_edp_dagster_edp_infra_ope_sample import asset_sample02
 from da_dxpf_edp_dagster_edp_infra_ope_sample import asset_sample03
 from da_dxpf_edp_dagster_edp_infra_ope_sample import asset_sample04
+from .asset_sample03.constants import dbt_project_dir
+from .asset_sample05 import fivetran_assets
 
 # dagsterの構造
 #
@@ -53,9 +64,12 @@ defs = Definitions(
     = load_assets_from_package_module(asset_sample01)
     + load_assets_from_package_module(asset_sample02)
     + load_assets_from_package_module(asset_sample03)
-    + load_assets_from_package_module(asset_sample04),
+    + load_assets_from_package_module(asset_sample04)
+    + load_assets_from_modules([fivetran_assets]),
     jobs
     = [asset04_01_job],
     sensors
     = [asset04_01_sensor],
+    resources
+    ={"dbt": DbtCliResource(project_dir=os.fspath(dbt_project_dir))},
 )
