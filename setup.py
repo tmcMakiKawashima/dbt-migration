@@ -7,7 +7,8 @@ setup(
         "dagster==1.7.0",
         "dagster-cloud==1.7.0",
         "dagster-dbt==0.23.0",
-        "dbt-core==1.7.13"
+        "dbt-core==1.7.13",
+        "dagster-fivetran==0.23.0"
     ],
     extras_require={"dev": ["dagster-webserver", "pytest"]},
 )
