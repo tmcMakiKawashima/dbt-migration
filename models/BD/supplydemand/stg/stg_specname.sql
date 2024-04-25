@@ -16,7 +16,7 @@ with stg_specname as (
         ldts, -- b層のldts
         row_number() over (
                 partition by
-                    syasyu, siyoudai5, siyousai5, sketa, skigo
+                    syasyu, shiyodai, shiyosai, sketa, skigo
                 order by sijikara desc, ldts desc
             ) aggkey
         from {{ ref('substr_ktrla01ezz0ka20001') }}
