@@ -8,7 +8,7 @@ dagster_dbt:
       # User/password auth
       user: sapj1.takafumi.hatori
       password: Metalgear1!
-      role: FIVETRAN_ROLE
+      role: ACCOUNTADMIN
       database: FIVETRAN_DATABASE
       warehouse: FIVETRAN_WAREHOUSE
       schema: ORACLERDS_LZDATA01_DAGSTER_DXPFY2D
@@ -21,7 +21,7 @@ dagster_dbt:
       # User/password auth
       user: sapj1.takafumi.hatori
       password: Metalgear1!
-      role: FIVETRAN_ROLE
+      role: ACCOUNTADMIN
       database: FIVETRAN_DATABASE
       warehouse: FIVETRAN_WAREHOUSE
       schema: ORACLERDS_LZDATA01_DAGSTER_DXPFY2D
