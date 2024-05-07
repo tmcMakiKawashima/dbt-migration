@@ -4,9 +4,7 @@ from pathlib import Path
 
 
 def get_env():
-    if os.getenv("DAGSTER_CLOUD_IS_BRANCH_DEPLOYMENT", "") == "1":
-        return "BRANCH"
-    if os.getenv("DAGSTER_CLOUD_DEPLOYMENT_FLAG", "") == "prod":
+    if os.getenv("DAGSTER_CLOUD_DEPLOYMENT_FLAG", ""):
         return "PROD"
     return "LOCAL"
 
