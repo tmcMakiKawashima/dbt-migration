@@ -10,7 +10,7 @@ setup(
         "dbt-core==1.7.13",
         "dagster-fivetran==0.23.0",
         "dbt-snowflake==1.7.3",
-        "dagster-snowflake==0.23.0"
+        "dagster-snowflake==0.23.4"
     ],
     extras_require={"dev": ["dagster-webserver", "pytest"]},
 )
