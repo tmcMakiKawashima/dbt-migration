@@ -3,7 +3,7 @@ dagster_dbt:
   outputs:
     LOCAL:
       type: snowflake
-      account: rf70500.ap-northeast-1.privatelink
+      account: rf70500.ap-northeast-1
 
       # User, password auth
       user: sapj1.takafumi.hatori
