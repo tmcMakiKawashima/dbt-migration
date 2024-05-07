@@ -5,7 +5,7 @@ dagster_dbt:
       type: snowflake
       account: rf70500.ap-northeast-1.privatelink
 
-      # User, password auth
+      # User/password auth
       user: sapj1.takafumi.hatori
       password: Metalgear1!
       role: ACCOUNTADMIN
@@ -18,7 +18,7 @@ dagster_dbt:
       type: snowflake
       account: "{{ env_var('SNOWFLAKE_ACCOUNT_SA', '') }}"
 
-      # User, password auth
+      # User/password auth
       user: "{{ env_var('SNOWFLAKE_POC_USER', '') }}"
       password: "{{ env_var('SNOWFLAKE_POC_USER_PASSWORD', '') }}"
       role: ACCOUNTADMIN
