@@ -24,5 +24,5 @@ dagster_dbt:
       role: ACCOUNTADMIN
       database: FIVETRAN_DATABASE
       warehouse: FIVETRAN_WAREHOUSE
-      schema: ORACLERDS_LZDATA01_DAGSTER_DXPFY2D
+      schema: FIVETRAN_DATABASE.ORACLERDS_LZDATA01_DAGSTER_DXPFY2D
       client_session_keep_alive: False
