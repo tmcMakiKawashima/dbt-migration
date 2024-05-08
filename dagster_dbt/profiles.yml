@@ -8,7 +8,7 @@ dagster_dbt:
       # User/password auth
       user: sapj1.takafumi.hatori
       password: Metalgear1!
-      authenticator: externalbrowser
+      authenticator: username_password_mfa
       role: ACCOUNTADMIN
       database: FIVETRAN_DATABASE
       warehouse: FIVETRAN_WAREHOUSE
@@ -22,6 +22,7 @@ dagster_dbt:
       # User/password auth
       user: "{{ env_var('SNOWFLAKE_POC_USER', '') }}"
       password: "{{ env_var('SNOWFLAKE_POC_USER_PASSWORD', '') }}"
+      authenticator: username_password_mfa
       role: ACCOUNTADMIN
       database: FIVETRAN_DATABASE
       warehouse: FIVETRAN_WAREHOUSE
