@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with substr_dvnp4520 as (
     select
         substr(raw_data, 2, 4)::VARCHAR(4) as DATAKBN4,

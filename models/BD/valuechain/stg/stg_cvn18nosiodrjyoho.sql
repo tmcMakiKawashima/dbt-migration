@@ -1,4 +1,4 @@
-{{ config(materialized='ephemeral', access='protected') }}
+{{ config(materialized='ephemeral', access='protected', snowflake_warehouse='DBT_WH') }}
 
 with stg_cvn18nosiodrjyoho as (
     select

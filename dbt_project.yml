@@ -36,11 +36,13 @@ models:
     +copy_grants: true
     BB:
       valuechain:
+        +snowflake_warehouse: "VALUECHAIN_WH"
         +group: valuechain
         +database: valuechain_db
         +schema: public
     BD:
       valuechain:
+        +snowflake_warehouse: "VALUECHAIN_WH"
         +group: valuechain
         +database: valuechain_db
         +schema: public
@@ -48,6 +50,7 @@ models:
           +access: public
           +materialized: table
       supplydemand:
+        +snowflake_warehouse: "SUPPLYDEMAND_WH"
         +group: supplydemand
         +database: supplydemand_db
         +schema: public
@@ -55,6 +58,7 @@ models:
           +access: public
           +materialized: table
       marketing:
+        +snowflake_warehouse: "MARKETING_WH"
         +group: marketing
         +database: marketing_db
         +schema: public
@@ -63,6 +67,7 @@ models:
           +materialized: table
     DD:
       valuechain:
+        +snowflake_warehouse: "VALUECHAIN_WH"
         +group: valuechain
         +database: valuechain_db
         +schema: public
@@ -70,6 +75,7 @@ models:
           +access: public
           +materialized: table
       marketing:
+        +snowflake_warehouse: "MARKETING_WH"
         +group: marketing
         +database: marketing_db
         +schema: public
@@ -77,6 +83,7 @@ models:
           +access: public
           +materialized: table
       supplydemand:
+        +snowflake_warehouse: "SUPPLYDEMAND_WH"
         +group: supplydemand
         +database: supplydemand_db
         +schema: public
@@ -84,6 +91,7 @@ models:
           +access: public
           +materialized: table
       vinhis:
+        +snowflake_warehouse: "VINHIS_WH"
         vinspec:
             +group: vinhis_vinspec
             +database: vinhis_db
@@ -93,6 +101,7 @@ models:
               +materialized: table
     DE:
       PARTS:
+        +snowflake_warehouse: "PARTS_WH"
         +group: parts
         +database: PARTS_DB
         +schema: logistics
@@ -100,6 +109,7 @@ models:
           +access: public
           +materialized: table
       vinhis:
+        +snowflake_warehouse: "VINHIS_WH"
         +database: vinhis_db
         spec:
           +group: vinhis_spec
@@ -109,6 +119,7 @@ models:
             +materialized: table
     EF:
       DATAMART:
+        +snowflake_warehouse: "DATAMART_WH"
         +group: datamart
         +database: DATAMART_DB
         +schema: public
@@ -139,19 +150,23 @@ snapshots:
   HOKYUNOKI_MIERUKA:
     BD:
       valuechain:
+        +snowflake_warehouse: "VALUECHAIN_WH"
         +group: valuechain
         +target_database: valuechain_db
         +target_schema: dbt_snapshots
       supplydemand:
+        +snowflake_warehouse: "SUPPLYDEMAND_WH"
         +group: supplydemand
         +target_database: supplydemand_db
         +target_schema: dbt_snapshots
       marketing:
+        +snowflake_warehouse: "MARKETING_WH"
         +group: marketing
         +target_database: marketing_db
         +target_schema: dbt_snapshots
     DD:
       supplydemand:
+        +snowflake_warehouse: "SUPPLYDEMAND_WH"
         +group: supplydemand
         +target_database: supplydemand_db
         +target_schema: dbt_snapshots

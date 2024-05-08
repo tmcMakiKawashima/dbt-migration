@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 -- データ結合４
 with syukkaippan as (
     select

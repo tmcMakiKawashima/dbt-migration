@@ -15,6 +15,7 @@
         strategy='timestamp',
         updated_at='mttime',
         invalidate_hard_deletes=True,
+        snowflake_warehouse='DBT_WH',
     )
 }}
 

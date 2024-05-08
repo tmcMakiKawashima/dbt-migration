@@ -1,4 +1,4 @@
-{{ config(materialized='incremental') }}
+{{ config(materialized='incremental', snowflake_warehouse='DBT_WH') }}
 
 with stg_dvnp5770 as (
     select

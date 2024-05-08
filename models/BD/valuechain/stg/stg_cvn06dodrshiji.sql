@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with stg_cvn06dodrshiji as (
     select
         rtrim(ordrkey,' 　')::varchar(11) as ordrkey,  -- 英数字

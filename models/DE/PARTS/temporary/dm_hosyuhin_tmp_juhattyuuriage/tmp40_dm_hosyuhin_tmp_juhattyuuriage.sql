@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with
     temp30 as (select * from {{ ref('tmp30_dm_hosyuhin_tmp_juhattyuuriage') }}),
     nouki as (select * from {{ ref('stg_tbnoukifl') }} where nokikbn = '6'),
