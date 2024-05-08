@@ -8,6 +8,7 @@ dagster_dbt:
       # User/password auth
       user: sapj1.takafumi.hatori
       password: Metalgear1!
+      authenticator: externalbrowser
       role: ACCOUNTADMIN
       database: FIVETRAN_DATABASE
       warehouse: FIVETRAN_WAREHOUSE
