@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with stg_dvsf509a as (
     select
         rtrim(tyotathb,' 　')::varchar(20) as tyotathb,  -- 英数字

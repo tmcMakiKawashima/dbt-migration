@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with dm_shinsya_meisai as(
   select
     hkata,

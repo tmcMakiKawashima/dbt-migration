@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with substr_tbbofll as (
     select
       replace(raw_data, '／', '  ') as raw_data,
