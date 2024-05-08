@@ -9,11 +9,11 @@ dagster_dbt:
       user: sapj1.takafumi.hatori
       password: Metalgear1!
       authenticator: username_password_mfa
+
       role: ACCOUNTADMIN
       database: FIVETRAN_DATABASE
       warehouse: FIVETRAN_WAREHOUSE
       schema: ORACLERDS_LZDATA01_DAGSTER_DXPFY2D
-      client_session_keep_alive: False
 
     PROD:
       type: snowflake
@@ -27,4 +27,3 @@ dagster_dbt:
       database: FIVETRAN_DATABASE
       warehouse: FIVETRAN_WAREHOUSE
       schema: ORACLERDS_LZDATA01_DAGSTER_DXPFY2D
-      client_session_keep_alive: False
