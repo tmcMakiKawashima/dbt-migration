@@ -7,5 +7,3 @@ sources:
     tables:
       - name: raw_o_cvs11jyuchuu
         identifier: O_CVS11JYUCHUU
-      - name: substr_tbsmksk_noki
-        identifier: substr_tbsmksk_noki
