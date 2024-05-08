@@ -34,6 +34,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   HOKYUNOKI_MIERUKA:
     +copy_grants: true
+    +on_schema_change: "append_new_columns"
     BB:
       valuechain:
         +group: valuechain
