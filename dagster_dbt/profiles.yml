@@ -17,7 +17,8 @@ dagster_dbt:
       database: COMMON_TBL_DB
       # warehouse: FIVETRAN_WAREHOUSE
       warehouse: DBT_WH
-      schema: ORACLERDS_LZDATA01_DAGSTER_DXPFY2D
+      # schema: ORACLERDS_LZDATA01_DAGSTER_DXPFY2D
+      schema: PUBLIC
 
     PROD:
       type: snowflake
