@@ -6,13 +6,17 @@ dagster_dbt:
       account: rf70500.ap-northeast-1.aws
 
       # User/password auth
-      user: sapj1.takafumi.hatori
-      password: Metalgear1!
-      authenticator: username_password_mfa
+      # user: sapj1.takafumi.hatori
+      user: dbt
+      password: Password123
+      # authenticator: username_password_mfa
 
-      role: ACCOUNTADMIN
-      database: FIVETRAN_DATABASE
-      warehouse: FIVETRAN_WAREHOUSE
+      # role: ACCOUNTADMIN
+      role: DBT_ROLE
+      # database: FIVETRAN_DATABASE
+      database: COMMON_TBL_DB
+      # warehouse: FIVETRAN_WAREHOUSE
+      warehouse: DBT_WH
       schema: ORACLERDS_LZDATA01_DAGSTER_DXPFY2D
 
     PROD:
