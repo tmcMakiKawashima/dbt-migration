@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with dm_yohindaiatari_new as (
     select * from {{ref('tmp30_dm_yohin_daiatari')}}
 )

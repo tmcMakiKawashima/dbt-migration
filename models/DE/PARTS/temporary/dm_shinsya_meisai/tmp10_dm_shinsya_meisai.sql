@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+{{ config(materialized='table', snowflake_warehouse='DBT_WH') }}
 
 with
   HS as (select * from {{ref('stg_h_sinsyaodno')}}), -- 新車明細HUB

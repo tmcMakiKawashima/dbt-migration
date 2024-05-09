@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with substr_dvnp6490 as (
     select
         substr(raw_data, 2, 11)::VARCHAR(11) as ORDRKEY,

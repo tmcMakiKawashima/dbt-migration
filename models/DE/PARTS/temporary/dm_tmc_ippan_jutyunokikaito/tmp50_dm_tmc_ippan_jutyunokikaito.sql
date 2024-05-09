@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with temp45 as (
     select * from {{ref('tmp45_dm_tmc_ippan_jutyunokikaito')}}
 ),

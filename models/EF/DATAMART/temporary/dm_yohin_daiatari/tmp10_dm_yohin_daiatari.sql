@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with dm_yohin_tmp_juhattyuuriage as (
     select *
     from {{ref('dm_yohin_tmp_juhattyuuriage')}} -- 用品台当りtmp受発注売上dm

@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with
     temp40 as (select * from {{ ref('tmp40_dm_hosyuhin_tmp_juhattyuuriage') }}),
     atopjuchu as (select * from {{ ref('stg_o_cvs11jyuchuu') }}),
