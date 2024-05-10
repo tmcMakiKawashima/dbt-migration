@@ -4,16 +4,10 @@ dagster_dbt:
     LOCAL:
       type: snowflake
       account: rf70500.ap-northeast-1.aws
-      
-      # 1. 準本番は個人ユーザーをシステムユーザーとして使用することはアプリインフラ的にNGのため、
-      # システムユーザーをしようすること
-
-      # 2.準本番はスキーマを作成する権限が通常のシステムユーザーには付与されないため、自動生成できない。
-      # そのため、スキーマについては、予め、スキーマを手動で作成しておく必要がある。
 
       # User/password auth
       user: sajp1.dagster_poc_sys_usr
-      password: TKzDlg7aP#uA
+      password: TKzD|g7aP#uA
 
       role: FIVETRAN_ROLE
       database: FIVETRAN_DATABASE
