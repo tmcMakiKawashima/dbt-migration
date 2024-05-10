@@ -39,6 +39,7 @@ from .asset_sample05 import fivetran_assets
 #       asset1 : asset02
 #
 #  group3 : asset_sample03
+#       asset03 : my_first_dbt_modelのupstreamとして定義している
 #       dbtプロジェクトロード
 #
 #  group4 : asset_sample04
