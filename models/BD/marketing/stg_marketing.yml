@@ -29,31 +29,31 @@ models:
     columns:
       - name: hanbaino
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: kosyokata
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: suffix_code
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: shiyoudai
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: shiyousai
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: hkata
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
