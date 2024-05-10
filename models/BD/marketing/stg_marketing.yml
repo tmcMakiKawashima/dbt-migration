@@ -6,10 +6,12 @@ models:
     columns:
       - name: hanbaino
         tests:
-          - unique
-          - not_null
-        config:
-          - severity: error
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
 # 販売引当
   - name: stg_hanbaihikiate
     tests:
