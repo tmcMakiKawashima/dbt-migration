@@ -177,11 +177,11 @@ models:
     columns:
       - name: syadai_kt
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: frmno
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error

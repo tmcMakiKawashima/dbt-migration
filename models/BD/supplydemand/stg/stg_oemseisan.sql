@@ -1,3 +1,11 @@
+{{
+    config (
+        materialized = 'incremental',
+        unique_key = ['syadai_kt', 'frmno'],
+        incremental_strategy = 'merge'
+    )
+}}
+
 with stg_oemseisan as (
     select
         syadai_kt::varchar(6) as syadai_kt,
@@ -46,5 +54,10 @@ with stg_oemseisan as (
             order by ldts desc
         ) aggkey
     from {{ref('substr_da5a215a')}}
+
+    {% if is_incremental() %}
+        where ldts > (select max(ldts) from {{ this }})
+    {% endif %}
+
 )
 select * from stg_oemseisan where aggkey = 1
