@@ -142,29 +142,29 @@ models:
     columns:
       - name: frmno
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: wmi
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: vds
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: mdlyr
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: vin_vds_cd
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
 # 仕入実績
   - name: stg_oemseisan
     tests:
