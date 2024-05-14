@@ -1,3 +1,11 @@
+{{
+    config (
+        materialized = 'incremental',
+        unique_key = ['hanbaino', 'kosyokata', 'suffix_code', 'shiyoudai', 'shiyousai', 'hkata'],
+        incremental_strategy = 'merge'
+    )
+}}
+
 with stg_hanbaihikiate as (
     select
         hanbaino::varchar(11) as hanbaino,  -- なし
@@ -26,5 +34,10 @@ with stg_hanbaihikiate as (
                 order by ldts desc
             ) aggkey
         from {{ref('substr_n8jfim04')}}
+
+        {% if is_incremental() %}
+            where ldts > (select max(ldts) from {{ this }})
+        {% endif %}
+
 )
 select * from stg_hanbaihikiate where aggkey = 1
