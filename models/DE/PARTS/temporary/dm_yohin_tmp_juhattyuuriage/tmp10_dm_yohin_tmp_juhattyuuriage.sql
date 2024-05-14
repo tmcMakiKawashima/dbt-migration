@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with
     KL as (select * from {{ ref('stg_tbdaikl') }}),
     ML as (select * from {{ ref('stg_tbdaiml') }})

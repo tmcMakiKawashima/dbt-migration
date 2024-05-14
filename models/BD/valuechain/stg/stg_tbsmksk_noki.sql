@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with stg_tbsmksk_noki as (
     select
         rtrim(id,' 　')::varchar(3) as id,  -- 英数字

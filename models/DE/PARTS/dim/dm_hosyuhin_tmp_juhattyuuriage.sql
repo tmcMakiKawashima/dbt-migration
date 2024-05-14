@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with
     dm_hosyuhin_tmp_juhattyuuriage as (
         select

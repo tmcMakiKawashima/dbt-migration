@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with
     temp20 as (select * from {{ ref('tmp20_dm_yohin_tmp_juhattyuuriage') }}),
     UM as (select * from {{ ref('stg_tbuserm') }})

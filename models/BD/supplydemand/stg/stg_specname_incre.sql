@@ -1,4 +1,12 @@
-with stg_specname as (
+{{
+    config (
+        materialized = 'incremental',
+        unique_key = ['syasyu', 'shiyodai', 'shiyosai', 'sketa', 'skigo'],
+        incremental_strategy = 'merge'
+    )
+}}
+
+with stg_specname_incre as (
     select
         syasyu::varchar(4) as syasyu,  -- なし
         siyoudai5::varchar(3) as shiyodai,  -- なし
@@ -20,7 +28,12 @@ with stg_specname as (
                 order by sijikara desc, ldts desc
             ) aggkey
         from {{ ref('substr_ktrla01ezz0ka20001') }}
+
+        {% if is_incremental() %}
+            where ldts > (select max(ldts) from {{ this }})
+        {% endif %}
+
     )
 select *
-from stg_specname
+from stg_specname_incre
 where aggkey = 1
