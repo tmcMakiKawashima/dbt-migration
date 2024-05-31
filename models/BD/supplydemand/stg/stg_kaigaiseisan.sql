@@ -247,7 +247,7 @@ with stg_kaigaiseisan as (
                     vds,
                     mdlyr,
                     vin_vds_cd
-                order by ldts desc
+                order by updatetime desc, ldts desc
             ) aggkey
     from {{ref('substr_da5a212b')}}
 
