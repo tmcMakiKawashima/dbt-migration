@@ -2,12 +2,12 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'HOKYUNOKI_MIERUKA'
+name: 'enterprise_data_products'
 version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'HOKYUNOKI_MIERUKA'
+profile: 'enterprise_data_products'
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -32,7 +32,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
 models:
-  HOKYUNOKI_MIERUKA:
+  enterprise_data_products:
     +copy_grants: true
     +on_schema_change: "append_new_columns"
     BB:
@@ -129,7 +129,7 @@ models:
           +materialized: table
 
 tests:
-  HOKYUNOKI_MIERUKA:
+  enterprise_data_products:
     +severity: warn
     +store_failures: true
     +database: COMMON_TBL_DB
@@ -148,7 +148,7 @@ tests:
           +group: datamart
 
 snapshots:
-  HOKYUNOKI_MIERUKA:
+  enterprise_data_products:
     BD:
       valuechain:
         +snowflake_warehouse: "VALUECHAIN_WH"
