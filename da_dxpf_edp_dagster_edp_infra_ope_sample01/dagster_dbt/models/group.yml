@@ -1,0 +1,16 @@
+groups:
+  - name: pipeline01
+    owner:
+      name: epd
+
+  - name: pipeline02
+    owner:
+      name: epd
+
+  - name: asset_sample03
+    owner:
+      name: epd
+
+  - name: asset_sample06
+    owner:
+      name: epd
