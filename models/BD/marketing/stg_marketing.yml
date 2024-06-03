@@ -6,10 +6,12 @@ models:
     columns:
       - name: hanbaino
         tests:
-          - unique
-          - not_null
-        config:
-          - severity: error
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
 # 販売引当
   - name: stg_hanbaihikiate
     tests:
@@ -27,31 +29,31 @@ models:
     columns:
       - name: hanbaino
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: kosyokata
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: suffix_code
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: shiyoudai
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: shiyousai
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: hkata
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error

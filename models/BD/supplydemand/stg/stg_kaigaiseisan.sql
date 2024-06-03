@@ -1,3 +1,11 @@
+{{
+    config (
+        materialized = 'incremental',
+        unique_key = ['frmno', 'wmi', 'vds', 'mdlyr', 'vin_vds_cd'],
+        incremental_strategy = 'merge'
+    )
+}}
+
 with stg_kaigaiseisan as (
     select
         lok_y4::varchar(1) as lok_y4,
@@ -239,8 +247,13 @@ with stg_kaigaiseisan as (
                     vds,
                     mdlyr,
                     vin_vds_cd
-                order by ldts desc
+                order by updatetime desc, ldts desc
             ) aggkey
     from {{ref('substr_da5a212b')}}
+
+    {% if is_incremental() %}
+        where ldts > (select max(ldts) from {{ this }})
+    {% endif %}
+
 )
 select * from stg_kaigaiseisan where aggkey = 1

@@ -1,3 +1,11 @@
+{{
+    config (
+        materialized = 'incremental',
+        unique_key = ['hanbaino'],
+        incremental_strategy = 'merge'
+    )
+}}
+
 with stg_hakkosyonin as (
     select
         hanbaino::varchar(11) as hanbaino,
@@ -40,5 +48,10 @@ with stg_hakkosyonin as (
             order by ldts desc
         ) aggkey
     from {{ref('substr_n8jfim01')}}
+
+    {% if is_incremental() %}
+        where ldts > (select max(ldts) from {{ this }})
+    {% endif %}
+
 )
 select * from stg_hakkosyonin where aggkey = 1

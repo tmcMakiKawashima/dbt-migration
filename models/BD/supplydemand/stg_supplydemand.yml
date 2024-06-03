@@ -17,34 +17,34 @@ models:
     columns:
       - name: frmno
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: hkata
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: frmkbn
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: shamei
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: sno
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: sketai
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
 # 国内新生産実績
   - name: stg_kokunaiseisan
     tests:
@@ -60,29 +60,29 @@ models:
     columns:
       - name: syadai_kt
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: frmno
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: frmkbn
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: shamei
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: sno
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
 # スペック名称
   - name: stg_specname
     tests:
@@ -99,34 +99,34 @@ models:
     columns:
       - name: syasyu
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: shiyodai
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: shiyosai
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: sketa
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: skigo
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: sijikara
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
 # 海外新生産実績
   - name: stg_kaigaiseisan
     tests:
@@ -142,29 +142,29 @@ models:
     columns:
       - name: frmno
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: wmi
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: vds
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: mdlyr
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: vin_vds_cd
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
 # 仕入実績
   - name: stg_oemseisan
     tests:
@@ -177,11 +177,11 @@ models:
     columns:
       - name: syadai_kt
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error
       - name: frmno
         tests:
-          - not_null
-        config:
-          severity: error
+          - not_null:
+              config:
+                severity: error

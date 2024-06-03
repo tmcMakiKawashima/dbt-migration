@@ -1,3 +1,11 @@
+{{
+    config (
+        materialized = 'incremental',
+        unique_key =  ['syadai_kt', 'frmno', 'frmkbn', 'shamei', 'sno'],
+        incremental_strategy = 'merge'
+    )
+}}
+
 with kokunaiseisan as (
     select
         lok_y4::varchar(1) as lok_y4,
@@ -239,8 +247,13 @@ with kokunaiseisan as (
                     frmkbn,
                     shamei,
                     sno
-                order by ldts desc
+                order by updatetime desc, ldts desc
             ) aggkey
         from {{ref('substr_nojfa560')}}
+
+        {% if is_incremental() %}
+            where ldts > (select max(ldts) from {{ this }})
+        {% endif %}
+
 )
 select * from kokunaiseisan where aggkey = 1

@@ -1,3 +1,11 @@
+{{
+    config (
+        materialized = 'incremental',
+        unique_key = ['frmno', 'hkata', 'frmkbn', 'shamei', 'sno', 'sketai'],
+        incremental_strategy = 'merge'
+    )
+}}
+
 with stg_haisyagenshi as (
     select
         datid::varchar(4) as datid,  -- なし
@@ -75,6 +83,11 @@ with stg_haisyagenshi as (
                 order by ldts desc, mtdate desc
             ) aggkey
         from {{ ref('substr_tsjfa368') }}
+
+        {% if is_incremental() %}
+            where ldts > (select max(ldts) from {{ this }})
+        {% endif %}
+
     )
 select *
 from stg_haisyagenshi
