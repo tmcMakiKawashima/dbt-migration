@@ -24,10 +24,10 @@ fivetran_instance = FivetranResource(
 #    センサー実行で動かしたところFivetran assetでエラーが発生したため調査中
 fivetran_assets = with_resources(
     build_fivetran_assets(
-        connector_id="superglue_phenol",
+        connector_id="heavenly_malignity",
         destination_tables=["fivetran_db.dagster_poc"],
         group_name="pipeline01",
-        infer_missing_tables = False
+        infer_missing_tables = True
     ),
     {"fivetran": fivetran_instance},
 )
