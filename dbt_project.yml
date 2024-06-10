@@ -133,7 +133,8 @@ tests:
     +severity: warn
     +store_failures: true
     +database: COMMON_TBL_DB
-    +schema: dbt_test__audit # default
+    # +schema: dbt_test__audit # default
+    +schema: "dbt_test__audit{{ var('DBT_JOB_NAME', '') }}"
     # +schema: "dbt_test__audit_{{ modules.datetime.date.today().strftime('%Y%m%d') }}_{{ env_var('DBT_CLOUD_RUN_ID', 'local') }}"
       # https://docs.getdbt.com/docs/build/environment-variables#special-environment-variables
       # dbt Cloud: Run history / job_xxx: Run #326668
