@@ -156,10 +156,17 @@ sources:
                   length: 204
       - name: raw_tbnokjs
         identifier: DXNOKJ99
-      - name: raw_ktrla025zz0kil3207
-        identifier: KTRLA025ZZ0KIL3207
+      - name: raw_tbsmksk_noki
+        identifier: DXC22899
         columns:
           - name: RAW_DATA
             tests:
               - fixed_length:
-                  length: 44
+                  length: 400
+      - name: raw_ktrla025zz0kil3207
+        identifier: KTRLA025ZZ0KIL3207
+        columns:
+        - name: RAW_DATA
+          tests:
+            - fixed_length:
+                length: 44
