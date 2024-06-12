@@ -32,7 +32,7 @@ with stg_nyukoreki as (
         rank() over (partition by KBSYADAI, NOSYADAI, seisanymd, nyukohanbaitencd, jutyuno order by ldts desc) aggkey
     from {{ ref('substr_ktrla025zz0kil3202') }}
 
-    {% if is_incremental() %}                                                                                                              -- ② 増分の取り方を指定
+    {% if is_incremental() %}
     where ldts > (select max(ldts) from {{this}})
     {% endif %}
 )
