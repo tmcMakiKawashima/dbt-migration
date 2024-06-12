@@ -33,7 +33,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   enterprise_data_products:
-    +copy_grants: true
     +on_schema_change: "append_new_columns"
     BB:
       valuechain:
