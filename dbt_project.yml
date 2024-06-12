@@ -78,6 +78,14 @@ models:
         dim:
           +access: public
           +materialized: table
+      vinhis:
+        +database: vinhis_db
+        maint:
+          +group: vinhis_maint
+          +schema: maint
+          dim:
+            +access: public
+            +materialized: table
     EF:
       DATAMART:
         +group: datamart
