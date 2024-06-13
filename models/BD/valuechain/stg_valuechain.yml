@@ -1,0 +1,48 @@
+version: 2
+
+models:
+# 用品装着歴
+  - name: stg_yohinsotyakureki
+    tests:
+      - dbt_utils.unique_combination_of_columns:        # パッケージで提供されているテストを仕様
+          combination_of_columns:
+            - kbsyadai
+            - nosyadai
+            - ddtorituke
+            - cdyouhinban
+            - cdtorihan
+            - cdtoritenpo
+          config:
+            severity: error
+
+    columns:
+      - name: kbsyadai
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nosyadai
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ddtorituke
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cdyouhinban
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cdtorihan
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cdtoritenpo
+        tests:
+          - not_null:
+              config:
+                severity: error
