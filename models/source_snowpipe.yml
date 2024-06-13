@@ -163,3 +163,11 @@ sources:
             tests:
               - fixed_length:
                   length: 400
+
+      - name: raw_genyohinmaster
+        identifier: TPJFVA41
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 550
