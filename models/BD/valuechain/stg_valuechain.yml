@@ -1,0 +1,21 @@
+version: 2
+models:
+# 号口車種コード
+  - name: stg_goguchisyasyucd
+    columns:
+      - name: syasyu_cd
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: yohinsyamei
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error

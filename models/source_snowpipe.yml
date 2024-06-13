@@ -163,3 +163,13 @@ sources:
             tests:
               - fixed_length:
                   length: 400
+
+      - name: raw_goguchisyasyucd
+        identifier: tpjfva40
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 40
+
+
