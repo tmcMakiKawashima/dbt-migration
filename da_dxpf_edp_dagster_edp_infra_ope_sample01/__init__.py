@@ -47,7 +47,7 @@ asset04_job = define_asset_job(name="asset04_job", selection=AssetSelection.grou
 asset03_dbt_job = define_asset_job(name="asset03_dbt_job", selection=["my_third_dbt_model", "my_fourth_dbt_model"])
 
 # 起動順序検証用アセットをjob化する
-asset06_job = define_asset_job(name="asset06_job", selection=AssetSelection.groups("asset_sample06"), tags={"ecs/cpu": "256", "ecs/memory": "512"})
+asset06_job = define_asset_job(name="asset06_job", selection=AssetSelection.groups("asset_sample06"), tags={"ecs/cpu": "256", "ecs/memory": "1024"})
 
 # Fivetran, dbt, Dagster assetをまとめてjob化する
 pipeline01_job = define_asset_job(name="pipeline01_job", selection=AssetSelection.groups("pipeline01"))
