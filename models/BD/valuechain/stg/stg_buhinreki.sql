@@ -9,11 +9,11 @@
 with stg_buhinreki as (
     select
         iff(rtrim(delflg, ' 　') = 'D', '1', '0')::varchar(1) as delflg,
-        rtrim(R001, ' 　')::varchar(9) as nyukono,
-        rtrim(R002, ' 　')::varchar(4) as meisaino,
-        rtrim(R003, ' 　')::varchar(4) as buhinsuryo,
-        rtrim(R005, ' 　')::varchar(11) as buhinmeisyosansyocd,
-        rtrim(R006, ' 　')::varchar(15) as hinban,
+        R001::varchar(9) as nyukono,
+        R002::varchar(4) as meisaino,
+        R003::varchar(4) as buhinsuryo,
+        R005::varchar(11) as buhinmeisyosansyocd,
+        R006::varchar(15) as hinban,
         ldts,
         rank() over (partition by nyukono, meisaino order by ldts desc) aggkey
     from {{ ref('substr_ktrla025zz0kil3207') }}
