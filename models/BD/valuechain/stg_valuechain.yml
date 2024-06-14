@@ -12,9 +12,31 @@ models:
     columns:
       - name: nyukono
         tests:
-          - unique:
+          - not_null:
               config:
                 severity: error
+      - name: meisaino
+        tests:
+          - not_null:
+              config:
+                severity: error
+#　コード区分マスタ
+  - name: stg_codekubun
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - codekbnid
+            - key
+          config:
+            severity: error
+    columns:
+      - name: codekbnid
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: key
+        tests:
           - not_null:
               config:
                 severity: error
