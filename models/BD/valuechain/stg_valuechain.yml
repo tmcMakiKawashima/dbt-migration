@@ -51,3 +51,23 @@ models:
           - not_null:
               config:
                 severity: error
+#　販売店店舗マスタ
+  - name: stg_hanbaitentenpomaster
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hanbaitencd
+            - tenpocd
+          config:
+            severity: error
+    columns:
+      - name: hanbaitencd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tenpocd
+        tests:
+          - not_null:
+              config:
+                severity: error
