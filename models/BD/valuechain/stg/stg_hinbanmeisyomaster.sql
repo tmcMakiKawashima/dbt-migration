@@ -14,7 +14,7 @@ with stg_hinbanmeisyomaster as (
         rtrim(DAITAI_PARTS_CD, ' 　')::varchar(15) as daitaihinban, -- 右ブランク
         DAITAI_CD::varchar(1) as daitaihinbancd,
         MAKER_KBN::varchar(1) as MAKER_KBN,
-        rtrim(PARTS_NAME, ' 　')::varchar(60) as hinemei, -- 右ブランク
+        rtrim(PARTS_NAME, ' 　')::varchar(60) as hinmei, -- 右ブランク
         rtrim(PARTS_NAME_CD, ' 　')::varchar(6) as hinmeicd, -- 右ブランク
         ldts,
         rank() over (partition by hinban order by ldts desc) aggkey
