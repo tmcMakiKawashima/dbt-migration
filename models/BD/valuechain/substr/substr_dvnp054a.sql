@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with substr_dvnp054a as (
   select
     substr(raw_data, 1, 7)::VARCHAR(7) as DLRCD,

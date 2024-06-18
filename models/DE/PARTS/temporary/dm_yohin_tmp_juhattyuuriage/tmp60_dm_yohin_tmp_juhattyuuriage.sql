@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with
     temp50 as (
         select

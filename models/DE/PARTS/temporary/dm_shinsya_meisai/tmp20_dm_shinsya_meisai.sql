@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+{{ config(materialized='table', snowflake_warehouse='DBT_WH') }}
 
 with tmp20_dm_shinsya_meisai as (
   select 

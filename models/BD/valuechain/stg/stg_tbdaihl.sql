@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with stg_tbdaihl as (
     select
         rtrim(KYOUHAN, ' 　')::VARCHAR(5) as KYOUHAN, -- 英数字

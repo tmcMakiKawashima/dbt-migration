@@ -1,5 +1,6 @@
-{{ config(materialized="table") }}
+{{ config(materialized="table", snowflake_warehouse='DBT_WH') }}
 -- データ結合２（手配情報）
+
 with
     temp20_tehai as (
         select

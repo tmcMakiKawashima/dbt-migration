@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with stg_shkjissekiruikei as (
     select
         rtrim(syotype, ' 　')::varchar(1) as syotype, -- 英数字

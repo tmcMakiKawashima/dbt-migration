@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with substr_shkjissekiruikei as (
     select
         substr(raw_data, 1, 1)::varchar(1) as syotype,

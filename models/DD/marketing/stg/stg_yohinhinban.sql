@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with stg_yohinhinban as (
     select
     trim(cuno) as cuno, * exclude(cuno),
