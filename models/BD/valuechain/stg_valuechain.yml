@@ -71,3 +71,14 @@ models:
           - not_null:
               config:
                 severity: error
+#　品番情報マスタ
+  - name: stg_hinbanmeisyomaster
+    columns:
+      - name: hinban
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
