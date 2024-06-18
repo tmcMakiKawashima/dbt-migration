@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with substr_tbdaihl as (
     select
         substr(raw_data, 1, 5)::VARCHAR(5) as KYOUHAN,

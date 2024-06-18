@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 -- データ結合３
 with
     temp20 as (select * from {{ ref("tmp20_dm_tmc_ippan_jutyunokikaito") }}),
