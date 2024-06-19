@@ -9,10 +9,10 @@
 with stg_seibireki as (
     select
         iff(rtrim(delflg, ' 　') = 'D', '1', '0')::varchar(1) as delflg,
-        R001::varchar(9) as nyukono,
-        R002::varchar(4) as meisaino,
-        R003::varchar(11) as sobinamesansyocd,
-        R004::varchar(8) as seibicd,
+        r001::varchar(9) as nyukono,
+        r002::varchar(4) as meisaino,
+        r003::varchar(11) as sobinamesansyocd,
+        r004::varchar(8) as seibicd,
         ldts,
         rank() over (partition by nyukono, meisaino order by ldts desc) aggkey
     from {{ ref('substr_ktrla025zz0kil3206') }}
