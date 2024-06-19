@@ -7,15 +7,15 @@
 }}
 with stg_hinbanmeisyomaster as (
     select
-        rtrim(PARTS_CD, ' 　')::varchar(15) as hinban, -- 右ブランク
-        rtrim(DUO_PARTS_CD, ' 　')::varchar(15) as DUO_PARTS_CD, -- 右ブランク
+        rtrim(parts_cd, ' 　')::varchar(15) as hinban, -- 右ブランク
+        rtrim(duo_parts_cd, ' 　')::varchar(15) as duo_parts_cd, -- 右ブランク
         0::number(7) as sell_price, -- マスク
         0::number(7) as cost, -- マスク
-        rtrim(DAITAI_PARTS_CD, ' 　')::varchar(15) as daitaihinban, -- 右ブランク
-        DAITAI_CD::varchar(1) as daitaihinbancd,
-        MAKER_KBN::varchar(1) as MAKER_KBN,
-        rtrim(PARTS_NAME, ' 　')::varchar(60) as hinmei, -- 右ブランク
-        rtrim(PARTS_NAME_CD, ' 　')::varchar(6) as hinmeicd, -- 右ブランク
+        rtrim(daitai_parts_cd, ' 　')::varchar(15) as daitaihinban, -- 右ブランク
+        daitai_cd::varchar(1) as daitaihinbancd,
+        maker_kbn::varchar(1) as maker_kbn,
+        rtrim(parts_name, ' 　')::varchar(60) as hinmei, -- 右ブランク
+        rtrim(parts_name_cd, ' 　')::varchar(6) as hinmeicd, -- 右ブランク
         ldts,
         rank() over (partition by hinban order by ldts desc) aggkey
     from {{ source('customerservice_db_public', 'stg_hinbanmeisyomaster') }}
