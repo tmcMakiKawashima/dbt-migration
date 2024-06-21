@@ -36,6 +36,7 @@ models:
     +on_schema_change: "append_new_columns"
     BB:
       valuechain:
+        +snowflake_warehouse: "VALUECHAIN_WH" 
         +group: valuechain
         +database: valuechain_db
         +schema: public
@@ -50,6 +51,7 @@ models:
           +materialized: table
     DD:
       valuechain:
+        +snowflake_warehouse: "VALUECHAIN_WH"
         +group: valuechain
         +database: valuechain_db
         +schema: public
@@ -57,6 +59,7 @@ models:
           +access: public
           +materialized: table
       marketing:
+        +snowflake_warehouse: "MARKETING_WH"
         +group: marketing
         +database: marketing_db
         +schema: public
@@ -64,6 +67,7 @@ models:
           +access: public
           +materialized: table
       supplydemand:
+        +snowflake_warehouse: "SUPPLYDEMAND_WH"
         +group: supplydemand
         +database: supplydemand_db
         +schema: public
@@ -72,6 +76,7 @@ models:
           +materialized: table
     DE:
       PARTS:
+        +snowflake_warehouse: "PARTS_WH"
         +group: parts
         +database: PARTS_DB
         +schema: logistics
@@ -79,6 +84,7 @@ models:
           +access: public
           +materialized: table
       vinhis:
+        +snowflake_warehouse: "VINHIS_WH"
         +database: vinhis_db
         maint:
           +group: vinhis_maint
@@ -88,6 +94,7 @@ models:
             +materialized: table
     EF:
       DATAMART:
+        +snowflake_warehouse: "DATAMART_WH"
         +group: datamart
         +database: DATAMART_DB
         +schema: public
@@ -118,6 +125,7 @@ snapshots:
   enterprise_data_products:
     BD:
       valuechain:
+        +snowflake_warehouse: "VALUECHAIN_WH"
         +group: valuechain
         +target_database: valuechain_db
         +target_schema: dbt_snapshots
