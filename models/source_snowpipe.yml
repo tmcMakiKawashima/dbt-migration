@@ -164,7 +164,7 @@ sources:
               - fixed_length:
                   length: 400
 
-      - name: raw_genyohinmaster
+      - name: raw_tpjfva41
         identifier: TPJFVA41
         columns:
           - name: RAW_DATA

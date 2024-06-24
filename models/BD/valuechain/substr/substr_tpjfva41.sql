@@ -72,6 +72,6 @@ with substr_tpjfva41 as (
 	substr(raw_data, 527, 8)::varchar(8) as kousin,
 	substr(raw_data, 535, 7)::varchar(7) as tantou,
 	ldts
-  from  {{ source('snowpipe_db_valuechain', 'raw_genyohinmaster') }}
+  from  {{ source('snowpipe_db_valuechain', 'raw_tpjfva41') }}
 )
 select * from substr_tpjfva41
