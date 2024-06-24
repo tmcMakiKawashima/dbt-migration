@@ -10,7 +10,9 @@ with
             syasyu_cd, -- 車種コード
             haisya_kt, -- 配車型式
             lok_y, -- ラインオフ計画日
-            lok_m -- ラインオフ計画日
+            lok_m, -- ラインオフ計画日
+            int_cd, -- 内張コード
+            ext_cd -- 外販コード
         from {{ ref('stg_kokunaiseisan') }}  -- 国内新生産実績
         where odrtype = '7' -- オーダータイプ7:国内販売のみ
     ),
