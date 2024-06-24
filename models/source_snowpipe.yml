@@ -227,3 +227,15 @@ sources:
             tests:
               - fixed_length:
                   length: 175
+    tables:
+      - name: raw_ktrla01ezz0ko87001
+        freshness:
+          warn_after: { count: 1, period: hour }
+          error_after: { count: 24, period: hour }
+          filter: dayofweek(current_timestamp()) between 1 and 5
+        identifier: ktrla01ezz0ko87001
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length: 
+                  length: 50
