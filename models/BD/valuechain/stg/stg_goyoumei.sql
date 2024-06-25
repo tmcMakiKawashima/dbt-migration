@@ -9,11 +9,11 @@
 with stg_goyoumei as (
     select
         iff(rtrim(delflg, ' 　') = 'D', '1', '0')::varchar(1) as delflg,
-        rtrim(R001, ' 　')::varchar(9) as nyukono,
-        rtrim(R002, ' 　')::varchar(4) as meisaino,
-        rtrim(R005, ' 　')::varchar(1) as hosyokbn,
-        rtrim(R004, ' 　')::varchar(4) as t1w,
-        rtrim(R006, ' 　')::varchar(10) as goyomeisansyocd,
+        r001::varchar(9) as nyukono,
+        r002::varchar(4) as meisaino,
+        r005::varchar(1) as hosyokbn,
+        r004::varchar(4) as t1w,
+        r006::varchar(10) as goyomeisansyocd,
         ldts,
         rank() over (partition by nyukono, meisaino order by ldts desc) aggkey
     from {{ ref('substr_ktrla025zz0kil3204') }}
