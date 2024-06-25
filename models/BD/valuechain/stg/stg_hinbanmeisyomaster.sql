@@ -1,9 +1,19 @@
+{{
+    config(
+        pre_hook=[
+          "{{ dbt_snow_mask.create_masking_policy('models')}}"
+        ],
+        post_hook=[
+          "{{ dbt_snow_mask.apply_masking_policy('models') }}"
+        ]
+    )
+}}
 with stg_hinbanmeisyomaster as (
     select
         rtrim(parts_cd, ' 　')::varchar(15) as hinban, -- 右ブランク
         rtrim(duo_parts_cd, ' 　')::varchar(15) as duo_parts_cd, -- 右ブランク
-        0::number(7) as sell_price, -- マスク
-        0::number(7) as cost, -- マスク
+        baika::number(7) as sell_price, -- マスク
+        genka::number(7) as cost, -- マスク
         rtrim(daitai_parts_cd, ' 　')::varchar(15) as daitaihinban, -- 右ブランク
         daitai_cd::varchar(1) as daitaihinbancd,
         maker_kbn::varchar(1) as maker_kbn,
