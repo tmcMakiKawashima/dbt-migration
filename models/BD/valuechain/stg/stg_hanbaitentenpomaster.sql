@@ -5,8 +5,7 @@ with stg_hanbaitentenpomaster as (
         m003::varchar(20) as tenponame,
         m004::varchar(6) as startym,
         m005::varchar(6) as endym,
-        ldts,
-        rank() over (partition by hanbaitencd, tenpocd order by ldts desc) aggkey
+        ldts
     from {{ ref('substr_ktrla025zz0kil3211') }}
 )
 select * from stg_hanbaitentenpomaster
