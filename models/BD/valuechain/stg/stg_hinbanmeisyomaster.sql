@@ -1,10 +1,3 @@
-{{
-    config(
-        materialized = 'incremental',
-        unique_key = 'hinban',
-        incremental_strategy = 'delete+insert'
-    )
-}}
 with stg_hinbanmeisyomaster as (
     select
         rtrim(parts_cd, ' 　')::varchar(15) as hinban, -- 右ブランク
@@ -16,12 +9,8 @@ with stg_hinbanmeisyomaster as (
         maker_kbn::varchar(1) as maker_kbn,
         rtrim(parts_name, ' 　')::varchar(60) as hinmei, -- 右ブランク
         rtrim(parts_name_cd, ' 　')::varchar(6) as hinmeicd, -- 右ブランク
-        ldts,
-        rank() over (partition by hinban order by ldts desc) aggkey
+        ldts
     from {{ source('customerservice_db_public', 'stg_hinbanmeisyomaster') }}
-
-    {% if is_incremental() %}
-        where ldts > (select max(ldts) from {{ this }})
-    {% endif %}
 )
-select * from stg_hinbanmeisyomaster where aggkey = 1
+select * from stg_hinbanmeisyomaster
+where ldts = (select max(ldts) from stg_hinbanmeisyomaster)
