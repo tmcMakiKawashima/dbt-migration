@@ -5,33 +5,20 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-<<<<<<< models/BD/valuechain/stg_valuechain.yml
             - kbsyadai
             - nosyadai
-=======
-            - KBSYADAI
-            - NOSYADAI
->>>>>>> models/BD/valuechain/stg_valuechain.yml
             - seisanymd
             - nyukohanbaitencd
             - jutyuno
           config:
             severity: error
     columns:
-<<<<<<< models/BD/valuechain/stg_valuechain.yml
       - name: kbsyadai
-=======
-      - name: KBSYADAI
->>>>>>> models/BD/valuechain/stg_valuechain.yml
         tests:
           - not_null:
               config:
                 severity: error
-<<<<<<< models/BD/valuechain/stg_valuechain.yml
       - name: nosyadai
-=======
-      - name: NOSYADAI
->>>>>>> models/BD/valuechain/stg_valuechain.yml
         tests:
           - not_null:
               config:
