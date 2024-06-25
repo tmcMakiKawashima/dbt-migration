@@ -5,20 +5,20 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - KBSYADAI
-            - NOSYADAI
+            - kbsyadai
+            - nosyadai
             - seisanymd
             - nyukohanbaitencd
             - jutyuno
           config:
             severity: error
     columns:
-      - name: KBSYADAI
+      - name: kbsyadai
         tests:
           - not_null:
               config:
                 severity: error
-      - name: NOSYADAI
+      - name: nosyadai
         tests:
           - not_null:
               config:
