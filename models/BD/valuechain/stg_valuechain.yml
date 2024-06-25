@@ -87,4 +87,4 @@ models:
             masking_policy: sell_price_mask
       - name: cost
         meta:
-            masking_policy: sell_price_mask
+            masking_policy: cost_mask
