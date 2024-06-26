@@ -16,7 +16,7 @@ select b.cnt - a.cnt as cnt
           syadai_kt,
           frm_no,
           nyuko_dlrcd,
-          jutyu_no,
+          jyutyu_no,
           payment_date,
           nyuko_no
         from {{ref("tmp10_dm_vinhis_seibireki")}}
