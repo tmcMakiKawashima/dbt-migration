@@ -23,7 +23,7 @@ select
     dm_vinhis_nyukodetail.nyuko_plan_date, -- 入庫予定日
     dm_vinhis_nyukodetail.uketuke_date, -- 受付日
     dm_vinhis_nyukodetail.soukou_km, -- 走行km
-    dm_vinhis_nyukodetail.jutyu_no as jutyu_no, -- 受注NO
+    dm_vinhis_nyukodetail.jutyu_no as jyutyu_no, -- 受注NO
     dm_vinhis_nyukodetail.payment_date, -- 精算年月日
     dm_vinhis_nyukodetail.nyuko_no, -- 入庫番号
     stg_buhinreki.meisaino as nyuko_detail_no, -- 明細行番号
