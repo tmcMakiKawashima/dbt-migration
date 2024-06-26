@@ -11,7 +11,7 @@ models:
             - jutyu_no
             - payment_date
             - nyuko_no
-            - meisaino
+            - nyuko_detail_no
     columns:
       - name: nyuko_no
         tests:

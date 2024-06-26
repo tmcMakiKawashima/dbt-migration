@@ -1,4 +1,4 @@
-﻿with
+with
     tmp10_dm_vinhis_buhinreki as (
         select * from {{ ref('tmp10_dm_vinhis_buhinreki') }}
     ),
@@ -20,7 +20,7 @@ select
     tmp10_dm_vinhis_buhinreki.nyuko_plan_date, -- 入庫予定日
     tmp10_dm_vinhis_buhinreki.uketuke_date, -- 受付日
     tmp10_dm_vinhis_buhinreki.soukou_km, -- 走行km
-    tmp10_dm_vinhis_buhinreki.jyutyu_no, -- 受注NO
+    tmp10_dm_vinhis_buhinreki.jutyu_no, -- 受注NO
     tmp10_dm_vinhis_buhinreki.payment_date, -- 精算年月日
     tmp10_dm_vinhis_buhinreki.nyuko_no, -- 入庫番号
     tmp10_dm_vinhis_buhinreki.nyuko_detail_no, -- 明細行番号
