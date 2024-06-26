@@ -3,8 +3,8 @@
 {{
     config(
         unique_key="concat_ws('-',
-                    KBSYADAI,
-                    NOSYADAI,
+                    kbsyadai,
+                    nosyadai,
                     seisanymd,
                     nyukohanbaitencd,
                     jutyuno)",

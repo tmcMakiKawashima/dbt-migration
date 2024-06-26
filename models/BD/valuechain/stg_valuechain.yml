@@ -227,3 +227,21 @@ models:
           - not_null:
               config:
                 severity: error
+#　品番情報マスタ
+  - name: stg_hinbanmeisyomaster
+    columns:
+      - name: hinban
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: sell_price
+        meta:
+            masking_policy: sell_price_mask
+      - name: cost
+        meta:
+            masking_policy: cost_mask
+
