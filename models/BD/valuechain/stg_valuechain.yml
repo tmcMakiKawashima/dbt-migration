@@ -65,3 +65,37 @@ models:
           - not_null:
               config:
                 severity: error
+
+# 現用品マスタ
+  - name: stg_genyohinmaster
+    tests:
+      - dbt_utils.unique_combination_of_columns:        # パッケージで提供されているテストを使用
+          combination_of_columns:
+            - yohinsyamei
+            - tuikou
+            - seg
+            - seq
+          config:
+            severity: error
+      
+    columns:
+      - name: yohinsyamei
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikou
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seg
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seq
+        tests:
+          - not_null:
+              config:
+                severity: error
