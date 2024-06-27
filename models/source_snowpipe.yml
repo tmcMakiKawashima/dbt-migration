@@ -163,6 +163,13 @@ sources:
             tests:
               - fixed_length:
                   length: 400
+      - name: raw_tpjfva40
+        identifier: tpjfva40
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 40
 
   - name: snowpipe_db_marketing
     database: Snowpipe_DB
