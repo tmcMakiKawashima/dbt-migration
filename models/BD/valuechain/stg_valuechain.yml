@@ -1,5 +1,141 @@
 version: 2
 models:
+#　入庫歴
+  - name: stg_nyukoreki
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - kbsyadai
+            - nosyadai
+            - seisanymd
+            - nyukohanbaitencd
+            - jutyuno
+          config:
+            severity: error
+    columns:
+      - name: kbsyadai
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nosyadai
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seisanymd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nyukohanbaitencd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jutyuno
+        tests:
+          - not_null:
+              config:
+                severity: error
+#　入庫明細索引
+  - name: stg_nyukomeisaisakuin
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - nyukohanbaitencd
+            - jutyuno
+            - seisany
+            - seisanmd
+            - nyukono
+          config:
+            severity: error
+    columns:
+      - name: nyukohanbaitencd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jutyuno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seisany
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seisanmd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nyukono
+        tests:
+          - not_null:
+              config:
+                severity: error
+#　ご用命
+  - name: stg_goyoumei
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - nyukono
+            - meisaino
+          config:
+            severity: error
+    columns:
+      - name: nyukono
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: meisaino
+        tests:
+          - not_null:
+              config:
+                severity: error
+#　ご用命（保証）
+  - name: stg_goyoumeihosyo
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - nyukono
+            - meisaino
+          config:
+            severity: error
+    columns:
+      - name: nyukono
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: meisaino
+        tests:
+          - not_null:
+              config:
+                severity: error
+#　整備歴
+  - name: stg_seibireki
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - nyukono
+            - meisaino
+          config:
+            severity: error
+    columns:
+      - name: nyukono
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: meisaino
+        tests:
+          - not_null:
+              config:
+                severity: error
 #　部品歴
   - name: stg_buhinreki
     tests:
@@ -71,6 +207,26 @@ models:
           - not_null:
               config:
                 severity: error
+#　整備名称情報マスタ
+  - name: stg_seibimeisyomaster
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - seibi_cd
+            - mgr_kbn
+          config:
+            severity: error
+    columns:
+      - name: seibi_cd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mgr_kbn
+        tests:
+          - not_null:
+              config:
+                severity: error
 #　品番情報マスタ
   - name: stg_hinbanmeisyomaster
     columns:
@@ -88,3 +244,4 @@ models:
       - name: cost
         meta:
             masking_policy: cost_mask
+

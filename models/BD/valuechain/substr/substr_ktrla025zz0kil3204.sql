@@ -1,11 +1,11 @@
 with substr_ktrla025zz0kil3204 as (
     select
         substr(raw_data, 1, 1)::varchar(1) as delflg,
-        substr(raw_data, 2, 9)::varchar(9) as R001,
-        substr(raw_data, 11, 4)::varchar(4) as R002,
-        substr(raw_data, 15, 1)::varchar(1) as R005,
-        substr(raw_data, 16, 4)::varchar(4) as R004,
-        substr(raw_data, 20, 10)::varchar(10) as R006,
+        substr(raw_data, 2, 9)::varchar(9) as r001,
+        substr(raw_data, 11, 4)::varchar(4) as r002,
+        substr(raw_data, 15, 1)::varchar(1) as r005,
+        substr(raw_data, 16, 4)::varchar(4) as r004,
+        substr(raw_data, 20, 10)::varchar(10) as r006,
         ldts
     from {{ source('snowpipe_db_valuechain', 'raw_ktrla025zz0kil3204') }}
 )
