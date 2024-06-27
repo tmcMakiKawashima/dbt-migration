@@ -164,7 +164,7 @@ sources:
               - fixed_length:
                   length: 400
 
-      - name: raw_goguchisyasyucd
+      - name: raw_tpjfva40
         identifier: tpjfva40
         columns:
           - name: RAW_DATA
