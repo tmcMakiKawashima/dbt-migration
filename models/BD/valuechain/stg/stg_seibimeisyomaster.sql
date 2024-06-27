@@ -6,7 +6,7 @@ with stg_seibimeisyomaster as (
         bpseq_no::varchar(7) as bpseq_no,
         hosho_ex_kbn::varchar(1) as hosho_ex_kbn,
         ldts
-    from {{ source('customerservice_db_public', 'stg_seibimeisyomaster') }} -- 整備名称情報マスタ
+    from {{ source('customerservice_db_public', 'raw_seibimeisyomaster') }} -- 整備名称情報マスタ
 )
 select * from stg_seibimeisyomaster
 where ldts = (select max(ldts) from stg_seibimeisyomaster)
