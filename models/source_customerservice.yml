@@ -5,7 +5,7 @@ sources:
     database: customerservice_db
     schema: public
     tables:
-      - name: stg_seibimeisyomaster
+      - name: raw_seibimeisyomaster
         identifier: m_seibi_name
-      - name: stg_hinbanmeisyomaster
+      - name: raw_hinbanmeisyomaster
         identifier: m_parts_name

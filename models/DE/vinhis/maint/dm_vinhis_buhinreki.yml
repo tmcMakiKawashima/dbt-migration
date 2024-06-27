@@ -8,10 +8,10 @@ models:
             - syadai_kt
             - frm_no
             - nyuko_dlrcd
-            - jutyu_no
+            - jyutyu_no
             - payment_date
             - nyuko_no
-            - meisaino
+            - nyuko_detail_no
     columns:
       - name: nyuko_no
         tests:

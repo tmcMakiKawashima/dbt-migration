@@ -1,4 +1,4 @@
-﻿with
+with
     dm_vinhis_nyukodetail as (
         select * from {{ ref('dm_vinhis_nyukodetail') }} -- VIN x 入庫明細
     ),

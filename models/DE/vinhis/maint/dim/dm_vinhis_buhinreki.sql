@@ -1,4 +1,4 @@
-﻿with
+with
     tmp10_dm_vinhis_buhinreki as (
         select * from {{ ref('tmp10_dm_vinhis_buhinreki') }}
     ),
