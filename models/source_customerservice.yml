@@ -2,10 +2,10 @@ version: 2
 
 sources:
   - name: customerservice_db_public
-    database: CUSTOMERSERVICE_DB
-    schema: PUBLIC
+    database: customerservice_db
+    schema: public
     tables:
-      - name: stg_seibimeisyomaster
-        identifier: M_SEIBI_NAME
-      - name: stg_hinbanmeisyomaster
-        identifier: M_PARTS_NAME
+      - name: raw_seibimeisyomaster
+        identifier: m_seibi_name
+      - name: raw_hinbanmeisyomaster
+        identifier: m_parts_name

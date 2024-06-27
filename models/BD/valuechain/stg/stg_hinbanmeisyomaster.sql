@@ -20,7 +20,7 @@ with stg_hinbanmeisyomaster as (
         rtrim(parts_name, ' 　')::varchar(60) as hinmei, -- 右ブランク
         rtrim(parts_name_cd, ' 　')::varchar(6) as hinmeicd, -- 右ブランク
         ldts
-    from {{ source('customerservice_db_public', 'stg_hinbanmeisyomaster') }}
+    from {{ source('customerservice_db_public', 'raw_hinbanmeisyomaster') }}
 )
 select * from stg_hinbanmeisyomaster
 where ldts = (select max(ldts) from stg_hinbanmeisyomaster)
