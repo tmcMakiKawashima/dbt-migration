@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with substr_tbsmksk as (
     select
         substr(raw_data, 1, 3)::VARCHAR(3) as ID,

@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with temp40 as (
     select
         dlrcd m_dlrcd,  --メーカー仕向先cd

@@ -1,4 +1,5 @@
-{{ config(materialized="table") }}
+{{ config(materialized="table", snowflake_warehouse='DBT_WH') }}
+
 -- データ結合２
 with
     temp10 as (

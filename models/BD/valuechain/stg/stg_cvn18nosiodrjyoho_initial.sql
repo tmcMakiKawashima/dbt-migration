@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with stg_cvn18nosiodrjyoho as (
     select
         *,

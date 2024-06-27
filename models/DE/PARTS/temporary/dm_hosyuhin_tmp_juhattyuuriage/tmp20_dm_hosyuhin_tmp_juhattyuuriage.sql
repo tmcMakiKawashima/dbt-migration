@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with
     temp10 as (select * from {{ ref('tmp10_dm_hosyuhin_tmp_juhattyuuriage') }}),
     chuzan as (select * from {{ ref('stg_tbchznl') }})

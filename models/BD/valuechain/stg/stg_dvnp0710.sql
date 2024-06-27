@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with stg_dvnp0710 as (
     select
         rtrim(mntkbn,' 　')::varchar(1) as mntkbn,  -- 英数字
