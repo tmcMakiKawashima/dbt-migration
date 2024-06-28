@@ -1,0 +1,83 @@
+[0m10:29:09.964291 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E670162F50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E672BC5B70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E672BC59F0>]}
+
+
+============================== 10:29:09.979938 | 759568ce-8e0b-422f-9a01-aea2ea9a3240 ==============================
+[0m10:29:09.979938 [info ] [MainThread]: Running with dbt=1.7.9
+[0m10:29:09.979938 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'D:\\Users\\da-hatori-04.00\\Desktop\\repo\\da-dxpf-edp-dagster-edp_infra_ope-sample_da\\da_dxpf_edp_dagster_edp_infra_ope_sample01\\dagster_dbt', 'version_check': 'True', 'warn_error': 'None', 'log_path': 'D:\\Users\\da-hatori-04.00\\Desktop\\repo\\da-dxpf-edp-dagster-edp_infra_ope-sample_da\\da_dxpf_edp_dagster_edp_infra_ope_sample01\\dagster_dbt\\logs', 'debug': 'False', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'log_format': 'default', 'target_path': 'None', 'invocation_command': 'dbt compile', 'send_anonymous_usage_stats': 'True'}
+[0m10:29:10.776873 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '759568ce-8e0b-422f-9a01-aea2ea9a3240', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E672BC5C30>]}
+[0m10:29:10.948630 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '759568ce-8e0b-422f-9a01-aea2ea9a3240', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E6732851E0>]}
+[0m10:29:10.964259 [info ] [MainThread]: Registered adapter: snowflake=1.7.1
+[0m10:29:10.995504 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m10:29:10.995504 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m10:29:11.011316 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '759568ce-8e0b-422f-9a01-aea2ea9a3240', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E6733A1330>]}
+[0m10:29:13.104868 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '759568ce-8e0b-422f-9a01-aea2ea9a3240', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E6735CA3B0>]}
+[0m10:29:13.151745 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '759568ce-8e0b-422f-9a01-aea2ea9a3240', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E67324CCA0>]}
+[0m10:29:13.151745 [info ] [MainThread]: Found 6 models, 4 sources, 0 exposures, 0 metrics, 430 macros, 4 groups, 0 semantic models
+[0m10:29:13.151745 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '759568ce-8e0b-422f-9a01-aea2ea9a3240', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E6735CAF50>]}
+[0m10:29:13.151745 [info ] [MainThread]: 
+[0m10:29:13.151745 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m10:29:13.167377 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_EDP_INFRA_SANDBOX_DB_PUBLIC'
+[0m10:29:13.183074 [debug] [ThreadPool]: Using snowflake connection "list_EDP_INFRA_SANDBOX_DB_PUBLIC"
+[0m10:29:13.183074 [debug] [ThreadPool]: On list_EDP_INFRA_SANDBOX_DB_PUBLIC: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "dagster_dbt", "target_name": "LOCAL", "connection_name": "list_EDP_INFRA_SANDBOX_DB_PUBLIC"} */
+show terse objects in EDP_INFRA_SANDBOX_DB.PUBLIC limit 10000
+[0m10:29:13.183074 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m10:29:13.995659 [debug] [ThreadPool]: SQL status: SUCCESS 20 in 1.0 seconds
+[0m10:29:13.995659 [debug] [ThreadPool]: On list_EDP_INFRA_SANDBOX_DB_PUBLIC: Close
+[0m10:29:14.089280 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '759568ce-8e0b-422f-9a01-aea2ea9a3240', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E67386BDC0>]}
+[0m10:29:14.104876 [info ] [MainThread]: Concurrency: 1 threads (target='LOCAL')
+[0m10:29:14.104876 [info ] [MainThread]: 
+[0m10:29:14.104876 [debug] [Thread-1 (]: Began running node model.dagster_dbt.my_fifth_dbt_model
+[0m10:29:14.104876 [debug] [Thread-1 (]: Acquiring new snowflake connection 'model.dagster_dbt.my_fifth_dbt_model'
+[0m10:29:14.104876 [debug] [Thread-1 (]: Began compiling node model.dagster_dbt.my_fifth_dbt_model
+[0m10:29:14.136116 [debug] [Thread-1 (]: Writing injected SQL for node "model.dagster_dbt.my_fifth_dbt_model"
+[0m10:29:14.151743 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_fifth_dbt_model (compile): 10:29:14.104876 => 10:29:14.151743
+[0m10:29:14.151743 [debug] [Thread-1 (]: Began executing node model.dagster_dbt.my_fifth_dbt_model
+[0m10:29:14.151743 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_fifth_dbt_model (execute): 10:29:14.151743 => 10:29:14.151743
+[0m10:29:14.151743 [debug] [Thread-1 (]: Finished running node model.dagster_dbt.my_fifth_dbt_model
+[0m10:29:14.151743 [debug] [Thread-1 (]: Began running node model.dagster_dbt.my_first_dbt_model
+[0m10:29:14.151743 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dagster_dbt.my_fifth_dbt_model, now model.dagster_dbt.my_first_dbt_model)
+[0m10:29:14.151743 [debug] [Thread-1 (]: Began compiling node model.dagster_dbt.my_first_dbt_model
+[0m10:29:14.167368 [debug] [Thread-1 (]: Writing injected SQL for node "model.dagster_dbt.my_first_dbt_model"
+[0m10:29:14.167368 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_first_dbt_model (compile): 10:29:14.151743 => 10:29:14.167368
+[0m10:29:14.167368 [debug] [Thread-1 (]: Began executing node model.dagster_dbt.my_first_dbt_model
+[0m10:29:14.182991 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_first_dbt_model (execute): 10:29:14.167368 => 10:29:14.167368
+[0m10:29:14.182991 [debug] [Thread-1 (]: Finished running node model.dagster_dbt.my_first_dbt_model
+[0m10:29:14.182991 [debug] [Thread-1 (]: Began running node model.dagster_dbt.my_third_dbt_model
+[0m10:29:14.182991 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dagster_dbt.my_first_dbt_model, now model.dagster_dbt.my_third_dbt_model)
+[0m10:29:14.182991 [debug] [Thread-1 (]: Began compiling node model.dagster_dbt.my_third_dbt_model
+[0m10:29:14.198624 [debug] [Thread-1 (]: Writing injected SQL for node "model.dagster_dbt.my_third_dbt_model"
+[0m10:29:14.198624 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_third_dbt_model (compile): 10:29:14.182991 => 10:29:14.198624
+[0m10:29:14.198624 [debug] [Thread-1 (]: Began executing node model.dagster_dbt.my_third_dbt_model
+[0m10:29:14.198624 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_third_dbt_model (execute): 10:29:14.198624 => 10:29:14.198624
+[0m10:29:14.214330 [debug] [Thread-1 (]: Finished running node model.dagster_dbt.my_third_dbt_model
+[0m10:29:14.214330 [debug] [Thread-1 (]: Began running node model.dagster_dbt.snowflake_connect
+[0m10:29:14.214330 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dagster_dbt.my_third_dbt_model, now model.dagster_dbt.snowflake_connect)
+[0m10:29:14.214330 [debug] [Thread-1 (]: Began compiling node model.dagster_dbt.snowflake_connect
+[0m10:29:14.229866 [debug] [Thread-1 (]: Writing injected SQL for node "model.dagster_dbt.snowflake_connect"
+[0m10:29:14.229866 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.snowflake_connect (compile): 10:29:14.214330 => 10:29:14.229866
+[0m10:29:14.229866 [debug] [Thread-1 (]: Began executing node model.dagster_dbt.snowflake_connect
+[0m10:29:14.245573 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.snowflake_connect (execute): 10:29:14.245573 => 10:29:14.245573
+[0m10:29:14.245573 [debug] [Thread-1 (]: Finished running node model.dagster_dbt.snowflake_connect
+[0m10:29:14.245573 [debug] [Thread-1 (]: Began running node model.dagster_dbt.my_second_dbt_model
+[0m10:29:14.245573 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dagster_dbt.snowflake_connect, now model.dagster_dbt.my_second_dbt_model)
+[0m10:29:14.245573 [debug] [Thread-1 (]: Began compiling node model.dagster_dbt.my_second_dbt_model
+[0m10:29:14.261127 [debug] [Thread-1 (]: Writing injected SQL for node "model.dagster_dbt.my_second_dbt_model"
+[0m10:29:14.261127 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_second_dbt_model (compile): 10:29:14.245573 => 10:29:14.261127
+[0m10:29:14.261127 [debug] [Thread-1 (]: Began executing node model.dagster_dbt.my_second_dbt_model
+[0m10:29:14.261127 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_second_dbt_model (execute): 10:29:14.261127 => 10:29:14.261127
+[0m10:29:14.261127 [debug] [Thread-1 (]: Finished running node model.dagster_dbt.my_second_dbt_model
+[0m10:29:14.261127 [debug] [Thread-1 (]: Began running node model.dagster_dbt.my_fourth_dbt_model
+[0m10:29:14.276891 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dagster_dbt.my_second_dbt_model, now model.dagster_dbt.my_fourth_dbt_model)
+[0m10:29:14.276891 [debug] [Thread-1 (]: Began compiling node model.dagster_dbt.my_fourth_dbt_model
+[0m10:29:14.276891 [debug] [Thread-1 (]: Writing injected SQL for node "model.dagster_dbt.my_fourth_dbt_model"
+[0m10:29:14.292457 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_fourth_dbt_model (compile): 10:29:14.276891 => 10:29:14.292457
+[0m10:29:14.292457 [debug] [Thread-1 (]: Began executing node model.dagster_dbt.my_fourth_dbt_model
+[0m10:29:14.292457 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_fourth_dbt_model (execute): 10:29:14.292457 => 10:29:14.292457
+[0m10:29:14.292457 [debug] [Thread-1 (]: Finished running node model.dagster_dbt.my_fourth_dbt_model
+[0m10:29:14.292457 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m10:29:14.307995 [debug] [MainThread]: Connection 'list_EDP_INFRA_SANDBOX_DB_PUBLIC' was properly closed.
+[0m10:29:14.307995 [debug] [MainThread]: Connection 'model.dagster_dbt.my_fourth_dbt_model' was properly closed.
+[0m10:29:14.307995 [debug] [MainThread]: Command end result
+[0m10:29:14.464326 [debug] [MainThread]: Command `dbt compile` succeeded at 10:29:14.464326 after 4.64 seconds
+[0m10:29:14.464326 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E670162F50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E67324CCA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E673376DD0>]}
+[0m10:29:14.464326 [debug] [MainThread]: Flushing usage events

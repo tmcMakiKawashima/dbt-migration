@@ -25,6 +25,7 @@ from dagster_dbt import DbtCliResource
 # from da_dxpf_edp_dagster_edp_infra_ope_sample02 import asset_sample08
 # from .asset_sample08.constants import dbt_project_dir
 from da_dxpf_edp_dagster_edp_infra_ope_sample02 import asset_sample09
+from da_dxpf_edp_dagster_edp_infra_ope_sample02 import asset_sample10
 
 #############################
 # 以下はすべて待ち行列検証のための一時的なコード
@@ -39,10 +40,17 @@ def asset_sample07_sensor():
 
 #############################
 
-asset09_01_job = define_asset_job(name="asset09_01_job", selection=AssetSelection.groups("asset_sample09"))
+asset09_job = define_asset_job(name="asset09_job", selection=AssetSelection.groups("asset_sample09"))
 
-@sensor(job=asset09_01_job)
-def asset09_01_sensor():
+# アラート用のタグを設定する
+asset10_job = define_asset_job(name="asset10_job", selection=AssetSelection.groups("asset_sample10"), tags={"code_location": "sample02", "job_name": "asset_sample10"})
+
+@sensor(job=asset09_job)
+def asset09_sensor():
+    yield RunRequest(run_key=None, run_config={})
+
+@sensor(job=asset10_job)
+def asset10_sensor():
     yield RunRequest(run_key=None, run_config={})
 
 # Asset Groupの読み込み定義
@@ -52,11 +60,12 @@ defs = Definitions(
     assets
     = load_assets_from_package_module(asset_sample07)
     # + load_assets_from_package_module(asset_sample08)
-    + load_assets_from_package_module(asset_sample09),
+    + load_assets_from_package_module(asset_sample09)
+    + load_assets_from_package_module(asset_sample10),
     jobs
-    = [asset_sample07_job, asset09_01_job],
+    = [asset_sample07_job, asset09_job, asset10_job],
     sensors
-    = [asset_sample07_sensor, asset09_01_sensor],
+    = [asset_sample07_sensor, asset09_sensor, asset10_sensor],
     # resources
     # ={"dbt": DbtCliResource(project_dir=os.fspath(dbt_project_dir))},
 )

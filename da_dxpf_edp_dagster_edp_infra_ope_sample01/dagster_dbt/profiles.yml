@@ -3,26 +3,26 @@ dagster_dbt:
   outputs:
     LOCAL:
       type: snowflake
-      account: rf70500.ap-northeast-1.aws
+      account: nw21470.ap-northeast-1.aws
 
       # User/password auth
-      user: sajp1.dagster_poc_sys_usr
-      password: TKzD|g7aP#uA
-
-      role: FIVETRAN_ROLE
-      database: FIVETRAN_DATABASE
-      warehouse: FIVETRAN_WAREHOUSE
-      schema: ORACLERDS_LZDATA01_DAGSTER_DXPFY2D
+      user: dapj1.dagster_poc_sys_usr
+      password: k5$Wj2(*pyeT
+      role: EDP_INFRA_SANDBOX_JDBC
+      database: EDP_INFRA_SANDBOX_DB
+      warehouse: EDP_INFRA_SANDBOX_WH
+      schema: PUBLIC
+      client_session_keep_alive: False
 
     PROD:
       type: snowflake
-      account: "{{ env_var('SNOWFLAKE_ACCOUNT_SA', '') }}"
+      account: nw21470.ap-northeast-1.aws
 
       # User/password auth
-      user: "{{ env_var('SNOWFLAKE_POC_USER', '') }}"
-      password: "{{ env_var('SNOWFLAKE_POC_USER_PASSWORD', '') }}"
-      authenticator: username_password_mfa
-      role: ACCOUNTADMIN
-      database: FIVETRAN_DATABASE
-      warehouse: FIVETRAN_WAREHOUSE
-      schema: ORACLERDS_LZDATA01_DAGSTER_DXPFY2D
+      user: dapj1.dagster_poc_sys_usr
+      password: k5$Wj2(*pyeT
+      role: EDP_INFRA_SANDBOX_JDBC
+      database: EDP_INFRA_SANDBOX_DB
+      warehouse: EDP_INFRA_SANDBOX_WH
+      schema: PUBLIC
+      client_session_keep_alive: False

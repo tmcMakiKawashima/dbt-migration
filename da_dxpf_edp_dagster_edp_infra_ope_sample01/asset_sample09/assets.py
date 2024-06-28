@@ -22,7 +22,7 @@ from dagster import (
 # =================================================================================================
 
 @asset(group_name="asset_sample09")
-def asset09_02(context):
+def asset09_01(context):
     return MaterializeResult(
         metadata={
             "getenv_1": os.getenv("env_1"),

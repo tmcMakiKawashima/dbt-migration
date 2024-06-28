@@ -29,6 +29,8 @@ from da_dxpf_edp_dagster_edp_infra_ope_sample01 import asset_sample04
 from .asset_sample03.constants import dbt_project_dir
 from .asset_sample05 import fivetran_assets
 from da_dxpf_edp_dagster_edp_infra_ope_sample01 import asset_sample06
+from da_dxpf_edp_dagster_edp_infra_ope_sample01 import asset_sample09
+from da_dxpf_edp_dagster_edp_infra_ope_sample01 import asset_sample10
 
 # ジョブ設定
 # 全てのジョブを1つのセンサーに紐づけ
@@ -52,6 +54,9 @@ asset06_job = define_asset_job(name="asset06_job", selection=AssetSelection.grou
 # Fivetran, dbt, Dagster assetをまとめてjob化する
 pipeline01_job = define_asset_job(name="pipeline01_job", selection=AssetSelection.groups("pipeline01"))
 
+# アラート用のタグを設定する
+asset10_job = define_asset_job(name="asset10_job", selection=AssetSelection.groups("asset_sample10"), tags={"code_location": "sample01", "job_name": "asset_sample10"})
+
 # センサー定義(デフォルト30秒)
 @sensor(job=asset04_job)
 def asset04_01_sensor():
@@ -60,6 +65,10 @@ def asset04_01_sensor():
 # センサー定義(間隔指定※秒で指定、最小値5秒)
 @sensor(job=asset04_job, minimum_interval_seconds=400)
 def asset04_02_sensor():
+    yield RunRequest(run_key=None, run_config={})
+
+@sensor(job=asset10_job)
+def asset10_sensor():
     yield RunRequest(run_key=None, run_config={})
 
 # スケジュール定義
@@ -77,11 +86,13 @@ defs = Definitions(
     + load_assets_from_package_module(asset_sample03)
     + load_assets_from_package_module(asset_sample04)
     + load_assets_from_modules([fivetran_assets])
-    + load_assets_from_package_module(asset_sample06),
+    + load_assets_from_package_module(asset_sample06)
+    + load_assets_from_package_module(asset_sample09)
+    + load_assets_from_package_module(asset_sample10),
     jobs
-    = [asset04_job, asset03_dbt_job, pipeline01_job],
+    = [asset04_job, asset03_dbt_job, pipeline01_job, asset10_job],
     sensors
-    = [asset04_01_sensor, asset04_02_sensor],
+    = [asset04_01_sensor, asset04_02_sensor, asset10_sensor],
     schedules
     = [asset03_dbt_job_schedule, asset06_job_schedule, pipeline01_job_schedule],
     resources
