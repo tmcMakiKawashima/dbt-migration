@@ -227,7 +227,6 @@ sources:
             tests:
               - fixed_length:
                   length: 175
-    tables:
       - name: raw_ktrla01ezz0ko87001
         freshness:
           warn_after: { count: 1, period: hour }
