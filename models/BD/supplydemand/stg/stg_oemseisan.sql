@@ -60,4 +60,4 @@ with stg_oemseisan as (
     {% endif %}
 
 )
-select * from stg_oemseisan where aggkey = 1
+select * exclude(aggkey) from stg_oemseisan where aggkey = 1
