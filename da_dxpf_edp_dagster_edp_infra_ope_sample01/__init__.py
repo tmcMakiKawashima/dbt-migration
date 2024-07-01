@@ -22,15 +22,16 @@ from dagster_fivetran import (
 
 from dagster_dbt import DbtCliResource
 
-from da_dxpf_edp_dagster_edp_infra_ope_sample01 import asset_sample01
-from da_dxpf_edp_dagster_edp_infra_ope_sample01 import asset_sample02
-from da_dxpf_edp_dagster_edp_infra_ope_sample01 import asset_sample03
-from da_dxpf_edp_dagster_edp_infra_ope_sample01 import asset_sample04
+from . import asset_sample01
+from . import asset_sample02
+from . import asset_sample03
+from . import asset_sample04
 from .asset_sample03.constants import dbt_project_dir
 from .asset_sample05 import fivetran_assets
-from da_dxpf_edp_dagster_edp_infra_ope_sample01 import asset_sample06
-from da_dxpf_edp_dagster_edp_infra_ope_sample01 import asset_sample09
-from da_dxpf_edp_dagster_edp_infra_ope_sample01 import asset_sample10
+from . import asset_sample06
+from . import asset_sample08
+from . import asset_sample09
+from . import asset_sample10
 
 # ジョブ設定
 # 全てのジョブを1つのセンサーに紐づけ
@@ -46,7 +47,8 @@ from da_dxpf_edp_dagster_edp_infra_ope_sample01 import asset_sample10
 asset04_job = define_asset_job(name="asset04_job", selection=AssetSelection.groups("asset_sample04"))
 
 # dbtモデルをjob化する
-asset03_dbt_job = define_asset_job(name="asset03_dbt_job", selection=["my_third_dbt_model", "my_fourth_dbt_model"])
+# asset03_dbt_job = define_asset_job(name="asset03_dbt_job", selection=["my_third_dbt_model", "my_fourth_dbt_model"])
+asset03_dbt_job = define_asset_job(name="asset03_dbt_job", selection=AssetSelection.groups("pipeline02"))
 
 # 起動順序検証用アセットをjob化する
 asset06_job = define_asset_job(name="asset06_job", selection=AssetSelection.groups("asset_sample06"), tags={"ecs/cpu": "256", "ecs/memory": "1024"})
@@ -87,6 +89,7 @@ defs = Definitions(
     + load_assets_from_package_module(asset_sample04)
     + load_assets_from_modules([fivetran_assets])
     + load_assets_from_package_module(asset_sample06)
+    + load_assets_from_package_module(asset_sample08)
     + load_assets_from_package_module(asset_sample09)
     + load_assets_from_package_module(asset_sample10),
     jobs

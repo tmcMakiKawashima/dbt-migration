@@ -21,11 +21,14 @@ from dagster import (
 #      方法が2つあるので差異がないか確認
 # =================================================================================================
 
-@asset(group_name="asset_sample09")
+@asset(
+    group_name="asset_sample09", 
+    description="S3検知用アセット",
+    key_prefix=[os.getenv("code_location_sample02")])
 def asset09_02(context):
     return MaterializeResult(
         metadata={
-            "getenv_1": os.getenv("env_1"),
-            "envvar_2": EnvVar("env_2").get_value()
+            "getenv_1": os.getenv("code_location_sample01"),
+            "envvar_2": EnvVar("code_location_sample02").get_value()
         }
     )

@@ -15,9 +15,13 @@ from dagster import (
 # asset_sample10の検証内容
 # 1. アラートの設定を確認
 #    ジョブにTagsを付けることでアラートを出すターゲットを絞れることを確認する
+#    da_dxpf_edp_dagster_edp_infra_ope_sample02にも同名のアセット、ジョブを用意しTagsで絞られていることを確認する
 # =================================================================================================
 
-@asset(group_name="asset_sample10")
+@asset(
+    group_name="asset_sample10", 
+    description="jobにTagsを定義しているアセット", 
+    key_prefix=os.getenv("code_location_sample01"))
 def asset10_01(context):
     return MaterializeResult(
         metadata={
@@ -25,7 +29,11 @@ def asset10_01(context):
         }
     )
 
-@asset(group_name="asset_sample10", deps=["asset10_01"])
+@asset(
+    group_name="asset_sample10", 
+    description="jobにTagsを定義しているアセット", 
+    key_prefix=os.getenv("code_location_sample01"),
+    deps=["asset10_01"])
 def asset10_02(context):
     return MaterializeResult(
         metadata={
@@ -33,7 +41,11 @@ def asset10_02(context):
         }
     )
 
-@asset(group_name="asset_sample10", deps=["asset10_02"])
+@asset(
+    group_name="asset_sample10", 
+    description="jobにTagsを定義しているアセット", 
+    key_prefix=os.getenv("code_location_sample01"),
+    deps=["asset10_02"])
 def asset10_03(context):
     return MaterializeResult(
         metadata={

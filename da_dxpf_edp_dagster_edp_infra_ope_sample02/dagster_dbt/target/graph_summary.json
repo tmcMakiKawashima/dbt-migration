@@ -1,0 +1,1 @@
+{"_invocation_id": "ce2bccb1-616b-4a3b-9edd-5734ff4c4bb7", "linked": {"0": {"name": "source.dagster_dbt.edp_db.asset08_01", "type": "source", "succ": [1]}, "1": {"name": "model.dagster_dbt.my_sixth_dbt_model", "type": "model"}, "2": {"name": "model.dagster_dbt.my_seventh_dbt_model", "type": "model"}}}

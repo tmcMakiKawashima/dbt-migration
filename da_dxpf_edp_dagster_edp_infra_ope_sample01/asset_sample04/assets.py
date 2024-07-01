@@ -22,7 +22,10 @@ logger = get_dagster_logger()
 # =================================================================================================
 
 # 1. dagster独自アセット(先発)
-@asset(group_name="asset_sample04", description="センサー実行サンプル用1")
+@asset(
+    group_name="asset_sample04", 
+    description="センサー実行サンプル用1", 
+    key_prefix=[os.getenv("code_location_sample01")])
 def asset04_01() -> MaterializeResult:
     logger.info('asset04_01 trace log1')
     return MaterializeResult(
@@ -32,7 +35,11 @@ def asset04_01() -> MaterializeResult:
     )
 
 # 1. dagster独自アセット(後発) ※ アノテーションの「deps」に先発アセットを設定する記述がポイント
-@asset(group_name="asset_sample04", deps=[asset04_01], description="センサー実行サンプル用2")
+@asset(
+    group_name="asset_sample04", 
+    description="センサー実行サンプル用2", 
+    key_prefix=[os.getenv("code_location_sample01")],
+    deps=[asset04_01])
 def asset04_02() -> MaterializeResult:
     logger.info('asset04_02 trace log1')
     return MaterializeResult(

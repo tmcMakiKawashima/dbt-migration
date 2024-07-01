@@ -22,10 +22,10 @@ from dagster_fivetran import (
 
 from dagster_dbt import DbtCliResource
 
-# from da_dxpf_edp_dagster_edp_infra_ope_sample02 import asset_sample08
-# from .asset_sample08.constants import dbt_project_dir
-from da_dxpf_edp_dagster_edp_infra_ope_sample02 import asset_sample09
-from da_dxpf_edp_dagster_edp_infra_ope_sample02 import asset_sample10
+from . import asset_sample08
+from .asset_sample08.constants import dbt_project_dir
+from . import asset_sample09
+from . import asset_sample10
 
 #############################
 # 以下はすべて待ち行列検証のための一時的なコード
@@ -59,13 +59,13 @@ def asset10_sensor():
 defs = Definitions(
     assets
     = load_assets_from_package_module(asset_sample07)
-    # + load_assets_from_package_module(asset_sample08)
+    + load_assets_from_package_module(asset_sample08)
     + load_assets_from_package_module(asset_sample09)
     + load_assets_from_package_module(asset_sample10),
     jobs
     = [asset_sample07_job, asset09_job, asset10_job],
     sensors
     = [asset_sample07_sensor, asset09_sensor, asset10_sensor],
-    # resources
-    # ={"dbt": DbtCliResource(project_dir=os.fspath(dbt_project_dir))},
+    resources
+    ={"dbt": DbtCliResource(project_dir=os.fspath(dbt_project_dir))},
 )

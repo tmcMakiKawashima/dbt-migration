@@ -27,8 +27,14 @@ from dagster import (
 #
 # ↓
 #
-# プロジェクト内で重複していない名称で定義する必要がある
-@asset(group_name="asset_sample02", description="dagster独自アセット及びマテリアライズ結果をリネージュとして反映するサンプル")
+# プロジェクト内で重複していない名称で定義する必要がある→追加調査の結果解消方法あり
+# 解決策
+# key_prefixを追加すれば解決可能。詳細は.envを参照
+# 具体例はsample01,02のコードロケーションのasset_sample10を参照のこと
+@asset(
+    group_name="asset_sample02", 
+    description="dagster独自アセット及びマテリアライズ結果をリネージュとして反映するサンプル",
+    key_prefix=[os.getenv("code_location_sample01")])
 def asset02() -> MaterializeResult:
     return MaterializeResult(
         metadata={

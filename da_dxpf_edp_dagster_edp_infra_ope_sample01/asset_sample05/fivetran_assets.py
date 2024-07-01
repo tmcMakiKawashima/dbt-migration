@@ -1,3 +1,5 @@
+import os
+
 from dagster_fivetran import (
     FivetranResource,
     build_fivetran_assets
@@ -12,8 +14,8 @@ from dagster import with_resources
 # 1. FivetranResourceを取得する
 # api_keyとapi_secretは一時的に直書き
 fivetran_instance = FivetranResource(
-    api_key="IDbTFbyXa880Q2L0",
-    api_secret="Q59BbLofnpyTd4CdLJDhBPhRAabroypP",
+    api_key=os.getenv('fivetran_api_key_sample'),
+    api_secret=os.getenv('fivetran_api_secret_sample'),
 )
 
 # 1. Fivetanのコネクタをロードする
@@ -25,7 +27,7 @@ fivetran_instance = FivetranResource(
 fivetran_assets = with_resources(
     build_fivetran_assets(
         connector_id="heavenly_malignity",
-        destination_tables=["fivetran_db.dagster_poc"],
+        destination_tables=[f"{os.getenv('code_location_sample01')}.fivetran_db.dagster_poc"],
         group_name="pipeline01",
         infer_missing_tables = True
     ),

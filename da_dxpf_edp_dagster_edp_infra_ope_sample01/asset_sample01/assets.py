@@ -17,7 +17,10 @@ from dagster import (
 # =================================================================================================
 
 # 1. dagster独自アセットを定義する方法
-@asset(group_name="asset_sample01", description="dagster独自アセット及びマテリアライズ結果をリネージュとして反映するサンプル")
+@asset(
+    group_name="asset_sample01", 
+    description="dagster独自アセット及びマテリアライズ結果をリネージュとして反映するサンプル",
+    key_prefix=[os.getenv("code_location_sample01")])
 def asset01() -> MaterializeResult:
     return MaterializeResult(
         metadata={

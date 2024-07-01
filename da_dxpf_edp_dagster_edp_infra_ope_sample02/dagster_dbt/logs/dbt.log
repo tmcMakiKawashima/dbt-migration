@@ -1,0 +1,540 @@
+[0m15:02:14.366180 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024248C92F20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002424B6F5DB0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002424B6F5C30>]}
+
+
+============================== 15:02:14.381823 | 96edef13-3f75-473e-8812-12b5d427a034 ==============================
+[0m15:02:14.381823 [info ] [MainThread]: Running with dbt=1.7.10
+[0m15:02:14.381823 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt\\logs', 'profiles_dir': 'D:\\Users\\da-misawa-04.00\\.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt debug', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m15:02:14.381823 [info ] [MainThread]: dbt version: 1.7.10
+[0m15:02:14.397449 [info ] [MainThread]: python version: 3.10.11
+[0m15:02:14.397449 [info ] [MainThread]: python path: D:\Users\da-misawa-04.00\dbt\venv\Scripts\python.exe
+[0m15:02:14.397449 [info ] [MainThread]: os info: Windows-10-10.0.17763-SP0
+[0m15:02:15.140820 [info ] [MainThread]: Using profiles dir at D:\Users\da-misawa-04.00\.dbt
+[0m15:02:15.140820 [info ] [MainThread]: Using profiles.yml file at D:\Users\da-misawa-04.00\.dbt\profiles.yml
+[0m15:02:15.156463 [info ] [MainThread]: Using dbt_project.yml file at D:\Users\da-misawa-04.00\dagster\da-dxpf-edp-dagster-edp_infra_ope-sample\da_dxpf_edp_dagster_edp_infra_ope_sample02\dagster_dbt\dbt_project.yml
+[0m15:02:15.156463 [info ] [MainThread]: adapter type: snowflake
+[0m15:02:15.156463 [info ] [MainThread]: adapter version: 1.7.1
+[0m15:02:15.359590 [info ] [MainThread]: Configuration:
+[0m15:02:15.359590 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m15:02:15.359590 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m15:02:15.375202 [info ] [MainThread]: Required dependencies:
+[0m15:02:15.390798 [debug] [MainThread]: Executing "git --help"
+[0m15:02:15.515860 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m15:02:15.515860 [debug] [MainThread]: STDERR: "b''"
+[0m15:02:15.515860 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m15:02:15.515860 [info ] [MainThread]: Connection:
+[0m15:02:15.515860 [info ] [MainThread]:   account: a
+[0m15:02:15.515860 [info ] [MainThread]:   user: a
+[0m15:02:15.515860 [info ] [MainThread]:   database: a
+[0m15:02:15.533020 [info ] [MainThread]:   warehouse: a
+[0m15:02:15.533020 [info ] [MainThread]:   role: a
+[0m15:02:15.533020 [info ] [MainThread]:   schema: a
+[0m15:02:15.533020 [info ] [MainThread]:   authenticator: None
+[0m15:02:15.533020 [info ] [MainThread]:   private_key_path: None
+[0m15:02:15.533020 [info ] [MainThread]:   token: None
+[0m15:02:15.533020 [info ] [MainThread]:   oauth_client_id: None
+[0m15:02:15.533020 [info ] [MainThread]:   query_tag: None
+[0m15:02:15.547029 [info ] [MainThread]:   client_session_keep_alive: False
+[0m15:02:15.547029 [info ] [MainThread]:   host: None
+[0m15:02:15.547029 [info ] [MainThread]:   port: None
+[0m15:02:15.547029 [info ] [MainThread]:   proxy_host: None
+[0m15:02:15.547029 [info ] [MainThread]:   proxy_port: None
+[0m15:02:15.547029 [info ] [MainThread]:   protocol: None
+[0m15:02:15.547029 [info ] [MainThread]:   connect_retries: 1
+[0m15:02:15.547029 [info ] [MainThread]:   connect_timeout: None
+[0m15:02:15.547029 [info ] [MainThread]:   retry_on_database_errors: False
+[0m15:02:15.547029 [info ] [MainThread]:   retry_all: False
+[0m15:02:15.547029 [info ] [MainThread]:   insecure_mode: False
+[0m15:02:15.562672 [info ] [MainThread]:   reuse_connections: None
+[0m15:02:15.562672 [info ] [MainThread]: Registered adapter: snowflake=1.7.1
+[0m15:02:15.562672 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m15:02:15.562672 [debug] [MainThread]: Using snowflake connection "debug"
+[0m15:02:15.562672 [debug] [MainThread]: On debug: select 1 as id
+[0m15:02:15.562672 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m15:02:18.390865 [debug] [MainThread]: Snowflake adapter: Error running SQL: select 1 as id
+[0m15:02:18.390865 [debug] [MainThread]: Snowflake adapter: Rolling back transaction.
+[0m15:02:18.390865 [debug] [MainThread]: On debug: No close available on handle
+[0m15:02:18.390865 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m15:02:18.406415 [info ] [MainThread]: [31m1 check failed:[0m
+[0m15:02:18.406415 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  250001 (08001): Failed to connect to DB. Verify the account name is correct: a.snowflakecomputing.com:443. HTTP 403: Forbidden
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m15:02:18.406415 [debug] [MainThread]: Command `dbt debug` failed at 15:02:18.406415 after 4.14 seconds
+[0m15:02:18.406415 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m15:02:18.406415 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024248C92F20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000242495A4610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002424BF4AC20>]}
+[0m15:02:18.406415 [debug] [MainThread]: Flushing usage events
+[0m16:13:32.733327 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D376CE2EF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D379749ED0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D379749DB0>]}
+
+
+============================== 16:13:32.749060 | 2f8d9663-59e2-48c8-83bf-29f128cd1cee ==============================
+[0m16:13:32.749060 [info ] [MainThread]: Running with dbt=1.7.10
+[0m16:13:32.749060 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt\\logs', 'warn_error': 'None', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt compile', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m16:13:34.594583 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '2f8d9663-59e2-48c8-83bf-29f128cd1cee', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D37974A050>]}
+[0m16:13:34.842728 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '2f8d9663-59e2-48c8-83bf-29f128cd1cee', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D379749150>]}
+[0m16:13:34.845733 [info ] [MainThread]: Registered adapter: snowflake=1.7.1
+[0m16:13:34.882078 [debug] [MainThread]: checksum: b88efa780424265bbbd676e971356ada6a7ea9debd0a80a519a6d2707465340d, vars: {}, profile: , target: , version: 1.7.10
+[0m16:13:34.885077 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m16:13:34.887060 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '2f8d9663-59e2-48c8-83bf-29f128cd1cee', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D379FAB700>]}
+[0m16:13:37.580537 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.dagster_dbt.my_sixth_dbt_model' (models\my_sixth_dbt_model.sql) depends on a source named 'edp_db.asset06_03' which was not found
+[0m16:13:37.580537 [debug] [MainThread]: Command `dbt compile` failed at 16:13:37.580537 after 5.00 seconds
+[0m16:13:37.597374 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D376CE2EF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D37A25BD60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D379FA9F60>]}
+[0m16:13:37.597374 [debug] [MainThread]: Flushing usage events
+[0m16:14:13.346174 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000285502B2EF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028552D15F00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028552D15D80>]}
+
+
+============================== 16:14:13.346174 | a207dbf3-4d90-40c7-9709-90ef7daa31ab ==============================
+[0m16:14:13.346174 [info ] [MainThread]: Running with dbt=1.7.10
+[0m16:14:13.346174 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt\\logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt compile', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m16:14:14.424321 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'a207dbf3-4d90-40c7-9709-90ef7daa31ab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028552D151B0>]}
+[0m16:14:15.096201 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'a207dbf3-4d90-40c7-9709-90ef7daa31ab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028552CE43A0>]}
+[0m16:14:15.127448 [info ] [MainThread]: Registered adapter: snowflake=1.7.1
+[0m16:14:15.189958 [debug] [MainThread]: checksum: b88efa780424265bbbd676e971356ada6a7ea9debd0a80a519a6d2707465340d, vars: {}, profile: , target: , version: 1.7.10
+[0m16:14:15.189958 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m16:14:15.205571 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'a207dbf3-4d90-40c7-9709-90ef7daa31ab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000285534EC910>]}
+[0m16:14:17.471176 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.dagster_dbt.my_sixth_dbt_model' (models\my_sixth_dbt_model.sql) depends on a source named 'edp_db.asset06_01' which was not found
+[0m16:14:17.487818 [debug] [MainThread]: Command `dbt compile` failed at 16:14:17.487818 after 4.25 seconds
+[0m16:14:17.487818 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000285502B2EF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000285538C46D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028553576C50>]}
+[0m16:14:17.487818 [debug] [MainThread]: Flushing usage events
+[0m16:14:48.579826 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DAB9AF2EF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DABC559F60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DABC559DE0>]}
+
+
+============================== 16:14:48.595422 | 5034f2c8-2ea8-4948-8397-2a87f7c0adaa ==============================
+[0m16:14:48.595422 [info ] [MainThread]: Running with dbt=1.7.10
+[0m16:14:48.595422 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt\\logs', 'profiles_dir': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt compile', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m16:14:49.845426 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '5034f2c8-2ea8-4948-8397-2a87f7c0adaa', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DABCC5F820>]}
+[0m16:14:50.376676 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '5034f2c8-2ea8-4948-8397-2a87f7c0adaa', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DABC5591B0>]}
+[0m16:14:50.392298 [info ] [MainThread]: Registered adapter: snowflake=1.7.1
+[0m16:14:50.470418 [debug] [MainThread]: checksum: b88efa780424265bbbd676e971356ada6a7ea9debd0a80a519a6d2707465340d, vars: {}, profile: , target: , version: 1.7.10
+[0m16:14:50.501674 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m16:14:50.501674 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '5034f2c8-2ea8-4948-8397-2a87f7c0adaa', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DABCDB3C70>]}
+[0m16:14:54.376690 [error] [MainThread]: Encountered an error:
+Parsing Error in model my_sixth_dbt_model (models\my_sixth_dbt_model.sql)
+  Invalid group 'asset_sample08', expected one of ['asset_sample03', 'asset_sample06', 'pipeline01', 'pipeline02']
+[0m16:14:54.407953 [debug] [MainThread]: Command `dbt compile` failed at 16:14:54.407953 after 6.02 seconds
+[0m16:14:54.407953 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DAB9AF2EF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DABD173190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DABD172170>]}
+[0m16:14:54.407953 [debug] [MainThread]: Flushing usage events
+[0m16:15:54.330441 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000218FE732F20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000218FFF39ED0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000218FFF39D50>]}
+
+
+============================== 16:15:54.346081 | 897d7339-4a7c-4ead-a7b9-fc532f944233 ==============================
+[0m16:15:54.346081 [info ] [MainThread]: Running with dbt=1.7.10
+[0m16:15:54.346081 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt', 'log_path': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt\\logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt compile', 'send_anonymous_usage_stats': 'True'}
+[0m16:15:55.926065 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '897d7339-4a7c-4ead-a7b9-fc532f944233', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000218FFF391B0>]}
+[0m16:15:56.205497 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '897d7339-4a7c-4ead-a7b9-fc532f944233', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000218FFF05330>]}
+[0m16:15:56.221038 [info ] [MainThread]: Registered adapter: snowflake=1.7.1
+[0m16:15:56.236657 [debug] [MainThread]: checksum: b88efa780424265bbbd676e971356ada6a7ea9debd0a80a519a6d2707465340d, vars: {}, profile: , target: , version: 1.7.10
+[0m16:15:56.236657 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m16:15:56.236657 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '897d7339-4a7c-4ead-a7b9-fc532f944233', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002188198C910>]}
+[0m16:15:58.393032 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dagster_dbt.example
+[0m16:15:58.408542 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '897d7339-4a7c-4ead-a7b9-fc532f944233', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021881E4FEB0>]}
+[0m16:15:58.486670 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '897d7339-4a7c-4ead-a7b9-fc532f944233', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021881D8DF90>]}
+[0m16:15:58.486670 [info ] [MainThread]: Found 1 model, 1 source, 0 exposures, 0 metrics, 430 macros, 1 group, 0 semantic models
+[0m16:15:58.486670 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '897d7339-4a7c-4ead-a7b9-fc532f944233', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021881D8DDB0>]}
+[0m16:15:58.502297 [info ] [MainThread]: 
+[0m16:15:58.502297 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m16:15:58.502297 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_EDP_INFRA_SANDBOX_DB_PUBLIC'
+[0m16:15:58.533549 [debug] [ThreadPool]: Using snowflake connection "list_EDP_INFRA_SANDBOX_DB_PUBLIC"
+[0m16:15:58.533549 [debug] [ThreadPool]: On list_EDP_INFRA_SANDBOX_DB_PUBLIC: /* {"app": "dbt", "dbt_version": "1.7.10", "profile_name": "dagster_dbt", "target_name": "LOCAL", "connection_name": "list_EDP_INFRA_SANDBOX_DB_PUBLIC"} */
+show terse objects in EDP_INFRA_SANDBOX_DB.PUBLIC limit 10000
+[0m16:15:58.533549 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:15:59.642623 [debug] [ThreadPool]: SQL status: SUCCESS 20 in 1.0 seconds
+[0m16:15:59.650279 [debug] [ThreadPool]: On list_EDP_INFRA_SANDBOX_DB_PUBLIC: Close
+[0m16:15:59.746282 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '897d7339-4a7c-4ead-a7b9-fc532f944233', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000218FFEAE290>]}
+[0m16:15:59.748292 [info ] [MainThread]: Concurrency: 1 threads (target='LOCAL')
+[0m16:15:59.750292 [info ] [MainThread]: 
+[0m16:15:59.879912 [debug] [Thread-1 (]: Began running node model.dagster_dbt.my_sixth_dbt_model
+[0m16:15:59.881905 [debug] [Thread-1 (]: Acquiring new snowflake connection 'model.dagster_dbt.my_sixth_dbt_model'
+[0m16:15:59.882904 [debug] [Thread-1 (]: Began compiling node model.dagster_dbt.my_sixth_dbt_model
+[0m16:15:59.904291 [debug] [Thread-1 (]: Writing injected SQL for node "model.dagster_dbt.my_sixth_dbt_model"
+[0m16:15:59.917463 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_sixth_dbt_model (compile): 16:15:59.882904 => 16:15:59.916461
+[0m16:15:59.918455 [debug] [Thread-1 (]: Began executing node model.dagster_dbt.my_sixth_dbt_model
+[0m16:15:59.920454 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_sixth_dbt_model (execute): 16:15:59.919470 => 16:15:59.919470
+[0m16:15:59.923671 [debug] [Thread-1 (]: Finished running node model.dagster_dbt.my_sixth_dbt_model
+[0m16:15:59.927688 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m16:15:59.929738 [debug] [MainThread]: Connection 'list_EDP_INFRA_SANDBOX_DB_PUBLIC' was properly closed.
+[0m16:15:59.930778 [debug] [MainThread]: Connection 'model.dagster_dbt.my_sixth_dbt_model' was properly closed.
+[0m16:15:59.933689 [debug] [MainThread]: Command end result
+[0m16:15:59.977083 [debug] [MainThread]: Command `dbt compile` succeeded at 16:15:59.977083 after 5.82 seconds
+[0m16:15:59.980115 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000218FE732F20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021881BF2E60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000218819E38B0>]}
+[0m16:15:59.981087 [debug] [MainThread]: Flushing usage events
+[0m08:53:34.581532 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020C843B2F50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020C86DE9EA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020C86DE9D20>]}
+
+
+============================== 08:53:34.581532 | 847fa62b-4aca-4209-b972-f7da490b899a ==============================
+[0m08:53:34.581532 [info ] [MainThread]: Running with dbt=1.7.10
+[0m08:53:34.597734 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt\\logs', 'version_check': 'True', 'profiles_dir': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt compile', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m08:53:38.419888 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '847fa62b-4aca-4209-b972-f7da490b899a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020C874A3B80>]}
+[0m08:53:38.794997 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '847fa62b-4aca-4209-b972-f7da490b899a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020C87647A30>]}
+[0m08:53:38.794997 [info ] [MainThread]: Registered adapter: snowflake=1.7.1
+[0m08:53:38.810615 [debug] [MainThread]: checksum: b88efa780424265bbbd676e971356ada6a7ea9debd0a80a519a6d2707465340d, vars: {}, profile: , target: , version: 1.7.10
+[0m08:53:39.420934 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m08:53:39.420934 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m08:53:39.420934 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dagster_dbt.example
+[0m08:53:39.436462 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '847fa62b-4aca-4209-b972-f7da490b899a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020C8785D4E0>]}
+[0m08:53:39.592793 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '847fa62b-4aca-4209-b972-f7da490b899a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020C87549C60>]}
+[0m08:53:39.608394 [info ] [MainThread]: Found 1 model, 1 source, 0 exposures, 0 metrics, 430 macros, 1 group, 0 semantic models
+[0m08:53:39.608394 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '847fa62b-4aca-4209-b972-f7da490b899a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020C87597F40>]}
+[0m08:53:39.608394 [info ] [MainThread]: 
+[0m08:53:39.608394 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m08:53:39.608394 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_EDP_INFRA_SANDBOX_DB_PUBLIC'
+[0m08:53:39.655226 [debug] [ThreadPool]: Using snowflake connection "list_EDP_INFRA_SANDBOX_DB_PUBLIC"
+[0m08:53:39.655226 [debug] [ThreadPool]: On list_EDP_INFRA_SANDBOX_DB_PUBLIC: /* {"app": "dbt", "dbt_version": "1.7.10", "profile_name": "dagster_dbt", "target_name": "LOCAL", "connection_name": "list_EDP_INFRA_SANDBOX_DB_PUBLIC"} */
+show terse objects in EDP_INFRA_SANDBOX_DB.PUBLIC limit 10000
+[0m08:53:39.655226 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m08:53:40.748954 [debug] [ThreadPool]: SQL status: SUCCESS 20 in 1.0 seconds
+[0m08:53:40.748954 [debug] [ThreadPool]: On list_EDP_INFRA_SANDBOX_DB_PUBLIC: Close
+[0m08:53:40.842819 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '847fa62b-4aca-4209-b972-f7da490b899a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020C87596830>]}
+[0m08:53:40.842819 [info ] [MainThread]: Concurrency: 1 threads (target='LOCAL')
+[0m08:53:41.014586 [info ] [MainThread]: 
+[0m08:53:41.030202 [debug] [Thread-1 (]: Began running node model.dagster_dbt.my_sixth_dbt_model
+[0m08:53:41.030202 [debug] [Thread-1 (]: Acquiring new snowflake connection 'model.dagster_dbt.my_sixth_dbt_model'
+[0m08:53:41.030202 [debug] [Thread-1 (]: Began compiling node model.dagster_dbt.my_sixth_dbt_model
+[0m08:53:41.061452 [debug] [Thread-1 (]: Writing injected SQL for node "model.dagster_dbt.my_sixth_dbt_model"
+[0m08:53:41.061452 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_sixth_dbt_model (compile): 08:53:41.030202 => 08:53:41.061452
+[0m08:53:41.061452 [debug] [Thread-1 (]: Began executing node model.dagster_dbt.my_sixth_dbt_model
+[0m08:53:41.061452 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_sixth_dbt_model (execute): 08:53:41.061452 => 08:53:41.061452
+[0m08:53:41.077074 [debug] [Thread-1 (]: Finished running node model.dagster_dbt.my_sixth_dbt_model
+[0m08:53:41.077074 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m08:53:41.077074 [debug] [MainThread]: Connection 'list_EDP_INFRA_SANDBOX_DB_PUBLIC' was properly closed.
+[0m08:53:41.077074 [debug] [MainThread]: Connection 'model.dagster_dbt.my_sixth_dbt_model' was properly closed.
+[0m08:53:41.077074 [debug] [MainThread]: Command end result
+[0m08:53:41.108321 [debug] [MainThread]: Command `dbt compile` succeeded at 08:53:41.108321 after 6.66 seconds
+[0m08:53:41.108321 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020C843B2F50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020C86FCF730>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020C8752A260>]}
+[0m08:53:41.108321 [debug] [MainThread]: Flushing usage events
+[0m10:18:10.217493 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DFF1ED3100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DFF4935E40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DFF4935CC0>]}
+
+
+============================== 10:18:10.233116 | cacf7449-5676-45e9-ab2e-2f6b8b41d993 ==============================
+[0m10:18:10.233116 [info ] [MainThread]: Running with dbt=1.7.10
+[0m10:18:10.233116 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt', 'log_path': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt\\logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt compile', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m10:18:15.249959 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'cacf7449-5676-45e9-ab2e-2f6b8b41d993', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DFF50E7280>]}
+[0m10:18:15.530228 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'cacf7449-5676-45e9-ab2e-2f6b8b41d993', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DFF4935F00>]}
+[0m10:18:15.545854 [info ] [MainThread]: Registered adapter: snowflake=1.7.1
+[0m10:18:15.579283 [debug] [MainThread]: checksum: b88efa780424265bbbd676e971356ada6a7ea9debd0a80a519a6d2707465340d, vars: {}, profile: , target: , version: 1.7.10
+[0m10:18:16.704674 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 1 files added, 0 files changed.
+[0m10:18:16.712679 [debug] [MainThread]: Partial parsing: added file: dagster_dbt://models\my_third_dbt_model.sql
+[0m10:18:17.248791 [error] [MainThread]: Encountered an error:
+Parsing Error in model my_third_dbt_model (models\my_third_dbt_model.sql)
+  Invalid group 'pipeline02', expected one of ['asset_sample08']
+[0m10:18:17.264414 [debug] [MainThread]: Command `dbt compile` failed at 10:18:17.264414 after 7.21 seconds
+[0m10:18:17.264414 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DFF1ED3100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DFF53AF370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DFF53AF2E0>]}
+[0m10:18:17.264414 [debug] [MainThread]: Flushing usage events
+[0m10:19:12.389475 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A35D313100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A35FD85E70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A35FD85CF0>]}
+
+
+============================== 10:19:12.405100 | 44ea59da-8c74-4f31-9e16-f864ce54abb0 ==============================
+[0m10:19:12.405100 [info ] [MainThread]: Running with dbt=1.7.10
+[0m10:19:12.405100 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt\\logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt compile', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m10:19:13.655103 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '44ea59da-8c74-4f31-9e16-f864ce54abb0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3605354B0>]}
+[0m10:19:13.905157 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '44ea59da-8c74-4f31-9e16-f864ce54abb0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A35FD514B0>]}
+[0m10:19:13.920732 [info ] [MainThread]: Registered adapter: snowflake=1.7.1
+[0m10:19:13.936360 [debug] [MainThread]: checksum: b88efa780424265bbbd676e971356ada6a7ea9debd0a80a519a6d2707465340d, vars: {}, profile: , target: , version: 1.7.10
+[0m10:19:14.295734 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 1 files added, 1 files changed.
+[0m10:19:14.295734 [debug] [MainThread]: Partial parsing: added file: dagster_dbt://models\my_third_dbt_model.sql
+[0m10:19:14.295734 [debug] [MainThread]: Partial parsing: updated file: dagster_dbt://models\group.yml
+[0m10:19:14.967615 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dagster_dbt.example
+[0m10:19:15.061374 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '44ea59da-8c74-4f31-9e16-f864ce54abb0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A360909720>]}
+[0m10:19:15.201995 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '44ea59da-8c74-4f31-9e16-f864ce54abb0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3607AFDF0>]}
+[0m10:19:15.201995 [info ] [MainThread]: Found 2 models, 1 source, 0 exposures, 0 metrics, 430 macros, 5 groups, 0 semantic models
+[0m10:19:15.201995 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '44ea59da-8c74-4f31-9e16-f864ce54abb0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3607AFFD0>]}
+[0m10:19:15.201995 [info ] [MainThread]: 
+[0m10:19:15.201995 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m10:19:15.233239 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_EDP_INFRA_SANDBOX_DB_PUBLIC'
+[0m10:19:15.264502 [debug] [ThreadPool]: Using snowflake connection "list_EDP_INFRA_SANDBOX_DB_PUBLIC"
+[0m10:19:15.264502 [debug] [ThreadPool]: On list_EDP_INFRA_SANDBOX_DB_PUBLIC: /* {"app": "dbt", "dbt_version": "1.7.10", "profile_name": "dagster_dbt", "target_name": "LOCAL", "connection_name": "list_EDP_INFRA_SANDBOX_DB_PUBLIC"} */
+show terse objects in EDP_INFRA_SANDBOX_DB.PUBLIC limit 10000
+[0m10:19:15.264502 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m10:19:16.858254 [debug] [ThreadPool]: SQL status: SUCCESS 20 in 2.0 seconds
+[0m10:19:16.858254 [debug] [ThreadPool]: On list_EDP_INFRA_SANDBOX_DB_PUBLIC: Close
+[0m10:19:16.936379 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '44ea59da-8c74-4f31-9e16-f864ce54abb0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3607AFF40>]}
+[0m10:19:16.936379 [info ] [MainThread]: Concurrency: 1 threads (target='LOCAL')
+[0m10:19:16.936379 [info ] [MainThread]: 
+[0m10:19:16.967625 [debug] [Thread-1 (]: Began running node model.dagster_dbt.my_sixth_dbt_model
+[0m10:19:16.967625 [debug] [Thread-1 (]: Acquiring new snowflake connection 'model.dagster_dbt.my_sixth_dbt_model'
+[0m10:19:16.967625 [debug] [Thread-1 (]: Began compiling node model.dagster_dbt.my_sixth_dbt_model
+[0m10:19:16.983256 [debug] [Thread-1 (]: Writing injected SQL for node "model.dagster_dbt.my_sixth_dbt_model"
+[0m10:19:16.983256 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_sixth_dbt_model (compile): 10:19:16.967625 => 10:19:16.983256
+[0m10:19:16.983256 [debug] [Thread-1 (]: Began executing node model.dagster_dbt.my_sixth_dbt_model
+[0m10:19:16.998876 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_sixth_dbt_model (execute): 10:19:16.983256 => 10:19:16.983256
+[0m10:19:16.998876 [debug] [Thread-1 (]: Finished running node model.dagster_dbt.my_sixth_dbt_model
+[0m10:19:16.998876 [debug] [Thread-1 (]: Began running node model.dagster_dbt.my_third_dbt_model
+[0m10:19:16.998876 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dagster_dbt.my_sixth_dbt_model, now model.dagster_dbt.my_third_dbt_model)
+[0m10:19:16.998876 [debug] [Thread-1 (]: Began compiling node model.dagster_dbt.my_third_dbt_model
+[0m10:19:16.998876 [debug] [Thread-1 (]: Writing injected SQL for node "model.dagster_dbt.my_third_dbt_model"
+[0m10:19:17.014500 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_third_dbt_model (compile): 10:19:16.998876 => 10:19:17.014500
+[0m10:19:17.014500 [debug] [Thread-1 (]: Began executing node model.dagster_dbt.my_third_dbt_model
+[0m10:19:17.014500 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_third_dbt_model (execute): 10:19:17.014500 => 10:19:17.014500
+[0m10:19:17.014500 [debug] [Thread-1 (]: Finished running node model.dagster_dbt.my_third_dbt_model
+[0m10:19:17.014500 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m10:19:17.014500 [debug] [MainThread]: Connection 'list_EDP_INFRA_SANDBOX_DB_PUBLIC' was properly closed.
+[0m10:19:17.014500 [debug] [MainThread]: Connection 'model.dagster_dbt.my_third_dbt_model' was properly closed.
+[0m10:19:17.030130 [debug] [MainThread]: Command end result
+[0m10:19:17.045758 [debug] [MainThread]: Command `dbt compile` succeeded at 10:19:17.045758 after 4.84 seconds
+[0m10:19:17.045758 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A35D313100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3609E8A90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A35FF6F700>]}
+[0m10:19:17.061383 [debug] [MainThread]: Flushing usage events
+[0m10:34:48.062043 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000245F83E2F50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000245FAE45ED0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000245FAE45D50>]}
+
+
+============================== 10:34:48.077596 | 4f6236b3-5521-4cb9-b13b-72dab5999d8f ==============================
+[0m10:34:48.077596 [info ] [MainThread]: Running with dbt=1.7.10
+[0m10:34:48.077596 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt', 'debug': 'False', 'version_check': 'True', 'log_path': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt\\logs', 'warn_error': 'None', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt compile', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m10:34:49.983907 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '4f6236b3-5521-4cb9-b13b-72dab5999d8f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000245FAE451B0>]}
+[0m10:34:50.358984 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '4f6236b3-5521-4cb9-b13b-72dab5999d8f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000245FAE11330>]}
+[0m10:34:50.358984 [info ] [MainThread]: Registered adapter: snowflake=1.7.1
+[0m10:34:50.390192 [debug] [MainThread]: checksum: b88efa780424265bbbd676e971356ada6a7ea9debd0a80a519a6d2707465340d, vars: {}, profile: , target: , version: 1.7.10
+[0m10:34:50.796431 [debug] [MainThread]: Partial parsing enabled: 1 files deleted, 1 files added, 1 files changed.
+[0m10:34:50.796431 [debug] [MainThread]: Partial parsing: added file: dagster_dbt://models\my_seventh_dbt_model.sql
+[0m10:34:50.812058 [debug] [MainThread]: Partial parsing: updated file: dagster_dbt://models\group.yml
+[0m10:34:50.812058 [debug] [MainThread]: Partial parsing: deleted file: dagster_dbt://models\my_third_dbt_model.sql
+[0m10:34:51.483957 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dagster_dbt.example
+[0m10:34:51.499575 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '4f6236b3-5521-4cb9-b13b-72dab5999d8f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000245FB9D1810>]}
+[0m10:34:51.577706 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '4f6236b3-5521-4cb9-b13b-72dab5999d8f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000245FB882FB0>]}
+[0m10:34:51.577706 [info ] [MainThread]: Found 2 models, 1 source, 0 exposures, 0 metrics, 430 macros, 6 groups, 0 semantic models
+[0m10:34:51.577706 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '4f6236b3-5521-4cb9-b13b-72dab5999d8f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000245FB8901C0>]}
+[0m10:34:51.577706 [info ] [MainThread]: 
+[0m10:34:51.577706 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m10:34:51.671477 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_EDP_INFRA_SANDBOX_DB_PUBLIC'
+[0m10:34:51.733968 [debug] [ThreadPool]: Using snowflake connection "list_EDP_INFRA_SANDBOX_DB_PUBLIC"
+[0m10:34:51.749591 [debug] [ThreadPool]: On list_EDP_INFRA_SANDBOX_DB_PUBLIC: /* {"app": "dbt", "dbt_version": "1.7.10", "profile_name": "dagster_dbt", "target_name": "LOCAL", "connection_name": "list_EDP_INFRA_SANDBOX_DB_PUBLIC"} */
+show terse objects in EDP_INFRA_SANDBOX_DB.PUBLIC limit 10000
+[0m10:34:51.749591 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m10:34:52.812122 [debug] [ThreadPool]: SQL status: SUCCESS 20 in 1.0 seconds
+[0m10:34:52.812122 [debug] [ThreadPool]: On list_EDP_INFRA_SANDBOX_DB_PUBLIC: Close
+[0m10:34:52.905876 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '4f6236b3-5521-4cb9-b13b-72dab5999d8f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000245FB882F20>]}
+[0m10:34:52.905876 [info ] [MainThread]: Concurrency: 1 threads (target='LOCAL')
+[0m10:34:52.905876 [info ] [MainThread]: 
+[0m10:34:52.921500 [debug] [Thread-1 (]: Began running node model.dagster_dbt.my_seventh_dbt_model
+[0m10:34:52.921500 [debug] [Thread-1 (]: Acquiring new snowflake connection 'model.dagster_dbt.my_seventh_dbt_model'
+[0m10:34:52.921500 [debug] [Thread-1 (]: Began compiling node model.dagster_dbt.my_seventh_dbt_model
+[0m10:34:52.937124 [debug] [Thread-1 (]: Writing injected SQL for node "model.dagster_dbt.my_seventh_dbt_model"
+[0m10:34:52.937124 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_seventh_dbt_model (compile): 10:34:52.921500 => 10:34:52.937124
+[0m10:34:52.937124 [debug] [Thread-1 (]: Began executing node model.dagster_dbt.my_seventh_dbt_model
+[0m10:34:52.952751 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_seventh_dbt_model (execute): 10:34:52.952751 => 10:34:52.952751
+[0m10:34:52.952751 [debug] [Thread-1 (]: Finished running node model.dagster_dbt.my_seventh_dbt_model
+[0m10:34:52.952751 [debug] [Thread-1 (]: Began running node model.dagster_dbt.my_sixth_dbt_model
+[0m10:34:52.952751 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dagster_dbt.my_seventh_dbt_model, now model.dagster_dbt.my_sixth_dbt_model)
+[0m10:34:52.952751 [debug] [Thread-1 (]: Began compiling node model.dagster_dbt.my_sixth_dbt_model
+[0m10:34:52.968381 [debug] [Thread-1 (]: Writing injected SQL for node "model.dagster_dbt.my_sixth_dbt_model"
+[0m10:34:52.968381 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_sixth_dbt_model (compile): 10:34:52.952751 => 10:34:52.968381
+[0m10:34:52.968381 [debug] [Thread-1 (]: Began executing node model.dagster_dbt.my_sixth_dbt_model
+[0m10:34:52.968381 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_sixth_dbt_model (execute): 10:34:52.968381 => 10:34:52.968381
+[0m10:34:52.968381 [debug] [Thread-1 (]: Finished running node model.dagster_dbt.my_sixth_dbt_model
+[0m10:34:52.968381 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m10:34:52.968381 [debug] [MainThread]: Connection 'list_EDP_INFRA_SANDBOX_DB_PUBLIC' was properly closed.
+[0m10:34:52.984012 [debug] [MainThread]: Connection 'model.dagster_dbt.my_sixth_dbt_model' was properly closed.
+[0m10:34:52.984012 [debug] [MainThread]: Command end result
+[0m10:34:53.015252 [debug] [MainThread]: Command `dbt compile` succeeded at 10:34:53.015252 after 5.28 seconds
+[0m10:34:53.015252 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000245F83E2F50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000245FAE11330>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000245FB8900D0>]}
+[0m10:34:53.015252 [debug] [MainThread]: Flushing usage events
+[0m13:58:35.852677 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E3E472EF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E40ED9F90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E40ED9E10>]}
+
+
+============================== 13:58:35.868301 | 8608f99b-01a2-4fbe-8ab1-323510ac5dde ==============================
+[0m13:58:35.868301 [info ] [MainThread]: Running with dbt=1.7.10
+[0m13:58:35.868301 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt', 'debug': 'False', 'version_check': 'True', 'log_path': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt\\logs', 'warn_error': 'None', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt compile', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m13:58:37.430804 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '8608f99b-01a2-4fbe-8ab1-323510ac5dde', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E415E19F0>]}
+[0m13:58:37.727690 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '8608f99b-01a2-4fbe-8ab1-323510ac5dde', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E417361D0>]}
+[0m13:58:37.727690 [info ] [MainThread]: Registered adapter: snowflake=1.7.1
+[0m13:58:37.758934 [debug] [MainThread]: checksum: b88efa780424265bbbd676e971356ada6a7ea9debd0a80a519a6d2707465340d, vars: {}, profile: , target: , version: 1.7.10
+[0m13:58:38.087080 [debug] [MainThread]: Partial parsing enabled: 4 files deleted, 0 files added, 0 files changed.
+[0m13:58:38.087080 [debug] [MainThread]: Partial parsing: deleted file: dagster_dbt://models\my_seventh_dbt_model.sql
+[0m13:58:38.087080 [debug] [MainThread]: Partial parsing: deleted file: dagster_dbt://models\my_sixth_dbt_model.sql
+[0m13:58:38.102681 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dagster_dbt.example
+[0m13:58:38.430837 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '8608f99b-01a2-4fbe-8ab1-323510ac5dde', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E41950580>]}
+[0m13:58:38.743364 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '8608f99b-01a2-4fbe-8ab1-323510ac5dde', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E417D7400>]}
+[0m13:58:38.743364 [info ] [MainThread]: Found 0 sources, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+[0m13:58:38.743364 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '8608f99b-01a2-4fbe-8ab1-323510ac5dde', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E417D7F40>]}
+[0m13:58:38.759091 [info ] [MainThread]: 
+[0m13:58:38.993318 [warn ] [MainThread]: Nothing to do. Try checking your model configs and model specification args
+[0m13:58:39.024566 [debug] [MainThread]: Command end result
+[0m13:58:39.118314 [debug] [MainThread]: Command `dbt compile` succeeded at 13:58:39.118314 after 3.48 seconds
+[0m13:58:39.118314 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E3E472EF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E41638610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E417D70A0>]}
+[0m13:58:39.118314 [debug] [MainThread]: Flushing usage events
+[0m14:00:06.448703 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A97CCC3100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A97F725EA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A97F725D20>]}
+
+
+============================== 14:00:06.464333 | bcf7fd85-c509-4f42-b0a8-5fb2361bb7f4 ==============================
+[0m14:00:06.464333 [info ] [MainThread]: Running with dbt=1.7.10
+[0m14:00:06.464333 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt\\logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt compile', 'send_anonymous_usage_stats': 'True'}
+[0m14:00:07.776831 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'bcf7fd85-c509-4f42-b0a8-5fb2361bb7f4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A97FDE3B80>]}
+[0m14:00:08.714340 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'bcf7fd85-c509-4f42-b0a8-5fb2361bb7f4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A97FF87A30>]}
+[0m14:00:08.761220 [info ] [MainThread]: Registered adapter: snowflake=1.7.1
+[0m14:00:08.901836 [debug] [MainThread]: checksum: b88efa780424265bbbd676e971356ada6a7ea9debd0a80a519a6d2707465340d, vars: {}, profile: , target: , version: 1.7.10
+[0m14:00:10.042459 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 4 files added, 0 files changed.
+[0m14:00:10.058079 [debug] [MainThread]: Partial parsing: added file: dagster_dbt://models\sources.yml
+[0m14:00:10.058079 [debug] [MainThread]: Partial parsing: added file: dagster_dbt://models\sample02\my_seventh_dbt_model.sql
+[0m14:00:10.058079 [debug] [MainThread]: Partial parsing: added file: dagster_dbt://models\group.yml
+[0m14:00:10.058079 [debug] [MainThread]: Partial parsing: added file: dagster_dbt://models\my_sixth_dbt_model.sql
+[0m14:00:11.401839 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dagster_dbt.example
+[0m14:00:11.464343 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'bcf7fd85-c509-4f42-b0a8-5fb2361bb7f4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A900432290>]}
+[0m14:00:11.573711 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'bcf7fd85-c509-4f42-b0a8-5fb2361bb7f4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A90016FF70>]}
+[0m14:00:11.589337 [info ] [MainThread]: Found 2 models, 1 source, 0 exposures, 0 metrics, 430 macros, 6 groups, 0 semantic models
+[0m14:00:11.589337 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'bcf7fd85-c509-4f42-b0a8-5fb2361bb7f4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A90016FF10>]}
+[0m14:00:11.604957 [info ] [MainThread]: 
+[0m14:00:11.604957 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m14:00:11.620586 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_EDP_INFRA_SANDBOX_DB_PUBLIC'
+[0m14:00:11.651839 [debug] [ThreadPool]: Using snowflake connection "list_EDP_INFRA_SANDBOX_DB_PUBLIC"
+[0m14:00:11.651839 [debug] [ThreadPool]: On list_EDP_INFRA_SANDBOX_DB_PUBLIC: /* {"app": "dbt", "dbt_version": "1.7.10", "profile_name": "dagster_dbt", "target_name": "LOCAL", "connection_name": "list_EDP_INFRA_SANDBOX_DB_PUBLIC"} */
+show terse objects in EDP_INFRA_SANDBOX_DB.PUBLIC limit 10000
+[0m14:00:11.651839 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:00:12.651839 [debug] [ThreadPool]: SQL status: SUCCESS 20 in 1.0 seconds
+[0m14:00:12.651839 [debug] [ThreadPool]: On list_EDP_INFRA_SANDBOX_DB_PUBLIC: Close
+[0m14:00:12.745592 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'bcf7fd85-c509-4f42-b0a8-5fb2361bb7f4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A97FE316F0>]}
+[0m14:00:12.745592 [info ] [MainThread]: Concurrency: 1 threads (target='LOCAL')
+[0m14:00:12.745592 [info ] [MainThread]: 
+[0m14:00:13.151829 [debug] [Thread-1 (]: Began running node model.dagster_dbt.my_seventh_dbt_model
+[0m14:00:13.167457 [debug] [Thread-1 (]: Acquiring new snowflake connection 'model.dagster_dbt.my_seventh_dbt_model'
+[0m14:00:13.167457 [debug] [Thread-1 (]: Began compiling node model.dagster_dbt.my_seventh_dbt_model
+[0m14:00:13.183084 [debug] [Thread-1 (]: Writing injected SQL for node "model.dagster_dbt.my_seventh_dbt_model"
+[0m14:00:13.183084 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_seventh_dbt_model (compile): 14:00:13.167457 => 14:00:13.183084
+[0m14:00:13.183084 [debug] [Thread-1 (]: Began executing node model.dagster_dbt.my_seventh_dbt_model
+[0m14:00:13.198713 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_seventh_dbt_model (execute): 14:00:13.198713 => 14:00:13.198713
+[0m14:00:13.198713 [debug] [Thread-1 (]: Finished running node model.dagster_dbt.my_seventh_dbt_model
+[0m14:00:13.198713 [debug] [Thread-1 (]: Began running node model.dagster_dbt.my_sixth_dbt_model
+[0m14:00:13.198713 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dagster_dbt.my_seventh_dbt_model, now model.dagster_dbt.my_sixth_dbt_model)
+[0m14:00:13.198713 [debug] [Thread-1 (]: Began compiling node model.dagster_dbt.my_sixth_dbt_model
+[0m14:00:13.214340 [debug] [Thread-1 (]: Writing injected SQL for node "model.dagster_dbt.my_sixth_dbt_model"
+[0m14:00:13.214340 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_sixth_dbt_model (compile): 14:00:13.198713 => 14:00:13.214340
+[0m14:00:13.214340 [debug] [Thread-1 (]: Began executing node model.dagster_dbt.my_sixth_dbt_model
+[0m14:00:13.214340 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_sixth_dbt_model (execute): 14:00:13.214340 => 14:00:13.214340
+[0m14:00:13.229964 [debug] [Thread-1 (]: Finished running node model.dagster_dbt.my_sixth_dbt_model
+[0m14:00:13.229964 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:00:13.229964 [debug] [MainThread]: Connection 'list_EDP_INFRA_SANDBOX_DB_PUBLIC' was properly closed.
+[0m14:00:13.229964 [debug] [MainThread]: Connection 'model.dagster_dbt.my_sixth_dbt_model' was properly closed.
+[0m14:00:13.229964 [debug] [MainThread]: Command end result
+[0m14:00:13.276835 [debug] [MainThread]: Command `dbt compile` succeeded at 14:00:13.276835 after 8.10 seconds
+[0m14:00:13.276835 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A97CCC3100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A97F90F730>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A97FE316C0>]}
+[0m14:00:13.276835 [debug] [MainThread]: Flushing usage events
+[0m14:02:13.154578 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029E567E2F20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029E59245F00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029E59245D80>]}
+
+
+============================== 14:02:13.170201 | 1e927f66-94e3-422b-946f-42445d1e4aca ==============================
+[0m14:02:13.170201 [info ] [MainThread]: Running with dbt=1.7.10
+[0m14:02:13.170201 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'version_check': 'True', 'log_path': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt\\logs', 'fail_fast': 'False', 'profiles_dir': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt compile', 'send_anonymous_usage_stats': 'True'}
+[0m14:02:14.232704 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '1e927f66-94e3-422b-946f-42445d1e4aca', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029E592451B0>]}
+[0m14:02:14.592084 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '1e927f66-94e3-422b-946f-42445d1e4aca', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029E59211300>]}
+[0m14:02:14.592084 [info ] [MainThread]: Registered adapter: snowflake=1.7.1
+[0m14:02:14.623331 [debug] [MainThread]: checksum: b88efa780424265bbbd676e971356ada6a7ea9debd0a80a519a6d2707465340d, vars: {}, profile: , target: , version: 1.7.10
+[0m14:02:14.951465 [debug] [MainThread]: Partial parsing enabled: 1 files deleted, 1 files added, 0 files changed.
+[0m14:02:14.951465 [debug] [MainThread]: Partial parsing: added file: dagster_dbt://models\my_seventh_dbt_model.sql
+[0m14:02:14.951465 [debug] [MainThread]: Partial parsing: deleted file: dagster_dbt://models\sample02\my_seventh_dbt_model.sql
+[0m14:02:15.435842 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dagster_dbt.example
+[0m14:02:15.482706 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '1e927f66-94e3-422b-946f-42445d1e4aca', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029E59DCD600>]}
+[0m14:02:15.607708 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '1e927f66-94e3-422b-946f-42445d1e4aca', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029E59C7EFE0>]}
+[0m14:02:15.607708 [info ] [MainThread]: Found 2 models, 1 source, 0 exposures, 0 metrics, 430 macros, 6 groups, 0 semantic models
+[0m14:02:15.623332 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '1e927f66-94e3-422b-946f-42445d1e4aca', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029E59C8C1F0>]}
+[0m14:02:15.623332 [info ] [MainThread]: 
+[0m14:02:15.654581 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m14:02:15.654581 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_EDP_INFRA_SANDBOX_DB_PUBLIC'
+[0m14:02:15.701456 [debug] [ThreadPool]: Using snowflake connection "list_EDP_INFRA_SANDBOX_DB_PUBLIC"
+[0m14:02:15.701456 [debug] [ThreadPool]: On list_EDP_INFRA_SANDBOX_DB_PUBLIC: /* {"app": "dbt", "dbt_version": "1.7.10", "profile_name": "dagster_dbt", "target_name": "LOCAL", "connection_name": "list_EDP_INFRA_SANDBOX_DB_PUBLIC"} */
+show terse objects in EDP_INFRA_SANDBOX_DB.PUBLIC limit 10000
+[0m14:02:15.701456 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:02:16.670205 [debug] [ThreadPool]: SQL status: SUCCESS 20 in 1.0 seconds
+[0m14:02:16.685827 [debug] [ThreadPool]: On list_EDP_INFRA_SANDBOX_DB_PUBLIC: Close
+[0m14:02:16.763958 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '1e927f66-94e3-422b-946f-42445d1e4aca', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029E59C8C0D0>]}
+[0m14:02:16.763958 [info ] [MainThread]: Concurrency: 1 threads (target='LOCAL')
+[0m14:02:16.935834 [info ] [MainThread]: 
+[0m14:02:17.029587 [debug] [Thread-1 (]: Began running node model.dagster_dbt.my_seventh_dbt_model
+[0m14:02:17.029587 [debug] [Thread-1 (]: Acquiring new snowflake connection 'model.dagster_dbt.my_seventh_dbt_model'
+[0m14:02:17.029587 [debug] [Thread-1 (]: Began compiling node model.dagster_dbt.my_seventh_dbt_model
+[0m14:02:17.045217 [debug] [Thread-1 (]: Writing injected SQL for node "model.dagster_dbt.my_seventh_dbt_model"
+[0m14:02:17.060841 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_seventh_dbt_model (compile): 14:02:17.029587 => 14:02:17.060841
+[0m14:02:17.060841 [debug] [Thread-1 (]: Began executing node model.dagster_dbt.my_seventh_dbt_model
+[0m14:02:17.060841 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_seventh_dbt_model (execute): 14:02:17.060841 => 14:02:17.060841
+[0m14:02:17.060841 [debug] [Thread-1 (]: Finished running node model.dagster_dbt.my_seventh_dbt_model
+[0m14:02:17.060841 [debug] [Thread-1 (]: Began running node model.dagster_dbt.my_sixth_dbt_model
+[0m14:02:17.060841 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dagster_dbt.my_seventh_dbt_model, now model.dagster_dbt.my_sixth_dbt_model)
+[0m14:02:17.060841 [debug] [Thread-1 (]: Began compiling node model.dagster_dbt.my_sixth_dbt_model
+[0m14:02:17.076455 [debug] [Thread-1 (]: Writing injected SQL for node "model.dagster_dbt.my_sixth_dbt_model"
+[0m14:02:17.076455 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_sixth_dbt_model (compile): 14:02:17.060841 => 14:02:17.076455
+[0m14:02:17.076455 [debug] [Thread-1 (]: Began executing node model.dagster_dbt.my_sixth_dbt_model
+[0m14:02:17.076455 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_sixth_dbt_model (execute): 14:02:17.076455 => 14:02:17.076455
+[0m14:02:17.076455 [debug] [Thread-1 (]: Finished running node model.dagster_dbt.my_sixth_dbt_model
+[0m14:02:17.076455 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:02:17.092086 [debug] [MainThread]: Connection 'list_EDP_INFRA_SANDBOX_DB_PUBLIC' was properly closed.
+[0m14:02:17.092086 [debug] [MainThread]: Connection 'model.dagster_dbt.my_sixth_dbt_model' was properly closed.
+[0m14:02:17.092086 [debug] [MainThread]: Command end result
+[0m14:02:17.107709 [debug] [MainThread]: Command `dbt compile` succeeded at 14:02:17.107709 after 4.20 seconds
+[0m14:02:17.107709 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029E567E2F20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029E59211300>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029E59C8C100>]}
+[0m14:02:17.107709 [debug] [MainThread]: Flushing usage events
+[0m13:37:12.227056 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001973E782F20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000197411E5F00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000197411E5D80>]}
+
+
+============================== 13:37:12.227056 | ce2bccb1-616b-4a3b-9edd-5734ff4c4bb7 ==============================
+[0m13:37:12.227056 [info ] [MainThread]: Running with dbt=1.7.10
+[0m13:37:12.243045 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt', 'log_path': 'D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_infra_ope-sample\\da_dxpf_edp_dagster_edp_infra_ope_sample02\\dagster_dbt\\logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt compile', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m13:37:13.039537 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'ce2bccb1-616b-4a3b-9edd-5734ff4c4bb7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000197411E5E10>]}
+[0m13:37:13.227044 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'ce2bccb1-616b-4a3b-9edd-5734ff4c4bb7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000197411B1300>]}
+[0m13:37:13.242721 [info ] [MainThread]: Registered adapter: snowflake=1.7.1
+[0m13:37:13.258335 [debug] [MainThread]: checksum: b88efa780424265bbbd676e971356ada6a7ea9debd0a80a519a6d2707465340d, vars: {}, profile: , target: , version: 1.7.10
+[0m13:37:13.477084 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m13:37:13.477084 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m13:37:13.492731 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dagster_dbt.example
+[0m13:37:13.508336 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'ce2bccb1-616b-4a3b-9edd-5734ff4c4bb7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019741C5DCC0>]}
+[0m13:37:13.664680 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'ce2bccb1-616b-4a3b-9edd-5734ff4c4bb7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001974194B5B0>]}
+[0m13:37:13.680341 [info ] [MainThread]: Found 2 models, 1 source, 0 exposures, 0 metrics, 430 macros, 6 groups, 0 semantic models
+[0m13:37:13.680341 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'ce2bccb1-616b-4a3b-9edd-5734ff4c4bb7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019741A75300>]}
+[0m13:37:13.680341 [info ] [MainThread]: 
+[0m13:37:13.680341 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m13:37:13.695822 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_EDP_INFRA_SANDBOX_DB_PUBLIC'
+[0m13:37:13.711503 [debug] [ThreadPool]: Using snowflake connection "list_EDP_INFRA_SANDBOX_DB_PUBLIC"
+[0m13:37:13.727142 [debug] [ThreadPool]: On list_EDP_INFRA_SANDBOX_DB_PUBLIC: /* {"app": "dbt", "dbt_version": "1.7.10", "profile_name": "dagster_dbt", "target_name": "LOCAL", "connection_name": "list_EDP_INFRA_SANDBOX_DB_PUBLIC"} */
+show terse objects in EDP_INFRA_SANDBOX_DB.PUBLIC limit 10000
+[0m13:37:13.727142 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:37:14.680274 [debug] [ThreadPool]: SQL status: SUCCESS 21 in 1.0 seconds
+[0m13:37:14.695896 [debug] [ThreadPool]: On list_EDP_INFRA_SANDBOX_DB_PUBLIC: Close
+[0m13:37:14.773950 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'ce2bccb1-616b-4a3b-9edd-5734ff4c4bb7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019741C1F280>]}
+[0m13:37:14.773950 [info ] [MainThread]: Concurrency: 1 threads (target='LOCAL')
+[0m13:37:14.773950 [info ] [MainThread]: 
+[0m13:37:14.773950 [debug] [Thread-1 (]: Began running node model.dagster_dbt.my_seventh_dbt_model
+[0m13:37:14.773950 [debug] [Thread-1 (]: Acquiring new snowflake connection 'model.dagster_dbt.my_seventh_dbt_model'
+[0m13:37:14.773950 [debug] [Thread-1 (]: Began compiling node model.dagster_dbt.my_seventh_dbt_model
+[0m13:37:14.805241 [debug] [Thread-1 (]: Writing injected SQL for node "model.dagster_dbt.my_seventh_dbt_model"
+[0m13:37:14.805241 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_seventh_dbt_model (compile): 13:37:14.773950 => 13:37:14.805241
+[0m13:37:14.805241 [debug] [Thread-1 (]: Began executing node model.dagster_dbt.my_seventh_dbt_model
+[0m13:37:14.805241 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_seventh_dbt_model (execute): 13:37:14.805241 => 13:37:14.805241
+[0m13:37:14.805241 [debug] [Thread-1 (]: Finished running node model.dagster_dbt.my_seventh_dbt_model
+[0m13:37:14.805241 [debug] [Thread-1 (]: Began running node model.dagster_dbt.my_sixth_dbt_model
+[0m13:37:14.805241 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dagster_dbt.my_seventh_dbt_model, now model.dagster_dbt.my_sixth_dbt_model)
+[0m13:37:14.805241 [debug] [Thread-1 (]: Began compiling node model.dagster_dbt.my_sixth_dbt_model
+[0m13:37:14.820851 [debug] [Thread-1 (]: Writing injected SQL for node "model.dagster_dbt.my_sixth_dbt_model"
+[0m13:37:14.820851 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_sixth_dbt_model (compile): 13:37:14.820851 => 13:37:14.820851
+[0m13:37:14.820851 [debug] [Thread-1 (]: Began executing node model.dagster_dbt.my_sixth_dbt_model
+[0m13:37:14.836460 [debug] [Thread-1 (]: Timing info for model.dagster_dbt.my_sixth_dbt_model (execute): 13:37:14.820851 => 13:37:14.820851
+[0m13:37:14.836460 [debug] [Thread-1 (]: Finished running node model.dagster_dbt.my_sixth_dbt_model
+[0m13:37:14.836460 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m13:37:14.836460 [debug] [MainThread]: Connection 'list_EDP_INFRA_SANDBOX_DB_PUBLIC' was properly closed.
+[0m13:37:14.836460 [debug] [MainThread]: Connection 'model.dagster_dbt.my_sixth_dbt_model' was properly closed.
+[0m13:37:14.836460 [debug] [MainThread]: Command end result
+[0m13:37:14.867708 [debug] [MainThread]: Command `dbt compile` succeeded at 13:37:14.867708 after 2.77 seconds
+[0m13:37:14.867708 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001973E782F20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000197411B1300>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019741C2C0A0>]}
+[0m13:37:14.867708 [debug] [MainThread]: Flushing usage events
