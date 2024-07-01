@@ -256,4 +256,4 @@ with stg_kaigaiseisan as (
     {% endif %}
 
 )
-select * from stg_kaigaiseisan where aggkey = 1
+select * exclude(aggkey) from stg_kaigaiseisan where aggkey = 1
