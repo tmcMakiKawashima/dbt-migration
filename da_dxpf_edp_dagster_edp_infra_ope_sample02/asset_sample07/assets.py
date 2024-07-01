@@ -30,6 +30,13 @@ MY_DIRECTORY = "D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_inf
     group_name="asset_sample07", 
     description="S3検知用アセット", 
     key_prefix=[os.getenv("code_location_sample02")])
+def asset07_01() -> MaterializeResult:
+    return MaterializeResult(
+        metadata={
+            "test": "1,2,3"
+        }
+    )
+
 # def asset07_01(context):
 #     bucket_name = EnvVar("S3_BUCKET_NAME").get_value()
 #     bucket_prefix_name = EnvVar("S3_BUCKET_PREFIX_NAME").get_value()
@@ -39,17 +46,17 @@ MY_DIRECTORY = "D:\\Users\\da-misawa-04.00\\dagster\\da-dxpf-edp-dagster-edp_inf
 #     s3ObjectsFilter = { "Prefix" : EnvVar("S3_BUCKET_PREFIX_NAME").get_value() } if EnvVar("S3_BUCKET_PREFIX_NAME").get_value() else {}
 #     return s3_trigger_sensor_process(context, None, bucket_name, init_cursor_value, asset_keys, **s3ObjectsFilter)
 
-    has_files = False
-    for filename in os.listdir(MY_DIRECTORY):
-        filepath = os.path.join(MY_DIRECTORY, filename)
-        if os.path.isfile(filepath):
-            return RunRequest(
-                run_key=filename,
-            )
-            has_files = True
-        if not has_files:
-            print("skipReasonに入る")
-            raise notfounderror("errorにする")
+    # has_files = False
+    # for filename in os.listdir(MY_DIRECTORY):
+    #     filepath = os.path.join(MY_DIRECTORY, filename)
+    #     if os.path.isfile(filepath):
+    #         return RunRequest(
+    #             run_key=filename,
+    #         )
+    #         has_files = True
+    #     if not has_files:
+    #         print("skipReasonに入る")
+    #         raise notfounderror("errorにする")
 
 @asset(
     group_name="asset_sample07", 
