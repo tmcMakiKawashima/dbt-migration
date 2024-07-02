@@ -40,4 +40,4 @@ with stg_hanbaihikiate as (
         {% endif %}
 
 )
-select * from stg_hanbaihikiate where aggkey = 1
+select * exclude(aggkey) from stg_hanbaihikiate where aggkey = 1
