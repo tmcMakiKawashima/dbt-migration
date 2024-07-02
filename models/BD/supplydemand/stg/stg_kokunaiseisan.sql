@@ -256,4 +256,4 @@ with kokunaiseisan as (
         {% endif %}
 
 )
-select * from kokunaiseisan where aggkey = 1
+select * exclude(aggkey) from kokunaiseisan where aggkey = 1
