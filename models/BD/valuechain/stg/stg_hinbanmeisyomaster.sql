@@ -1,3 +1,10 @@
+{{
+    config(
+        post_hook=[
+          "{{ dbt_snow_mask.apply_masking_policy('models') }}"
+        ]
+    )
+}}
 with stg_hinbanmeisyomaster as (
     select
         rtrim(parts_cd, ' 　')::varchar(15) as hinban, -- 右ブランク
