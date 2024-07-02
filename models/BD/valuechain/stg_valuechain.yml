@@ -238,10 +238,3 @@ models:
           - not_null:
               config:
                 severity: error
-      - name: sell_price
-        meta:
-            masking_policy: sell_price_mask
-      - name: cost
-        meta:
-            masking_policy: cost_mask
-
