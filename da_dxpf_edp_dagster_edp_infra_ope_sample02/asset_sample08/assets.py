@@ -43,7 +43,7 @@ class CustomeizedDagsterDbtTranslator(DagsterDbtTranslator):
 
 @dbt_assets(manifest=dbt_manifest_path, dagster_dbt_translator=CustomeizedDagsterDbtTranslator())
 def dbt_model_exeute(context: AssetExecutionContext, dbt: DbtCliResource):
-    yield from dbt.cli(["run"], context=context).stream()
+    yield from dbt.cli(["run", "--target", os.getenv('dbt_profile_sample')], context=context).stream()
 
 
 # asset08_01 = SourceAsset(key=AssetKey("asset08_01")) 

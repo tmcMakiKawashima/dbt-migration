@@ -40,7 +40,7 @@ class CustomeizedDagsterDbtTranslator(DagsterDbtTranslator):
 
 @dbt_assets(manifest=dbt_manifest_path, dagster_dbt_translator=CustomeizedDagsterDbtTranslator())
 def dbt_model_exeute(context: AssetExecutionContext, dbt: DbtCliResource):
-    yield from dbt.cli(["run"], context=context).stream()
+    yield from dbt.cli(["run", "--target", os.getenv('dbt_profile_sample')], context=context).stream()
 
 # 3. dbtモデルのアップストリームとしてdagster独自アセットを設定する方法 (asset03_01 → snowflake_connect.sql)
 # key_prefixは階層を表す prefixはアセットの一つ上の階層までを表す
