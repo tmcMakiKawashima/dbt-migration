@@ -54,4 +54,4 @@ with stg_hakkosyonin as (
     {% endif %}
 
 )
-select * from stg_hakkosyonin where aggkey = 1
+select * exclude(aggkey) from stg_hakkosyonin where aggkey = 1
