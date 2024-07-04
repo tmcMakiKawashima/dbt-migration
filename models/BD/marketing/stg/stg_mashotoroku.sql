@@ -14,7 +14,7 @@ with stg_mashotoroku as (
     trim(jikenshameicd, ' ')::varchar(3) as jikenshameicd, -- 自検協車名コード
     trim(syaryojhkbn, ' ')::varchar(1) as syaryojhkbn, -- 車両情報提供区分
     ldts, -- b層のldts
-    row_number() over (partition by tsinseiymd, shataino order by ldts desc) aggkey
+    rank() over (partition by tsinseiymd, shataino order by ldts desc) aggkey
   from {{ ref('substr_ktrla01ezz0ko87001') }}
 
   {% if is_incremental() %}
