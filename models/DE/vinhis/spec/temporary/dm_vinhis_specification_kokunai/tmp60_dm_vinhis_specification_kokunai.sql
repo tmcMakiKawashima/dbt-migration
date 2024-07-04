@@ -1,6 +1,6 @@
 -- データ結合６
 with
-    tmp50 as (select * from {{ ref('tmp50_dm_vinhis_specification_kokunai') }}),
+    tmp55 as (select * from {{ ref('tmp55_dm_vinhis_specification_kokunai') }}),
     hanbai as (
         select
             hanbaino, -- 販売仕様書No
@@ -11,11 +11,11 @@ with
         from {{ ref('stg_hanbaihikiate') }} -- 販売引当
     )
 select
-    tmp50.*,
+    tmp55.*,
     hanbai.* exclude (hanbaino, hkata, shiyoudai, shiyousai)
-from tmp50
+from tmp55
 left outer join hanbai
-  on tmp50.hanbaino = hanbai.hanbaino
- and tmp50.hkata = hanbai.hkata
- and tmp50.shiyodai = hanbai.shiyoudai
- and tmp50.shiyosai = hanbai.shiyousai
+  on tmp55.hanbaino = hanbai.hanbaino
+ and tmp55.hkata = hanbai.hkata
+ and tmp55.shiyodai = hanbai.shiyoudai
+ and tmp55.shiyosai = hanbai.shiyousai
