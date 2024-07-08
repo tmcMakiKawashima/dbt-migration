@@ -2,13 +2,15 @@ locations:
 - location_name: dxpf_edp_dagster_edp_infra_ope_sample01
   code_source:
     package_name: dxpf_edp_dagster_edp_infra_ope_sample01
+  agent_queue: dajp1-dxpf-queue
   build:
     directory: ./dxpf_edp_dagster_edp_infra_ope_sample01
-    registry: 085931761001.dkr.ecr.ap-northeast-1.amazonaws.com/dagster
+    registry: 248810166614.dkr.ecr.ap-northeast-1.amazonaws.com/dajp1-dxpf-edp-ecr-dagster
 
 - location_name: dxpf_edp_dagster_edp_infra_ope_sample02
   code_source:
     package_name: dxpf_edp_dagster_edp_infra_ope_sample02
+  agent_queue: dajp1-dxpf-queue
   build:
     directory: ./dxpf_edp_dagster_edp_infra_ope_sample02
-    registry: 085931761001.dkr.ecr.ap-northeast-1.amazonaws.com/dagster
+    registry: 248810166614.dkr.ecr.ap-northeast-1.amazonaws.com/dajp1-dxpf-edp-ecr-dagster
