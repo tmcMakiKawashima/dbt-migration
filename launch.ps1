@@ -25,7 +25,7 @@ start "http://localhost:3000/locations"
 cd $CURRENT_DIR
 
 # dagster project launch
-dagster dev -m da_dxpf_edp_dagster_edp_infra_ope_sample01 -m da_dxpf_edp_dagster_edp_infra_ope_sample02
+dagster dev -m dxpf_edp_dagster_edp_infra_ope_sample01 -m dxpf_edp_dagster_edp_infra_ope_sample02
 
 # dagster dir
 cd $DAGSTER_DIR

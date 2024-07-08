@@ -2,9 +2,9 @@ variables:
   DAGSTER_CLOUD_ORGANIZATION: toyotadataplatform
   DAGSTER_PROJECT_DIR: .
   DAGSTER_CLOUD_YAML_PATH: dagster_cloud.yaml
-  IMAGE_REGISTRY: 248810166614.dkr.ecr.ap-northeast-1.amazonaws.com/dajp1-dxpf-edp-ecr-dagster
-  IMAGE_TAG: $CI_COMMIT_SHORT_SHA-$CI_PIPELINE_ID
-  DAGSTER_BUILD_STATEDIR: build-state
+  IMAGE_REGISTRY: 085931761001.dkr.ecr.ap-northeast-1.amazonaws.com/dagster
+  IMAGE_TAG: $CI_COMMIT_SHORT_SHA_-$CI_PIPELINE_ID
+  DAGSTER_BUILD_STATEDIR: build_state
 
 stages:
   - setup
@@ -23,7 +23,7 @@ initialize:
     - export
     - dagster-cloud ci check --project-dir=$DAGSTER_PROJECT_DIR --dagster-cloud-yaml-path=$DAGSTER_CLOUD_YAML_PATH
     - >
-      dagster-cloud ci init --deployment=dev --statedir=$DAGSTER_BUILD_STATEDIR
+      dagster-cloud ci init --deployment=prod --statedir=$DAGSTER_BUILD_STATEDIR
       --project-dir=$DAGSTER_PROJECT_DIR --dagster-cloud-yaml-path=$DAGSTER_CLOUD_YAML_PATH
       --git-url=$CI_COMMIT_SHA
       --commit-hash=$CI_COMMIT_SHA
@@ -32,7 +32,7 @@ initialize:
   artifacts:
     paths:
       - $DAGSTER_BUILD_STATEDIR
-    expire_in: 1 week
+      expire_in: 1 week
 
 build-image:
   stage: build
@@ -43,7 +43,7 @@ build-image:
     - docker:build
   before_script:
     - whoami
-    - aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin $IMAGE_REGISTRY
+    - aws ecr get-login-password -region ap-northeast-1 | docker login --username AWS --password-stdin $IMAGE_REGISTRY
   script:
     - docker build . -t $IMAGE_REGISTRY:$IMAGE_TAG
     - docker push $IMAGE_REGISTRY:$IMAGE_TAG
@@ -72,7 +72,7 @@ deploy-docker-buranch:
   script:
     - dagster-cloud ci set-build-output --image-tag=$IMAGE_TAG
     - dagster-cloud ci deploy
-  environment:
+  enviroment:
     name: branch/$CI_COMMIT_REF_NAME
     on_stop: close-branch
 
@@ -84,6 +84,6 @@ close-branch:
     - merge_request
   script:
     - dagster-cloud ci branch-deployment $DAGSTER_PROJECT_DIR --mark-closed
-  environment:
+  enviroment:
     name: branch/$CI_COMMIT_REF_NAME
     action: stop

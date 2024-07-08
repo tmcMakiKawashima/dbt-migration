@@ -1,5 +1,5 @@
-da_dxpf_edp_dagster_edp_infra_ope_sample01
-da_dxpf_edp_dagster_edp_infra_ope_sample02
+dxpf_edp_dagster_edp_infra_ope_sample01
+dxpf_edp_dagster_edp_infra_ope_sample02
     コードロケーションごとのディレクトリ
 
 edp_dagster_sample_tests

@@ -3,8 +3,8 @@
     2. 同フォルダ内の「deps_runner.bat」を実行する
 
 ■直下フォルダ内のフォルダ・ファイルの説明(開発中編集する可能性のあるものを対象に記載)
-da_dxpf_edp_dagster_edp_infra_ope_sample01
-da_dxpf_edp_dagster_edp_infra_ope_sample02
+dxpf_edp_dagster_edp_infra_ope_sample01
+dxpf_edp_dagster_edp_infra_ope_sample02
     コードロケーション別ディレクトリ
 
 edp_dagster_sample_tests
