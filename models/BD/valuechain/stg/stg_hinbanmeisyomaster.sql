@@ -16,7 +16,7 @@ with stg_hinbanmeisyomaster as (
         maker_kbn::varchar(1) as maker_kbn,
         rtrim(parts_name, ' 　')::varchar(60) as hinmei, -- 右ブランク
         rtrim(parts_name_cd, ' 　')::varchar(6) as hinmeicd, -- 右ブランク
-        ldts
+        current_timestamp(3)::timestamp_ntz as ldts
     from {{ source('customerservice_db_public', 'raw_hinbanmeisyomaster') }}
 )
 select * from stg_hinbanmeisyomaster
