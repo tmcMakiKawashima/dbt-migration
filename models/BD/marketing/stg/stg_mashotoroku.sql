@@ -13,7 +13,7 @@ with stg_mashotoroku as (
     gyomucd::varchar(2) as gyomucd, -- 業務種別コード
     trim(jikenshameicd, ' ')::varchar(3) as jikenshameicd, -- 自検協車名コード
     trim(syaryojhkbn, ' ')::varchar(1) as syaryojhkbn, -- 車両情報提供区分
-    ldts, -- b層のldts
+    ldts, -- B層のLDTS
     rank() over (partition by tsinseiymd, shataino order by ldts desc) aggkey
   from {{ ref('substr_ktrla01ezz0ko87001') }}
 
