@@ -5,9 +5,6 @@ locations:
   container_context:
     ecs:
       server_resources:
-        cpu: "512"
-        memory: "1024"
-      run_resources:
         cpu: "256"
         memory: "512"
   agent_queue: dajp1-dxpf-queue
