@@ -4,7 +4,7 @@ locations:
     package_name: dxpf_edp_dagster_edp_infra_ope_sample01
   container_context:
     ecs:
-      run_resources:
+      server_resources:
         cpu: "512"
         memory: "1024"
   agent_queue: dajp1-dxpf-queue
