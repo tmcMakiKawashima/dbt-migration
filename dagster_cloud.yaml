@@ -7,6 +7,9 @@ locations:
       server_resources:
         cpu: "512"
         memory: "1024"
+      run_resources:
+        cpu: "256"
+        memory: "512"
   agent_queue: dajp1-dxpf-queue
   build:
     directory: ./dxpf_edp_dagster_edp_infra_ope_sample01
