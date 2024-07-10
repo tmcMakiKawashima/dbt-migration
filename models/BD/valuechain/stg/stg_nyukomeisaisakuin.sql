@@ -16,11 +16,15 @@ with stg_nyukomeisaisakuin as (
         r005::varchar(9) as nyukono,
         iff(rtrim(delflg, ' 　') = 'D', '1', '0')::varchar(1) as delflg,
         ldts,
-        rank() over (partition by nyukohanbaitencd, jutyuno, seisany, seisanmd, nyukono order by ldts desc) aggkey
+        row_number,
+        rank() over (partition by nyukohanbaitencd, jutyuno, seisany, seisanmd, nyukono order by ldts desc, row_number desc) aggkey
     from {{ ref('substr_ktrla025zz0kil3203') }}
 
     {% if is_incremental() %}
         where ldts > (select max(ldts) from {{ this }})
     {% endif %}
 )
-select * from stg_nyukomeisaisakuin where aggkey = 1
+
+select * exclude(row_number, aggkey) 
+from stg_nyukomeisaisakuin 
+where aggkey = 1
