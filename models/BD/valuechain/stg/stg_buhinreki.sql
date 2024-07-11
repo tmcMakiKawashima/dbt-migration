@@ -15,7 +15,8 @@ with stg_buhinreki as (
         r006::varchar(15) as hinban,
         iff(rtrim(delflg, ' 　') = 'D', '1', '0')::varchar(1) as delflg,
         ldts,
-        rank() over (partition by nyukono, meisaino order by ldts desc) aggkey
+        row_number,
+        rank() over (partition by nyukono, meisaino order by ldts desc, row_number desc) aggkey
     from {{ ref('substr_ktrla025zz0kil3207') }}
 
     {% if is_incremental() %}
@@ -23,4 +24,6 @@ with stg_buhinreki as (
     {% endif %}
 )
 
-select * from stg_buhinreki where aggkey = 1
+select * exclude(aggkey, row_number)
+from stg_buhinreki
+where aggkey = 1

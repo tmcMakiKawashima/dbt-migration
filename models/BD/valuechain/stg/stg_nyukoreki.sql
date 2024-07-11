@@ -28,7 +28,8 @@ with stg_nyukoreki as (
         r016::varchar(7) as daiagcd5,
         iff(rtrim(delflg, ' 　') = 'D', '1', '0')::varchar(1) as delflg,
         ldts,
-        rank() over (partition by kbsyadai, nosyadai, seisanymd, nyukohanbaitencd, jutyuno order by ldts desc) aggkey
+        row_number,
+        rank() over (partition by kbsyadai, nosyadai, seisanymd, nyukohanbaitencd, jutyuno order by ldts desc, row_number desc) aggkey
     from {{ ref('substr_ktrla025zz0kil3202') }}
 
     {% if is_incremental() %}
@@ -36,4 +37,6 @@ with stg_nyukoreki as (
     {% endif %}
 )
 
-select * from stg_nyukoreki where aggkey = 1
+select * exclude(row_number, aggkey)
+from stg_nyukoreki 
+where aggkey = 1
