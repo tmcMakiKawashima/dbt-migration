@@ -34,6 +34,6 @@ with stg_specname as (
         {% endif %}
 
     )
-select *
+select * exclude(aggkey)
 from stg_specname
 where aggkey = 1
