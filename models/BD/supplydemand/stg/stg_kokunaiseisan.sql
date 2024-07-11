@@ -37,8 +37,8 @@ with kokunaiseisan as (
         destdist::varchar(1) as destdist,
         destdetail::varchar(1) as destdetail,
         govaprvl::varchar(1) as govaprvl,
-        ltrim(int_cd, ' 　')::varchar(4) as ucd,
-        ltrim(ext_cd, ' 　')::varchar(4) as gaicd,
+        ltrim(int_cd, ' 　')::varchar(4) as int_cd,
+        ltrim(ext_cd, ' 　')::varchar(4) as ext_cd,
         dest_cd::varchar(5) as dest_cd,
         dest::varchar(10) as dest,
         psc::varchar(2) as psc,
@@ -256,4 +256,4 @@ with kokunaiseisan as (
         {% endif %}
 
 )
-select * from kokunaiseisan where aggkey = 1
+select * exclude(aggkey) from kokunaiseisan where aggkey = 1
