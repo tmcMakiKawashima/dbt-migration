@@ -1,0 +1,21 @@
+version: 2
+
+models:
+# 仕様パターン
+  - name: stg_dv2a4774
+    columns:
+      - name: syasyu_cd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siyoptno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siyocd
+        tests:
+          - not_null:
+              config:
+                severity: error
