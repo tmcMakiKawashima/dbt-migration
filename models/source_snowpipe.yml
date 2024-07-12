@@ -163,6 +163,13 @@ sources:
             tests:
               - fixed_length:
                   length: 400
+      - name: raw_epc_fixlen_cv201khintype2
+        identifier: epc_fixlen_cv201khintype2
+        columns:
+          - name: file_row_data
+            tests:
+              - fixed_length:
+                  length: 10458
 
   - name: snowpipe_db_supplydemand
     database: snowpipe_DB

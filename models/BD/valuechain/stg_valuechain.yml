@@ -1,0 +1,91 @@
+version: 2
+
+models:
+# 品番検索（TYPE2備考情報）
+  - name: stg_cv201khintype2
+    columns:
+      - name: langkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ctlgcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinmeicd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu_cd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinban
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kosu
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jissijikik
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jissijikim
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siyoptno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: epckataptno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kiricdk
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kiricdm
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: trmcdmlt
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: clrcdmlt
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tkstkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hktkgaikbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hosemhin
+        tests:
+          - not_null:
+              config:
+                severity: error
