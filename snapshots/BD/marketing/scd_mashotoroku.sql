@@ -12,6 +12,6 @@
   )
 }}
 
-select * from {{ ref('stg_mashotoroku') }} -- referenceでファイル名を指定
+select * from {{ ref('stg_mashotoroku') }}
 
 {% endsnapshot %}
