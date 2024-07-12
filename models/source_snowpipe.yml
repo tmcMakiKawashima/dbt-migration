@@ -163,7 +163,13 @@ sources:
             tests:
               - fixed_length:
                   length: 400
-
+      - name: raw_dv2a3704
+        identifier: dv2a3704
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 75
   - name: snowpipe_db_supplydemand
     database: snowpipe_DB
     schema: supplydemand
