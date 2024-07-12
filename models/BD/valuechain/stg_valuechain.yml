@@ -1,0 +1,26 @@
+version: 2
+
+models:
+#フレーム型式
+  - name: stg_dv2a5404
+    columns:
+      - name: frmnokata
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mdlyearkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vin
+        tests:
+          - not_null:
+              config:
+                severity: error
