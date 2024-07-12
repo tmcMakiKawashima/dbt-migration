@@ -1,0 +1,21 @@
+version: 2
+
+models:
+# 調達品番情報
+  - name: stg_dv2a4983
+    columns:
+      - name: hinban
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dntikicd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cthin
+        tests:
+          - not_null:
+              config:
+                severity: error
