@@ -1,0 +1,31 @@
+version: 2
+
+models:
+# トリムコード
+  - name: stg_dv2a38b4
+    columns:
+      - name: ctlgcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu_cd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinban
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: trmcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: figno
+        tests:
+          - not_null:
+              config:
+                severity: error
