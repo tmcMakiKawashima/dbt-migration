@@ -163,6 +163,35 @@ sources:
             tests:
               - fixed_length:
                   length: 400
+      - name: raw_dv2a381b
+        identifier: dv2a381b
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 2934
+      - name: raw_epc_fixlen_cv201khintype2
+        identifier: epc_fixlen_cv201khintype2
+        columns:
+          - name: file_row_data
+            tests:
+              - fixed_length:
+                  length: 10458
+      - name: raw_dv2a5404
+        identifier: dv2a5404
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 111
+      - name: raw_dv2a4774
+        identifier: dv2a4774
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 13
+
       - name: raw_dv2a38b4
         identifier: dv2a38b4
         columns:
