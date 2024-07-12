@@ -195,9 +195,6 @@ models:
           - not_null:
               config:
                 severity: error
-version: 2
-
-models:
 # 仕様パターン
   - name: stg_dv2a4774
     columns:
@@ -212,6 +209,34 @@ models:
               config:
                 severity: error
       - name: siyocd
+        tests:
+          - not_null:
+              config:
+                severity: error
+# トリムコード
+  - name: stg_dv2a38b4
+    columns:
+      - name: ctlgcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu_cd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinban
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: trmcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: figno
         tests:
           - not_null:
               config:
