@@ -84,9 +84,6 @@ models:
           - not_null:
               config:
                 severity: error
-version: 2
-
-models:
 # 品番検索（TYPE2備考情報）
   - name: stg_cv201khintype2
     columns:
@@ -171,6 +168,29 @@ models:
               config:
                 severity: error
       - name: hosemhin
+        tests:
+          - not_null:
+              config:
+                severity: error
+#フレーム型式
+  - name: stg_dv2a5404
+    columns:
+      - name: frmnokata
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mdlyearkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vin
         tests:
           - not_null:
               config:
