@@ -277,3 +277,31 @@ models:
           - not_null:
               config:
                 severity: error
+# 車両型式情報
+  - name: stg_dv2a4974
+    columns:
+      - name: ctlgcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syakata
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu_cd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vinwmivds
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: katano
+        tests:
+          - not_null:
+              config:
+                severity: error
