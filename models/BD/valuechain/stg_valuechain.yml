@@ -259,3 +259,21 @@ models:
           - not_null:
               config:
                 severity: error
+# 切替コード検索
+  - name: stg_dv2a3704
+    columns:
+      - name: ctlgcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kiricd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: prtren
+        tests:
+          - not_null:
+              config:
+                severity: error
