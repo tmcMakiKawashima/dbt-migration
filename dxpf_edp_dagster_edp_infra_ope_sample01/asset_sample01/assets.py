@@ -24,7 +24,7 @@ from dagster import (
 def asset01() -> MaterializeResult:
     return MaterializeResult(
         metadata={
-            "test": "1,2,3"
+            "test": "1,1,3"
         }
     )
 
