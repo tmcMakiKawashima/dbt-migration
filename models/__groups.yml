@@ -14,6 +14,9 @@ groups:
   - name: parts
     owner:
       email: maki_kawashima@mail.toyota.co.jp
+  - name: vinhis_maint
+    owner:
+      email: maki_kawashima@mail.toyota.co.jp
   - name: vinhis_spec
     owner:
       email: maki_kawashima@mail.toyota.co.jp

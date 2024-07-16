@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: customerservice_db_public
+    database: customerservice_db
+    schema: public
+    tables:
+      - name: raw_seibimeisyomaster
+        identifier: m_seibi_name
+      - name: raw_hinbanmeisyomaster
+        identifier: m_parts_name
