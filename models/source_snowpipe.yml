@@ -289,7 +289,6 @@ sources:
             tests:
               - fixed_length:
                   length: 175
-<<<<<<< models/source_snowpipe.yml
       - name: raw_ktrla01ezz0ko87001
         identifier: ktrla01ezz0ko87001
         columns:
@@ -297,5 +296,3 @@ sources:
             tests:
               - fixed_length: 
                   length: 50
-=======
->>>>>>> models/source_snowpipe.yml
