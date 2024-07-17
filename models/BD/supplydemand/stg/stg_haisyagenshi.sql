@@ -89,6 +89,6 @@ with stg_haisyagenshi as (
         {% endif %}
 
     )
-select *
+select * exclude(aggkey)
 from stg_haisyagenshi
 where aggkey = 1

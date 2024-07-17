@@ -6,6 +6,11 @@ name: 'enterprise_data_products'
 version: '1.0.0'
 config-version: 2
 
+vars:
+  use_common_masking_policy_db: "True"
+  common_masking_policy_db: "COMMON_TBL_DB"
+  common_masking_policy_schema: "MASKING_POLICY"
+
 # This setting configures which "profile" dbt uses for this project.
 profile: 'enterprise_data_products'
 
@@ -34,7 +39,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   enterprise_data_products:
     +copy_grants: true
-    +on_schema_change: "append_new_columns"
+    +on_schema_change: "fail"
     BB:
       valuechain:
         +snowflake_warehouse: "VALUECHAIN_WH"
@@ -118,6 +123,12 @@ models:
           dim:
             +access: public
             +materialized: table
+        maint:
+          +group: vinhis_maint
+          +schema: maint
+          dim:
+            +access: public
+            +materialized: table
     EF:
       DATAMART:
         +snowflake_warehouse: "DATAMART_WH"
@@ -165,10 +176,4 @@ snapshots:
         +snowflake_warehouse: "MARKETING_WH"
         +group: marketing
         +target_database: marketing_db
-        +target_schema: dbt_snapshots
-    DD:
-      supplydemand:
-        +snowflake_warehouse: "SUPPLYDEMAND_WH"
-        +group: supplydemand
-        +target_database: supplydemand_db
         +target_schema: dbt_snapshots

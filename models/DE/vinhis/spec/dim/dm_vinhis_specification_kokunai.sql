@@ -2,10 +2,12 @@ with
     tmp70 as (
         select
             syadai_kt, -- 車台型式 stg_kokunaiseisan
-            frmno, -- フレーム№ stg_kokunaiseisan
+            frmno as frm_no, -- フレーム№ stg_kokunaiseisan
             syasyu_cd, -- 車種コードstg_kokunaiseisan
             haisya_kt, -- 配車型式 stg_kokunaiseisan
             hkata as hanbai_kt, -- 販売型式 stg_haisyagenshi
+            ext_cd, -- 外販色コード stg_kokunaiseisan
+            int_cd, -- 内張コード stg_kokunaiseisan
             shiyodai as daibun_cd, -- 大分類コード stg_specname
             sketa as sketa_cd, -- スペック桁 stg_kokunaiseisan200
             smeikanji as dai_kanji_name, -- 大分類技術名称（漢字） stg_specname（大分類）
