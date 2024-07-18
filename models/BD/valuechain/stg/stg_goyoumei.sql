@@ -12,7 +12,7 @@ with stg_goyoumei as (
         r002::varchar(4) as meisaino,
         r005::varchar(1) as hosyokbn,
         r004::varchar(4) as t1w,
-        r006::varchar(10) as goyomeisansyocd,
+        rtrim(r006, ' 　')::varchar(10) as goyomeisansyocd, -- 右blank
         iff(rtrim(delflg, ' 　') = 'D', '1', '0')::varchar(1) as delflg,
         ldts,
         row_number,
