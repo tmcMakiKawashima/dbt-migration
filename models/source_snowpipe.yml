@@ -289,3 +289,10 @@ sources:
             tests:
               - fixed_length:
                   length: 175
+      - name: raw_ktrla01ezz0ko87001
+        identifier: ktrla01ezz0ko87001
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length: 
+                  length: 50
