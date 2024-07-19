@@ -19,6 +19,8 @@ workflow:
 
 initialize:
   stage: setup
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   image: ghcr.io/dagster-io/dagster-cloud-action:0.1.31
   script:
     - export
@@ -37,6 +39,8 @@ initialize:
 
 build-image:
   stage: build
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   dependencies:
     - initialize
   image: docker:latest
@@ -51,8 +55,8 @@ build-image:
 
 deploy-docker:
   stage: deploy
-#  rules:
-#    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   dependencies:
     - build-image
     - initialize
