@@ -10,7 +10,8 @@ with substr_ktrla025zz0kil3205 as (
         substr(raw_data, 40, 1)::varchar(1) as r008,
         substr(raw_data, 41, 50)::varchar(50) as r009,
         substr(raw_data, 1, 1)::varchar(1) as delflg,
-        ldts
+        ldts,
+        row_number
     from {{ source('snowpipe_db_valuechain', 'raw_ktrla025zz0kil3205') }}
 )
 select * from substr_ktrla025zz0kil3205
