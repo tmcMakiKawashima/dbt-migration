@@ -13,11 +13,14 @@ stages:
 
 workflow:
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+    #- if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    #- if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+    - if: $CI_PIPELINE_SOURCE == 'web'
 
 initialize:
   stage: setup
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   image: ghcr.io/dagster-io/dagster-cloud-action:0.1.31
   script:
     - export
@@ -36,6 +39,8 @@ initialize:
 
 build-image:
   stage: build
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   dependencies:
     - initialize
   image: docker:latest
@@ -61,29 +66,29 @@ deploy-docker:
     - dagster-cloud ci set-build-output --image-tag=$IMAGE_TAG
     - dagster-cloud ci deploy
 
-deploy-docker-buranch:
-  stage: deploy
-  rules:
-    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
-  dependencies:
-    - build-image
-    - initialize
-  image: ghcr.io/dagster-io/dagster-cloud-action:0.1.31
-  script:
-    - dagster-cloud ci set-build-output --image-tag=$IMAGE_TAG
-    - dagster-cloud ci deploy
-  environment:
-    name: branch/$CI_COMMIT_REF_NAME
-    on_stop: close-branch
+#deploy-docker-buranch:
+#  stage: deploy
+#  rules:
+#    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+#  dependencies:
+#    - build-image
+#    - initialize
+#  image: ghcr.io/dagster-io/dagster-cloud-action:0.1.31
+#  script:
+#    - dagster-cloud ci set-build-output --image-tag=$IMAGE_TAG
+#    - dagster-cloud ci deploy
+#  environment:
+#    name: branch/$CI_COMMIT_REF_NAME
+#    on_stop: close-branch
 
-close-branch:
-  stage: deploy
-  image: ghcr.io/dagster-io/dagster-cloud-action:0.1.31
-  when: manual
-  only:
-    - merge_request
-  script:
-    - dagster-cloud ci branch-deployment $DAGSTER_PROJECT_DIR --mark-closed
-  environment:
-    name: branch/$CI_COMMIT_REF_NAME
-    action: stop
+#close-branch:
+#  stage: deploy
+#  image: ghcr.io/dagster-io/dagster-cloud-action:0.1.31
+#  when: manual
+#  only:
+#    - merge_request
+#  script:
+#    - dagster-cloud ci branch-deployment $DAGSTER_PROJECT_DIR --mark-closed
+#  environment:
+#    name: branch/$CI_COMMIT_REF_NAME
+#    action: stop
