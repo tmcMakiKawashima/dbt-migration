@@ -1,0 +1,48 @@
+version: 2
+
+models:
+# 用品明細
+  - name: stg_yohinmeisai
+    tests:
+      - dbt_utils.unique_combination_of_columns:        # パッケージで提供されているテストを仕様
+          combination_of_columns:
+            - dlrcd
+            - cuno
+            - edano
+            - ym
+            - nykt
+            - tkcd
+          config:
+            severity: error
+
+    columns:
+      - name: dlrcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cuno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: edano
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ym
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nykt
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tkcd
+        tests:
+          - not_null:
+              config:
+                severity: error
