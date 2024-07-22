@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: fivetran_database_marketing
+    database: fivetran_database 
+    schema: S3_MARKETING01 
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: _fivetran_synced
+
+    tables:
+      - name: raw_ktrla07vzz0kiw0003
+        identifier: KTRLA_07_VZZ_0_KIW_0003
