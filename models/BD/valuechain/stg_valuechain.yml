@@ -416,7 +416,7 @@ models:
               config:
                 severity: error
 #フレーム型式
-  - name: stg_dv2a5404
+  - name: stg_framekatashiki
     columns:
       - name: frmnokata
         tests:

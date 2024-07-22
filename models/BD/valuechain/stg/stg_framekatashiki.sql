@@ -1,6 +1,6 @@
 {{ config(materialized='incremental') }}
 
-with stg_dv2a5404 as (
+with stg_framekatashiki as (
     select *,
         row_number() over(partition by frmnokata, frmno, mdlyearkbn, vin, ldts
             order by
@@ -13,7 +13,7 @@ with stg_dv2a5404 as (
     from {{ ref('substr_dv2a5404') }}
     order by ldts asc, rn asc
 )
-select * exclude(rn) from stg_dv2a5404
+select * exclude(rn) from stg_framekatashiki
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{this}})
