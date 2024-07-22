@@ -328,7 +328,7 @@ models:
               config:
                 severity: error
 # 品番検索（TYPE2備考情報）
-  - name: stg_cv201khintype2
+  - name: stg_hinbankensakutype2
     columns:
       - name: langkbn
         tests:
