@@ -1,9 +1,3 @@
-{{ config(
-      materialized='incremental',
-      unique_key = ['syasyu_cd', 'yohinsyamei'],
-      incremental_strategy = 'merge'
-   ) }}
-
 with stg_goguchisyasyucd as (
     select
         syasyug::varchar(4) as syasyu_cd, --なし
@@ -11,13 +5,8 @@ with stg_goguchisyasyucd as (
         try_to_timestamp_ntz(touroku,'yyyymmdd') as touroku, --なし
         try_to_timestamp_ntz(kousin,'yyyymmdd') as kousin, --なし
         tantou::varchar(7) as tantou, --なし
-        ldts, --B層取込日時
-        row_number() over(partition by syasyu_cd order by ldts desc) aggkey
+        ldts --B層取込日時
     from {{ ref('substr_tpjfva40') }}
-           
-  {% if is_incremental() %}
-      where ldts > (select max(ldts) from {{this}})
-  {% endif %}
 )
 select * from stg_goguchisyasyucd
-where aggkey = 1
+where ldts = (select max(ldts) from stg_goguchisyasyucd)
