@@ -1,6 +1,6 @@
 {{ config(materialized='incremental') }}
 
-with stg_dv2a4774 as (
+with stg_shiyopattern as (
     select *,
         row_number() over(
             partition by syasyu_cd, siyoptno, siyocd, ldts
@@ -14,7 +14,7 @@ with stg_dv2a4774 as (
     from {{ ref('substr_dv2a4774') }}
     order by ldts asc, rn asc
 )
-select * exclude(rn) from stg_dv2a4774
+select * exclude(rn) from stg_shiyopattern
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{this}})
