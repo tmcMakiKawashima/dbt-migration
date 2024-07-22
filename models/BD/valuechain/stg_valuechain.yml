@@ -1,21 +1,22 @@
-version: 2
+﻿version: 2
 models:
 # 号口車種コード
   - name: stg_goguchisyasyucd
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu_cd
+            - yohinsyamei
+          config:
+            severity: error
     columns:
       - name: syasyu_cd
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
       - name: yohinsyamei
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
