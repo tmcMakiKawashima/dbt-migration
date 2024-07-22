@@ -1,0 +1,101 @@
+version: 2
+models:
+# 号口車種コード
+  - name: stg_goguchisyasyucd
+    columns:
+      - name: syasyu_cd
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: yohinsyamei
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+
+# 用品装着歴
+  - name: stg_yohinsotyakureki
+    tests:
+      - dbt_utils.unique_combination_of_columns:        # パッケージで提供されているテストを仕様
+          combination_of_columns:
+            - kbsyadai
+            - nosyadai
+            - ddtorituke
+            - cdyouhinban
+            - cdtorihan
+            - cdtoritenpo
+          config:
+            severity: error
+
+    columns:
+      - name: kbsyadai
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nosyadai
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ddtorituke
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cdyouhinban
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cdtorihan
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cdtoritenpo
+        tests:
+          - not_null:
+              config:
+                severity: error
+
+# 現用品マスタ
+  - name: stg_genyohinmaster
+    tests:
+      - dbt_utils.unique_combination_of_columns:        # パッケージで提供されているテストを使用
+          combination_of_columns:
+            - yohinsyamei
+            - tuikou
+            - seg
+            - seq
+          config:
+            severity: error
+      
+    columns:
+      - name: yohinsyamei
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikou
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seg
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seq
+        tests:
+          - not_null:
+              config:
+                severity: error
