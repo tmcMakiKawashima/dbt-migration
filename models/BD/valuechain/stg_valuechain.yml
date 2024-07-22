@@ -485,7 +485,7 @@ models:
               config:
                 severity: error
 # 調達品番情報
-  - name: stg_dv2a4983
+  - name: stg_tyotatsuhinbanjoho
     columns:
       - name: hinban
         tests:
