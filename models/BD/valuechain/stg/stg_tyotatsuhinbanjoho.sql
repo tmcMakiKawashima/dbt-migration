@@ -1,6 +1,6 @@
 {{ config(materialized='incremental') }}
 
-with stg_dv2a4983 as (
+with stg_tyotatsuhinbanjoho as (
     select *,
         row_number() over(
             partition by hinban, dntikicd, cthin, ldts
@@ -14,7 +14,7 @@ with stg_dv2a4983 as (
     from {{ ref('substr_dv2a4983') }}
     order by ldts asc, rn asc
 )
-select * exclude(rn) from stg_dv2a4983
+select * exclude(rn) from stg_tyotatsuhinbanjoho
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{this}})
