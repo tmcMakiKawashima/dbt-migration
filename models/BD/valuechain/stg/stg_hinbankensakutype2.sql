@@ -1,6 +1,6 @@
 {{ config(materialized='incremental') }}
 
-with stg_cv201khintype2 as (
+with stg_hinbankensakutype2 as (
     select *,
         row_number() over(
             partition by langkbn, ctlgcd, hinmeicd, syasyu_cd, hinban, kosu, jissijikik, jissijikim, siyoptno, epckataptno, kiricdk, kiricdm, trmcdmlt, clrcdmlt, tkstkbn, hktkgaikbn, hosemhin, ldts
@@ -14,7 +14,7 @@ with stg_cv201khintype2 as (
     from {{ ref('substr_cv201khintype2') }}
     order by ldts asc, rn asc
 )
-select * exclude(rn) from stg_cv201khintype2
+select * exclude(rn) from stg_hinbankensakutype2
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{this}})
