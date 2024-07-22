@@ -12,3 +12,5 @@ sources:
     tables:
       - name: raw_ktrla07vzz0kiw0004
         identifier: ktrla_07_vzz_0_kiw_0004
+      - name: raw_ktrla07vzz0kiw0003
+        identifier: KTRLA_07_VZZ_0_KIW_0003
