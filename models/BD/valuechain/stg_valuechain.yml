@@ -457,7 +457,7 @@ models:
               config:
                 severity: error
 # トリムコード
-  - name: stg_dv2a38b4
+  - name: stg_trimcodejoho
     columns:
       - name: ctlgcd
         tests:
