@@ -521,7 +521,7 @@ models:
               config:
                 severity: error
 # 車両型式情報
-  - name: stg_dv2a4974
+  - name: stg_syaryokatashikijoho
     columns:
       - name: ctlgcd
         tests:

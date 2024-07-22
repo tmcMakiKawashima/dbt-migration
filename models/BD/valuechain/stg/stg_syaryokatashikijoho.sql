@@ -1,6 +1,6 @@
 {{ config(materialized='incremental') }}
 
-with stg_dv2a4974 as (
+with stg_syaryokatashikijoho as (
     select *,
         row_number() over(
             partition by ctlgcd, syakata, syasyu_cd, vinwmivds, katano, ldts
@@ -14,7 +14,7 @@ with stg_dv2a4974 as (
     from {{ ref('substr_dv2a4974') }}
     order by ldts asc, rn asc
 )
-select * exclude(rn) from stg_dv2a4974
+select * exclude(rn) from stg_syaryokatashikijoho
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{this}})
