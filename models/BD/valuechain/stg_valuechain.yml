@@ -439,7 +439,7 @@ models:
               config:
                 severity: error
 # 仕様パターン
-  - name: stg_dv2a4774
+  - name: stg_shiyopattern
     columns:
       - name: syasyu_cd
         tests:
