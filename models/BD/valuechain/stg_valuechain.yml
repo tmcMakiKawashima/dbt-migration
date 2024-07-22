@@ -245,7 +245,7 @@ models:
         meta:
             masking_policy: cost_mask
 # 品番検索（TYPE1品番情報）
-  - name: stg_dv2a381b
+  - name: stg_hinbankensakutype1
     columns:
       - name: ctlgcd
         tests:
