@@ -1,6 +1,6 @@
 {{ config(materialized='incremental') }}
 
-with stg_dv2a38b4 as (
+with stg_trimcodejoho as (
     select *,
         row_number() over(
             partition by ctlgcd, syasyu_cd, hinban, trmcd, figno, ldts
@@ -14,7 +14,7 @@ with stg_dv2a38b4 as (
     from {{ ref('substr_dv2a38b4') }}
     order by ldts asc, rn asc
 )
-select * exclude(rn) from stg_dv2a38b4
+select * exclude(rn) from stg_trimcodejoho
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{this}})
