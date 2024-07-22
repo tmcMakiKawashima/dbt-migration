@@ -503,7 +503,7 @@ models:
               config:
                 severity: error
 # 切替コード検索
-  - name: stg_dv2a3704
+  - name: stg_kirikaecodekensaku
     columns:
       - name: ctlgcd
         tests:

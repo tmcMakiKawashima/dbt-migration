@@ -1,6 +1,6 @@
 {{ config(materialized='incremental') }}
 
-with stg_dv2a3704 as (
+with stg_kirikaecodekensaku as (
     select *,
         row_number() over(
             partition by ctlgcd, kiricd, prtren, ldts
@@ -14,7 +14,7 @@ with stg_dv2a3704 as (
     from {{ ref('substr_dv2a3704') }}
     order by ldts asc, rn asc
 )
-select * exclude(rn) from stg_dv2a3704
+select * exclude(rn) from stg_kirikaecodekensaku
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{this}})
