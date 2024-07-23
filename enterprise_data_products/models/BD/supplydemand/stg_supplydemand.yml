@@ -1,0 +1,187 @@
+version: 2
+
+models:
+# 配車原始
+  - name: stg_haisyagenshi
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - frmno
+            - hkata
+            - frmkbn
+            - shamei
+            - sno
+            - sketai
+          config:
+            severity: error
+    columns:
+      - name: frmno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkata
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shamei
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sketai
+        tests:
+          - not_null:
+              config:
+                severity: error
+# 国内新生産実績
+  - name: stg_kokunaiseisan
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syadai_kt
+            - frmno
+            - frmkbn
+            - shamei
+            - sno
+          config:
+            severity: error
+    columns:
+      - name: syadai_kt
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shamei
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sno
+        tests:
+          - not_null:
+              config:
+                severity: error
+# スペック名称
+  - name: stg_specname
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu
+            - shiyodai
+            - shiyosai
+            - sketa
+            - skigo
+            - sijikara
+          config:
+            severity: error
+    columns:
+      - name: syasyu
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shiyodai
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shiyosai
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sketa
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: skigo
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sijikara
+        tests:
+          - not_null:
+              config:
+                severity: error
+# 海外新生産実績
+  - name: stg_kaigaiseisan
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - frmno
+            - wmi
+            - vds
+            - mdlyr
+            - vin_vds_cd
+          config:
+            severity: error
+    columns:
+      - name: frmno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: wmi
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vds
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mdlyr
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vin_vds_cd
+        tests:
+          - not_null:
+              config:
+                severity: error
+# 仕入実績
+  - name: stg_oemseisan
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syadai_kt
+            - frmno
+          config:
+            severity: error
+    columns:
+      - name: syadai_kt
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        tests:
+          - not_null:
+              config:
+                severity: error
