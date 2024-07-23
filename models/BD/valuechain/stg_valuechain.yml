@@ -244,3 +244,307 @@ models:
       - name: cost
         meta:
             masking_policy: cost_mask
+# 品番検索（TYPE1品番情報）
+  - name: stg_hinbankensakutype1
+    columns:
+      - name: ctlgcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinmeicd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu_cd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinban
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kosu
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jissijikik
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jissijikim
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siyoptno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: epckataptno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kiricdk
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kiricdm
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: trmcdmlt
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: clrcdmlt
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tkstkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hktkgaikbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hosemhin
+        tests:
+          - not_null:
+              config:
+                severity: error
+# 品番検索（TYPE2備考情報）
+  - name: stg_hinbankensakutype2
+    columns:
+      - name: langkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ctlgcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinmeicd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu_cd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinban
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kosu
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jissijikik
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jissijikim
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siyoptno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: epckataptno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kiricdk
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kiricdm
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: trmcdmlt
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: clrcdmlt
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tkstkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hktkgaikbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hosemhin
+        tests:
+          - not_null:
+              config:
+                severity: error
+#フレーム型式
+  - name: stg_framekatashiki
+    columns:
+      - name: frmnokata
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mdlyearkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vin
+        tests:
+          - not_null:
+              config:
+                severity: error
+# 仕様パターン
+  - name: stg_shiyopattern
+    columns:
+      - name: syasyu_cd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siyoptno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siyocd
+        tests:
+          - not_null:
+              config:
+                severity: error
+# トリムコード
+  - name: stg_trimcodejoho
+    columns:
+      - name: ctlgcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu_cd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinban
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: trmcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: figno
+        tests:
+          - not_null:
+              config:
+                severity: error
+# 調達品番情報
+  - name: stg_tyotatsuhinbanjoho
+    columns:
+      - name: hinban
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dntikicd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cthin
+        tests:
+          - not_null:
+              config:
+                severity: error
+# 切替コード検索
+  - name: stg_kirikaecodekensaku
+    columns:
+      - name: ctlgcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kiricd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: prtren
+        tests:
+          - not_null:
+              config:
+                severity: error
+# 車両型式情報
+  - name: stg_syaryokatashikijoho
+    columns:
+      - name: ctlgcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syakata
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu_cd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vinwmivds
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: katano
+        tests:
+          - not_null:
+              config:
+                severity: error
