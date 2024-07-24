@@ -3,6 +3,4 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [tool.dagster]
-module_name01 = "dxpf_edp_dagster_edp_infra_ope_sample01"
-module_name02 = "dxpf_edp_dagster_edp_infra_ope_sample02"
-module_name03 = "dbt_assets.definitions"
+module_name01 = "dbt_assets.definitions"
