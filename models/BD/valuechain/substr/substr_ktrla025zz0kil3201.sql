@@ -9,7 +9,8 @@ with substr_ktrla025zz0kil3201 as (
         substr(raw_data, 56, 2)::varchar(2) as suuryou, -- 数量
         substr(raw_data, 58, 3)::varchar(3) as kmtrtsok, -- 取付走行千Ｋｍ
         substr(raw_data, 61, 1)::varchar(1) as kbsinsa, -- 新サ区分
-        ldts -- B層のldtsを取得
+        ldts, -- B層のldtsを取得
+        line_number
     from {{ source('snowpipe_db_marketing', 'raw_ktrla025zz0kil3201') }}
 )
 select * from substr_ktrla025zz0kil3201
