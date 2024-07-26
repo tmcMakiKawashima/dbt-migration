@@ -50,6 +50,14 @@ models:
         stg:
           +access: public
           +materialized: table
+      marketing:
+        +snowflake_warehouse: "MARKETING_WH"
+        +group: marketing
+        +database: marketing_db
+        +schema: public
+        stg:
+          +access: public
+          +materialized: table
     DD:
       valuechain:
         +snowflake_warehouse: "VALUECHAIN_WH"
@@ -121,4 +129,9 @@ snapshots:
         +snowflake_warehouse: "VALUECHAIN_WH"
         +group: valuechain
         +target_database: valuechain_db
+        +target_schema: dbt_snapshots
+      marketing:
+        +snowflake_warehouse: "MARKETING_WH"
+        +group: marketing
+        +target_database: marketing_db
         +target_schema: dbt_snapshots
