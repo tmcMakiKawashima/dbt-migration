@@ -18,11 +18,12 @@ with stg_yohinsotyakureki as (
         to_decimal(iff(ltrim(kmtrtsok, '0 　') = '', '0', ltrim(kmtrtsok, '0')))::decimal(3) as kmtrtsok, -- 左ゼロ
         rtrim(kbsinsa, ' 　')::varchar(1) as kbsinsa, -- 右ブランク
         ldts, -- b層のldts
-        rank() over (partition by kbsyadai, nosyadai, ddtorituke, cdyouhinban, cdtorihan, cdtoritenpo order by ldts desc) aggkey
+        line_number,
+        rank() over (partition by kbsyadai, nosyadai, ddtorituke, cdyouhinban, cdtorihan, cdtoritenpo order by ldts desc, line_number desc) aggkey
     from {{ ref('substr_ktrla025zz0kil3201') }}
            {% if is_incremental() %}
                where ldts > (select max(ldts) from {{this}})
            {% endif %}
 )
-select * from stg_yohinsotyakureki
+select * exclude(aggkey, line_number) from stg_yohinsotyakureki
 where aggkey = 1
