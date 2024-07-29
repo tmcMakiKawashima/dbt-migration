@@ -6,10 +6,10 @@ clean:
     rm -rf ~/.dagster_home; mkdir ~/.dagster_home; cp dagster.yaml ~/.dagster_home/dagster.yaml
 
 manifest:
-    dbt parse --project-dir=dagster_dbt --target BRANCH
+    dbt parse --project-dir=enterprise_data_products --target BRANCH
 
 deps:
-    dbt deps --project-dir=dagster_dbt
+    dbt deps --project-dir=enterprise_data_products
 
 stateful_dev: clean manifest
     export DAGSTER_HOME="~/.dagster_home"; dagster dev -m dbt_products.definitions
