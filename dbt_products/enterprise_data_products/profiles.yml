@@ -1,4 +1,5 @@
 enterprise_data_products:
+  target: dev
   outputs:
     dev:
       account: "{{ env_var('DBT_SNOWFLAKE_ACCOUNT') }}"
@@ -10,4 +11,3 @@ enterprise_data_products:
       type: snowflake
       user: "{{ env_var('DBT_SNOWFLAKE_USER') }}"
       warehouse: dbt_default_wh
-  target: dev
