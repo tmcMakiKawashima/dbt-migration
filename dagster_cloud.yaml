@@ -1,7 +1,7 @@
 locations:    
 - location_name: dbt_products
   code_source:
-    package_name: dbt_products
+    package_name: dbt_products.definitions
   agent_queue: dajp1-dxpf-queue
   build:
     directory: ./dbt_products
