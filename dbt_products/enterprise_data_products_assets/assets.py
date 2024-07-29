@@ -1,4 +1,5 @@
 import json
+import os
 from dagster import AssetExecutionContext, Config
 from dagster_dbt import DbtCliResource, dbt_assets
 
@@ -14,6 +15,7 @@ class DbtConfig(Config):
 @dbt_assets(manifest=dbt_manifest_path)
 def dbt_products_assets(context: AssetExecutionContext, dbt: DbtCliResource, config: DbtConfig):
     dbt_build_args = ["build"]
+    dbt_build_args += ["--target", os.getenv('dbt_profile_enterprise')]
     if len(config.dbt_vars["DBT_JOB_NAME"]) > 0:
         dbt_build_args += ["--vars", json.dumps(config.dbt_vars)]
     yield from dbt.cli(dbt_build_args, context=context).stream()
