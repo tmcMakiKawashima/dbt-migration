@@ -5,7 +5,6 @@ variables:
   IMAGE_REGISTRY: 248810166614.dkr.ecr.ap-northeast-1.amazonaws.com/dajp1-dxpf-edp-ecr-dagster
   IMAGE_TAG: $CI_COMMIT_SHORT_SHA-$CI_PIPELINE_ID
   DAGSTER_BUILD_STATEDIR: build-state
-  DBT_BUILD_DIR: .\dbt_products\enterprise_data_products
 
 stages:
   - setup
@@ -65,7 +64,7 @@ deploy-docker:
   script:
     - export
     - dagster-cloud ci set-build-output --image-tag=$IMAGE_TAG
-    - dbt deps --project-dir=$DBT_BUILD_DIR
+    - ls
     - dagster-cloud ci deploy
 
 #deploy-docker-buranch:
