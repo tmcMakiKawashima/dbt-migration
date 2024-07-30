@@ -24,3 +24,5 @@ sources:
     tables:
       - name: raw_cep0001wrntdata
         identifier: cep0001wrntdata
+      - name: raw_cep0002w3wranty
+        identifier: cep0002w3wranty
