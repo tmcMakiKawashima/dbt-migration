@@ -6,7 +6,7 @@ clean:
     rm -rf ~/.dagster_home; mkdir ~/.dagster_home; cp dagster.yaml ~/.dagster_home/dagster.yaml
 
 manifest:
-    dbt deps --project-dir=enterprise_data_products; dbt parse --project-dir=enterprise_data_products --target dev
+    dbt parse --project-dir=enterprise_data_products --target dev
 
 deps:
     dbt deps --project-dir=enterprise_data_products
