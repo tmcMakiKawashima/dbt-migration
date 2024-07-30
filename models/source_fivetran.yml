@@ -30,3 +30,5 @@ sources:
         identifier: cep0768warr_cn_cmt
       - name: raw_cep0009kyusyo
         identifier: cep0009kyusyo
+      - name: raw_cep0713ftr_history
+        identifier: cep0713ftr_history
