@@ -20,3 +20,5 @@ dbt_project = DbtProject(
     state_path="target/slim_ci",
     target=get_env(),
 )
+
+print('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')

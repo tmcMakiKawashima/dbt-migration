@@ -6,6 +6,8 @@ from dagster_dbt import DbtCliResource
 dbt_project_dir = Path(__file__).joinpath("..", "..", "enterprise_data_products").resolve()
 dbt = DbtCliResource(project_dir=os.fspath(dbt_project_dir))
 
+dbt.cli(["deps"]).wait()
+
 # dbtのマニフェストを読み込む
 # 読み込んだ「dbt_manifest_path」をasset.py側で参照する利用方法となる
 # If DAGSTER_DBT_PARSE_PROJECT_ON_LOAD is set, a manifest will be created at runtime.
