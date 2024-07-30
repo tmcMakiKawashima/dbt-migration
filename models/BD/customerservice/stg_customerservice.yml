@@ -286,3 +286,25 @@ models:
           - not_null:
               config:
                 severity: error
+
+# 市情報_交換部品
+  - name: stg_shijoho_kokanbuhin
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ftr_no
+            - seq_ftr_rep
+          config:
+            severity: error
+
+    columns:
+      - name: ftr_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seq_ftr_rep
+        tests:
+          - not_null:
+              config:
+                severity: error
