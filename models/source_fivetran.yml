@@ -26,3 +26,5 @@ sources:
         identifier: cep0001wrntdata
       - name: raw_cep0002w3wranty
         identifier: cep0002w3wranty
+      - name: raw_cep0768warr_cn_cmt
+        identifier: cep0768warr_cn_cmt
