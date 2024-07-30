@@ -34,7 +34,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   enterprise_data_products:
     +copy_grants: true
-    +on_schema_change: "append_new_columns"
+    +on_schema_change: "fail"
     BB:
       valuechain:
         +snowflake_warehouse: "VALUECHAIN_WH"
