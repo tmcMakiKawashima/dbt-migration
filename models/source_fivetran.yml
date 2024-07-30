@@ -1,6 +1,18 @@
 version: 2
 
 sources:
+  - name: fivetran_database_supplydemand
+    database: fivetran_database
+    schema: oracle_rds_osepcs0000db20
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: _fivetran_synced
+
+    tables:
+      - name: raw_cep1004serno
+        identifier: cep1004serno
+
   - name: fivetran_database_customerservice
     database: fivetran_database
     schema: oracle_rds_osepcs0000db20
@@ -10,5 +22,9 @@ sources:
     loaded_at_field: _fivetran_synced
 
     tables:
+      - name: raw_cep0001wrntdata
+        identifier: cep0001wrntdata
+      - name: raw_cep0002w3wranty
+        identifier: cep0002w3wranty
       - name: raw_cep0768warr_cn_cmt
         identifier: cep0768warr_cn_cmt
