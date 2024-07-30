@@ -1,0 +1,14 @@
+version: 2
+
+models:
+# 市情報（車歴情報）
+  - name: stg_shijoho_syareki
+    columns:
+      - name: ftr_no
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
