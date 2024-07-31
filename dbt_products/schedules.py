@@ -17,6 +17,7 @@ schedules = [
         config=RunConfig(ops={
             "dbt_products_assets": DbtConfig(dbt_vars={"DBT_JOB_NAME": "_dm_vinhis_specification_kokunai"})}),
         # default_status=DefaultScheduleStatus.RUNNING,
+        tags={"ecs/cpu": "256", "ecs/memory": "1024"},
     ),
     build_schedule_from_dbt_selection(
         [dbt_products_assets],
@@ -28,6 +29,7 @@ schedules = [
         config=RunConfig(ops={
             "dbt_products_assets": DbtConfig(dbt_vars={"DBT_JOB_NAME": "_dm_vinhis_specification_kaigai"})}),
         # default_status=DefaultScheduleStatus.RUNNING,
+        tags={"ecs/cpu": "256", "ecs/memory": "1024"},
     ),
     build_schedule_from_dbt_selection(
         [dbt_products_assets],
@@ -39,6 +41,7 @@ schedules = [
         config=RunConfig(ops={
             "dbt_products_assets": DbtConfig(dbt_vars={"DBT_JOB_NAME": "_dm_vinhis_specification_oem"})}),
         # default_status=DefaultScheduleStatus.RUNNING,
+        tags={"ecs/cpu": "256", "ecs/memory": "1024"},
     ),
     build_schedule_from_dbt_selection(
         [dbt_products_assets],
@@ -49,5 +52,6 @@ schedules = [
         dbt_select="resource_type:snapshot",
         dbt_exclude="scd_tbsmksk_noki",
         # default_status=DefaultScheduleStatus.RUNNING,
+        tags={"ecs/cpu": "256", "ecs/memory": "1024"},
     ),
 ]

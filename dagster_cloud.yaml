@@ -6,7 +6,7 @@ locations:
     ecs:
       server_resources:
         cpu: "256"
-        memory: "512"
+        memory: "1024"
   agent_queue: dajp1-dxpf-queue
   build:
     directory: ./dbt_products
