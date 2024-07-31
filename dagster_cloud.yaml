@@ -2,6 +2,11 @@ locations:
 - location_name: dbt_products
   code_source:
     package_name: dbt_products.definitions
+  container_context:
+    ecs:
+      server_resources:
+        cpu: "256"
+        memory: "1024"
   agent_queue: dajp1-dxpf-queue
   build:
     directory: ./dbt_products
