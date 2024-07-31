@@ -34,7 +34,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   enterprise_data_products:
     +copy_grants: true
-    +on_schema_change: "append_new_columns"
+    +on_schema_change: "fail"
     BB:
       valuechain:
         +snowflake_warehouse: "VALUECHAIN_WH"
@@ -62,6 +62,14 @@ models:
         +snowflake_warehouse: "MARKETING_WH"
         +group: marketing
         +database: marketing_db
+        +schema: public
+        stg:
+          +access: public
+          +materialized: table
+      customerservice:
+        +snowflake_warehouse: "CUSTOMERSERVICE_WH"
+        +group: customerservice
+        +database: customerservice_db
         +schema: public
         stg:
           +access: public
@@ -165,6 +173,11 @@ snapshots:
         +snowflake_warehouse: "MARKETING_WH"
         +group: marketing
         +target_database: marketing_db
+        +target_schema: dbt_snapshots
+      customerservice:
+        +snowflake_warehouse: "CUSTOMERSERVICE_WH"
+        +group: customerservice
+        +target_database: customerservice_db
         +target_schema: dbt_snapshots
     DD:
       supplydemand:
