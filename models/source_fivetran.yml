@@ -1,5 +1,4 @@
 version: 2
-
 sources:
   - name: fivetran_database_supplydemand
     database: fivetran_database
@@ -8,10 +7,12 @@ sources:
       warn_after: { count: 1, period: hour }
       error_after: { count: 24, period: hour }
     loaded_at_field: _fivetran_synced
-
+   
     tables:
       - name: raw_cep1004serno
         identifier: cep1004serno
+      - name: raw_cep1002seisan
+        identifier: CEP1002SEISAN
 
   - name: fivetran_database_customerservice
     database: fivetran_database
