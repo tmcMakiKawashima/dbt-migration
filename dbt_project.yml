@@ -66,6 +66,14 @@ models:
         stg:
           +access: public
           +materialized: table
+      customerservice:
+        +snowflake_warehouse: "CUSTOMERSERVICE_WH"
+        +group: customerservice
+        +database: customerservice_db
+        +schema: public
+        stg:
+          +access: public
+          +materialized: table
     DD:
       valuechain:
         +snowflake_warehouse: "VALUECHAIN_WH"
@@ -165,6 +173,11 @@ snapshots:
         +snowflake_warehouse: "MARKETING_WH"
         +group: marketing
         +target_database: marketing_db
+        +target_schema: dbt_snapshots
+      customerservice:
+        +snowflake_warehouse: "CUSTOMERSERVICE_WH"
+        +group: customerservice
+        +target_database: customerservice_db
         +target_schema: dbt_snapshots
     DD:
       supplydemand:
