@@ -11,7 +11,7 @@ schedules = [
         [dbt_products_assets],
         job_name="dm_vinhis_specification_kokunai",
         schedule_name="VIN_SOUBI_KOKUNAI",
-        cron_schedule="37 19 * * *",
+        cron_schedule="30 16 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+dm_vinhis_specification_kokunai",
         config=RunConfig(ops={
@@ -23,7 +23,7 @@ schedules = [
         [dbt_products_assets],
         job_name="dm_vinhis_specification_kaigai",
         schedule_name="VIN_SOUBI_KAIGAI",
-        cron_schedule="35 16 * * *",
+        cron_schedule="30 16 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+dm_vinhis_specification_kaigai",
         config=RunConfig(ops={
@@ -35,7 +35,7 @@ schedules = [
         [dbt_products_assets],
         job_name="dm_vinhis_specification_oem",
         schedule_name="VIN_SOUBI_OEM",
-        cron_schedule="35 16 * * *",
+        cron_schedule="30 16 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+dm_vinhis_specification_oem",
         config=RunConfig(ops={
@@ -47,7 +47,7 @@ schedules = [
         [dbt_products_assets],
         job_name="snapshots",
         schedule_name="snapshot",
-        cron_schedule="16 16 * * *",
+        cron_schedule="00 18 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="resource_type:snapshot",
         dbt_exclude="scd_tbsmksk_noki",
