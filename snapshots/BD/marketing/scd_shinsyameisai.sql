@@ -3,9 +3,7 @@
     config(
         unique_key="concat_ws('-',
                     dlrcd,
-                    cuno,
-                    edano,
-                    ym)",
+                    cuno)",
         strategy='timestamp',
         updated_at='ldts',
         invalidate_hard_deletes=true,

@@ -1,4 +1,4 @@
-version: 2
+﻿version: 2
 
 models:
 # 用品明細
@@ -53,8 +53,6 @@ models:
           combination_of_columns:
             - dlrcd
             - cuno
-            - edano
-            - ym
           config:
             severity: error
 
