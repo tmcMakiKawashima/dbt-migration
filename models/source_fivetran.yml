@@ -41,3 +41,5 @@ sources:
         identifier: cep0004parts
       - name: raw_cep0714ftr_info
         identifier: cep0714ftr_info
+      - name: raw_cep0717ftr_reg
+        identifier: cep0717ftr_reg
