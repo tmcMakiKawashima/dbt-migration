@@ -1,0 +1,70 @@
+version: 2
+models:
+# ワランティ交換品番
+  - name: stg_warranty_koukanhinban
+    tests:
+      - dbt_utils.unique_combination_of_columns:        # パッケージで提供されているテストを仕様
+          combination_of_columns:
+            - settle_date_y
+            - settle_date_m
+            - dealer_code
+            - twc_no
+            - frmkbn
+            - frmno
+            - wmi
+            - vds
+            - vis
+            - seq_no_parts
+          config:
+            severity: error
+    columns:
+      - name: settle_date_y
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: settle_date_m
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dealer_code
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: twc_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: wmi
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vds
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vis
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seq_no_parts
+        tests:
+          - not_null:
+              config:
+                severity: error
