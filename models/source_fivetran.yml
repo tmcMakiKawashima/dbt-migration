@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: fivetran_database_supplydemand
+    database: fivetran_database
+    schema: oracle_rds_osepcs0000db20
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: _fivetran_synced
+
+    tables:
+      - name: raw_cep1001index
+        identifier: CEP1001INDEX
