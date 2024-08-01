@@ -1,0 +1,22 @@
+version: 2
+models:
+# 市情報関連登録ｼｰﾄ
+  - name: stg_shijoho_kanrentorokusheet
+    tests:
+      - dbt_utils.unique_combination_of_columns:        # パッケージで提供されているテストを仕様
+          combination_of_columns:
+            - ftr_no
+            - reg_sheet_no
+          config:
+            severity: error
+    columns:
+      - name: ftr_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: reg_sheet_no
+        tests:
+          - not_null:
+              config:
+                severity: error
