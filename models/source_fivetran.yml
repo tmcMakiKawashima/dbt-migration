@@ -11,4 +11,4 @@ sources:
 
     tables:
       - name: raw_cep1001index
-        identifier: CEP1001INDEX
+        identifier: cep1001index
