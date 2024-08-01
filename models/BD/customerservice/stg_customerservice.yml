@@ -1,0 +1,28 @@
+version: 2
+models:
+# 市情報部外配布
+  - name: stg_shijoho_bugaihaihu
+    tests:
+      - dbt_utils.unique_combination_of_columns:        # パッケージで提供されているテストを仕様
+          combination_of_columns:
+            - ftr_no
+            - outside_cmpny_code
+            - outside_div_code
+          config:
+            severity: error
+    columns:
+      - name: ftr_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: outside_cmpny_code
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: outside_div_code
+        tests:
+          - not_null:
+              config:
+                severity: error
