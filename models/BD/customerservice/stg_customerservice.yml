@@ -440,3 +440,15 @@ models:
           - not_null:
               config:
                 severity: error
+
+# 市情報
+  - name: stg_shijoho
+    columns:
+      - name: ftr_no
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error

@@ -12,7 +12,7 @@ sources:
       - name: raw_cep1004serno
         identifier: cep1004serno
       - name: raw_cep1002seisan
-        identifier: CEP1002SEISAN
+        identifier: cep1002seisan
 
   - name: fivetran_database_customerservice
     database: fivetran_database
@@ -38,4 +38,6 @@ sources:
       - name: raw_cep0003wrntcom
         identifier: cep0003wrntcom
       - name: raw_cep0004parts
-        identifier: CEP0004PARTS
+        identifier: cep0004parts
+      - name: raw_cep0714ftr_info
+        identifier: cep0714ftr_info
