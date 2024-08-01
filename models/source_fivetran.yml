@@ -1,0 +1,13 @@
+version: 2
+sources:
+  - name: fivetran_database_customerservice
+    database: FIVETRAN_DATABASE
+    schema: ORACLE_RDS_OSEPCS0000DB20
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: _fivetran_synced
+   
+    tables:
+      - name: raw_cep0714ftr_info
+        identifier: CEP0714FTR_INFO
