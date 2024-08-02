@@ -1,0 +1,72 @@
+﻿version: 2
+
+models:
+# ワランティサプライヤ
+  - name: stg_warranty_supplyer
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - settle_date_y
+            - settle_date_m
+            - dealer_code
+            - twc_no
+            - frmkbn
+            - frmno
+            - wmi
+            - vds
+            - vis
+            - suppli_code_ovs
+          config:
+            severity: error
+
+    columns:
+      - name: settle_date_y
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: settle_date_m
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dealer_code
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: twc_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: wmi
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vds
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vis
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: suppli_code_ovs
+        tests:
+          - not_null:
+              config:
+                severity: error
