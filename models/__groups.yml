@@ -22,8 +22,4 @@ groups:
       email: maki_kawashima@mail.toyota.co.jp
   - name: customerservice
     owner:
-<<<<<<< models/__groups.yml
       email: maki_kawashima@mail.toyota.co.jp
-=======
-      email: maki_kawashima@mail.toyota.co.jp
->>>>>>> models/__groups.yml
