@@ -49,3 +49,5 @@ sources:
         identifier: cep0715ftr_outside
       - name: raw_cep0011lohbn
         identifier: cep0011lohbn
+      - name: raw_cep0008supley
+        identifier: cep0008supley
