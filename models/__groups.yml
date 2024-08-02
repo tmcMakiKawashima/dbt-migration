@@ -20,3 +20,6 @@ groups:
   - name: datamart
     owner:
       email: maki_kawashima@mail.toyota.co.jp
+  - name: customerservice
+    owner:
+      email: maki_kawashima@mail.toyota.co.jp
