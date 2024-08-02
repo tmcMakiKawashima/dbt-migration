@@ -1,0 +1,24 @@
+﻿version: 2
+
+models:                
+# 市情報_本文テキスト
+  - name: stg_shijoho_honbuntext
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ftr_no
+            - seq_ftr_body
+          config:
+            severity: error
+
+    columns:
+      - name: ftr_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seq_ftr_body
+        tests:
+          - not_null:
+              config:
+                severity: error
