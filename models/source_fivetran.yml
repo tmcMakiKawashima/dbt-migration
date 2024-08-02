@@ -13,6 +13,8 @@ sources:
         identifier: cep1004serno
       - name: raw_cep1002seisan
         identifier: cep1002seisan
+      - name: raw_cep1001index
+        identifier: cep1001index
 
   - name: fivetran_database_customerservice
     database: fivetran_database
