@@ -51,3 +51,5 @@ sources:
         identifier: cep0011lohbn
       - name: raw_cep0008supley
         identifier: cep0008supley
+      - name: raw_cep0712ftr_body
+        identifier: cep0712ftr_body
