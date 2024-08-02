@@ -1,6 +1,637 @@
-﻿version: 2
+version: 2
 
-models:                
+models:
+# ワランティ
+  - name: stg_warranty
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - settle_date_y
+            - settle_date_m
+            - dealer_code
+            - twc_no
+            - frmkbn
+            - frmno
+            - wmi
+            - vds
+            - vis
+          config:
+            severity: error
+
+    columns:
+      - name: settle_date_y
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: settle_date_m
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dealer_code
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: twc_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: wmi
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vds
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vis
+        tests:
+          - not_null:
+              config:
+                severity: error
+
+# ワランティ_WCUBE
+  - name: stg_warranty_wcube
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - settle_date_y
+            - settle_date_m
+            - dealer_code
+            - twc_no
+            - frmkbn
+            - frmno
+            - wmi
+            - vds
+            - vis
+          config:
+            severity: error
+
+    columns:
+      - name: settle_date_y
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: settle_date_m
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dealer_code
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: twc_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: wmi
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vds
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vis
+        tests:
+          - not_null:
+              config:
+                severity: error
+
+# ワランティ情報_中国語コメント
+  - name: stg_warranty_chinesecomment
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - settle_date_y
+            - settle_date_m
+            - dealer_code
+            - twc_no
+            - frmkbn
+            - frmno
+            - wmi
+            - vds
+            - vis
+          config:
+            severity: error
+
+    columns:
+      - name: settle_date_y
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: settle_date_m
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dealer_code
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: twc_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: wmi
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vds
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vis
+        tests:
+          - not_null:
+              config:
+                severity: error
+
+# ワランティ求償
+  - name: stg_warranty_kyusyo
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - settle_date_y
+            - settle_date_m
+            - dealer_code
+            - twc_no
+            - frmkbn
+            - frmno
+            - wmi
+            - vds
+            - vis
+            - cmp_suppli_code
+            - cmp_settle_date_y
+            - cmp_settle_date_m
+          config:
+            severity: error
+
+    columns:
+      - name: settle_date_y
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: settle_date_m
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dealer_code
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: twc_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: wmi
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vds
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vis
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cmp_suppli_code
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cmp_settle_date_y
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cmp_settle_date_m
+        tests:
+          - not_null:
+              config:
+                severity: error
+
+# 市情報（車歴情報）
+  - name: stg_shijoho_syareki
+    columns:
+      - name: ftr_no
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+
+# 市情報_交換部品
+  - name: stg_shijoho_kokanbuhin
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ftr_no
+            - seq_ftr_rep
+          config:
+            severity: error
+
+    columns:
+      - name: ftr_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seq_ftr_rep
+        tests:
+          - not_null:
+              config:
+                severity: error
+
+# ワランティ_コメント
+  - name: stg_warranty_comment
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - settle_date_y
+            - settle_date_m
+            - dealer_code
+            - twc_no
+            - frmkbn
+            - frmno
+            - wmi
+            - vds
+            - vis
+          config:
+            severity: error
+    columns:
+      - name: settle_date_y
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: settle_date_m
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dealer_code
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: twc_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: wmi
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vds
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vis
+        tests:
+          - not_null:
+              config:
+                severity: error
+
+# ワランティ交換品番
+  - name: stg_warranty_koukanhinban
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - settle_date_y
+            - settle_date_m
+            - dealer_code
+            - twc_no
+            - frmkbn
+            - frmno
+            - wmi
+            - vds
+            - vis
+            - seq_no_parts
+          config:
+            severity: error
+    columns:
+      - name: settle_date_y
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: settle_date_m
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dealer_code
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: twc_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: wmi
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vds
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vis
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seq_no_parts
+        tests:
+          - not_null:
+              config:
+                severity: error
+
+# 市情報
+  - name: stg_shijoho
+    columns:
+      - name: ftr_no
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+
+# 市情報関連登録ｼｰﾄ
+  - name: stg_shijoho_kanrentorokusheet
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ftr_no
+            - reg_sheet_no
+          config:
+            severity: error
+    columns:
+      - name: ftr_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: reg_sheet_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+
+# 市情報部外配布
+  - name: stg_shijoho_bugaihaihu
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ftr_no
+            - outside_cmpny_code
+            - outside_div_code
+          config:
+            severity: error
+    columns:
+      - name: ftr_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: outside_cmpny_code
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: outside_div_code
+        tests:
+          - not_null:
+              config:
+                severity: error
+# ワランティ_号口品番
+  - name: stg_warranty_goguchihinban
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - settle_date_y
+            - settle_date_m
+            - dealer_code
+            - twc_no
+            - frmkbn
+            - frmno
+            - wmi
+            - vds
+            - vis
+          config:
+            severity: error
+
+    columns:
+      - name: settle_date_y
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: settle_date_m
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dealer_code
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: twc_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: wmi
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vds
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vis
+        tests:
+          - not_null:
+              config:
+                severity: error
+# ワランティサプライヤ
+  - name: stg_warranty_supplyer
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - settle_date_y
+            - settle_date_m
+            - dealer_code
+            - twc_no
+            - frmkbn
+            - frmno
+            - wmi
+            - vds
+            - vis
+            - suppli_code_ovs
+          config:
+            severity: error
+
+    columns:
+      - name: settle_date_y
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: settle_date_m
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dealer_code
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: twc_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: wmi
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vds
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vis
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: suppli_code_ovs
+        tests:
+          - not_null:
+              config:
+                severity: error
 # 市情報_本文テキスト
   - name: stg_shijoho_honbuntext
     tests:
