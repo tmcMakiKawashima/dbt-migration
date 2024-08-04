@@ -1,0 +1,32 @@
+version: 2
+models:
+# 用品品番明細
+  - name: stg_yohinhinbanmeisai
+    tests:
+      - dbt_utils.unique_combination_of_columns:        # パッケージで提供されているテストを仕様
+          combination_of_columns:
+            - dlrcd
+            - chumon
+          config:
+            severity: error
+    columns:
+      - name: dlrcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: chumon
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: edano
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ym
+        tests:
+          - not_null:
+              config:
+                severity: error

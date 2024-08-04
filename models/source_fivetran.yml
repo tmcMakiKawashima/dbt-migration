@@ -1,0 +1,13 @@
+version: 2
+sources:
+  - name: fivetran_database_valuechain
+    database: FIVETRAN_DATABASE
+    schema: S3_VALUECHAIN01
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: _fivetran_synced
+   
+    tables:
+      - name: raw_tc125yohinhinban
+        identifier: TC_125_YOHINHINBAN
