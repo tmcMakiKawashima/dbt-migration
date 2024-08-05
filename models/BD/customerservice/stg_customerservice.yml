@@ -653,3 +653,11 @@ models:
           - not_null:
               config:
                 severity: error
+# 市情報_追加情報
+  - name: stg_shijoho_tsuika
+    columns:
+      - name: ftr_no
+        tests:
+          - not_null:
+              config:
+                severity: error
