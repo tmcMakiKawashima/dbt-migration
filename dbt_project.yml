@@ -6,11 +6,6 @@ name: 'enterprise_data_products'
 version: '1.0.0'
 config-version: 2
 
-vars:
-  use_common_masking_policy_db: "True"
-  common_masking_policy_db: "COMMON_TBL_DB"
-  common_masking_policy_schema: "MASKING_POLICY"
-
 # This setting configures which "profile" dbt uses for this project.
 profile: 'enterprise_data_products'
 
@@ -55,14 +50,6 @@ models:
         stg:
           +access: public
           +materialized: table
-      supplydemand:
-        +snowflake_warehouse: "SUPPLYDEMAND_WH"
-        +group: supplydemand
-        +database: supplydemand_db
-        +schema: public
-        stg:
-          +access: public
-          +materialized: table
       marketing:
         +snowflake_warehouse: "MARKETING_WH"
         +group: marketing
@@ -96,15 +83,6 @@ models:
         stg:
           +access: public
           +materialized: table
-      vinhis:
-        +snowflake_warehouse: "VINHIS_WH"
-        vinspec:
-            +group: vinhis_vinspec
-            +database: vinhis_db
-            +schema: vinspec
-            stg:
-              +access: public
-              +materialized: table
     DE:
       PARTS:
         +snowflake_warehouse: "PARTS_WH"
@@ -117,18 +95,6 @@ models:
       vinhis:
         +snowflake_warehouse: "VINHIS_WH"
         +database: vinhis_db
-        spec:
-          +group: vinhis_spec
-          +schema: spec
-          dim:
-            +access: public
-            +materialized: table
-        maint:
-          +group: vinhis_maint
-          +schema: maint
-          dim:
-            +access: public
-            +materialized: table
         yohin:
           +group: vinhis_yohin
           +schema: yohin
@@ -172,11 +138,6 @@ snapshots:
         +snowflake_warehouse: "VALUECHAIN_WH"
         +group: valuechain
         +target_database: valuechain_db
-        +target_schema: dbt_snapshots
-      supplydemand:
-        +snowflake_warehouse: "SUPPLYDEMAND_WH"
-        +group: supplydemand
-        +target_database: supplydemand_db
         +target_schema: dbt_snapshots
       marketing:
         +snowflake_warehouse: "MARKETING_WH"
