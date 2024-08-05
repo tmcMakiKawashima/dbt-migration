@@ -1,4 +1,3 @@
-
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
@@ -37,11 +36,13 @@ models:
     +on_schema_change: "fail"
     BB:
       valuechain:
+        +snowflake_warehouse: "VALUECHAIN_WH"
         +group: valuechain
         +database: valuechain_db
         +schema: public
     BD:
       valuechain:
+        +snowflake_warehouse: "VALUECHAIN_WH"
         +group: valuechain
         +database: valuechain_db
         +schema: public
@@ -49,7 +50,7 @@ models:
           +access: public
           +materialized: table
       marketing:
-        +snowflake_warehouse: marketing_wh
+        +snowflake_warehouse: "MARKETING_WH"
         +group: marketing
         +database: marketing_db
         +schema: public
@@ -58,6 +59,7 @@ models:
           +materialized: table
     DD:
       valuechain:
+        +snowflake_warehouse: "VALUECHAIN_WH"
         +group: valuechain
         +database: valuechain_db
         +schema: public
@@ -65,6 +67,7 @@ models:
           +access: public
           +materialized: table
       marketing:
+        +snowflake_warehouse: "MARKETING_WH"
         +group: marketing
         +database: marketing_db
         +schema: public
@@ -72,6 +75,7 @@ models:
           +access: public
           +materialized: table
       supplydemand:
+        +snowflake_warehouse: "SUPPLYDEMAND_WH"
         +group: supplydemand
         +database: supplydemand_db
         +schema: public
@@ -80,6 +84,7 @@ models:
           +materialized: table
     DE:
       PARTS:
+        +snowflake_warehouse: "PARTS_WH"
         +group: parts
         +database: PARTS_DB
         +schema: logistics
@@ -88,6 +93,7 @@ models:
           +materialized: table
     EF:
       DATAMART:
+        +snowflake_warehouse: "DATAMART_WH"
         +group: datamart
         +database: DATAMART_DB
         +schema: public
@@ -100,6 +106,7 @@ tests:
     +severity: warn
     +store_failures: true
     +database: COMMON_TBL_DB
+    # +schema: dbt_test__audit # default
     +schema: "dbt_test__audit{{ var('DBT_JOB_NAME', '') }}"
     # +schema: "dbt_test__audit_{{ modules.datetime.date.today().strftime('%Y%m%d') }}_{{ env_var('DBT_CLOUD_RUN_ID', 'local') }}"
       # https://docs.getdbt.com/docs/build/environment-variables#special-environment-variables
@@ -118,11 +125,12 @@ snapshots:
   enterprise_data_products:
     BD:
       valuechain:
+        +snowflake_warehouse: "VALUECHAIN_WH"
         +group: valuechain
         +target_database: valuechain_db
         +target_schema: dbt_snapshots
       marketing:
-        +snowflake_warehouse: marketing_wh
+        +snowflake_warehouse: "MARKETING_WH"
         +group: marketing
         +target_database: marketing_db
         +target_schema: dbt_snapshots

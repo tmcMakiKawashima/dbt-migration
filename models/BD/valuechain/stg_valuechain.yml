@@ -1,108 +1,101 @@
-version: 2
-
+﻿version: 2
 models:
-# 用品明細
-  - name: stg_yohinmeisai
+# 号口車種コード
+  - name: stg_goguchisyasyucd
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu_cd
+            - yohinsyamei
+          config:
+            severity: error
+    columns:
+      - name: syasyu_cd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: yohinsyamei
+        tests:
+          - not_null:
+              config:
+                severity: error
+
+# 用品装着歴
+  - name: stg_yohinsotyakureki
     tests:
       - dbt_utils.unique_combination_of_columns:        # パッケージで提供されているテストを仕様
           combination_of_columns:
-            - dlrcd
-            - cuno
-            - edano
-            - ym
-            - nykt
-            - tkcd
+            - kbsyadai
+            - nosyadai
+            - ddtorituke
+            - cdyouhinban
+            - cdtorihan
+            - cdtoritenpo
           config:
             severity: error
 
     columns:
-      - name: dlrcd
+      - name: kbsyadai
         tests:
           - not_null:
               config:
                 severity: error
-      - name: cuno
+      - name: nosyadai
         tests:
           - not_null:
               config:
                 severity: error
-      - name: edano
+      - name: ddtorituke
         tests:
           - not_null:
               config:
                 severity: error
-      - name: ym
+      - name: cdyouhinban
         tests:
           - not_null:
               config:
                 severity: error
-      - name: nykt
+      - name: cdtorihan
         tests:
           - not_null:
               config:
                 severity: error
-      - name: tkcd
+      - name: cdtoritenpo
         tests:
           - not_null:
               config:
                 severity: error
-# 新車明細
-  - name: stg_shinsyameisai
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - cuno
-          config:
-            severity: error
 
-    columns:
-      - name: dlrcd
-        tests:
-          - not_null:
-              config:
-                severity: error
-      - name: cuno
-        tests:
-          - not_null:
-              config:
-                severity: error
-      - name: edano
-        tests:
-          - not_null:
-              config:
-                severity: error
-      - name: ym
-        tests:
-          - not_null:
-              config:
-                severity: error
-# 用品品番明細
-  - name: stg_yohinhinbanmeisai
+# 現用品マスタ
+  - name: stg_genyohinmaster
     tests:
-      - dbt_utils.unique_combination_of_columns:
+      - dbt_utils.unique_combination_of_columns:        # パッケージで提供されているテストを使用
           combination_of_columns:
-            - dlrcd
-            - chumon
+            - yohinsyamei
+            - tuikou
+            - seg
+            - seq
           config:
             severity: error
+      
     columns:
-      - name: dlrcd
+      - name: yohinsyamei
         tests:
           - not_null:
               config:
                 severity: error
-      - name: chumon
+      - name: tuikou
         tests:
           - not_null:
               config:
                 severity: error
-      - name: edano
+      - name: seg
         tests:
           - not_null:
               config:
                 severity: error
-      - name: ym
+      - name: seq
         tests:
           - not_null:
               config:
