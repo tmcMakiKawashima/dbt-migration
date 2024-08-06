@@ -7,6 +7,7 @@ from dagster_dbt import build_schedule_from_dbt_selection
 from .enterprise_data_products_assets.assets import DbtConfig, dbt_products_assets
 
 schedules = [
+    # 補給納期物流視える化
     build_schedule_from_dbt_selection(
         [dbt_products_assets],
         job_name="job_build_hokyunoki_mieruka",
@@ -22,6 +23,7 @@ schedules = [
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_hokyunoki_mieruka"},
     ),
+    # VIN装備（国内）
     build_schedule_from_dbt_selection(
         [dbt_products_assets],
         job_name="job_build_dm_vinhis_specification_kokunai",
@@ -37,6 +39,7 @@ schedules = [
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_dm_vinhis_specification_kokunai"},
     ),
+    # VIN装備（海外）
     build_schedule_from_dbt_selection(
         [dbt_products_assets],
         job_name="job_build_dm_vinhis_specification_kaigai",
@@ -52,6 +55,7 @@ schedules = [
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_dm_vinhis_specification_kaigai"},
     ),
+    # VIN装備（OEM）
     build_schedule_from_dbt_selection(
         [dbt_products_assets],
         job_name="job_build_dm_vinhis_specification_oem",
@@ -67,6 +71,7 @@ schedules = [
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_dm_vinhis_specification_oem"},
     ),
+    # snapshot
     build_schedule_from_dbt_selection(
         [dbt_products_assets],
         job_name="job_snapshots",
