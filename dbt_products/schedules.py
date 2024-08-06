@@ -14,8 +14,10 @@ schedules = [
         cron_schedule="30 19 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+dm_yohin_daiatari +dm_hosyuhin_noukishitei",
-        config=RunConfig(ops={
-            "dbt_products_assets": DbtConfig(dbt_vars={"DBT_JOB_NAME": ""})}),
+        config=RunConfig(ops={"dbt_products_assets": 
+                              DbtConfig(dbt_vars={"DBT_JOB_NAME": ""})
+                             }
+                        ),
         # default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_hokyunoki_mieruka"},
@@ -27,8 +29,10 @@ schedules = [
         cron_schedule="30 16 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+dm_vinhis_specification_kokunai",
-        config=RunConfig(ops={
-            "dbt_products_assets": DbtConfig(dbt_vars={"DBT_JOB_NAME": "_dm_vinhis_specification_kokunai"})}),
+        config=RunConfig(ops={"dbt_products_assets": 
+                              DbtConfig(dbt_vars={"DBT_JOB_NAME": "_dm_vinhis_specification_kokunai"})
+                             }
+                        ),
         # default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_dm_vinhis_specification_kokunai"},
@@ -40,8 +44,10 @@ schedules = [
         cron_schedule="30 16 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+dm_vinhis_specification_kaigai",
-        config=RunConfig(ops={
-            "dbt_products_assets": DbtConfig(dbt_vars={"DBT_JOB_NAME": "_dm_vinhis_specification_kaigai"})}),
+        config=RunConfig(ops={"dbt_products_assets": 
+                              DbtConfig(dbt_vars={"DBT_JOB_NAME": "_dm_vinhis_specification_kaigai"})
+                             }
+                        ),
         # default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_dm_vinhis_specification_kaigai"},
@@ -53,8 +59,10 @@ schedules = [
         cron_schedule="30 16 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+dm_vinhis_specification_oem",
-        config=RunConfig(ops={
-            "dbt_products_assets": DbtConfig(dbt_vars={"DBT_JOB_NAME": "_dm_vinhis_specification_oem"})}),
+        config=RunConfig(ops={"dbt_products_assets": 
+                              DbtConfig(dbt_vars={"DBT_JOB_NAME": "_dm_vinhis_specification_oem"})
+                             }
+                        ),
         # default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_dm_vinhis_specification_oem"},
