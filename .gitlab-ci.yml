@@ -2,7 +2,7 @@ variables:
   DAGSTER_CLOUD_ORGANIZATION: toyotadataplatform
   DAGSTER_PROJECT_DIR: .
   DAGSTER_CLOUD_YAML_PATH: dagster_cloud.yaml
-  IMAGE_REGISTRY: 248810166614.dkr.ecr.ap-northeast-1.amazonaws.com/dajp1-dxpf-edp-ecr-dagster
+  IMAGE_REGISTRY: 085931761001.dkr.ecr.ap-northeast-1.amazonaws.com/sajp1-dxpf-edp-ecr-dagster
   IMAGE_TAG: $CI_COMMIT_SHORT_SHA-$CI_PIPELINE_ID
   DAGSTER_BUILD_STATEDIR: build-state
 
@@ -52,6 +52,7 @@ build-image:
   script:
     - docker build . -t $IMAGE_REGISTRY:$IMAGE_TAG
     - docker push $IMAGE_REGISTRY:$IMAGE_TAG
+    - docker system prune -a --filter "until=24h"
 
 deploy-docker:
   stage: deploy
