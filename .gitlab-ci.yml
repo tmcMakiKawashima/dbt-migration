@@ -26,7 +26,7 @@ initialize:
     - export
     - dagster-cloud ci check --project-dir=$DAGSTER_PROJECT_DIR --dagster-cloud-yaml-path=$DAGSTER_CLOUD_YAML_PATH
     - >
-      dagster-cloud ci init --deployment=dev --statedir=$DAGSTER_BUILD_STATEDIR
+      dagster-cloud ci init --deployment=stg --statedir=$DAGSTER_BUILD_STATEDIR
       --project-dir=$DAGSTER_PROJECT_DIR --dagster-cloud-yaml-path=$DAGSTER_CLOUD_YAML_PATH
       --git-url=$CI_COMMIT_SHA
       --commit-hash=$CI_COMMIT_SHA
@@ -52,7 +52,7 @@ build-image:
   script:
     - docker build . -t $IMAGE_REGISTRY:$IMAGE_TAG
     - docker push $IMAGE_REGISTRY:$IMAGE_TAG
-    - docker system prune -a --filter "until=24h"
+    - docker system prune -a -f --filter "until=24h"
 
 deploy-docker:
   stage: deploy
