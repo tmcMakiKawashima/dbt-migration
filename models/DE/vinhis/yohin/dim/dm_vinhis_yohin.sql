@@ -4,8 +4,9 @@ with
     ),
     stg_genyohinmaster as (
         select
-            tsuikou_name, -- 追工名称
-            data1_hinmei, -- 品名
+            tk_cd, -- ﾃﾞｰﾀ部1.追工ｺｰﾄﾞ
+            tsuikou_name, -- ﾃﾞｰﾀ部1.追工名称
+            data1_hinmei, -- ﾃﾞｰﾀ部1.品名
             data2_tekimd, -- ﾃﾞｰﾀ部2.適用期間ﾏﾃﾞ
             data2_delflg, -- ﾃﾞｰﾀ部2.削除FLG
             yohinsyamei -- 用品車名No
@@ -25,3 +26,4 @@ select
 from tmp40_dm_vinhis_yohin
 left outer join stg_genyohinmaster
     on tmp40_dm_vinhis_yohin.yohinsyamei = stg_genyohinmaster.yohinsyamei
+    and tmp40_dm_vinhis_yohin.tk_cd = stg_genyohinmaster.tk_cd
