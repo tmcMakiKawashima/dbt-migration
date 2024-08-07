@@ -4,7 +4,8 @@ from pathlib import Path
 from dagster_dbt import DbtCliResource
 
 dbt_project_dir = Path(__file__).joinpath("..", "..", "enterprise_data_products").resolve()
-dbt = DbtCliResource(project_dir=os.fspath(dbt_project_dir))
+dbt_profiles_dir = Path(__file__).joinpath("..").resolve()
+dbt = DbtCliResource(project_dir=os.fspath(dbt_project_dir), profiles_dir=os.fspath(dbt_profiles_dir))
 
 if not os.getenv("dbt_deploy_env", "") == "local":
         dbt.cli(["deps"]).wait()
