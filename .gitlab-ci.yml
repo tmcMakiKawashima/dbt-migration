@@ -52,6 +52,7 @@ build-image:
   script:
     - docker build . -t $IMAGE_REGISTRY:$IMAGE_TAG
     - docker push $IMAGE_REGISTRY:$IMAGE_TAG
+    - docker system prune -a -f --filter "until=24h"
 
 deploy-docker:
   stage: deploy
