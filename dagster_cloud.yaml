@@ -1,21 +1,13 @@
-locations:
-- location_name: dxpf_edp_dagster_edp_infra_ope_sample01
+locations:    
+- location_name: dbt_products
   code_source:
-    package_name: dxpf_edp_dagster_edp_infra_ope_sample01
+    package_name: dbt_products.definitions
   container_context:
     ecs:
       server_resources:
         cpu: "256"
-        memory: "512"
-  agent_queue: sajp1-dxpf-queue
+        memory: "1024"
+  agent_queue: dajp1-dxpf-queue
   build:
-    directory: ./dxpf_edp_dagster_edp_infra_ope_sample01
-    registry: 085931761001.dkr.ecr.ap-northeast-1.amazonaws.com/sajp1-dxpf-edp-ecr-dagster
-
-- location_name: dxpf_edp_dagster_edp_infra_ope_sample02
-  code_source:
-    package_name: dxpf_edp_dagster_edp_infra_ope_sample02
-  agent_queue: sajp1-dxpf-queue
-  build:
-    directory: ./dxpf_edp_dagster_edp_infra_ope_sample02
-    registry: 085931761001.dkr.ecr.ap-northeast-1.amazonaws.com/sajp1-dxpf-edp-ecr-dagster
+    directory: ./dbt_products
+    registry: 248810166614.dkr.ecr.ap-northeast-1.amazonaws.com/dajp1-dxpf-edp-ecr-dagster

@@ -1,8 +1,0 @@
-version: 2
-
-sources:
-  - name: edp_db
-    database: edp_infra_sandbox_db
-    schema: public
-    tables:
-      - name: asset08_01
