@@ -29,7 +29,7 @@ with stg_nyukoreki as (
         iff(rtrim(delflg, ' 　') = 'D', '1', '0')::varchar(1) as delflg,
         ldts,
         row_number,
-        rank() over (partition by kbsyadai, nosyadai, seisanymd, nyukohanbaitencd, jutyuno order by ldts desc, row_number desc) aggkey
+        rank() over (partition by kbsyadai, nosyadai, nyukohanbaitencd, jutyuno order by ldts desc, row_number desc) aggkey
     from {{ ref('substr_ktrla025zz0kil3202') }}
 
     {% if is_incremental() %}
