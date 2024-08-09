@@ -8,5 +8,5 @@
 **/__pycache__/**
 
 #アプリインフラ環境設定ファイル
-#.gitlab-ci.yml
-#Dockerfile
+.gitlab-ci.yml
+Dockerfile
