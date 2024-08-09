@@ -6,6 +6,11 @@ name: 'enterprise_data_products'
 version: '1.0.0'
 config-version: 2
 
+vars:
+  use_common_masking_policy_db: "True"
+  common_masking_policy_db: "COMMON_TBL_DB"
+  common_masking_policy_schema: "MASKING_POLICY"
+
 # This setting configures which "profile" dbt uses for this project.
 profile: 'enterprise_data_products'
 
@@ -115,6 +120,12 @@ models:
         spec:
           +group: vinhis_spec
           +schema: spec
+          dim:
+            +access: public
+            +materialized: table
+        maint:
+          +group: vinhis_maint
+          +schema: maint
           dim:
             +access: public
             +materialized: table
