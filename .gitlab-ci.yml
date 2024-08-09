@@ -2,7 +2,7 @@ variables:
   DAGSTER_CLOUD_ORGANIZATION: toyotadataplatform
   DAGSTER_PROJECT_DIR: .
   DAGSTER_CLOUD_YAML_PATH: dagster_cloud.yaml
-  IMAGE_REGISTRY: 248810166614.dkr.ecr.ap-northeast-1.amazonaws.com/dajp1-dxpf-edp-ecr-dagster
+  IMAGE_REGISTRY: 085931761001.dkr.ecr.ap-northeast-1.amazonaws.com/sajp1-dxpf-edp-ecr-dagster
   IMAGE_TAG: $CI_COMMIT_SHORT_SHA-$CI_PIPELINE_ID
   DAGSTER_BUILD_STATEDIR: build-state
 
@@ -26,7 +26,7 @@ initialize:
     - export
     - dagster-cloud ci check --project-dir=$DAGSTER_PROJECT_DIR --dagster-cloud-yaml-path=$DAGSTER_CLOUD_YAML_PATH
     - >
-      dagster-cloud ci init --deployment=dev --statedir=$DAGSTER_BUILD_STATEDIR
+      dagster-cloud ci init --deployment=stg --statedir=$DAGSTER_BUILD_STATEDIR
       --project-dir=$DAGSTER_PROJECT_DIR --dagster-cloud-yaml-path=$DAGSTER_CLOUD_YAML_PATH
       --git-url=$CI_COMMIT_SHA
       --commit-hash=$CI_COMMIT_SHA
