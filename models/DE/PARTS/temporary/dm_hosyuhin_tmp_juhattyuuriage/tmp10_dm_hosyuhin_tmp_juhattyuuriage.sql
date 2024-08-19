@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with
     nokishiteijutyuchikuseki as (select * from {{ ref('stg_tbnokjs') }}),
     nyusyukko as (

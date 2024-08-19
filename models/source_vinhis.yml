@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: vinhis_db_vinspec
+    database: vinhis_db
+    schema: vinspec
+    tables:
+      - name: raw_mst_vinhis_specification_nameconvert
+        identifier: mst_vinhis_specification_nameconvert
+
+  - name: vinhis_db_iqas
+    database: vinhis_db
+    schema: iqas
+    tables:
+      - name: raw_dm_e010index
+        identifier: dm_e010index

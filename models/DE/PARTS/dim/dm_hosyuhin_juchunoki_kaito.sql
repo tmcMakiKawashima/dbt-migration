@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with ippan as (
     select * from {{ ref('dm_tmc_ippan_jutyunokikaito') }}
     where substr(m_ordeno, 1, 1) in ('P', 'Q')

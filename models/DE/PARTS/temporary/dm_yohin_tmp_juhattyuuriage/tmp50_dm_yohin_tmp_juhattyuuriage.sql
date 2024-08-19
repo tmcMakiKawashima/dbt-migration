@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with
     temp30 as (select * from {{ ref("tmp30_dm_yohin_tmp_juhattyuuriage") }}),
     temp40 as (select * from {{ ref("tmp40_dm_yohin_tmp_juhattyuuriage") }})
