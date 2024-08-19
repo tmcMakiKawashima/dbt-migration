@@ -133,8 +133,8 @@ models:
           +group: vinhis_maint
           +schema: maint
           dim:
-              +access: public
-              +materialized: table
+            +access: public
+            +materialized: table
     EF:
       DATAMART:
         +snowflake_warehouse: "DATAMART_WH"
