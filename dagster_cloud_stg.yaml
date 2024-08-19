@@ -7,7 +7,7 @@ locations:
       server_resources:
         cpu: "256"
         memory: "1024"
-  agent_queue: dajp1-dxpf-queue
+  agent_queue: sajp1-dxpf-queue
   build:
     directory: ./dbt_products
     registry: 085931761001.dkr.ecr.ap-northeast-1.amazonaws.com/sajp1-dxpf-edp-ecr-dagster
