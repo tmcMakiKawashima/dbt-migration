@@ -10,4 +10,4 @@ locations:
   agent_queue: dajp1-dxpf-queue
   build:
     directory: ./dbt_products
-    registry: 248810166614.dkr.ecr.ap-northeast-1.amazonaws.com/dajp1-dxpf-edp-ecr-dagster
+    registry: 085931761001.dkr.ecr.ap-northeast-1.amazonaws.com/sajp1-dxpf-edp-ecr-dagster
