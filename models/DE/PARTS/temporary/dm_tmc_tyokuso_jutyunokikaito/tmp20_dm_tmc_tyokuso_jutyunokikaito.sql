@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with temp15 as (
     select
         dlrcd,  --仕向先cd

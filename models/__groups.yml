@@ -8,7 +8,16 @@ groups:
   - name: valuechain
     owner:
       email: maki_kawashima@mail.toyota.co.jp
+  - name: vinhis_vinspec
+    owner:
+      email: maki_kawashima@mail.toyota.co.jp
   - name: parts
+    owner:
+      email: maki_kawashima@mail.toyota.co.jp
+  - name: vinhis_maint
+    owner:
+      email: maki_kawashima@mail.toyota.co.jp
+  - name: vinhis_spec
     owner:
       email: maki_kawashima@mail.toyota.co.jp
   - name: vinhis_yohin
