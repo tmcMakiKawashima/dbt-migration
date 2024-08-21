@@ -75,7 +75,7 @@ models:
         +snowflake_warehouse: "CUSTOMERSERVICE_WH"
         +group: customerservice
         +database: customerservice_db
-        +schema: public
+        +schema: dagster_test
         stg:
           +access: public
           +materialized: table
@@ -185,10 +185,14 @@ snapshots:
         +group: marketing
         +target_database: marketing_db
         +target_schema: dbt_dagster_test_snapshots
-        +target_schema: dbt_snapshots
+      customerservice:
+        +snowflake_warehouse: "CUSTOMERSERVICE_WH"
+        +group: customerservice
+        +target_database: customerservice_db
+        +target_schema: dbt_dagster_test_snapshots
     DD:
       supplydemand:
         +snowflake_warehouse: "SUPPLYDEMAND_WH"
         +group: supplydemand
         +target_database: supplydemand_db
-        +target_schema: dbt_snapshots
+        +target_schema: dbt_dagster_test_snapshots
