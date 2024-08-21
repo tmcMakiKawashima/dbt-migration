@@ -12,7 +12,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_d_epc",
         schedule_name="D_SOU_EPC",
-        cron_schedule="00 05 * * *",
+        cron_schedule="00 06 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+stg_framekatashiki +stg_hinbankensakutype1 +stg_hinbankensakutype2 +stg_shiyopattern +stg_kirikaecodekensaku +stg_trimcodejoho +stg_syaryokatashikijoho +stg_tyotatsuhinbanjoho",
         config=RunConfig(ops={"dbt_products_assets": 
@@ -36,7 +36,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_dm_vinhis_maint",
         schedule_name="VIN_SEIBI",
-        cron_schedule="00 07 * * *",
+        cron_schedule="00 08 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+dm_vinhis_nyukodetail +dm_vinhis_buhinreki +dm_vinhis_seibireki +dm_vinhis_goyomei",
         config=RunConfig(ops={"dbt_products_assets": 
@@ -56,7 +56,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_hokyunoki_mieruka",
         schedule_name="HOKYUNOKI_MIERUKA",
-        cron_schedule="20 06 * * *",
+        cron_schedule="20 07 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+dm_yohin_daiatari +dm_hosyuhin_noukishitei",
         config=RunConfig(ops={"dbt_products_assets": 
@@ -74,7 +74,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_dm_vinhis_specification_kokunai",
         schedule_name="VIN_SOUBI_KOKUNAI",
-        cron_schedule="00 07 * * *",
+        cron_schedule="00 08 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+dm_vinhis_specification_kokunai",
         config=RunConfig(ops={"dbt_products_assets": 
@@ -91,7 +91,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_dm_vinhis_specification_kaigai",
         schedule_name="VIN_SOUBI_KAIGAI",
-        cron_schedule="00 07 * * *",
+        cron_schedule="00 08 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+dm_vinhis_specification_kaigai",
         config=RunConfig(ops={"dbt_products_assets": 
@@ -108,7 +108,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_dm_vinhis_specification_oem",
         schedule_name="VIN_SOUBI_OEM",
-        cron_schedule="00 07 * * *",
+        cron_schedule="00 08 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+dm_vinhis_specification_oem",
         config=RunConfig(ops={"dbt_products_assets": 
@@ -125,7 +125,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_snapshots",
         schedule_name="snapshot",
-        cron_schedule="00 16 * * *",
+        cron_schedule="00 14 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="resource_type:snapshot",
         dbt_exclude="scd_tbsmksk_noki",
@@ -138,7 +138,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_stg_mashotoroku",
         schedule_name="RISM_RENKEI_IF_HENKO",
-        cron_schedule="45 10 * * *",
+        cron_schedule="45 11 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+stg_mashotoroku",
         config=RunConfig(ops={"dbt_products_assets": 
@@ -149,5 +149,55 @@ schedules = [
         # default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_stg_mashotoroku"},
+    ),
+    # ワランティ
+    build_schedule_from_dbt_selection(
+        [dbt_products_assets],
+        job_name="job_build_stg_warranty",
+        schedule_name="WARRANTY",
+        cron_schedule="00 07 * * *",
+        execution_timezone="Asia/Tokyo",
+        dbt_select="+stg_warranty +stg_warranty_wcube +stg_warranty_comment +stg_warranty_chinesecomment +stg_warranty_goguchihinban +stg_warranty_koukanhinban +stg_warranty_kyusyo +stg_warranty_supplyer +stg_shijoho +stg_shijoho_syareki +stg_shijoho_tsuika +stg_shijoho_kanrentorokusheet +stg_shijoho_kokanbuhin +stg_shijoho_honbuntext +stg_shijoho_bugaihaihu",
+        config=RunConfig(ops={"dbt_products_assets": 
+                              DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_warranty"},
+                                        source_test_list=["source:*,+stg_warranty",
+                                                          "source:*,+stg_warranty_wcube",
+                                                          "source:*,+stg_warranty_comment",
+                                                          "source:*,+stg_warranty_chinesecomment",
+                                                          "source:*,+stg_warranty_goguchihinban",
+                                                          "source:*,+stg_warranty_koukanhinban",
+                                                          "source:*,+stg_warranty_kyusyo",
+                                                          "source:*,+stg_warranty_supplyer",
+                                                          "source:*,+stg_shijoho",
+                                                          "source:*,+stg_shijoho_syareki",
+                                                          "source:*,+stg_shijoho_tsuika",
+                                                          "source:*,+stg_shijoho_kanrentorokusheet",
+                                                          "source:*,+stg_shijoho_kokanbuhin",
+                                                          "source:*,+stg_shijoho_honbuntext",
+                                                          "source:*,+stg_shijoho_bugaihaihu"])
+                             }
+                        ),
+        # default_status=DefaultScheduleStatus.RUNNING,
+        tags={"ecs/cpu": "256", "ecs/memory": "1024",
+              "job_name": "job_build_stg_warranty"},
+    ),
+    # 車両INDEX
+    build_schedule_from_dbt_selection(
+        [dbt_products_assets],
+        job_name="job_build_stg_syaryoindex",
+        schedule_name="SYARYO_INDEX",
+        cron_schedule="00 07 * * *",
+        execution_timezone="Asia/Tokyo",
+        dbt_select="+stg_syaryoindex +stg_seisanjisseki +stg_buhinserialno",
+        config=RunConfig(ops={"dbt_products_assets": 
+                              DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_syaryoindex"},
+                                        source_test_list=["source:*,+stg_syaryoindex",
+                                                          "source:*,+stg_seisanjisseki",
+                                                          "source:*,+stg_buhinserialno"])
+                             }
+                        ),
+        # default_status=DefaultScheduleStatus.RUNNING,
+        tags={"ecs/cpu": "256", "ecs/memory": "1024",
+              "job_name": "job_build_stg_syaryoindex"},
     ),
 ]
