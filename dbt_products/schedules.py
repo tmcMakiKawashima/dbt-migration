@@ -150,22 +150,4 @@ schedules = [
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_stg_mashotoroku"},
     ),
-    # VIN装備（海外, OEM）※テスト用
-    build_schedule_from_dbt_selection(
-        [dbt_products_assets],
-        job_name="job_build_dm_vinhis_specification_kaigai_oem_test",
-        schedule_name="VIN_SOUBI_KAIGAI_OEM_TEST",
-        cron_schedule="30 16 * * *",
-        execution_timezone="Asia/Tokyo",
-        dbt_select="+dm_vinhis_specification_kaigai +dm_vinhis_specification_oem",
-        config=RunConfig(ops={"dbt_products_assets": 
-                              DbtConfig(dbt_vars={"DBT_JOB_NAME": "_dm_vinhis_specification_kaigai_oem_test"},
-                                        source_test_list=["source:*,+dm_vinhis_specification_kaigai",
-                                                          "source:*,+dm_vinhis_specification_oem"])
-                             }
-                        ),
-        # default_status=DefaultScheduleStatus.RUNNING,
-        tags={"ecs/cpu": "256", "ecs/memory": "1024",
-              "job_name": "job_build_dm_vinhis_specification_kaigai"},
-    ),
 ]
