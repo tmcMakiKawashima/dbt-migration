@@ -291,6 +291,20 @@ sources:
             tests:
               - fixed_length:
                   length: 187
+      - name: raw_tpjfva40
+        identifier: tpjfva40
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 40
+      - name: raw_tpjfva41
+        identifier: TPJFVA41
+        columns:
+          - name: RAW_DATA
+            tests:
+              - fixed_length:
+                  length: 550
 
   - name: snowpipe_db_supplydemand
     database: snowpipe_DB
@@ -345,7 +359,14 @@ sources:
       error_after: { count: 24, period: hour }
     loaded_at_field: ldts
 
-    tables:      
+    tables:
+      - name: raw_ktrla025zz0kil3201
+        identifier: KTRLA025ZZ0KIL3201
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 61
       - name: raw_n8jfim01
         identifier: n8jfim01
       - name: raw_n8jfim04
@@ -362,10 +383,3 @@ sources:
             tests:
               - fixed_length: 
                   length: 50
-      - name: raw_ktrla025zz0kil3201
-        identifier: KTRLA025ZZ0KIL3201
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 61
