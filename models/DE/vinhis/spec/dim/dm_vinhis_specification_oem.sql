@@ -15,7 +15,7 @@ with
     )
 select
     tmp30.syadai_kt, -- 車台型式 stg_oemseisan
-    tmp30.frmno, -- フレームNo stg_oemseisan
+    tmp30.frmno as frm_no, -- フレームNo stg_oemseisan
     tmp30.wmi, -- WMI stg_oemseisan
     tmp30.vds, -- VDS stg_oemseisan
     tmp30.mdlyr, -- モデルイヤー stg_oemseisan

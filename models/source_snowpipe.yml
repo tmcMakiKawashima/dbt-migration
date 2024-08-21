@@ -163,6 +163,120 @@ sources:
             tests:
               - fixed_length:
                   length: 400
+      - name: raw_ktrla025zz0kil3202
+        identifier: ktrla025zz0kil3202
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 109
+      - name: raw_ktrla025zz0kil3203
+        identifier: ktrla025zz0kil3203
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 31
+      - name: raw_ktrla025zz0kil3204
+        identifier: ktrla025zz0kil3204
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 29
+      - name: raw_ktrla025zz0kil3205
+        identifier: ktrla025zz0kil3205
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 90
+      - name: raw_ktrla025zz0kil3206
+        identifier: ktrla025zz0kil3206
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 33
+      - name: raw_ktrla025zz0kil3207
+        identifier: ktrla025zz0kil3207
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 44
+      - name: raw_ktrla025zz0kil3209
+        identifier: ktrla025zz0kil3209
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 51
+      - name: raw_ktrla025zz0kil3210
+        identifier: ktrla025zz0kil3210
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 10
+      - name: raw_ktrla025zz0kil3211
+        identifier: ktrla025zz0kil3211
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 40
+      - name: raw_dv2a381b
+        identifier: dv2a381b
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 2934
+      - name: raw_epc_fixlen_cv201khintype2
+        identifier: epc_fixlen_cv201khintype2
+      - name: raw_dv2a5404
+        identifier: dv2a5404
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 111
+      - name: raw_dv2a4774
+        identifier: dv2a4774
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 13
+      - name: raw_dv2a38b4
+        identifier: dv2a38b4
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 29
+      - name: raw_dv2a4983
+        identifier: dv2a4983
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 44
+      - name: raw_dv2a3704
+        identifier: dv2a3704
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 75
+      - name: raw_dv2a4974
+        identifier: dv2a4974
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 187
 
   - name: snowpipe_db_supplydemand
     database: snowpipe_DB
@@ -227,3 +341,10 @@ sources:
             tests:
               - fixed_length:
                   length: 175
+      - name: raw_ktrla01ezz0ko87001
+        identifier: ktrla01ezz0ko87001
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length: 
+                  length: 50
