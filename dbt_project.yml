@@ -1,3 +1,4 @@
+
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
@@ -119,6 +120,9 @@ models:
         yohin:
           +group: vinhis_yohin
           +schema: yohin
+          dim:
+          +access: public
+          +materialized: table
         spec:
           +group: vinhis_spec
           +schema: spec
