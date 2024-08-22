@@ -21,11 +21,16 @@ def dbt_products_assets(context: AssetExecutionContext, dbt: DbtCliResource, con
     if len(config.source_test_list) > 0:
         dbt_test_args = ["test", "--select"]
         dbt_test_args += config.source_test_list
+        dbt_test_args += ["--target", os.getenv('dbt_profile_enterprise')]
+        # エラー出力用schemaの指定
+        if len(config.dbt_vars["DBT_JOB_NAME"]) > 0:
+            dbt_test_args += ["--vars", json.dumps(config.dbt_vars)]
         yield from dbt.cli(dbt_test_args, manifest=dbt_manifest_path).stream()
         
     # dbt build 実行
     dbt_build_args = ["build"]
     dbt_build_args += ["--target", os.getenv('dbt_profile_enterprise')]
+        # エラー出力用schemaの指定
     if len(config.dbt_vars["DBT_JOB_NAME"]) > 0:
         dbt_build_args += ["--vars", json.dumps(config.dbt_vars)]
     yield from dbt.cli(dbt_build_args, context=context).stream()
