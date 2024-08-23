@@ -7,6 +7,19 @@ from dagster_dbt import build_schedule_from_dbt_selection
 from .enterprise_data_products_assets.assets import DbtConfig, dbt_products_assets
 
 schedules = [
+    # snapshot
+    build_schedule_from_dbt_selection(
+        [dbt_products_assets],
+        job_name="job_snapshots",
+        schedule_name="snapshot",
+        cron_schedule="00 14 * * *",
+        execution_timezone="Asia/Tokyo",
+        dbt_select="resource_type:snapshot",
+        dbt_exclude="scd_tbsmksk_noki",
+        # default_status=DefaultScheduleStatus.RUNNING,
+        tags={"ecs/cpu": "256", "ecs/memory": "1024",
+              "job_name": "job_snapshots"},
+    ),
     # D層EPC
     build_schedule_from_dbt_selection(
         [dbt_products_assets],
@@ -120,19 +133,6 @@ schedules = [
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_dm_vinhis_specification_oem"},
     ),
-    # snapshot
-    build_schedule_from_dbt_selection(
-        [dbt_products_assets],
-        job_name="job_snapshots",
-        schedule_name="snapshot",
-        cron_schedule="00 14 * * *",
-        execution_timezone="Asia/Tokyo",
-        dbt_select="resource_type:snapshot",
-        dbt_exclude="scd_tbsmksk_noki",
-        # default_status=DefaultScheduleStatus.RUNNING,
-        tags={"ecs/cpu": "256", "ecs/memory": "1024",
-              "job_name": "job_snapshots"},
-    ),
     # RISM 連携IF変更
     build_schedule_from_dbt_selection(
         [dbt_products_assets],
@@ -155,7 +155,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_stg_warranty",
         schedule_name="WARRANTY",
-        cron_schedule="00 07 * * *",
+        cron_schedule="00 06 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+stg_warranty +stg_warranty_wcube +stg_warranty_comment +stg_warranty_chinesecomment +stg_warranty_goguchihinban +stg_warranty_koukanhinban +stg_warranty_kyusyo +stg_warranty_supplyer +stg_shijoho +stg_shijoho_syareki +stg_shijoho_tsuika +stg_shijoho_kanrentorokusheet +stg_shijoho_kokanbuhin +stg_shijoho_honbuntext +stg_shijoho_bugaihaihu",
         config=RunConfig(ops={"dbt_products_assets": 
@@ -186,7 +186,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_stg_syaryoindex",
         schedule_name="SYARYO_INDEX",
-        cron_schedule="00 07 * * *",
+        cron_schedule="00 06 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+stg_syaryoindex +stg_seisanjisseki +stg_buhinserialno",
         config=RunConfig(ops={"dbt_products_assets": 
