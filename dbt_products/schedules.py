@@ -12,7 +12,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_snapshots",
         schedule_name="snapshot",
-        cron_schedule="00 14 * * *",
+        cron_schedule="00 16 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="resource_type:snapshot",
         dbt_exclude="scd_tbsmksk_noki",
