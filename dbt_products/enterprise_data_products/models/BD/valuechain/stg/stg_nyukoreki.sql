@@ -15,7 +15,7 @@ with stg_nyukoreki as (
         r003::varchar(8) as seisanymd,
         r004::varchar(5) as nyukohanbaitencd,
         r005::varchar(8) as jutyuno,
-        r006::varchar(3) as uketsuketenpocd,
+        rtrim(r006, ' 　')::varchar(3) as uketsuketenpocd, -- 右blank
         r007::varchar(3) as ikansakitenpocd,
         r008::varchar(1) as nyukokbn,
         r009::varchar(8) as nyukoyoteiymd,
