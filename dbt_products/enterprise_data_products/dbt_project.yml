@@ -9,7 +9,7 @@ config-version: 2
 vars:
   use_common_masking_policy_db: "True"
   common_masking_policy_db: "COMMON_TBL_DB"
-  common_masking_policy_schema: "MASKING_POLICY"
+  common_masking_policy_schema: "MASKING_POLICY_DAGSTER_TEST"
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'enterprise_data_products'
@@ -45,13 +45,13 @@ models:
         +snowflake_warehouse: "VALUECHAIN_WH"
         +group: valuechain
         +database: valuechain_db
-        +schema: public
+        +schema: dagster_test
     BD:
       valuechain:
         +snowflake_warehouse: "VALUECHAIN_WH"
         +group: valuechain
         +database: valuechain_db
-        +schema: public
+        +schema: dagster_test
         stg:
           +access: public
           +materialized: table
@@ -59,7 +59,7 @@ models:
         +snowflake_warehouse: "SUPPLYDEMAND_WH"
         +group: supplydemand
         +database: supplydemand_db
-        +schema: public
+        +schema: dagster_test
         stg:
           +access: public
           +materialized: table
@@ -67,7 +67,7 @@ models:
         +snowflake_warehouse: "MARKETING_WH"
         +group: marketing
         +database: marketing_db
-        +schema: public
+        +schema: dagster_test
         stg:
           +access: public
           +materialized: table
@@ -76,7 +76,7 @@ models:
         +snowflake_warehouse: "VALUECHAIN_WH"
         +group: valuechain
         +database: valuechain_db
-        +schema: public
+        +schema: dagster_test
         stg:
           +access: public
           +materialized: table
@@ -84,7 +84,7 @@ models:
         +snowflake_warehouse: "MARKETING_WH"
         +group: marketing
         +database: marketing_db
-        +schema: public
+        +schema: dagster_test
         stg:
           +access: public
           +materialized: table
@@ -92,7 +92,7 @@ models:
         +snowflake_warehouse: "SUPPLYDEMAND_WH"
         +group: supplydemand
         +database: supplydemand_db
-        +schema: public
+        +schema: dagster_test
         stg:
           +access: public
           +materialized: table
@@ -101,7 +101,7 @@ models:
         vinspec:
             +group: vinhis_vinspec
             +database: vinhis_db
-            +schema: vinspec
+            +schema: dagster_test
             stg:
               +access: public
               +materialized: table
@@ -110,7 +110,7 @@ models:
         +snowflake_warehouse: "PARTS_WH"
         +group: parts
         +database: PARTS_DB
-        +schema: logistics
+        +schema: dagster_test
         dim:
           +access: public
           +materialized: table
@@ -119,13 +119,13 @@ models:
         +database: vinhis_db
         spec:
           +group: vinhis_spec
-          +schema: spec
+          +schema: dagster_test
           dim:
             +access: public
             +materialized: table
         maint:
           +group: vinhis_maint
-          +schema: maint
+          +schema: dagster_test
           dim:
             +access: public
             +materialized: table
@@ -134,7 +134,7 @@ models:
         +snowflake_warehouse: "DATAMART_WH"
         +group: datamart
         +database: DATAMART_DB
-        +schema: public
+        +schema: dagster_test
         dim:
           +access: public
           +materialized: table
@@ -145,7 +145,7 @@ tests:
     +store_failures: true
     +database: COMMON_TBL_DB
     # +schema: dbt_test__audit # default
-    +schema: "dbt_test__audit{{ var('DBT_JOB_NAME', '') }}"
+    +schema: "dbt_dagster_test__audit{{ var('DBT_JOB_NAME', '') }}"
     # +schema: "dbt_test__audit_{{ modules.datetime.date.today().strftime('%Y%m%d') }}_{{ env_var('DBT_CLOUD_RUN_ID', 'local') }}"
       # https://docs.getdbt.com/docs/build/environment-variables#special-environment-variables
       # dbt Cloud: Run history / job_xxx: Run #326668
@@ -166,14 +166,14 @@ snapshots:
         +snowflake_warehouse: "VALUECHAIN_WH"
         +group: valuechain
         +target_database: valuechain_db
-        +target_schema: dbt_snapshots
+        +target_schema: dbt_dagster_test_snapshots
       supplydemand:
         +snowflake_warehouse: "SUPPLYDEMAND_WH"
         +group: supplydemand
         +target_database: supplydemand_db
-        +target_schema: dbt_snapshots
+        +target_schema: dbt_dagster_test_snapshots
       marketing:
         +snowflake_warehouse: "MARKETING_WH"
         +group: marketing
         +target_database: marketing_db
-        +target_schema: dbt_snapshots
+        +target_schema: dbt_dagster_test_snapshots
