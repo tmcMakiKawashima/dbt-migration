@@ -1,6 +1,8 @@
 # デプロイに必要のないファイル
 *.log
 *.pyc
+.user.yml
+dagster.yaml
 
 #デプロイに必要のないフォルダ
 /tmp*/
