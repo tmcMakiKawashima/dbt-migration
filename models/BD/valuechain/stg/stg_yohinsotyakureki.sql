@@ -9,7 +9,7 @@ with stg_yohinsotyakureki as (
         kbsyadai::varchar(3) as kbsyadai, -- なし
         rtrim(nosyadai, ' 　')::varchar(20) as nosyadai, -- 右ブランク
         split_part(nosyadai, '-', 1) as syadai_kt, -- 車台番号ハイフンの左
-        split_part(nosyadai, '-', 2) as frmno, -- 車台番号(trim後）ハイフンの右
+        split_part(rtrim(nosyadai, ' 　'), '-', 2) as frmno, -- 車台番号(trim後）ハイフンの右
         rtrim(ddtorituke, ' 　')::varchar(8) as ddtorituke,-- 右ブランク
         rtrim(cdyouhinban, ' 　')::varchar(15) as cdyouhinban, -- 右ブランク
         rtrim(cdtorihan, ' 　')::varchar(5) as cdtorihan, -- 右ブランク
