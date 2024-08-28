@@ -5,9 +5,9 @@ with
     stg_kokunaiseisan as (
         select
             syadai_kt, -- 車台型式
-            frmno, -- フレームNO
-            syasyu_cd, -- スペック桁
-            haisya_kt, -- スペック記号
+            frmno, -- フレーム連番
+            syasyu_cd, -- 車種コード
+            haisya_kt -- 配車型式
         from {{ ref('stg_kokunaiseisan') }} -- 国内生産実績
     )
 select
@@ -16,5 +16,5 @@ select
     stg_kokunaiseisan.haisya_kt
 from tmp10_dm_vinhis_yohin
 left outer join stg_kokunaiseisan
-  on tmp10_dm_vinhis_yohin.syadai_kt = stg_kokunaiseisan.syadai_kt
+  on tmp10_dm_vinhis_yohin.syadai_kt = rtrim(stg_kokunaiseisan.syadai_kt)
  and tmp10_dm_vinhis_yohin.frm_no = stg_kokunaiseisan.frmno
