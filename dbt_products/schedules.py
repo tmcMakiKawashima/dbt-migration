@@ -138,7 +138,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_stg_mashotoroku",
         schedule_name="RISM_RENKEI_IF_HENKO",
-        cron_schedule="45 11 * * *",
+        cron_schedule="45 11 * * 1,2,3,4,5",
         execution_timezone="Asia/Tokyo",
         dbt_select="+stg_mashotoroku",
         config=RunConfig(ops={"dbt_products_assets": 
