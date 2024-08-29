@@ -24,6 +24,6 @@ select
 from stg_shinsyameisai
 left outer join stg_yohinmeisai 
   on stg_shinsyameisai.dlrcd = stg_yohinmeisai.dlrcd
- and rtrim(stg_shinsyameisai.cuno) = stg_yohinmeisai.cuno
+ and stg_shinsyameisai.cuno = stg_yohinmeisai.cuno
  and stg_shinsyameisai.edano = stg_yohinmeisai.edano
  and stg_shinsyameisai.ym = stg_yohinmeisai.ym

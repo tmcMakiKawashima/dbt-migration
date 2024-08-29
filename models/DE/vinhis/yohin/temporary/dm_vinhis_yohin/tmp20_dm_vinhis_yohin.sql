@@ -16,5 +16,5 @@ select
     stg_kokunaiseisan.haisya_kt
 from tmp10_dm_vinhis_yohin
 left outer join stg_kokunaiseisan
-  on tmp10_dm_vinhis_yohin.syadai_kt = rtrim(stg_kokunaiseisan.syadai_kt)
+  on tmp10_dm_vinhis_yohin.syadai_kt = stg_kokunaiseisan.syadai_kt
  and tmp10_dm_vinhis_yohin.frm_no = stg_kokunaiseisan.frmno
