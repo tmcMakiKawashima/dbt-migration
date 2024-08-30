@@ -1,4 +1,4 @@
-{{ config(
+﻿{{ config(
        materialized ='incremental',
        unique_key = ['dlrcd','cuno'],
        incremental_strategy = 'merge'
@@ -8,7 +8,7 @@ with stg_shinsyameisai as (
     select
         mntkbn::varchar(1) as mntkbn, --なし
         dlrcd::varchar(5) as dlrcd, --なし
-        cuno::varchar(12) as cuno, --なし
+        rtrim(cuno, ' 　')::varchar(12) as cuno, -- 右ブランク
         edano::varchar(2) as edano, --なし
         to_varchar(ym)::varchar(6) as ym, --なし
         to_varchar(nykt)::varchar(1) as nykt, --なし
