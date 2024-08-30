@@ -1,4 +1,4 @@
-﻿{{ config(
+{{ config(
        materialized ='incremental',
        unique_key = ['dlrcd','cuno'],
        incremental_strategy = 'merge'
