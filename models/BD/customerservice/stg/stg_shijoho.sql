@@ -73,9 +73,9 @@ with stg_shijoho as (
         fcr_parts_flg::varchar(1) as fcr_parts_flg, --なし
         sum_transl_atmn_flg::varchar(1) as sum_transl_atmn_flg, --なし
         sum_comment_at_tranl_flg::varchar(1) as sum_comment_at_tranl_flg, --なし
-        sum_comment_jp::varchar(250) as sum_comment_jp, --なし
-        sum_comment_us::varchar(250) as sum_comment_us, --なし
-        sum_comment_zh::varchar(250) as sum_comment_zh, --なし
+        sum_comment_jp::varchar(750) as sum_comment_jp, --なし
+        sum_comment_us::varchar(750) as sum_comment_us, --なし
+        sum_comment_zh::varchar(750) as sum_comment_zh, --なし
         ftr_recept_date::timestamp as ftr_recept_date,  --timestamp型
         duplication_cls::varchar(1) as duplication_cls, --なし
         depuli_minfo_no::varchar(14) as depuli_minfo_no, --なし
