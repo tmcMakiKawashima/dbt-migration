@@ -17,24 +17,24 @@ with stg_warranty_comment as (
         vin_wmi::varchar(3) as wmi, --なし
         vin_vds::varchar(6) as vds, --なし
         vin_vis::varchar(8) as vis, --なし
-        fault_comment_condition::varchar(150) as fault_comment_condition, --なし
-        fault_comment_condition_ja::varchar(300) as fault_comment_condition_ja, --なし
+        fault_comment_condition::varchar(450) as fault_comment_condition, --なし
+        fault_comment_condition_ja::varchar(900) as fault_comment_condition_ja, --なし
         fault_comment_condition_en::varchar(900) as fault_comment_condition_en, --なし
-        fault_comment_condition_zh::varchar(300) as fault_comment_condition_zh, --なし
+        fault_comment_condition_zh::varchar(900) as fault_comment_condition_zh, --なし
         comment_condition_lang_cls::varchar(2) as comment_condition_lang_cls, --なし
-        fault_comment_cause::varchar(150) as fault_comment_cause, --なし
-        fault_comment_cause_ja::varchar(300) as fault_comment_cause_ja, --なし
+        fault_comment_cause::varchar(450) as fault_comment_cause, --なし
+        fault_comment_cause_ja::varchar(900) as fault_comment_cause_ja, --なし
         fault_comment_cause_en::varchar(900) as fault_comment_cause_en, --なし
-        fault_comment_cause_zh::varchar(300) as fault_comment_cause_zh, --なし
+        fault_comment_cause_zh::varchar(900) as fault_comment_cause_zh, --なし
         comment_cause_lang_cls::varchar(2) as comment_cause_lang_cls, --なし
-        fault_comment_remedy::varchar(150) as fault_comment_remedy, --なし
-        fault_comment_remedy_ja::varchar(300) as fault_comment_remedy_ja, --なし
+        fault_comment_remedy::varchar(450) as fault_comment_remedy, --なし
+        fault_comment_remedy_ja::varchar(900) as fault_comment_remedy_ja, --なし
         fault_comment_remedy_en::varchar(900) as fault_comment_remedy_en, --なし
-        fault_comment_remedy_zh::varchar(300) as fault_comment_remedy_zh, --なし
+        fault_comment_remedy_zh::varchar(900) as fault_comment_remedy_zh, --なし
         comment_remedy_lang_cls::varchar(2) as comment_remedy_lang_cls, --なし
-        touch_comment_ja::varchar(300) as touch_comment_ja, --なし
+        touch_comment_ja::varchar(900) as touch_comment_ja, --なし
         touch_comment_en::varchar(900) as touch_comment_en, --なし
-        touch_comment_zh::varchar(300) as touch_comment_zh, --なし
+        touch_comment_zh::varchar(900) as touch_comment_zh, --なし
         mtuser::varchar(18) as mtuser, --なし
         mttime::timestamp as mttime, --timestamp型
         _fivetran_synced::timestamp as ldts --timestamp型
