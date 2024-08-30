@@ -1,4 +1,4 @@
-﻿{{
+{{
     config (
         materialized = 'incremental',
         unique_key =  ['syadai_kt', 'frmno', 'frmkbn', 'shamei', 'sno'],
