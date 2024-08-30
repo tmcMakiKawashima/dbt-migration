@@ -1,4 +1,4 @@
-{{
+﻿{{
     config (
         materialized = 'incremental',
         unique_key =  ['syadai_kt', 'frmno', 'frmkbn', 'shamei', 'sno'],
@@ -9,7 +9,7 @@
 with kokunaiseisan as (
     select
         lok_y4::varchar(1) as lok_y4,
-        syadai_kt::varchar(9) as syadai_kt,
+        rtrim(syadai_kt, ' 　')::varchar(9) as syadai_kt,
         frmno::varchar(7) as frmno,
         wmi::varchar(3) as wmi,
         vds::varchar(6) as vds,
