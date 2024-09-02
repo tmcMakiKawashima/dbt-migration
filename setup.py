@@ -1,8 +1,8 @@
 from setuptools import find_packages, setup
 
 setup(
-    name="edp_dagster_sample",
-    packages=find_packages(exclude=["edp_dagster_sample_tests"]),
+    name="dbt_products",
+    packages=find_packages(exclude=["dbt_products_tests"]),
     install_requires=[
         "dagster==1.7.0",
         "dagster-cloud==1.7.0",
