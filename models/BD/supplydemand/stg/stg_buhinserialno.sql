@@ -1,6 +1,6 @@
 {{ config(
       materialized='incremental',
-      unique_key = ['index_cls', 'syadai_kt', 'wmi', 'vds', 'vis', 'parts_id', 'parts_repl_seq'],
+      unique_key = ['index_cls', 'syadai_kt', 'frmno', 'wmi', 'vds', 'vis', 'parts_id', 'parts_repl_seq'],
       incremental_strategy = 'merge'
    ) }}
 

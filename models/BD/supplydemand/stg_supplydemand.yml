@@ -193,6 +193,11 @@ models:
             - index_cls
             - syadai_kt
             - frmno
+            - wmi
+            - vds
+            - vis
+            - parts_id
+            - parts_repl_seq
           config:
             severity: error
 
