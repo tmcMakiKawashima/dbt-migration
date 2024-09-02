@@ -220,6 +220,9 @@ models:
             - index_cls
             - syadai_kt
             - frmno
+            - wmi
+            - vds
+            - vis
           config:
             severity: error
     columns:
