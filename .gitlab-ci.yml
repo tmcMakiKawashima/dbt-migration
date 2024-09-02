@@ -1,10 +1,11 @@
 variables:
   DAGSTER_CLOUD_ORGANIZATION: toyotadataplatform
   DAGSTER_PROJECT_DIR: .
-  DAGSTER_CLOUD_YAML_PATH: dagster_cloud.yaml
-  IMAGE_REGISTRY: 433723560297.dkr.ecr.ap-northeast-1.amazonaws.com/pajp1-dxpf-edp-ecr-dagster
+  DAGSTER_CLOUD_YAML_PATH: $DAGSTER_CLOUD_YAML
+  IMAGE_REGISTRY: $ECR_IMAGE_REGISTRY
   IMAGE_TAG: $CI_COMMIT_SHORT_SHA-$CI_PIPELINE_ID
   DAGSTER_BUILD_STATEDIR: build-state
+  DAGSTER_CLOUD_DEPLOYMENT: $DAGSTER_CLOUD_DEPLOYMENT_NAME
 
 stages:
   - setup
@@ -26,7 +27,7 @@ initialize:
     - export
     - dagster-cloud ci check --project-dir=$DAGSTER_PROJECT_DIR --dagster-cloud-yaml-path=$DAGSTER_CLOUD_YAML_PATH
     - >
-      dagster-cloud ci init --deployment=prod --statedir=$DAGSTER_BUILD_STATEDIR
+      dagster-cloud ci init --deployment=$DAGSTER_CLOUD_DEPLOYMENT --statedir=$DAGSTER_BUILD_STATEDIR
       --project-dir=$DAGSTER_PROJECT_DIR --dagster-cloud-yaml-path=$DAGSTER_CLOUD_YAML_PATH
       --git-url=$CI_COMMIT_SHA
       --commit-hash=$CI_COMMIT_SHA
@@ -52,7 +53,7 @@ build-image:
   script:
     - docker build . -t $IMAGE_REGISTRY:$IMAGE_TAG
     - docker push $IMAGE_REGISTRY:$IMAGE_TAG
-    - docker system prune -a -f -filter "until=24h"
+    - docker system prune -a -f --filter "until=24h"
 
 deploy-docker:
   stage: deploy
