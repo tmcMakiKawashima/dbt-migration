@@ -5,8 +5,10 @@ with stg_goguchisyasyucd as (
         try_to_timestamp_ntz(touroku,'yyyymmdd') as touroku, --なし
         try_to_timestamp_ntz(kousin,'yyyymmdd') as kousin, --なし
         tantou::varchar(7) as tantou, --なし
-        ldts --B層取込日時
+        ldts, --B層取込日時
+        row_number() over (partition by syasyu_cd, yohinsyamei order by ldts desc) aggkey
     from {{ ref('substr_tpjfva40') }}
 )
-select * from stg_goguchisyasyucd
-where ldts = (select max(ldts) from stg_goguchisyasyucd)
+select * exclude(aggkey)
+from stg_goguchisyasyucd
+where aggkey = 1
