@@ -1,3 +1,14 @@
+# デプロイに必要のないファイル
 *.log
 *.pyc
+.user.yml
+dagster.yaml
+
+#デプロイに必要のないフォルダ
+/tmp*/
+/*.egg-info/
 **/__pycache__/**
+
+#アプリインフラ環境設定ファイル
+.gitlab-ci.yml
+Dockerfile
