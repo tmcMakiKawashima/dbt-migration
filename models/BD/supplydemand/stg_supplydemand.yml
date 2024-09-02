@@ -1,4 +1,4 @@
-version: 2
+﻿version: 2
 
 models:
 # 配車原始
@@ -254,6 +254,9 @@ models:
             - index_cls
             - syadai_kt
             - frmno
+            - wmi
+            - vds
+            - vis
           config:
             severity: error
     columns:
