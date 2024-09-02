@@ -15,14 +15,14 @@ with stg_warranty_chinesecomment as (
         vin_wmi::varchar(3) as wmi, -- なし
         vin_vds::varchar(6) as vds, -- なし
         vin_vis::varchar(8) as vis, -- なし
-        fault_comment_condition::varchar(150) as fault_comment_condition, -- なし
-        fault_comment_cause::varchar(150) as fault_comment_cause, -- なし
-        fault_comment_remedy::varchar(150) as fault_comment_remedy, -- なし
-        fault_comment_condition_ja::varchar(300) as fault_comment_condition_ja, -- なし
+        fault_comment_condition::varchar(450) as fault_comment_condition, -- なし
+        fault_comment_cause::varchar(450) as fault_comment_cause, -- なし
+        fault_comment_remedy::varchar(450) as fault_comment_remedy, -- なし
+        fault_comment_condition_ja::varchar(900) as fault_comment_condition_ja, -- なし
         fault_comment_condition_en::varchar(900) as fault_comment_condition_en, -- なし
-        fault_comment_cause_ja::varchar(300) as fault_comment_cause_ja, -- なし
+        fault_comment_cause_ja::varchar(900) as fault_comment_cause_ja, -- なし
         fault_comment_cause_en::varchar(900) as fault_comment_cause_en, -- なし
-        fault_comment_remedy_ja::varchar(300) as fault_comment_remedy_ja, -- なし
+        fault_comment_remedy_ja::varchar(900) as fault_comment_remedy_ja, -- なし
         fault_comment_remedy_en::varchar(900) as fault_comment_remedy_en, -- なし
         update_cls::varchar(1) as update_cls, -- なし
         mtuser::varchar(18) as mtuser, -- なし
