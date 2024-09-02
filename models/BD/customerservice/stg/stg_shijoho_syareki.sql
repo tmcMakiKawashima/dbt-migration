@@ -29,9 +29,9 @@ with stg_shijoho_syareki as (
         suppli_code_ovs1::varchar(6) as suppli_code_ovs1, -- なし
         suppli_code_ovs2::varchar(6) as suppli_code_ovs2, -- なし
         suppli_code_ovs3::varchar(6) as suppli_code_ovs3, -- なし
-        fault_comment_condition::varchar(150) as fault_comment_condition, -- なし
-        fault_comment_cause::varchar(150) as fault_comment_cause, -- なし
-        fault_comment_remedy::varchar(150) as fault_comment_remedy, -- なし
+        fault_comment_condition::varchar(450) as fault_comment_condition, -- なし
+        fault_comment_cause::varchar(450) as fault_comment_cause, -- なし
+        fault_comment_remedy::varchar(450) as fault_comment_remedy, -- なし
         diag_code1::varchar(7) as diag_code1, -- なし
         diag_code2::varchar(7) as diag_code2, -- なし
         diag_code3::varchar(7) as diag_code3, -- なし
