@@ -1,0 +1,57 @@
+version: 2
+sources:
+  - name: fivetran_database_supplydemand
+    database: fivetran_database
+    schema: oracle_rds_osepcs0000db20
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: _fivetran_synced
+   
+    tables:
+      - name: raw_cep1004serno
+        identifier: cep1004serno
+      - name: raw_cep1002seisan
+        identifier: cep1002seisan
+      - name: raw_cep1001index
+        identifier: cep1001index
+
+  - name: fivetran_database_customerservice
+    database: fivetran_database
+    schema: oracle_rds_osepcs0000db20
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: _fivetran_synced
+
+    tables:
+      - name: raw_cep0001wrntdata
+        identifier: cep0001wrntdata
+      - name: raw_cep0002w3wranty
+        identifier: cep0002w3wranty
+      - name: raw_cep0768warr_cn_cmt
+        identifier: cep0768warr_cn_cmt
+      - name: raw_cep0009kyusyo
+        identifier: cep0009kyusyo
+      - name: raw_cep0713ftr_history
+        identifier: cep0713ftr_history
+      - name: raw_cep0718ftr_rep_part
+        identifier: cep0718ftr_rep_part
+      - name: raw_cep0003wrntcom
+        identifier: cep0003wrntcom
+      - name: raw_cep0004parts
+        identifier: cep0004parts
+      - name: raw_cep0714ftr_info
+        identifier: cep0714ftr_info
+      - name: raw_cep0717ftr_reg
+        identifier: cep0717ftr_reg
+      - name: raw_cep0715ftr_outside
+        identifier: cep0715ftr_outside
+      - name: raw_cep0011lohbn
+        identifier: cep0011lohbn
+      - name: raw_cep0008supley
+        identifier: cep0008supley
+      - name: raw_cep0712ftr_body
+        identifier: cep0712ftr_body
+      - name: raw_cep0710ftr_add_info
+        identifier: cep0710ftr_add_info
