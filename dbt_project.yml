@@ -190,9 +190,3 @@ snapshots:
         +group: customerservice
         +target_database: customerservice_db
         +target_schema: dbt_snapshots
-    DD:
-      supplydemand:
-        +snowflake_warehouse: "SUPPLYDEMAND_WH"
-        +group: supplydemand
-        +target_database: supplydemand_db
-        +target_schema: dbt_snapshots
