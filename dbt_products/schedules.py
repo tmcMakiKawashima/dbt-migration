@@ -16,7 +16,7 @@ schedules = [
         execution_timezone="Asia/Tokyo",
         dbt_select="resource_type:snapshot",
         dbt_exclude="scd_tbsmksk_noki",
-        # default_status=DefaultScheduleStatus.RUNNING,
+        default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_snapshots"},
     ),
@@ -40,7 +40,7 @@ schedules = [
                                                           "source:*,+stg_tyotatsuhinbanjoho"])
                              }
                         ),
-        # default_status=DefaultScheduleStatus.RUNNING,
+        default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_d_epc"},
     ),
@@ -60,7 +60,7 @@ schedules = [
                                                           "source:*,+dm_vinhis_goyomei"])
                              }
                         ),
-        # default_status=DefaultScheduleStatus.RUNNING,
+        default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_dm_vinhis_maint"},
     ),
@@ -78,7 +78,7 @@ schedules = [
                                                           "source:*,+dm_hosyuhin_noukishitei"])
                              }
                         ),
-        # default_status=DefaultScheduleStatus.RUNNING,
+        default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_hokyunoki_mieruka"},
     ),
@@ -95,7 +95,7 @@ schedules = [
                                         source_test_list=["source:*,+dm_vinhis_specification_kokunai"])
                              }
                         ),
-        # default_status=DefaultScheduleStatus.RUNNING,
+        default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_dm_vinhis_specification_kokunai"},
     ),
@@ -112,7 +112,7 @@ schedules = [
                                         source_test_list=["source:*,+dm_vinhis_specification_kaigai"])
                              }
                         ),
-        # default_status=DefaultScheduleStatus.RUNNING,
+        default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_dm_vinhis_specification_kaigai"},
     ),
@@ -129,7 +129,7 @@ schedules = [
                                         source_test_list=["source:*,+dm_vinhis_specification_oem"])
                              }
                         ),
-        # default_status=DefaultScheduleStatus.RUNNING,
+        default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_dm_vinhis_specification_oem"},
     ),
@@ -146,7 +146,7 @@ schedules = [
                                         source_test_list=["source:*,+stg_mashotoroku"])
                              }
                         ),
-        # default_status=DefaultScheduleStatus.RUNNING,
+        default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_stg_mashotoroku"},
     ),
