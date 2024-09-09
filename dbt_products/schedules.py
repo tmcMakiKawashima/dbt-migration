@@ -16,7 +16,7 @@ schedules = [
         execution_timezone="Asia/Tokyo",
         dbt_select="resource_type:snapshot",
         dbt_exclude="scd_tbsmksk_noki",
-        # default_status=DefaultScheduleStatus.RUNNING,
+        default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_snapshots"},
     ),
@@ -25,7 +25,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_d_epc",
         schedule_name="D_SOU_EPC",
-        cron_schedule="00 06 * * *",
+        cron_schedule="00 05 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+stg_framekatashiki +stg_hinbankensakutype1 +stg_hinbankensakutype2 +stg_shiyopattern +stg_kirikaecodekensaku +stg_trimcodejoho +stg_syaryokatashikijoho +stg_tyotatsuhinbanjoho",
         config=RunConfig(ops={"dbt_products_assets": 
@@ -40,7 +40,7 @@ schedules = [
                                                           "source:*,+stg_tyotatsuhinbanjoho"])
                              }
                         ),
-        # default_status=DefaultScheduleStatus.RUNNING,
+        default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_d_epc"},
     ),
@@ -49,7 +49,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_dm_vinhis_maint",
         schedule_name="VIN_SEIBI",
-        cron_schedule="00 08 * * *",
+        cron_schedule="00 07 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+dm_vinhis_nyukodetail +dm_vinhis_buhinreki +dm_vinhis_seibireki +dm_vinhis_goyomei",
         config=RunConfig(ops={"dbt_products_assets": 
@@ -60,7 +60,7 @@ schedules = [
                                                           "source:*,+dm_vinhis_goyomei"])
                              }
                         ),
-        # default_status=DefaultScheduleStatus.RUNNING,
+        default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_dm_vinhis_maint"},
     ),
@@ -69,7 +69,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_hokyunoki_mieruka",
         schedule_name="HOKYUNOKI_MIERUKA",
-        cron_schedule="20 07 * * *",
+        cron_schedule="20 06 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+dm_yohin_daiatari +dm_hosyuhin_noukishitei",
         config=RunConfig(ops={"dbt_products_assets": 
@@ -78,7 +78,7 @@ schedules = [
                                                           "source:*,+dm_hosyuhin_noukishitei"])
                              }
                         ),
-        # default_status=DefaultScheduleStatus.RUNNING,
+        default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_hokyunoki_mieruka"},
     ),
@@ -87,7 +87,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_dm_vinhis_specification_kokunai",
         schedule_name="VIN_SOUBI_KOKUNAI",
-        cron_schedule="00 08 * * *",
+        cron_schedule="00 07 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+dm_vinhis_specification_kokunai",
         config=RunConfig(ops={"dbt_products_assets": 
@@ -95,7 +95,7 @@ schedules = [
                                         source_test_list=["source:*,+dm_vinhis_specification_kokunai"])
                              }
                         ),
-        # default_status=DefaultScheduleStatus.RUNNING,
+        default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_dm_vinhis_specification_kokunai"},
     ),
@@ -104,7 +104,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_dm_vinhis_specification_kaigai",
         schedule_name="VIN_SOUBI_KAIGAI",
-        cron_schedule="00 08 * * *",
+        cron_schedule="00 07 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+dm_vinhis_specification_kaigai",
         config=RunConfig(ops={"dbt_products_assets": 
@@ -112,7 +112,7 @@ schedules = [
                                         source_test_list=["source:*,+dm_vinhis_specification_kaigai"])
                              }
                         ),
-        # default_status=DefaultScheduleStatus.RUNNING,
+        default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_dm_vinhis_specification_kaigai"},
     ),
@@ -121,7 +121,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_dm_vinhis_specification_oem",
         schedule_name="VIN_SOUBI_OEM",
-        cron_schedule="00 08 * * *",
+        cron_schedule="00 07 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+dm_vinhis_specification_oem",
         config=RunConfig(ops={"dbt_products_assets": 
@@ -129,7 +129,7 @@ schedules = [
                                         source_test_list=["source:*,+dm_vinhis_specification_oem"])
                              }
                         ),
-        # default_status=DefaultScheduleStatus.RUNNING,
+        default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_dm_vinhis_specification_oem"},
     ),
@@ -138,7 +138,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_stg_mashotoroku",
         schedule_name="RISM_RENKEI_IF_HENKO",
-        cron_schedule="45 11 * * 1,2,3,4,5",
+        cron_schedule="45 10 * * 1,2,3,4,5",
         execution_timezone="Asia/Tokyo",
         dbt_select="+stg_mashotoroku",
         config=RunConfig(ops={"dbt_products_assets": 
@@ -146,7 +146,7 @@ schedules = [
                                         source_test_list=["source:*,+stg_mashotoroku"])
                              }
                         ),
-        # default_status=DefaultScheduleStatus.RUNNING,
+        default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_stg_mashotoroku"},
     ),
