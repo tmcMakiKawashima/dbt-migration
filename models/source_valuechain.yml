@@ -1,9 +1,0 @@
-version: 2
-
-sources:
-  - name: valuechain_db_public
-    database: VALUECHAIN_DB
-    schema: PUBLIC
-    tables:
-      - name: raw_o_cvs11jyuchuu
-        identifier: O_CVS11JYUCHUU

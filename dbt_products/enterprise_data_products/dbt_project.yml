@@ -1,0 +1,187 @@
+
+# Name your project! Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: 'enterprise_data_products'
+version: '1.0.0'
+config-version: 2
+
+vars:
+  use_common_masking_policy_db: "True"
+  common_masking_policy_db: "COMMON_TBL_DB"
+  common_masking_policy_schema: "MASKING_POLICY"
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'enterprise_data_products'
+
+# These configurations specify where dbt should look for different types of files.
+# The `model-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"  # directory which will store compiled SQL files
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+
+# In this example config, we tell dbt to build all models in the example/
+# directory as views. These settings can be overridden in the individual model
+# files using the `{{ config(...) }}` macro.
+models:
+  enterprise_data_products:
+    +copy_grants: true
+    +on_schema_change: "fail"
+    BB:
+      valuechain:
+        +snowflake_warehouse: "VALUECHAIN_WH"
+        +group: valuechain
+        +database: valuechain_db
+        +schema: public
+    BD:
+      valuechain:
+        +snowflake_warehouse: "VALUECHAIN_WH"
+        +group: valuechain
+        +database: valuechain_db
+        +schema: public
+        stg:
+          +access: public
+          +materialized: table
+      supplydemand:
+        +snowflake_warehouse: "SUPPLYDEMAND_WH"
+        +group: supplydemand
+        +database: supplydemand_db
+        +schema: public
+        stg:
+          +access: public
+          +materialized: table
+      marketing:
+        +snowflake_warehouse: "MARKETING_WH"
+        +group: marketing
+        +database: marketing_db
+        +schema: public
+        stg:
+          +access: public
+          +materialized: table
+      administration:
+        +snowflake_warehouse: "ADMINISTRATION_WH"
+        +group: administration
+        +database: administration_db
+        +schema: public
+        stg:
+          +access: public
+          +materialized: table
+    DD:
+      valuechain:
+        +snowflake_warehouse: "VALUECHAIN_WH"
+        +group: valuechain
+        +database: valuechain_db
+        +schema: public
+        stg:
+          +access: public
+          +materialized: table
+      marketing:
+        +snowflake_warehouse: "MARKETING_WH"
+        +group: marketing
+        +database: marketing_db
+        +schema: public
+        stg:
+          +access: public
+          +materialized: table
+      supplydemand:
+        +snowflake_warehouse: "SUPPLYDEMAND_WH"
+        +group: supplydemand
+        +database: supplydemand_db
+        +schema: public
+        stg:
+          +access: public
+          +materialized: table
+      vinhis:
+        +snowflake_warehouse: "VINHIS_WH"
+        vinspec:
+            +group: vinhis_vinspec
+            +database: vinhis_db
+            +schema: vinspec
+            stg:
+              +access: public
+              +materialized: table
+    DE:
+      PARTS:
+        +snowflake_warehouse: "PARTS_WH"
+        +group: parts
+        +database: PARTS_DB
+        +schema: logistics
+        dim:
+          +access: public
+          +materialized: table
+      vinhis:
+        +snowflake_warehouse: "VINHIS_WH"
+        +database: vinhis_db
+        spec:
+          +group: vinhis_spec
+          +schema: spec
+          dim:
+            +access: public
+            +materialized: table
+        maint:
+          +group: vinhis_maint
+          +schema: maint
+          dim:
+            +access: public
+            +materialized: table
+    EF:
+      DATAMART:
+        +snowflake_warehouse: "DATAMART_WH"
+        +group: datamart
+        +database: DATAMART_DB
+        +schema: public
+        dim:
+          +access: public
+          +materialized: table
+
+tests:
+  enterprise_data_products:
+    +severity: warn
+    +store_failures: true
+    +database: COMMON_TBL_DB
+    # +schema: dbt_test__audit # default
+    +schema: "dbt_test__audit{{ var('DBT_JOB_NAME', '') }}"
+    # +schema: "dbt_test__audit_{{ modules.datetime.date.today().strftime('%Y%m%d') }}_{{ env_var('DBT_CLOUD_RUN_ID', 'local') }}"
+      # https://docs.getdbt.com/docs/build/environment-variables#special-environment-variables
+      # dbt Cloud: Run history / job_xxx: Run #326668
+      # >> dbt_test__audit_20231113_326668
+      # >> dbt_test__audit_<yyyymmdd>_<run_id>
+    singular:
+      de:
+        parts:
+          +group: parts
+      ef:
+        datamart:
+          +group: datamart
+
+snapshots:
+  enterprise_data_products:
+    BD:
+      valuechain:
+        +snowflake_warehouse: "VALUECHAIN_WH"
+        +group: valuechain
+        +target_database: valuechain_db
+        +target_schema: dbt_snapshots
+      supplydemand:
+        +snowflake_warehouse: "SUPPLYDEMAND_WH"
+        +group: supplydemand
+        +target_database: supplydemand_db
+        +target_schema: dbt_snapshots
+      marketing:
+        +snowflake_warehouse: "MARKETING_WH"
+        +group: marketing
+        +target_database: marketing_db
+        +target_schema: dbt_snapshots

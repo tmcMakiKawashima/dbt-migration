@@ -1,9 +1,0 @@
-version: 2
-
-sources:
-  - name: dx0yui_db_public
-    database: DX0YUI_DB
-    schema: PUBLIC
-    tables:
-      - name: raw_dm_pno
-        identifier: DM_PNO
