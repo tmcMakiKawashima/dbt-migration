@@ -154,7 +154,7 @@ schedules = [
     build_schedule_from_dbt_selection(
         [dbt_products_assets],
         job_name="job_build_stg_mikado_nyutaijo",
-        schedule_name="MIKADO NYUTAIJO",
+        schedule_name="MIKADO_NYUTAIJO",
         cron_schedule="30 06 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+stg_nyutaijo",
