@@ -233,8 +233,8 @@ sources:
             tests:
               - fixed_length:
                   length: 2934
-      - name: raw_epc_fixlen_cv201khintype2
-        identifier: epc_fixlen_cv201khintype2
+      - name: raw_cv201khintype2
+        identifier: cv201khintype2
       - name: raw_dv2a5404
         identifier: dv2a5404
         columns:
