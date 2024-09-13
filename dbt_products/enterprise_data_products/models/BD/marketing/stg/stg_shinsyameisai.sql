@@ -32,20 +32,20 @@ with stg_shinsyameisai as (
         tono_3::varchar(6) as tono3, --なし
         shamei::varchar(2) as shamei, --なし
         sno::varchar(2) as sno, --なし
-        to_varchar(bukbn)::varchar(1) as bukbn, --なし
+        bukbn::varchar(1) as bukbn, --なし
         ctlkata::varchar(16) as ctlkata, --なし
         basekata::varchar(20) as basekata, --なし
         tshameia::varchar(2) as tshameia, --なし
         tshameib::varchar(2) as tshameib, --なし
         tshameic::varchar(1) as tshameic, --なし
         tshameid::varchar(1) as tshameid, --なし
-        to_varchar(mdlyear)::varchar(6) as mdlyear, --なし
+        mdlyear::varchar(6) as mdlyear, --なし
         sinkkbn::varchar(1) as sinkkbn, --なし
         engnmkbn::varchar(2) as engnmkbn, --なし
         kudo::varchar(1) as kudo, --なし
         mision::varchar(2) as mision, --なし
-        to_varchar(sas)::varchar(1) as sas, --なし
-        to_varchar(doorsuu)::varchar(1) as doorsuu, --なし
+        sas::varchar(1) as sas, --なし
+        doorsuu::varchar(1) as doorsuu, --なし
         grade::varchar(40) as grade, --なし
         sekisai::varchar(1) as sekisai, --なし
         roofkjy::varchar(1) as roofkjy, --なし
