@@ -15,23 +15,23 @@ with stg_yohinhinbanmeisai as (
         to_varchar(ym)::varchar(6) as ym, --なし
         to_varchar(tmcduo)::varchar(1) as tmcduo, --なし
         to_varchar(bukai)::varchar(1) as bukai, --なし
-        to_varchar(bukbn)::varchar(1) as bukbn, --なし
+        bukbn::varchar(1) as bukbn, --なし
         hkata::varchar(30) as hkata, --なし
         gaicd::varchar(4) as gaicd, --なし
         ucd::varchar(4) as ucd, --なし
-        to_varchar(mdlyear)::varchar(6) as mdlyear, --なし
+        mdlyear::varchar(6) as mdlyear, --なし
         sinkkbn::varchar(1) as sinkkbn, --なし
         grade::varchar(40) as grade, --なし
         to_varchar(hdkb)::varchar(1) as hdkb, --なし
-        to_varchar(yokb)::varchar(1) as yokb, --なし
-        to_varchar(sx)::varchar(1) as sx, --なし
+        yokb::varchar(1) as yokb, --なし
+        sx::varchar(1) as sx, --なし
         jucage::number(2) as jucage, --なし
         tshamei::varchar(6) as tshamei, --なし
         tshameia::varchar(2) as tshameia, --なし
         tshameib::varchar(2) as tshameib, --なし
         tshameic::varchar(1) as tshameic, --なし
         tshameid::varchar(1) as tshameid, --なし
-        to_varchar(jkeidd)::varchar(8) as jkeidd, --なし
+        jkeidd::varchar(8) as jkeidd, --なし
         jcankedd::varchar(8) as jcankedd, --なし
         hanbkjdd::varchar(8) as hanbkjdd, --なし
         hbcnkjdd::varchar(8) as hbcnkjdd, --なし
