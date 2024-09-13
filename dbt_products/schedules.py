@@ -1,4 +1,4 @@
-"""
+﻿"""
 To add a daily schedule that materializes your dbt assets, uncomment the following lines.
 """
 from dagster import DefaultScheduleStatus, RunConfig
@@ -149,5 +149,39 @@ schedules = [
         default_status=DefaultScheduleStatus.RUNNING,
         tags={"ecs/cpu": "256", "ecs/memory": "1024",
               "job_name": "job_build_stg_mashotoroku"},
+    ),
+    # VIN用品
+    build_schedule_from_dbt_selection(
+        [dbt_products_assets],
+        job_name="job_build_dm_vinhis_yohin",
+        schedule_name="VIN_YOHIN",
+        cron_schedule="00 22 * * *",
+        execution_timezone="Asia/Tokyo",
+        dbt_select="+dm_vinhis_yohin",
+        config=RunConfig(ops={"dbt_products_assets": 
+                              DbtConfig(dbt_vars={"DBT_JOB_NAME": "_dm_vinhis_yohin"},
+                                        source_test_list=["source:*,+dm_vinhis_yohin"])
+                             }
+                        ),
+        default_status=DefaultScheduleStatus.RUNNING,
+        tags={"ecs/cpu": "256", "ecs/memory": "1024",
+              "job_name": "job_build_dm_vinhis_yohin"},
+    ),
+    # 用品品番明細
+    build_schedule_from_dbt_selection(
+        [dbt_products_assets],
+        job_name="job_build_stg_yohinhinbanmeisai",
+        schedule_name="YOHINHINBANMEISAI",
+        cron_schedule="30 17 * * *",
+        execution_timezone="Asia/Tokyo",
+        dbt_select="+stg_yohinhinbanmeisai",
+        config=RunConfig(ops={"dbt_products_assets": 
+                              DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_yohinhinbanmeisai"},
+                                        source_test_list=["source:*,+stg_yohinhinbanmeisai"])
+                             }
+                        ),
+        default_status=DefaultScheduleStatus.RUNNING,
+        tags={"ecs/cpu": "256", "ecs/memory": "1024",
+              "job_name": "job_build_stg_yohinhinbanmeisai"},
     ),
 ]
