@@ -155,7 +155,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_dm_vinhis_yohin",
         schedule_name="VIN_YOHIN",
-        cron_schedule="00 22 * * *",
+        cron_schedule="00 07 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+dm_vinhis_yohin",
         config=RunConfig(ops={"dbt_products_assets": 
@@ -172,7 +172,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_stg_yohinhinbanmeisai",
         schedule_name="YOHINHINBANMEISAI",
-        cron_schedule="30 17 * * *",
+        cron_schedule="30 02 * * *",
         execution_timezone="Asia/Tokyo",
         dbt_select="+stg_yohinhinbanmeisai",
         config=RunConfig(ops={"dbt_products_assets": 
