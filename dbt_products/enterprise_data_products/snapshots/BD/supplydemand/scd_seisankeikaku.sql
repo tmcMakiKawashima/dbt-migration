@@ -1,0 +1,61 @@
+{% snapshot scd_seisankeikaku %}
+
+{{
+    config(
+        unique_key="concat_ws('-',
+                    syasyu_cd,
+                    sno,
+                    syameicd,
+                    ordertype,
+                    nisgt,
+                    kd_hbtgrcd,
+                    hi_ktcd,
+                    ctl_kt,
+                    gaihncd,
+                    utibrcd,
+                    sn_spec01,
+                    sn_spec02,
+                    sn_spec03,
+                    sn_spec04,
+                    sn_spec05,
+                    sn_spec06,
+                    sn_spec07,
+                    sn_spec08,
+                    sn_spec09,
+                    sn_spec10,
+                    sn_spec11,
+                    sn_spec12,
+                    sn_spec13,
+                    sn_spec14,
+                    sn_spec15,
+                    sn_spec16,
+                    sn_spec17,
+                    sn_spec18,
+                    sn_spec19,
+                    sn_spec20,
+                    smkcd,
+                    smkmeisai,
+                    frmkbn,
+                    kd_lotfg,
+                    hi_kt,
+                    lo_ktcd,
+                    eg_kt,
+                    mt_kt,
+                    grade,
+                    bodytype,
+                    vin_wmi,
+                    vin_vds,
+                    mdlyr,
+                    idline,
+                    maker,
+                    k_nen)",
+
+        strategy='timestamp',
+        updated_at='ldts',
+        invalidate_hard_deletes=True,
+    )
+}}
+
+select * from {{ ref('stg_seisankeikaku') }}
+
+{% endsnapshot %}

@@ -322,6 +322,41 @@ sources:
             tests:
               - fixed_length:
                   length: 435
+      - name: raw_da5a219a
+        identifier: da5a219a
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 105
+      - name: raw_da5a217a
+        identifier: da5a217a
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 198
+      - name: raw_da5a216a
+        identifier: da5a216a
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 198
+      - name: raw_da5a218a
+        identifier: da5a218a
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 486
+      - name: raw_da5a220a
+        identifier: da5a220a
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 645
 
   - name: snowpipe_db_marketing
     database: snowpipe_DB
