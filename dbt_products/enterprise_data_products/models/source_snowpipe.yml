@@ -1,362 +1,362 @@
-version: 2
+# version: 2
 
-sources:
-  - name: snowpipe_db_valuechain
-    database: Snowpipe_DB
-    schema: VALUECHAIN
-    freshness:
-      warn_after: { count: 1, period: hour }
-      error_after: { count: 24, period: hour }
-    loaded_at_field: LDTS
+# sources:
+#   - name: snowpipe_db_valuechain
+#     database: Snowpipe_DB
+#     schema: VALUECHAIN
+#     freshness:
+#       warn_after: { count: 1, period: hour }
+#       error_after: { count: 24, period: hour }
+#     loaded_at_field: LDTS
 
-    tables:
-      - name: raw_shkjissekiruikei
-        identifier: KTRLA03UZZ0KV80001
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 1283
-      - name: raw_dvnp5770
-        identifier: KTRLA01VZZ0KVN00G0
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 475
-      - name: raw_dvnp4330
-        identifier: KTRLA01VZZ0KVN00G1
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 270
-      - name: raw_dvnp4520
-        identifier: KTRLA01VZZ0KVN00G2
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 295
-      - name: raw_dvnp6490
-        identifier: KTRLA01VZZ0KVN00G3
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 900
-      - name: raw_dvnp0710
-        identifier: KTRLA01VZZ0KVN00G4
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 410
-      - name: raw_dvnp0680
-        identifier: KTRLA01VZZ0KVN00G5
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 295
-      - name: raw_dvnp0700
-        identifier: KTRLA01VZZ0KVN00G6
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 340
-      - name: raw_dvnp054a
-        identifier: KTRLA01VZZ0KVN00G7
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 158
-      - name: raw_cvn35dsyukabin
-        identifier: KTRLA01VZZ0KVN00G8
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 100
-      - name: raw_cvn18nosiodrjyoho
-        identifier: KTRLA01VZZ0KVN00G9
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 400
-      - name: raw_cvn06dodrshiji
-        identifier: KTRLA01VZZ0KVN00GA
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 500
-      - name: raw_dvsf509a
-        identifier: KTRLA01VZZ0KVS00M6
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 250
-      - name: raw_tbdaihl
-        identifier: DXDAIH99
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 120
-      - name: raw_tbdaiml
-        identifier: DXDAIM99
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 500
-      - name: raw_tbnsyus
-        identifier: DXNSYU99
-      - name: raw_tbuserm
-        identifier: DXUSER99
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 368
-      - name: raw_tbdaikl
-        identifier: DXDAIK99
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 283
-      - name: raw_tbsmksk
-        identifier: DXC03399
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 400
-      - name: raw_tbbofll
-        identifier: DXBOFL99
-      - name: raw_tbchznl
-        identifier: DXCHZN99
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 272
-      - name: raw_tbnoukifl
-        identifier: DXNOUK99
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 204
-      - name: raw_tbnokjs
-        identifier: DXNOKJ99
-      - name: raw_tbsmksk_noki
-        identifier: DXC22899
-        columns:
-          - name: RAW_DATA
-            tests:
-              - fixed_length:
-                  length: 400
-      - name: raw_ktrla025zz0kil3202
-        identifier: ktrla025zz0kil3202
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 109
-      - name: raw_ktrla025zz0kil3203
-        identifier: ktrla025zz0kil3203
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 31
-      - name: raw_ktrla025zz0kil3204
-        identifier: ktrla025zz0kil3204
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 29
-      - name: raw_ktrla025zz0kil3205
-        identifier: ktrla025zz0kil3205
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 90
-      - name: raw_ktrla025zz0kil3206
-        identifier: ktrla025zz0kil3206
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 33
-      - name: raw_ktrla025zz0kil3207
-        identifier: ktrla025zz0kil3207
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 44
-      - name: raw_ktrla025zz0kil3209
-        identifier: ktrla025zz0kil3209
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 51
-      - name: raw_ktrla025zz0kil3210
-        identifier: ktrla025zz0kil3210
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 10
-      - name: raw_ktrla025zz0kil3211
-        identifier: ktrla025zz0kil3211
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 40
-      - name: raw_dv2a381b
-        identifier: dv2a381b
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 2934
-      - name: raw_cv201khintype2
-        identifier: cv201khintype2
-      - name: raw_dv2a5404
-        identifier: dv2a5404
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 111
-      - name: raw_dv2a4774
-        identifier: dv2a4774
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 13
-      - name: raw_dv2a38b4
-        identifier: dv2a38b4
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 29
-      - name: raw_dv2a4983
-        identifier: dv2a4983
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 44
-      - name: raw_dv2a3704
-        identifier: dv2a3704
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 75
-      - name: raw_dv2a4974
-        identifier: dv2a4974
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 187
+#     tables:
+#       - name: raw_shkjissekiruikei
+#         identifier: KTRLA03UZZ0KV80001
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 1283
+#       - name: raw_dvnp5770
+#         identifier: KTRLA01VZZ0KVN00G0
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 475
+#       - name: raw_dvnp4330
+#         identifier: KTRLA01VZZ0KVN00G1
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 270
+#       - name: raw_dvnp4520
+#         identifier: KTRLA01VZZ0KVN00G2
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 295
+#       - name: raw_dvnp6490
+#         identifier: KTRLA01VZZ0KVN00G3
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 900
+#       - name: raw_dvnp0710
+#         identifier: KTRLA01VZZ0KVN00G4
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 410
+#       - name: raw_dvnp0680
+#         identifier: KTRLA01VZZ0KVN00G5
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 295
+#       - name: raw_dvnp0700
+#         identifier: KTRLA01VZZ0KVN00G6
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 340
+#       - name: raw_dvnp054a
+#         identifier: KTRLA01VZZ0KVN00G7
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 158
+#       - name: raw_cvn35dsyukabin
+#         identifier: KTRLA01VZZ0KVN00G8
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 100
+#       - name: raw_cvn18nosiodrjyoho
+#         identifier: KTRLA01VZZ0KVN00G9
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 400
+#       - name: raw_cvn06dodrshiji
+#         identifier: KTRLA01VZZ0KVN00GA
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 500
+#       - name: raw_dvsf509a
+#         identifier: KTRLA01VZZ0KVS00M6
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 250
+#       - name: raw_tbdaihl
+#         identifier: DXDAIH99
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 120
+#       - name: raw_tbdaiml
+#         identifier: DXDAIM99
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 500
+#       - name: raw_tbnsyus
+#         identifier: DXNSYU99
+#       - name: raw_tbuserm
+#         identifier: DXUSER99
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 368
+#       - name: raw_tbdaikl
+#         identifier: DXDAIK99
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 283
+#       - name: raw_tbsmksk
+#         identifier: DXC03399
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 400
+#       - name: raw_tbbofll
+#         identifier: DXBOFL99
+#       - name: raw_tbchznl
+#         identifier: DXCHZN99
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 272
+#       - name: raw_tbnoukifl
+#         identifier: DXNOUK99
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 204
+#       - name: raw_tbnokjs
+#         identifier: DXNOKJ99
+#       - name: raw_tbsmksk_noki
+#         identifier: DXC22899
+#         columns:
+#           - name: RAW_DATA
+#             tests:
+#               - fixed_length:
+#                   length: 400
+#       - name: raw_ktrla025zz0kil3202
+#         identifier: ktrla025zz0kil3202
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 109
+#       - name: raw_ktrla025zz0kil3203
+#         identifier: ktrla025zz0kil3203
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 31
+#       - name: raw_ktrla025zz0kil3204
+#         identifier: ktrla025zz0kil3204
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 29
+#       - name: raw_ktrla025zz0kil3205
+#         identifier: ktrla025zz0kil3205
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 90
+#       - name: raw_ktrla025zz0kil3206
+#         identifier: ktrla025zz0kil3206
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 33
+#       - name: raw_ktrla025zz0kil3207
+#         identifier: ktrla025zz0kil3207
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 44
+#       - name: raw_ktrla025zz0kil3209
+#         identifier: ktrla025zz0kil3209
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 51
+#       - name: raw_ktrla025zz0kil3210
+#         identifier: ktrla025zz0kil3210
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 10
+#       - name: raw_ktrla025zz0kil3211
+#         identifier: ktrla025zz0kil3211
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 40
+#       - name: raw_dv2a381b
+#         identifier: dv2a381b
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 2934
+#       - name: raw_cv201khintype2
+#         identifier: cv201khintype2
+#       - name: raw_dv2a5404
+#         identifier: dv2a5404
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 111
+#       - name: raw_dv2a4774
+#         identifier: dv2a4774
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 13
+#       - name: raw_dv2a38b4
+#         identifier: dv2a38b4
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 29
+#       - name: raw_dv2a4983
+#         identifier: dv2a4983
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 44
+#       - name: raw_dv2a3704
+#         identifier: dv2a3704
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 75
+#       - name: raw_dv2a4974
+#         identifier: dv2a4974
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 187
 
-  - name: snowpipe_db_supplydemand
-    database: snowpipe_DB
-    schema: supplydemand
-    freshness:
-      warn_after: { count: 1, period: hour }
-      error_after: { count: 24, period: hour }
-    loaded_at_field: ldts
+#   - name: snowpipe_db_supplydemand
+#     database: snowpipe_DB
+#     schema: supplydemand
+#     freshness:
+#       warn_after: { count: 1, period: hour }
+#       error_after: { count: 24, period: hour }
+#     loaded_at_field: ldts
 
-    tables:
-      - name: raw_tsjfa368
-        identifier: tsjfa368
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 450
-      - name: raw_nojfa560
-        identifier: nojfa560
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 1563
-      - name: raw_ktrla01ezz0ka20001
-        identifier: ktrla01ezz0ka20001
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 133
-      - name: raw_da5a212b
-        identifier: da5a212b
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 1563
-      - name: raw_da5a215a
-        identifier: da5a215a
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 435
+#     tables:
+#       - name: raw_tsjfa368
+#         identifier: tsjfa368
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 450
+#       - name: raw_nojfa560
+#         identifier: nojfa560
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 1563
+#       - name: raw_ktrla01ezz0ka20001
+#         identifier: ktrla01ezz0ka20001
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 133
+#       - name: raw_da5a212b
+#         identifier: da5a212b
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 1563
+#       - name: raw_da5a215a
+#         identifier: da5a215a
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 435
 
-  - name: snowpipe_db_marketing
-    database: snowpipe_DB
-    schema: marketing
-    freshness:
-      warn_after: { count: 1, period: hour }
-      error_after: { count: 24, period: hour }
-    loaded_at_field: ldts
+#   - name: snowpipe_db_marketing
+#     database: snowpipe_DB
+#     schema: marketing
+#     freshness:
+#       warn_after: { count: 1, period: hour }
+#       error_after: { count: 24, period: hour }
+#     loaded_at_field: ldts
 
-    tables:      
-      - name: raw_n8jfim01
-        identifier: n8jfim01
-      - name: raw_n8jfim04
-        identifier: n8jfim04
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 175
-      - name: raw_ktrla01ezz0ko87001
-        identifier: ktrla01ezz0ko87001
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length: 
-                  length: 50
+#     tables:      
+#       - name: raw_n8jfim01
+#         identifier: n8jfim01
+#       - name: raw_n8jfim04
+#         identifier: n8jfim04
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length:
+#                   length: 175
+#       - name: raw_ktrla01ezz0ko87001
+#         identifier: ktrla01ezz0ko87001
+#         columns:
+#           - name: raw_data
+#             tests:
+#               - fixed_length: 
+#                   length: 50
 
-  - name: snowpipe_db_administration
-    database: snowpipe_DB
-    schema: administration
-    freshness:
-      warn_after: { count: 1, period: hour }
-      error_after: { count: 24, period: hour }
-    loaded_at_field: ldts
+#   - name: snowpipe_db_administration
+#     database: snowpipe_DB
+#     schema: administration
+#     freshness:
+#       warn_after: { count: 1, period: hour }
+#       error_after: { count: 24, period: hour }
+#     loaded_at_field: ldts
 
-    tables:
-      - name: raw_jf04455d
-        identifier: jf04455d
+#     tables:
+#       - name: raw_jf04455d
+#         identifier: jf04455d

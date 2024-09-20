@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: snowpipe_db_administration
+    database: snowpipe_DB
+    schema: administration
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: ldts
+
+    tables:
+      - name: raw_jf04455d
+        identifier: jf04455d
