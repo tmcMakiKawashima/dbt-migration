@@ -83,7 +83,7 @@ with stg_shinsyameisai as (
         nsqbdy::varchar(8) as nsqbdy, --なし
         nsdd::varchar(8) as nsdd, --なし
         ctumn::varchar(1) as ctumn, --なし
-        to_timestamp_ntz(_fivetran_synced) as ldts,  -- B層のldts
+        _fivetran_synced::timestamp_ntz as ldts,  -- B層のldts
         rank() over (partition by dlrcd, cuno order by edano desc, ym desc,ldts desc) aggkey
     from {{source('fivetran_database_marketing', 'raw_ktrla07vzz0kiw0003') }}
 
