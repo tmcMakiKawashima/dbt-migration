@@ -14,8 +14,8 @@ with stg_yohinsotyakureki as (
         rtrim(cdyouhinban, ' 　')::varchar(15) as cdyouhinban, -- 右ブランク
         rtrim(cdtorihan, ' 　')::varchar(5) as cdtorihan, -- 右ブランク
         rtrim(cdtoritenpo, ' 　')::varchar(3) as cdtoritenpo, -- 右ブランク
-        to_decimal(iff(ltrim(suuryou, '0 　') = '', '0', ltrim(suuryou, '0')))::decimal(2) as suuryou, -- 左ゼロ
-        to_decimal(iff(ltrim(kmtrtsok, '0 　') = '', '0', ltrim(kmtrtsok, '0')))::decimal(3) as kmtrtsok, -- 左ゼロ
+        to_number(iff(ltrim(suuryou, '0 　') = '', '0', ltrim(suuryou, '0')))::number(2) as suuryou, -- 左ゼロ
+        to_number(iff(ltrim(kmtrtsok, '0 　') = '', '0', ltrim(kmtrtsok, '0')))::number(3) as kmtrtsok, -- 左ゼロ
         rtrim(kbsinsa, ' 　')::varchar(1) as kbsinsa, -- 右ブランク
         ldts, -- b層のldts
         line_number,
