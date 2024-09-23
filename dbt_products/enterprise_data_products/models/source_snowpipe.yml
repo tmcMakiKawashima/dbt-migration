@@ -166,7 +166,7 @@ sources:
       - name: raw_tpjfva40
         identifier: tpjfva40
         columns:
-          - name: RAW_DATA
+          - name: raw_data
             tests:
               - fixed_length:
                   length: 40

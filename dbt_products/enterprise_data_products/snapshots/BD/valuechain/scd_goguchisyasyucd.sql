@@ -8,7 +8,7 @@
 
         strategy='timestamp',
         updated_at='kousin',
-        invalidate_hard_deletes=True,
+        invalidate_hard_deletes=true,
     )
 }}
 
