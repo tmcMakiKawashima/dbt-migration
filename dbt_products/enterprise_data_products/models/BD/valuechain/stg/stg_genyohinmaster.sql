@@ -52,7 +52,7 @@ with stg_genyohinmaster as (
         data2_treecd::varchar(7) as data2_treecd, --なし
         data2_syasin::varchar(3) as data2_syasin, --なし
         data2_suisyo::varchar(1) as data2_suisyo, --なし
-        rtrim(data2_delflg, ' 　')::varchar(6) as data2_delflg, -- 右blank
+        rtrim(data2_delflg, ' 　')::varchar(1) as data2_delflg, -- 右blank
         data2_tekiir11::varchar(4) as data2_tekiir11, --なし
         data2_tekiir12::varchar(4) as data2_tekiir12, --なし
         data2_tekiir13::varchar(4) as data2_tekiir13, --なし

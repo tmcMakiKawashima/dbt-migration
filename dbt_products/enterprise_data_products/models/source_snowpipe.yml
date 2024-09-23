@@ -171,9 +171,9 @@ sources:
               - fixed_length:
                   length: 40
       - name: raw_tpjfva41
-        identifier: TPJFVA41
+        identifier: tpjfva41
         columns:
-          - name: RAW_DATA
+          - name: raw_data
             tests:
               - fixed_length:
                   length: 550
