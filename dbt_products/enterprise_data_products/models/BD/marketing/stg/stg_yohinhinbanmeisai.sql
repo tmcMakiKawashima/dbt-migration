@@ -173,7 +173,7 @@ with stg_yohinhinbanmeisai as (
         kosu_68::number(2) as kosu68, --なし
         hinban_69::varchar(12) as hinban69, --なし
         kosu_69::number(2) as kosu69, --なし
-        _fivetran_synced::timestamp as ldts, --timestamp型
+        _fivetran_synced::timestamp_ntz as ldts, --timestamp型
         rank() over (partition by dlrcd, chumon order by edano desc, ym desc, ldts desc) aggkey
     from {{ source('fivetran_database_valuechain', 'raw_tc125yohinhinban') }}
 
