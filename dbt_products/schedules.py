@@ -175,7 +175,7 @@ schedules = [
         [dbt_products_assets],
         job_name="job_build_stg_vlt_ord",
         schedule_name="VLT_ORD",
-        cron_schedule="* 4 * * 2-6",
+        cron_schedule="00 04 * * 2-6",
         execution_timezone="Asia/Tokyo",
         dbt_select="+stg_line_kadokeitai +stg_orderkakutei_shihan +stg_orderkakutei_yusyutu +stg_vltsohutaisho",
         config=RunConfig(ops={"dbt_products_assets": 
