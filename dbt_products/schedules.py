@@ -180,9 +180,9 @@ schedules = [
         dbt_select="+stg_line_kadokeitai +stg_orderkakutei_shihan +stg_orderkakutei_yusyutu +stg_vltsohutaisho",
         config=RunConfig(ops={"dbt_products_assets": 
                               DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_vlt_ord"},
-                                        source_test_list=["source:*,+stg_line_kadokeitai,
-                                                          "source:*,+stg_orderkakutei_shihan,
-                                                          "source:*,+stg_orderkakutei_yusyutu, 
+                                        source_test_list=["source:*,+stg_line_kadokeitai",
+                                                          "source:*,+stg_orderkakutei_shihan",
+                                                          "source:*,+stg_orderkakutei_yusyutu", 
                                                           "source:*,+stg_vltsohutaisho"])
                              }
                         ),
