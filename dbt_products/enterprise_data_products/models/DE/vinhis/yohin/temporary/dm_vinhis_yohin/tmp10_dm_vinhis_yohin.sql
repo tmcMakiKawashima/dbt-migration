@@ -6,7 +6,7 @@ with
             edano, -- 枝番
             ym, -- 年月
             syadai_kt, -- 車台型式
-            frmno as frm_no -- フレームNO
+            frmno -- フレームNO
         from {{ ref('stg_shinsyameisai') }} -- 新車明細
     ),
     stg_yohinmeisai as ( 
@@ -15,7 +15,7 @@ with
             cuno, -- 注文NO.
             edano, -- 枝番
             ym, -- 年月
-            tkcd as tk_cd -- 追工コード
+            tkcd -- 追工コード
         from {{ ref('stg_yohinmeisai') }} -- 用品明細
     ) 
 select

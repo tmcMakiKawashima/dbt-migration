@@ -15,15 +15,15 @@ with
     )
 select
      tmp40_dm_vinhis_yohin.syadai_kt, -- 車台型式 stg_shinsyameisai
-     tmp40_dm_vinhis_yohin.frm_no, -- フレーム連番 stg_shinsyameisai
+     tmp40_dm_vinhis_yohin.frmno as frm_no, -- フレーム連番 stg_shinsyameisai
      tmp40_dm_vinhis_yohin.syasyu_cd, -- 車種コード stg_kokunaiseisan
      tmp40_dm_vinhis_yohin.haisya_kt, -- 配車型式 stg_kokunaiseisan
-     tmp40_dm_vinhis_yohin.tk_cd, --  追工コード stg_yohinmeisai
-     tmp40_dm_vinhis_yohin.yohinban_cd, -- 用品品番コード stg_yohinsotyakureki
+     tmp40_dm_vinhis_yohin.tkcd as tk_cd, --  追工コード stg_yohinmeisai
+     tmp40_dm_vinhis_yohin.cdyouhinban as yohinban_cd, -- 用品品番コード stg_yohinsotyakureki
      stg_genyohinmaster.tsuikou_name as tsuiko_name, -- 追工名称 stg_genyohinmaster
      stg_genyohinmaster.data1_hinmei as yohinban_name, -- 用品名称 stg_genyohinmaster
      current_timestamp::timestamp_ntz as ldts -- Load Date
 from tmp40_dm_vinhis_yohin
 left outer join stg_genyohinmaster
     on tmp40_dm_vinhis_yohin.yohinsyamei = stg_genyohinmaster.yohinsyamei
-    and tmp40_dm_vinhis_yohin.tk_cd = stg_genyohinmaster.tk_cd
+    and tmp40_dm_vinhis_yohin.tkcd = stg_genyohinmaster.tk_cd

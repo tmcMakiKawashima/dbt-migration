@@ -4,7 +4,7 @@ with
         select
             syadai_kt, -- 車台型式
             frmno, -- フレームNO
-            cdyouhinban as yohinban_cd -- 用品品番コード
+            cdyouhinban -- 用品品番コード
         from {{ ref('stg_yohinsotyakureki') }} -- 用品装着歴
     )
     select
@@ -13,4 +13,4 @@ with
 from tmp20_dm_vinhis_yohin
 left outer join stg_yohinsotyakureki
   on tmp20_dm_vinhis_yohin.syadai_kt = stg_yohinsotyakureki.syadai_kt
- and tmp20_dm_vinhis_yohin.frm_no = stg_yohinsotyakureki.frmno
+ and tmp20_dm_vinhis_yohin.frmno = stg_yohinsotyakureki.frmno
