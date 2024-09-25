@@ -1,4 +1,7 @@
 groups:
+  - name: administration
+    owner:
+      email: daichi_kishi@mail.toyota.co.jp
   - name: marketing
     owner:
       email: maki_kawashima@mail.toyota.co.jp
