@@ -115,10 +115,10 @@ with stg_warranty_wcube as (
         tmc_proc_date::varchar(8) as tmc_proc_date, -- なし
         manu_code::varchar(10) as manu_code, -- なし
         mtuser::varchar(18) as mtuser, -- なし
-        mttime::timestamp as mttime, -- timestamp型
-        _fivetran_synced::timestamp as ldts -- timestamp型
+        mttime::timestamp_ntz as mttime, -- timestamp型
+        _fivetran_synced::timestamp_ntz as ldts -- timestamp型
     from {{ source('fivetran_database_customerservice', 'raw_cep0002w3wranty') }}
-    where _fivetran_deleted = 'FALSE'
+    where _fivetran_deleted = 'false'
            {% if is_incremental() %}
                and ldts > (select max(ldts) from {{this}})
            {% endif %}
