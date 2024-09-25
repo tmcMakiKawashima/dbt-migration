@@ -44,10 +44,10 @@ with stg_seisanjisseki as (
         key_no_ignition::varchar(6) as key_no_ignition, --なし
         prod_data_id::varchar(1) as prod_data_id_seisan, --なし
         mtuser::varchar(18) as mtuser, --なし
-        mttime::timestamp as mttime, --timestamp型
-        _fivetran_synced::timestamp as ldts --timestamp型
+        mttime::timestamp_ntz as mttime, --timestamp型
+        _fivetran_synced::timestamp_ntz as ldts --timestamp型
     from {{ source('fivetran_database_supplydemand', 'raw_cep1002seisan') }}
-     where _fivetran_deleted = 'FALSE'
+     where _fivetran_deleted = 'false'
 
 {% if is_incremental() %}                                                                                                              -- ② 増分の取り方を指定
     and _fivetran_synced > (select max(ldts) from {{this}})
