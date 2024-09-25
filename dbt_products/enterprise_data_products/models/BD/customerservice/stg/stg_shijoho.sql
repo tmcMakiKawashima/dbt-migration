@@ -76,23 +76,23 @@ with stg_shijoho as (
         sum_comment_jp::varchar(750) as sum_comment_jp, --なし
         sum_comment_us::varchar(750) as sum_comment_us, --なし
         sum_comment_zh::varchar(750) as sum_comment_zh, --なし
-        ftr_recept_date::timestamp as ftr_recept_date,  --timestamp型
+        ftr_recept_date::timestamp_ntz as ftr_recept_date,  --timestamp型
         duplication_cls::varchar(1) as duplication_cls, --なし
         depuli_minfo_no::varchar(14) as depuli_minfo_no, --なし
         fcr_issue_typ::varchar(1) as fcr_issue_typ, --なし
         ftr_recept_charge_id::varchar(11) as ftr_recept_charge_id, --なし
-        ftr_recept_charge_date::timestamp as ftr_recept_charge_date, --timestamp型
+        ftr_recept_charge_date::timestamp_ntz as ftr_recept_charge_date, --timestamp型
         ftr_proc_charge_id::varchar(11) as ftr_proc_charge_id, --なし
-        ftr_proc_charge_date::timestamp as ftr_proc_charge_date,  --timestamp型
+        ftr_proc_charge_date::timestamp_ntz as ftr_proc_charge_date,  --timestamp型
         ftr_proc_recognize_id::varchar(11) as ftr_proc_recognize_id, --なし
-        ftr_proc_recognize_date::timestamp as ftr_proc_recognize_date,  --timestamp型
+        ftr_proc_recognize_date::timestamp_ntz as ftr_proc_recognize_date,  --timestamp型
         ftr_proc_via_person1_id::varchar(11) as ftr_proc_via_person1_id, --なし
-        ftr_proc_via_person1_date::timestamp as ftr_proc_via_person1_date,  --timestamp型
+        ftr_proc_via_person1_date::timestamp_ntz as ftr_proc_via_person1_date,  --timestamp型
         ftr_proc_via_person2_id::varchar(11) as ftr_proc_via_person2_id, --なし
-        ftr_proc_via_person2_date::timestamp as ftr_proc_via_person2_date,  --timestamp型
+        ftr_proc_via_person2_date::timestamp_ntz as ftr_proc_via_person2_date,  --timestamp型
         ftr_proc_via_person3_id::varchar(11) as ftr_proc_via_person3_id, --なし
-        ftr_proc_via_person3_date::timestamp as ftr_proc_via_person3_date,  --timestamp型
-        outside_distrib_date::timestamp as outside_distrib_date,  --timestamp型
+        ftr_proc_via_person3_date::timestamp_ntz as ftr_proc_via_person3_date,  --timestamp型
+        outside_distrib_date::timestamp_ntz as outside_distrib_date,  --timestamp型
         ftr_proc_g_cmpny_code::varchar(7) as ftr_proc_g_cmpny_code, --なし
         ftr_proc_g_div_code::varchar(5) as ftr_proc_g_div_code, --なし
         outside_distrib_flg::varchar(1) as outside_distrib_flg, --なし
@@ -127,14 +127,14 @@ with stg_shijoho as (
         cpsl_flg::varchar(1) as cpsl_flg, --なし
         db_user_id_tqnet::varchar(11) as db_user_id_tqnet, --なし
         db_proc_id_tqnet::varchar(8) as db_proc_id_tqnet, --なし
-        db_insert_time_tqnet::timestamp as db_insert_time_tqnet,  --timestamp型
-        db_update_time_tqnet::timestamp as db_update_time_tqnet,  --timestamp型
+        db_insert_time_tqnet::timestamp_ntz as db_insert_time_tqnet,  --timestamp型
+        db_update_time_tqnet::timestamp_ntz as db_update_time_tqnet,  --timestamp型
         update_cls::varchar(1) as update_cls, --なし
         mtuser::varchar(18) as mtuser, --なし
-        mttime::timestamp as mttime, --timestamp型
-        _fivetran_synced::timestamp as ldts --timestamp型
+        mttime::timestamp_ntz as mttime, --timestamp型
+        _fivetran_synced::timestamp_ntz as ldts --timestamp型
     from {{ source('fivetran_database_customerservice', 'raw_cep0714ftr_info') }}
-     where _fivetran_deleted = 'FALSE'
+     where _fivetran_deleted = 'false'
 
 {% if is_incremental() %}
     and _fivetran_synced > (select max(ldts) from {{this}})
