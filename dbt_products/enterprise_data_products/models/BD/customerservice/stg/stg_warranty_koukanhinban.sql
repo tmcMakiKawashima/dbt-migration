@@ -23,10 +23,10 @@ with stg_warranty_koukanhinban as (
         repl_part_no_dn::number(9) as repl_part_no_dn, --なし
         local_flg::varchar(1) as local_flg, --なし
         mtuser::varchar(18) as mtuser, --なし
-        mttime::timestamp as mttime, --timestamp型
-        _fivetran_synced::timestamp as ldts --timestamp型
+        mttime::timestamp_ntz as mttime, --timestamp型
+        _fivetran_synced::timestamp_ntz as ldts --timestamp型
     from {{ source('fivetran_database_customerservice', 'raw_cep0004parts') }}
-     where _fivetran_deleted = 'FALSE'
+     where _fivetran_deleted = 'false'
 
 {% if is_incremental() %}                                                                                                              -- ② 増分の取り方を指定
     and _fivetran_synced > (select max(ldts) from {{this}})
