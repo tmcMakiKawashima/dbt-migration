@@ -36,10 +36,10 @@ with stg_warranty_comment as (
         touch_comment_en::varchar(900) as touch_comment_en, --なし
         touch_comment_zh::varchar(900) as touch_comment_zh, --なし
         mtuser::varchar(18) as mtuser, --なし
-        mttime::timestamp as mttime, --timestamp型
-        _fivetran_synced::timestamp as ldts --timestamp型
+        mttime::timestamp_ntz as mttime, --timestamp型
+        _fivetran_synced::timestamp_ntz as ldts --timestamp型
     from {{ source('fivetran_database_customerservice', 'raw_cep0003wrntcom') }}
-     where _fivetran_deleted = 'FALSE'
+     where _fivetran_deleted = 'false'
 
 {% if is_incremental() %}                                                                                                              -- ② 増分の取り方を指定
     and _fivetran_synced > (select max(ldts) from {{this}})
