@@ -10,6 +10,7 @@ sources:
     loaded_at_field: ldts
 
     tables:
+    # SYARYO
       - name: raw_tsjfa368
         identifier: tsjfa368
         columns:
@@ -17,6 +18,7 @@ sources:
             tests:
               - fixed_length:
                   length: 450
+    # AQUA
       - name: raw_nojfa560
         identifier: nojfa560
         columns:
@@ -24,13 +26,6 @@ sources:
             tests:
               - fixed_length:
                   length: 1563
-      - name: raw_ktrla01ezz0ka20001
-        identifier: ktrla01ezz0ka20001
-        columns:
-          - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 133
       - name: raw_da5a212b
         identifier: da5a212b
         columns:
@@ -45,3 +40,11 @@ sources:
             tests:
               - fixed_length:
                   length: 435
+    # SPEC
+      - name: raw_ktrla01ezz0ka20001
+        identifier: ktrla01ezz0ka20001
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 133

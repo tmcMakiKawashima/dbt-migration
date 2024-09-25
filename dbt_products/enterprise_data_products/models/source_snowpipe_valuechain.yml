@@ -10,6 +10,7 @@ sources:
     loaded_at_field: LDTS
 
     tables:
+    # ATOP
       - name: raw_shkjissekiruikei
         identifier: KTRLA03UZZ0KV80001
         columns:
@@ -101,6 +102,7 @@ sources:
             tests:
               - fixed_length:
                   length: 250
+    # TAS
       - name: raw_tbdaihl
         identifier: DXDAIH99
         columns:
@@ -163,6 +165,7 @@ sources:
             tests:
               - fixed_length:
                   length: 400
+    # SYARYOJOHODB
       - name: raw_ktrla025zz0kil3202
         identifier: ktrla025zz0kil3202
         columns:
@@ -226,6 +229,7 @@ sources:
             tests:
               - fixed_length:
                   length: 40
+    # EPC
       - name: raw_dv2a381b
         identifier: dv2a381b
         columns:

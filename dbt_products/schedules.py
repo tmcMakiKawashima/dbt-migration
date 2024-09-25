@@ -1,17 +1,27 @@
 """
 To add a daily schedule that materializes your dbt assets, uncomment the following lines.
 """
+
 """ D """
+""" valuechain """
 from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
+""" marketing """
 from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
+""" administration """
 from .schedules_items.administration.public.schedule_stg_mikado_nyutaijo import schedule_stg_mikado_nyutaijo
+
 """ E """
+""" vinhis maint """
 from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
+""" vinhis spec """
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kaigai import schedule_dm_vinhis_specification_kaigai
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kokunai import schedule_dm_vinhis_specification_kokunai
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_oem import schedule_dm_vinhis_specification_oem
+
 """ F """
+""" datamart """
 from .schedules_items.datamart.public.schedule_hokyunoki_mieruka import schedule_hokyunoki_mieruka
+
 """ snapshot """
 from .schedules_items.schedule_snapshot import schedule_snapshot
 
@@ -19,22 +29,28 @@ from .schedules_items.schedule_snapshot import schedule_snapshot
 schedules = []
 
 """ D層作成ジョブ """
+""" valuechain """
 # 補給品番基本情報提供
 schedules.append(schedule_d_epc)
+""" marketing """
 # RISM連携IF変更
 schedules.append(schedule_stg_mashotoroku)
+""" administration """
 # MIKADO
 schedules.append(schedule_stg_mikado_nyutaijo)
 
 """ E層作成ジョブ """
+""" vinhis maint """
 # VIN整備
 schedules.append(schedule_dm_vinhis_maint)
+""" vinhis spec """
 # VIN装備
 schedules.append(schedule_dm_vinhis_specification_kaigai)
 schedules.append(schedule_dm_vinhis_specification_kokunai)
 schedules.append(schedule_dm_vinhis_specification_oem)
 
 """ F層作成ジョブ """
+""" datamart """
 # 補給納期視える化
 schedules.append(schedule_hokyunoki_mieruka)
 

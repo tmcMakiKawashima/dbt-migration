@@ -9,7 +9,8 @@ sources:
       error_after: { count: 24, period: hour }
     loaded_at_field: ldts
 
-    tables:      
+    tables:
+    # ALADDIN
       - name: raw_n8jfim01
         identifier: n8jfim01
       - name: raw_n8jfim04

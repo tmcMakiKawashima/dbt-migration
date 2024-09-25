@@ -10,5 +10,6 @@ sources:
     loaded_at_field: ldts
 
     tables:
+    # MIKADO
       - name: raw_jf04455d
         identifier: jf04455d
