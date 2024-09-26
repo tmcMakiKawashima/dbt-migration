@@ -7,7 +7,7 @@
                     idntno)",
 
         strategy='timestamp',
-        updated_at='ldts',
+        updated_at='updatetime',
         invalidate_hard_deletes=True,
     )
 }}
