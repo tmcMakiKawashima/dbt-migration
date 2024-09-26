@@ -20,6 +20,7 @@ sources:
             tests:
               - fixed_length:
                   length: 175
+    # RISM
       - name: raw_ktrla01ezz0ko87001
         identifier: ktrla01ezz0ko87001
         columns:
