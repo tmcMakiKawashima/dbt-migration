@@ -78,3 +78,109 @@ models:
           - not_null:
               config:
                 severity: error
+# 用品明細
+  - name: stg_yohinmeisai
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - cuno
+            - edano
+            - ym
+            - nykt
+            - tkcd
+          config:
+            severity: error
+
+    columns:
+      - name: dlrcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cuno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: edano
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ym
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nykt
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tkcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+# 新車明細
+  - name: stg_shinsyameisai
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - cuno
+          config:
+            severity: error
+
+    columns:
+      - name: dlrcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cuno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: edano
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ym
+        tests:
+          - not_null:
+              config:
+                severity: error
+# 用品品番明細
+  - name: stg_yohinhinbanmeisai
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - chumon
+          config:
+            severity: error
+    columns:
+      - name: dlrcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: chumon
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: edano
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ym
+        tests:
+          - not_null:
+              config:
+                severity: error
