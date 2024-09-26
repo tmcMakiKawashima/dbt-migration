@@ -133,7 +133,7 @@ with stg_shijoho as (
         mtuser::varchar(18) as mtuser, --なし
         mttime::timestamp_ntz as mttime, --timestamp型
         _fivetran_synced::timestamp_ntz as ldts --timestamp型
-    from {{ source('fivetran_database_customerservice', 'raw_cep0714ftr_info') }}
+    from {{ source('fivetran_database_oraclerds_orcl_iqas_osepcs0000db20', 'raw_cep0714ftr_info') }}
      where _fivetran_deleted = 'false'
 
 {% if is_incremental() %}
