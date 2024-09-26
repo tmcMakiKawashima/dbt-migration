@@ -281,3 +281,18 @@ sources:
             tests:
               - fixed_length:
                   length: 187
+    # PIXY
+      - name: raw_tpjfva40
+        identifier: tpjfva40
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 40
+      - name: raw_tpjfva41
+        identifier: tpjfva41
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 550

@@ -27,3 +27,11 @@ sources:
             tests:
               - fixed_length: 
                   length: 50
+    # SYARYOJOHODB
+      - name: raw_ktrla025zz0kil3201
+        identifier: ktrla025zz0kil3201
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 61

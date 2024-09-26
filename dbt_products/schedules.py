@@ -7,6 +7,7 @@ To add a daily schedule that materializes your dbt assets, uncomment the followi
 from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
 """ marketing """
 from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
+from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import schedule_stg_yohinhinbanmeisai
 """ administration """
 from .schedules_items.administration.public.schedule_stg_mikado_nyutaijo import schedule_stg_mikado_nyutaijo
 
@@ -17,6 +18,8 @@ from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_v
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kaigai import schedule_dm_vinhis_specification_kaigai
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kokunai import schedule_dm_vinhis_specification_kokunai
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_oem import schedule_dm_vinhis_specification_oem
+""" vinhis yohin """
+from .schedules_items.vinhis.yohin.schedule_dm_vinhis_yohin import schedule_dm_vinhis_yohin
 
 """ F """
 """ datamart """
@@ -35,6 +38,8 @@ schedules.append(schedule_d_epc)
 """ marketing """
 # RISM連携IF変更
 schedules.append(schedule_stg_mashotoroku)
+# 用品品番明細
+schedules.append(schedule_stg_yohinhinbanmeisai)
 """ administration """
 # MIKADO
 schedules.append(schedule_stg_mikado_nyutaijo)
@@ -48,6 +53,9 @@ schedules.append(schedule_dm_vinhis_maint)
 schedules.append(schedule_dm_vinhis_specification_kaigai)
 schedules.append(schedule_dm_vinhis_specification_kokunai)
 schedules.append(schedule_dm_vinhis_specification_oem)
+""" vinhis yohin """
+# VIN用品
+schedules.append(schedule_dm_vinhis_yohin)
 
 """ F層作成ジョブ """
 """ datamart """
