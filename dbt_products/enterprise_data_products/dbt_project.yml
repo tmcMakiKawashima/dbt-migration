@@ -7,9 +7,9 @@ version: '1.0.0'
 config-version: 2
 
 vars:
-  use_common_masking_policy_db: "True"
-  common_masking_policy_db: "COMMON_TBL_DB"
-  common_masking_policy_schema: "MASKING_POLICY"
+  use_common_masking_policy_db: true
+  common_masking_policy_db: common_tbl_db
+  common_masking_policy_schema: masking_policy
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'enterprise_data_products'
@@ -42,13 +42,13 @@ models:
     +on_schema_change: "fail"
     BB:
       valuechain:
-        +snowflake_warehouse: "VALUECHAIN_WH"
+        +snowflake_warehouse: valuechain_wh
         +group: valuechain
         +database: valuechain_db
         +schema: public
     BD:
       valuechain:
-        +snowflake_warehouse: "VALUECHAIN_WH"
+        +snowflake_warehouse: valuechain_wh
         +group: valuechain
         +database: valuechain_db
         +schema: public
@@ -56,7 +56,7 @@ models:
           +access: public
           +materialized: table
       supplydemand:
-        +snowflake_warehouse: "SUPPLYDEMAND_WH"
+        +snowflake_warehouse: supplydemand_wh
         +group: supplydemand
         +database: supplydemand_db
         +schema: public
@@ -64,7 +64,7 @@ models:
           +access: public
           +materialized: table
       marketing:
-        +snowflake_warehouse: "MARKETING_WH"
+        +snowflake_warehouse: marketing_wh
         +group: marketing
         +database: marketing_db
         +schema: public
@@ -72,7 +72,7 @@ models:
           +access: public
           +materialized: table
       administration:
-        +snowflake_warehouse: "ADMINISTRATION_WH"
+        +snowflake_warehouse: administration_wh
         +group: administration
         +database: administration_db
         +schema: public
@@ -81,7 +81,7 @@ models:
           +materialized: table
     DD:
       valuechain:
-        +snowflake_warehouse: "VALUECHAIN_WH"
+        +snowflake_warehouse: valuechain_wh
         +group: valuechain
         +database: valuechain_db
         +schema: public
@@ -89,7 +89,7 @@ models:
           +access: public
           +materialized: table
       marketing:
-        +snowflake_warehouse: "MARKETING_WH"
+        +snowflake_warehouse: marketing_wh
         +group: marketing
         +database: marketing_db
         +schema: public
@@ -97,7 +97,7 @@ models:
           +access: public
           +materialized: table
       supplydemand:
-        +snowflake_warehouse: "SUPPLYDEMAND_WH"
+        +snowflake_warehouse: supplydemand_wh
         +group: supplydemand
         +database: supplydemand_db
         +schema: public
@@ -105,7 +105,7 @@ models:
           +access: public
           +materialized: table
       vinhis:
-        +snowflake_warehouse: "VINHIS_WH"
+        +snowflake_warehouse: vinhis_wh
         vinspec:
             +group: vinhis_vinspec
             +database: vinhis_db
@@ -115,7 +115,7 @@ models:
               +materialized: table
     DE:
       PARTS:
-        +snowflake_warehouse: "PARTS_WH"
+        +snowflake_warehouse: parts_wh
         +group: parts
         +database: PARTS_DB
         +schema: logistics
@@ -123,7 +123,7 @@ models:
           +access: public
           +materialized: table
       vinhis:
-        +snowflake_warehouse: "VINHIS_WH"
+        +snowflake_warehouse: vinhis_wh
         +database: vinhis_db
         yohin:
           +group: vinhis_yohin
@@ -145,7 +145,7 @@ models:
             +materialized: table
     EF:
       DATAMART:
-        +snowflake_warehouse: "DATAMART_WH"
+        +snowflake_warehouse: datamart_wh
         +group: datamart
         +database: DATAMART_DB
         +schema: public
@@ -157,7 +157,7 @@ tests:
   enterprise_data_products:
     +severity: warn
     +store_failures: true
-    +database: COMMON_TBL_DB
+    +database: common_tbl_db
     # +schema: dbt_test__audit # default
     +schema: "dbt_test__audit{{ var('DBT_JOB_NAME', '') }}"
     # +schema: "dbt_test__audit_{{ modules.datetime.date.today().strftime('%Y%m%d') }}_{{ env_var('DBT_CLOUD_RUN_ID', 'local') }}"
@@ -177,17 +177,17 @@ snapshots:
   enterprise_data_products:
     BD:
       valuechain:
-        +snowflake_warehouse: "VALUECHAIN_WH"
+        +snowflake_warehouse: valuechain_wh
         +group: valuechain
         +target_database: valuechain_db
         +target_schema: dbt_snapshots
       supplydemand:
-        +snowflake_warehouse: "SUPPLYDEMAND_WH"
+        +snowflake_warehouse: supplydemand_wh
         +group: supplydemand
         +target_database: supplydemand_db
         +target_schema: dbt_snapshots
       marketing:
-        +snowflake_warehouse: "MARKETING_WH"
+        +snowflake_warehouse: marketing_wh
         +group: marketing
         +target_database: marketing_db
         +target_schema: dbt_snapshots
