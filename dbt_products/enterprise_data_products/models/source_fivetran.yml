@@ -1,6 +1,6 @@
 version: 2
 sources:
-  - name: fivetran_database_supplydemand
+  - name: fivetran_database_oraclerds_orcl_iqas_osepcs0000db20
     database: fivetran_database
     schema: oraclerds_orcl_iqas_osepcs0000db20
     freshness:
@@ -15,16 +15,6 @@ sources:
         identifier: cep1002seisan
       - name: raw_cep1001index
         identifier: cep1001index
-
-  - name: fivetran_database_customerservice
-    database: fivetran_database
-    schema: oraclerds_orcl_iqas_osepcs0000db20
-    freshness:
-      warn_after: { count: 1, period: hour }
-      error_after: { count: 24, period: hour }
-    loaded_at_field: _fivetran_synced
-
-    tables:
       - name: raw_cep0001wrntdata
         identifier: cep0001wrntdata
       - name: raw_cep0002w3wranty
