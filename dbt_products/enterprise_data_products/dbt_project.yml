@@ -40,7 +40,7 @@ models:
   enterprise_data_products:
     +copy_grants: true
     +on_schema_change: "fail"
-    BB:
+    bb:
       valuechain:
         +snowflake_warehouse: valuechain_wh
         +group: valuechain
@@ -79,7 +79,7 @@ models:
         stg:
           +access: public
           +materialized: table
-    DD:
+    dd:
       valuechain:
         +snowflake_warehouse: valuechain_wh
         +group: valuechain
@@ -113,8 +113,8 @@ models:
             stg:
               +access: public
               +materialized: table
-    DE:
-      PARTS:
+    de:
+      parts:
         +snowflake_warehouse: parts_wh
         +group: parts
         +database: parts_db
@@ -143,8 +143,8 @@ models:
           dim:
             +access: public
             +materialized: table
-    EF:
-      DATAMART:
+    ef:
+      datamart:
         +snowflake_warehouse: datamart_wh
         +group: datamart
         +database: datamart_db
