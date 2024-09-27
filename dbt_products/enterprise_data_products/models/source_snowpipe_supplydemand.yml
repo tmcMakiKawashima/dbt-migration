@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: snowpipe_db_supplydemand
-    database: snowpipe_DB
+    database: snowpipe_db
     schema: supplydemand
     freshness:
       warn_after: { count: 1, period: hour }

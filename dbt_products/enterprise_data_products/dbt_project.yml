@@ -117,7 +117,7 @@ models:
       PARTS:
         +snowflake_warehouse: parts_wh
         +group: parts
-        +database: PARTS_DB
+        +database: parts_db
         +schema: logistics
         dim:
           +access: public
@@ -147,7 +147,7 @@ models:
       DATAMART:
         +snowflake_warehouse: datamart_wh
         +group: datamart
-        +database: DATAMART_DB
+        +database: datamart_db
         +schema: public
         dim:
           +access: public
