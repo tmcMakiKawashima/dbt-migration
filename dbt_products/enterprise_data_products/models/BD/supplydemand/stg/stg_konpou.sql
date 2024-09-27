@@ -9,7 +9,7 @@
 with stg_konpou as (
     select
         mtkbn::varchar(1) as mtkbn,
-        knp_yr4::varchar(1)	as knp_yr4,
+        knp_yr4::varchar(1) as knp_yr4,
         knp_yr::varchar(4) as knp_yr,
         idntno::varchar(10) as idntno,
         syadai_kt::varchar(6) as syadai_kt,
