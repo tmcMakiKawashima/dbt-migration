@@ -3,15 +3,15 @@ To add a daily schedule that materializes your dbt assets, uncomment the followi
 """
 
 """ D """
-""" valuechain """
-from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
+""" administration """
+from .schedules_items.administration.public.schedule_stg_mikado_nyutaijo import schedule_stg_mikado_nyutaijo
 """ marketing """
 from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
 from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import schedule_stg_yohinhinbanmeisai
-""" administration """
-from .schedules_items.administration.public.schedule_stg_mikado_nyutaijo import schedule_stg_mikado_nyutaijo
 """ supplydemand """
 from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_stg_vlt_ord
+""" valuechain """
+from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
 
 """ E """
 """ vinhis maint """
@@ -34,20 +34,20 @@ from .schedules_items.schedule_snapshot import schedule_snapshot
 schedules = []
 
 """ D層作成ジョブ """
-""" valuechain """
-# 補給品番基本情報提供
-schedules.append(schedule_d_epc)
+""" administration """
+# MIKADO
+schedules.append(schedule_stg_mikado_nyutaijo)
 """ marketing """
 # RISM連携IF変更
 schedules.append(schedule_stg_mashotoroku)
 # 用品品番明細
 schedules.append(schedule_stg_yohinhinbanmeisai)
-""" administration """
-# MIKADO
-schedules.append(schedule_stg_mikado_nyutaijo)
 """ supplydemand """
 # VLTオーダー確定日チェックEUC
 schedules.append(schedule_stg_vlt_ord)
+""" valuechain """
+# 補給品番基本情報提供
+schedules.append(schedule_d_epc)
 
 """ E層作成ジョブ """
 """ vinhis maint """
