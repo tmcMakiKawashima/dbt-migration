@@ -4,12 +4,12 @@ setup(
     name="dbt_products",
     packages=find_packages(exclude=["dbt_products_tests"]),
     install_requires=[
-        "dagster==1.7.0",
-        "dagster-cloud==1.7.0",
-        "dagster-dbt==0.23.0",
-        "dbt-core==1.7.13",
-        "dagster-fivetran==0.23.0",
-        "dbt-snowflake==1.7.3"
+        "dagster==1.8.7",
+        "dagster-cloud==1.8.7",
+        "dagster-dbt==0.24.7",
+        "dbt-core==1.8.6",
+        "dagster-fivetran==0.24.7",
+        "dbt-snowflake==1.8.3"
     ],
     extras_require={"dev": ["dagster-webserver", "pytest"]},
 )
