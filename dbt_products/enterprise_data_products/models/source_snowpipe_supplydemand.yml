@@ -18,6 +18,35 @@ sources:
             tests:
               - fixed_length:
                   length: 450
+    # SYARYOSYS
+      - name: raw_tsjfa394
+        identifier: tsjfa394
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 70
+      - name: raw_tsjfa36d
+        identifier: tsjfa36d
+        columns:
+          - name: raw_data
+            tests:
+            - fixed_length:
+                length: 220
+      - name: raw_tsjfa490
+        identifier: tsjfa490
+        columns:
+          - name: raw_data
+            tests:
+            - fixed_length:
+                length: 70
+      - name: raw_tsjfa396
+        identifier: tsjfa396
+        columns:
+          - name: raw_data
+            tests:
+            - fixed_length:
+                length: 70
     # AQUA
       - name: raw_nojfa560
         identifier: nojfa560

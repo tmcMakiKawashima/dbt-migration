@@ -10,6 +10,8 @@ from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_
 from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import schedule_stg_yohinhinbanmeisai
 """ administration """
 from .schedules_items.administration.public.schedule_stg_mikado_nyutaijo import schedule_stg_mikado_nyutaijo
+""" supplydemand """
+from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_stg_vlt_ord
 
 """ E """
 """ vinhis maint """
@@ -43,6 +45,9 @@ schedules.append(schedule_stg_yohinhinbanmeisai)
 """ administration """
 # MIKADO
 schedules.append(schedule_stg_mikado_nyutaijo)
+""" supplydemand """
+# VLTオーダー確定日チェックEUC
+schedules.append(schedule_stg_vlt_ord)
 
 """ E層作成ジョブ """
 """ vinhis maint """
