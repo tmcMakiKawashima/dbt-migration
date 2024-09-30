@@ -2,6 +2,8 @@ version: 2
 models:
 # 品番検索（TYPE1品番情報）
   - name: stg_hinbankensakutype1
+    config:
+      tags: ["epc"]
     columns:
       - name: ctlgcd
         tests:
@@ -85,6 +87,8 @@ models:
                 severity: error
 # 品番検索（TYPE2備考情報）
   - name: stg_hinbankensakutype2
+    config:
+      tags: ["epc"]
     columns:
       - name: langkbn
         tests:
@@ -173,6 +177,8 @@ models:
                 severity: error
 #フレーム型式
   - name: stg_framekatashiki
+    config:
+      tags: ["epc"]
     columns:
       - name: frmnokata
         tests:
@@ -196,6 +202,8 @@ models:
                 severity: error
 # 仕様パターン
   - name: stg_shiyopattern
+    config:
+      tags: ["epc"]
     columns:
       - name: syasyu_cd
         tests:
@@ -214,6 +222,8 @@ models:
                 severity: error
 # トリムコード
   - name: stg_trimcodejoho
+    config:
+      tags: ["epc"]
     columns:
       - name: ctlgcd
         tests:
@@ -242,6 +252,8 @@ models:
                 severity: error
 # 調達品番情報
   - name: stg_tyotatsuhinbanjoho
+    config:
+      tags: ["epc"]
     columns:
       - name: hinban
         tests:
@@ -260,6 +272,8 @@ models:
                 severity: error
 # 切替コード検索
   - name: stg_kirikaecodekensaku
+    config:
+      tags: ["epc"]
     columns:
       - name: ctlgcd
         tests:
@@ -278,6 +292,8 @@ models:
                 severity: error
 # 車両型式情報
   - name: stg_syaryokatashikijoho
+    config:
+      tags: ["epc"]
     columns:
       - name: ctlgcd
         tests:

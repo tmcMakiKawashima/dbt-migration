@@ -3,6 +3,8 @@ version: 2
 models:
 # 移転抹消情報(廃車情報)」
   - name: stg_mashotoroku
+    config:
+      tags: ["rism"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:

@@ -3,6 +3,8 @@ version: 2
 models:
 #　発行承認管理
   - name: stg_hakkosyonin
+    config:
+      tags: ["aladdin"]
     columns:
       - name: hanbaino
         tests:
@@ -14,6 +16,8 @@ models:
                 severity: error
 # 販売引当
   - name: stg_hanbaihikiate
+    config:
+      tags: ["aladdin"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:

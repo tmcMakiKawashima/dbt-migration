@@ -3,6 +3,8 @@ version: 2
 models:
 # スペック名称
   - name: stg_specname
+    config:
+      tags: ["spec"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:

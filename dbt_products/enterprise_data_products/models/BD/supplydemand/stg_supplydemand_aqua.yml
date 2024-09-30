@@ -3,6 +3,8 @@ version: 2
 models:
 # 国内新生産実績
   - name: stg_kokunaiseisan
+    config:
+      tags: ["aqua"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -41,6 +43,8 @@ models:
                 severity: error
 # 海外新生産実績
   - name: stg_kaigaiseisan
+    config:
+      tags: ["aqua"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -79,6 +83,8 @@ models:
                 severity: error
 # 仕入実績
   - name: stg_oemseisan
+    config:
+      tags: ["aqua"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:

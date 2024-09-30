@@ -3,6 +3,8 @@ version: 2
 models:
 # 入退場データ
   - name: stg_nyutaijo
+    config:
+      tags: ["mikado"]
     columns:
       - name: employee_cd
         tests:

@@ -3,6 +3,8 @@ version: 2
 models:
 # 用品明細
   - name: stg_yohinmeisai
+    config:
+      tags: ["syaryojohodb"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -48,6 +50,8 @@ models:
                 severity: error
 # 新車明細
   - name: stg_shinsyameisai
+    config:
+      tags: ["syaryojohodb"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -79,6 +83,8 @@ models:
                 severity: error
 # 用品品番明細
   - name: stg_yohinhinbanmeisai
+    config:
+      tags: ["syaryojohodb"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:

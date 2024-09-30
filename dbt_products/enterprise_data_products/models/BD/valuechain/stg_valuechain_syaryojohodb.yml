@@ -2,6 +2,8 @@ version: 2
 models:
 #　入庫歴
   - name: stg_nyukoreki
+    config:
+      tags: ["syaryojohodb"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -40,6 +42,8 @@ models:
                 severity: error
 #　入庫明細索引
   - name: stg_nyukomeisaisakuin
+    config:
+      tags: ["syaryojohodb"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -78,6 +82,8 @@ models:
                 severity: error
 #　ご用命
   - name: stg_goyoumei
+    config:
+      tags: ["syaryojohodb"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -98,6 +104,8 @@ models:
                 severity: error
 #　ご用命（保証）
   - name: stg_goyoumeihosyo
+    config:
+      tags: ["syaryojohodb"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -118,6 +126,8 @@ models:
                 severity: error
 #　整備歴
   - name: stg_seibireki
+    config:
+      tags: ["syaryojohodb"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -138,6 +148,8 @@ models:
                 severity: error
 #　部品歴
   - name: stg_buhinreki
+    config:
+      tags: ["syaryojohodb"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -158,6 +170,8 @@ models:
                 severity: error
 #　コード区分マスタ
   - name: stg_codekubun
+    config:
+      tags: ["syaryojohodb"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -178,6 +192,8 @@ models:
                 severity: error
 #　販売店マスタ
   - name: stg_hanbaitenmaster
+    config:
+      tags: ["syaryojohodb"]
     columns:
       - name: hanbaitencd
         tests:
@@ -189,6 +205,8 @@ models:
                 severity: error
 #　販売店店舗マスタ
   - name: stg_hanbaitentenpomaster
+    config:
+      tags: ["syaryojohodb"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -209,6 +227,8 @@ models:
                 severity: error
 # 用品装着歴
   - name: stg_yohinsotyakureki
+    config:
+      tags: ["syaryojohodb"]
     tests:
       - dbt_utils.unique_combination_of_columns:        # パッケージで提供されているテストを仕様
           combination_of_columns:
