@@ -163,6 +163,20 @@ sources:
             tests:
               - fixed_length:
                   length: 400
+      - name: raw_tpjfva40
+        identifier: tpjfva40
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 40
+      - name: raw_tpjfva41
+        identifier: tpjfva41
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 550
       - name: raw_ktrla025zz0kil3202
         identifier: ktrla025zz0kil3202
         columns:
@@ -322,6 +336,34 @@ sources:
             tests:
               - fixed_length:
                   length: 435
+      - name: raw_tsjfa394
+        identifier: tsjfa394
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 70
+      - name: raw_tsjfa36d
+        identifier: tsjfa36d
+        columns:
+          - name: raw_data
+            tests:
+            - fixed_length:
+                length: 220
+      - name: raw_tsjfa490
+        identifier: tsjfa490
+        columns:
+          - name: raw_data
+            tests:
+            - fixed_length:
+                length: 70
+      - name: raw_tsjfa396
+        identifier: tsjfa396
+        columns:
+          - name: raw_data
+            tests:
+            - fixed_length:
+                length: 70
 
   - name: snowpipe_db_marketing
     database: snowpipe_DB
@@ -348,6 +390,13 @@ sources:
             tests:
               - fixed_length: 
                   length: 50
+      - name: raw_ktrla025zz0kil3201
+        identifier: ktrla025zz0kil3201
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 61
 
   - name: snowpipe_db_administration
     database: snowpipe_DB
