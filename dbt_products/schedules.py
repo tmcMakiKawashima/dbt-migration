@@ -5,10 +5,13 @@ To add a daily schedule that materializes your dbt assets, uncomment the followi
 """ D """
 """ administration """
 from .schedules_items.administration.public.schedule_stg_mikado_nyutaijo import schedule_stg_mikado_nyutaijo
+""" customerservice """
+from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
 """ marketing """
 from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
 from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import schedule_stg_yohinhinbanmeisai
 """ supplydemand """
+from .schedules_items.supplydemand.public.schedule_stg_syaryoindex import schedule_stg_syaryoindex
 from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_stg_vlt_ord
 """ valuechain """
 from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
@@ -37,12 +40,17 @@ schedules = []
 """ administration """
 # MIKADO
 schedules.append(schedule_stg_mikado_nyutaijo)
+""" customerservice """
+# ワランティ
+schedules.append(schedule_stg_warranty)
 """ marketing """
 # RISM連携IF変更
 schedules.append(schedule_stg_mashotoroku)
 # 用品品番明細
 schedules.append(schedule_stg_yohinhinbanmeisai)
 """ supplydemand """
+# 車両INDEX
+schedules.append(schedule_stg_syaryoindex)
 # VLTオーダー確定日チェックEUC
 schedules.append(schedule_stg_vlt_ord)
 """ valuechain """

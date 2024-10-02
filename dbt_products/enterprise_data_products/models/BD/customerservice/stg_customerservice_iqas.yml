@@ -3,6 +3,8 @@ version: 2
 models:
 # ワランティ
   - name: stg_warranty
+    config:
+      tags: ["iqas"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -67,6 +69,8 @@ models:
 
 # ワランティ_WCUBE
   - name: stg_warranty_wcube
+    config:
+      tags: ["iqas"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -131,6 +135,8 @@ models:
 
 # ワランティ情報_中国語コメント
   - name: stg_warranty_chinesecomment
+    config:
+      tags: ["iqas"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -195,6 +201,8 @@ models:
 
 # ワランティ求償
   - name: stg_warranty_kyusyo
+    config:
+      tags: ["iqas"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -277,6 +285,8 @@ models:
 
 # 市情報（車歴情報）
   - name: stg_shijoho_syareki
+    config:
+      tags: ["iqas"]
     columns:
       - name: ftr_no
         tests:
@@ -289,6 +299,8 @@ models:
 
 # 市情報_交換部品
   - name: stg_shijoho_kokanbuhin
+    config:
+      tags: ["iqas"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -311,6 +323,8 @@ models:
 
 # ワランティ_コメント
   - name: stg_warranty_comment
+    config:
+      tags: ["iqas"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -374,6 +388,8 @@ models:
 
 # ワランティ交換品番
   - name: stg_warranty_koukanhinban
+    config:
+      tags: ["iqas"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -443,6 +459,8 @@ models:
 
 # 市情報
   - name: stg_shijoho
+    config:
+      tags: ["iqas"]
     columns:
       - name: ftr_no
         tests:
@@ -455,6 +473,8 @@ models:
 
 # 市情報関連登録ｼｰﾄ
   - name: stg_shijoho_kanrentorokusheet
+    config:
+      tags: ["iqas"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -476,6 +496,8 @@ models:
 
 # 市情報部外配布
   - name: stg_shijoho_bugaihaihu
+    config:
+      tags: ["iqas"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -502,6 +524,8 @@ models:
                 severity: error
 # ワランティ_号口品番
   - name: stg_warranty_goguchihinban
+    config:
+      tags: ["iqas"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -565,6 +589,8 @@ models:
                 severity: error
 # ワランティサプライヤ
   - name: stg_warranty_supplyer
+    config:
+      tags: ["iqas"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -634,6 +660,8 @@ models:
                 severity: error
 # 市情報_本文テキスト
   - name: stg_shijoho_honbuntext
+    config:
+      tags: ["iqas"]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -655,6 +683,8 @@ models:
                 severity: error
 # 市情報_追加情報
   - name: stg_shijoho_tsuika
+    config:
+      tags: ["iqas"]
     columns:
       - name: ftr_no
         tests:
