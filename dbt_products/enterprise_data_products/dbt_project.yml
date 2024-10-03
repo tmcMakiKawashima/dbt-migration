@@ -46,7 +46,7 @@ models:
         +group: valuechain
         +database: valuechain_db
         +schema: public
-    BD:
+    bd:
       valuechain:
         +snowflake_warehouse: valuechain_wh
         +group: valuechain
@@ -183,7 +183,7 @@ tests:
 
 snapshots:
   enterprise_data_products:
-    BD:
+    bd:
       valuechain:
         +snowflake_warehouse: valuechain_wh
         +group: valuechain
