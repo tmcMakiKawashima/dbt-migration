@@ -11,6 +11,7 @@ from .schedules_items.customerservice.public.schedule_stg_warranty import schedu
 from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
 from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import schedule_stg_yohinhinbanmeisai
 """ supplydemand """
+from .schedules_items.supplydemand.public.schedule_stg_aqua import schedule_stg_aqua
 from .schedules_items.supplydemand.public.schedule_stg_syaryoindex import schedule_stg_syaryoindex
 from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_stg_vlt_ord
 """ valuechain """
@@ -49,6 +50,8 @@ schedules.append(schedule_stg_mashotoroku)
 # 用品品番明細
 schedules.append(schedule_stg_yohinhinbanmeisai)
 """ supplydemand """
+# AQUA
+schedules.append(schedule_stg_aqua)
 # 車両INDEX
 schedules.append(schedule_stg_syaryoindex)
 # VLTオーダー確定日チェックEUC
