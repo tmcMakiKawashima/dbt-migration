@@ -23,6 +23,12 @@ groups:
   - name: vinhis_spec
     owner:
       email: maki_kawashima@mail.toyota.co.jp
+  - name: vinhis_yohin
+    owner:
+      email: maki_kawashima@mail.toyota.co.jp
   - name: datamart
+    owner:
+      email: maki_kawashima@mail.toyota.co.jp
+  - name: customerservice
     owner:
       email: maki_kawashima@mail.toyota.co.jp

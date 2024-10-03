@@ -79,6 +79,14 @@ models:
         stg:
           +access: public
           +materialized: table
+      customerservice:
+        +snowflake_warehouse: "customerservice_wh"
+        +group: customerservice
+        +database: customerservice_db
+        +schema: public
+        stg:
+          +access: public
+          +materialized: table
     DD:
       valuechain:
         +snowflake_warehouse: "VALUECHAIN_WH"
@@ -125,6 +133,12 @@ models:
       vinhis:
         +snowflake_warehouse: "VINHIS_WH"
         +database: vinhis_db
+        yohin:
+          +group: vinhis_yohin
+          +schema: yohin
+          dim:
+          +access: public
+          +materialized: table
         spec:
           +group: vinhis_spec
           +schema: spec
@@ -184,4 +198,9 @@ snapshots:
         +snowflake_warehouse: "MARKETING_WH"
         +group: marketing
         +target_database: marketing_db
+        +target_schema: dbt_snapshots
+      customerservice:
+        +snowflake_warehouse: "customerservice_wh"
+        +group: customerservice
+        +target_database: customerservice_db
         +target_schema: dbt_snapshots
