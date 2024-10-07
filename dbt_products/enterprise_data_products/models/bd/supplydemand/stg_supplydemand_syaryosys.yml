@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  # ライン別稼働形態DB（N数）
+  - name: stg_line_kadokeitai
+    config:
+      tags: ["syaryosys"]
+  # オーダー確定日ファイル（市販）
+  - name: stg_orderkakutei_shihan
+    config:
+      tags: ["syaryosys"]
+  # 輸出オーダー確定日ファイル
+  - name: stg_orderkakutei_yusyutu
+    config:
+      tags: ["syaryosys"]
+  # VLT送付対象日ファイル
+  - name: stg_vltsohutaisho
+    config:
+      tags: ["syaryosys"]
