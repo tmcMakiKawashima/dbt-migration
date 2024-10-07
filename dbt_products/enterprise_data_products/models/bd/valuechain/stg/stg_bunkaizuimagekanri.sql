@@ -4,9 +4,10 @@ with stg_bunkaizuimagekanri as (
         hansno::varchar(7) as hansno, 
         rtrim(bnkimgflmei,' 　')::varchar(8) as bnkimgflmei, -- 右blank
         ldts, --B層取込日時
-        rank() over (partition by hansno order by ldts desc) aggkey
+        line_number,
+        rank() over (partition by hansno order by ldts desc, line_number desc) aggkey
     from {{ ref('substr_dv2a5544') }}
 )
-select * exclude(aggkey, mntkbn)
+select * exclude(aggkey, line_number, mntkbn)
 from stg_bunkaizuimagekanri
 where aggkey = 1 and mntkbn = 'C'
