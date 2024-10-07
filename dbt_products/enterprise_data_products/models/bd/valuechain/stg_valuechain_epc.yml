@@ -320,3 +320,16 @@ models:
           - not_null:
               config:
                 severity: error
+#　分解図イメージ管理
+  - name: stg_bunkaizuimagekanri
+    config:
+      tags: ["epc"]
+    columns:
+      - name: hansno
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
