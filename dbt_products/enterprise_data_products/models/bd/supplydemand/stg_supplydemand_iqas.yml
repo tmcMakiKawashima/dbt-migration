@@ -5,7 +5,7 @@ models:
   - name: stg_buhinserialno
     config:
       tags: ["iqas"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - index_cls
@@ -21,17 +21,17 @@ models:
 
     columns:
       - name: index_cls
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syadai_kt
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -39,7 +39,7 @@ models:
   - name: stg_seisanjisseki
     config:
       tags: ["iqas"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - index_cls
@@ -52,17 +52,17 @@ models:
             severity: error
     columns:
       - name: index_cls
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syadai_kt
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -70,7 +70,7 @@ models:
   - name: stg_syaryoindex
     config:
       tags: ["iqas"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - index_cls
@@ -83,17 +83,17 @@ models:
             severity: error
     columns:
       - name: index_cls
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syadai_kt
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error

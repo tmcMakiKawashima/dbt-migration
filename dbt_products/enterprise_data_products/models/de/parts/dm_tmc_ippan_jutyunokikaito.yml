@@ -3,24 +3,24 @@ version: 2
 models:
 # データ結合１のチェック
   - name: tmp10_dm_tmc_ippan_jutyunokikaito
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - ordrkey
             - juchuymd
     columns:
       - name: check1_ordrkey
-        tests:
+        data_tests:
           - outer_join_not_all_null
       - name: check2_ordrkey
-        tests:
+        data_tests:
           - outer_join_not_all_null
       - name: check3_ordrkey
-        tests:
+        data_tests:
           - outer_join_not_all_null
 # データ結合２のチェック
   - name: tmp20_dm_tmc_ippan_jutyunokikaito
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - ordrkey
@@ -28,38 +28,38 @@ models:
             - tanskkey
     columns:
       - name: check1_ordrkey
-        tests:
+        data_tests:
           - outer_join_not_all_null
       - name: check2_ordrkey
-        tests:
+        data_tests:
           - outer_join_not_all_null
       - name: check3_ordrkey
-        tests:
+        data_tests:
           - outer_join_not_all_null
 # データ結合３のチェック
   - name: tmp30_dm_tmc_ippan_jutyunokikaito
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - juchuymd
             - tanskkey
 # データ結合６のチェック
   - name: tmp40_dm_tmc_ippan_jutyunokikaito
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - juchuymd
             - tanskkey
     columns:
       - name: check_tyotathb
-        tests:
+        data_tests:
           - outer_join_not_all_null
       - name: check_dlrcd
-        tests:
+        data_tests:
           - outer_join_not_all_null
 # データ結合４のチェック
   - name: tmp45_dm_tmc_ippan_jutyunokikaito
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - dlrcd
@@ -72,11 +72,11 @@ models:
             - denno
     columns:
       - name: iff(kyoten is not null, kyoten, nyukkten)
-        tests:
+        data_tests:
           - outer_join_not_all_null
 # データ結合５のチェック
   - name: tmp50_dm_tmc_ippan_jutyunokikaito
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - dlrcd
@@ -90,11 +90,11 @@ models:
             - jhinban
     columns:
       - name: nyukoymd
-        tests:
+        data_tests:
           - outer_join_not_all_null
 # データ結合７のチェック
   - name: tmp60_dm_tmc_ippan_jutyunokikaito
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - dlrcd
@@ -105,5 +105,5 @@ models:
             - syubetsu
     columns:
       - name: check_dlrcd
-        tests:
+        data_tests:
           - outer_join_not_all_null
