@@ -1,0 +1,59 @@
+version: 2
+models:
+# 号口車種コード
+  - name: stg_goguchisyasyucd
+    config:
+      tags: ["pixy"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu_cd
+            - yohinsyamei
+          config:
+            severity: error
+    columns:
+      - name: syasyu_cd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: yohinsyamei
+        tests:
+          - not_null:
+              config:
+                severity: error
+# 現用品マスタ
+  - name: stg_genyohinmaster
+    config:
+      tags: ["pixy"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:        # パッケージで提供されているテストを使用
+          combination_of_columns:
+            - yohinsyamei
+            - tuikou
+            - seg
+            - seq
+          config:
+            severity: error
+      
+    columns:
+      - name: yohinsyamei
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikou
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seg
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seq
+        tests:
+          - not_null:
+              config:
+                severity: error
