@@ -1,7 +1,8 @@
 import json
 import os
+from typing import Any, Mapping
 from dagster import AssetExecutionContext, Config
-from dagster_dbt import DbtCliResource, dbt_assets
+from dagster_dbt import DagsterDbtTranslator, DbtCliResource, dbt_assets
 
 from .constants import dbt_manifest_path
 
@@ -13,6 +14,19 @@ class DbtConfig(Config):
     }
     # dbt test --select source:* で指定する範囲を設定
     source_test_list: list = []
+
+
+# dbtのtagsを取得するための実装
+class CustomDagsterDbtTranslator(DagsterDbtTranslator):
+    def get_tags(self, dbt_resource_props: Mapping[str, Any]) -> Mapping[str, str]:
+        dbt_tags = dbt_resource_props.get("tags", [])
+        dagster_tags = {}
+        for tag in dbt_tags:
+            key, _, value = tag.partition("=")
+
+            dagster_tags[key] = value if value else ""
+
+        return dagster_tags
 
 
 @dbt_assets(manifest=dbt_manifest_path)

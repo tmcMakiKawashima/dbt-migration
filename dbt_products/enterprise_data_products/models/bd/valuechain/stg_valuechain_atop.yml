@@ -1,0 +1,42 @@
+version: 2
+models:
+
+  - name: stg_shkjissekiruikei
+    config:
+      tags: ["atop"]
+  - name: stg_dvnp5770
+    config:
+      tags: ["atop"]
+  - name: stg_dvnp4330
+    config:
+      tags: ["atop"]
+  - name: stg_dvnp4520
+    config:
+      tags: ["atop"]
+  - name: stg_dvnp6490
+    config:
+      tags: ["atop"]
+  - name: stg_dvnp0710
+    config:
+      tags: ["atop"]
+  - name: stg_dvnp0680
+    config:
+      tags: ["atop"]
+  - name: stg_dvnp0700
+    config:
+      tags: ["atop"]
+  - name: stg_dvnp054a
+    config:
+      tags: ["atop"]
+  - name: stg_cvn35dsyukabin
+    config:
+      tags: ["atop"]
+  - name: stg_cvn18nosiodrjyoho
+    config:
+      tags: ["atop"]
+  - name: stg_cvn06dodrshiji
+    config:
+      tags: ["atop"]
+  - name: stg_dvsf509a
+    config:
+      tags: ["atop"]
