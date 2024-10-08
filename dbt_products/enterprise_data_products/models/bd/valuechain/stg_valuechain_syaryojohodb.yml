@@ -1,0 +1,274 @@
+version: 2
+models:
+#　入庫歴
+  - name: stg_nyukoreki
+    config:
+      tags: ["syaryojohodb"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - kbsyadai
+            - nosyadai
+            - seisanymd
+            - nyukohanbaitencd
+            - jutyuno
+          config:
+            severity: error
+    columns:
+      - name: kbsyadai
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nosyadai
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seisanymd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nyukohanbaitencd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jutyuno
+        tests:
+          - not_null:
+              config:
+                severity: error
+#　入庫明細索引
+  - name: stg_nyukomeisaisakuin
+    config:
+      tags: ["syaryojohodb"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - nyukohanbaitencd
+            - jutyuno
+            - seisany
+            - seisanmd
+            - nyukono
+          config:
+            severity: error
+    columns:
+      - name: nyukohanbaitencd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jutyuno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seisany
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seisanmd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nyukono
+        tests:
+          - not_null:
+              config:
+                severity: error
+#　ご用命
+  - name: stg_goyoumei
+    config:
+      tags: ["syaryojohodb"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - nyukono
+            - meisaino
+          config:
+            severity: error
+    columns:
+      - name: nyukono
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: meisaino
+        tests:
+          - not_null:
+              config:
+                severity: error
+#　ご用命（保証）
+  - name: stg_goyoumeihosyo
+    config:
+      tags: ["syaryojohodb"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - nyukono
+            - meisaino
+          config:
+            severity: error
+    columns:
+      - name: nyukono
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: meisaino
+        tests:
+          - not_null:
+              config:
+                severity: error
+#　整備歴
+  - name: stg_seibireki
+    config:
+      tags: ["syaryojohodb"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - nyukono
+            - meisaino
+          config:
+            severity: error
+    columns:
+      - name: nyukono
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: meisaino
+        tests:
+          - not_null:
+              config:
+                severity: error
+#　部品歴
+  - name: stg_buhinreki
+    config:
+      tags: ["syaryojohodb"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - nyukono
+            - meisaino
+          config:
+            severity: error
+    columns:
+      - name: nyukono
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: meisaino
+        tests:
+          - not_null:
+              config:
+                severity: error
+#　コード区分マスタ
+  - name: stg_codekubun
+    config:
+      tags: ["syaryojohodb"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - codekbnid
+            - key
+          config:
+            severity: error
+    columns:
+      - name: codekbnid
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: key
+        tests:
+          - not_null:
+              config:
+                severity: error
+#　販売店マスタ
+  - name: stg_hanbaitenmaster
+    config:
+      tags: ["syaryojohodb"]
+    columns:
+      - name: hanbaitencd
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+#　販売店店舗マスタ
+  - name: stg_hanbaitentenpomaster
+    config:
+      tags: ["syaryojohodb"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hanbaitencd
+            - tenpocd
+          config:
+            severity: error
+    columns:
+      - name: hanbaitencd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tenpocd
+        tests:
+          - not_null:
+              config:
+                severity: error
+# 用品装着歴
+  - name: stg_yohinsotyakureki
+    config:
+      tags: ["syaryojohodb"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:        # パッケージで提供されているテストを仕様
+          combination_of_columns:
+            - kbsyadai
+            - nosyadai
+            - ddtorituke
+            - cdyouhinban
+            - cdtorihan
+            - cdtoritenpo
+          config:
+            severity: error
+
+    columns:
+      - name: kbsyadai
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nosyadai
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ddtorituke
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cdyouhinban
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cdtorihan
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cdtoritenpo
+        tests:
+          - not_null:
+              config:
+                severity: error
