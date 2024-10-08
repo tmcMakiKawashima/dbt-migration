@@ -288,6 +288,13 @@ sources:
             tests:
               - fixed_length:
                   length: 16
+      - name: raw_dv2a353c
+        identifier: dv2a353c
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 29
     # PIXY
       - name: raw_tpjfva40
         identifier: tpjfva40
