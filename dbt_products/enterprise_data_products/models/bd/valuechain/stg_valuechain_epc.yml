@@ -333,3 +333,37 @@ models:
           - not_null:
               config:
                 severity: error
+#　FIG検索
+  - name: stg_figkensaku
+    config:
+      tags: ["epc"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - hinban
+            - pnc
+            - figno
+          config:
+            severity: error
+    columns:
+      - name: ctlgcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinban
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: pnc
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: figno
+        tests:
+          - not_null:
+              config:
+                severity: error
