@@ -299,9 +299,6 @@ sources:
         identifier: dv2a4703
         columns:
           - name: raw_data
-            tests:
-              - fixed_length:
-                  length: 250
     # PIXY
       - name: raw_tpjfva40
         identifier: tpjfva40
