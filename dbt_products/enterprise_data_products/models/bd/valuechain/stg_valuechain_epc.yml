@@ -320,6 +320,46 @@ models:
           - not_null:
               config:
                 severity: error
+# 分解図検索
+  - name: stg_bunkaizukensaku
+    config:
+      tags: ["epc"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - figno
+            - bnkren4
+            - jissijikik
+            - jissijikim
+          config:
+            severity: error
+    columns:
+      - name: ctlgcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: figno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bnkren4
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jissijikik
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jissijikim
+        tests:
+          - not_null:
+              config:
+                severity: error
 #　分解図イメージ管理
   - name: stg_bunkaizuimagekanri
     config:

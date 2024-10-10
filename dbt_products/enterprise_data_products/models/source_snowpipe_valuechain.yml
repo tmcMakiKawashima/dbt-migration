@@ -281,6 +281,13 @@ sources:
             tests:
               - fixed_length:
                   length: 187
+      - name: raw_dv2a3628
+        identifier: dv2a3628
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 201
       - name: raw_dv2a5544
         identifier: dv2a5544
         columns:
