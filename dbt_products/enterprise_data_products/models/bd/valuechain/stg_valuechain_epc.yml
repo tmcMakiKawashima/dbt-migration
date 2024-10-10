@@ -367,3 +367,25 @@ models:
           - not_null:
               config:
                 severity: error
+#　品名
+  - name: stg_hinmei
+    config:
+      tags: ["epc"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - langkbn
+            - pnc
+          config:
+            severity: error
+    columns:
+      - name: langkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: pnc
+        tests:
+          - not_null:
+              config:
+                severity: error
