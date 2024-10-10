@@ -297,8 +297,6 @@ sources:
                   length: 29
       - name: raw_dv2a4703
         identifier: dv2a4703
-        columns:
-          - name: raw_data
     # PIXY
       - name: raw_tpjfva40
         identifier: tpjfva40
