@@ -10,4 +10,4 @@ with stg_bunkaizuimagekanri as (
 )
 select * exclude(aggkey, line_number, mntkbn)
 from stg_bunkaizuimagekanri
-where aggkey = 1 and mntkbn = 'C'
+where aggkey = 1 and mntkbn in ('C', 'U')
