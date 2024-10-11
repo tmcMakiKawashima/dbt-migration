@@ -1,0 +1,23 @@
+version: 2
+
+models:
+# 塗料基準値
+  - name: stg_material_criteria
+    config:
+      tags: ["paint_iot"]
+    columns:
+      - name: criteria_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: material_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: update_at
+        tests:
+          - not_null:
+              config:
+                severity: error
