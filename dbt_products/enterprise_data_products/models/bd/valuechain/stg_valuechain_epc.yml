@@ -457,3 +457,16 @@ models:
           - not_null:
               config:
                 severity: error
+#　車名
+  - name: stg_syamei
+    config:
+      tags: ["epc"]
+    columns:
+      - name: ctlgcd
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
