@@ -1,0 +1,33 @@
+version: 2
+
+models:
+# メーカー検査結果
+  - name: stg_maker_result
+    config:
+      tags: ["paint_iot"]
+    columns:
+      - name: maker_result_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: accept_test_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: test_date
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_by
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_at
+        tests:
+          - not_null:
+              config:
+                severity: error
