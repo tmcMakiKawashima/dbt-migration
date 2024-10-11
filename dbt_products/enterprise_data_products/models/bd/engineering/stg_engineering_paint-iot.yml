@@ -1,0 +1,43 @@
+version: 2
+
+models:
+# 受入検査
+  - name: stg_accept_test
+    config:
+      tags: ["paint_iot"]
+    columns:
+      - name: accept_test_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: delivery_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: count
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: accept_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: judge_user_flg
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_at
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: updated_at
+        tests:
+          - not_null:
+              config:
+                severity: error
