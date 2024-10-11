@@ -32,3 +32,6 @@ groups:
   - name: customerservice
     owner:
       email: maki_kawashima@mail.toyota.co.jp
+  - name: engineering
+    owner:
+      email: asuka_takashima@mail.toyota.co.jp
