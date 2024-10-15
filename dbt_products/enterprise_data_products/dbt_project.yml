@@ -87,6 +87,14 @@ models:
         stg:
           +access: public
           +materialized: table
+      engineering:
+        +snowflake_warehouse: "engineering_wh"
+        +group: engineering
+        +database: engineering_db
+        +schema: public
+        stg:
+          +access: public
+          +materialized: table
     dd:
       valuechain:
         +snowflake_warehouse: valuechain_wh
@@ -203,4 +211,9 @@ snapshots:
         +snowflake_warehouse: customerservice_wh
         +group: customerservice
         +target_database: customerservice_db
+        +target_schema: dbt_snapshots
+      engineering:
+        +snowflake_warehouse: "engineering_wh"
+        +group: engineering
+        +target_database: engineering_db
         +target_schema: dbt_snapshots
