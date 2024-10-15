@@ -435,6 +435,28 @@ models:
           - not_null:
               config:
                 severity: error
+#　FIG名称
+  - name: stg_figmeisyo
+    config:
+      tags: ["epc"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - langkbn
+            - figno
+          config:
+            severity: error
+    columns:
+      - name: langkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: figno
+        tests:
+          - not_null:
+              config:
+                severity: error
 #　品名
   - name: stg_hinmei
     config:
