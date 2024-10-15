@@ -313,6 +313,13 @@ sources:
         identifier: dv2a4703
       - name: raw_dv2a4745
         identifier: dv2a4745
+      - name: raw_dv2a4763
+        identifier: dv2a4763
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 43
     # PIXY
       - name: raw_tpjfva40
         identifier: tpjfva40
