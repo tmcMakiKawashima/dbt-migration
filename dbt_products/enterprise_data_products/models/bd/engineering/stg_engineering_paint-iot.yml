@@ -106,3 +106,56 @@ models:
           - not_null:
               config:
                 severity: error
+# 材質
+  - name: stg_material
+    config:
+      tags: ["paint_iot"]
+    columns:
+      - name: material_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: material_name
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: paint_type_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: paint_maker_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: test_skip_flg
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: viscocity_unit_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_by
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_at
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: material_is_hidden_id
+        tests:
+          - not_null:
+              config:
+                severity: error

@@ -88,7 +88,7 @@ models:
           +access: public
           +materialized: table
       engineering:
-        +snowflake_warehouse: "engineering_wh"
+        +snowflake_warehouse: engineering_wh
         +group: engineering
         +database: engineering_db
         +schema: public
@@ -129,6 +129,14 @@ models:
             stg:
               +access: public
               +materialized: table
+      engineering:
+        +snowflake_warehouse: engineering_wh
+        +group: engineering
+        +database: engineering_db
+        +schema: public
+        stg:
+          +access: public
+          +materialized: table
     de:
       parts:
         +snowflake_warehouse: parts_wh
@@ -213,7 +221,7 @@ snapshots:
         +target_database: customerservice_db
         +target_schema: dbt_snapshots
       engineering:
-        +snowflake_warehouse: "engineering_wh"
+        +snowflake_warehouse: engineering_wh
         +group: engineering
         +target_database: engineering_db
         +target_schema: dbt_snapshots
