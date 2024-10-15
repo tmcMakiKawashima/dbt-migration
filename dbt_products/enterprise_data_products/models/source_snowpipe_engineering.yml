@@ -14,3 +14,5 @@ sources:
         identifier: lotot_accept_test_t
       - name: raw_lotot_delivery_t
         identifier: lotot_delivery_t
+      - name: raw_lotot_maker_result_t
+        identifier: lotot_maker_result_t
