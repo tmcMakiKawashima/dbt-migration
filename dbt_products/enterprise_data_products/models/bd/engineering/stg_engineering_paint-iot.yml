@@ -1,6 +1,111 @@
 version: 2
 
 models:
+# 受入検査
+  - name: stg_accept_test
+    config:
+      tags: ["paint_iot"]
+    columns:
+      - name: accept_test_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: delivery_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: count
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: accept_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: judge_user_flg
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_at
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: updated_at
+        tests:
+          - not_null:
+              config:
+                severity: error
+# 塗料納入
+  - name: stg_delivery
+    config:
+      tags: ["paint_iot"]
+    columns:
+      - name: delivery_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: material_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lot_no
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lot_year
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_at
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: updated_at
+        tests:
+          - not_null:
+              config:
+                severity: error
+# メーカー検査結果
+  - name: stg_maker_result
+    config:
+      tags: ["paint_iot"]
+    columns:
+      - name: maker_result_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: accept_test_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: test_date
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_by
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_at
+        tests:
+          - not_null:
+              config:
+                severity: error
 # 材質
   - name: stg_material
     config:
