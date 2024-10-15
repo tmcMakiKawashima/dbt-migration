@@ -12,3 +12,5 @@ sources:
     tables:
       - name: raw_lotot_accept_test_t
         identifier: lotot_accept_test_t
+      - name: raw_lotot_delivery_t
+        identifier: lotot_delivery_t
