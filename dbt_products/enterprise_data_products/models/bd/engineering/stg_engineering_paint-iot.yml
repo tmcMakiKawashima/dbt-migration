@@ -1,0 +1,28 @@
+version: 2
+
+models:
+# 塗料管理幅
+  - name: stg_material_controlband
+    config:
+      tags: ["paint_iot"]
+    columns:
+      - name: control_band_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: material_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: update_at
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: band_type_id
+        tests:
+          - not_null:
+              config:
+                severity: error
