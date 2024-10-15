@@ -1,153 +1,82 @@
 """
 To add a daily schedule that materializes your dbt assets, uncomment the following lines.
 """
-from dagster import DefaultScheduleStatus, RunConfig
-from dagster_dbt import build_schedule_from_dbt_selection
 
-from .enterprise_data_products_assets.assets import DbtConfig, dbt_products_assets
+""" D """
+""" administration """
+from .schedules_items.administration.public.schedule_stg_mikado_nyutaijo import schedule_stg_mikado_nyutaijo
+""" customerservice """
+from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
+""" marketing """
+from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
+from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import schedule_stg_yohinhinbanmeisai
+""" supplydemand """
+from .schedules_items.supplydemand.public.schedule_stg_aqua import schedule_stg_aqua
+from .schedules_items.supplydemand.public.schedule_stg_syaryoindex import schedule_stg_syaryoindex
+from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_stg_vlt_ord
+""" valuechain """
+from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
 
-schedules = [
-    # snapshot
-    build_schedule_from_dbt_selection(
-        [dbt_products_assets],
-        job_name="job_snapshots",
-        schedule_name="snapshot",
-        cron_schedule="00 16 * * *",
-        execution_timezone="Asia/Tokyo",
-        dbt_select="resource_type:snapshot",
-        dbt_exclude="scd_tbsmksk_noki",
-        default_status=DefaultScheduleStatus.RUNNING,
-        tags={"ecs/cpu": "256", "ecs/memory": "1024",
-              "job_name": "job_snapshots"},
-    ),
-    # D層EPC
-    build_schedule_from_dbt_selection(
-        [dbt_products_assets],
-        job_name="job_build_d_epc",
-        schedule_name="D_SOU_EPC",
-        cron_schedule="00 05 * * *",
-        execution_timezone="Asia/Tokyo",
-        dbt_select="+stg_framekatashiki +stg_hinbankensakutype1 +stg_hinbankensakutype2 +stg_shiyopattern +stg_kirikaecodekensaku +stg_trimcodejoho +stg_syaryokatashikijoho +stg_tyotatsuhinbanjoho",
-        config=RunConfig(ops={"dbt_products_assets": 
-                              DbtConfig(dbt_vars={"DBT_JOB_NAME": "_d_epc"},
-                                        source_test_list=["source:*,+stg_framekatashiki",
-                                                          "source:*,+stg_hinbankensakutype1",
-                                                          "source:*,+stg_hinbankensakutype2",
-                                                          "source:*,+stg_shiyopattern",
-                                                          "source:*,+stg_kirikaecodekensaku",
-                                                          "source:*,+stg_trimcodejoho",
-                                                          "source:*,+stg_syaryokatashikijoho",
-                                                          "source:*,+stg_tyotatsuhinbanjoho"])
-                             }
-                        ),
-        default_status=DefaultScheduleStatus.RUNNING,
-        tags={"ecs/cpu": "256", "ecs/memory": "1024",
-              "job_name": "job_build_d_epc"},
-    ),
-    # VIN x 整備
-    build_schedule_from_dbt_selection(
-        [dbt_products_assets],
-        job_name="job_build_dm_vinhis_maint",
-        schedule_name="VIN_SEIBI",
-        cron_schedule="00 07 * * *",
-        execution_timezone="Asia/Tokyo",
-        dbt_select="+dm_vinhis_nyukodetail +dm_vinhis_buhinreki +dm_vinhis_seibireki +dm_vinhis_goyomei",
-        config=RunConfig(ops={"dbt_products_assets": 
-                              DbtConfig(dbt_vars={"DBT_JOB_NAME": "_dm_vinhis_maint"},
-                                        source_test_list=["source:*,+dm_vinhis_nyukodetail",
-                                                          "source:*,+dm_vinhis_buhinreki",
-                                                          "source:*,+dm_vinhis_seibireki",
-                                                          "source:*,+dm_vinhis_goyomei"])
-                             }
-                        ),
-        default_status=DefaultScheduleStatus.RUNNING,
-        tags={"ecs/cpu": "256", "ecs/memory": "1024",
-              "job_name": "job_build_dm_vinhis_maint"},
-    ),
-    # 補給納期物流視える化
-    build_schedule_from_dbt_selection(
-        [dbt_products_assets],
-        job_name="job_build_hokyunoki_mieruka",
-        schedule_name="HOKYUNOKI_MIERUKA",
-        cron_schedule="20 06 * * *",
-        execution_timezone="Asia/Tokyo",
-        dbt_select="+dm_yohin_daiatari +dm_hosyuhin_noukishitei",
-        config=RunConfig(ops={"dbt_products_assets": 
-                              DbtConfig(dbt_vars={"DBT_JOB_NAME": ""},
-                                        source_test_list=["source:*,+dm_yohin_daiatari",
-                                                          "source:*,+dm_hosyuhin_noukishitei"])
-                             }
-                        ),
-        default_status=DefaultScheduleStatus.RUNNING,
-        tags={"ecs/cpu": "256", "ecs/memory": "1024",
-              "job_name": "job_build_hokyunoki_mieruka"},
-    ),
-    # VIN装備（国内）
-    build_schedule_from_dbt_selection(
-        [dbt_products_assets],
-        job_name="job_build_dm_vinhis_specification_kokunai",
-        schedule_name="VIN_SOUBI_KOKUNAI",
-        cron_schedule="00 07 * * *",
-        execution_timezone="Asia/Tokyo",
-        dbt_select="+dm_vinhis_specification_kokunai",
-        config=RunConfig(ops={"dbt_products_assets": 
-                              DbtConfig(dbt_vars={"DBT_JOB_NAME": "_dm_vinhis_specification_kokunai"},
-                                        source_test_list=["source:*,+dm_vinhis_specification_kokunai"])
-                             }
-                        ),
-        default_status=DefaultScheduleStatus.RUNNING,
-        tags={"ecs/cpu": "256", "ecs/memory": "1024",
-              "job_name": "job_build_dm_vinhis_specification_kokunai"},
-    ),
-    # VIN装備（海外）
-    build_schedule_from_dbt_selection(
-        [dbt_products_assets],
-        job_name="job_build_dm_vinhis_specification_kaigai",
-        schedule_name="VIN_SOUBI_KAIGAI",
-        cron_schedule="00 07 * * *",
-        execution_timezone="Asia/Tokyo",
-        dbt_select="+dm_vinhis_specification_kaigai",
-        config=RunConfig(ops={"dbt_products_assets": 
-                              DbtConfig(dbt_vars={"DBT_JOB_NAME": "_dm_vinhis_specification_kaigai"},
-                                        source_test_list=["source:*,+dm_vinhis_specification_kaigai"])
-                             }
-                        ),
-        default_status=DefaultScheduleStatus.RUNNING,
-        tags={"ecs/cpu": "256", "ecs/memory": "1024",
-              "job_name": "job_build_dm_vinhis_specification_kaigai"},
-    ),
-    # VIN装備（OEM）
-    build_schedule_from_dbt_selection(
-        [dbt_products_assets],
-        job_name="job_build_dm_vinhis_specification_oem",
-        schedule_name="VIN_SOUBI_OEM",
-        cron_schedule="00 07 * * *",
-        execution_timezone="Asia/Tokyo",
-        dbt_select="+dm_vinhis_specification_oem",
-        config=RunConfig(ops={"dbt_products_assets": 
-                              DbtConfig(dbt_vars={"DBT_JOB_NAME": "_dm_vinhis_specification_oem"},
-                                        source_test_list=["source:*,+dm_vinhis_specification_oem"])
-                             }
-                        ),
-        default_status=DefaultScheduleStatus.RUNNING,
-        tags={"ecs/cpu": "256", "ecs/memory": "1024",
-              "job_name": "job_build_dm_vinhis_specification_oem"},
-    ),
-    # RISM 連携IF変更
-    build_schedule_from_dbt_selection(
-        [dbt_products_assets],
-        job_name="job_build_stg_mashotoroku",
-        schedule_name="RISM_RENKEI_IF_HENKO",
-        cron_schedule="45 10 * * 1,2,3,4,5",
-        execution_timezone="Asia/Tokyo",
-        dbt_select="+stg_mashotoroku",
-        config=RunConfig(ops={"dbt_products_assets": 
-                              DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_mashotoroku"},
-                                        source_test_list=["source:*,+stg_mashotoroku"])
-                             }
-                        ),
-        default_status=DefaultScheduleStatus.RUNNING,
-        tags={"ecs/cpu": "256", "ecs/memory": "1024",
-              "job_name": "job_build_stg_mashotoroku"},
-    ),
-]
+""" E """
+""" vinhis maint """
+from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
+""" vinhis spec """
+from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kaigai import schedule_dm_vinhis_specification_kaigai
+from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kokunai import schedule_dm_vinhis_specification_kokunai
+from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_oem import schedule_dm_vinhis_specification_oem
+""" vinhis yohin """
+from .schedules_items.vinhis.yohin.schedule_dm_vinhis_yohin import schedule_dm_vinhis_yohin
+
+""" F """
+""" datamart """
+from .schedules_items.datamart.public.schedule_hokyunoki_mieruka import schedule_hokyunoki_mieruka
+
+""" snapshot """
+from .schedules_items.schedule_snapshot import schedule_snapshot
+
+
+schedules = []
+
+""" D層作成ジョブ """
+""" administration """
+# MIKADO
+schedules.append(schedule_stg_mikado_nyutaijo)
+""" customerservice """
+# ワランティ
+schedules.append(schedule_stg_warranty)
+""" marketing """
+# RISM連携IF変更
+schedules.append(schedule_stg_mashotoroku)
+# 用品品番明細
+schedules.append(schedule_stg_yohinhinbanmeisai)
+""" supplydemand """
+# AQUA
+schedules.append(schedule_stg_aqua)
+# 車両INDEX
+schedules.append(schedule_stg_syaryoindex)
+# VLTオーダー確定日チェックEUC
+schedules.append(schedule_stg_vlt_ord)
+""" valuechain """
+# 補給品番基本情報提供
+schedules.append(schedule_d_epc)
+
+""" E層作成ジョブ """
+""" vinhis maint """
+# VIN整備
+schedules.append(schedule_dm_vinhis_maint)
+""" vinhis spec """
+# VIN装備
+schedules.append(schedule_dm_vinhis_specification_kaigai)
+schedules.append(schedule_dm_vinhis_specification_kokunai)
+schedules.append(schedule_dm_vinhis_specification_oem)
+""" vinhis yohin """
+# VIN用品
+schedules.append(schedule_dm_vinhis_yohin)
+
+""" F層作成ジョブ """
+""" datamart """
+# 補給納期視える化
+schedules.append(schedule_hokyunoki_mieruka)
+
+""" snapshot """
+schedules.append(schedule_snapshot)
