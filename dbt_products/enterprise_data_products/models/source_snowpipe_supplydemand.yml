@@ -112,3 +112,40 @@ sources:
             tests:
               - fixed_length:
                   length: 133
+    # 生産日報STEP3
+      - name: raw_m_area
+        identifier: m_area
+      - name: raw_m_affiliates_line
+        identifier: m_affiliates_line
+      - name: raw_m_vehicle_class
+        identifier: m_vehicle_class
+      - name: raw_m_ctl_model_vehicle_class
+        identifier: m_ctl_model_vehicle_class
+      - name: raw_m_convert_kd_cbu
+        identifier: m_convert_kd_cbu
+      - name: raw_m_working_days
+        identifier: m_working_days
+      - name: raw_m_daily_sort_order_line
+        identifier: m_daily_sort_order_line
+      - name: raw_m_drive
+        identifier: m_drive
+      - name: raw_m_shift_operation_tact
+        identifier: m_shift_operation_tact
+      - name: raw_m_calendar
+        identifier: m_calendar
+      - name: raw_m_convert_commercial_export
+        identifier: m_convert_commercial_export
+      - name: raw_m_vehicle_class_name
+        identifier: m_vehicle_class_name
+      - name: raw_t_daily_prod_line
+        identifier: t_daily_prod_line
+      - name: raw_t_daily_prod_vehicle_class_group
+        identifier: t_daily_prod_vehicle_class_group
+      - name: raw_t_daily_prod_line_detail_reason
+        identifier: t_daily_prod_line_detail_reason
+      - name: raw_t_daily_prod_ctl_model_vehicle_class
+        identifier: t_daily_prod_ctl_model_vehicle_class
+      - name: raw_t_imp_plan
+        identifier: t_imp_plan
+      - name: raw_t_monthly_reports
+        identifier: t_monthly_reports

@@ -14,6 +14,7 @@ from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import sch
 from .schedules_items.supplydemand.public.schedule_stg_aqua import schedule_stg_aqua
 from .schedules_items.supplydemand.public.schedule_stg_syaryoindex import schedule_stg_syaryoindex
 from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_stg_vlt_ord
+from .schedules_items.supplydemand.public.schedule_stg_dly_rpt import schedules_stg_dly_rpt
 """ valuechain """
 from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
 
@@ -56,6 +57,8 @@ schedules.append(schedule_stg_aqua)
 schedules.append(schedule_stg_syaryoindex)
 # VLTオーダー確定日チェックEUC
 schedules.append(schedule_stg_vlt_ord)
+# 生産日報STEP3
+schedules.extend(schedules_stg_dly_rpt)
 """ valuechain """
 # 補給品番基本情報提供
 schedules.append(schedule_d_epc)
