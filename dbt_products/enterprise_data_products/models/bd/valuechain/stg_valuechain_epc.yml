@@ -479,6 +479,28 @@ models:
           - not_null:
               config:
                 severity: error
+#　イラストコメント
+  - name: stg_illustcomment
+    config:
+      tags: ["epc"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - langkbn
+            - ilstcmtno
+          config:
+            severity: error
+    columns:
+      - name: langkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ilstcmtno
+        tests:
+          - not_null:
+              config:
+                severity: error
 #　車名
   - name: stg_syamei
     config:
