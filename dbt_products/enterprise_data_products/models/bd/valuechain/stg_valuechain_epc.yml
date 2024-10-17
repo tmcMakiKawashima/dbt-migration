@@ -365,3 +365,29 @@ models:
               field: tokukg
               config:
                 severity: error
+# 部位大分類検索情報
+  - name: stg_buidaibunruikensakujoho
+    config:
+      tags: ["epc"]
+    columns:
+      - name: ctlgcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv217')
+              field: ctlgcd
+              config:
+                severity: error
+
+      - name: daibnrcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv217')
+              field: daibnrcd
+              config:
+                severity: error
