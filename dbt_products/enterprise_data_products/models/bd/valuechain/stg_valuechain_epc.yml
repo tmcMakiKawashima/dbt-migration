@@ -548,3 +548,37 @@ models:
           - not_null:
               config:
                 severity: error
+#　車両仕様装備情報
+  - name: stg_syaryoshiyosobijoho
+    config:
+      tags: ["epc"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - langkbn
+            - syasyu
+            - siyoptno
+            - siyocd
+          config:
+            severity: error
+    columns:
+      - name: langkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siyoptno
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siyocd
+        tests:
+          - not_null:
+              config:
+                severity: error

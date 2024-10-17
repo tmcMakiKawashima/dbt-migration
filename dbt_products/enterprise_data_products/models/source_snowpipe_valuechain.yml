@@ -329,6 +329,8 @@ sources:
             tests:
               - fixed_length:
                   length: 16
+      - name: raw_dv2a5717
+        identifier: dv2a5717
     # PIXY
       - name: raw_tpjfva40
         identifier: tpjfva40
