@@ -320,3 +320,48 @@ models:
           - not_null:
               config:
                 severity: error
+# 特徴記号情報
+  - name: stg_tokuchokigojoho
+    config:
+      tags: ["epc"]
+    columns:
+      - name: langkbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: source('snowpipe_db_valuechain','raw_k9jfv221')
+              field: langkbn
+              config:
+                severity: error
+      - name: ctlgcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: source('snowpipe_db_valuechain','raw_k9jfv221')
+              field: ctlgcd
+              config:
+                severity: error
+      - name: tokukbn
+        tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: source('snowpipe_db_valuechain','raw_k9jfv221')
+              field: tokukbn
+              config:
+                severity: error
+      - name: tokukg
+        tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: source('snowpipe_db_valuechain','raw_k9jfv221')
+              field: tokukg
+              config:
+                severity: error
