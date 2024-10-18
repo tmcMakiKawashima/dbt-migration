@@ -391,3 +391,38 @@ models:
               field: daibnrcd
               config:
                 severity: error
+# 部位中分類検索情報
+  - name: stg_buicyubunruikensakujoho
+    config:
+      tags: ["epc"]
+    columns:
+      - name: ctlgcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv218')
+              field: ctlgcd
+              config:
+                severity: error
+      - name: daibnrcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv218')
+              field: daibnrcd
+              config:
+                severity: error
+      - name: chubnrcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv218')
+              field: chubnrcd
+              config:
+                severity: error
