@@ -604,3 +604,31 @@ models:
           - not_null:
               config:
                 severity: error
+#　タクティ品番情報
+  - name: stg_tactihinbanjoho
+    config:
+      tags: ["epc"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - toyotahin
+            - siirecd
+            - rentacti
+          config:
+            severity: error
+    columns:
+      - name: toyotahin
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siirecd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: rentacti
+        tests:
+          - not_null:
+              config:
+                severity: error
