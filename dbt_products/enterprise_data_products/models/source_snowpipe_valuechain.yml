@@ -290,6 +290,13 @@ sources:
             tests:
               - fixed_length:
                   length: 18
+      - name: raw_k9jfv218
+        identifier: k9jfv218
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 22
     # PIXY
       - name: raw_tpjfva40
         identifier: tpjfva40
