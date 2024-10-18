@@ -159,3 +159,36 @@ models:
           - not_null:
               config:
                 severity: error
+# 品保検査結果
+  - name: stg_hinpo_result
+    config:
+     tags: ["paint_iot"]
+    columns:
+      - name: quality_result_id
+        tests:
+        - unique:
+              config:
+                severity: error
+        - not_null:
+              config:
+                severity: error
+      - name: accept_test_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: test_date
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_by
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_at
+        tests:
+          - not_null:
+              config:
+                severity: error
