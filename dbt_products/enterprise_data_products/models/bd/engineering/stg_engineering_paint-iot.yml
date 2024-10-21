@@ -8,6 +8,9 @@ models:
     columns:
       - name: control_band_id
         tests:
+          - unique:
+              config:
+                severity: error
           - not_null:
               config:
                 severity: error
