@@ -426,3 +426,38 @@ models:
               field: chubnrcd
               config:
                 severity: error
+# 部位グループ検索情報
+  - name: stg_buigroupkensakujoho
+    config:
+      tags: ["epc"]
+    columns:
+      - name: ctlgcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv219')
+              field: ctlgcd
+              config:
+                severity: error
+      - name: chubnrcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv219')
+              field: chubnrcd
+              config:
+                severity: error
+      - name: svglayermei
+        tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv219')
+              field: svglayermei
+              config:
+                severity: error
