@@ -65,7 +65,25 @@ with stg_kokunaikatashiki_nippo as (
         ldts::timestamp_ntz(9) as ldts,
         row_number() over (
             partition by
-                send_date,ymd,areacd,country_cd,psc,affiliate_cd,plant_cd,line_cd,geoss_line,daily_report_car_grcd,id,syasyu_cd,sno,syamei,model_name_cd,unit_cd,dom_exp_cd,katashiki,oem
+                send_date,
+                ymd,
+                areacd,
+                country_cd,
+                psc,
+                affiliate_cd,
+                plant_cd,
+                line_cd,
+                geoss_line,
+                daily_report_car_grcd,
+                id,
+                syasyu_cd,
+                sno,
+                syamei,
+                model_name_cd,
+                unit_cd,
+                dom_exp_cd,
+                katashiki,
+                oem
             order by line_number desc
         ) aggkey
     from {{ source('snowpipe_db_supplydemand','raw_t_daily_prod_ctl_model_vehicle_class') }}
