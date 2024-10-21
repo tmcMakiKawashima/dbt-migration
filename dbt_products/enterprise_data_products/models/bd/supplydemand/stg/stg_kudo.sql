@@ -32,7 +32,16 @@ with stg_kudo as (
         ldts::timestamp_ntz(9) as ldts,
         row_number() over (
             partition by
-                send_date,syasyu_cd,sno,syamei,dom_exp_cd,model_name_cd,unit_cd,katashiki,powertrain_cd,pp_sms
+                send_date,
+                syasyu_cd,
+                sno,
+                syamei,
+                dom_exp_cd,
+                model_name_cd,
+                unit_cd,
+                katashiki,
+                powertrain_cd,
+                pp_sms
             order by line_number desc
         ) aggkey
     from {{ source('snowpipe_db_supplydemand','raw_m_drive') }}
