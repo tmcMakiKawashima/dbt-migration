@@ -108,7 +108,28 @@ with stg_jikkokeikaku as (
         ldts::timestamp_ntz(9) as ldts,
         row_number() over (
             partition by
-                send_date,ym,jpn_local_div,areacd,country_cd,psc,affiliate_cd,plant_cd,line_cd,geoss_line,shimukechi_cd,id,syasyu_cd,daily_report_car_grcd,sno,syamei,model_name_cd,unit_cd,dom_exp_cd,update_reason,pcd_confirmed,employee_cd
+                send_date,
+                ym,
+                jpn_local_div,
+                areacd,
+                country_cd,
+                psc,
+                affiliate_cd,
+                plant_cd,
+                line_cd,
+                geoss_line,
+                shimukechi_cd,
+                id,
+                syasyu_cd,
+                daily_report_car_grcd,
+                sno,
+                syamei,
+                model_name_cd,
+                unit_cd,
+                dom_exp_cd,
+                update_reason,
+                pcd_confirmed,
+                employee_cd
             order by line_number desc
         ) aggkey
     from {{ source('snowpipe_db_supplydemand','raw_t_imp_plan') }}
