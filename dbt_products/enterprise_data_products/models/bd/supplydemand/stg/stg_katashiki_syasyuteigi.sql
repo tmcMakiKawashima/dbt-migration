@@ -28,7 +28,14 @@ with stg_katashiki_syasyuteigi as (
         ldts::timestamp_ntz(9) as ldts,
         row_number() over (
             partition by
-                send_date,syasyu_cd,sno,syamei,dom_exp_cd,model_name_cd,unit_cd,katashiki
+                send_date,
+                syasyu_cd,
+                sno,
+                syamei,
+                dom_exp_cd,
+                model_name_cd,
+                unit_cd,
+                katashiki
             order by line_number desc
         ) aggkey
     from {{ source('snowpipe_db_supplydemand','raw_m_ctl_model_vehicle_class') }}
