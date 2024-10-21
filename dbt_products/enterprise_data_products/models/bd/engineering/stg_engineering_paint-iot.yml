@@ -8,6 +8,9 @@ models:
     columns:
       - name: accept_test_id
         tests:
+          - unique:
+              config:
+                severity: error
           - not_null:
               config:
                 severity: error
