@@ -324,7 +324,7 @@ models:
   - name: stg_bunkaizukensaku
     config:
       tags: ["epc"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - ctlgcd
@@ -336,27 +336,27 @@ models:
             severity: error
     columns:
       - name: ctlgcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: figno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: bnkren4
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: jissijikik
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: jissijikim
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -366,7 +366,7 @@ models:
       tags: ["epc"]
     columns:
       - name: hansno
-        tests:
+        data_tests:
           - unique:
               config:
                 severity: error
@@ -377,7 +377,7 @@ models:
   - name: stg_emokujikensaku
     config:
       tags: ["epc"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - ctlgcd
@@ -387,17 +387,17 @@ models:
             severity: error
     columns:
       - name: ctlgcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: emkjgrpcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: figno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -405,7 +405,7 @@ models:
   - name: stg_figkensaku
     config:
       tags: ["epc"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - ctlgcd
@@ -416,22 +416,22 @@ models:
             severity: error
     columns:
       - name: ctlgcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hinban
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: pnc
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: figno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -439,7 +439,7 @@ models:
   - name: stg_figmeisyo
     config:
       tags: ["epc"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - langkbn
@@ -448,12 +448,12 @@ models:
             severity: error
     columns:
       - name: langkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: figno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -461,7 +461,7 @@ models:
   - name: stg_hinmei
     config:
       tags: ["epc"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - langkbn
@@ -470,12 +470,12 @@ models:
             severity: error
     columns:
       - name: langkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: pnc
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -483,7 +483,7 @@ models:
   - name: stg_illustcomment
     config:
       tags: ["epc"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - langkbn
@@ -492,12 +492,12 @@ models:
             severity: error
     columns:
       - name: langkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: ilstcmtno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -507,7 +507,7 @@ models:
       tags: ["epc"]
     columns:
       - name: ctlgcd
-        tests:
+        data_tests:
           - unique:
               config:
                 severity: error
@@ -518,7 +518,7 @@ models:
   - name: stg_daitaihinbanjoho
     config:
       tags: ["epc"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - hinban
@@ -528,17 +528,17 @@ models:
             severity: error
     columns:
       - name: hinban
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hnbtikicd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: dthin
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -546,7 +546,7 @@ models:
   - name: stg_katashikipattern
     config:
       tags: ["epc"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - ctlgcd
@@ -556,17 +556,17 @@ models:
             severity: error
     columns:
       - name: ctlgcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: epckataptno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: katano
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -574,7 +574,7 @@ models:
   - name: stg_syaryoshiyosobijoho
     config:
       tags: ["epc"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - langkbn
@@ -585,22 +585,22 @@ models:
             severity: error
     columns:
       - name: langkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syasyu
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: siyoptno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: siyocd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -608,7 +608,7 @@ models:
   - name: stg_tactihinbanjoho
     config:
       tags: ["epc"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - toyotahin
@@ -618,17 +618,17 @@ models:
             severity: error
     columns:
       - name: toyotahin
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: siirecd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: rentacti
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
