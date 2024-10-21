@@ -1,3 +1,11 @@
+{{
+  config(
+    materialized='incremental',
+    unique_key = ['material_id'],
+    incremental_strategy = 'merge'
+  )
+ }}
+
 with stg_material as (
     select
         material_id::number(10,0) as material_id, -- なし
@@ -21,7 +29,12 @@ with stg_material as (
         paint_layer_id::number(10,0) as paint_layer_id, -- なし
         ldts, --B層取込日時
         row_number() over (partition by material_id order by updated_at desc, line_number desc) aggkey
-    from {{ source('snowpipe_db_engineering', 'raw_lotot_material_t') }}
+    from {{ source('snowpipe_db_engineering', 'raw_ktrea0g7zz0kqe0006') }}
+
+{% if is_incremental() %}
+    where ldts > (select max(ldts) from {{this}})
+{% endif %}
+
 )
 select * exclude(aggkey)
 from stg_material
