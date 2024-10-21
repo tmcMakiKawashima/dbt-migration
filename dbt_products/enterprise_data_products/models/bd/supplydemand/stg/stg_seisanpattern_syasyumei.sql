@@ -20,7 +20,9 @@ with stg_seisanpattern_syasyumei as (
         ldts::timestamp_ntz(9) as ldts,
         row_number() over (
             partition by
-                send_date,jpn_local_div,model_name_cd
+                send_date,
+                jpn_local_div,
+                model_name_cd
             order by line_number desc
         ) aggkey
     from {{ source('snowpipe_db_supplydemand','raw_m_vehicle_class_name') }}
