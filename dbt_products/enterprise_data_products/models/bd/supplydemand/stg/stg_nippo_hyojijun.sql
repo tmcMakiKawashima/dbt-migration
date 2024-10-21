@@ -36,7 +36,14 @@ with stg_nippo_hyojijun as (
         ldts::timestamp_ntz(9) as ldts,
         row_number() over (
             partition by
-                send_date,jpn_local_div,areacd,country_cd,psc,affiliate_cd,plant_cd,line_cd
+                send_date,
+                jpn_local_div,
+                areacd,
+                country_cd,
+                psc,
+                affiliate_cd,
+                plant_cd,
+                line_cd
             order by line_number desc
         ) aggkey
     from {{ source('snowpipe_db_supplydemand','raw_m_daily_sort_order_line') }}
