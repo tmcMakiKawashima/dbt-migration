@@ -74,7 +74,37 @@ with stg_gekkan_kadojisseki as (
         ldts::timestamp_ntz(9) as ldts,
         row_number() over (
             partition by
-                send_date,ym,jpn_local_div,areacd,country_cd,psc,affiliate_cd,plant_cd,line_cd,result_type_cd,geoss_line,shimukechi_cd,jpn_model_name_cd,local_model_name_cd,unit_cd,error,id,syasyu_cd,sno,syamei,de_total_cd,katashiki,powertrain_cd,oem,only_for_result,no_katashiki_result,warning_diff_kata,only_kd,completion,employee_cd,confirmed_flg
+                send_date,
+                ym,
+                jpn_local_div,
+                areacd,
+                country_cd,
+                psc,
+                affiliate_cd,
+                plant_cd,
+                line_cd,
+                result_type_cd,
+                geoss_line,
+                shimukechi_cd,
+                jpn_model_name_cd,
+                local_model_name_cd,
+                unit_cd,
+                error,
+                id,
+                syasyu_cd,
+                sno,
+                syamei,
+                de_total_cd,
+                katashiki,
+                powertrain_cd,
+                oem,
+                only_for_result,
+                no_katashiki_result,
+                warning_diff_kata,
+                only_kd,
+                completion,
+                employee_cd,
+                confirmed_flg
             order by line_number desc
         ) aggkey
     from {{ source('snowpipe_db_supplydemand','raw_t_monthly_reports') }}
