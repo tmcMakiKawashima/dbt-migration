@@ -461,3 +461,48 @@ models:
               field: svglayermei
               config:
                 severity: error
+# 部位小分類検索情報
+  - name: stg_buisyobunruikensakujoho
+    config:
+      tags: ["epc"]
+    columns:
+      - name: ctlgcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv220')
+              field: ctlgcd
+              config:
+                severity: error
+      - name: chubnrcd
+        tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv220')
+              field: chubnrcd
+              config:
+                severity: error
+      - name: svglayermei
+        tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv220')
+              field: svglayermei
+              config:
+                severity: error
+      - name: figno
+        tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv220')
+              field: figno
+              config:
+                severity: error
