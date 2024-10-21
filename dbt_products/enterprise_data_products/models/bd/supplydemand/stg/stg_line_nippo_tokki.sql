@@ -70,7 +70,24 @@ with stg_line_nippo_tokki as (
         ldts::timestamp_ntz(9) as ldts,
         row_number() over (
             partition by
-                send_date,ymd,jpn_local_div,areacd,country_cd,psc,affiliate_cd,plant_cd,line_cd,item_cd,shift_cd,process_cd,reason_div_cd,reason_div1_cd,reason_div2_cd,stop_t,ot,memo
+                send_date,
+                ymd,
+                jpn_local_div,
+                areacd,
+                country_cd,
+                psc,
+                affiliate_cd,
+                plant_cd,
+                line_cd,
+                item_cd,
+                shift_cd,
+                process_cd,
+                reason_div_cd,
+                reason_div1_cd,
+                reason_div2_cd,
+                stop_t,
+                ot,
+                memo
             order by line_number desc
         ) aggkey
     from {{ source('snowpipe_db_supplydemand','raw_t_daily_prod_line_detail_reason') }}
