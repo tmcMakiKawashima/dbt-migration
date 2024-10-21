@@ -21,7 +21,8 @@ with stg_chiiki as (
         ldts::timestamp_ntz(9) as ldts,
         row_number() over (
             partition by
-                send_date,areacd
+                send_date,
+                areacd
             order by line_number desc
         ) aggkey
     from {{ source('snowpipe_db_supplydemand','raw_m_area') }}
