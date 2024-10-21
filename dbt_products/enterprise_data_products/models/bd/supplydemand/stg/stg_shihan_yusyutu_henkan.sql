@@ -23,7 +23,10 @@ with stg_shihan_yusyutu_henkan as (
         ldts::timestamp_ntz(9) as ldts,
         row_number() over (
             partition by
-                send_date,syasyu_cd,sno,syamei
+                send_date,
+                syasyu_cd,
+                sno,
+                syamei
             order by line_number desc
         ) aggkey
     from {{ source('snowpipe_db_supplydemand','raw_m_convert_commercial_export') }}
