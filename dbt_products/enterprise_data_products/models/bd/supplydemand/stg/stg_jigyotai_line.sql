@@ -44,7 +44,18 @@ with stg_jigyotai_line as (
         ldts::timestamp_ntz(9) as ldts,
         row_number() over (
             partition by
-                send_date,jpn_local_div,areacd,country_cd,psc,affiliate_cd,plant_cd,line_cd,geoss_line,shimukechi_cd,tc_from,tc_to
+                send_date,
+                jpn_local_div,
+                areacd,
+                country_cd,
+                psc,
+                affiliate_cd,
+                plant_cd,
+                line_cd,
+                geoss_line,
+                shimukechi_cd,
+                tc_from,
+                tc_to
             order by line_number desc
         ) aggkey
     from {{ source('snowpipe_db_supplydemand','raw_m_affiliates_line') }}
