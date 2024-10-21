@@ -8,6 +8,9 @@ models:
     columns:
       - name: permission_id
         tests:
+          - unique:
+              config:
+                severity: error
           - not_null:
               config:
                 severity: error
