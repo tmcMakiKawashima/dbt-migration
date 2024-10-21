@@ -1,3 +1,11 @@
+{{
+  config(
+    materialized='incremental',
+    unique_key = ['criteria_id'],
+    incremental_strategy = 'merge'
+  )
+ }}
+
 with stg_material_criteria as (
     select
         criteria_id::number(10,0) as criteria_id, -- なし
@@ -20,7 +28,12 @@ with stg_material_criteria as (
         density::number(6,3) as density, -- なし
         ldts, --B層取込日時
         row_number() over (partition by criteria_id order by update_at desc, line_number desc) aggkey
-    from {{ source('snowpipe_db_engineering', 'raw_lotot_material_criteria_t') }}
+    from {{ source('snowpipe_db_engineering', 'raw_ktrea0g7zz0kqe0005') }}
+
+{% if is_incremental() %}
+    where ldts > (select max(ldts) from {{this}})
+{% endif %}
+
 )
 select * exclude(aggkey)
 from stg_material_criteria
