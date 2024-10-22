@@ -5,7 +5,7 @@ models:
   - name: stg_yohinmeisai
     config:
       tags: ["syaryojohodb"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - dlrcd
@@ -19,32 +19,32 @@ models:
 
     columns:
       - name: dlrcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: cuno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: edano
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: ym
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: nykt
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: tkcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -52,7 +52,7 @@ models:
   - name: stg_shinsyameisai
     config:
       tags: ["syaryojohodb"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - dlrcd
@@ -62,22 +62,22 @@ models:
 
     columns:
       - name: dlrcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: cuno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: edano
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: ym
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -85,7 +85,7 @@ models:
   - name: stg_yohinhinbanmeisai
     config:
       tags: ["syaryojohodb"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - dlrcd
@@ -94,22 +94,22 @@ models:
             severity: error
     columns:
       - name: dlrcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: chumon
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: edano
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: ym
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error

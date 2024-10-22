@@ -2,46 +2,46 @@ version: 2
 
 models:
   - name: tmp10_dm_yohin_tmp_juhattyuuriage
-    tests:
+    data_tests:
       - unique_values
     columns:
       - name: check_KYOUHAN
-        tests:
+        data_tests:
           - outer_join_not_all_null
   - name: tmp20_dm_yohin_tmp_juhattyuuriage
-    tests:
+    data_tests:
       - unique_values
     columns:
       - name: HATTYUHI
-        tests:
+        data_tests:
           - outer_join_not_all_null
   - name: tmp30_dm_yohin_tmp_juhattyuuriage
-    tests:
+    data_tests:
       - unique_values
     columns:
       - name: check2_KYOUHAN
-        tests:
+        data_tests:
           - outer_join_not_all_null
   - name: tmp50_dm_yohin_tmp_juhattyuuriage
-    tests:
+    data_tests:
       - unique_values
     columns:
       - name: check3_kyouhan
-        tests:
+        data_tests:
           - outer_join_not_all_null
   - name: tmp60_dm_yohin_tmp_juhattyuuriage
-    tests:
+    data_tests:
       - unique_values
     columns:
       - name: check_JHINBAN
-        tests:
+        data_tests:
           - outer_join_not_all_null
       - name: check_PNO
-        tests:
+        data_tests:
           - outer_join_not_all_null
       - name: check4_KYOUHAN
-        tests:
+        data_tests:
           - outer_join_not_all_null
       - name: check_DLRCD
-        tests:
+        data_tests:
           - outer_join_not_all_null
