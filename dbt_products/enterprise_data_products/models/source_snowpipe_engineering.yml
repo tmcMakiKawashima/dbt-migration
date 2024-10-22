@@ -11,8 +11,8 @@ sources:
 
     tables:
     # paint_iot
-      - name: raw_lotot_accept_test_t
-        identifier: lotot_accept_test_t
+      - name: raw_ktrea0g7zz0kqe0001
+        identifier: ktrea0g7zz0kqe0001
       - name: raw_lotot_delivery_t
         identifier: lotot_delivery_t
       - name: raw_lotot_maker_result_t
