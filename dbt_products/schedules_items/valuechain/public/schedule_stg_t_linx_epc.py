@@ -9,7 +9,7 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 schedule_stg_t_linx_epc = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_stg_t_linx_epc",
-    schedule_name="T-LINX_EPC",
+    schedule_name="T_LINX_EPC",
     cron_schedule="00 00 * * *",
     execution_timezone="Asia/Tokyo",
     dbt_select="+stg_bunkaizukensaku +stg_bunkaizuimagekanri +stg_daitaihinbanjoho +stg_emokujikensaku +stg_figkensaku +stg_figmeisyo +stg_hinmei +stg_illustcomment +stg_katashikipattern +stg_syaryoshiyosobijoho +stg_syamei +stg_tactihinbanjoho",
