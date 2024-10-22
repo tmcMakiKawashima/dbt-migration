@@ -255,3 +255,86 @@ models:
           - not_null:
               config:
                 severity: error
+# 材質利用先
+  - name: stg_material_permission
+    config:
+      tags: ["paint_iot"]
+    columns:
+      - name: permission_id
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: material_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: permission_tmk
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: permission_boshoku
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: permission_syatai
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: permission_gifusyatai
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: permission_jidousyokki
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: permission_tmej
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: permission_daihatsu
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: permission_hino
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_by
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_at
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: updated_by
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: updated_at
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        tests:
+          - not_null:
+              config:
+                severity: error
