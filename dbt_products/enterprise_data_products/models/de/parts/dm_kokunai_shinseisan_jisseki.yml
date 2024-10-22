@@ -2,5 +2,5 @@ version: 2
 
 models:
   - name: dm_kokunai_shinseisan_jisseki
-    tests:
+    data_tests:
       - unique_values
