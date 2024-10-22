@@ -4,15 +4,15 @@ models:
   - name: tmp10_dm_shinsya_meisai
     columns:
       - name: MD5_SINSYAODNO_HUB
-        tests:
+        data_tests:
           - outer_join_not_all_null
   - name: tmp30_dm_shinsya_meisai
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - hkata
             - flno
     columns:
       - name: check_dlrcd
-        tests:
+        data_tests:
           - outer_join_not_all_null

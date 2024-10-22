@@ -3,7 +3,7 @@ version: 2
 models:
 # データ結合１のチェック
   - name: tmp10_dm_hosyuhin_tmp_juhattyuuriage
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - kyouhan
@@ -15,11 +15,11 @@ models:
             - jchuymd
     columns:
       - name: check_kyouhan
-        tests:
+        data_tests:
           - outer_join_not_all_null
 # データ結合２のチェック
   - name: tmp20_dm_hosyuhin_tmp_juhattyuuriage
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - kyouhan
@@ -31,11 +31,11 @@ models:
             - hchuymd
     columns:
       - name: check_kyouhan
-        tests:
+        data_tests:
           - outer_join_not_all_null
 # データ結合３のチェック
   - name: tmp30_dm_hosyuhin_tmp_juhattyuuriage
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - kyouhan
@@ -48,11 +48,11 @@ models:
             - jchuymd
     columns:
       - name: check_kyouhan
-        tests:
+        data_tests:
           - outer_join_not_all_null
 # データ結合４のチェック
   - name: tmp40_dm_hosyuhin_tmp_juhattyuuriage
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - kyouhan
@@ -66,20 +66,20 @@ models:
             - usercd
     columns:
       - name: check1_kyouhan
-        tests:
+        data_tests:
           - outer_join_not_all_null
       - name: check2_kyouhan
-        tests:
+        data_tests:
           - outer_join_not_all_null
       - name: check3_kyouhan
-        tests:
+        data_tests:
           - outer_join_not_all_null
       - name: check4_kyouhan
-        tests:
+        data_tests:
           - outer_join_not_all_null
 # データ結合５のチェック
   - name: tmp50_dm_hosyuhin_tmp_juhattyuuriage
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - kyouhan
@@ -91,17 +91,17 @@ models:
             - chumon
     columns:
       - name: check_jhinban
-        tests:
+        data_tests:
           - outer_join_not_all_null
       - name: check_pno
-        tests:
+        data_tests:
           - outer_join_not_all_null
       - name: check1_kyouhan
-        tests:
+        data_tests:
           - outer_join_not_all_null
       - name: check_dlrcd
-        tests:
+        data_tests:
           - outer_join_not_all_null
       - name: check2_kyouhan
-        tests:
+        data_tests:
           - outer_join_not_all_null

@@ -7,17 +7,17 @@ models:
       tags: ["mikado"]
     columns:
       - name: employee_cd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: cdatetime
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: ldts
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error

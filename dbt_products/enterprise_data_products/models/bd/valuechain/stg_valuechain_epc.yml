@@ -6,82 +6,82 @@ models:
       tags: ["epc"]
     columns:
       - name: ctlgcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hinmeicd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syasyu_cd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hinban
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: kosu
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: jissijikik
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: jissijikim
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: siyoptno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: epckataptno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: kiricdk
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: kiricdm
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: trmcdmlt
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: clrcdmlt
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: tkstkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hktkgaikbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hosemhin
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -91,87 +91,87 @@ models:
       tags: ["epc"]
     columns:
       - name: langkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: ctlgcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hinmeicd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syasyu_cd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hinban
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: kosu
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: jissijikik
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: jissijikim
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: siyoptno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: epckataptno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: kiricdk
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: kiricdm
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: trmcdmlt
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: clrcdmlt
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: tkstkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hktkgaikbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hosemhin
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -181,22 +181,22 @@ models:
       tags: ["epc"]
     columns:
       - name: frmnokata
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: mdlyearkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vin
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -206,17 +206,17 @@ models:
       tags: ["epc"]
     columns:
       - name: syasyu_cd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: siyoptno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: siyocd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -226,27 +226,27 @@ models:
       tags: ["epc"]
     columns:
       - name: ctlgcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syasyu_cd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hinban
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: trmcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: figno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -256,17 +256,17 @@ models:
       tags: ["epc"]
     columns:
       - name: hinban
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: dntikicd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: cthin
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -276,17 +276,17 @@ models:
       tags: ["epc"]
     columns:
       - name: ctlgcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: kiricd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: prtren
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -296,27 +296,27 @@ models:
       tags: ["epc"]
     columns:
       - name: ctlgcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syakata
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syasyu_cd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vinwmivds
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: katano
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
