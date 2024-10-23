@@ -287,28 +287,28 @@ sources:
         identifier: k9jfv217
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 18
       - name: raw_k9jfv218
         identifier: k9jfv218
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 22
       - name: raw_k9jfv219
         identifier: k9jfv219
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 19
       - name: raw_k9jfv220
         identifier: k9jfv220
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 47
     # PIXY

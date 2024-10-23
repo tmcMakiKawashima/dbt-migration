@@ -326,7 +326,7 @@ models:
       tags: ["epc"]
     columns:
       - name: langkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -336,7 +336,7 @@ models:
               config:
                 severity: error
       - name: ctlgcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -346,7 +346,7 @@ models:
               config:
                 severity: error
       - name: tokukbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -356,7 +356,7 @@ models:
               config:
                 severity: error
       - name: tokukg
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -371,7 +371,7 @@ models:
       tags: ["epc"]
     columns:
       - name: ctlgcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -382,7 +382,7 @@ models:
                 severity: error
 
       - name: daibnrcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -397,7 +397,7 @@ models:
       tags: ["epc"]
     columns:
       - name: ctlgcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -407,7 +407,7 @@ models:
               config:
                 severity: error
       - name: daibnrcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -417,7 +417,7 @@ models:
               config:
                 severity: error
       - name: chubnrcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -432,7 +432,7 @@ models:
       tags: ["epc"]
     columns:
       - name: ctlgcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -442,7 +442,7 @@ models:
               config:
                 severity: error
       - name: chubnrcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -452,7 +452,7 @@ models:
               config:
                 severity: error
       - name: svglayermei
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -467,7 +467,7 @@ models:
       tags: ["epc"]
     columns:
       - name: ctlgcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -477,7 +477,7 @@ models:
               config:
                 severity: error
       - name: chubnrcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -487,7 +487,7 @@ models:
               config:
                 severity: error
       - name: svglayermei
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -497,7 +497,7 @@ models:
               config:
                 severity: error
       - name: figno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
