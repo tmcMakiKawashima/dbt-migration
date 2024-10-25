@@ -177,7 +177,7 @@ models:
           +access: public
           +materialized: table
 
-tests:
+data_tests:
   enterprise_data_products:
     +severity: warn
     +store_failures: true
