@@ -1,0 +1,43 @@
+version: 2
+
+models:
+# 受入塗料管理幅
+  - name: stg_paint_material_controlband
+    config:
+      tags: ["paint_iot"]
+    columns:
+      - name: material_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: material_name
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: paint_type_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: paint_maker_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: test_skip_flg
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: viscocity_unit_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: material_created_at
+        tests:
+          - not_null:
+              config:
+                severity: error
