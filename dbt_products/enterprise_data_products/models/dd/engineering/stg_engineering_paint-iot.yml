@@ -7,37 +7,37 @@ models:
       tags: ["paint_iot"]
     columns:
       - name: material_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: material_name
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: paint_type_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: paint_maker_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: test_skip_flg
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: viscocity_unit_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: material_created_at
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -47,37 +47,37 @@ models:
       tags: ["paint_iot"]
     columns:
       - name: material_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: material_name
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: paint_type_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: paint_maker_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: test_skip_flg
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: viscocity_unit_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: material_created_at
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -87,37 +87,37 @@ models:
      tags: ["paint_iot"]
     columns:
       - name: material_id
-        tests:
+        data_tests:
         - not_null:
               config:
                 severity: error
       - name: material_name
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: paint_type_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: paint_maker_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: test_skip_flg
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: viscocity_unit_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: material_created_at
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
