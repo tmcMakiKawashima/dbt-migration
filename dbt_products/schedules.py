@@ -7,6 +7,8 @@ To add a daily schedule that materializes your dbt assets, uncomment the followi
 from .schedules_items.administration.public.schedule_stg_mikado_nyutaijo import schedule_stg_mikado_nyutaijo
 """ customerservice """
 from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
+""" engineering """
+from .schedules_items.engineering.public.schedule_stg_paint_iot import schedule_stg_paint_iot
 """ marketing """
 from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
 from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import schedule_stg_yohinhinbanmeisai
@@ -44,6 +46,9 @@ schedules.append(schedule_stg_mikado_nyutaijo)
 """ customerservice """
 # ワランティ
 schedules.append(schedule_stg_warranty)
+""" engineering """
+# TMK塗装IoT
+schedules.append(schedule_stg_paint_iot)
 """ marketing """
 # RISM連携IF変更
 schedules.append(schedule_stg_mashotoroku)
