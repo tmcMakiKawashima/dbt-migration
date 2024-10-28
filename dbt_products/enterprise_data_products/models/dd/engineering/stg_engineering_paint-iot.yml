@@ -121,3 +121,43 @@ models:
           - not_null:
               config:
                 severity: error
+#受入塗料メーカー検査結果
+  - name: stg_paint_maker_result
+    config:
+      tags: ["paint_iot"]
+    columns:
+      - name: material_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: material_name
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: paint_type_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: paint_maker_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: test_skip_flg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: viscocity_unit_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: material_created_at
+        data_tests:
+          - not_null:
+              config:
+                severity: error
