@@ -7,7 +7,7 @@ models:
       tags: ["paint_iot"]
     columns:
       - name: accept_test_id
-        tests:
+        data_tests:
           - unique:
               config:
                 severity: error
@@ -15,32 +15,32 @@ models:
               config:
                 severity: error
       - name: delivery_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: count
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: accept_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: judge_user_flg
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: created_at
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: updated_at
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -50,7 +50,7 @@ models:
       tags: ["paint_iot"]
     columns:
       - name: delivery_id
-        tests:
+        data_tests:
           - unique:
               config:
                 severity: error
@@ -58,27 +58,27 @@ models:
               config:
                 severity: error
       - name: material_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: lot_no
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: lot_year
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: created_at
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: updated_at
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -88,7 +88,7 @@ models:
       tags: ["paint_iot"]
     columns:
       - name: maker_result_id
-        tests:
+        data_tests:
           - unique:
               config:
                 severity: error
@@ -96,22 +96,22 @@ models:
               config:
                 severity: error
       - name: accept_test_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: test_date
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: created_by
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: created_at
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -121,7 +121,7 @@ models:
       tags: ["paint_iot"]
     columns:
       - name: material_id
-        tests:
+        data_tests:
           - unique:
               config:
                 severity: error
@@ -129,7 +129,7 @@ models:
               config:
                 severity: error
       - name: material_name
-        tests:
+        data_tests:
           - unique:
               config:
                 severity: error
@@ -137,37 +137,37 @@ models:
               config:
                 severity: error
       - name: paint_type_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: paint_maker_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: test_skip_flg
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: viscocity_unit_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: created_by
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: created_at
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: material_is_hidden_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -177,7 +177,7 @@ models:
      tags: ["paint_iot"]
     columns:
       - name: quality_result_id
-        tests:
+        data_tests:
         - unique:
               config:
                 severity: error
@@ -185,22 +185,22 @@ models:
               config:
                 severity: error
       - name: accept_test_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: test_date
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: created_by
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: created_at
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -210,7 +210,7 @@ models:
       tags: ["paint_iot"]
     columns:
       - name: criteria_id
-        tests:
+        data_tests:
           - unique:
               config:
                 severity: error
@@ -218,12 +218,12 @@ models:
               config:
                 severity: error
       - name: material_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: update_at
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -233,7 +233,7 @@ models:
       tags: ["paint_iot"]
     columns:
       - name: control_band_id
-        tests:
+        data_tests:
           - unique:
               config:
                 severity: error
@@ -241,17 +241,17 @@ models:
               config:
                 severity: error
       - name: material_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: update_at
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: band_type_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -261,7 +261,7 @@ models:
       tags: ["paint_iot"]
     columns:
       - name: permission_id
-        tests:
+        data_tests:
           - unique:
               config:
                 severity: error
@@ -269,72 +269,72 @@ models:
               config:
                 severity: error
       - name: material_id
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: permission_tmk
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: permission_boshoku
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: permission_syatai
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: permission_gifusyatai
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: permission_jidousyokki
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: permission_tmej
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: permission_daihatsu
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: permission_hino
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: created_by
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: created_at
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: updated_by
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: updated_at
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: ldts
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
