@@ -15,7 +15,7 @@ sources:
         identifier: tsjfa368
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 450
     # SYARYOSYS
@@ -23,28 +23,28 @@ sources:
         identifier: tsjfa394
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 70
       - name: raw_tsjfa36d
         identifier: tsjfa36d
         columns:
           - name: raw_data
-            tests:
+            data_tests:
             - fixed_length:
                 length: 220
       - name: raw_tsjfa490
         identifier: tsjfa490
         columns:
           - name: raw_data
-            tests:
+            data_tests:
             - fixed_length:
                 length: 70
       - name: raw_tsjfa396
         identifier: tsjfa396
         columns:
           - name: raw_data
-            tests:
+            data_tests:
             - fixed_length:
                 length: 70
     # AQUA
@@ -52,56 +52,56 @@ sources:
         identifier: nojfa560
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 1563
       - name: raw_da5a212b
         identifier: da5a212b
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 1563
       - name: raw_da5a215a
         identifier: da5a215a
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 435
       - name: raw_da5a219a
         identifier: da5a219a
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 105
       - name: raw_da5a217a
         identifier: da5a217a
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 198
       - name: raw_da5a216a
         identifier: da5a216a
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 198
       - name: raw_da5a218a
         identifier: da5a218a
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 486
       - name: raw_da5a220a
         identifier: da5a220a
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 645
     # SPEC
@@ -109,6 +109,6 @@ sources:
         identifier: ktrla01ezz0ka20001
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 133
