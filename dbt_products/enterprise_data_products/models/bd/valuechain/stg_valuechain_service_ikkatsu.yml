@@ -4,7 +4,7 @@ models:
   - name: stg_seibimeisyomaster
     config:
       tags: ["service_ikkatsu"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - seibi_cd
@@ -13,12 +13,12 @@ models:
             severity: error
     columns:
       - name: seibi_cd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: mgr_kbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -28,7 +28,7 @@ models:
       tags: ["service_ikkatsu"]
     columns:
       - name: hinban
-        tests:
+        data_tests:
           - unique:
               config:
                 severity: error

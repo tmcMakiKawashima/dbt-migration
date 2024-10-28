@@ -17,7 +17,7 @@ sources:
         identifier: n8jfim04
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 175
     # RISM
@@ -25,7 +25,7 @@ sources:
         identifier: ktrla01ezz0ko87001
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length: 
                   length: 50
     # SYARYOJOHODB
@@ -33,6 +33,6 @@ sources:
         identifier: ktrla025zz0kil3201
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 61
