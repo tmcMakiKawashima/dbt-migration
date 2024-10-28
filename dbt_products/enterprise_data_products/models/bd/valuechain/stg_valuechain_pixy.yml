@@ -4,7 +4,7 @@ models:
   - name: stg_goguchisyasyucd
     config:
       tags: ["pixy"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - syasyu_cd
@@ -13,12 +13,12 @@ models:
             severity: error
     columns:
       - name: syasyu_cd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: yohinsyamei
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -26,7 +26,7 @@ models:
   - name: stg_genyohinmaster
     config:
       tags: ["pixy"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:        # パッケージで提供されているテストを使用
           combination_of_columns:
             - yohinsyamei
@@ -38,22 +38,22 @@ models:
       
     columns:
       - name: yohinsyamei
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: tuikou
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: seg
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: seq
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error

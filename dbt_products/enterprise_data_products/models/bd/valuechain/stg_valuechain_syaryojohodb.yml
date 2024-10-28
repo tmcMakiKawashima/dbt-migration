@@ -4,7 +4,7 @@ models:
   - name: stg_nyukoreki
     config:
       tags: ["syaryojohodb"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - kbsyadai
@@ -16,27 +16,27 @@ models:
             severity: error
     columns:
       - name: kbsyadai
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: nosyadai
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: seisanymd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: nyukohanbaitencd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: jutyuno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -44,7 +44,7 @@ models:
   - name: stg_nyukomeisaisakuin
     config:
       tags: ["syaryojohodb"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - nyukohanbaitencd
@@ -56,27 +56,27 @@ models:
             severity: error
     columns:
       - name: nyukohanbaitencd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: jutyuno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: seisany
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: seisanmd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: nyukono
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -84,7 +84,7 @@ models:
   - name: stg_goyoumei
     config:
       tags: ["syaryojohodb"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - nyukono
@@ -93,12 +93,12 @@ models:
             severity: error
     columns:
       - name: nyukono
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: meisaino
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -106,7 +106,7 @@ models:
   - name: stg_goyoumeihosyo
     config:
       tags: ["syaryojohodb"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - nyukono
@@ -115,12 +115,12 @@ models:
             severity: error
     columns:
       - name: nyukono
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: meisaino
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -128,7 +128,7 @@ models:
   - name: stg_seibireki
     config:
       tags: ["syaryojohodb"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - nyukono
@@ -137,12 +137,12 @@ models:
             severity: error
     columns:
       - name: nyukono
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: meisaino
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -150,7 +150,7 @@ models:
   - name: stg_buhinreki
     config:
       tags: ["syaryojohodb"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - nyukono
@@ -159,12 +159,12 @@ models:
             severity: error
     columns:
       - name: nyukono
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: meisaino
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -172,7 +172,7 @@ models:
   - name: stg_codekubun
     config:
       tags: ["syaryojohodb"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - codekbnid
@@ -181,12 +181,12 @@ models:
             severity: error
     columns:
       - name: codekbnid
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: key
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -196,7 +196,7 @@ models:
       tags: ["syaryojohodb"]
     columns:
       - name: hanbaitencd
-        tests:
+        data_tests:
           - unique:
               config:
                 severity: error
@@ -207,7 +207,7 @@ models:
   - name: stg_hanbaitentenpomaster
     config:
       tags: ["syaryojohodb"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - hanbaitencd
@@ -216,12 +216,12 @@ models:
             severity: error
     columns:
       - name: hanbaitencd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: tenpocd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -229,7 +229,7 @@ models:
   - name: stg_yohinsotyakureki
     config:
       tags: ["syaryojohodb"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:        # パッケージで提供されているテストを仕様
           combination_of_columns:
             - kbsyadai
@@ -243,32 +243,32 @@ models:
 
     columns:
       - name: kbsyadai
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: nosyadai
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: ddtorituke
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: cdyouhinban
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: cdtorihan
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: cdtoritenpo
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error

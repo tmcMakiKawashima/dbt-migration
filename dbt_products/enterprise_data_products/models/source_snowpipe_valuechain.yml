@@ -15,91 +15,91 @@ sources:
         identifier: ktrla03uzz0kv80001
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 1283
       - name: raw_dvnp5770
         identifier: ktrla01vzz0kvn00g0
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 475
       - name: raw_dvnp4330
         identifier: ktrla01vzz0kvn00g1
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 270
       - name: raw_dvnp4520
         identifier: ktrla01vzz0kvn00g2
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 295
       - name: raw_dvnp6490
         identifier: ktrla01vzz0kvn00g3
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 900
       - name: raw_dvnp0710
         identifier: ktrla01vzz0kvn00g4
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 410
       - name: raw_dvnp0680
         identifier: ktrla01vzz0kvn00g5
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 295
       - name: raw_dvnp0700
         identifier: ktrla01vzz0kvn00g6
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 340
       - name: raw_dvnp054a
         identifier: ktrla01vzz0kvn00g7
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 158
       - name: raw_cvn35dsyukabin
         identifier: ktrla01vzz0kvn00g8
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 100
       - name: raw_cvn18nosiodrjyoho
         identifier: ktrla01vzz0kvn00g9
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 400
       - name: raw_cvn06dodrshiji
         identifier: ktrla01vzz0kvn00ga
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 500
       - name: raw_dvsf509a
         identifier: ktrla01vzz0kvs00m6
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 250
     # TAS
@@ -107,14 +107,14 @@ sources:
         identifier: dxdaih99
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 120
       - name: raw_tbdaiml
         identifier: dxdaim99
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 500
       - name: raw_tbnsyus
@@ -123,21 +123,21 @@ sources:
         identifier: dxuser99
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 368
       - name: raw_tbdaikl
         identifier: dxdaik99
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 283
       - name: raw_tbsmksk
         identifier: dxc03399
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 400
       - name: raw_tbbofll
@@ -146,14 +146,14 @@ sources:
         identifier: dxchzn99
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 272
       - name: raw_tbnoukifl
         identifier: dxnouk99
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 204
       - name: raw_tbnokjs
@@ -162,7 +162,7 @@ sources:
         identifier: dxc22899
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 400
     # SYARYOJOHODB
@@ -170,63 +170,63 @@ sources:
         identifier: ktrla025zz0kil3202
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 109
       - name: raw_ktrla025zz0kil3203
         identifier: ktrla025zz0kil3203
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 31
       - name: raw_ktrla025zz0kil3204
         identifier: ktrla025zz0kil3204
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 29
       - name: raw_ktrla025zz0kil3205
         identifier: ktrla025zz0kil3205
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 90
       - name: raw_ktrla025zz0kil3206
         identifier: ktrla025zz0kil3206
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 33
       - name: raw_ktrla025zz0kil3207
         identifier: ktrla025zz0kil3207
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 44
       - name: raw_ktrla025zz0kil3209
         identifier: ktrla025zz0kil3209
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 51
       - name: raw_ktrla025zz0kil3210
         identifier: ktrla025zz0kil3210
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 10
       - name: raw_ktrla025zz0kil3211
         identifier: ktrla025zz0kil3211
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 40
     # EPC
@@ -234,7 +234,7 @@ sources:
         identifier: dv2a381b
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 2934
       - name: raw_cv201khintype2
@@ -243,72 +243,110 @@ sources:
         identifier: dv2a5404
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 111
       - name: raw_dv2a4774
         identifier: dv2a4774
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 13
       - name: raw_dv2a38b4
         identifier: dv2a38b4
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 29
       - name: raw_dv2a4983
         identifier: dv2a4983
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 44
       - name: raw_dv2a3704
         identifier: dv2a3704
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 75
       - name: raw_dv2a4974
         identifier: dv2a4974
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 187
+      - name: raw_dv2a3628
+        identifier: dv2a3628
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 201
       - name: raw_dv2a5544
         identifier: dv2a5544
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 16
+      - name: raw_dv2a3615
+        identifier: dv2a3615
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 39
       - name: raw_dv2a353c
         identifier: dv2a353c
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 29
+      - name: raw_dv2a4723
+        identifier: dv2a4723
       - name: raw_dv2a4703
         identifier: dv2a4703
+      - name: raw_dv2a5803
+        identifier: dv2a5803
+      - name: raw_dv2a4745
+        identifier: dv2a4745
+      - name: raw_dv2a4763
+        identifier: dv2a4763
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 43
+      - name: raw_dv2a3633
+        identifier: dv2a3633
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 16
+      - name: raw_dv2a5717
+        identifier: dv2a5717
+      - name: raw_dv2b0205
+        identifier: dv2b0205
     # PIXY
       - name: raw_tpjfva40
         identifier: tpjfva40
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 40
       - name: raw_tpjfva41
         identifier: tpjfva41
         columns:
           - name: raw_data
-            tests:
+            data_tests:
               - fixed_length:
                   length: 550
