@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: tmp10_dm_hosyuhin_noukishitei
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - dlrcd
@@ -13,5 +13,5 @@ models:
             where: "hchuymd is not null"
     columns:
       - name: m_juchuymd
-        tests:
+        data_tests:
           - outer_join_not_all_null
