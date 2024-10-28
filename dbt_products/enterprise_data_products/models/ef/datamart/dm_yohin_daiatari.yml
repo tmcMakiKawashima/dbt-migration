@@ -3,10 +3,10 @@ version: 2
 models:
 # データ結合１のチェック
   - name: tmp10_dm_yohin_daiatari
-    tests:
+    data_tests:
       - unique_values
   - name: tmp20_dm_yohin_daiatari
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - kyouhan
@@ -17,7 +17,7 @@ models:
             - jznjusin
 # データ結合４のチェック
   - name: tmp30_dm_yohin_daiatari
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - dlrcd
@@ -30,5 +30,5 @@ models:
             - m_ordesybt
     columns:
       - name: m_ordesybt
-        tests:
+        data_tests:
           - outer_join_not_all_null
