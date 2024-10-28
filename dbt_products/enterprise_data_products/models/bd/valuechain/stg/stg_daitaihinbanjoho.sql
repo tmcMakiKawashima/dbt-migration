@@ -4,7 +4,7 @@ with stg_daitaihinbanjoho as (
         rtrim(hinban,' 　')::varchar(12) as hinban, -- 右blank
         rtrim(hnbtikicd,' 　')::varchar(5) as hnbtikicd, -- 右blank
         rtrim(dthin,' 　')::varchar(12) as dthin, -- 右blank
-        dtkosu::varchar(2) as dtkosu, 
+        dtkosu::number(2) as dtkosu, 
         dthintkdate::varchar(8) as dthintkdate, 
         dttype::varchar(2) as dttype, 
         mainflg::varchar(1) as mainflg, 
