@@ -5,7 +5,7 @@ models:
   - name: stg_warranty
     config:
       tags: ["iqas"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - settle_date_y
@@ -22,47 +22,47 @@ models:
 
     columns:
       - name: settle_date_y
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: settle_date_m
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: dealer_code
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: twc_no
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: wmi
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vds
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vis
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -71,7 +71,7 @@ models:
   - name: stg_warranty_wcube
     config:
       tags: ["iqas"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - settle_date_y
@@ -88,47 +88,47 @@ models:
 
     columns:
       - name: settle_date_y
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: settle_date_m
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: dealer_code
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: twc_no
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: wmi
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vds
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vis
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -137,7 +137,7 @@ models:
   - name: stg_warranty_chinesecomment
     config:
       tags: ["iqas"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - settle_date_y
@@ -154,47 +154,47 @@ models:
 
     columns:
       - name: settle_date_y
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: settle_date_m
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: dealer_code
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: twc_no
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: wmi
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vds
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vis
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -203,7 +203,7 @@ models:
   - name: stg_warranty_kyusyo
     config:
       tags: ["iqas"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - settle_date_y
@@ -223,62 +223,62 @@ models:
 
     columns:
       - name: settle_date_y
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: settle_date_m
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: dealer_code
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: twc_no
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: wmi
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vds
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vis
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: cmp_suppli_code
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: cmp_settle_date_y
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: cmp_settle_date_m
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -289,7 +289,7 @@ models:
       tags: ["iqas"]
     columns:
       - name: ftr_no
-        tests:
+        data_tests:
           - unique:
               config:
                 severity: error
@@ -301,7 +301,7 @@ models:
   - name: stg_shijoho_kokanbuhin
     config:
       tags: ["iqas"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - ftr_no
@@ -311,12 +311,12 @@ models:
 
     columns:
       - name: ftr_no
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: seq_ftr_rep
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -325,7 +325,7 @@ models:
   - name: stg_warranty_comment
     config:
       tags: ["iqas"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - settle_date_y
@@ -341,47 +341,47 @@ models:
             severity: error
     columns:
       - name: settle_date_y
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: settle_date_m
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: dealer_code
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: twc_no
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: wmi
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vds
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vis
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -390,7 +390,7 @@ models:
   - name: stg_warranty_koukanhinban
     config:
       tags: ["iqas"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - settle_date_y
@@ -407,52 +407,52 @@ models:
             severity: error
     columns:
       - name: settle_date_y
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: settle_date_m
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: dealer_code
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: twc_no
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: wmi
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vds
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vis
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: seq_no_parts
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -463,7 +463,7 @@ models:
       tags: ["iqas"]
     columns:
       - name: ftr_no
-        tests:
+        data_tests:
           - unique:
               config:
                 severity: error
@@ -475,7 +475,7 @@ models:
   - name: stg_shijoho_kanrentorokusheet
     config:
       tags: ["iqas"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - ftr_no
@@ -484,12 +484,12 @@ models:
             severity: error
     columns:
       - name: ftr_no
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: reg_sheet_no
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -498,7 +498,7 @@ models:
   - name: stg_shijoho_bugaihaihu
     config:
       tags: ["iqas"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - ftr_no
@@ -508,17 +508,17 @@ models:
             severity: error
     columns:
       - name: ftr_no
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: outside_cmpny_code
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: outside_div_code
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -526,7 +526,7 @@ models:
   - name: stg_warranty_goguchihinban
     config:
       tags: ["iqas"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - settle_date_y
@@ -543,47 +543,47 @@ models:
 
     columns:
       - name: settle_date_y
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: settle_date_m
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: dealer_code
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: twc_no
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: wmi
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vds
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vis
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -591,7 +591,7 @@ models:
   - name: stg_warranty_supplyer
     config:
       tags: ["iqas"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - settle_date_y
@@ -609,52 +609,52 @@ models:
 
     columns:
       - name: settle_date_y
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: settle_date_m
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: dealer_code
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: twc_no
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: wmi
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vds
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vis
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: suppli_code_ovs
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -662,7 +662,7 @@ models:
   - name: stg_shijoho_honbuntext
     config:
       tags: ["iqas"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - ftr_no
@@ -672,12 +672,12 @@ models:
 
     columns:
       - name: ftr_no
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: seq_ftr_body
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -687,7 +687,7 @@ models:
       tags: ["iqas"]
     columns:
       - name: ftr_no
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error

@@ -7,7 +7,7 @@ models:
       tags: ["aladdin"]
     columns:
       - name: hanbaino
-        tests:
+        data_tests:
           - unique:
               config:
                 severity: error
@@ -18,7 +18,7 @@ models:
   - name: stg_hanbaihikiate
     config:
       tags: ["aladdin"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - hanbaino
@@ -32,32 +32,32 @@ models:
 
     columns:
       - name: hanbaino
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: kosyokata
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: suffix_code
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: shiyoudai
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: shiyousai
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hkata
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error 
