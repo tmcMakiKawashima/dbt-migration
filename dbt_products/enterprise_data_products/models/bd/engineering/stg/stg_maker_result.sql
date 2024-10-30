@@ -52,7 +52,7 @@ with stg_maker_result as (
         dilution_stability_c_method::number(6,3) as dilution_stability_c_method,
         ldts,
         row_number() over(partition by maker_result_id order by created_at desc, line_number desc) aggkey
-    from {{ source('snowpipe_db_engineering', 'raw_ktrea0g7zz0kqe0003') }}
+    from {{ source('snowpipe_db_engineering', 'raw_ktrla0g7zz0kqe0003') }}
 
   {% if is_incremental() %}
       where ldts > (select max(ldts) from {{this}})
