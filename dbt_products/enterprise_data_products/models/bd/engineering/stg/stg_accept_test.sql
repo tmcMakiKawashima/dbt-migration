@@ -15,7 +15,7 @@ with stg_accept_test as (
         updated_at::timestamp_ntz(6) as updated_at,
         ldts,
         row_number() over(partition by accept_test_id order by updated_at desc, line_number desc) aggkey
-    from {{source('snowpipe_db_engineering', 'raw_ktrea0g7zz0kqe0001') }}
+    from {{source('snowpipe_db_engineering', 'raw_ktrla0g7zz0kqe0001') }}
 
     {% if is_incremental() %}
         where ldts > (select max(ldts) from {{this}})
