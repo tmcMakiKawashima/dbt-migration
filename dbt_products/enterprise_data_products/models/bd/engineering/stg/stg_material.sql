@@ -29,7 +29,7 @@ with stg_material as (
         paint_layer_id::number(10,0) as paint_layer_id, -- なし
         ldts, --B層取込日時
         row_number() over (partition by material_id order by updated_at desc, line_number desc) aggkey
-    from {{ source('snowpipe_db_engineering', 'raw_ktrea0g7zz0kqe0006') }}
+    from {{ source('snowpipe_db_engineering', 'raw_ktrla0g7zz0kqe0006') }}
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{this}})
