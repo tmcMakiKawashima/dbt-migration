@@ -23,7 +23,6 @@ schedule_d_epc = build_schedule_from_dbt_selection(
                                                       "source:*,+stg_trimcodejoho",
                                                       "source:*,+stg_syaryokatashikijoho",
                                                       "source:*,+stg_tyotatsuhinbanjoho",
-                                                      "source:*,+stg_tokuchokigojoho",
                                                       "source:*,+stg_buidaibunruikensakujoho",
                                                       "source:*,+stg_buicyubunruikensakujoho",
                                                       "source:*,+stg_buigroupkensakujoho",
