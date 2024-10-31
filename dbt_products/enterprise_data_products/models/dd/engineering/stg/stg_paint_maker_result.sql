@@ -27,7 +27,7 @@ with
             lot_year, --ロット年度
             manufactured_date, --製造日
             created_at, --登録日
-            updated_at --更新日
+            updated_at --変更日
         from {{ ref('stg_delivery') }} --塗料納入
     ),
     stg_accept_test as (
@@ -37,8 +37,8 @@ with
             count, --塗料受入実施回数
             accept_id, --受入可否ID
             judge_user_flg, --合否判定ユーザフラグ
-            created_at, --受入検査登録日
-            updated_at --受入検査変更日
+            created_at, --登録日
+            updated_at --変更日
         from {{ ref('stg_accept_test') }} --受入検査
     ),
     stg_maker_result as (
@@ -111,7 +111,7 @@ with
             stg_delivery.lot_year, --ロット年度
             stg_delivery.manufactured_date, --製造日
             stg_delivery.created_at as delivery_created_at, --納入登録日
-            stg_delivery.updated_at as delivery_updated_at, --納入更新日
+            stg_delivery.updated_at as delivery_updated_at, --納入変更日
             stg_accept_test.accept_test_id, --受入検査ID
             stg_accept_test.count, --塗料受入実施回数
             stg_accept_test.accept_id, --受入可否ID
