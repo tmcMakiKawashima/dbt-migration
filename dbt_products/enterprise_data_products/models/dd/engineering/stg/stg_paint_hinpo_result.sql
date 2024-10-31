@@ -98,7 +98,7 @@ with
    stg_accept_test.accept_test_id,  -- 受入検査ID
    stg_accept_test.count,  -- 塗料受入実施回数
    stg_accept_test.accept_id,  -- 受入可否ID
-   stg_accept_test.judge_user_flg as judge_user_frg,  -- 合否判定ユーザフラグ
+   stg_accept_test.judge_user_flg,  -- 合否判定ユーザフラグ
    stg_accept_test.created_at as accept_created_at,  -- 受入検査登録日
    stg_accept_test.updated_at as accept_updated_at,  -- 受入検査変更日
    stg_hinpo_result.quality_result_id,  -- 品保検査結果ID
