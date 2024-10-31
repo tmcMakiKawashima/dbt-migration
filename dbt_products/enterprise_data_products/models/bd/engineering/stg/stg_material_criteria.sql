@@ -28,7 +28,7 @@ with stg_material_criteria as (
         density::number(6,3) as density, -- なし
         ldts, --B層取込日時
         row_number() over (partition by criteria_id order by update_at desc, line_number desc) aggkey
-    from {{ source('snowpipe_db_engineering', 'raw_ktrea0g7zz0kqe0005') }}
+    from {{ source('snowpipe_db_engineering', 'raw_ktrla0g7zz0kqe0005') }}
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{this}})
