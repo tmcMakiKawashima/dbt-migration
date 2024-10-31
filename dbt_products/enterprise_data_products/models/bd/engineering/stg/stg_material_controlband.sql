@@ -67,7 +67,7 @@ with stg_material_controlband as (
         dent_count_max::number(10,0) as dent_count_max, -- なし
         ldts, --B層取込日時
         row_number() over (partition by control_band_id order by update_at desc, line_number desc) aggkey
-    from {{ source('snowpipe_db_engineering', 'raw_ktrea0g7zz0kqe0004') }}
+    from {{ source('snowpipe_db_engineering', 'raw_ktrla0g7zz0kqe0004') }}
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{this}})
