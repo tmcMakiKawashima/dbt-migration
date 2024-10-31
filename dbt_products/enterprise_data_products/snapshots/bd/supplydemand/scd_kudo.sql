@@ -12,7 +12,7 @@
                     iff(unit_cd is null, '', unit_cd::varchar),
                     katashiki,
                     powertrain_cd,
-                    iff(pp_sms is null, '', pp_sms)
+                    iff(powertrain_sms is null, '', powertrain_sms)
                     )",
 
         strategy='timestamp',

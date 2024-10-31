@@ -26,7 +26,7 @@ with stg_kudo as (
         to_number(kd)::number(38,0) as kd,
         to_number(powertrain_cd)::number(38,0) as powertrain_cd,
         powertrain::varchar(255) as powertrain,
-        pp_sms::varchar(10) as pp_sms,
+        powertrain_sms::varchar(10) as powertrain_sms,
         to_number(result_model_sort)::number(38,0) as result_model_sort,
         to_number(unit_sort)::number(38,0) as unit_sort,
         ldts::timestamp_ntz(9) as ldts,
@@ -41,7 +41,7 @@ with stg_kudo as (
                 unit_cd,
                 katashiki,
                 powertrain_cd,
-                pp_sms
+                powertrain_sms
             order by line_number desc
         ) aggkey
     from {{ source('snowpipe_db_supplydemand','raw_m_drive') }}
