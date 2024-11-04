@@ -37,7 +37,7 @@ with stg_hinpo_result as (
         created_at::timestamp_ntz(6) as created_at,
         ldts, -- b層のldts
         row_number() over(partition by quality_result_id order by created_at desc, line_number desc) aggkey
-    from {{ source('snowpipe_db_engineering', 'raw_ktrea0g7zz0kqe0007') }}
+    from {{ source('snowpipe_db_engineering', 'raw_ktrla0g7zz0kqe0007') }}
            
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{this}})
