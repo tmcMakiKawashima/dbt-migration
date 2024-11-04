@@ -17,7 +17,8 @@
         "
     )
 }}
-
+-- ソース元システムにてキー情報の物理削除があり得る為
+-- incremental append + pre_hookによる受領年月・国内海外区分単位の洗い替えを実施
 with stg_syameigroup_nippo as (
     select 
         send_date::varchar(20) as send_date,
