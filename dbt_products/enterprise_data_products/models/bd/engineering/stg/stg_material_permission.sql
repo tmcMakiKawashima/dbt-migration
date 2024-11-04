@@ -22,11 +22,11 @@ with stg_material_permission as (
         updated_at::timestamp_ntz(6) as updated_at,  --timestamp型
         ldts, --B層取込日時
         row_number() over (partition by permission_id order by updated_at desc, line_number desc) aggkey
-    from {{ source('snowpipe_db_engineering', 'raw_ktrea0g7zz0kqe0008') }}
+    from {{ source('snowpipe_db_engineering', 'raw_ktrla0g7zz0kqe0008') }}
 
-    {% if is_incremental() %}
-        where ldts > (select max(ldts) from {{this}})
-    {% endif %}
+{% if is_incremental() %}
+    where ldts > (select max(ldts) from {{this}})
+{% endif %}
 
 )
 select * exclude(aggkey)
