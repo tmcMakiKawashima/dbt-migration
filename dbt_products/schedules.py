@@ -18,6 +18,7 @@ from .schedules_items.supplydemand.public.schedule_stg_syaryoindex import schedu
 from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_stg_vlt_ord
 """ valuechain """
 from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
+from .schedules_items.valuechain.public.schedule_stg_t_linx_epc import schedule_stg_t_linx_epc
 
 """ E """
 """ vinhis maint """
@@ -64,6 +65,8 @@ schedules.append(schedule_stg_vlt_ord)
 """ valuechain """
 # 補給品番基本情報提供
 schedules.append(schedule_d_epc)
+# T-LINX_EPC
+schedules.append(schedule_stg_t_linx_epc)
 
 """ E層作成ジョブ """
 """ vinhis maint """
