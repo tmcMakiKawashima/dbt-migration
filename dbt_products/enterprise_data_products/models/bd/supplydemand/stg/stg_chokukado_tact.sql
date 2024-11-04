@@ -9,7 +9,8 @@
         "
     )
 }}
-
+-- create or replaceでは、後続のマテリアライズドビューに影響が出るため
+-- incremental append + pre_hookによる洗い替え処理を実装
 with stg_chokukado_tact as (
     select 
         send_date::varchar(20) as send_date,
