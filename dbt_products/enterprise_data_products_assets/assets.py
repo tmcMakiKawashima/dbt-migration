@@ -36,6 +36,7 @@ def dbt_products_assets(context: AssetExecutionContext, dbt: DbtCliResource, con
         dbt_test_args = ["test", "--select"]
         dbt_test_args += config.source_test_list
         dbt_test_args += ["--target", os.getenv('dbt_profile_enterprise')]
+        dbt_test_args += ["--indirect-selection", "buildable"]
         # エラー出力用schemaの指定
         if len(config.dbt_vars["DBT_JOB_NAME"]) > 0:
             dbt_test_args += ["--vars", json.dumps(config.dbt_vars)]
