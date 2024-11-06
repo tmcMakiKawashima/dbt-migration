@@ -26,5 +26,6 @@ select
 from tmp30
 left outer join spec
   on tmp30.syasyu_cd = spec.syasyu
+ and tmp30.shiyodai = spec.shiyodai
  and tmp30.sketa = spec.sketa
  and tmp30.skigo = spec.skigo
