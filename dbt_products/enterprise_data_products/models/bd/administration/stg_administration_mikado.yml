@@ -1,4 +1,4 @@
-version: 2
+﻿version: 2
 
 models:
 # 入退場データ
@@ -14,6 +14,30 @@ models:
       - name: cdatetime
         tests:
           - not_null:
+              config:
+                severity: error
+      - name: ldts
+        tests:
+          - not_null:
+              config:
+                severity: error
+
+# JNETデータ
+  - name: stg_organization_english
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: bucd
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: stkcd
+        tests:
+          - unique:
               config:
                 severity: error
       - name: ldts
