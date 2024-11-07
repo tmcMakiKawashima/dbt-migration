@@ -1,4 +1,4 @@
-version: 2
+﻿version: 2
 
 models:
 # 入退場データ
@@ -13,6 +13,39 @@ models:
                 severity: error
       - name: cdatetime
         tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_syoninkubun
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: sykicd
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: slkbncd
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: synrnkcd
+        tests:
+          - unique:
+              config:
+                severity: error
           - not_null:
               config:
                 severity: error
