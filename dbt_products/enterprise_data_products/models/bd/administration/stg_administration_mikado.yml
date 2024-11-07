@@ -1,4 +1,4 @@
-version: 2
+﻿version: 2
 
 models:
 # 入退場データ
@@ -13,6 +13,47 @@ models:
                 severity: error
       - name: cdatetime
         tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_kyumurigyo_haken
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: syagai_cd
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: h2ym
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: h2dt
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: h2kntsncnt
+        tests:
+          - unique:
+              config:
+                severity: error
           - not_null:
               config:
                 severity: error
