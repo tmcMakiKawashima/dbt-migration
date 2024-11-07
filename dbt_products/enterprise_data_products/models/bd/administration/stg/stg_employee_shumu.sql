@@ -1,0 +1,126 @@
+{{
+  config(
+    materialized='incremental',
+    unique_key = ['employee_cd'],
+    incremental_strategy = 'append',
+    pre_hook=[
+      "{{ dbt_snow_mask.create_masking_policy('models')}}",
+      "
+      {% if is_incremental() %}
+      delete from {{this}}
+      {% endif %}
+      "
+    ],
+    post_hook=[
+      "{{ dbt_snow_mask.apply_masking_policy('models') }}"
+    ]
+  )
+}}
+
+with stg_employee_shumu as (
+    select
+        jcd::varchar(7) as employee_cd,
+        nyscanflg::varchar(1) as nyscanflg,
+        hnkgkjnam::varchar(20) as hnkgkjnam,
+        hnkgknnam::varchar(20) as hnkgknnam,
+        hnkgrmnam::varchar(50) as hnkgrmnam,
+        jigsnymd::varchar(8) as jigsnymd,
+        jigseb::varchar(1) as jigseb,
+        ssktdfkcd::varchar(2) as ssktdfkcd,
+        knicd::varchar(3) as knicd,
+        nysymd::varchar(8) as nysymd,
+        ntinysy::varchar(4) as ntinysy,
+        taiymd::varchar(8) as taiymd,
+        syoymd::varchar(8) as syoymd,
+        tskymd::varchar(8) as tskymd,
+        jigkbncd::varchar(1) as jigkbncd,
+        nysketcd::varchar(1) as nysketcd,
+        kznsu::varchar(2) as kznsu,
+        gakrei::varchar(2) as gakrei,
+        nnjgrk::varchar(6) as nnjgrk,
+        jhnysf::varchar(1) as jhnysf,
+        svphjflg::varchar(1) as svphjflg,
+        n2nkykrknis::number(3,1) as n2nkykrknis,
+        n1nkykrknis::number(3,1) as n1nkykrknis,
+        hnednkyfynis::number(3,1) as hnednkyfynis,
+        hgsumf::varchar(1) as hgsumf,
+        sybknrcd::varchar(1) as sybknrcd,
+        kskf::varchar(1) as kskf,
+        hriszstaymd::varchar(8) as hriszstaymd,
+        hriszcd::varchar(5) as hriszcd,
+        bucd::varchar(2) as bucd,
+        sskbunam1::varchar(30) as sskbunam1,
+        sskbunam2::varchar(30) as sskbunam2,
+        rskbunam::varchar(6) as rskbunam,
+        bmncd::varchar(2) as bmncd,
+        buno::varchar(3) as buno,
+        ykinno::varchar(2) as ykinno,
+        stkcd::varchar(3) as stkcd,
+        sskstknam::varchar(30) as sskstknam,
+        rskstknam::varchar(6) as rskstknam,
+        stkno::varchar(2) as stkno,
+        stkkbncd::varchar(1) as stkkbncd,
+        kkrgcd::varchar(4) as kkrgcd,
+        sskkkrgnam::varchar(30) as sskkkrgnam,
+        rskkrgnam::varchar(6) as rskkrgnam,
+        kkrgno::varchar(2) as kkrgno,
+        kkrgkbncd::varchar(1) as kkrgkbncd,
+        kmcd::varchar(5) as kmcd,
+        knmtyocd::varchar(4) as knmtyocd,
+        buaibmncd::varchar(2) as buaibmncd,
+        shopcd::varchar(3) as shopcd,
+        ltszcdymd::varchar(8) as ltszcdymd,
+        ltszcd::varchar(5) as ltszcd,
+        sbucd::varchar(2) as sbucd,
+        ssskbunam1::varchar(30) as ssskbunam1,
+        ssskbunam2::varchar(30) as ssskbunam2,
+        srskbunam::varchar(6) as srskbunam,
+        sstkcd::varchar(3) as sstkcd,
+        ssskstknam::varchar(30) as ssskstknam,
+        srskstknam::varchar(6) as srskstknam,
+        skkrgcd::varchar(4) as skkrgcd,
+        ssskkkrgnam::varchar(30) as ssskkkrgnam,
+        srskkrgnam::varchar(6) as srskkrgnam,
+        loccd::varchar(3) as loccd,
+        gbustaym::varchar(6) as gbustaym,
+        kaisyacd::varchar(5) as kaisyacd,
+        rskksnam::varchar(6) as rskksnam,
+        kytjjcd::varchar(2) as kytjjcd,
+        sykicd::varchar(3) as sykicd,
+        sykinam::varchar(32) as sykinam,
+        mnstkbncd::varchar(1) as mnstkbncd,
+        slkbncd::varchar(1) as slkbncd,
+        nowbnycd::varchar(3) as nowbnycd,
+        hribnycd::varchar(3) as hribnycd,
+        sykscd::varchar(2) as sykscd,
+        stptkbncd::varchar(2) as stptkbncd,
+        skkstaymd::varchar(8) as skkstaymd,
+        skktkkbncd::varchar(1) as skktkkbncd,
+        skkcd::varchar(2) as skkcd,
+        mnstskkkbncd::varchar(1) as mnstskkkbncd,
+        tgntkystaymd::varchar(8) as tgntkystaymd,
+        tgntkycd::varchar(3) as tgntkycd,
+        sytkyf::varchar(1) as sytkyf,
+        grkcd::varchar(2) as grkcd,
+        stgymd::varchar(6) as stgymd,
+        gkocd::varchar(6) as gkocd,
+        kjgkonam1::varchar(60) as kjgkonam1,
+        gkbnam::varchar(40) as gkbnam,
+        gkkanam::varchar(40) as gkkanam,
+        snkocd::varchar(2) as snkocd,
+        kjsnknam::varchar(40) as kjsnknam,
+        snkoknam::varchar(40) as snkoknam,
+        syaneknjknymdmax::varchar(8) as syaneknjknymdmax,
+        syaneknkymax::varchar(1) as syaneknkymax,
+        syaneknjknymdnew::varchar(8) as syaneknjknymdnew,
+        syaneknkynew::varchar(1) as syaneknkynew,
+        gymkbncd::varchar(2) as gymkbncd,
+        ldts,
+        row_number() over(partition by employee_cd
+                       order by ldts desc, line_number desc) as aggkey
+    from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20053')}}
+    {% if is_incremental() %}
+        where to_varchar(ldts,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20070')}})
+    {% endif %}
+)
+select *  exclude(aggkey) from stg_employee_shumu where aggkey = 1

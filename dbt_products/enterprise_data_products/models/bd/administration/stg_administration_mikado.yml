@@ -1,4 +1,4 @@
-version: 2
+﻿version: 2
 
 models:
 # 入退場データ
@@ -16,6 +16,44 @@ models:
           - not_null:
               config:
                 severity: error
+      - name: ldts
+        tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_employee_shumu
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: employee_cd
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: jigsnymd
+        meta:
+            masking_policy: jigsnymd_mask
+      - name: jigseb
+        meta:
+            masking_policy: jigseb_mask
+      - name: gakrei
+        meta:
+            masking_policy: gakrei_mask
+      - name: nnjgrk
+        meta:
+            masking_policy: nnjgrk_mask
+      - name: hgsumf
+        meta:
+            masking_policy: hgsumf_mask
+      - name: tgntkycd
+        meta:
+            masking_policy: tgntkycd_mask
+      - name: sytkyf
+        meta:
+            masking_policy: sytkyf_mask
       - name: ldts
         tests:
           - not_null:
