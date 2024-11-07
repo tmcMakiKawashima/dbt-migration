@@ -1,4 +1,4 @@
-version: 2
+﻿version: 2
 
 models:
 # 入退場データ
@@ -16,6 +16,26 @@ models:
           - not_null:
               config:
                 severity: error
+      - name: ldts
+        tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_syagaisya
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: 	r_syagaiid
+        tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: 	r_birthday
+        meta:
+            masking_policy: r_birthday_mask
       - name: ldts
         tests:
           - not_null:
