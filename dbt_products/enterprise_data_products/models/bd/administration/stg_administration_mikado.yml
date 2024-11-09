@@ -24,20 +24,19 @@ models:
   - name: stg_name_history
     config:
       tags: ["mikado_jnet"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - employee_cd
+            - namhnkyukymd
     columns:
       - name: employee_cd
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
       - name: namhnkyukymd
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
