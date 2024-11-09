@@ -62,7 +62,7 @@ with stg_syagaisya as (
                        order by ldts desc, line_number desc) as aggkey
     from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20054')}}
     {% if is_incremental() %}
-        where to_varchar(ldts,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20070')}})
+        where to_varchar(ldts,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20054')}})
     {% endif %}
 )
 select *  exclude(aggkey) from stg_syagaisya where aggkey = 1
