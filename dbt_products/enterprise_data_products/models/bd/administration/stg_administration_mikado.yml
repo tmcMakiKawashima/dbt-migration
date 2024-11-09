@@ -24,36 +24,31 @@ models:
   - name: stg_kyumurigyo_haken
     config:
       tags: ["mikado_jnet"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syagai_cd
+            - h2ym
+            - h2dt
+            - h2kntsncnt
     columns:
       - name: syagai_cd
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
       - name: h2ym
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
       - name: h2dt
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
       - name: h2kntsncnt
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
