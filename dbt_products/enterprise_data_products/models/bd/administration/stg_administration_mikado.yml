@@ -24,20 +24,19 @@ models:
   - name: stg_businesstrip
     config:
       tags: ["mikado_jnet"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - noshucho
+            - ddstart
     columns:
       - name: noshucho
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
       - name: ddstart
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error

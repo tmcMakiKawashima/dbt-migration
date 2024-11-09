@@ -14,7 +14,7 @@
 with stg_businesstrip as (
     select
         noshucho::varchar(11) as noshucho,
-        cdworker::varchar(10) as cdworker,
+        cdworker::varchar(10) as employee_cd,
         ddstart::varchar(8) as ddstart,
         ddend::varchar(8) as ddend,
         tmstart::varchar(4) as tmstart,
@@ -27,7 +27,7 @@ with stg_businesstrip as (
                        order by ldts desc, line_number desc) as aggkey
     from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20063')}}
     {% if is_incremental() %}
-        where to_varchar(ldts,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20070')}})
+        where to_varchar(ldts,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20063')}})
     {% endif %}
 )
 select *  exclude(aggkey) from stg_businesstrip where aggkey = 1
