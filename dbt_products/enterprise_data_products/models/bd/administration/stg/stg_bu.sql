@@ -40,7 +40,7 @@ with stg_bu as (
         ktnjjksinp::varchar(2) as ktnjjksinp,
         ldts,
         row_number() over(partition by bucd
-                       order by ldts desc, line_number desc) as aggkey
+                       order by ldts desc, bucdstaymd desc, line_number desc) as aggkey
     from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20056')}}
     where bucdstaymd <= to_varchar(current_date,'yyyymmdd')
     {% if is_incremental() %}
