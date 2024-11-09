@@ -20,7 +20,7 @@ with stg_employee_kubun as (
                        order by ldts desc, line_number desc) as aggkey
     from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20046')}}
     {% if is_incremental() %}
-        where to_varchar(ldts,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20070')}})
+        where to_varchar(ldts,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20046')}})
     {% endif %}
 )
 select *  exclude(aggkey) from stg_employee_kubun where aggkey = 1
