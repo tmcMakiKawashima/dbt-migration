@@ -24,28 +24,27 @@ models:
   - name: stg_syoninkubun
     config:
       tags: ["mikado_jnet"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - sykicd
+            - slkbncd
+            - synrnkcd
+          config:
+            severity: error
     columns:
       - name: sykicd
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
       - name: slkbncd
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
       - name: synrnkcd
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
