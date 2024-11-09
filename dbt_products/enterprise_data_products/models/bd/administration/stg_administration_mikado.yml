@@ -24,28 +24,25 @@ models:
   - name: stg_kintai_monthly
     config:
       tags: ["mikado_jnet"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - employee_cd
+            - h2gtjkntym
+            - h2knmtimcd
     columns:
       - name: employee_cd
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
       - name: h2gtjkntym
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
       - name: h2knmtimcd
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
