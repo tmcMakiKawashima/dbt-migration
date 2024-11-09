@@ -26,18 +26,17 @@ models:
   - name: stg_organization_english
     config:
       tags: ["mikado_jnet"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - bucd
+            - stkcd
+          config:
+            severity: error
     columns:
       - name: bucd
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
-              config:
-                severity: error
-      - name: stkcd
-        tests:
-          - unique:
               config:
                 severity: error
       - name: ldts
