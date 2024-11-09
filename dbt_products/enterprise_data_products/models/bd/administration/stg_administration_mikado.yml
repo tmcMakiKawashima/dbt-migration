@@ -24,52 +24,43 @@ models:
   - name: stg_kyumurigyo
     config:
       tags: ["mikado_jnet"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - employee_cd
+            - h2ytstayr
+            - h2ytstamon
+            - h2ytstadt
+            - h2staampmflg
+            - h2ytseqno
     columns:
       - name: employee_cd
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
       - name: h2ytstayr
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
       - name: h2ytstamon
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
       - name: h2ytstadt
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
       - name: h2staampmflg
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
       - name: h2ytseqno
         tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
