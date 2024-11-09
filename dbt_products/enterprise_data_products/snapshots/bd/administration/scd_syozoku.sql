@@ -2,7 +2,7 @@
 
 {{
     config(
-        unique_key="szcd",
+        unique_key="syozoku_cd",
 
         strategy='timestamp',
         updated_at='ldts',

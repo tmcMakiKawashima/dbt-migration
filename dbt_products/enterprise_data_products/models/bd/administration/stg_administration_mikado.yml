@@ -25,7 +25,7 @@ models:
     config:
       tags: ["mikado_jnet"]
     columns:
-      - name: szcd
+      - name: syozoku_cd
         tests:
           - unique:
               config:
