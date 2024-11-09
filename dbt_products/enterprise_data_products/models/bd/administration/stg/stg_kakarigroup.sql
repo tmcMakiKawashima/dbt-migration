@@ -28,7 +28,7 @@ with stg_kakarigroup as (
     from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20036')}}
     where kkrgcdstaymd <= to_varchar(current_date,'yyyymmdd')
     {% if is_incremental() %}
-        where to_varchar(ldts,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20036')}})
+        and to_varchar(ldts,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20036')}})
     {% endif %}
 )
 select *  exclude(aggkey) from stg_kakarigroup where aggkey = 1
