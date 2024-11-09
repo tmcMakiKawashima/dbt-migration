@@ -29,7 +29,7 @@ with stg_shitsuka as (
     from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20034')}}
     where stkcdstaymd <= to_varchar(current_date,'yyyymmdd')
     {% if is_incremental() %}
-        where to_varchar(ldts,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20034')}})
+        and to_varchar(ldts,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20034')}})
     {% endif %}
 )
 select *  exclude(aggkey) from stg_shitsuka where aggkey = 1
