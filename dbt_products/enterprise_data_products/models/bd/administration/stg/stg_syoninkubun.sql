@@ -1,7 +1,7 @@
 {{
   config(
     materialized='incremental',
-    unique_key = ['sykicd','slkbncd','synrnkcd'],
+    unique_key = ['sykicd','slkbncd'],
     incremental_strategy = 'append',
     pre_hook="
       {% if is_incremental() %}
@@ -17,7 +17,7 @@ with stg_syoninkubun as (
         slkbncd::varchar(1) as slkbncd,
         synrnkcd::varchar(1) as synrnkcd,
         ldts,
-        row_number() over(partition by sykicd,slkbncd,synrnkcd
+        row_number() over(partition by sykicd,slkbncd
                        order by ldts desc, line_number desc) as aggkey
     from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20068')}}
     {% if is_incremental() %}

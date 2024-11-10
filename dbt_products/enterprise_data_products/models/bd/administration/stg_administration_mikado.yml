@@ -29,7 +29,6 @@ models:
           combination_of_columns:
             - sykicd
             - slkbncd
-            - synrnkcd
           config:
             severity: error
     columns:

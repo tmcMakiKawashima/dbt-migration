@@ -4,8 +4,7 @@
     config(
         unique_key="concat_ws('-',
                     sykicd,
-                    slkbncd,
-                    synrnkcd)",
+                    slkbncd)",
 
         strategy='timestamp',
         updated_at='ldts',
