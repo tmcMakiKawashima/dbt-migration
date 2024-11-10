@@ -2,7 +2,9 @@
 
 {{
     config(
-        unique_key="skkcd",
+        unique_key="concat_ws('-',
+                    skkcd,
+                    skktkkbncd)",
 
         strategy='timestamp',
         updated_at='ldts',

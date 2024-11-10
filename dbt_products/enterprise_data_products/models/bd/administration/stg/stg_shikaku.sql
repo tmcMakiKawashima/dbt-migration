@@ -1,7 +1,7 @@
 {{
   config(
     materialized='incremental',
-    unique_key = ['skkcd'],
+    unique_key = ['skkcd','skktkkbncd'],
     incremental_strategy = 'append',
     pre_hook="
       {% if is_incremental() %}
@@ -19,7 +19,7 @@ with stg_shikaku as (
         rskskknam::varchar(8) as rskskknam,
         skkno::varchar(2) as skkno,
         ldts,
-        row_number() over(partition by skkcd
+        row_number() over(partition by skkcd, skktkkbncd
                        order by ldts desc, line_number desc) as aggkey
     from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20066')}}
     {% if is_incremental() %}

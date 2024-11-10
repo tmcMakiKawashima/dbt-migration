@@ -24,12 +24,19 @@ models:
   - name: stg_shikaku
     config:
       tags: ["mikado_jnet"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - skkcd
+            - skktkkbncd
     columns:
       - name: skkcd
         tests:
-          - unique:
+          - not_null:
               config:
                 severity: error
+      - name: skktkkbncd
+        tests:
           - not_null:
               config:
                 severity: error
