@@ -1,7 +1,7 @@
 {{
   config(
     materialized='incremental',
-    unique_key = ['r_syagaiid'],
+    unique_key = ['syagai_cd'],
     incremental_strategy = 'append',
     pre_hook=[
       "{{ dbt_snow_mask.create_masking_policy('models')}}",
@@ -19,7 +19,7 @@
 
 with stg_syagaisya as (
     select
-        r_syagaiid::varchar(7) as r_syagaiid,
+        r_syagaiid::varchar(7) as syagai_cd,
         r_syagaikbn::varchar(1) as r_syagaikbn,
         r_simeiknj::varchar(20) as r_simeiknj,
         r_simeifrgn::varchar(20) as r_simeifrgn,
@@ -30,7 +30,7 @@ with stg_syagaisya as (
         r_keiyakusyuryoymd::varchar(8) as r_keiyakusyuryoymd,
         r_sagyoarea::varchar(4) as r_sagyoarea,
         r_kikansyokuflg::varchar(1) as r_kikansyokuflg,
-        r_syozokucd::varchar(5) as r_syozokucd,
+        r_syozokucd::varchar(5) as syozoku_cd,
         r_motokaisyacd::varchar(5) as r_motokaisyacd,
         r_motokaisyamei::varchar(60) as r_motokaisyamei,
         r_syozokukaisyacd::varchar(5) as r_syozokukaisyacd,
@@ -58,7 +58,7 @@ with stg_syagaisya as (
         r_updateymd::varchar(8) as r_updateymd,
         r_kinmukanrikbn::varchar(1) as r_kinmukanrikbn,
         ldts,
-        row_number() over(partition by r_syagaiid
+        row_number() over(partition by syagai_cd
                        order by ldts desc, line_number desc) as aggkey
     from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20054')}}
     {% if is_incremental() %}

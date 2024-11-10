@@ -2,7 +2,7 @@
 
 {{
     config(
-        unique_key="	r_syagaiid",
+        unique_key="syagai_cd",
 
         strategy='timestamp',
         updated_at='ldts',

@@ -25,7 +25,7 @@ models:
     config:
       tags: ["mikado_jnet"]
     columns:
-      - name: 	r_syagaiid
+      - name: 	syagai_cd
         tests:
           - unique:
               config:
