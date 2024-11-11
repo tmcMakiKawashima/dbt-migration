@@ -632,3 +632,190 @@ models:
           - not_null:
               config:
                 severity: error
+
+# 特徴記号情報
+  - name: stg_tokuchokigojoho
+    config:
+      tags: ["epc"]
+    columns:
+      - name: langkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: source('snowpipe_db_valuechain','raw_k9jfv221')
+              field: langkbn
+              config:
+                severity: error
+      - name: ctlgcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: source('snowpipe_db_valuechain','raw_k9jfv221')
+              field: ctlgcd
+              config:
+                severity: error
+      - name: tokukbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: source('snowpipe_db_valuechain','raw_k9jfv221')
+              field: tokukbn
+              config:
+                severity: error
+      - name: tokukg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: source('snowpipe_db_valuechain','raw_k9jfv221')
+              field: tokukg
+              config:
+                severity: error
+# 部位大分類検索情報
+  - name: stg_buidaibunruikensakujoho
+    config:
+      tags: ["epc"]
+    columns:
+      - name: ctlgcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv217')
+              field: ctlgcd
+              config:
+                severity: error
+
+      - name: daibnrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv217')
+              field: daibnrcd
+              config:
+                severity: error
+# 部位中分類検索情報
+  - name: stg_buicyubunruikensakujoho
+    config:
+      tags: ["epc"]
+    columns:
+      - name: ctlgcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv218')
+              field: ctlgcd
+              config:
+                severity: error
+      - name: daibnrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv218')
+              field: daibnrcd
+              config:
+                severity: error
+      - name: chubnrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv218')
+              field: chubnrcd
+              config:
+                severity: error
+# 部位グループ検索情報
+  - name: stg_buigroupkensakujoho
+    config:
+      tags: ["epc"]
+    columns:
+      - name: ctlgcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv219')
+              field: ctlgcd
+              config:
+                severity: error
+      - name: chubnrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv219')
+              field: chubnrcd
+              config:
+                severity: error
+      - name: svglayermei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv219')
+              field: svglayermei
+              config:
+                severity: error
+# 部位小分類検索情報
+  - name: stg_buisyobunruikensakujoho
+    config:
+      tags: ["epc"]
+    columns:
+      - name: ctlgcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv220')
+              field: ctlgcd
+              config:
+                severity: error
+      - name: chubnrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv220')
+              field: chubnrcd
+              config:
+                severity: error
+      - name: svglayermei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv220')
+              field: svglayermei
+              config:
+                severity: error
+      - name: figno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv220')
+              field: figno
+              config:
+                severity: error
