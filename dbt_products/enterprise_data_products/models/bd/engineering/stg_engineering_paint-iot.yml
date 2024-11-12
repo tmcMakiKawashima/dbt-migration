@@ -1,0 +1,340 @@
+version: 2
+
+models:
+# 受入検査
+  - name: stg_accept_test
+    config:
+      tags: ["paint_iot"]
+    columns:
+      - name: accept_test_id
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: delivery_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: count
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: accept_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: judge_user_flg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_at
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: updated_at
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 塗料納入
+  - name: stg_delivery
+    config:
+      tags: ["paint_iot"]
+    columns:
+      - name: delivery_id
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: material_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lot_no
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lot_year
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_at
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: updated_at
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# メーカー検査結果
+  - name: stg_maker_result
+    config:
+      tags: ["paint_iot"]
+    columns:
+      - name: maker_result_id
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: accept_test_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: test_date
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_by
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_at
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 材質
+  - name: stg_material
+    config:
+      tags: ["paint_iot"]
+    columns:
+      - name: material_id
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: material_name
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: paint_type_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: paint_maker_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: test_skip_flg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: viscocity_unit_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_by
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_at
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: material_is_hidden_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 品保検査結果
+  - name: stg_hinpo_result
+    config:
+     tags: ["paint_iot"]
+    columns:
+      - name: quality_result_id
+        data_tests:
+        - unique:
+              config:
+                severity: error
+        - not_null:
+              config:
+                severity: error
+      - name: accept_test_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: test_date
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_by
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_at
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 塗料基準値
+  - name: stg_material_criteria
+    config:
+      tags: ["paint_iot"]
+    columns:
+      - name: criteria_id
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: material_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: update_at
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 塗料管理幅
+  - name: stg_material_controlband
+    config:
+      tags: ["paint_iot"]
+    columns:
+      - name: control_band_id
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: material_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: update_at
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: band_type_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 材質利用先
+  - name: stg_material_permission
+    config:
+      tags: ["paint_iot"]
+    columns:
+      - name: permission_id
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: material_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: permission_tmk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: permission_boshoku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: permission_syatai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: permission_gifusyatai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: permission_jidousyokki
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: permission_tmej
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: permission_daihatsu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: permission_hino
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_by
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: created_at
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: updated_by
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: updated_at
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
