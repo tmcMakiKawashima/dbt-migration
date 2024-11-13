@@ -4,7 +4,7 @@
     config(
         unique_key="concat_ws('-',
                     bucd,
-                    stkcd)",
+                    iff(stkcd is null, '', stkcd))",
 
         strategy='timestamp',
         updated_at='ldts',
