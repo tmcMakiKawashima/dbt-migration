@@ -332,7 +332,7 @@ models:
     config:
       tags: ["mikado_jnet"]
     columns:
-      - name: 	syagai_cd
+      - name: syagai_cd
         tests:
           - unique:
               config:
@@ -340,7 +340,7 @@ models:
           - not_null:
               config:
                 severity: error
-      - name: 	r_birthday
+      - name: r_birthday
         meta:
             masking_policy: r_birthday_mask
       - name: ldts
