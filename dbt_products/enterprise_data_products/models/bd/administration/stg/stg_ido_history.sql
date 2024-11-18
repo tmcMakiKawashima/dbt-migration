@@ -1,7 +1,7 @@
 {{
   config(
     materialized='incremental',
-    unique_key = ['employee_cd'],
+    unique_key = ['employee_cd','idorekstaymd','syozoku_cd_honrai'],
     incremental_strategy = 'append',
     pre_hook="
       {% if is_incremental() %}
@@ -43,7 +43,7 @@ with stg_ido_history as (
         gnuphztm::varchar(26) as gnuphztm,
         gnuppgm::varchar(8) as gnuppgm,
         ldts,
-        row_number() over(partition by employee_cd
+        row_number() over(partition by employee_cd,idorekstaymd,syozoku_cd_honrai
                        order by ldts desc, line_number desc) as aggkey
     from {{source('snowpipe_db_administration', 'raw_ktrla015zz0kh20042')}}
     {% if is_incremental() %}
