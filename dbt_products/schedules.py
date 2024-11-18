@@ -1,10 +1,11 @@
-"""
+﻿"""
 To add a daily schedule that materializes your dbt assets, uncomment the following lines.
 """
 
 """ D """
 """ administration """
 from .schedules_items.administration.public.schedule_stg_mikado_nyutaijo import schedule_stg_mikado_nyutaijo
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet
 """ customerservice """
 from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
 """ marketing """
@@ -41,6 +42,8 @@ schedules = []
 """ administration """
 # MIKADO
 schedules.append(schedule_stg_mikado_nyutaijo)
+# MIKADO JNET
+schedules.append(schedule_stg_mikado_jnet)
 """ customerservice """
 # ワランティ
 schedules.append(schedule_stg_warranty)
