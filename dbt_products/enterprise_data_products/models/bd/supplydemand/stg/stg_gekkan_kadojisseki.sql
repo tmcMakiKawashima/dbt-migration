@@ -54,7 +54,7 @@ with stg_gekkan_kadojisseki as (
         powertrain::varchar(255) as powertrain,
         to_number(result_default)::number(38,0) as result_default,
         to_number(result_revise)::number(38,0) as result_revise,
-        to_number(result_cbu)::number(38,0) as result_cbu,
+        to_number(result)::number(38,0) as result,
         to_number(result_kd)::number(38,0) as result_kd,
         to_number(result_cbu_kd)::number(38,0) as result_cbu_kd,
         to_number(oem)::number(38,0) as oem,
