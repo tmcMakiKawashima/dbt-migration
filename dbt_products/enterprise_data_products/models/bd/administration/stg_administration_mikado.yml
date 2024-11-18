@@ -1,4 +1,4 @@
-version: 2
+﻿version: 2
 
 models:
 # 入退場データ
@@ -183,12 +183,25 @@ models:
   - name: stg_ido_history
     config:
       tags: ["mikado_jnet"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - employee_cd
+            - idorekstaymd
+            - syozoku_cd_honrai
     columns:
       - name: employee_cd
         tests:
-          - unique:
+          - not_null:
               config:
                 severity: error
+      - name: idorekstaymd
+        tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syozoku_cd_honrai
+        tests:
           - not_null:
               config:
                 severity: error

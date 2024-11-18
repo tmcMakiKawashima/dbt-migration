@@ -2,7 +2,11 @@
 
 {{
     config(
-        unique_key="employee_cd",
+        unique_key="concat_ws('-',
+                    employee_cd,
+                    idorekstaymd,
+                    syozoku_cd_honrai)",
+
 
         strategy='timestamp',
         updated_at='ldts',
