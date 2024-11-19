@@ -8,6 +8,8 @@ from .schedules_items.administration.public.schedule_stg_mikado_nyutaijo import 
 from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet
 """ customerservice """
 from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
+""" engineering """
+from .schedules_items.engineering.public.schedule_stg_paint_iot import schedule_stg_paint_iot
 """ marketing """
 from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
 from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import schedule_stg_yohinhinbanmeisai
@@ -17,6 +19,7 @@ from .schedules_items.supplydemand.public.schedule_stg_syaryoindex import schedu
 from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_stg_vlt_ord
 """ valuechain """
 from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
+from .schedules_items.valuechain.public.schedule_stg_t_linx_epc import schedule_stg_t_linx_epc
 
 """ E """
 """ vinhis maint """
@@ -47,6 +50,9 @@ schedules.append(schedule_stg_mikado_jnet)
 """ customerservice """
 # ワランティ
 schedules.append(schedule_stg_warranty)
+""" engineering """
+# TMK塗装IoT
+schedules.append(schedule_stg_paint_iot)
 """ marketing """
 # RISM連携IF変更
 schedules.append(schedule_stg_mashotoroku)
@@ -62,6 +68,8 @@ schedules.append(schedule_stg_vlt_ord)
 """ valuechain """
 # 補給品番基本情報提供
 schedules.append(schedule_d_epc)
+# T-LINX_EPC
+schedules.append(schedule_stg_t_linx_epc)
 
 """ E層作成ジョブ """
 """ vinhis maint """

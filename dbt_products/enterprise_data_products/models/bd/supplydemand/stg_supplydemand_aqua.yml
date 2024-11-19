@@ -5,7 +5,7 @@ models:
   - name: stg_kokunaiseisan
     config:
       tags: ["aqua"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - syadai_kt
@@ -17,27 +17,27 @@ models:
             severity: error
     columns:
       - name: syadai_kt
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: shamei
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -45,7 +45,7 @@ models:
   - name: stg_kaigaiseisan
     config:
       tags: ["aqua"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - frmno
@@ -57,27 +57,27 @@ models:
             severity: error
     columns:
       - name: frmno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: wmi
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vds
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: mdlyr
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vin_vds_cd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -85,7 +85,7 @@ models:
   - name: stg_oemseisan
     config:
       tags: ["aqua"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - syadai_kt
@@ -94,12 +94,12 @@ models:
             severity: error
     columns:
       - name: syadai_kt
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -107,7 +107,7 @@ models:
   - name: stg_haisya
     config:
       tags: ["aqua"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - syadai_kt
@@ -116,32 +116,32 @@ models:
             severity: error
     columns:
       - name: syadai_kt
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hnbaitncd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: haisya_y
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: haisya_m
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: haisya_d
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -149,7 +149,7 @@ models:
   - name: stg_kaigaitp
     config:
       tags: ["aqua"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - syadai_kt
@@ -167,57 +167,57 @@ models:
             severity: error
     columns:
       - name: syadai_kt
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: wmi
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vds
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: mdlyr
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vin_vds_cd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: lok_y
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: pline
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: tp
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: pretp_kbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: pass
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -225,7 +225,7 @@ models:
   - name: stg_kokunaitp
     config:
       tags: ["aqua"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - syadai_kt
@@ -243,57 +243,57 @@ models:
             severity: error
     columns:
       - name: syadai_kt
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: wmi
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vds
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: mdlyr
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vin_vds_cd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: lok_y
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: pline
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: tp
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: pretp_kbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: pass
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -301,7 +301,7 @@ models:
   - name: stg_konpou
     config:
       tags: ["aqua"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - knp_yr
@@ -310,12 +310,12 @@ models:
             severity: error
     columns:
       - name: knp_yr
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: idntno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -323,7 +323,7 @@ models:
   - name: stg_seisankeikaku
     config:
       tags: ["aqua"]
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - syasyu_cd
@@ -376,22 +376,22 @@ models:
             severity: error
     columns:
       - name: syasyu_cd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sno
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syameicd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: ordertype
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -400,212 +400,212 @@ models:
               config:
                 severity: error
       - name: nisgt
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: kd_hbtgrcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hi_ktcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: ctl_kt
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: gaihncd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: utibrcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec01
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec02
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec03
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec04
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec05
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec06
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec07
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec08
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec09
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec10
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec11
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec12
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec13
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec14
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec15
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec16
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec17
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec18
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec19
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sn_spec20
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: smkcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: smkmeisai
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: frmkbn
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: kd_lotfg
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hi_kt
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: lo_ktcd
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: eg_kt
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: mt_kt
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: grade
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: bodytype
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vin_wmi
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vin_vds
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: mdlyr
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: idline
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: maker
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: k_nen
-        tests:
+        data_tests:
           - not_null:
               config:
                 severity: error

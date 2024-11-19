@@ -12,7 +12,7 @@ schedule_d_epc = build_schedule_from_dbt_selection(
     schedule_name="D_SOU_EPC",
     cron_schedule="00 05 * * *",
     execution_timezone="Asia/Tokyo",
-    dbt_select="+stg_framekatashiki +stg_hinbankensakutype1 +stg_hinbankensakutype2 +stg_shiyopattern +stg_kirikaecodekensaku +stg_trimcodejoho +stg_syaryokatashikijoho +stg_tyotatsuhinbanjoho",
+    dbt_select="+stg_framekatashiki +stg_hinbankensakutype1 +stg_hinbankensakutype2 +stg_shiyopattern +stg_kirikaecodekensaku +stg_trimcodejoho +stg_syaryokatashikijoho +stg_tyotatsuhinbanjoho +stg_tokuchokigojoho +stg_buidaibunruikensakujoho +stg_buicyubunruikensakujoho +stg_buigroupkensakujoho +stg_buisyobunruikensakujoho",
     config=RunConfig(ops={"dbt_products_assets":
                           DbtConfig(dbt_vars={"DBT_JOB_NAME": "_d_epc"},
                                     source_test_list=["source:*,+stg_framekatashiki",
@@ -22,7 +22,11 @@ schedule_d_epc = build_schedule_from_dbt_selection(
                                                       "source:*,+stg_kirikaecodekensaku",
                                                       "source:*,+stg_trimcodejoho",
                                                       "source:*,+stg_syaryokatashikijoho",
-                                                      "source:*,+stg_tyotatsuhinbanjoho"])
+                                                      "source:*,+stg_tyotatsuhinbanjoho",
+                                                      "source:*,+stg_buidaibunruikensakujoho",
+                                                      "source:*,+stg_buicyubunruikensakujoho",
+                                                      "source:*,+stg_buigroupkensakujoho",
+                                                      "source:*,+stg_buisyobunruikensakujoho"])
                           }
                      ),
     default_status=DefaultScheduleStatus.RUNNING,
