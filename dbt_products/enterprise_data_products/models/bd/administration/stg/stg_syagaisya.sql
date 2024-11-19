@@ -43,7 +43,7 @@ with stg_syagaisya as (
         r_carcode::varchar(20) as r_carcode,
         r_carnumber::varchar(6) as r_carnumber,
         r_cardhakkou::varchar(1) as r_cardhakkou,
-        r_prnno::number(3,0) as r_prnno,
+        r_prnno::varchar(3) as r_prnno,
         r_cardrtn::varchar(1) as r_cardrtn,
         r_cardstatus::varchar(1) as r_cardstatus,
         r_hyokikeisiki::varchar(1) as r_hyokikeisiki,
