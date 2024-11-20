@@ -1,0 +1,25 @@
+version: 2
+
+models:
+# 利用パブマスタ２
+  - name: stg_riyopubmaster2
+    config:
+      tags: ["sias"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - no_ofr_alt_pub
+            - cd_pubbnd
+          config:
+            severity: error
+    columns:
+      - name: no_ofr_alt_pub
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cd_pubbnd
+        data_tests:
+          - not_null:
+              config:
+                severity: error

@@ -1,0 +1,19 @@
+with stg_riyopubmaster2 as (
+    select
+        no_ofr_alt_pub::varchar(16) as no_ofr_alt_pub, 
+        rtrim(cd_pubbnd,' 　')::varchar(6) as cd_pubbnd, -- 右blank
+        no_pub::varchar(10) as no_pub, 
+        no_pub_termfrid::varchar(3) as no_pub_termfrid, 
+        kb_lang::varchar(1) as kb_lang, 
+        dd_pub_trmfrym::varchar(6) as dd_pub_trmfrym, 
+        kb_pub_type::varchar(1) as kb_pub_type, 
+        kb_cont_type::varchar(2) as kb_cont_type, 
+        cd_trgt::varchar(1) as cd_trgt, 
+        cd_brand::varchar(2) as cd_brand, 
+        dt_server_opn::varchar(12) as dt_server_opn, 
+        kb_pub_form::varchar(1) as kb_pub_form, 
+        ldts, -- b層のldts
+        line_number,
+        rank() over (partition by no_ofr_alt_pub, cd_pubbnd order by ldts desc, line_number desc) aggkey
+        from {{ref('substr_ktrla05azz0kvw0001')}})
+select * exclude(aggkey, line_number) from stg_riyopubmaster2 where aggkey = 1
