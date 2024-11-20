@@ -23,3 +23,16 @@ models:
           - not_null:
               config:
                 severity: error
+# 利用車種世代テーブル
+  - name: stg_riyosyasyusedai
+    config:
+      tags: ["sias"]
+    columns:
+      - name: cd_pubbnd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
