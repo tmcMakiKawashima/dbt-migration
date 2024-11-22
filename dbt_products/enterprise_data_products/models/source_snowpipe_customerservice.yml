@@ -25,3 +25,10 @@ sources:
             data_tests:
               - fixed_length:
                   length: 506
+      - name: raw_ktrla05azz0kvw0007
+        identifier: ktrla05azz0kvw0007
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 6
