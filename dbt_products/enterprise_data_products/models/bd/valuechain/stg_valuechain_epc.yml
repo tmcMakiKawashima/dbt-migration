@@ -89,6 +89,28 @@ models:
   - name: stg_hinbankensakutype2
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - langkbn
+            - ctlgcd
+            - hinmeicd
+            - syasyu_cd
+            - hinban
+            - kosu
+            - jissijikik
+            - jissijikim
+            - siyoptno
+            - epckataptno
+            - kiricdk
+            - kiricdm
+            - trmcdmlt
+            - clrcdmlt
+            - tkstkbn
+            - hktkgaikbn
+            - hosemhin
+          config:
+            severity: error
     columns:
       - name: langkbn
         data_tests:
