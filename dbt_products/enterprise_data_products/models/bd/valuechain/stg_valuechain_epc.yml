@@ -179,6 +179,15 @@ models:
   - name: stg_framekatashiki
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - frmnokata
+            - frmno
+            - mdlyearkbn
+            - vin
+          config:
+            severity: error
     columns:
       - name: frmnokata
         data_tests:
