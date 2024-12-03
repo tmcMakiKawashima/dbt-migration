@@ -256,6 +256,14 @@ models:
   - name: stg_shiyopattern
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu_cd
+            - siyoptno
+            - siyocd
+          config:
+            severity: error
     columns:
       - name: syasyu_cd
         data_tests:

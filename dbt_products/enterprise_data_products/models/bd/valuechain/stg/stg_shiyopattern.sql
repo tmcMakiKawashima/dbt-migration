@@ -1,21 +1,16 @@
-{{ config(materialized='incremental') }}
-
 with stg_shiyopattern as (
-    select *,
-        row_number() over(
-            partition by syasyu_cd, siyoptno, siyocd, ldts
-                order by
-                    case mntkbn
-                        when 'D' then 1
-                        when 'U' then 2
-                        when 'C' then 3
-                    end
-        ) rn
-    from {{ ref('substr_dv2a4774') }}
-    order by ldts asc, rn asc
-)
-select * exclude(rn) from stg_shiyopattern
-
-{% if is_incremental() %}
-    where ldts > (select max(ldts) from {{this}})
-{% endif %}
+    select
+        mntkbn::varchar(1) as mntkbn, 
+        syasyu_cd::varchar(4) as syasyu_cd, 
+        siyoptno::varchar(4) as siyoptno, 
+        siyocd::varchar(4) as siyocd, 
+        ldts, -- b層のldts
+        rank() over (
+                partition by
+                    syasyu_cd,
+                    siyoptno,
+                    siyocd
+                order by ldts desc
+            ) aggkey
+        from {{ref('substr_dv2a4774')}})
+select * exclude(aggkey, mntkbn) from stg_shiyopattern where aggkey = 1 and mntkbn in ('C', 'U')
