@@ -4,6 +4,27 @@ models:
   - name: stg_hinbankensakutype1
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - hinmeicd
+            - syasyu_cd
+            - hinban
+            - kosu
+            - jissijikik
+            - jissijikim
+            - siyoptno
+            - epckataptno
+            - kiricdk
+            - kiricdm
+            - trmcdmlt
+            - clrcdmlt
+            - tkstkbn
+            - hktkgaikbn
+            - hosemhin
+          config:
+            severity: error
     columns:
       - name: ctlgcd
         data_tests:
