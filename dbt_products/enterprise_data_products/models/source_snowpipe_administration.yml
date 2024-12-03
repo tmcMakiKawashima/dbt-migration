@@ -23,9 +23,6 @@ sources:
       - name: raw_ktrla015zz0kh20069
         identifier: ktrla015zz0kh20069
 
-      - name: raw_ktrla015zz0kh20046
-        identifier: ktrla015zz0kh20046
-
       - name: raw_ktrla015zz0kh20064
         identifier: ktrla015zz0kh20064
 
@@ -35,26 +32,14 @@ sources:
       - name: raw_ktrla015zz0kh20066
         identifier: ktrla015zz0kh20066
 
-      - name: raw_ktrla015zz0kh20042
-        identifier: ktrla015zz0kh20042
-
       - name: raw_ktrla015zz0kh20067
         identifier: ktrla015zz0kh20067
 
       - name: raw_ktrla015zz0kh20068
         identifier: ktrla015zz0kh20068
 
-      - name: raw_ktrla015zz0kh20043
-        identifier: ktrla015zz0kh20043
-
       - name: raw_ktrla015zz0kh20056
         identifier: ktrla015zz0kh20056
-
-      - name: raw_ktrla015zz0kh20034
-        identifier: ktrla015zz0kh20034
-
-      - name: raw_ktrla015zz0kh20036
-        identifier: ktrla015zz0kh20036
 
       - name: raw_ktrla015zz0kh20054
         identifier: ktrla015zz0kh20054
