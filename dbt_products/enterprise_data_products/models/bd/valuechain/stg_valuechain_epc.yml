@@ -334,6 +334,14 @@ models:
   - name: stg_kirikaecodekensaku
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - kiricd
+            - prtren
+          config:
+            severity: error
     columns:
       - name: ctlgcd
         data_tests:
