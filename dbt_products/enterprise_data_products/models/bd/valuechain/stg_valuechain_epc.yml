@@ -280,10 +280,20 @@ models:
           - not_null:
               config:
                 severity: error
-# トリムコード
+# トリムコード情報
   - name: stg_trimcodejoho
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - syasyu_cd
+            - hinban
+            - trmcd
+            - figno
+          config:
+            severity: error
     columns:
       - name: ctlgcd
         data_tests:
