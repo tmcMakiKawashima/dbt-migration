@@ -5,9 +5,7 @@
         unique_key="concat_ws('-',
                     hinban,
                     dntikicd,
-                    cthin,
-                    tktermk,
-                    tktermm)",
+                    cthin)",
 
         strategy='timestamp',
         updated_at='ldts',
