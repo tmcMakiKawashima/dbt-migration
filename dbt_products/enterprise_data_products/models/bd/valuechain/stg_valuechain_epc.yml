@@ -324,6 +324,14 @@ models:
   - name: stg_tyotatsuhinbanjoho
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hinban
+            - dntikicd
+            - cthin
+          config:
+            severity: error
     columns:
       - name: hinban
         data_tests:
