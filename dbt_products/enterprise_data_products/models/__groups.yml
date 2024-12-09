@@ -35,3 +35,6 @@ groups:
   - name: engineering
     owner:
       email: asuka_takashima@mail.toyota.co.jp
+  - name: model_repair
+    owner:
+      email: maki_kawashima@mail.toyota.co.jp
