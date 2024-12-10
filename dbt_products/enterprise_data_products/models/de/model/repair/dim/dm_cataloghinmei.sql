@@ -11,7 +11,8 @@ with
     )
 select
     tmp20_dm_cataloghinmei.*,
-    stg_hinmei.hinmei
+    stg_hinmei.hinmei,
+    current_timestamp::timestamp_ntz as ldts -- 作成日時
 from tmp20_dm_cataloghinmei
 inner join stg_hinmei
   on tmp20_dm_cataloghinmei.langkbn = stg_hinmei.langkbn
