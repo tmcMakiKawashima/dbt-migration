@@ -3,7 +3,7 @@ from dagster import DefaultScheduleStatus, RunConfig
 from dagster_dbt import build_schedule_from_dbt_selection
 
 # MIKADO JNET
-schedule_stg_mikado_jnet = build_schedule_from_dbt_selection(
+schedule_stg_mikado_jnet_syokusyu = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_stg_mikado_jnet_syokusyu",
     schedule_name="MIKADO_JNET",
