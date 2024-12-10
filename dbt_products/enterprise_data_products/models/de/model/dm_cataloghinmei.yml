@@ -1,0 +1,126 @@
+version: 2
+models:
+# EPCカタログ品名
+  - name: dm_cataloghinmei
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - syakata
+            - syasyu_cd
+            - katano
+            - langkbn
+            - hinmeicd
+            - hinban
+            - kosu
+            - jissijikik
+            - jissijikim
+            - siyoptno
+            - epckataptno
+            - kiricdk
+            - kiricdm
+            - trmcdmlt
+            - clrcdmlt
+            - tkstkbn
+            - hktkgaikbn
+            - hosemhin
+          config:
+            severity: error
+    columns:
+      - name: ctlgcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syakata
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: katano
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: langkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinmeicd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kosu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jissijikik
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jissijikim
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siyoptno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: epckataptno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kiricdk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kiricdm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: trmcdmlt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: clrcdmlt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tkstkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hktkgaikbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hosemhin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
