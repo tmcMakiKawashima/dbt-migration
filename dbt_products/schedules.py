@@ -1,11 +1,31 @@
-﻿"""
+"""
 To add a daily schedule that materializes your dbt assets, uncomment the following lines.
 """
 
 """ D """
 """ administration """
 from .schedules_items.administration.public.schedule_stg_mikado_nyutaijo import schedule_stg_mikado_nyutaijo
-from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_bu
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_bumon
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_businesstrip
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_employee_shumu
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_kakarigroup
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_kintai_daily
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_kintai_monthly
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_kyumurigyo
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_kyumurigyo_haken
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_kyumurigyo_sk
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_name_history
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_organization_english
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_pclog
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_shikaku
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_shitsuka
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_syagaisya
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_syokui
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_syokusyu
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_syokutakupart
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_syoninkubun
+from .schedules_items.administration.public.schedule_stg_mikado_jnet import schedule_stg_mikado_jnet_syozoku
 """ customerservice """
 from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
 """ engineering """
@@ -46,7 +66,27 @@ schedules = []
 # MIKADO
 schedules.append(schedule_stg_mikado_nyutaijo)
 # MIKADO JNET
-schedules.append(schedule_stg_mikado_jnet)
+schedules.append(schedule_stg_mikado_jnet_bu)
+schedules.append(schedule_stg_mikado_jnet_bumon)
+schedules.append(schedule_stg_mikado_jnet_businesstrip)
+schedules.append(schedule_stg_mikado_jnet_employee_shumu)
+schedules.append(schedule_stg_mikado_jnet_kakarigroup)
+schedules.append(schedule_stg_mikado_jnet_kintai_daily)
+schedules.append(schedule_stg_mikado_jnet_kintai_monthly)
+schedules.append(schedule_stg_mikado_jnet_kyumurigyo)
+schedules.append(schedule_stg_mikado_jnet_kyumurigyo_haken)
+schedules.append(schedule_stg_mikado_jnet_kyumurigyo_sk)
+schedules.append(schedule_stg_mikado_jnet_name_history)
+schedules.append(schedule_stg_mikado_jnet_organization_english)
+schedules.append(schedule_stg_mikado_jnet_pclog)
+schedules.append(schedule_stg_mikado_jnet_shikaku)
+schedules.append(schedule_stg_mikado_jnet_shitsuka)
+schedules.append(schedule_stg_mikado_jnet_syagaisya)
+schedules.append(schedule_stg_mikado_jnet_syokui)
+schedules.append(schedule_stg_mikado_jnet_syokusyu)
+schedules.append(schedule_stg_mikado_jnet_syokutakupart)
+schedules.append(schedule_stg_mikado_jnet_syoninkubun)
+schedules.append(schedule_stg_mikado_jnet_syozoku)
 """ customerservice """
 # ワランティ
 schedules.append(schedule_stg_warranty)
