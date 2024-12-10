@@ -6,7 +6,7 @@ from dagster_dbt import build_schedule_from_dbt_selection
 schedule_stg_mikado_jnet_shitsuka = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_stg_mikado_jnet_shitsuka",
-    schedule_name="MIKADO_JNET",
+    schedule_name="MIKADO_JNET_SHITSUKA",
     cron_schedule="45 06 * * *",
     execution_timezone="Asia/Tokyo",
     dbt_select="+stg_shitsuka",
