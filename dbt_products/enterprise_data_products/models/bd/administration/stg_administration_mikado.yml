@@ -1,4 +1,4 @@
-﻿version: 2
+version: 2
 
 models:
 # 入退場データ
@@ -224,6 +224,50 @@ models:
               config:
                 severity: error
       - name: bucdstaymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_shitsuka
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: stkcd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: stkcdstaymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_kakarigroup
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: kkrgcd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: kkrgcdstaymd
         data_tests:
           - not_null:
               config:

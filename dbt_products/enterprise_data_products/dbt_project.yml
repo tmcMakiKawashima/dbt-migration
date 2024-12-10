@@ -225,8 +225,3 @@ snapshots:
         +group: engineering
         +target_database: engineering_db
         +target_schema: dbt_snapshots
-      administration:
-        +snowflake_warehouse: administration_wh
-        +group: administration
-        +target_database: administration_db
-        +target_schema: dbt_snapshots
