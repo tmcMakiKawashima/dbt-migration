@@ -1,0 +1,75 @@
+version: 2
+
+models:
+  # 地域マスタ
+  - name: stg_chiiki
+    config:
+      tags: ["dly_rpt"]
+  # 事業体・ラインマスタ
+  - name: stg_jigyotai_line
+    config:
+      tags: ["dly_rpt"]
+  # 車種マスタ
+  - name: stg_seisanpattern_syasyu
+    config:
+      tags: ["dly_rpt"]
+  # 型式別車種定義マスタ
+  - name: stg_katashiki_syasyuteigi
+    config:
+      tags: ["dly_rpt"]
+  # KD→CBU変換マスタ
+  - name: stg_kd_cbu_henkan
+    config:
+      tags: ["dly_rpt"]
+  # 稼働日数マスタ
+  - name: stg_kadonissu
+    config:
+      tags: ["dly_rpt"]
+  # 日報表示順(ライン)マスタ
+  - name: stg_nippo_hyojijun
+    config:
+      tags: ["dly_rpt"]
+  # 駆動マスタ
+  - name: stg_kudo
+    config:
+      tags: ["dly_rpt"]
+  # 直稼働・タクトマスタ
+  - name: stg_chokukado_tact
+    config:
+      tags: ["dly_rpt"]
+  # カレンダーマスタ
+  - name: stg_linekado_calender
+    config:
+      tags: ["dly_rpt"]
+  # 基幹システム連携市輸変換マスタ
+  - name: stg_shihan_yusyutu_henkan
+    config:
+      tags: ["dly_rpt"]
+  # 車種名称マスタ
+  - name: stg_seisanpattern_syasyumei
+    config:
+      tags: ["dly_rpt"]
+  # ライン別（特記以外）
+  - name: stg_line_nippo
+    config:
+      tags: ["dly_rpt"]
+  # 車名グループ別
+  - name: stg_syameigroup_nippo
+    config:
+      tags: ["dly_rpt"]
+  # ライン別（特記）
+  - name: stg_line_nippo_tokki
+    config:
+      tags: ["dly_rpt"]
+  # 国内型式別
+  - name: stg_kokunaikatashiki_nippo
+    config:
+      tags: ["dly_rpt"]
+  # 実行計画
+  - name: stg_jikkokeikaku
+    config:
+      tags: ["dly_rpt"]
+  # 月間実績
+  - name: stg_gekkan_kadojisseki
+    config:
+      tags: ["dly_rpt"]
