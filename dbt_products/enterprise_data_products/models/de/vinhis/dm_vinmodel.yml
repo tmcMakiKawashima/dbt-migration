@@ -1,0 +1,42 @@
+version: 2
+models:
+# EPCカタログ品名
+  - name: dm_vinmodel
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - frmnokata
+            - frmno
+            - syasyu_cd
+            - syakata
+            - langkbn
+          config:
+            severity: error
+    columns:
+      - name: frmnokata
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syakata
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: langkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error

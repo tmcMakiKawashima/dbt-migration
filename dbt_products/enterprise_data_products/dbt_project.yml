@@ -167,6 +167,12 @@ models:
           dim:
             +access: public
             +materialized: table
+        model:
+          +group: vinhis_model
+          +schema: model
+          dim:
+            +access: public
+            +materialized: table
     ef:
       datamart:
         +snowflake_warehouse: datamart_wh
