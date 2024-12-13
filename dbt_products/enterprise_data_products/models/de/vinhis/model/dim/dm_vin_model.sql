@@ -11,8 +11,8 @@ with
             dispseq, -- 表示順序
             siyodaibnrmei, -- 仕様大分類名称
             siyosaimokumei, -- 仕様細目名称
-            row_number() over (partition by langkbn, syasyu, siyoptno order by ldts desc) aggkey --設計ではdescじゃないけど最新出すならdescでは？要確認
-        from {{ ref('stg_syaryoshiyosobijoho') }} -- 車両仕様装備情報 設計で車名仕様情報ってなってるけど車両仕様装備情報であっている？
+            row_number() over (partition by langkbn, syasyu, siyoptno order by ldts desc) aggkey
+        from {{ ref('stg_syaryoshiyosobijoho') }} -- 車両仕様装備情報
     )
 select
     tmp20.frmnokata as frmnokata, -- フレームNO型式

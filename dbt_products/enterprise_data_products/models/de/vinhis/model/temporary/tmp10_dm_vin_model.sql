@@ -17,7 +17,7 @@ with
             tkstkbn, -- 特設区分
             syakata, -- 車両型式
             hanbai_kt, -- 販売型式
-            row_number() over (partition by frmnokata, frmno order by ldts desc) aggkey --設計ではdescじゃないけど最新出すならdescでは？要確認
+            row_number() over (partition by frmnokata, frmno order by ldts desc) aggkey
         from {{ ref('stg_framekatashiki') }} -- フレーム型式
     ),
     syaryokatashikijoho as (
@@ -51,7 +51,7 @@ with
             katatokukg21, -- 型式特徴記号21
             katatokukg22, -- 型式特徴記号22
             katatokukg23, -- 型式特徴記号23
-            row_number() over (partition by syakata, syasyu_cd order by ldts desc) aggkey --設計ではdescじゃないけど最新出すならdescでは？要確認
+            row_number() over (partition by syakata, syasyu_cd order by ldts desc) aggkey
         from {{ ref('stg_syaryokatashikijoho') }} -- 車両型式情報
     )
 select
