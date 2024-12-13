@@ -34,3 +34,10 @@ sources:
                   length: 6
       - name: raw_ktrla05azz0kvw0003
         identifier: ktrla05azz0kvw0003
+      - name: raw_ktrla05azz0kvw0002
+        identifier: ktrla05azz0kvw0002
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 125
