@@ -173,6 +173,15 @@ models:
           dim:
             +access: public
             +materialized: table
+      model:
+        +snowflake_warehouse: model_wh
+        +database: model_db
+        repair:
+          +group: model_repair
+          +schema: repair
+          dim:
+            +access: public
+            +materialized: table
     ef:
       datamart:
         +snowflake_warehouse: datamart_wh
