@@ -1,6 +1,6 @@
 with
     tmp10 as (
-        select * from {{ ref('tmp10_dm_vinmodel') }}
+        select * from {{ ref('tmp10_dm_vin_model') }}
     ),
     syamei as (
         select

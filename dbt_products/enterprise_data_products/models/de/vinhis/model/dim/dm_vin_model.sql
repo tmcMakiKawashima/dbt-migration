@@ -1,6 +1,6 @@
 with
     tmp20 as (
-        select * from {{ ref('tmp20_dm_vinmodel') }}
+        select * from {{ ref('tmp20_dm_vin_model') }}
     ),
     syaryoshiyosobijoho as (
         select
@@ -72,7 +72,7 @@ select
     syaryoshiyosobijoho.dispseq as dispseq, -- 表示順序
     syaryoshiyosobijoho.siyodaibnrmei as siyodaibnrmei, -- 仕様大分類名称
     syaryoshiyosobijoho.siyosaimokumei as siyosaimokumei, -- 仕様細目名称
-    current_timestamp::timestamp_ntz as ldts -- 作成日時
+    current_timestamp::timestamp_ntz(6) as ldts -- 作成日時
 from tmp20
 inner join syaryoshiyosobijoho
   on tmp20.syasyu_cd = syaryoshiyosobijoho.syasyu

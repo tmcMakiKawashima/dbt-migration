@@ -1,7 +1,7 @@
 version: 2
 models:
-# EPCカタログ品名
-  - name: dm_vinmodel
+# VIN x 車両情報
+  - name: dm_vin_model
     config:
       tags: ["epc"]
     data_tests:
