@@ -112,3 +112,9 @@ sources:
             data_tests:
               - fixed_length:
                   length: 133
+    meta:
+      dagster:
+        freshness_check:
+          lower_bound_delta_seconds: 86400 # 1 day
+          deadline_cron: "0 0 * * *" # Optional
+          severity: "WARN" # Optional, defaults to "WARN"
