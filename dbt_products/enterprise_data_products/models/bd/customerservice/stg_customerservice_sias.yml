@@ -36,6 +36,28 @@ models:
           - not_null:
               config:
                 severity: error
+# 利用車種世代適用年月テーブル
+  - name: stg_riyosyasyusedaitekiyonengetsu
+    config:
+      tags: ["sias"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - cd_pubbnd
+            - dd_pubbnd_trmfrym
+          config:
+            severity: error
+    columns:
+      - name: cd_pubbnd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dd_pubbnd_trmfrym
+        data_tests:
+          - not_null:
+              config:
+                severity: error
 # 車種世代削除情報
   - name: stg_syasyusedaisakujo
     config:
