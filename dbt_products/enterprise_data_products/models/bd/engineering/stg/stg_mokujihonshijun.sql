@@ -13,7 +13,7 @@ with stg_mokujihonshijun as (
         torokujun::varchar(9) as torokujun, --なし
         mttime::varchar(16) as mttime, --なし
         _fivetran_synced::timestamp_ntz as ldts -- timestamp型
-    from {{ source('fivetran_database.oraclerds_orcl_sms_dxpfy2d', 'raw_cyp05junkanri') }}
+    from {{ source('fivetran_database_oraclerds_orcl_sms_dxpfy2d', 'raw_cyp05junkanri') }}
     where _fivetran_deleted = 'false'
            
   {% if is_incremental() %}
