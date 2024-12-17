@@ -321,4 +321,25 @@ columns:
       - not_null:
           config:
             severity: error
-
+# BLKコード名称
+  - name: stg_blkmei
+    config:
+      tags: ["sms-kousei"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu
+            - blkcode
+          config:
+            severity: error
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: blkcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error

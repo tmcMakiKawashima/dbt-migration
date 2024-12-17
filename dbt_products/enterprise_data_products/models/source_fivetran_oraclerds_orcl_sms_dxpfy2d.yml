@@ -17,3 +17,5 @@ sources:
         identifier: cyp03kousei
       - name: raw_cyp05junkanri
         identifier: cyp05junkanri
+      - name: raw_cyp01blkmei
+        identifier: cyp01blkmei
