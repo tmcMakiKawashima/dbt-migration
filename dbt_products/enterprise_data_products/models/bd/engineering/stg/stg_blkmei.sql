@@ -12,7 +12,7 @@ with stg_blkmei as (
         blkmei::varchar(40) as blkmei, --なし
         mttime::varchar(16) as mttime, --なし
         _fivetran_synced::timestamp_ntz as ldts -- timestamp型
-    from {{ source('fivetran_database.oraclerds_orcl_sms_dxpfy2d', 'raw_cyp01blkmei') }}
+    from {{ source('fivetran_database_oraclerds_orcl_sms_dxpfy2d', 'raw_cyp01blkmei') }}
     where _fivetran_deleted = 'false'
            
   {% if is_incremental() %}
