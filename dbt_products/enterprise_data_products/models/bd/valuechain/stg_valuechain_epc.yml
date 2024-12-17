@@ -4,6 +4,27 @@ models:
   - name: stg_hinbankensakutype1
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - hinmeicd
+            - syasyu_cd
+            - hinban
+            - kosu
+            - jissijikik
+            - jissijikim
+            - siyoptno
+            - epckataptno
+            - kiricdk
+            - kiricdm
+            - trmcdmlt
+            - clrcdmlt
+            - tkstkbn
+            - hktkgaikbn
+            - hosemhin
+          config:
+            severity: error
     columns:
       - name: ctlgcd
         data_tests:
@@ -89,6 +110,28 @@ models:
   - name: stg_hinbankensakutype2
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - langkbn
+            - ctlgcd
+            - hinmeicd
+            - syasyu_cd
+            - hinban
+            - kosu
+            - jissijikik
+            - jissijikim
+            - siyoptno
+            - epckataptno
+            - kiricdk
+            - kiricdm
+            - trmcdmlt
+            - clrcdmlt
+            - tkstkbn
+            - hktkgaikbn
+            - hosemhin
+          config:
+            severity: error
     columns:
       - name: langkbn
         data_tests:
@@ -179,6 +222,15 @@ models:
   - name: stg_framekatashiki
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - frmnokata
+            - frmno
+            - mdlyearkbn
+            - vin
+          config:
+            severity: error
     columns:
       - name: frmnokata
         data_tests:
@@ -204,6 +256,14 @@ models:
   - name: stg_shiyopattern
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu_cd
+            - siyoptno
+            - siyocd
+          config:
+            severity: error
     columns:
       - name: syasyu_cd
         data_tests:
@@ -220,10 +280,20 @@ models:
           - not_null:
               config:
                 severity: error
-# トリムコード
+# トリムコード情報
   - name: stg_trimcodejoho
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - syasyu_cd
+            - hinban
+            - trmcd
+            - figno
+          config:
+            severity: error
     columns:
       - name: ctlgcd
         data_tests:
@@ -254,6 +324,14 @@ models:
   - name: stg_tyotatsuhinbanjoho
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hinban
+            - dntikicd
+            - cthin
+          config:
+            severity: error
     columns:
       - name: hinban
         data_tests:
@@ -274,6 +352,14 @@ models:
   - name: stg_kirikaecodekensaku
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - kiricd
+            - prtren
+          config:
+            severity: error
     columns:
       - name: ctlgcd
         data_tests:
@@ -294,6 +380,16 @@ models:
   - name: stg_syaryokatashikijoho
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - syakata
+            - syasyu_cd
+            - vinwmivds
+            - katano
+          config:
+            severity: error
     columns:
       - name: ctlgcd
         data_tests:
