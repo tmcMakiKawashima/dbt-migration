@@ -60,3 +60,236 @@ models:
           - not_null:
               config:
                 severity: error 
+  
+  - name: stg_kousei
+    config:
+      tags: ["sms-kousei"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - jigyoutai
+            - syasyu32
+            - syasyu
+            - siyoubui
+            - oyahin
+            - gc
+            - kohin
+            - kosu
+            - sentaku
+            - sakuseikbn
+            - ktkbn
+            - ktchk
+            - ktkosu
+            - jikt01
+            - jikt02
+            - jikt03
+            - jikt04
+            - jikt05
+            - jikt06
+            - jikt07
+            - jikt08
+            - jikt09
+            - jikt10
+            - jikt11
+            - jikt12
+            - jikt13
+            - jikt14
+            - oyakt
+            - comno
+            - zyoho1
+            - zyoho2
+            - zyoho3
+            - torokujunk
+            - torokujunm
+            - zisikyuflg
+            - tck
+            - tcm
+          config:
+            severity: error
+
+    columns:
+      - name: jigyoutai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu32
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siyoubui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: oyahin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: gc
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kohin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kosu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sentaku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sakuseikbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ktkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ktchk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ktkosu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt01
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt02
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt03
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt04
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt05
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt06
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt07
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt08
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt09
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt10
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt11
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt12
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt13
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt14
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: oyakt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: comno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: zyoho1
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: zyoho2
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: zyoho3
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: torokujunk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: torokujunm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: zisikyuflg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tck
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tcm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
