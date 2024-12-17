@@ -13,3 +13,5 @@ sources:
     tables:
       - name: raw_cyp03kouseicom
         identifier: cyp03kouseicom
+      - name: raw_cyp05junkanri
+        identifier: cyp05junkanri
