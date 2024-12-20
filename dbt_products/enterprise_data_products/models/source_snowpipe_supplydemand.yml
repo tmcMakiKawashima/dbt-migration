@@ -112,6 +112,13 @@ sources:
             data_tests:
               - fixed_length:
                   length: 133
+          - name: ldts
+            data_tests:
+              - freshness:
+                  config:
+                    severity: warn
+                  hour: 26280
+                  skip_dayname: ('Mon', 'Wed', '')
     # 生産日報STEP3
       - name: raw_m_area
         identifier: m_area
