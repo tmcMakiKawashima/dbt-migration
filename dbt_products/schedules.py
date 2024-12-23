@@ -23,7 +23,6 @@ from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
 """ model repair """
 from .schedules_items.model.repair.schedule_dm_cataloghinmei import schedule_dm_cataloghinmei
 from .schedules_items.model.repair.schedule_dm_figbunkaiinfo import schedule_dm_figbunkaiinfo
-from .schedules_items.model.repair.schedule_dm_vehicle_generation import schedule_dm_vehicle_generation
 """ vinhis maint """
 from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
 """ vinhis model """
@@ -77,8 +76,6 @@ schedules.append(schedule_d_epc)
 schedules.append(schedule_dm_cataloghinmei)
 # FIG分解情報
 schedules.append(schedule_dm_figbunkaiinfo)
-# 車種世代
-schedules.append(schedule_dm_vehicle_generation)
 """ vinhis maint """
 # VIN整備
 schedules.append(schedule_dm_vinhis_maint)
