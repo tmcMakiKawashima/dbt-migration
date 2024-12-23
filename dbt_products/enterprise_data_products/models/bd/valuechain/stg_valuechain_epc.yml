@@ -218,6 +218,170 @@ models:
           - not_null:
               config:
                 severity: error
+# 品番検索（TYPE2備考情報）ハイブリッドテーブルテスト ctas
+  - name: tmp_hinbankensakutype2_ctas_ht_test
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - langkbn
+            - ctlgcd
+            - hinmeicd
+            - syasyu_cd
+            - hinban
+            - kosu
+            - jissijikik
+            - jissijikim
+            - siyoptno
+            - epckataptno
+            - kiricdk
+            - kiricdm
+            - trmcdmlt
+            - clrcdmlt
+            - tkstkbn
+            - hktkgaikbn
+            - hosemhin
+          config:
+            severity: error
+    columns:
+      - name: langkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ctlgcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinmeicd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kosu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jissijikik
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jissijikim
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siyoptno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: epckataptno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kiricdk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kiricdm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: trmcdmlt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: clrcdmlt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tkstkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hktkgaikbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hosemhin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 品番検索（TYPE2備考情報）ハイブリッドテーブルテスト merge
+  - name: stg_hinbankensakutype2_merge_ht_test
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - langkbn
+            - ctlgcd
+            - hinmeicd
+            - syasyu_cd
+            - hinban
+            - kosu
+            - jissijikik
+            - jissijikim
+            - siyoptno
+            - epckataptno
+            - kiricdk
+            - kiricdm
+            - trmcdmlt
+            - clrcdmlt
+            - tkstkbn
+            - hktkgaikbn
+            - hosemhin
+          config:
+            severity: error
+# 品番検索（TYPE2備考情報）ハイブリッドテーブルテスト append
+  - name: stg_hinbankensakutype2_append_ht_test
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - langkbn
+            - ctlgcd
+            - hinmeicd
+            - syasyu_cd
+            - hinban
+            - kosu
+            - jissijikik
+            - jissijikim
+            - siyoptno
+            - epckataptno
+            - kiricdk
+            - kiricdm
+            - trmcdmlt
+            - clrcdmlt
+            - tkstkbn
+            - hktkgaikbn
+            - hosemhin
+          config:
+            severity: error
 #フレーム型式
   - name: stg_framekatashiki
     config:
