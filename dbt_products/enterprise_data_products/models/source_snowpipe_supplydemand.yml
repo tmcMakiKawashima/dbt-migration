@@ -117,8 +117,8 @@ sources:
               - freshness:
                   config:
                     severity: warn
-                  hour: 26280
-                  skip_dayname: ('Mon', 'Wed', '')
+                  hour: 420
+                  skip_dayname: ('Sun', 'Wed', '')
     # 生産日報STEP3
       - name: raw_m_area
         identifier: m_area
