@@ -55,6 +55,11 @@ sources:
             data_tests:
               - fixed_length:
                   length: 1563
+          - name: ldts
+            data_tests:
+              - freshness:
+                  hour: 24
+                  skip_dayname: ('Mon', 'Wed', '')
       - name: raw_da5a212b
         identifier: da5a212b
         columns:
@@ -117,8 +122,8 @@ sources:
               - freshness:
                   config:
                     severity: warn
-                  hour: 420
-                  skip_dayname: ('Sun', 'Wed', '')
+                  hour: 24
+                  skip_dayname: ('Tue', 'Thu', '')
     # 生産日報STEP3
       - name: raw_m_area
         identifier: m_area
