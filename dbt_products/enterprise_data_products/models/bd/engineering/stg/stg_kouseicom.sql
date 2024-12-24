@@ -12,10 +12,10 @@ with stg_kouseicom as (
         syasyu::varchar(4) as syasyu,  --なし
         siyoubui::varchar(10) as siyoubui,  --なし
         oyahin::varchar(10) as oyahin,  --なし
-        gc::varchar(2) as gc,  --なし
+        rtrim(gc,' 　')::varchar(2) as gc,  --右ブランク
         kohin::varchar(10) as kohin,  --なし
         comkbn::varchar(2) as comkbn,  --なし
-        com::varchar(100) as com,  --なし
+        rtrim(com,' 　')::varchar(100) as com,  --右ブランク
         torokujunk::varchar(9) as torokujunk,  --なし
         torokujunm::varchar(9) as torokujunm,  --なし
         mttime::varchar(16) as mttime,  --なし
