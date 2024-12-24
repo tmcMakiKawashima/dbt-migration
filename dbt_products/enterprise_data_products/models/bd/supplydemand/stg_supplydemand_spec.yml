@@ -47,9 +47,3 @@ models:
           - not_null:
               config:
                 severity: error
-    meta:
-      dagster:
-        freshness_check:
-          lower_bound_delta_seconds: 86400 # 1 day
-          deadline_cron: "0 0 * * *" # Optional
-          severity: "WARN" # Optional, defaults to "WARN"
