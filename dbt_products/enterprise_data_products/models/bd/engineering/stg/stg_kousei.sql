@@ -5,10 +5,10 @@ with stg_kousei as (
         syasyu::varchar(4) as syasyu,
         siyoubui::varchar(10) as siyoubui,
         oyahin::varchar(10) as oyahin,
-        gc::varchar(2) as gc,
+        rtrim(gc, ' 　')::varchar(2) as gc, -- 右ブランク
         kohin::varchar(10) as kohin,
-        kosu::varchar(3) as kosu,
-        sentaku::varchar(2) as sentaku,
+        rtrim(kosu, ' 　')::varchar(3) as kosu, -- 右ブランク
+        rtrim(sentaku, ' 　')::varchar(2) as sentaku, -- 右ブランク
         sakuseikbn::varchar(2) as sakuseikbn,
         ktkbn::varchar(2) as ktkbn,
         ktchk::varchar(1) as ktchk,
