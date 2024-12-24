@@ -2,7 +2,7 @@ import json
 import os
 from typing import Any, Mapping
 from dagster import AssetExecutionContext, Config
-from dagster_dbt import DagsterDbtTranslator, DbtCliResource, dbt_assets, build_freshness_checks_from_dbt_assets
+from dagster_dbt import DagsterDbtTranslator, DbtCliResource, dbt_assets
 
 from .constants import dbt_manifest_path
 
@@ -55,7 +55,3 @@ def dbt_products_assets(context: AssetExecutionContext, dbt: DbtCliResource, con
 # def dbt_products_assets(context: AssetExecutionContext, dbt: DbtCliResource):
 #     yield from dbt.cli(["build"], context=context).stream()
     
-
-source_table_freshness_checks = build_freshness_checks_from_dbt_assets(
-    dbt_assets=[dbt_products_assets]
-)
