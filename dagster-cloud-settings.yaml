@@ -1,5 +1,5 @@
 run_queue:
-  max_concurrent_runs: 20
+  max_concurrent_runs: 30
   tag_concurrency_limits: []
 run_monitoring:
   start_timeout_seconds: 1200
