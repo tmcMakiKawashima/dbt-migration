@@ -1,0 +1,15 @@
+version: 2
+
+models:
+# 国内新生産実績
+  - name: substr_nojfa560
+    config:
+      tags: ["aqua"]
+    columns:
+      - name: ldts
+        data_tests:
+          - freshness:
+              config:
+                severity: warn
+              hour: 24
+              skip_dayname: ('')
