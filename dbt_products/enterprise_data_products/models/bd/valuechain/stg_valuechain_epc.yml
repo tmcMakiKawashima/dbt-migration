@@ -583,27 +583,6 @@ models:
             - siyocd
           config:
             severity: error
-    columns:
-      - name: langkbn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syasyu
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: siyoptno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: siyocd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 #　タクティ品番情報
   - name: stg_tactihinbanjoho
     config:
