@@ -330,6 +330,32 @@ models:
           - not_null:
               config:
                 severity: error
+# 品番検索（TYPE2備考情報）ハイブリッドテーブルテスト ctas 中間テーブル作成
+  - name: stg_hinbankensakutype2_ctas_ht_tbl_test
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - langkbn
+            - ctlgcd
+            - hinmeicd
+            - syasyu_cd
+            - hinban
+            - kosu
+            - jissijikik
+            - jissijikim
+            - siyoptno
+            - epckataptno
+            - kiricdk
+            - kiricdm
+            - trmcdmlt
+            - clrcdmlt
+            - tkstkbn
+            - hktkgaikbn
+            - hosemhin
+          config:
+            severity: error
 # 品番検索（TYPE2備考情報）ハイブリッドテーブルテスト merge
   - name: stg_hinbankensakutype2_merge_ht_test
     config:
