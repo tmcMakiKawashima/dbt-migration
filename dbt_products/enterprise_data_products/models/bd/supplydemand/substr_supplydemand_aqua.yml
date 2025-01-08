@@ -2,7 +2,7 @@ version: 2
 
 models:
 # 国内新生産実績
-  - name: substr_nojfa560
+  - name: substr_ktrla01ezz0ka20001
     config:
       tags: ["aqua"]
     columns:
@@ -12,4 +12,4 @@ models:
               config:
                 severity: warn
               hour: 24
-              skip_dayname: ('')
+              skip_dayname: ('Tue', 'Thu', '')
