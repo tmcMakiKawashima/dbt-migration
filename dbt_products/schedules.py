@@ -21,6 +21,7 @@ from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
 from .schedules_items.valuechain.public.schedule_stg_t_linx_epc_merge_ht_test import schedule_stg_t_linx_epc_merge_ht_test
 from .schedules_items.valuechain.public.schedule_stg_t_linx_epc_append_ht_test import schedule_stg_t_linx_epc_append_ht_test
 from .schedules_items.valuechain.public.schedule_stg_t_linx_epc_ctas_ht_test import schedule_stg_t_linx_epc_ctas_ht_test
+from .schedules_items.valuechain.public.schedule_stg_t_linx_epc_ctas_ht_tbl_test import schedule_stg_t_linx_epc_ctas_ht_tbl_test
 """ E """
 """ model repair """
 from .schedules_items.model.repair.schedule_dm_cataloghinmei import schedule_dm_cataloghinmei
@@ -77,6 +78,8 @@ schedules.append(schedule_stg_t_linx_epc_merge_ht_test)
 schedules.append(schedule_stg_t_linx_epc_append_ht_test)
 # T-LINX_EPC ハイブリッドテーブル検証 ctas
 schedules.append(schedule_stg_t_linx_epc_ctas_ht_test)
+# T-LINX_EPC ハイブリッドテーブル検証 ctas 中間テーブル作成
+schedules.append(schedule_stg_t_linx_epc_ctas_ht_tbl_test)
 """ E層作成ジョブ """
 """ model repair """
 # EPCカタログ品名
