@@ -12,10 +12,10 @@ schedule_stg_t_linx_epc_ctas_ht_tbl_test = build_schedule_from_dbt_selection(
     schedule_name="T_LINX_EPC_CTAS_HT_TBL_TEST",
     cron_schedule="00 00 * * *",
     execution_timezone="Asia/Tokyo",
-    dbt_select="+tmp_hinbankensakutype2_ctas_ht_tbl_test",
+    dbt_select="+stg_hinbankensakutype2_ctas_ht_tbl_test",
     config=RunConfig(ops={"dbt_products_assets":
                           DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_t_linx_epc_ctas_ht_tbl_test"},
-                                    source_test_list=["source:*,+tmp_hinbankensakutype2_ctas_ht_tbl_test"])
+                                    source_test_list=["source:*,+stg_hinbankensakutype2_ctas_ht_tbl_test"])
                           }
                      ),
     default_status=DefaultScheduleStatus.RUNNING,
