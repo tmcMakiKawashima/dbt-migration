@@ -7,7 +7,7 @@
 with stg_buhinserialno as (
     select
         index_cls::varchar(3) as index_cls, -- なし
-        frame_cls::varchar(6) as syadai_kt, -- なし
+        rtrim(frame_cls, ' 　')::varchar(6) as syadai_kt, -- 右ブランク
         frame_no::varchar(7) as frmno, -- なし
         vin_wmi::varchar(3) as wmi,-- なし
         vin_vds::varchar(6) as vds,-- なし
