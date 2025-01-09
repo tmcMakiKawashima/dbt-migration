@@ -178,7 +178,7 @@ models:
             - siyocd
           config:
             severity: error
-# トリムコード
+# トリムコード情報
   - name: stg_trimcodejoho
     config:
       tags: ["epc"]
