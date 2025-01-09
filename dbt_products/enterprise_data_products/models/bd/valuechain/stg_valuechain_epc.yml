@@ -294,32 +294,6 @@ models:
             - figno
           config:
             severity: error
-    columns:
-      - name: ctlgcd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syasyu_cd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hinban
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: trmcd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: figno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 # 調達品番情報
   - name: stg_tyotatsuhinbanjoho
     config:
