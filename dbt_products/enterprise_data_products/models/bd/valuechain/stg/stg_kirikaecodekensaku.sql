@@ -1,3 +1,20 @@
+{{
+    config (
+        post_hook=
+            'create or replace hybrid table valuechain_db.public.stg_kirikaecodekensaku (
+                 ctlgcd varchar(6) not null,
+                 kiricd varchar(4) not null,
+                 prtren varchar(3) not null,
+                 datakbn varchar(1),
+                 frmnok varchar(20),
+                 frmnom varchar(20),
+                 pltno varchar(20),
+                 ldts timestamp_ntz(9),
+                 constraint stg_kirikaecodekensaku_ctlgcd_kiricd_prtren_uk primary key (ctlgcd, kiricd, prtren) rely 
+            ) as select * from {{this}}'
+    )
+}}
+
 with stg_kirikaecodekensaku as (
     select
         mntkbn::varchar(1) as mntkbn, 

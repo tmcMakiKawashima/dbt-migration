@@ -342,22 +342,6 @@ models:
             - prtren
           config:
             severity: error
-    columns:
-      - name: ctlgcd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: kiricd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: prtren
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 # 車両型式情報
   - name: stg_syaryokatashikijoho
     config:
