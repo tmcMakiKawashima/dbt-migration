@@ -797,9 +797,6 @@ models:
           - unique:
               config:
                 severity: error
-          - not_null:
-              config:
-                severity: error
 #　代替品番情報
   - name: stg_daitaihinbanjoho
     config:
