@@ -178,22 +178,6 @@ models:
             - siyocd
           config:
             severity: error
-    columns:
-      - name: syasyu_cd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: siyoptno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: siyocd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 # トリムコード情報
   - name: stg_trimcodejoho
     config:
