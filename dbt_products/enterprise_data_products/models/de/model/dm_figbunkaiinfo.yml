@@ -1,0 +1,60 @@
+version: 2
+models:
+# FIG分解情報
+  - name: dm_figbunkaiinfo
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - figno
+            - langkbn
+            - bnkren4
+            - hansno
+            - jissijikik
+            - jissijikim
+            - ilstcmtno
+          config:
+            severity: error
+    columns:
+      - name: ctlgcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: figno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: langkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bnkren4
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hansno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jissijikik
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jissijikim
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ilstcmtno
+        data_tests:
+          - not_null:
+              config:
+                severity: error

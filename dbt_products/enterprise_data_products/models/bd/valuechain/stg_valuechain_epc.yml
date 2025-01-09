@@ -4,6 +4,27 @@ models:
   - name: stg_hinbankensakutype1
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - hinmeicd
+            - syasyu_cd
+            - hinban
+            - kosu
+            - jissijikik
+            - jissijikim
+            - siyoptno
+            - epckataptno
+            - kiricdk
+            - kiricdm
+            - trmcdmlt
+            - clrcdmlt
+            - tkstkbn
+            - hktkgaikbn
+            - hosemhin
+          config:
+            severity: error
     columns:
       - name: ctlgcd
         data_tests:
@@ -111,92 +132,6 @@ models:
             - hosemhin
           config:
             severity: error
-    columns:
-      - name: langkbn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: ctlgcd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hinmeicd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syasyu_cd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hinban
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: kosu
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: jissijikik
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: jissijikim
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: siyoptno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: epckataptno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: kiricdk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: kiricdm
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: trmcdmlt
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: clrcdmlt
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: tkstkbn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hktkgaikbn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hosemhin
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 #フレーム型式
   - name: stg_framekatashiki
     config:
@@ -247,36 +182,28 @@ models:
   - name: stg_trimcodejoho
     config:
       tags: ["epc"]
-    columns:
-      - name: ctlgcd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syasyu_cd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hinban
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: trmcd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: figno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - syasyu_cd
+            - hinban
+            - trmcd
+            - figno
+          config:
+            severity: error
 # 調達品番情報
   - name: stg_tyotatsuhinbanjoho
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hinban
+            - dntikicd
+            - cthin
+          config:
+            severity: error
     columns:
       - name: hinban
         data_tests:
@@ -297,26 +224,28 @@ models:
   - name: stg_kirikaecodekensaku
     config:
       tags: ["epc"]
-    columns:
-      - name: ctlgcd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: kiricd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: prtren
-        data_tests:
-          - not_null:
-              config:
-                severity: error
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - kiricd
+            - prtren
+          config:
+            severity: error
 # 車両型式情報
   - name: stg_syaryokatashikijoho
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - syakata
+            - syasyu_cd
+            - vinwmivds
+            - katano
+          config:
+            severity: error
     columns:
       - name: ctlgcd
         data_tests:
@@ -534,9 +463,6 @@ models:
           - unique:
               config:
                 severity: error
-          - not_null:
-              config:
-                severity: error
 #　代替品番情報
   - name: stg_daitaihinbanjoho
     config:
@@ -606,27 +532,6 @@ models:
             - siyocd
           config:
             severity: error
-    columns:
-      - name: langkbn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syasyu
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: siyoptno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: siyocd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 #　タクティ品番情報
   - name: stg_tactihinbanjoho
     config:
