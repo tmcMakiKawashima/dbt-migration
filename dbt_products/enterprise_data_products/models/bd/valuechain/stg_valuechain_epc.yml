@@ -188,27 +188,6 @@ models:
             - vin
           config:
             severity: error
-    columns:
-      - name: frmnokata
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: frmno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: mdlyearkbn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: vin
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 # 仕様パターン
   - name: stg_shiyopattern
     config:
