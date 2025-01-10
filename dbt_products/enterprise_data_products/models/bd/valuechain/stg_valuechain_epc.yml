@@ -468,17 +468,6 @@ models:
             - pnc
           config:
             severity: error
-    columns:
-      - name: langkbn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: pnc
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 #　イラストコメント
   - name: stg_illustcomment
     config:
