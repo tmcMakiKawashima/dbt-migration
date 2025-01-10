@@ -33,6 +33,17 @@ models:
           - unique:
               config:
                 severity: error
+# 利用車種世代適用年月テーブル
+  - name: stg_riyosyasyusedaitekiyonengetsu
+    config:
+      tags: ["sias"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - cd_pubbnd
+            - dd_pubbnd_trmfrym
+          config:
+            severity: error
 # 車種世代削除情報
   - name: stg_syasyusedaisakujo
     config:
@@ -46,3 +57,37 @@ models:
           - not_null:
               config:
                 severity: error
+# 利用車名マスタ
+  - name: stg_riyosyameimaster
+    config:
+      tags: ["sias"]
+    columns:
+      - name: cd_model_nm
+        data_tests:
+          - unique:
+              config:
+                severity: error
+# 利用フレームマスタ
+  - name: stg_riyoframemaster
+    config:
+      tags: ["sias"]
+    columns:
+      - name: no_vin_frameno
+        data_tests:
+          - unique:
+              config:
+                severity: error
+# 利用車種世代適用年月車名型式テーブル
+  - name: stg_riyosyasyutekiyonengetsusyameikatashiki
+    config:
+      tags: ["sias"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - cd_pubbnd
+            - syamei
+            - cd_vtype
+            - dd_pubbnd_trmfrym
+            - kosyo_kt
+          config:
+            severity: error
