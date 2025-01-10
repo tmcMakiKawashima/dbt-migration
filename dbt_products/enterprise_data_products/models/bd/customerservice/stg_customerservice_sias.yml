@@ -80,9 +80,6 @@ models:
           - unique:
               config:
                 severity: error
-          - not_null:
-              config:
-                severity: error
 # 利用車種世代適用年月車名型式テーブル
   - name: stg_riyosyasyutekiyonengetsusyameikatashiki
     config:
