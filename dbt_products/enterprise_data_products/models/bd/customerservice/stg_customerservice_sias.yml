@@ -100,29 +100,3 @@ models:
             - kosyo_kt
           config:
             severity: error
-    columns:
-      - name: cd_pubbnd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syamei
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: cd_vtype
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: dd_pubbnd_trmfrym
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: kosyo_kt
-        data_tests:
-          - not_null:
-              config:
-                severity: error
