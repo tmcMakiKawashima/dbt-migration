@@ -6,6 +6,7 @@ To add a daily schedule that materializes your dbt assets, uncomment the followi
 """ administration """
 from .schedules_items.administration.public.schedule_stg_mikado_nyutaijo import schedule_stg_mikado_nyutaijo
 """ customerservice """
+from .schedules_items.customerservice.public.schedule_d_sias import schedule_d_sias
 from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
 """ engineering """
 from .schedules_items.engineering.public.schedule_stg_paint_iot import schedule_stg_paint_iot
@@ -21,6 +22,8 @@ from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
 from .schedules_items.valuechain.public.schedule_stg_t_linx_epc import schedule_stg_t_linx_epc
 
 """ E """
+""" model repair """
+from .schedules_items.model.repair.schedule_dm_vehicle_generation import schedule_dm_vehicle_generation
 """ vinhis maint """
 from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
 """ vinhis spec """
@@ -45,6 +48,8 @@ schedules = []
 # MIKADO
 schedules.append(schedule_stg_mikado_nyutaijo)
 """ customerservice """
+# D層SIAS
+schedules.append(schedule_d_sias)
 # ワランティ
 schedules.append(schedule_stg_warranty)
 """ engineering """
@@ -69,6 +74,9 @@ schedules.append(schedule_d_epc)
 schedules.append(schedule_stg_t_linx_epc)
 
 """ E層作成ジョブ """
+""" model repair """
+# 車種世代
+schedules.append(schedule_dm_vehicle_generation)
 """ vinhis maint """
 # VIN整備
 schedules.append(schedule_dm_vinhis_maint)
