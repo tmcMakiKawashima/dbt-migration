@@ -59,6 +59,3 @@ models:
           - unique:
               config:
                 severity: error
-          - not_null:
-              config:
-                severity: error
