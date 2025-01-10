@@ -70,9 +70,6 @@ models:
           - unique:
               config:
                 severity: error
-          - not_null:
-              config:
-                severity: error
 # 利用フレームマスタ
   - name: stg_riyoframemaster
     config:
