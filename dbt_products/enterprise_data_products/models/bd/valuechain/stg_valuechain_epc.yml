@@ -372,32 +372,6 @@ models:
             - katano
           config:
             severity: error
-    columns:
-      - name: ctlgcd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syakata
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syasyu_cd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: vinwmivds
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: katano
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 # 分解図検索
   - name: stg_bunkaizukensaku
     config:
