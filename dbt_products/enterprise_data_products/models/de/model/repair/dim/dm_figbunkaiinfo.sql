@@ -18,7 +18,7 @@
                  ilstcmt varchar(140),
                  ldts timestamp_ntz(9),
                  constraint dm_figbunkaiinfo_ctlgcd_figno_langkbn_bnkren4_hansno_jissijikik_jissijikim_ilstcmtno_uk primary key (ctlgcd, figno, langkbn, bnkren4, hansno, jissijikik, jissijikim, ilstcmtno) rely 
-            ) as select *, current_timestamp as ldts from {{this}}'
+            ) as select * from {{this}}'
     )
 }}
 
