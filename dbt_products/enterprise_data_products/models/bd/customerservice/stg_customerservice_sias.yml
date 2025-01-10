@@ -12,30 +12,6 @@ models:
             - cd_pubbnd
           config:
             severity: error
-    columns:
-      - name: no_ofr_alt_pub
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: cd_pubbnd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 利用車種世代テーブル
-  - name: stg_riyosyasyusedai
-    config:
-      tags: ["sias"]
-    columns:
-      - name: cd_pubbnd
-        data_tests:
-          - unique:
-              config:
-                severity: error
-          - not_null:
-              config:
-                severity: error
 # 車種世代削除情報
   - name: stg_syasyusedaisakujo
     config:

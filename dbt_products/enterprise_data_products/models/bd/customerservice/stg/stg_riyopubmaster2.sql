@@ -1,3 +1,25 @@
+{{
+    config (
+        post_hook=
+            'create or replace hybrid table customerservice_db.public.stg_riyopubmaster2 (
+                no_ofr_alt_pub varchar(16) not null,
+                cd_pubbnd varchar(6) not null,
+                no_pub varchar(10),
+                no_pub_termfrid varchar(3),
+                kb_lang varchar(1),
+                dd_pub_trmfrym varchar(6),
+                kb_pub_type varchar(1),
+                kb_cont_type varchar(2),
+                cd_trgt varchar(1),
+                cd_brand varchar(2),
+                dt_server_opn varchar(12),
+                kb_pub_form varchar(1),
+                ldts timestamp_ntz(9),
+                constraint stg_riyopubmaster2_no_ofr_alt_pub_cd_pubbnd_uk primary key (no_ofr_alt_pub, cd_pubbnd) rely
+            ) as select * from {{this}}'
+    )
+}}
+
 with
     stg_riyopubmaster2 as (
         select
