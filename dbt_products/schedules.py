@@ -23,9 +23,9 @@ from .schedules_items.valuechain.public.schedule_stg_t_linx_epc import schedule_
 
 """ E """
 """ model repair """
+from .schedules_items.model.repair.schedule_dm_vehicle_generation import schedule_dm_vehicle_generation
 from .schedules_items.model.repair.schedule_dm_cataloghinmei import schedule_dm_cataloghinmei
 from .schedules_items.model.repair.schedule_dm_figbunkaiinfo import schedule_dm_figbunkaiinfo
-from .schedules_items.model.repair.schedule_dm_vehicle_generation import schedule_dm_vehicle_generation
 """ vinhis maint """
 from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
 """ vinhis spec """
@@ -77,12 +77,12 @@ schedules.append(schedule_stg_t_linx_epc)
 
 """ E層作成ジョブ """
 """ model repair """
+# 車種世代
+schedules.append(schedule_dm_vehicle_generation)
 # EPCカタログ品名
 schedules.append(schedule_dm_cataloghinmei)
 # FIG分解情報
 schedules.append(schedule_dm_figbunkaiinfo)
-# 車種世代
-schedules.append(schedule_dm_vehicle_generation)
 """ vinhis maint """
 # VIN整備
 schedules.append(schedule_dm_vinhis_maint)
