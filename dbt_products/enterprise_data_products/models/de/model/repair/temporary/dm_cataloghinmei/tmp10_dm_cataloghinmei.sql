@@ -77,3 +77,6 @@ inner join stg_syamei
   on stg_syaryokatashikijoho.ctlgcd = stg_syamei.ctlgcd
 inner join stg_hinbankensakutype2
   on stg_syaryokatashikijoho.ctlgcd = stg_hinbankensakutype2.ctlgcd
+ and stg_syaryokatashikijoho.syasyu_cd = stg_hinbankensakutype2.syasyu_cd --結合条件要確認
+ and stg_syaryokatashikijoho.jissijikik = stg_hinbankensakutype2.jissijikik --結合条件要確認
+ and stg_syaryokatashikijoho.jissijikim = stg_hinbankensakutype2.jissijikim --結合条件要確認
