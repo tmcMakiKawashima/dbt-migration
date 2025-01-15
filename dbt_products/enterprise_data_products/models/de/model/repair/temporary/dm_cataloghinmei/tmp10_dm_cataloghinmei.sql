@@ -66,14 +66,20 @@ with
             hosemhin, -- ホース元品番
             srcflg, -- 検索対象フラグ
             tkkatahgn -- 適用型式表現
+            ,syasyu_cd -- 車種コード 結合条件確認用
+            ,jissijikik -- 実施時期カラ 結合条件確認用
+            ,jissijikim -- 実施時期マデ 結合条件確認用
         from {{ ref('stg_hinbankensakutype2')}} -- 品番検索Type2
     )
 select
     stg_syaryokatashikijoho.*,
     stg_syamei.* exclude (ctlgcd),
-    stg_hinbankensakutype2.* exclude (ctlgcd)
+    stg_hinbankensakutype2.* exclude (ctlgcd, syasyu_cd, jissijikik,jissijikim) --結合条件確認用
 from stg_syaryokatashikijoho
 inner join stg_syamei
   on stg_syaryokatashikijoho.ctlgcd = stg_syamei.ctlgcd
 inner join stg_hinbankensakutype2
   on stg_syaryokatashikijoho.ctlgcd = stg_hinbankensakutype2.ctlgcd
+ and stg_syaryokatashikijoho.syasyu_cd = stg_hinbankensakutype2.syasyu_cd --結合条件確認用
+ and stg_syaryokatashikijoho.jissijikik = stg_hinbankensakutype2.jissijikik --結合条件確認用
+ and stg_syaryokatashikijoho.jissijikim = stg_hinbankensakutype2.jissijikim --結合条件確認用
