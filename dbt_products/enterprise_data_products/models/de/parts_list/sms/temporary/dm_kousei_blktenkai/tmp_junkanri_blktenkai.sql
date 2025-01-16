@@ -1,50 +1,89 @@
-delete from tmp_junkanri_blktenkai a
-inner join tmp_kousei03_blktenkai b
-where
- a.syasyu = b.syasyu
+{{
+    config(
+        materialized='incremental',
+        incremental_strategy = 'append',
+        pre_hook = "
+            {% if is_incremental() %}
+              delete from {{this}} a
+              using {{ source('parts_list_db_sms', 'raw_tmp_kousei03_blktenkai') }} b
+              where a.syasyu = b.syasyu 
+            {% endif %}
+        "
+    )
+}}
 
-insert into tmp_junkanri_blktenkai(syasyu,target,torokujun,seppenno,mttime)
+
+with 
+tmp_kousei03_main as (
 select
- a.syasyu,
+ syasyu,
  'KOUSEI' as target,
- b.torokujun,
- a.seppenno,
- if(c.maxmttime < d.maxmttime, d.maxmttime, c.maxmttime)
- a.mttime
-from tmp_kousei03_blktenkai a
-,
-(
- select
-  syasyu
-  max(if(torokujunm='999999999', torokujunk, torokujunm)) as torokujun,
- from tmp_kousei03_blktenkai
+  max(iff(torokujunm='999999999', torokujunk, torokujunm)) as torokujun,
+ to_char(current_timestamp, 'yyyymmddhhmissff2') as mttime 
+from parts_list_db.sms.tmp_kousei03_blktenkai
  group by
   syasyu
-) b
+),
+
+tmp_kousei03_sub1 as 
+
+(
+ select
+  syasyu_cd,
+  torokujun,
+  seppenno
+ from engineering_db.public.stg_mokujihonshijun
+  where
+  trim(jigyoutai) = ''
+ group by
+  syasyu_cd,
+  torokujun,
+  seppenno
+) 
 ,
+tmp_kousei03_sub2 as 
 (
  select
   syasyu,
-  max(stg_kousei.mttime) as maxmttime
- from tmp_kousei03_blktenkai
+  max(mttime) as maxmttime
+ from {{ source('engineering_db_public', 'raw_stg_kousei') }}
  where
   trim(jigyoutai) = ''
  group by
   syasyu
-) c
+) 
 ,
+tmp_kousei03_sub3 as 
 (
  select
   syasyu,
-  max(stg_kouseicom.mttime) as maxmttime
- from tmp_kousei03_blktenkai
+  max(mttime) as maxmttime
+ from {{ source('engineering_db_public', 'raw_stg_kouseicom') }}
  where
   trim(jigyoutai) = '' and
   comkbn='11'
  group by
   syasyu
-) d
-where
- a.syasyu = b.syasyu and
- a.syasyu = c.syasyu and
- a.syasyu = d.syasyu
+) 
+
+
+
+select
+ tmp_kousei03_main.syasyu,
+ tmp_kousei03_main.target,
+ tmp_kousei03_main.torokujun,
+ tmp_kousei03_sub1.seppenno,
+ iff(tmp_kousei03_sub2.maxmttime < tmp_kousei03_sub3.maxmttime, tmp_kousei03_sub3.maxmttime, tmp_kousei03_sub2.maxmttime) as maxmttime,
+ tmp_kousei03_main.mttime
+from
+tmp_kousei03_main
+left join
+tmp_kousei03_sub1
+on tmp_kousei03_main.syasyu = tmp_kousei03_sub1.syasyu_cd
+and tmp_kousei03_main.torokujun = tmp_kousei03_sub1.torokujun
+left join
+tmp_kousei03_sub2
+on tmp_kousei03_main.syasyu = tmp_kousei03_sub2.syasyu
+left join
+tmp_kousei03_sub3
+on tmp_kousei03_main.syasyu = tmp_kousei03_sub3.syasyu

@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: engineering_db_public
+    database: engineering_db
+    schema: public
+    tables:
+    # sms-kousei
+      - name: raw_stg_kousei
+        identifier: stg_kousei
+      - name: raw_stg_kouseicom
+        identifier: stg_kouseicom

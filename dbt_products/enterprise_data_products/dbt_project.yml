@@ -167,6 +167,15 @@ models:
           dim:
             +access: public
             +materialized: table
+      parts_list:
+        +snowflake_warehouse: parts_list_wh
+        +database: parts_list_db
+        sms:
+          +group: parts_list_sms
+          +schema: sms
+          dim:
+          +access: public
+          +materialized: table
     ef:
       datamart:
         +snowflake_warehouse: datamart_wh
