@@ -39,7 +39,7 @@ with stg_kousei as (
         tcm::varchar(8) as tcm,
         mttime::varchar(16) as mttime,
         _fivetran_synced::timestamp_ntz as ldts
-    from {{ source('fivetran_database_oraclerds_orcl_sms_dxpfy2d','raw_cyp03kousei') }}
+    from {{ source('fivetran_database_idr_gijutsu_sms_dxpfy2d','raw_cyp03kousei') }}
     where _fivetran_deleted = 'false'
 )
 select * from stg_kousei

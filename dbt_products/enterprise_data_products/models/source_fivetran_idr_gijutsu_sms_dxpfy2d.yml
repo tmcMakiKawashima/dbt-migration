@@ -1,9 +1,9 @@
 version: 2
 
 sources:
-  - name: fivetran_database_oraclerds_orcl_sms_dxpfy2d
+  - name: fivetran_database_idr_gijutsu_sms_dxpfy2d
     database: fivetran_database
-    schema: oraclerds_orcl_sms_dxpfy2d
+    schema: idr_gijutsu_sms_dxpfy2d
 
     freshness:
       warn_after: { count: 1, period: hour }
