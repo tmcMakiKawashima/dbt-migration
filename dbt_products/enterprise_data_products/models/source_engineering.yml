@@ -10,3 +10,5 @@ sources:
         identifier: stg_kousei
       - name: raw_stg_kouseicom
         identifier: stg_kouseicom
+      - name: raw_stg_mokujihonshijun
+        identifier: stg_mokujihonshijun

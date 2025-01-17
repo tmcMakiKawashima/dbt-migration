@@ -20,7 +20,7 @@ select
  'KOUSEI' as target,
   max(iff(torokujunm='999999999', torokujunk, torokujunm)) as torokujun,
  to_char(current_timestamp, 'yyyymmddhhmissff2') as mttime 
-from parts_list_db.sms.tmp_kousei03_blktenkai
+from {{ source('parts_list_db_sms', 'raw_tmp_kousei03_blktenkai') }}
  group by
   syasyu
 ),
@@ -32,7 +32,7 @@ tmp_kousei03_sub1 as
   syasyu_cd,
   torokujun,
   seppenno
- from engineering_db.public.stg_mokujihonshijun
+ from {{ source('engineering_db_public', 'raw_stg_mokujihonshijun') }}
   where
   trim(jigyoutai) = ''
  group by
@@ -65,8 +65,6 @@ tmp_kousei03_sub3 as
  group by
   syasyu
 ) 
-
-
 
 select
  tmp_kousei03_main.syasyu,
