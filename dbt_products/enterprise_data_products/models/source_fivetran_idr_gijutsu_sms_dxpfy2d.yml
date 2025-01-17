@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: fivetran_database_idr_gijutsu_sms_dxpfy2d
+    database: fivetran_database
+    schema: idr_gijutsu_sms_dxpfy2d
+
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: mttime
+
+    tables:
+      - name: raw_cyp03kouseicom
+        identifier: cyp03kouseicom
+      - name: raw_cyp03kousei
+        identifier: cyp03kousei
+      - name: raw_cyp05junkanri
+        identifier: cyp05junkanri
+      - name: raw_cyp01blkmei
+        identifier: cyp01blkmei
