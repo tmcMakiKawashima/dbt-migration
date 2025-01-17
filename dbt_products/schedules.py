@@ -21,6 +21,9 @@ from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
 from .schedules_items.valuechain.public.schedule_stg_t_linx_epc import schedule_stg_t_linx_epc
 
 """ E """
+""" parts_list """
+from .schedules_items.parts_list.sms.schedule_dm_kousei_blktenkai import schedule_dm_kousei_blktenkai
+from .schedules_items.parts_list.sms.schedule_tmp_kousei03_blktenkai import schedule_tmp_kousei03_blktenkai
 """ vinhis maint """
 from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
 """ vinhis spec """
@@ -69,6 +72,10 @@ schedules.append(schedule_d_epc)
 schedules.append(schedule_stg_t_linx_epc)
 
 """ E層作成ジョブ """
+""" parts_list """
+#SMS構成
+schedules.append(schedule_dm_kousei_blktenkai)
+schedules.append(schedule_tmp_kousei03_blktenkai)
 """ vinhis maint """
 # VIN整備
 schedules.append(schedule_dm_vinhis_maint)
