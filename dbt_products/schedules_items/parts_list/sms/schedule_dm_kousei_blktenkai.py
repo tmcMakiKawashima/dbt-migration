@@ -6,7 +6,7 @@ import sys
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 # SMS構成(dm)
-schedule_stg_paint_iot = build_schedule_from_dbt_selection(
+schedule_dm_kousei_blktenkai = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_dm_kousei_blktenkai",
     schedule_name="sms_kousei_dm",
