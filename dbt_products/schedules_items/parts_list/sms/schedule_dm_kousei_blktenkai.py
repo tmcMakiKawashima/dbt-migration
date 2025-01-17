@@ -9,7 +9,7 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 schedule_stg_paint_iot = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_dm_kousei_blktenkai",
-    schedule_name="sms-kousei_dm",
+    schedule_name="sms_kousei_dm",
     cron_schedule="00 07 * * 0-6",
     execution_timezone="Asia/Tokyo",
     dbt_select="+dm_kousei_blktenkai +tmp_junkanri_blktenkai",
