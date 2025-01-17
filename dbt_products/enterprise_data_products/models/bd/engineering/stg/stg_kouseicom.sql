@@ -20,7 +20,7 @@ with stg_kouseicom as (
         torokujunm::varchar(9) as torokujunm,  --なし
         mttime::varchar(16) as mttime,  --なし
         _fivetran_synced::timestamp_ntz as ldts --timestamp型
-    from {{ source('fivetran_database_oraclerds_orcl_sms_dxpfy2d', 'raw_cyp03kouseicom') }}
+    from {{ source('fivetran_database_idr_gijutsu_sms_dxpfy2d', 'raw_cyp03kouseicom') }}
      where _fivetran_deleted = 'false'
 
 {% if is_incremental() %}
