@@ -62,15 +62,6 @@ with
     tmp02 as (
         select * from {{ ref('tmp_kousei02_blktenkai') }}
     ),
-   -- hinban as (
-       -- select
-           -- hinban, -- 品番
-           -- hinmei, -- 品名
-           -- kekka -- 取得結果
-       -- from {{ ref('stg_hinban') }} -- 品番
-       -- where substr(hinban, 8, 1) != '-'
-       -- and kekka = '1'
-   -- ),
     blkmei as (
         select
             syasyu, -- 車種ユニットコード
@@ -90,7 +81,6 @@ with
     )
 select
     tmp02.* exclude(mttime),
-   -- hinban.hinmei,
     '' as hinmei, --仮で設定
     blkmei.blkmei,
     kara.seppenno,
@@ -109,8 +99,6 @@ select
      else kara.mttime
     end as mttime
 from tmp02
--- left outer join hinban 
---  on tmp02.kohin = hinban.hinban
 left outer join blkmei 
   on tmp02.syasyu = blkmei.syasyu
   and tmp02.kohin = blkmei.blkcode
