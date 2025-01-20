@@ -10,7 +10,7 @@ schedule_tmp_kousei03_blktenkai = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_tmp_kousei03_blktenkai",
     schedule_name="sms_kousei_tmp",
-    cron_schedule="00 06 * * 0-6",
+    cron_schedule="00 06 * * *",
     execution_timezone="Asia/Tokyo",
     dbt_select="+tmp_kousei03_blktenkai",
     config=RunConfig(ops={"dbt_products_assets":
