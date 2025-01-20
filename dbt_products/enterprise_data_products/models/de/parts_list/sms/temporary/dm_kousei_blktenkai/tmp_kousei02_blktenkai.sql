@@ -75,10 +75,10 @@ with
   com_set as(
     select * ,
       case
-        when torokujunk = torokujunk_com_k and torokujunm = torokujunm_com_m then '0' //分割しないパターン
-        when torokujunk < torokujunk_com_k and torokujunm = torokujunm_com_m then '1' //構成コメントが途中で追加
-        when torokujunk = torokujunk_com_k and torokujunm > torokujunm_com_m then '2' //構成コメントが途中で削除
-        when torokujunk < torokujunk_com_k and torokujunm > torokujunm_com_m then '3' //構成コメントが途中で追加削除
+        when torokujunk = torokujunk_com_k and torokujunm = torokujunm_com_m then '0' --分割しないパターン
+        when torokujunk < torokujunk_com_k and torokujunm = torokujunm_com_m then '1' --構成コメントが途中で追加
+        when torokujunk = torokujunk_com_k and torokujunm > torokujunm_com_m then '2' --構成コメントが途中で削除
+        when torokujunk < torokujunk_com_k and torokujunm > torokujunm_com_m then '3' --構成コメントが途中で追加削除
         end as toroku_flg
     from kousei_set
   )
@@ -99,16 +99,16 @@ with
          tyohuku,
          ldts,
        case
-         when toroku_flg = '0' then torokujunk //分割しないパターン
-         when toroku_flg = '1' then torokujunk_com_k //構成コメントが途中で追加
-         when toroku_flg = '2' then torokujunk //構成コメントが途中で削除
-         when toroku_flg = '3' then torokujunk_com_k //構成コメントが途中で追加削除
+         when toroku_flg = '0' then torokujunk --分割しないパターン
+         when toroku_flg = '1' then torokujunk_com_k --構成コメントが途中で追加
+         when toroku_flg = '2' then torokujunk --構成コメントが途中で削除
+         when toroku_flg = '3' then torokujunk_com_k --構成コメントが途中で追加削除
          end as torokujunk,
        case
-         when toroku_flg = '0' then torokujunm //分割しないパターン
-         when toroku_flg = '1' then torokujunm //構成コメントが途中で追加
-         when toroku_flg = '2' then torokujunm_com_m //構成コメントが途中で削除
-         when toroku_flg = '3' then torokujunm_com_m //構成コメントが途中で追加削除
+         when toroku_flg = '0' then torokujunm --分割しないパターン
+         when toroku_flg = '1' then torokujunm --構成コメントが途中で追加
+         when toroku_flg = '2' then torokujunm_com_m --構成コメントが途中で削除
+         when toroku_flg = '3' then torokujunm_com_m --構成コメントが途中で追加削除
          end as torokujunm
   from com_set
   union all
