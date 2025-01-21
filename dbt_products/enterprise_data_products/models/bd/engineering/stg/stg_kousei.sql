@@ -38,9 +38,14 @@ with stg_kousei as (
         tck::varchar(8) as tck,
         tcm::varchar(8) as tcm,
         mttime::varchar(16) as mttime,
-        _fivetran_synced::timestamp_ntz as ldts
+        _fivetran_synced::timestamp_ntz as ldts,
+        row_number() over(partition by jigyoutai, syasyu32, syasyu, siyoubui, oyahin, gc, kohin, kosu,
+                          sentaku, sakuseikbn, ktkbn, ktchk, ktkosu, jikt01, jikt02, jikt03, jikt04, jikt05,
+                          jikt06, jikt07, jikt08, jikt09, jikt10, jikt11, jikt12, jikt13, jikt14, oyakt, comno,
+                          zyoho1, zyoho2, zyoho3, torokujunk, torokujunm, zisikyuflg, tck, tcm
+        order by mttime desc) aggkey
     from {{ source('fivetran_database_idr_gijutsu_sms_dxpfy2d','raw_cyp03kousei') }}
     where _fivetran_deleted = 'false'
 )
-select * from stg_kousei
-
+select * exclude(aggkey) from stg_kousei
+where aggkey = 1
