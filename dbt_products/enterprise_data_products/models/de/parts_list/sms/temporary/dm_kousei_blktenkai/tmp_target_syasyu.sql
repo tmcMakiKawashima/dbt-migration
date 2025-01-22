@@ -32,7 +32,7 @@ with
         a.syasyu = b.syasyu
         and a.jigyoutai = '  '
         and b.target = 'KOUSEI'
-        and (b.syasyu is null or( a.syasyu = b.syasyu and a.mttime > b.maxmttime))
+        where b.syasyu is null or ( a.syasyu = b.syasyu and a.mttime > b.maxmttime)
         group by a.syasyu
         
         union
@@ -46,5 +46,5 @@ with
         and c.jigyoutai = '  '
         and c.comkbn in ('11')
         and b.target = 'KOUSEI'
-        and (b.syasyu is null or( c.syasyu = b.syasyu and c.mttime > b.maxmttime))
+        where b.syasyu is null or ( c.syasyu = b.syasyu and c.mttime > b.maxmttime)
         group by c.syasyu
