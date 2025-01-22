@@ -23,8 +23,7 @@ with
         from {{ ref('stg_kouseicom') }}
         where jigyoutai = '  '
         and comkbn = '11'
-    ),
-    tmp_target_syasyu as (
+    )
         select
             a.syasyu
         from stg_kousei a
@@ -36,7 +35,7 @@ with
         and (b.syasyu is null or( a.syasyu = b.syasyu and a.mttime > b.maxmttime))
         group by a.syasyu
         
-        union all
+        union
         
         select
             c.syasyu
@@ -49,6 +48,3 @@ with
         and b.target = 'KOUSEI'
         and (b.syasyu is null or( c.syasyu = b.syasyu and c.mttime > b.maxmttime))
         group by c.syasyu
-    )
-     select * from tmp_target_syasyu 
-     group by syasyu
