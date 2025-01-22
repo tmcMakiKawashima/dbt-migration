@@ -1,8 +1,10 @@
 with recursive siyoubui_blk as (
     -- 使用部位単位で関係するblkを求める
     -- 使用部位の直下のblkを求める
-    select distinct syasyu, siyoubui, siyoubui as blkoya, kohin as blkko, 1 as blk_kaisou
-    from {{ ref('stg_kousei') }}
+    select distinct a.syasyu, siyoubui, siyoubui as blkoya, kohin as blkko, 1 as blk_kaisou
+    from {{ ref('stg_kousei') }} a
+    inner join  {{ ref('tmp_target_syasyu') }} b
+    on a.syasyu = b.syasyu
     where substr(siyoubui, 9, 1) = '*' and substr(kohin, 8, 1) = '-'
     and jigyoutai = '  ' 
     
@@ -12,8 +14,10 @@ with recursive siyoubui_blk as (
     from siyoubui_blk as oy
     -- blkのblkを求める
       inner join (
-        select distinct syasyu, siyoubui, kohin
-        from {{ ref('stg_kousei') }}
+        select distinct a.syasyu, siyoubui, kohin
+        from {{ ref('stg_kousei') }} a
+        inner join {{ ref('tmp_target_syasyu') }} b
+        on a.syasyu = b.syasyu
         where substr(siyoubui, 8, 1) = '-' and substr(kohin, 8, 1) = '-'
         and jigyoutai = '  ' 
       ) as sg
@@ -22,8 +26,10 @@ with recursive siyoubui_blk as (
 
 ), siyoubui_all as(
     -- 使用部位本体を足す
-    select distinct syasyu, siyoubui, siyoubui as blkoya, siyoubui as blkko, 0 as blk_kaisou
-    from {{ ref('stg_kousei') }}
+    select distinct a.syasyu, siyoubui, siyoubui as blkoya, siyoubui as blkko, 0 as blk_kaisou
+    from {{ ref('stg_kousei') }} a
+    inner join {{ ref('tmp_target_syasyu') }} b
+    on a.syasyu = b.syasyu
     where substr(siyoubui, 9, 1) = '*'
     and jigyoutai = '  ' 
 
