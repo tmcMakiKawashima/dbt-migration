@@ -12,3 +12,5 @@ sources:
         identifier: stg_kouseicom
       - name: raw_stg_mokujihonshijun
         identifier: stg_mokujihonshijun
+      - name: raw_tmp_sms_api_parts_info_res_json
+        identifier: tmp_sms_api_parts_info_res_json
