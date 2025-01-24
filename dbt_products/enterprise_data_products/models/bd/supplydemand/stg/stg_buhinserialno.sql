@@ -55,10 +55,10 @@ select
     stg_buhinserialno._fivetran_synced::timestamp_ntz as ldts -- timestamp型
 from stg_buhinserialno
 inner join cep1004serno_r
-on stg_buhinserialno.index_cls = cep1004serno_r.index_cls_r
-and stg_buhinserialno.frame_cls = cep1004serno_r.frame_cls
-and stg_buhinserialno.frame_no = cep1004serno_r.frame_no
-and stg_buhinserialno.vin_wmi = cep1004serno_r.vin_wmi
-and stg_buhinserialno.vin_vds = cep1004serno_r.vin_vds
-and stg_buhinserialno.vin_vis = cep1004serno_r.vin_vis
-and stg_buhinserialno.parts_repl_seq = cep1004serno_r.parts_repl_seq
+    on stg_buhinserialno.index_cls = cep1004serno_r.index_cls_r
+    and stg_buhinserialno.frame_cls = cep1004serno_r.frame_cls
+    and stg_buhinserialno.frame_no = cep1004serno_r.frame_no
+    and stg_buhinserialno.vin_wmi = cep1004serno_r.vin_wmi
+    and stg_buhinserialno.vin_vds = cep1004serno_r.vin_vds
+    and stg_buhinserialno.vin_vis = cep1004serno_r.vin_vis
+    and stg_buhinserialno.parts_repl_seq = cep1004serno_r.parts_repl_seq
