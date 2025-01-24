@@ -30,9 +30,9 @@ with stg_kokunaitracability as (
         msgno::varchar(4) as msgno, 
         itemcontent::varchar(30) as itemcontent, 
         createuser::varchar(13) as createuser, 
-        try_to_timestamp_ntz(createtime, 'yyyy-mm-dd hh24:mi:ss.ff9') as createtime, -- timestamp
+        try_to_timestamp_ntz(createtime, 'yyyy/mm/dd hh24:mi:ss.ff9') as createtime, -- timestamp
         updateuser::varchar(13) as updateuser, 
-        try_to_timestamp_ntz(updatetime, 'yyyy-mm-dd hh24:mi:ss.ff9') as updatetime, -- timestamp
+        try_to_timestamp_ntz(updatetime, 'yyyy/mm/dd hh24:mi:ss.ff9') as updatetime, -- timestamp
         ldts,
         line_number,
         rank() over(
