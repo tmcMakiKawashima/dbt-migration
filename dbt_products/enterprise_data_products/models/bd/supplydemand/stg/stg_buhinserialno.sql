@@ -32,9 +32,9 @@ with
       from {{ source('fivetran_database_oraclerds_orcl_iqas_osepcs0000db20', 'raw_cep1004serno') }}
       where _fivetran_deleted = 'false'
    
-{% if is_incremental() %}
-    and _fivetran_synced > (select max(ldts) from {{this}})
-{% endif %}   
+      {% if is_incremental() %}
+          and _fivetran_synced > (select max(ldts) from {{this}})
+      {% endif %}
     
     )    
 select
