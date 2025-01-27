@@ -12,14 +12,16 @@ schedule_stg_aqua = build_schedule_from_dbt_selection(
     schedule_name="AQUA",
     cron_schedule="30 05 * * *",
     execution_timezone="Asia/Tokyo",
-    dbt_select="+stg_haisya +stg_kaigaitp +stg_kokunaitp +stg_konpou +stg_seisankeikaku",
+    dbt_select="+stg_haisya +stg_kaigaitp +stg_kokunaitp +stg_konpou +stg_seisankeikaku +stg_kokunaitracability +stg_kaigaitracability",
     config=RunConfig(ops={"dbt_products_assets":
                           DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_aqua"},
                                     source_test_list=["source:*,+stg_haisya",
                                                       "source:*,+stg_kaigaitp",
                                                       "source:*,+stg_kokunaitp",
                                                       "source:*,+stg_konpou",
-                                                      "source:*,+stg_seisankeikaku"])
+                                                      "source:*,+stg_seisankeikaku",
+                                                      "source:*,+stg_kokunaitracability",
+                                                      "source:*,+stg_kaigaitracability"])
                           }
                      ),
     default_status=DefaultScheduleStatus.RUNNING,
