@@ -13,6 +13,11 @@ sources:
     # MIKADO
       - name: raw_jf04455d
         identifier: jf04455d
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 40
 
       - name: raw_ktrla015zz0kh20053
         identifier: ktrla015zz0kh20053
