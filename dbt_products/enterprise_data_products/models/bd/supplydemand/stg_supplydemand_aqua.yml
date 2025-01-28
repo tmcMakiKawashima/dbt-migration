@@ -667,3 +667,61 @@ models:
           - not_null:
               config:
                 severity: error
+# 海外トレサビ
+  - name: stg_kaigaitracability
+    config:
+      tags: ["aqua"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syadai_kt
+            - frmno
+            - wmi
+            - vds
+            - mdlyr
+            - vin_vds_cd
+            - lok_y
+            - msgno
+          config:
+            severity: error
+    columns:
+      - name: syadai_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: wmi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vds
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mdlyr
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vin_vds_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lok_y
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: msgno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
