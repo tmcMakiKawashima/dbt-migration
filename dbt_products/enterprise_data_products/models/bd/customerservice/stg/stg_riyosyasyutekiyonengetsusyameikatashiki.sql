@@ -17,10 +17,10 @@ with
     stg_riyosyasyutekiyonengetsusyameikatashiki as (
         select
             rtrim(cd_pubbnd,' 　')::varchar(6) as cd_pubbnd, -- 右blank
-            rtrim("cd_model_nm",' 　')::varchar(5) as syamei, -- 右blank
+            rtrim(cd_model_nm,' 　')::varchar(5) as syamei, -- 右blank
             rtrim(cd_vtype,' 　')::varchar(6) as cd_vtype, -- 右blank
             dd_pubbnd_trmfrym::varchar(6) as dd_pubbnd_trmfrym,
-            rtrim("cd_fll_mdl",' 　')::varchar(20) as kosyo_kt, -- 右blank
+            rtrim(cd_fll_mdl,' 　')::varchar(20) as kosyo_kt, -- 右blank
             ldts, -- b層のldts
             line_number,
             rank() over (
