@@ -20,6 +20,7 @@ defs = Definitions(
             user=os.getenv("DBT_SNOWFLAKE_USER"),
             password=EnvVar('DBT_SNOWFLAKE_PASS'),
             role=os.getenv("DBT_SNOWFLAKE_ROLE"),
+        )
     },
     sensors=sensors
 )
