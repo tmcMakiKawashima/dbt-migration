@@ -14,5 +14,5 @@ select
     coalesce(tmp50.hkata, syaryo_index.sales_katashiki) as hkata
 from tmp50
 left outer join syaryo_index
-  on rtrim(tmp50.syadai_kt) = syaryo_index.frame_cls
+  on tmp50.syadai_kt = syaryo_index.frame_cls
  and tmp50.frmno = syaryo_index.frame_no
