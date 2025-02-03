@@ -1,0 +1,15 @@
+version: 2
+models:
+# HAZMAT
+  - name: stg_hazmat
+    config:
+      tags: ["gsps"]
+    columns:
+      - name: haz
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                  severity: error
