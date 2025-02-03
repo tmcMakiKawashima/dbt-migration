@@ -31,7 +31,7 @@ schedule_d_epc = build_schedule_from_dbt_selection(
                                                       "source:*,+stg_buisyobunruikensakujoho"])
                           }
                      ),
-    default_status=DefaultScheduleStatus.RUNNING,
+    # default_status=DefaultScheduleStatus.RUNNING,
     tags={"ecs/cpu": "256", "ecs/memory": "1024",
           "job_name": "job_build_d_epc"},
 )
