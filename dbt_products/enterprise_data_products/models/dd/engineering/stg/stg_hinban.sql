@@ -25,7 +25,7 @@ with stg_hinban as (
         com29::varchar(54) as com29, -- なし
         com30::varchar(54) as com30, -- 空文字
         seppen::varchar(10) as seppen, -- なし
-        try_to_timestamp_ntz(torokutime)::timestamp_ntz(6) as torokutime -- timestamp型
+        try_to_timestamp_ntz(torokutime,'yyyymmddhh24missff9')::timestamp_ntz(6) as torokutime -- timestamp型
     from {{ ref('tmp_sms_api_parts_info_res_relational') }}
 
 {% if is_incremental() %}

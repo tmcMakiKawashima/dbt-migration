@@ -14,3 +14,5 @@ sources:
         identifier: stg_mokujihonshijun
       - name: raw_tmp_sms_api_parts_info_res_json
         identifier: tmp_sms_api_parts_info_res_json
+      - name: raw_stg_hinban
+        identifier: stg_hinban

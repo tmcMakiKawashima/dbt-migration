@@ -13,7 +13,7 @@ with
             distinct ks.kohin as hinban
         from
             kousei as ks
-            left outer join {{ ref("stg_hinban") }} as hb
+            left outer join {{ source("engineering_db_public", "raw_stg_hinban") }} as hb
                 on ks.kohin = hb.hinban
         where
             hb.hinban is null
