@@ -234,3 +234,9 @@ snapshots:
         +group: engineering
         +target_database: engineering_db
         +target_schema: dbt_snapshots
+    dd:
+      engineering:
+        +snowflake_warehouse: engineering_wh
+        +group: engineering
+        +target_database: engineering_db
+        +target_schema: dbt_snapshots
