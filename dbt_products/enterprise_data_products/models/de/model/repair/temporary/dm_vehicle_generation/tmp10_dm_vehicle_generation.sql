@@ -1,16 +1,16 @@
 with
     stg_riyosyasyutekiyonengetsusyameikatashiki as (
         select
-            syamei as cd_model_nm, -- 車名コード
+            syamei, -- 車名コード
             dd_pubbnd_trmfrym, -- 車種世代適用年月FROM年月
-            kosyo_kt as cd_fll_mdl, -- 呼称型式コード
+            kosyo_kt, -- 呼称型式コード
             cd_vtype, -- 車型コード
             cd_pubbnd -- 車種世代コード
         from {{ ref('stg_riyosyasyutekiyonengetsusyameikatashiki') }} -- 利用車種世代適用年月車名型式テーブル
     ),
     stg_riyosyasyusedaitekiyonengetsu as (
         select
-            my as dd_mdly, -- モデルイヤー
+            my, -- モデルイヤー
             cd_pubbnd, -- 車種世代コード
             dd_pubbnd_trmfrym -- 車種世代適用年月FROM年月
         from {{ ref('stg_riyosyasyusedaitekiyonengetsu') }} -- 利用車種世代適用年月テーブル
