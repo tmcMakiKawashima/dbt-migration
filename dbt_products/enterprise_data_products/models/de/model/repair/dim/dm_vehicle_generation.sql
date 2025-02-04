@@ -40,10 +40,10 @@ with
         from {{ ref('stg_riyosyameimaster') }} -- 利用車名マスタ
     )
 select
-    tmp10_dm_vehicle_generation.cd_model_nm,
+    tmp10_dm_vehicle_generation.syamei as cd_model_nm,
     tmp10_dm_vehicle_generation.no_ofr_alt_pub,
-    tmp10_dm_vehicle_generation.dd_mdly,
-    tmp10_dm_vehicle_generation.cd_fll_mdl,
+    tmp10_dm_vehicle_generation.my as dd_mdly,
+    tmp10_dm_vehicle_generation.kosyo_kt as cd_fll_mdl,
     tmp10_dm_vehicle_generation.cd_vtype,
     tmp10_dm_vehicle_generation.no_pub,
     tmp10_dm_vehicle_generation.dd_pubbnd_trmfrym,
@@ -62,4 +62,4 @@ select
     current_timestamp::timestamp_ntz as ldts -- 作成日時
 from tmp10_dm_vehicle_generation
 inner join stg_riyosyameimaster
-  on tmp10_dm_vehicle_generation.cd_model_nm = stg_riyosyameimaster.cd_model_nm
+  on tmp10_dm_vehicle_generation.syamei = stg_riyosyameimaster.cd_model_nm
