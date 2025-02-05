@@ -1,9 +1,3 @@
-{{
-    config(
-        unique_key = ['hinban10', 'syusbetu', 'seppenjun']
-    )
-}}
-
 with stg_kiken as (
     select
         rtrim(hinban10, ' 　')::varchar(10) as hinban10,
