@@ -9,10 +9,8 @@ models:
           combination_of_columns:
             - cd_model_nm
             - no_ofr_alt_pub
-            - dd_mdly
-            - cd_fll_mdl
             - cd_vtype
-            - no_pub
             - dd_pubbnd_trmfrym
+            - cd_fll_mdl
           config:
             severity: error

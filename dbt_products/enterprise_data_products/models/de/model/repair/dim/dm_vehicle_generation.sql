@@ -4,10 +4,10 @@
             'create or replace hybrid table model_db.repair.dm_vehicle_generation (
                 cd_model_nm varchar(5) not null,
                 no_ofr_alt_pub varchar(16) not null,
-                dd_mdly varchar(4) not null,
+                dd_mdly varchar(4),
                 cd_fll_mdl varchar(20) not null,
                 cd_vtype varchar(6) not null,
-                no_pub varchar(10) not null,
+                no_pub varchar(10),
                 dd_pubbnd_trmfrym varchar(6) not null,
                 cd_pubbnd varchar(6),
                 no_pub_termfrid varchar(3),
@@ -22,7 +22,7 @@
                 mj_j_model_nm varchar(60),
                 mj_e_model_nm varchar(60),
                 ldts timestamp_ntz(9),
-                constraint dm_vehicle_generation_cd_model_nm_no_ofr_alt_pub_dd_mdly_cd_fll_mdl_cd_vtype_no_pub_dd_pubbnd_trmfrym_uk primary key (cd_model_nm, no_ofr_alt_pub, dd_mdly, cd_fll_mdl, cd_vtype, no_pub, dd_pubbnd_trmfrym) rely
+                constraint dm_vehicle_generation_cd_model_nm_no_ofr_alt_pub_cd_vtype_dd_pubbnd_trmfrym_uk_cd_fll_mdl primary key (cd_model_nm, no_ofr_alt_pub, cd_vtype, dd_pubbnd_trmfrym, cd_fll_mdl) rely
             ) as select * from {{this}}'
     )
 }}
