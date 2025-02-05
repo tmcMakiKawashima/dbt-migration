@@ -50,3 +50,5 @@ sources:
         identifier: cep1001index_r
       - name: raw_cep1004serno_r
         identifier: cep1004serno_r
+      - name: raw_cep1002seisan_r
+        identifier: cep1002seisan_r
