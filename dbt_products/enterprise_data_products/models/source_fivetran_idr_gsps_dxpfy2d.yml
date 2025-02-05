@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: fivetran_database_idr_gsps_dxpfy2d
+    database: fivetran_database
+    schema: idr_gsps_dxpfy2d
+    tables:
+      - name: raw_cvk09ykiken
+        identifier: cvk09ykiken

@@ -1,0 +1,30 @@
+version: 2
+models:
+# 用品.危険品情報
+  - name: stg_ykiken
+    config:
+      tags: ["gsps"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hinban
+            - syusbetu
+            - seppenjun
+          config:
+            severity: error
+    columns:
+      - name: hinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syusbetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seppenjun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
