@@ -5,6 +5,8 @@ To add a daily schedule that materializes your dbt assets, uncomment the followi
 """ D """
 """ administration """
 from .schedules_items.administration.public.schedule_stg_mikado_nyutaijo import schedule_stg_mikado_nyutaijo
+from .schedules_items.administration.public.schedule_stg_mikado_jnet_0645 import schedule_stg_mikado_jnet_0645
+from .schedules_items.administration.public.schedule_stg_mikado_jnet_0715 import schedule_stg_mikado_jnet_0715
 """ customerservice """
 from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
 """ engineering """
@@ -14,6 +16,8 @@ from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_
 from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import schedule_stg_yohinhinbanmeisai
 """ supplydemand """
 from .schedules_items.supplydemand.public.schedule_stg_aqua import schedule_stg_aqua
+from .schedules_items.supplydemand.public.schedule_stg_dly_rpt_mst import schedule_stg_dly_rpt_mst
+from .schedules_items.supplydemand.public.schedule_stg_dly_rpt import schedule_stg_dly_rpt
 from .schedules_items.supplydemand.public.schedule_stg_syaryoindex import schedule_stg_syaryoindex
 from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_stg_vlt_ord
 """ valuechain """
@@ -46,6 +50,9 @@ schedules = []
 """ administration """
 # MIKADO
 schedules.append(schedule_stg_mikado_nyutaijo)
+# MIKADO JNET
+schedules.append(schedule_stg_mikado_jnet_0645)
+schedules.append(schedule_stg_mikado_jnet_0715)
 """ customerservice """
 # ワランティ
 schedules.append(schedule_stg_warranty)
@@ -60,6 +67,9 @@ schedules.append(schedule_stg_yohinhinbanmeisai)
 """ supplydemand """
 # AQUA
 schedules.append(schedule_stg_aqua)
+# 生産日報STEP3
+schedules.append(schedule_stg_dly_rpt_mst)
+schedules.append(schedule_stg_dly_rpt)
 # 車両INDEX
 schedules.append(schedule_stg_syaryoindex)
 # VLTオーダー確定日チェックEUC

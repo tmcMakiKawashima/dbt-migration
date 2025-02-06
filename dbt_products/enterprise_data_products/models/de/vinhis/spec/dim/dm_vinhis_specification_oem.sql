@@ -3,15 +3,23 @@ with
         select * from {{ref('tmp30_dm_vinhis_specification_oem')}}
     ),
     spec as (
-        select
-            syasyu, -- SMS車種コード
-            sketa, -- スペック桁
-            skigo, --スペック記号
-            shiyosai, -- 細目コード
-            smeikana, --スペック名称カナ
-            smeieiji -- スペック名称英字
-        from {{ref('stg_specname')}} -- スペック名称
-        where skigo <> ' '
+        select * from (
+            select
+                syasyu, -- SMS車種コード
+                sketa, -- スペック桁
+                skigo, --スペック記号
+                shiyodai, -- 大分類コード
+                shiyosai, -- 細目コード
+                smeikana, --スペック名称カナ
+                smeieiji, -- スペック名称英字
+                row_number() over(
+                    partition by syasyu, sketa, skigo, shiyodai, shiyosai, smeikana, smeieiji
+                    order by ldts) as aggkey
+            from {{ref('stg_specname')}} -- スペック名称
+            where skigo <> ' '
+        )
+        -- 先頭１レコード抽出条件
+        where aggkey = 1
     )
 select
     tmp30.syadai_kt, -- 車台型式 stg_oemseisan
@@ -42,3 +50,4 @@ left outer join spec
     on tmp30.syasyu_cd = spec.syasyu
     and tmp30.sketa = spec.sketa
     and tmp30.skigo = spec.skigo
+    and tmp30.shiyodai = spec.shiyodai
