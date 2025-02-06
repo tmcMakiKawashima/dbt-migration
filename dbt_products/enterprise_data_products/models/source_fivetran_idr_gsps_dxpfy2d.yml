@@ -10,5 +10,7 @@ sources:
     loaded_at_field: _fivetran_synced
 
     tables:
+      - name: raw_cvk09kiken
+        identifier: cvk09kiken
       - name: raw_cvk09hazmat
         identifier: cvk09hazmat

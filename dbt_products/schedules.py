@@ -1,4 +1,4 @@
-﻿"""
+"""
 To add a daily schedule that materializes your dbt assets, uncomment the following lines.
 """
 
@@ -22,11 +22,14 @@ from .schedules_items.supplydemand.public.schedule_stg_syaryoindex import schedu
 from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_stg_vlt_ord
 """ valuechain """
 from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
-from .schedules_items.valuechain.public.schedule_stg_t_linx_epc import schedule_stg_t_linx_epc
-
 """ E """
+""" model repair """
+from .schedules_items.model.repair.schedule_dm_cataloghinmei import schedule_dm_cataloghinmei
+from .schedules_items.model.repair.schedule_dm_figbunkaiinfo import schedule_dm_figbunkaiinfo
 """ vinhis maint """
 from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
+""" vinhis model """
+from .schedules_items.vinhis.model.schedule_dm_vin_model import schedule_dm_vin_model
 """ vinhis spec """
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kaigai import schedule_dm_vinhis_specification_kaigai
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kokunai import schedule_dm_vinhis_specification_kokunai
@@ -75,13 +78,18 @@ schedules.append(schedule_stg_vlt_ord)
 """ valuechain """
 # 補給品番基本情報提供
 schedules.append(schedule_d_epc)
-# T-LINX_EPC
-schedules.append(schedule_stg_t_linx_epc)
-
 """ E層作成ジョブ """
+""" model repair """
+# EPCカタログ品名
+schedules.append(schedule_dm_cataloghinmei)
+# FIG分解情報
+schedules.append(schedule_dm_figbunkaiinfo)
 """ vinhis maint """
 # VIN整備
 schedules.append(schedule_dm_vinhis_maint)
+""" vinhis model """
+# VIN x 車両情報
+schedules.append(schedule_dm_vin_model)
 """ vinhis spec """
 # VIN装備
 schedules.append(schedule_dm_vinhis_specification_kaigai)
