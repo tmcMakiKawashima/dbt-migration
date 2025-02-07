@@ -28,6 +28,10 @@ res_table = {
     "quote_identifiers": False
 }
 
+# url switch
+prod_stg = ["prod", "stg"]
+prod = ["prod"]
+
 # リクエストデータ抽出
 @op
 def get_request_data_from_snowflake(snowflake: SnowflakeResource, table_full_name: str) -> pd.DataFrame:
@@ -51,9 +55,9 @@ def get_request_data_from_snowflake(snowflake: SnowflakeResource, table_full_nam
 
 # Web-APIコール
 @op
-def post_web_api_call_to_kitora(url: str, headers: dict[str, Any], dataframe: pd.DataFrame) -> pd.DataFrame:
+def post_web_api_call_to_kitora(url: str, headers: dict[str, Any], dataframe: pd.DataFrame, env) -> pd.DataFrame:
     # 非本番と本番でKITORAのURLが異なる
-    if os.getenv("dbt_deploy_env", "") == "prod":
+    if os.getenv("dbt_deploy_env", "") in env:
         url_base = "https://webapi-gw-g01.kitora.toyota.co.jp/tmc/"
     else:
         url_base = "https://webapi-gw-t01.kitora.toyota.co.jp/tmc/"

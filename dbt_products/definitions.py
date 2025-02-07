@@ -16,10 +16,10 @@ defs = Definitions(
     resources={
         "dbt": DbtCliResource(project_dir=os.fspath(dbt_project_dir)),
         'snowflake': SnowflakeResource(
-            account=os.getenv("DBT_SNOWFLAKE_ACCOUNT"),
-            user=os.getenv("DBT_SNOWFLAKE_USER"),
-            password=EnvVar('DBT_SNOWFLAKE_PASS'),
-            role=os.getenv("DBT_SNOWFLAKE_ROLE"),
+            account=os.getenv("DAGSTER_SNOWFLAKE_ACCOUNT", "xxx"),
+            user=os.getenv("DAGSTER_SNOWFLAKE_USER", "xxx"),
+            password=EnvVar('DAGSTER_SNOWFLAKE_PASS'),
+            role=os.getenv("DAGSTER_SNOWFLAKE_ROLE", "xxx"),
         )
     },
     sensors=sensors
