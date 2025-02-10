@@ -380,3 +380,22 @@ sources:
             data_tests:
               - fixed_length:
                   length: 550
+    # YUI_CPOS
+      - name: raw_ktrea04tzz0kel0901
+        identifier: ktrea04tzz0kel0901
+      - name: raw_ktrea04tzz0kel0902
+        identifier: ktrea04tzz0kel0902
+      - name: raw_ktrea04tzz0kel0903
+        identifier: ktrea04tzz0kel0903
+      - name: raw_ktrea04tzz0kel0904
+        identifier: ktrea04tzz0kel0904
+      - name: raw_ktrea04tzz0kel0905
+        identifier: ktrea04tzz0kel0905
+      - name: raw_ktrea04tzz0kel0906
+        identifier: ktrea04tzz0kel0906
+      - name: raw_ktrea04tzz0kel0907
+        identifier: ktrea04tzz0kel0907
+      - name: raw_ktrea04tzz0kel0908
+        identifier: ktrea04tzz0kel0908
+      - name: raw_ktrea04tzz0kel0909
+        identifier: ktrea04tzz0kel0909
