@@ -1,0 +1,119 @@
+version: 2
+models:
+# 案件情報
+  - name: stg_anken
+    config:
+      tags: ["cpos"]
+    columns:
+      - name: matterid
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 代理店キー情報
+  - name: stg_dairitenkey
+    config:
+      tags: ["cpos"]
+    columns:
+      - name: id
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 地域情報
+  - name: stg_chiiki
+    config:
+      tags: ["cpos"]
+    columns:
+      - name: id
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 処置品番情報
+  - name: stg_shochihinban
+    config:
+      tags: ["cpos"]
+    columns:
+      - name: measurespartnoid
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 国情報
+  - name: stg_kuni
+    config:
+      tags: ["cpos"]
+    columns:
+      - name: id
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# モニター状況情報
+  - name: stg_monitorjokyo
+    config:
+      tags: ["cpos"]
+    columns:
+      - name: id
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 処置品番対象台数情報
+  - name: stg_shochihinbantaishodaisuu
+    config:
+      tags: ["cpos"]
+    columns:
+      - name: id
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 国マスタ
+  - name: stg_kunimaster
+    config:
+      tags: ["cpos"]
+    columns:
+      - name: countrycd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 地域マスタ
+  - name: stg_chiikimaster
+    config:
+      tags: ["cpos"]
+    columns:
+      - name: areacd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
