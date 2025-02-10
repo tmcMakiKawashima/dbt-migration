@@ -27,7 +27,7 @@ models:
               config:
                 severity: error
 # 地域情報
-  - name: stg_chiiki
+  - name: stg_cpos_chiiki
     config:
       tags: ["cpos"]
     columns:
