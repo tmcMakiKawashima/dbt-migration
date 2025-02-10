@@ -77,12 +77,12 @@ with stg_haisyagenshi_valid as (
         seikyu, -- 請求先
         wrap, -- ﾗｯﾌﾟ実績
         ldts -- B層取込日時
-        from {{ ref('stg_haisyagenshi') }}
-        where sketai in ('20','30')
+    from {{ ref('stg_haisyagenshi') }}
+    where sketai in ('20','30')
 
-        {% if is_incremental() %}
-            and ldts > (select max(ldts) from {{ this }})
-        {% endif %}
+    {% if is_incremental() %}
+        and ldts > (select max(ldts) from {{ this }})
+    {% endif %}
 
-    )
+)
 select * from stg_haisyagenshi_valid
