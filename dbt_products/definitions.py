@@ -18,7 +18,7 @@ defs = Definitions(
         'snowflake': SnowflakeResource(
             account=os.getenv("DAGSTER_SNOWFLAKE_ACCOUNT", "xxx"),
             user=os.getenv("DAGSTER_SNOWFLAKE_USER", "xxx"),
-            password=EnvVar('DAGSTER_SNOWFLAKE_PASS'),
+            password=EnvVar("DAGSTER_SNOWFLAKE_PASS"),
             role=os.getenv("DAGSTER_SNOWFLAKE_ROLE", "xxx"),
         )
     },
