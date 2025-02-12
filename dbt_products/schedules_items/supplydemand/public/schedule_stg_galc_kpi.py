@@ -10,7 +10,7 @@ schedule_stg_galc_kpi = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_stg_galc_kpi",
     schedule_name="GLAC_KPI",
-    cron_schedule="0 0 * * *",
+    cron_schedule="00 23 * * *",
     execution_timezone="Asia/Tokyo",
 
     dbt_select="+*stg_hostalc_1?_erasure_achievements +*stg_hostalc_1?_production_progress +*stg_hostalc_1?_reject_vehicle +*stg_hostalc_1?_vehicle_specification +*stg_hostalc_1?_virtual_line +stg_hostalc_allsfh +stg_hostalc_allsfp +stg_hostalc_allsfl +stg_hostalc_allsft +stg_hostalc_allsfvam",

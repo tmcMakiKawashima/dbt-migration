@@ -12,6 +12,5 @@ defs = Definitions(
     schedules=schedules,
     resources={
         "dbt": DbtCliResource(project_dir=os.fspath(dbt_project_dir)),
-        )
     },
 )
