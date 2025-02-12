@@ -1,5 +1,47 @@
 version: 2
 models:
+
+# 危険品情報
+  - name: stg_kiken
+    config:
+      tags: ["gsps"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hinban10
+            - syusbetu
+            - seppenjun
+          config:
+            severity: error
+    columns:
+      - name: hinban10
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syusbetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seppenjun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# HAZMAT
+  - name: stg_hazmat
+    config:
+      tags: ["gsps"]
+    columns:
+      - name: haz
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                  severity: error
 # 用品.危険品情報
   - name: stg_ykiken
     config:
