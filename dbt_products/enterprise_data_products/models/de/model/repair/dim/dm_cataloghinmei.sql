@@ -2,6 +2,7 @@
     config (
         post_hook=
             'create or replace hybrid table model_db.repair.dm_cataloghinmei (
+                surrogate_key varchar(182),
                 ctlgcd varchar(6) not null,
                 syakata varchar(20) not null,
                 syasyu_cd varchar(4) not null,
@@ -60,7 +61,7 @@
                 katanomlt varchar(1920),
                 hinmei varchar(240),
                 ldts timestamp_ntz(9),
-                constraint dm_cataloghinmei_ctlgcd_syakata_syasyu_cd_katano_langkbn_hinmeicd_hinban_kosu_jissijikik_jissijikim_siyoptno_epckataptno_kiricdk_kiricdm_trmcdmlt_clrcdmlt_tkstkbn_hktkgaikbn_hosemhin_uk primary key (ctlgcd, syakata, syasyu_cd, katano, langkbn, hinmeicd, hinban, kosu, jissijikik, jissijikim, siyoptno, epckataptno, kiricdk, kiricdm, trmcdmlt, clrcdmlt, tkstkbn, hktkgaikbn, hosemhin) rely
+                constraint dm_cataloghinmei_ctlgcd_syakata_syasyu_cd_langkbn_hinmeicd_epckataptno_jissijikik_jissijikim_surrogate_key_uk primary key (ctlgcd, syakata, syasyu_cd, langkbn, hinmeicd, epckataptno, jissijikik, jissijikim, surrogate_key) rely
             ) as select * from {{this}}'
     )
 }}
@@ -77,6 +78,7 @@ with
         from {{ ref('stg_hinmei') }} -- 品名
     )
 select
+    tmp20_dm_cataloghinmei.katano||tmp20_dm_cataloghinmei.hinban||tmp20_dm_cataloghinmei.kosu||tmp20_dm_cataloghinmei.siyoptno||tmp20_dm_cataloghinmei.kiricdk||tmp20_dm_cataloghinmei.kiricdm||tmp20_dm_cataloghinmei.trmcdmlt||tmp20_dm_cataloghinmei.clrcdmlt||tmp20_dm_cataloghinmei.tkstkbn||tmp20_dm_cataloghinmei.hktkgaikbn||tmp20_dm_cataloghinmei.hosemhin as surrogate_key, --サロゲートキー
     tmp20_dm_cataloghinmei.*,
     stg_hinmei.hinmei,
     current_timestamp::timestamp_ntz as ldts -- 作成日時
