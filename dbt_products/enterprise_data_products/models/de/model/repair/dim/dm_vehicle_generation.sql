@@ -9,7 +9,7 @@
                 cd_vtype varchar(6) not null,
                 no_pub varchar(10),
                 dd_pubbnd_trmfrym varchar(6) not null,
-                cd_pubbnd varchar(6),
+                cd_pubbnd varchar(6) not null,
                 no_pub_termfrid varchar(3),
                 kb_lang varchar(1),
                 kb_pub_type varchar(1),
@@ -22,7 +22,7 @@
                 mj_j_model_nm varchar(60),
                 mj_e_model_nm varchar(60),
                 ldts timestamp_ntz(9),
-                constraint dm_vehicle_generation_cd_model_nm_no_ofr_alt_pub_cd_vtype_dd_pubbnd_trmfrym_uk_cd_fll_mdl primary key (cd_model_nm, no_ofr_alt_pub, cd_vtype, dd_pubbnd_trmfrym, cd_fll_mdl) rely
+                constraint dm_vehicle_generation_cd_model_nm_no_ofr_alt_pub_cd_fll_mdl_cd_vtype_dd_pubbnd_trmfrym_cd_pubbnd_uk primary key (cd_model_nm, no_ofr_alt_pub, cd_fll_mdl, cd_vtype, dd_pubbnd_trmfrym, cd_pubbnd) rely
             ) as select * from {{this}}'
     )
 }}

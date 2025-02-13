@@ -12,5 +12,6 @@ models:
             - cd_vtype
             - dd_pubbnd_trmfrym
             - cd_fll_mdl
+            - cd_pubbnd
           config:
             severity: error
