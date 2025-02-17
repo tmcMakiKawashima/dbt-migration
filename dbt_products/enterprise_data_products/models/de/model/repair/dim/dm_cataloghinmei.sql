@@ -2,7 +2,7 @@
     config (
         post_hook=
             'create or replace hybrid table model_db.repair.dm_cataloghinmei (
-                surrogate_key varchar(182),
+                surrogate_key varchar(239) not null,
                 ctlgcd varchar(6) not null,
                 syakata varchar(20) not null,
                 syasyu_cd varchar(4) not null,
@@ -61,7 +61,8 @@
                 katanomlt varchar(1920),
                 hinmei varchar(240),
                 ldts timestamp_ntz(9),
-                constraint dm_cataloghinmei_ctlgcd_syakata_syasyu_cd_langkbn_hinmeicd_epckataptno_jissijikik_jissijikim_surrogate_key_uk primary key (ctlgcd, syakata, syasyu_cd, langkbn, hinmeicd, epckataptno, jissijikik, jissijikim, surrogate_key) rely
+                primary key (surrogate_key) rely,
+                index index_dm_cataloghinmei (ctlgcd, syakata, syasyu_cd, langkbn, hinmeicd, epckataptno, jissijikik, jissijikim)
             ) as select * from {{this}}'
     )
 }}
@@ -78,7 +79,7 @@ with
         from {{ ref('stg_hinmei') }} -- 品名
     )
 select
-    tmp20_dm_cataloghinmei.katano||tmp20_dm_cataloghinmei.hinban||tmp20_dm_cataloghinmei.kosu||tmp20_dm_cataloghinmei.siyoptno||tmp20_dm_cataloghinmei.kiricdk||tmp20_dm_cataloghinmei.kiricdm||tmp20_dm_cataloghinmei.trmcdmlt||tmp20_dm_cataloghinmei.clrcdmlt||tmp20_dm_cataloghinmei.tkstkbn||tmp20_dm_cataloghinmei.hktkgaikbn||tmp20_dm_cataloghinmei.hosemhin as surrogate_key, --サロゲートキー
+    tmp20_dm_cataloghinmei.ctlgcd||tmp20_dm_cataloghinmei.syakata||tmp20_dm_cataloghinmei.syasyu_cd||tmp20_dm_cataloghinmei.jissijikik||tmp20_dm_cataloghinmei.jissijikim||tmp20_dm_cataloghinmei.langkbn||tmp20_dm_cataloghinmei.hinmeicd||tmp20_dm_cataloghinmei.epckataptno||tmp20_dm_cataloghinmei.katano||tmp20_dm_cataloghinmei.hinban||tmp20_dm_cataloghinmei.kosu||tmp20_dm_cataloghinmei.siyoptno||tmp20_dm_cataloghinmei.kiricdk||tmp20_dm_cataloghinmei.kiricdm||tmp20_dm_cataloghinmei.trmcdmlt||tmp20_dm_cataloghinmei.clrcdmlt||tmp20_dm_cataloghinmei.tkstkbn||tmp20_dm_cataloghinmei.hktkgaikbn||tmp20_dm_cataloghinmei.hosemhin as surrogate_key, --サロゲートキー
     tmp20_dm_cataloghinmei.*,
     stg_hinmei.hinmei,
     current_timestamp::timestamp_ntz as ldts -- 作成日時
