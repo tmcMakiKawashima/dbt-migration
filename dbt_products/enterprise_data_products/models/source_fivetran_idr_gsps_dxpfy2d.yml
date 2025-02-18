@@ -14,3 +14,5 @@ sources:
         identifier: cvk09kiken
       - name: raw_cvk09hazmat
         identifier: cvk09hazmat
+      - name: raw_cvk09ykiken
+        identifier: cvk09ykiken
