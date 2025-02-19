@@ -14,7 +14,7 @@
 
         strategy='timestamp',
         updated_at='updatetime',
-        invalidate_hard_deletes=True,
+        invalidate_hard_deletes=true,
     )
 }}
 
