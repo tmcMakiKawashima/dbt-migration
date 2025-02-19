@@ -46,6 +46,11 @@ models:
         +group: valuechain
         +database: valuechain_db
         +schema: public
+      snowpipe:
+        +snowflake_warehouse: snowpipe_wh
+        +group: snowpipe
+        +database: snowpipe_db
+        +schema: supplydemand
     bd:
       valuechain:
         +snowflake_warehouse: valuechain_wh
