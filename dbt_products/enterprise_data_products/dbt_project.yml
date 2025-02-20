@@ -46,6 +46,11 @@ models:
         +group: valuechain
         +database: valuechain_db
         +schema: public
+      snowpipe:
+        +snowflake_warehouse: snowpipe_wh
+        +group: snowpipe
+        +database: snowpipe_db
+        +schema: supplydemand
     bd:
       valuechain:
         +snowflake_warehouse: valuechain_wh
@@ -164,6 +169,21 @@ models:
         maint:
           +group: vinhis_maint
           +schema: maint
+          dim:
+            +access: public
+            +materialized: table
+        model:
+          +group: vinhis_model
+          +schema: model
+          dim:
+            +access: public
+            +materialized: table
+      model:
+        +snowflake_warehouse: model_wh
+        +database: model_db
+        repair:
+          +group: model_repair
+          +schema: repair
           dim:
             +access: public
             +materialized: table
