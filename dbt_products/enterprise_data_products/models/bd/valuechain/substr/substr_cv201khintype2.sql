@@ -16,12 +16,13 @@ with substr_cv201khintype2 as (
         substr(raw_data, 65, 64)::varchar(64) as trmcdmlt,
         substr(raw_data, 129, 75)::varchar(75) as clrcdmlt,
         substr(raw_data, 204, 1)::varchar(1) as tkstkbn,
-        substr(raw_data, 205, 1)::varchar(1) as  hktkgaikbn,
+        substr(raw_data, 205, 1)::varchar(1) as hktkgaikbn,
         substr(raw_data, 206, 12)::varchar(12) as hosemhin,
         substr(raw_data, 218, 1)::varchar(1) as srcflg,
         substr(raw_data, 219, 2048)::varchar(2048) as tkkatahgn,
         substr(raw_data, 2267, 8192)::varchar(8192) as biko,
-        ldts
+        ldts,
+        line_number
     from {{source('snowpipe_db_valuechain', 'raw_cv201khintype2')}}
 )
 select * from substr_cv201khintype2
