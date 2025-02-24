@@ -20,8 +20,8 @@ with stg_kunimaster as (
             partition by countrycd
             order by line_number desc
         ) aggkey 
-    from {{source('snowpipe_db_supplydemand','raw_ktrea04tzz0kel0908')}}
-    where ldts = (select max(ldts) from {{source('snowpipe_db_supplydemand','raw_ktrea04tzz0kel0908')}})
+    from {{source('snowpipe_db_valuechain','raw_ktrea04tzz0kel0908')}}
+    where ldts = (select max(ldts) from {{source('snowpipe_db_valuechain','raw_ktrea04tzz0kel0908')}})
 )
 select * exclude(aggkey) from stg_kunimaster
 where aggkey = 1
