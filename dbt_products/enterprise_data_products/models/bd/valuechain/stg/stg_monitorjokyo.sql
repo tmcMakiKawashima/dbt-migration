@@ -15,14 +15,14 @@ with stg_monitorjokyo as (
         to_timestamp(createdatetime,'YYYY-MM-DD HH24:MI:SS.FF6')::timestamp(6) as createdatetime,
         updateuserid::varchar(15) as updateuserid,
         to_timestamp(updatedatetime,'YYYY-MM-DD HH24:MI:SS.FF6')::timestamp(6) as updatedatetime,
-        to_number(enforcementnum,10,0)::varchar(10,0) as enforcementnum,
+        to_number(enforcementnum,10,0)::number(10,0) as enforcementnum,
         ldts::timestamp_ntz(9) as ldts,
         row_number() over (
             partition by id
             order by line_number desc
         ) aggkey 
-    from {{source('snowpipe_db_supplydemand','raw_ktrea04tzz0kel0906')}}
-    where ldts = (select max(ldts) from {{source('snowpipe_db_supplydemand','raw_ktrea04tzz0kel0906')}})
+    from {{source('snowpipe_db_valuechain','raw_ktrea04tzz0kel0906')}}
+    where ldts = (select max(ldts) from {{source('snowpipe_db_valuechain','raw_ktrea04tzz0kel0906')}})
 )
 select * exclude(aggkey) from stg_monitorjokyo
 where aggkey = 1
