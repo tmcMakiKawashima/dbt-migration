@@ -29,8 +29,8 @@ with stg_shochihinban as (
             partition by measurespartnoid
             order by line_number desc
         ) aggkey 
-    from {{source('snowpipe_db_supplydemand','raw_ktrea04tzz0kel0904')}}
-    where ldts = (select max(ldts) from {{source('snowpipe_db_supplydemand','raw_ktrea04tzz0kel0904')}})
+    from {{source('snowpipe_db_valuechain','raw_ktrea04tzz0kel0904')}}
+    where ldts = (select max(ldts) from {{source('snowpipe_db_valuechain','raw_ktrea04tzz0kel0904')}})
 )
 select * exclude(aggkey) from stg_shochihinban
 where aggkey = 1
