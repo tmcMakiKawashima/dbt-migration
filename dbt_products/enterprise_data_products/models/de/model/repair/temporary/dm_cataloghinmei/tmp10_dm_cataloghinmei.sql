@@ -14,23 +14,7 @@ with
             katatokukg4, -- 型式特徴記号4
             katatokukg5, -- 型式特徴記号5
             katatokukg6, -- 型式特徴記号6
-            katatokukg7, -- 型式特徴記号7
-            katatokukg8, -- 型式特徴記号8
-            katatokukg9, -- 型式特徴記号9
-            katatokukg10, -- 型式特徴記号10
-            katatokukg11, -- 型式特徴記号11
-            katatokukg12, -- 型式特徴記号12
-            katatokukg13, -- 型式特徴記号13
-            katatokukg14, -- 型式特徴記号14
-            katatokukg15, -- 型式特徴記号15
-            katatokukg16, -- 型式特徴記号16
-            katatokukg17, -- 型式特徴記号17
-            katatokukg18, -- 型式特徴記号18
-            katatokukg19, -- 型式特徴記号19
-            katatokukg20, -- 型式特徴記号20
-            katatokukg21, -- 型式特徴記号21
-            katatokukg22, -- 型式特徴記号22
-            katatokukg23 -- 型式特徴記号23
+            katatokukg7 -- 型式特徴記号7
         from {{ ref('stg_syaryokatashikijoho') }} -- 車両型式情報
         group by all
     ),
