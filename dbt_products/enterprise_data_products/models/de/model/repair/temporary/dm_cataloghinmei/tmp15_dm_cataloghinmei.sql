@@ -18,8 +18,6 @@ with
             tkstkbn, -- 特設区分
             hktkgaikbn, -- 引当適用外区分
             hosemhin, -- ホース元品番
-            srcflg, -- 検索対象フラグ
-            tkkatahgn, -- 適用型式表現
             syasyu_cd, -- 車種コード
             jissijikik, -- 実施時期カラ
             jissijikim -- 実施時期マデ

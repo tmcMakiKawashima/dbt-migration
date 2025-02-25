@@ -20,13 +20,11 @@ with
             tkstkbn, -- 特設区分
             hktkgaikbn, -- 引当適用外区分
             hosemhin, -- ホース元品番
-            siyocdmlt, -- 仕様コード(複数)
             katanomlt -- 型式NO(複数)
         from {{ ref('stg_hinbankensakutype1') }} -- 品番検索Type1
     )
 select
     tmp15_dm_cataloghinmei.*,
-    stg_hinbankensakutype1.siyocdmlt,
     stg_hinbankensakutype1.katanomlt
 from tmp15_dm_cataloghinmei
 inner join stg_hinbankensakutype1
