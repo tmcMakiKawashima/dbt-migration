@@ -4,7 +4,7 @@ with stg_chiikimaster as (
         areacd::varchar(3) as areacd, 
         areaname::varchar(64) as areaname, 
         groupkbn::varchar(2) as groupkbn, 
-        to_number(order,10,0)::number(10,0) as order,
+        to_number(sequence,10,0)::number(10,0) as sequence,
         to_number(domesticflg,1,0)::number(1,0) as domesticflg,
         to_number(communicationstartdate,10,0)::number(10,0) as communicationstartdate,
         to_number(warehousenum,10,0)::number(10,0) as warehousenum,
@@ -17,11 +17,11 @@ with stg_chiikimaster as (
         to_timestamp(updatedatetime,'YYYY-MM-DD HH24:MI:SS.FF6')::timestamp(6) as updatedatetime,
         ldts::timestamp_ntz(9) as ldts,
         row_number() over (
-            partition by id
+            partition by areacd
             order by line_number desc
         ) aggkey 
-    from {{source('snowpipe_db_supplydemand','raw_ktrea04tzz0kel0909')}}
-    where ldts = (select max(ldts) from {{source('snowpipe_db_supplydemand','raw_ktrea04tzz0kel0909')}})
+    from {{source('snowpipe_db_valuechain','raw_ktrea04tzz0kel0909')}}
+    where ldts = (select max(ldts) from {{source('snowpipe_db_valuechain','raw_ktrea04tzz0kel0909')}})
 )
 select * exclude(aggkey) from stg_chiikimaster
 where aggkey = 1
