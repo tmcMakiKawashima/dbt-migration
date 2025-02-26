@@ -22,6 +22,7 @@ from .schedules_items.supplydemand.public.schedule_stg_syaryoindex import schedu
 from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_stg_vlt_ord
 """ valuechain """
 from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
+from .schedules_items.valuechain.public.schedule_stg_yui_cpos import schedule_stg_yui_cpos
 """ E """
 """ model repair """
 from .schedules_items.model.repair.schedule_dm_cataloghinmei import schedule_dm_cataloghinmei
@@ -78,6 +79,8 @@ schedules.append(schedule_stg_vlt_ord)
 """ valuechain """
 # 補給品番基本情報提供
 schedules.append(schedule_d_epc)
+# YUI_CPOS
+schedules.append(schedule_stg_yui_cpos)
 """ E層作成ジョブ """
 """ model repair """
 # EPCカタログ品名
