@@ -41,3 +41,6 @@ groups:
   - name: vinhis_model
     owner:
       email: maki_kawashima@mail.toyota.co.jp
+  - name: snowpipe
+    owner:
+      email: maki_kawashima@mail.toyota.co.jp
