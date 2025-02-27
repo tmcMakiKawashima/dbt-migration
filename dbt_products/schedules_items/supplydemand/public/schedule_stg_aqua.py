@@ -22,7 +22,7 @@ schedule_stg_aqua = build_schedule_from_dbt_selection(
                                                       "source:*,+stg_seisankeikaku"])
                           }
                      ),
-    default_status=DefaultScheduleStatus.RUNNING,
+    # default_status=DefaultScheduleStatus.RUNNING,
     tags={"ecs/cpu": "256", "ecs/memory": "1024",
           "job_name": "job_build_stg_aqua"},
 )
