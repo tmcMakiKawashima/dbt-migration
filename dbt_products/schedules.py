@@ -8,6 +8,7 @@ from .schedules_items.administration.public.schedule_stg_mikado_nyutaijo import 
 from .schedules_items.administration.public.schedule_stg_mikado_jnet_0645 import schedule_stg_mikado_jnet_0645
 from .schedules_items.administration.public.schedule_stg_mikado_jnet_0715 import schedule_stg_mikado_jnet_0715
 """ customerservice """
+from .schedules_items.customerservice.public.schedule_d_sias import schedule_d_sias
 from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
 """ engineering """
 from .schedules_items.engineering.public.schedule_stg_paint_iot import schedule_stg_paint_iot
@@ -26,6 +27,7 @@ from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
 """ E """
 """ model repair """
 from .schedules_items.model.repair.schedule_dm_figbunkaiinfo import schedule_dm_figbunkaiinfo
+from .schedules_items.model.repair.schedule_dm_vehicle_generation import schedule_dm_vehicle_generation
 """ vinhis maint """
 from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
 """ vinhis model """
@@ -55,6 +57,8 @@ schedules.append(schedule_stg_mikado_nyutaijo)
 schedules.append(schedule_stg_mikado_jnet_0645)
 schedules.append(schedule_stg_mikado_jnet_0715)
 """ customerservice """
+# D層SIAS
+schedules.append(schedule_d_sias)
 # ワランティ
 schedules.append(schedule_stg_warranty)
 """ engineering """
@@ -84,6 +88,8 @@ schedules.append(schedule_d_epc)
 """ model repair """
 # FIG分解情報
 schedules.append(schedule_dm_figbunkaiinfo)
+# 車種世代
+schedules.append(schedule_dm_vehicle_generation)
 """ vinhis maint """
 # VIN整備
 schedules.append(schedule_dm_vinhis_maint)
