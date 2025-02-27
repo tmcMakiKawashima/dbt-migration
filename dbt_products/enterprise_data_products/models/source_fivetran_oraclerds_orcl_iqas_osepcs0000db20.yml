@@ -46,3 +46,9 @@ sources:
         identifier: cep0712ftr_body
       - name: raw_cep0710ftr_add_info
         identifier: cep0710ftr_add_info
+      - name: raw_cep1001index_r
+        identifier: cep1001index_r
+      - name: raw_cep1004serno_r
+        identifier: cep1004serno_r
+      - name: raw_cep1002seisan_r
+        identifier: cep1002seisan_r

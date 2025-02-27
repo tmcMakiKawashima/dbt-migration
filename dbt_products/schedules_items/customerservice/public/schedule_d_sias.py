@@ -5,20 +5,21 @@ from pathlib import Path
 import sys
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-# EPCカタログ品名
-schedule_dm_cataloghinmei = build_schedule_from_dbt_selection(
+# D層SIAS
+schedule_d_sias = build_schedule_from_dbt_selection(
     [dbt_products_assets],
-    job_name="job_build_dm_cataloghinmei",
-    schedule_name="EPC_CATALOGHINMEI",
+    job_name="job_build_d_sias",
+    schedule_name="D_SOU_SIAS",
     cron_schedule="00 05 * * *",
     execution_timezone="Asia/Tokyo",
-    dbt_select="+dm_cataloghinmei",
+    dbt_select="+stg_riyosyasyusedai +stg_riyoframemaster",
     config=RunConfig(ops={"dbt_products_assets":
-                          DbtConfig(dbt_vars={"DBT_JOB_NAME": "_dm_cataloghinmei"},
-                                    source_test_list=["source:*,+dm_cataloghinmei"])
+                          DbtConfig(dbt_vars={"DBT_JOB_NAME": "_d_sias"},
+                                    source_test_list=["source:*,+stg_riyosyasyusedai",
+                                                      "source:*,+stg_riyoframemaster"])
                           }
                      ),
     # default_status=DefaultScheduleStatus.RUNNING,
     tags={"ecs/cpu": "256", "ecs/memory": "1024",
-          "job_name": "job_build_dm_cataloghinmei"},
+          "job_name": "job_build_d_sias"},
 )
