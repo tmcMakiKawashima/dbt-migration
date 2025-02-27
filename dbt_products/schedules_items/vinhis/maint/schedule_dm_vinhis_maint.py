@@ -21,7 +21,7 @@ schedule_dm_vinhis_maint = build_schedule_from_dbt_selection(
                                                       "source:*,+dm_vinhis_goyomei"])
                           }
                      ),
-    default_status=DefaultScheduleStatus.RUNNING,
+    # default_status=DefaultScheduleStatus.RUNNING,
     tags={"ecs/cpu": "256", "ecs/memory": "1024",
           "job_name": "job_build_dm_vinhis_maint"},
 )
