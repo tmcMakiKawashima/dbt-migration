@@ -1,0 +1,57 @@
+version: 2
+
+sources:
+  - name: snowpipe_db_customerservice
+    database: snowpipe_db
+    schema: customerservice
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: ldts
+
+    tables:
+    # SIAS
+      - name: raw_ktrla05azz0kvw0001
+        identifier: ktrla05azz0kvw0001
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 61
+      - name: raw_ktrla05azz0kvw0004
+        identifier: ktrla05azz0kvw0004
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 506
+      - name: raw_ktrla05azz0kvw0007
+        identifier: ktrla05azz0kvw0007
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 6
+      - name: raw_ktrla05azz0kvw0003
+        identifier: ktrla05azz0kvw0003
+      - name: raw_ktrla05azz0kvw0002
+        identifier: ktrla05azz0kvw0002
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 125
+      - name: raw_ktrla05azz0kvw0006
+        identifier: ktrla05azz0kvw0006
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 43
+      - name: raw_ktrla05azz0kvw0005
+        identifier: ktrla05azz0kvw0005
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 16

@@ -22,7 +22,7 @@ initialize:
   stage: setup
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  image: ghcr.io/dagster-io/dagster-cloud-action:0.1.31
+  image: ghcr.io/dagster-io/dagster-cloud-action:0.1.43
   script:
     - export
     - dagster-cloud ci check --project-dir=$DAGSTER_PROJECT_DIR --dagster-cloud-yaml-path=$DAGSTER_CLOUD_YAML_PATH
@@ -62,7 +62,7 @@ deploy-docker:
   dependencies:
     - build-image
     - initialize
-  image: ghcr.io/dagster-io/dagster-cloud-action:0.1.31
+  image: ghcr.io/dagster-io/dagster-cloud-action:0.1.43
   script:
     - export
     - dagster-cloud ci set-build-output --image-tag=$IMAGE_TAG
@@ -75,7 +75,7 @@ deploy-docker:
 #  dependencies:
 #    - build-image
 #    - initialize
-#  image: ghcr.io/dagster-io/dagster-cloud-action:0.1.31
+#  image: ghcr.io/dagster-io/dagster-cloud-action:0.1.43
 #  script:
 #    - dagster-cloud ci set-build-output --image-tag=$IMAGE_TAG
 #    - dagster-cloud ci deploy
@@ -85,7 +85,7 @@ deploy-docker:
 
 #close-branch:
 #  stage: deploy
-#  image: ghcr.io/dagster-io/dagster-cloud-action:0.1.31
+#  image: ghcr.io/dagster-io/dagster-cloud-action:0.1.43
 #  when: manual
 #  only:
 #    - merge_request

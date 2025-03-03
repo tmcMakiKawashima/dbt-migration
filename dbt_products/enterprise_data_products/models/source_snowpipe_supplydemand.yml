@@ -1,0 +1,427 @@
+version: 2
+
+sources:
+  - name: snowpipe_db_supplydemand
+    database: snowpipe_db
+    schema: supplydemand
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: ldts
+
+    tables:
+    # SYARYO
+      - name: raw_tsjfa368
+        identifier: tsjfa368
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 450
+    # SYARYOSYS
+      - name: raw_tsjfa394
+        identifier: tsjfa394
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 70
+      - name: raw_tsjfa36d
+        identifier: tsjfa36d
+        columns:
+          - name: raw_data
+            data_tests:
+            - fixed_length:
+                length: 220
+      - name: raw_tsjfa490
+        identifier: tsjfa490
+        columns:
+          - name: raw_data
+            data_tests:
+            - fixed_length:
+                length: 70
+      - name: raw_tsjfa396
+        identifier: tsjfa396
+        columns:
+          - name: raw_data
+            data_tests:
+            - fixed_length:
+                length: 70
+    # AQUA
+      - name: raw_nojfa560
+        identifier: nojfa560
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 1563
+      - name: raw_da5a212b
+        identifier: da5a212b
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 1563
+      - name: raw_da5a215a
+        identifier: da5a215a
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 435
+      - name: raw_da5a219a
+        identifier: da5a219a
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 105
+      - name: raw_da5a217a
+        identifier: da5a217a
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 198
+      - name: raw_da5a216a
+        identifier: da5a216a
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 198
+      - name: raw_da5a218a
+        identifier: da5a218a
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 486
+      - name: raw_da5a220a
+        identifier: da5a220a
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 645
+      - name: raw_da5a213a
+        identifier: da5a213a
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 147
+      - name: raw_da5a214a
+        identifier: da5a214a
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 147
+    # SPEC
+      - name: raw_ktrla01ezz0ka20001
+        identifier: ktrla01ezz0ka20001
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 133
+    # 生産日報STEP3
+      - name: raw_m_area
+        identifier: m_area
+      - name: raw_m_affiliates_line
+        identifier: m_affiliates_line
+      - name: raw_m_vehicle_class
+        identifier: m_vehicle_class
+      - name: raw_m_ctl_model_vehicle_class
+        identifier: m_ctl_model_vehicle_class
+      - name: raw_m_convert_kd_cbu
+        identifier: m_convert_kd_cbu
+      - name: raw_m_working_days
+        identifier: m_working_days
+      - name: raw_m_daily_sort_order_line
+        identifier: m_daily_sort_order_line
+      - name: raw_m_drive
+        identifier: m_drive
+      - name: raw_m_shift_operation_tact
+        identifier: m_shift_operation_tact
+      - name: raw_m_calendar
+        identifier: m_calendar
+      - name: raw_m_convert_commercial_export
+        identifier: m_convert_commercial_export
+      - name: raw_m_vehicle_class_name
+        identifier: m_vehicle_class_name
+      - name: raw_t_daily_prod_line
+        identifier: t_daily_prod_line
+      - name: raw_t_daily_prod_vehicle_class_group
+        identifier: t_daily_prod_vehicle_class_group
+      - name: raw_t_daily_prod_line_detail_reason
+        identifier: t_daily_prod_line_detail_reason
+      - name: raw_t_daily_prod_ctl_model_vehicle_class
+        identifier: t_daily_prod_ctl_model_vehicle_class
+      - name: raw_t_imp_plan
+        identifier: t_imp_plan
+      - name: raw_t_monthly_reports
+        identifier: t_monthly_reports
+
+    # GLAC_KPI
+    
+      # 車両バーチャルライン情報_元町(B層)
+      - name: raw_hostalc_1h_dkae02072301
+        identifier: hostalc_1h_dkae02072301
+
+      # 車両バーチャルライン情報_堤(B層)
+      - name: raw_hostalc_1r_dkae02072301
+        identifier: hostalc_1r_dkae02072301
+
+      # 車両バーチャルライン情報_田原(B層)
+      - name: raw_hostalc_1n_dkae02072301
+        identifier: hostalc_1n_dkae02072301
+
+      # 車両バーチャルライン情報_高岡(B層)
+      - name: raw_hostalc_1k_dkae02072301
+        identifier: hostalc_1k_dkae02072301
+
+      # 車両バーチャルライン情報_織機(B層)
+      - name: raw_hostalc_1o_dkae02072301
+        identifier: hostalc_1o_dkae02072301
+
+      # 車両バーチャルライン情報_TMK(B層)
+      - name: raw_hostalc_1w_dkae02072301
+        identifier: hostalc_1w_dkae02072301
+
+      # 車両バーチャルライン情報_トヨタ車体富士松(B層)
+      - name: raw_hostalc_1f_dkae02072301
+        identifier: hostalc_1f_dkae02072301
+
+      # 車両バーチャルライン情報_トヨタ車体吉原(B層)
+      - name: raw_hostalc_1a_dkae02072301
+        identifier: hostalc_1a_dkae02072301
+
+      # 車両バーチャルライン情報_トヨタ車体いなべ(B層)
+      - name: raw_hostalc_1i_dkae02072301
+        identifier: hostalc_1i_dkae02072301
+
+      # 車両バーチャルライン情報_岐阜車体各務原(B層)
+      - name: raw_hostalc_1j_dkae02072301
+        identifier: hostalc_1j_dkae02072301
+
+      # 車両バーチャルライン情報_TMEJ岩手(B層)
+      - name: raw_hostalc_1v_dkae02072301
+        identifier: hostalc_1v_dkae02072301
+
+      # 車両バーチャルライン情報_TMEJ宮城大衡(B層)
+      - name: raw_hostalc_1g_dkae02072301
+        identifier: hostalc_1g_dkae02072301
+
+      # 車両バーチャルライン情報_日野羽村(B層)
+      - name: raw_hostalc_1p_dkae02072301
+        identifier: hostalc_1p_dkae02072301
+
+      # リジェクト車両_堤(B層)
+      - name: raw_hostalc_1r_dkae02072401
+        identifier: hostalc_1r_dkae02072401
+
+      # リジェクト車両_田原(B層)
+      - name: raw_hostalc_1n_dkae02072401
+        identifier: hostalc_1n_dkae02072401
+
+      # リジェクト車両_元町(B層)
+      - name: raw_hostalc_1h_dkae02072401
+        identifier: hostalc_1h_dkae02072401
+
+      # リジェクト車両_高岡(B層)
+      - name: raw_hostalc_1k_dkae02072401
+        identifier: hostalc_1k_dkae02072401
+
+      # リジェクト車両_織機(B層)
+      - name: raw_hostalc_1o_dkae02072401
+        identifier: hostalc_1o_dkae02072401
+
+      # リジェクト車両_TMK(B層)
+      - name: raw_hostalc_1w_dkae02072401
+        identifier: hostalc_1w_dkae02072401
+
+      # リジェクト車両_トヨタ車体富士松(B層)
+      - name: raw_hostalc_1f_dkae02072401
+        identifier: hostalc_1f_dkae02072401
+
+      # リジェクト車両_トヨタ車体吉原(B層)
+      - name: raw_hostalc_1a_dkae02072401
+        identifier: hostalc_1a_dkae02072401
+
+      # リジェクト車両_トヨタ車体いなべ(B層)
+      - name: raw_hostalc_1i_dkae02072401
+        identifier: hostalc_1i_dkae02072401
+
+      # リジェクト車両_岐阜車体各務原(B層)
+      - name: raw_hostalc_1j_dkae02072401
+        identifier: hostalc_1j_dkae02072401
+
+      # リジェクト車両_TMEJ岩手(B層)
+      - name: raw_hostalc_1v_dkae02072401
+        identifier: hostalc_1v_dkae02072401
+
+      # リジェクト車両_TMEJ宮城大衡(B層)
+      - name: raw_hostalc_1g_dkae02072401
+        identifier: hostalc_1g_dkae02072401
+
+      # リジェクト車両_日野羽村(B層)
+      - name: raw_hostalc_1p_dkae02072401
+        identifier: hostalc_1p_dkae02072401
+
+      # 抹消実績_堤(B層)
+      - name: raw_hostalc_1r_dkae06046602
+        identifier: hostalc_1r_dkae06046602
+
+      # 抹消実績_田原(B層)
+      - name: raw_hostalc_1n_dkae06046602
+        identifier: hostalc_1n_dkae06046602
+
+      # 抹消実績_元町(B層)
+      - name: raw_hostalc_1h_dkae06046602
+        identifier: hostalc_1h_dkae06046602
+
+      # 抹消実績_高岡(B層)
+      - name: raw_hostalc_1k_dkae06046602
+        identifier: hostalc_1k_dkae06046602
+
+      # 抹消実績_織機(B層)
+      - name: raw_hostalc_1o_dkae06046602
+        identifier: hostalc_1o_dkae06046602
+
+      # 抹消実績_TMK(B層)
+      - name: raw_hostalc_1w_dkae06046602
+        identifier: hostalc_1w_dkae06046602
+
+      # 抹消実績_トヨタ車体富士松(B層)
+      - name: raw_hostalc_1f_dkae06046602
+        identifier: hostalc_1f_dkae06046602
+
+      # 抹消実績_トヨタ車体吉原(B層)
+      - name: raw_hostalc_1a_dkae06046602
+        identifier: hostalc_1a_dkae06046602
+
+      # 抹消実績_トヨタ車体いなべ(B層)
+      - name: raw_hostalc_1i_dkae06046602
+        identifier: hostalc_1i_dkae06046602
+
+      # 抹消実績_岐阜車体各務原(B層)
+      - name: raw_hostalc_1j_dkae06046602
+        identifier: hostalc_1j_dkae06046602
+
+      # 抹消実績_TMEJ岩手(B層)
+      - name: raw_hostalc_1v_dkae06046602
+        identifier: hostalc_1v_dkae06046602
+
+      # 抹消実績_TMEJ宮城大衡(B層)
+      - name: raw_hostalc_1g_dkae06046602
+        identifier: hostalc_1g_dkae06046602
+
+      # 抹消実績_日野羽村(B層)
+      - name: raw_hostalc_1p_dkae06046602
+        identifier: hostalc_1p_dkae06046602
+
+      # 車両仕様_堤(B層)
+      - name: raw_hostalc_1r_dkae02072402
+        identifier: hostalc_1r_dkae02072402
+
+      # 車両仕様_田原(B層)
+      - name: raw_hostalc_1n_dkae02072402
+        identifier: hostalc_1n_dkae02072402
+
+      # 車両仕様_元町(B層)
+      - name: raw_hostalc_1h_dkae02072402
+        identifier: hostalc_1h_dkae02072402
+
+      # 車両仕様_高岡(B層)
+      - name: raw_hostalc_1k_dkae02072402
+        identifier: hostalc_1k_dkae02072402
+
+      # 車両仕様_織機(B層)
+      - name: raw_hostalc_1o_dkae02072402
+        identifier: hostalc_1o_dkae02072402
+
+      # 車両仕様_TMK(B層)
+      - name: raw_hostalc_1w_dkae02072402
+        identifier: hostalc_1w_dkae02072402
+
+      # 車両仕様_トヨタ車体富士松(B層)
+      - name: raw_hostalc_1f_dkae02072402
+        identifier: hostalc_1f_dkae02072402
+
+      # 車両仕様_トヨタ車体吉原(B層)
+      - name: raw_hostalc_1a_dkae02072402
+        identifier: hostalc_1a_dkae02072402
+
+      # 車両仕様_トヨタ車体いなべ(B層)
+      - name: raw_hostalc_1i_dkae02072402
+        identifier: hostalc_1i_dkae02072402
+
+      # 車両仕様_岐阜車体各務原(B層)
+      - name: raw_hostalc_1j_dkae02072402
+        identifier: hostalc_1j_dkae02072402
+
+      # 車両仕様_TMEJ岩手(B層)
+      - name: raw_hostalc_1v_dkae02072402
+        identifier: hostalc_1v_dkae02072402
+
+      # 車両仕様_TMEJ宮城大衡(B層)
+      - name: raw_hostalc_1g_dkae02072402
+        identifier: hostalc_1g_dkae02072402
+
+      # 車両仕様_日野羽村(B層)
+      - name: raw_hostalc_1p_dkae02072402
+        identifier: hostalc_1p_dkae02072402
+
+      # 生産進度_トヨタ車体吉原(B層)
+      - name: raw_hostalc_1a_dkae06047201
+        identifier: hostalc_1a_dkae06047201
+
+      # 生産進度_堤(B層)
+      - name: raw_hostalc_1r_dkae06047201
+        identifier: hostalc_1r_dkae06047201
+
+      # 生産進度_田原(B層)
+      - name: raw_hostalc_1n_dkae06047201
+        identifier: hostalc_1n_dkae06047201
+
+      # 生産進度_元町(B層)
+      - name: raw_hostalc_1h_dkae06047201
+        identifier: hostalc_1h_dkae06047201
+
+      # 生産進度_高岡(B層)
+      - name: raw_hostalc_1k_dkae06047201
+        identifier: hostalc_1k_dkae06047201
+
+      # 生産進度_織機(B層)
+      - name: raw_hostalc_1o_dkae06047201
+        identifier: hostalc_1o_dkae06047201
+
+      # 生産進度_TMK(B層)
+      - name: raw_hostalc_1w_dkae06047201
+        identifier: hostalc_1w_dkae06047201
+
+      # 生産進度_トヨタ車体富士松(B層)
+      - name: raw_hostalc_1f_dkae06047201
+        identifier: hostalc_1f_dkae06047201
+
+      # 生産進度_トヨタ車体いなべ(B層)
+      - name: raw_hostalc_1i_dkae06047201
+        identifier: hostalc_1i_dkae06047201
+
+      # 生産進度_岐阜車体各務原(B層)
+      - name: raw_hostalc_1j_dkae06047201
+        identifier: hostalc_1j_dkae06047201
+
+      # 生産進度_TMEJ岩手(B層)
+      - name: raw_hostalc_1v_dkae06047201
+        identifier: hostalc_1v_dkae06047201
+
+      # 生産進度_TMEJ宮城大衡(B層)
+      - name: raw_hostalc_1g_dkae06047201
+        identifier: hostalc_1g_dkae06047201
+
+      # 生産進度_日野羽村(B層)
+      - name: raw_hostalc_1p_dkae06047201
+        identifier: hostalc_1p_dkae06047201
