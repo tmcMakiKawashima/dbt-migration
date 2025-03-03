@@ -1,0 +1,49 @@
+version: 2
+
+models:
+# 配車原始
+  - name: stg_haisyagenshi
+    config:
+      tags: ["syaryo"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - frmno
+            - hkata
+            - frmkbn
+            - shamei
+            - sno
+            - sketai
+          config:
+            severity: error
+    columns:
+      - name: frmno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkata
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shamei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sketai
+        data_tests:
+          - not_null:
+              config:
+                severity: error

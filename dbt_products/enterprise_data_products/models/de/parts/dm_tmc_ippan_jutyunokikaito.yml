@@ -1,0 +1,109 @@
+version: 2
+
+models:
+# データ結合１のチェック
+  - name: tmp10_dm_tmc_ippan_jutyunokikaito
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ordrkey
+            - juchuymd
+    columns:
+      - name: check1_ordrkey
+        data_tests:
+          - outer_join_not_all_null
+      - name: check2_ordrkey
+        data_tests:
+          - outer_join_not_all_null
+      - name: check3_ordrkey
+        data_tests:
+          - outer_join_not_all_null
+# データ結合２のチェック
+  - name: tmp20_dm_tmc_ippan_jutyunokikaito
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ordrkey
+            - juchuymd
+            - tanskkey
+    columns:
+      - name: check1_ordrkey
+        data_tests:
+          - outer_join_not_all_null
+      - name: check2_ordrkey
+        data_tests:
+          - outer_join_not_all_null
+      - name: check3_ordrkey
+        data_tests:
+          - outer_join_not_all_null
+# データ結合３のチェック
+  - name: tmp30_dm_tmc_ippan_jutyunokikaito
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - juchuymd
+            - tanskkey
+# データ結合６のチェック
+  - name: tmp40_dm_tmc_ippan_jutyunokikaito
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - juchuymd
+            - tanskkey
+    columns:
+      - name: check_tyotathb
+        data_tests:
+          - outer_join_not_all_null
+      - name: check_dlrcd
+        data_tests:
+          - outer_join_not_all_null
+# データ結合４のチェック
+  - name: tmp45_dm_tmc_ippan_jutyunokikaito
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - ordesybt
+            - yusokbn
+            - ordeno
+            - jhinban
+            - juchuymd
+            - shinban
+            - denno
+    columns:
+      - name: iff(kyoten is not null, kyoten, nyukkten)
+        data_tests:
+          - outer_join_not_all_null
+# データ結合５のチェック
+  - name: tmp50_dm_tmc_ippan_jutyunokikaito
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - ordeno
+            - shinban
+            - syukkaymd
+            - denno
+            - ordesybt
+            - yusokbn
+            - juchuymd
+            - jhinban
+    columns:
+      - name: nyukoymd
+        data_tests:
+          - outer_join_not_all_null
+# データ結合７のチェック
+  - name: tmp60_dm_tmc_ippan_jutyunokikaito
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - yusokbn
+            - odrno
+            - juchuymd
+            - jhinban
+            - syubetsu
+    columns:
+      - name: check_dlrcd
+        data_tests:
+          - outer_join_not_all_null

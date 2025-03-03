@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: snowpipe_db_marketing
+    database: snowpipe_db
+    schema: marketing
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: ldts
+
+    tables:
+    # ALADDIN
+      - name: raw_n8jfim01
+        identifier: n8jfim01
+      - name: raw_n8jfim04
+        identifier: n8jfim04
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 175
+    # RISM
+      - name: raw_ktrla01ezz0ko87001
+        identifier: ktrla01ezz0ko87001
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length: 
+                  length: 50
+    # SYARYOJOHODB
+      - name: raw_ktrla025zz0kil3201
+        identifier: ktrla025zz0kil3201
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 61
