@@ -1,0 +1,610 @@
+version: 2
+models:
+# 品番検索（TYPE1品番情報）
+  - name: stg_hinbankensakutype1
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - hinmeicd
+            - syasyu_cd
+            - hinban
+            - kosu
+            - jissijikik
+            - jissijikim
+            - siyoptno
+            - epckataptno
+            - kiricdk
+            - kiricdm
+            - trmcdmlt
+            - clrcdmlt
+            - tkstkbn
+            - hktkgaikbn
+            - hosemhin
+          config:
+            severity: error
+# 品番検索（TYPE2備考情報）
+  - name: stg_hinbankensakutype2
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - langkbn
+            - ctlgcd
+            - hinmeicd
+            - syasyu_cd
+            - hinban
+            - kosu
+            - jissijikik
+            - jissijikim
+            - siyoptno
+            - epckataptno
+            - kiricdk
+            - kiricdm
+            - trmcdmlt
+            - clrcdmlt
+            - tkstkbn
+            - hktkgaikbn
+            - hosemhin
+          config:
+            severity: error
+#フレーム型式
+  - name: stg_framekatashiki
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - frmnokata
+            - frmno
+            - mdlyearkbn
+            - vin
+          config:
+            severity: error
+# 仕様パターン
+  - name: stg_shiyopattern
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu_cd
+            - siyoptno
+            - siyocd
+          config:
+            severity: error
+# トリムコード情報
+  - name: stg_trimcodejoho
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - syasyu_cd
+            - hinban
+            - trmcd
+            - figno
+          config:
+            severity: error
+# 調達品番情報
+  - name: stg_tyotatsuhinbanjoho
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hinban
+            - dntikicd
+            - cthin
+          config:
+            severity: error
+    columns:
+      - name: hinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dntikicd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cthin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 切替コード検索
+  - name: stg_kirikaecodekensaku
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - kiricd
+            - prtren
+          config:
+            severity: error
+# 車両型式情報
+  - name: stg_syaryokatashikijoho
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - syakata
+            - syasyu_cd
+            - vinwmivds
+            - katano
+          config:
+            severity: error
+# 分解図検索
+  - name: stg_bunkaizukensaku
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - figno
+            - bnkren4
+            - jissijikik
+            - jissijikim
+          config:
+            severity: error
+    columns:
+      - name: ctlgcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: figno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bnkren4
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jissijikik
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jissijikim
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+#　分解図イメージ管理
+  - name: stg_bunkaizuimagekanri
+    config:
+      tags: ["epc"]
+    columns:
+      - name: hansno
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 絵目次検索
+  - name: stg_emokujikensaku
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - emkjgrpcd
+            - figno
+          config:
+            severity: error
+    columns:
+      - name: ctlgcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: emkjgrpcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: figno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+#　FIG検索
+  - name: stg_figkensaku
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - hinban
+            - pnc
+            - figno
+          config:
+            severity: error
+    columns:
+      - name: ctlgcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: pnc
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: figno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+#　FIG名称
+  - name: stg_figmeisyo
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - langkbn
+            - figno
+          config:
+            severity: error
+    columns:
+      - name: langkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: figno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+#　品名
+  - name: stg_hinmei
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - langkbn
+            - pnc
+          config:
+            severity: error
+#　イラストコメント
+  - name: stg_illustcomment
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - langkbn
+            - ilstcmtno
+          config:
+            severity: error
+    columns:
+      - name: langkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ilstcmtno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+#　車名
+  - name: stg_syamei
+    config:
+      tags: ["epc"]
+    columns:
+      - name: ctlgcd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+#　代替品番情報
+  - name: stg_daitaihinbanjoho
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hinban
+            - hnbtikicd
+            - dthin
+          config:
+            severity: error
+    columns:
+      - name: hinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hnbtikicd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dthin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+#　型式パターン
+  - name: stg_katashikipattern
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ctlgcd
+            - epckataptno
+            - katano
+          config:
+            severity: error
+    columns:
+      - name: ctlgcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: epckataptno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: katano
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+#　車両仕様装備情報
+  - name: stg_syaryoshiyosobijoho
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - langkbn
+            - syasyu
+            - siyoptno
+            - siyocd
+          config:
+            severity: error
+#　タクティ品番情報
+  - name: stg_tactihinbanjoho
+    config:
+      tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - toyotahin
+            - siirecd
+            - rentacti
+          config:
+            severity: error
+    columns:
+      - name: toyotahin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siirecd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: rentacti
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+# 特徴記号情報
+  - name: stg_tokuchokigojoho
+    config:
+      tags: ["epc"]
+    columns:
+      - name: langkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: source('snowpipe_db_valuechain','raw_k9jfv221')
+              field: langkbn
+              config:
+                severity: error
+      - name: ctlgcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: source('snowpipe_db_valuechain','raw_k9jfv221')
+              field: ctlgcd
+              config:
+                severity: error
+      - name: tokukbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: source('snowpipe_db_valuechain','raw_k9jfv221')
+              field: tokukbn
+              config:
+                severity: error
+      - name: tokukg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: source('snowpipe_db_valuechain','raw_k9jfv221')
+              field: tokukg
+              config:
+                severity: error
+# 部位大分類検索情報
+  - name: stg_buidaibunruikensakujoho
+    config:
+      tags: ["epc"]
+    columns:
+      - name: ctlgcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv217')
+              field: ctlgcd
+              config:
+                severity: error
+
+      - name: daibnrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv217')
+              field: daibnrcd
+              config:
+                severity: error
+# 部位中分類検索情報
+  - name: stg_buicyubunruikensakujoho
+    config:
+      tags: ["epc"]
+    columns:
+      - name: ctlgcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv218')
+              field: ctlgcd
+              config:
+                severity: error
+      - name: daibnrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv218')
+              field: daibnrcd
+              config:
+                severity: error
+      - name: chubnrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv218')
+              field: chubnrcd
+              config:
+                severity: error
+# 部位グループ検索情報
+  - name: stg_buigroupkensakujoho
+    config:
+      tags: ["epc"]
+    columns:
+      - name: ctlgcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv219')
+              field: ctlgcd
+              config:
+                severity: error
+      - name: chubnrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv219')
+              field: chubnrcd
+              config:
+                severity: error
+      - name: svglayermei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv219')
+              field: svglayermei
+              config:
+                severity: error
+# 部位小分類検索情報
+  - name: stg_buisyobunruikensakujoho
+    config:
+      tags: ["epc"]
+    columns:
+      - name: ctlgcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv220')
+              field: ctlgcd
+              config:
+                severity: error
+      - name: chubnrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv220')
+              field: chubnrcd
+              config:
+                severity: error
+      - name: svglayermei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv220')
+              field: svglayermei
+              config:
+                severity: error
+      - name: figno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - relationships:
+              to: ref('substr_k9jfv220')
+              field: figno
+              config:
+                severity: error

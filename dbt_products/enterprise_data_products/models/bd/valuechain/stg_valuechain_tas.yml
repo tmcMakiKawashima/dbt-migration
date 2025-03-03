@@ -1,0 +1,36 @@
+version: 2
+models:
+
+  - name: stg_tbdaihl
+    config:
+      tags: ["tas"]
+  - name: stg_tbdaiml
+    config:
+      tags: ["tas"]
+  - name: stg_tbnsyus
+    config:
+      tags: ["tas"]
+  - name: stg_tbuserm
+    config:
+      tags: ["tas"]
+  - name: stg_tbdaikl
+    config:
+      tags: ["tas"]
+  - name: stg_tbsmksk
+    config:
+      tags: ["tas"]
+  - name: stg_tbbofll
+    config:
+      tags: ["tas"]
+  - name: stg_tbchznl
+    config:
+      tags: ["tas"]
+  - name: stg_tbnoukifl
+    config:
+      tags: ["tas"]
+  - name: stg_tbnokjs
+    config:
+      tags: ["tas"]
+  - name: stg_tbsmksk_noki
+    config:
+      tags: ["tas"]

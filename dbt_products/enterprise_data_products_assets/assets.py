@@ -1,7 +1,8 @@
 import json
 import os
+from typing import Any, Mapping
 from dagster import AssetExecutionContext, Config
-from dagster_dbt import DbtCliResource, dbt_assets
+from dagster_dbt import DagsterDbtTranslator, DbtCliResource, dbt_assets
 
 from .constants import dbt_manifest_path
 
@@ -15,6 +16,19 @@ class DbtConfig(Config):
     source_test_list: list = []
 
 
+# dbtのtagsを取得するための実装
+class CustomDagsterDbtTranslator(DagsterDbtTranslator):
+    def get_tags(self, dbt_resource_props: Mapping[str, Any]) -> Mapping[str, str]:
+        dbt_tags = dbt_resource_props.get("tags", [])
+        dagster_tags = {}
+        for tag in dbt_tags:
+            key, _, value = tag.partition("=")
+
+            dagster_tags[key] = value if value else ""
+
+        return dagster_tags
+
+
 @dbt_assets(manifest=dbt_manifest_path)
 def dbt_products_assets(context: AssetExecutionContext, dbt: DbtCliResource, config: DbtConfig):
     # dbt test --select source:* 実行
@@ -22,6 +36,7 @@ def dbt_products_assets(context: AssetExecutionContext, dbt: DbtCliResource, con
         dbt_test_args = ["test", "--select"]
         dbt_test_args += config.source_test_list
         dbt_test_args += ["--target", os.getenv('dbt_profile_enterprise')]
+        dbt_test_args += ["--indirect-selection", "buildable"]
         # エラー出力用schemaの指定
         if len(config.dbt_vars["DBT_JOB_NAME"]) > 0:
             dbt_test_args += ["--vars", json.dumps(config.dbt_vars)]

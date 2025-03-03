@@ -1,0 +1,727 @@
+version: 2
+
+models:
+# 国内新生産実績
+  - name: stg_kokunaiseisan
+    config:
+      tags: ["aqua"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syadai_kt
+            - frmno
+            - frmkbn
+            - shamei
+            - sno
+          config:
+            severity: error
+    columns:
+      - name: syadai_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shamei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 海外新生産実績
+  - name: stg_kaigaiseisan
+    config:
+      tags: ["aqua"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - frmno
+            - wmi
+            - vds
+            - mdlyr
+            - vin_vds_cd
+          config:
+            severity: error
+    columns:
+      - name: frmno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: wmi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vds
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mdlyr
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vin_vds_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 仕入実績
+  - name: stg_oemseisan
+    config:
+      tags: ["aqua"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syadai_kt
+            - frmno
+          config:
+            severity: error
+    columns:
+      - name: syadai_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 配車実績
+  - name: stg_haisya
+    config:
+      tags: ["aqua"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syadai_kt
+            - frmno
+          config:
+            severity: error
+    columns:
+      - name: syadai_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hnbaitncd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisya_y
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisya_m
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisya_d
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 海外TP履歴
+  - name: stg_kaigaitp
+    config:
+      tags: ["aqua"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syadai_kt
+            - frmno
+            - wmi
+            - vds
+            - mdlyr
+            - vin_vds_cd
+            - lok_y
+            - pline
+            - tp
+            - pretp_kbn
+            - pass
+          config:
+            severity: error
+    columns:
+      - name: syadai_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: wmi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vds
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mdlyr
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vin_vds_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lok_y
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: pline
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: pretp_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: pass
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 国内TP履歴
+  - name: stg_kokunaitp
+    config:
+      tags: ["aqua"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syadai_kt
+            - frmno
+            - wmi
+            - vds
+            - mdlyr
+            - vin_vds_cd
+            - lok_y
+            - pline
+            - tp
+            - pretp_kbn
+            - pass
+          config:
+            severity: error
+    columns:
+      - name: syadai_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: wmi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vds
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mdlyr
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vin_vds_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lok_y
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: pline
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: pretp_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: pass
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 梱包実績
+  - name: stg_konpou
+    config:
+      tags: ["aqua"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - knp_yr
+            - idntno
+          config:
+            severity: error
+    columns:
+      - name: knp_yr
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: idntno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 生産計画
+  - name: stg_seisankeikaku
+    config:
+      tags: ["aqua"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu_cd
+            - sno
+            - syameicd
+            - ordertype
+            - nisgt
+            - kd_hbtgrcd
+            - hi_ktcd
+            - ctl_kt
+            - gaihncd
+            - utibrcd
+            - sn_spec01
+            - sn_spec02
+            - sn_spec03
+            - sn_spec04
+            - sn_spec05
+            - sn_spec06
+            - sn_spec07
+            - sn_spec08
+            - sn_spec09
+            - sn_spec10
+            - sn_spec11
+            - sn_spec12
+            - sn_spec13
+            - sn_spec14
+            - sn_spec15
+            - sn_spec16
+            - sn_spec17
+            - sn_spec18
+            - sn_spec19
+            - sn_spec20
+            - smkcd
+            - smkmeisai
+            - frmkbn
+            - kd_lotfg
+            - hi_kt
+            - lo_ktcd
+            - eg_kt
+            - mt_kt
+            - grade
+            - bodytype
+            - vin_wmi
+            - vin_vds
+            - mdlyr
+            - idline
+            - maker
+            - k_nen
+          config:
+            severity: error
+    columns:
+      - name: syasyu_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syameicd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ordertype
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - accepted_values:
+              values: ['7', '9']
+              config:
+                severity: error
+      - name: nisgt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kd_hbtgrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hi_ktcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ctl_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: gaihncd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: utibrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec01
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec02
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec03
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec04
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec05
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec06
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec07
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec08
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec09
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec10
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec11
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec12
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec13
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec14
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec15
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec16
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec17
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec18
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec19
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sn_spec20
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: smkcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: smkmeisai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kd_lotfg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hi_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lo_ktcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eg_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mt_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: grade
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bodytype
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vin_wmi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vin_vds
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mdlyr
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: idline
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: maker
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: k_nen
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 国内トレサビ
+  - name: stg_kokunaitracability
+    config:
+      tags: ["aqua"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syadai_kt
+            - frmno
+            - wmi
+            - vds
+            - mdlyr
+            - vin_vds_cd
+            - lok_y
+            - msgno
+          config:
+            severity: error
+    columns:
+      - name: syadai_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: wmi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vds
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mdlyr
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vin_vds_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lok_y
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: msgno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 海外トレサビ
+  - name: stg_kaigaitracability
+    config:
+      tags: ["aqua"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syadai_kt
+            - frmno
+            - wmi
+            - vds
+            - mdlyr
+            - vin_vds_cd
+            - lok_y
+            - msgno
+          config:
+            severity: error
+    columns:
+      - name: syadai_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: wmi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vds
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mdlyr
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vin_vds_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lok_y
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: msgno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
