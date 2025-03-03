@@ -1,0 +1,43 @@
+version: 2
+models:
+#　整備名称情報マスタ
+  - name: stg_seibimeisyomaster
+    config:
+      tags: ["service_ikkatsu"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - seibi_cd
+            - mgr_kbn
+          config:
+            severity: error
+    columns:
+      - name: seibi_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mgr_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+#　品番情報マスタ
+  - name: stg_hinbanmeisyomaster
+    config:
+      tags: ["service_ikkatsu"]
+    columns:
+      - name: hinban
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: sell_price
+        meta:
+            masking_policy: sell_price_mask
+      - name: cost
+        meta:
+            masking_policy: cost_mask

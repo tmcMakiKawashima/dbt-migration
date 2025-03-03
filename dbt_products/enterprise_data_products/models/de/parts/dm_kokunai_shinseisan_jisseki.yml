@@ -1,0 +1,6 @@
+version: 2
+
+models:
+  - name: dm_kokunai_shinseisan_jisseki
+    data_tests:
+      - unique_values

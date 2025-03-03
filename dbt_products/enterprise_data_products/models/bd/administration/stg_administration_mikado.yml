@@ -1,0 +1,577 @@
+version: 2
+
+models:
+# 入退場データ
+  - name: stg_nyutaijo
+    config:
+      tags: ["mikado"]
+    columns:
+      - name: employee_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cdatetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# JNET
+  - name: stg_employee_shumu
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: employee_cd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: jigsnymd
+        meta:
+            masking_policy: jigsnymd_mask
+      - name: jigseb
+        meta:
+            masking_policy: jigseb_mask
+      - name: gakrei
+        meta:
+            masking_policy: gakrei_mask
+      - name: nnjgrk
+        meta:
+            masking_policy: nnjgrk_mask
+      - name: hgsumf
+        meta:
+            masking_policy: hgsumf_mask
+      - name: tgntkycd
+        meta:
+            masking_policy: tgntkycd_mask
+      - name: sytkyf
+        meta:
+            masking_policy: sytkyf_mask
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_organization_english
+    config:
+      tags: ["mikado_jnet"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - bucd
+            - stkcd
+          config:
+            severity: error
+    columns:
+      - name: bucd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_name_history
+    config:
+      tags: ["mikado_jnet"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - employee_cd
+            - namhnkyukymd
+    columns:
+      - name: employee_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: namhnkyukymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_syokusyu
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: sykscd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_syokutakupart
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: stptkbncd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_shikaku
+    config:
+      tags: ["mikado_jnet"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - skkcd
+            - skktkkbncd
+    columns:
+      - name: skkcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: skktkkbncd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_syokui
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: sykicd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_syoninkubun
+    config:
+      tags: ["mikado_jnet"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - sykicd
+            - slkbncd
+          config:
+            severity: error
+    columns:
+      - name: sykicd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: slkbncd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: synrnkcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_bu
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: bucd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: bucdstaymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_shitsuka
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: stkcd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: stkcdstaymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_kakarigroup
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: kkrgcd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: kkrgcdstaymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_syagaisya
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: syagai_cd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: r_birthday
+        meta:
+            masking_policy: r_birthday_mask
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_syozoku
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: syozoku_cd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: szstaymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_bumon
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: bmncd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: bmnstaymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_kyumurigyo
+    config:
+      tags: ["mikado_jnet"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - employee_cd
+            - h2ytstayr
+            - h2ytstamon
+            - h2ytstadt
+            - h2staampmflg
+            - h2ytseqno
+    columns:
+      - name: employee_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: h2ytstayr
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: h2ytstamon
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: h2ytstadt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: h2staampmflg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: h2ytseqno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_kyumurigyo_sk
+    config:
+      tags: ["mikado_jnet"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - employee_cd
+            - h2ytstayr
+            - h2ytstamon
+            - h2ytstadt
+            - h2staampmflg
+            - h2ytseqno
+    columns:
+      - name: employee_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: h2ytstayr
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: h2ytstamon
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: h2ytstadt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: h2staampmflg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: h2ytseqno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_kyumurigyo_haken
+    config:
+      tags: ["mikado_jnet"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syagai_cd
+            - h2ym
+            - h2dt
+            - h2kntsncnt
+    columns:
+      - name: syagai_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: h2ym
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: h2dt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: h2kntsncnt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_kintai_monthly
+    config:
+      tags: ["mikado_jnet"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - employee_cd
+            - h2gtjkntym
+            - h2knmtimcd
+    columns:
+      - name: employee_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: h2gtjkntym
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: h2knmtimcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_kintai_daily
+    config:
+      tags: ["mikado_jnet"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - employee_cd
+            - h2ym
+    columns:
+      - name: employee_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: h2ym
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_pclog
+    config:
+      tags: ["mikado_jnet"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - employee_cd
+            - kdtiym
+    columns:
+      - name: employee_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kdtiym
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  - name: stg_businesstrip
+    config:
+      tags: ["mikado_jnet"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - noshucho
+            - ddstart
+    columns:
+      - name: noshucho
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ddstart
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
