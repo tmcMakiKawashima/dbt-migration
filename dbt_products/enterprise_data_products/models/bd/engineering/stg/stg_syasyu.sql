@@ -30,7 +30,7 @@ with stg_syasyu as (
         haisitime::varchar(16) as haisitime,
         mttime::varchar(16) as mttime,
         _fivetran_synced::timestamp_ntz as ldts --timestamp型
-    from {{ source('fivetran_idr_gijutsu_sms_dxpfy2d', 'raw_cyp22syasyu') }}
+    from {{ source('fivetran_database_idr_gijutsu_sms_dxpfy2d', 'raw_cyp22syasyu') }}
     where _fivetran_deleted = 'false'
 )
 select * from stg_syasyu
