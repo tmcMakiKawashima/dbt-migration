@@ -15,7 +15,6 @@ schedule_stg_aisac = build_schedule_from_dbt_selection(
                                     source_test_list=["source:*,+stg_syasyu"])
                           }
                      ),
-    default_status=DefaultScheduleStatus.RUNNING,
     tags={"ecs/cpu": "256", "ecs/memory": "1024",
           "job_name": "job_build_stg_aisac"},
 )
