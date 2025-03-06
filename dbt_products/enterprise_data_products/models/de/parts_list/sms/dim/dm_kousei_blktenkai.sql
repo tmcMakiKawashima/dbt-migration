@@ -63,7 +63,7 @@ select
     when rtrim(blkmei) is not null then blkmei
     when rtrim(hinmei) is not null then hinmei
     else ''
-    end as kohinmei,
+  end as kohinmei,
   tmp_kousei03_blktenkai.kosu,
   tmp_kousei03_blktenkai.sentaku,
   tmp_kousei03_blktenkai.tyohuku,

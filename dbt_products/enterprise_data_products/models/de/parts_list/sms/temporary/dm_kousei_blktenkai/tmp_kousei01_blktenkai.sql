@@ -24,9 +24,9 @@ with
             nvl(b.torokujunm, '') as torokujunm_com, --登録/生認順マデ
         from tmp_kousei00_blktenkai a
         left outer join stg_kouseicom b
-        on a.syasyu = b.syasyu
-        and a.siyoubui = b.siyoubui
-        and a.oyahin = b.oyahin
-        and a.kohin = b.kohin
-        and a.gc = b.gc
-        and not(b.torokujunm <= a.torokujunk or a.torokujunm <= b.torokujunk)
+          on a.syasyu = b.syasyu
+          and a.siyoubui = b.siyoubui
+          and a.oyahin = b.oyahin
+          and a.kohin = b.kohin
+          and a.gc = b.gc
+          and not(b.torokujunm <= a.torokujunk or a.torokujunm <= b.torokujunk)
