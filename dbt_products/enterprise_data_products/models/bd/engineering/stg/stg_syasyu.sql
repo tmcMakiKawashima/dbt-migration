@@ -8,9 +8,10 @@
       {% if is_incremental() %}
       delete from {{this}}
       {% endif %}
-    " -- 全件洗い替えであるため
+    "
   )
  }}
+-- 洗い替えであるため、pre_hookで全件削除を行う。
 
 with stg_syasyu as (
     select
