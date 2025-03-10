@@ -8,7 +8,7 @@
       {% if is_incremental() %}
       delete from {{this}}
       {% endif %}
-    "
+    " -- 全件洗い替えであるため
   )
  }}
 
