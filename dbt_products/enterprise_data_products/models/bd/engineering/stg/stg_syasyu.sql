@@ -11,6 +11,7 @@
     "
   )
  }}
+-- 洗い替えであるため、pre_hookで全件削除を行う。
 
 with stg_syasyu as (
     select
