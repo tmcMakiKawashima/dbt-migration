@@ -8,7 +8,6 @@ dict_sms_api_parts_info = {
     "job_req": "job_build_tmp_sms_api_parts_info_req_json",
     "job_api": "job_call_sms_api_parts_info",
     "job_res": "job_build_tmp_sms_api_parts_info_res_relational"
-
 }
 
 # run_status_sensorは１回の評価で１個しかトリガーできない

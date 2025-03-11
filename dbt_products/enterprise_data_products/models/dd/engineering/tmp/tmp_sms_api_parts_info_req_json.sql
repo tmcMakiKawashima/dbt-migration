@@ -1,23 +1,4 @@
 with
-    kousei as (
-        select
-            ks.kohin
-        from
-            {{ ref("stg_kousei") }} as ks
-        where
-            trim(ks.jigyoutai) = ''
-            and substr(ks.kohin,8,1) != '-'
-    ),
-    target_hinban as (
-        select
-            distinct ks.kohin as hinban
-        from
-            kousei as ks
-            left outer join {{ source("engineering_db_public", "raw_stg_hinban") }} as hb
-                on ks.kohin = hb.hinban
-        where
-            hb.hinban is null
-    ),
     array_hinban as (
         -- JSON element names are case-sensitive.
         select
@@ -27,7 +8,7 @@ with
                 )
             ) as hinbanList
         from
-            target_hinban
+            {{ ref("tmp_sms_api_parts_info_tartget_hinban") }}
     ),
     tmp_sms_api_parts_info_req_json as (
         -- JSON element names are case-sensitive.

@@ -10,6 +10,6 @@ from .sensors_items.dd.sensors_sms_api import dd_sms_api_parts_info_sensor
 
 sensors = []
 
-""" D層作成ジョブ """
+""" D層センサー """
 """ api """
 sensors.append(dd_sms_api_parts_info_sensor)
