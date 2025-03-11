@@ -1,5 +1,6 @@
-with
-  recursive dm_kousei_oya as (
+--再帰処理の為、with句内で結合
+with recursive
+  dm_kousei_oya as (
     select
        syasyu,
        siyoubui,
@@ -33,13 +34,13 @@ with
        sg.sentaku,
        sg.id,
        sg.tyohuku,
-      case
-       when oy.torokujunk > sg.torokujunk then oy.torokujunk 
-       else sg.torokujunk 
+       case
+         when oy.torokujunk > sg.torokujunk then oy.torokujunk 
+         else sg.torokujunk 
        end as torokujunk,
-      case
-       when oy.torokujunm < sg.torokujunm then oy.torokujunm 
-       else sg.torokujunm 
+       case
+         when oy.torokujunm < sg.torokujunm then oy.torokujunm 
+         else sg.torokujunm 
        end as torokujunm,
        sg.mttime,
        sg.torokujunk_com,
@@ -61,15 +62,15 @@ with
            substr(siyoubui,5,2) as bui,
            substr(siyoubui,7,2) as vari,
            row_number() over (partition by syasyu,siyoubui order by path) as kouseijyun,
-      case
-        when torokujunk > torokujunk_com then torokujunk 
-        else torokujunk_com 
-        end as torokujunk_com_k,
-      case
-        when torokujunm < torokujunm_com then torokujunm 
-        when torokujunm > torokujunm_com and torokujunm_com = '' then torokujunm
-        else torokujunm_com 
-        end as torokujunm_com_m
+           case
+             when torokujunk > torokujunk_com then torokujunk 
+             else torokujunk_com 
+           end as torokujunk_com_k,
+           case
+             when torokujunm < torokujunm_com then torokujunm 
+             when torokujunm > torokujunm_com and torokujunm_com = '' then torokujunm
+             else torokujunm_com 
+           end as torokujunm_com_m
     from dm_kousei_oya
   ) ,
   com_set as(
@@ -79,75 +80,80 @@ with
         when torokujunk < torokujunk_com_k and torokujunm = torokujunm_com_m then '1' --構成コメントが途中で追加
         when torokujunk = torokujunk_com_k and torokujunm > torokujunm_com_m then '2' --構成コメントが途中で削除
         when torokujunk < torokujunk_com_k and torokujunm > torokujunm_com_m then '3' --構成コメントが途中で追加削除
-        end as toroku_flg
+      end as toroku_flg
     from kousei_set
   )
-  select syasyu,
-         siyoubui,
-         motosiyoubui,
-         oyahin,
-         gc,
-         kohin,
-         kosu,
-         sentaku,
-         kumitate,
-         bui,
-         vari,
-         lv,
-         kouseijyun,
-         mttime,
-         tyohuku,
-         ldts,
-       case
-         when toroku_flg = '0' then torokujunk --分割しないパターン
-         when toroku_flg = '1' then torokujunk_com_k --構成コメントが途中で追加
-         when toroku_flg = '2' then torokujunk --構成コメントが途中で削除
-         when toroku_flg = '3' then torokujunk_com_k --構成コメントが途中で追加削除
-         end as torokujunk,
-       case
-         when toroku_flg = '0' then torokujunm --分割しないパターン
-         when toroku_flg = '1' then torokujunm --構成コメントが途中で追加
-         when toroku_flg = '2' then torokujunm_com_m --構成コメントが途中で削除
-         when toroku_flg = '3' then torokujunm_com_m --構成コメントが途中で追加削除
-         end as torokujunm
+  select
+    syasyu,
+    siyoubui,
+    motosiyoubui,
+    oyahin,
+    gc,
+    kohin,
+    kosu,
+    sentaku,
+    kumitate,
+    bui,
+    vari,
+    lv,
+    kouseijyun,
+    mttime,
+    tyohuku,
+    ldts,
+    case
+      when toroku_flg = '0' then torokujunk --分割しないパターン
+      when toroku_flg = '1' then torokujunk_com_k --構成コメントが途中で追加
+      when toroku_flg = '2' then torokujunk --構成コメントが途中で削除
+      when toroku_flg = '3' then torokujunk_com_k --構成コメントが途中で追加削除
+    end as torokujunk,
+    case
+      when toroku_flg = '0' then torokujunm --分割しないパターン
+      when toroku_flg = '1' then torokujunm --構成コメントが途中で追加
+      when toroku_flg = '2' then torokujunm_com_m --構成コメントが途中で削除
+      when toroku_flg = '3' then torokujunm_com_m --構成コメントが途中で追加削除
+    end as torokujunm
   from com_set
   union all
-    select syasyu,
-           siyoubui,
-           motosiyoubui,
-           oyahin,
-           gc,
-           kohin,
-           kosu,
-           sentaku,
-           kumitate,
-           bui,
-           vari,
-           lv,
-           kouseijyun,
-           mttime,
-           '' as tyohuku,
-           ldts,
-           torokujunk, 
-           torokujunk_com_k as torokujunm
-    from com_set where toroku_flg in ('1' ,'3')
+    select 
+      syasyu,
+      siyoubui,
+      motosiyoubui,
+      oyahin,
+      gc,
+      kohin,
+      kosu,
+      sentaku,
+      kumitate,
+      bui,
+      vari,
+      lv,
+      kouseijyun,
+      mttime,
+      '' as tyohuku,
+      ldts,
+      torokujunk, 
+      torokujunk_com_k as torokujunm
+    from com_set 
+    where toroku_flg in ('1' ,'3')
     union all
-     select syasyu,
-            siyoubui,
-            motosiyoubui,
-            oyahin,
-            gc,
-            kohin,
-            kosu,
-            sentaku,
-            kumitate,
-            bui,
-            vari,
-            lv,
-            kouseijyun,
-            mttime,
-            '' as tyohuku,
-            ldts,
-            torokujunm_com_m as torokujunk,
-            torokujunm
-     from com_set where toroku_flg in ('2' ,'3')
+     select 
+       syasyu,
+       siyoubui,
+       motosiyoubui,
+       oyahin,
+       gc,
+       kohin,
+       kosu,
+       sentaku,
+       kumitate,
+       bui,
+       vari,
+       lv,
+       kouseijyun,
+       mttime,
+       '' as tyohuku,
+       ldts,
+       torokujunm_com_m as torokujunk,
+       torokujunm
+     from com_set
+     where toroku_flg in ('2' ,'3')
