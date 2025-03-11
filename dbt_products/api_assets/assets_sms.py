@@ -3,7 +3,7 @@ import os
 from dagster import MaterializeResult, asset
 from dagster_snowflake import SnowflakeResource
 from . import api_util
-from .api_util import headers, res_table, prod
+from .api_util import headers, res_table, prod_stg
 import json
 
 eng_db = "engineering_db"
@@ -39,7 +39,7 @@ def sms_api_parts_info_asset(snowflake: SnowflakeResource):
     #パラメータが取得できた場合
     if len(json.loads(request_body_df.iat[0,0])["reqData"]) > 0:
       # Web-APIコール
-      response_body_df = api_util.post_web_api_call_to_kitora(url, headers_sms, request_body_df, prod)
+      response_body_df = api_util.post_web_api_call_to_kitora(url, headers_sms, request_body_df, prod_stg)
       print(response_body_df)
       # レスポンスデータ書き込み
       rows_inserted = api_util.put_response_data_to_snowflake(snowflake, res_table_sms, response_body_df)

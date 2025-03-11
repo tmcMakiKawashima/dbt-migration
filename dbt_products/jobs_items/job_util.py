@@ -52,7 +52,7 @@ def make_job_list_bd(model_list: list[dict]):
 
 
 
-# 取得したmodelに対してsnapshoジョブを作成してリストで保持
+# 取得したmodelに対してsnapshotジョブを作成してリストで保持
 def make_job_list_scd(model_list: list[dict]):
     
     job_list = []
