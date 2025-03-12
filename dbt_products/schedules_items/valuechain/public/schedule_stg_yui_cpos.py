@@ -10,7 +10,7 @@ schedule_stg_yui_cpos = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_stg_yui_cpos",
     schedule_name="yui_cpos",
-    cron_schedule="30 23 * * *",
+    cron_schedule="0 5 * * *",
     execution_timezone="Asia/Tokyo",
     dbt_select="+stg_anken +stg_dairitenkey +stg_cpos_chiiki +stg_shochihinban +stg_kuni +stg_monitorjokyo +stg_shochihinbantaishodaisuu +stg_kunimaster +stg_chiikimaster",
     config=RunConfig(ops={"dbt_products_assets":
