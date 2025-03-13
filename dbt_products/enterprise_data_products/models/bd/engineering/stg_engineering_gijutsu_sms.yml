@@ -1,0 +1,25 @@
+version: 2
+
+models:
+# 設変書要旨
+  - name: stg_eci_yousi
+    config:
+      tags: ["gijutsu_sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - seppenno
+            - jun
+          config:
+            severity: error
+    columns:
+      - name: seppenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
