@@ -1,5 +1,6 @@
 with substr_ktrla025zz0kil3201 as (
     select
+        substr(raw_data, 1, 1)::varchar(1) as kbn, --C,U,Dのメンテ区分
         substr(raw_data, 2, 3)::varchar(3) as kbsyadai, -- 車台区分
         substr(raw_data, 5, 20)::varchar(20) as nosyadai, -- 車台番号
         substr(raw_data, 25, 8)::varchar(8) as ddtorituke, -- 取付日
