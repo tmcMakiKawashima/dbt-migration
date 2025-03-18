@@ -11,6 +11,7 @@ from .schedules_items.administration.public.schedule_stg_mikado_jnet_0715 import
 from .schedules_items.customerservice.public.schedule_d_sias import schedule_d_sias
 from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
 """ engineering """
+from .schedules_items.engineering.public.schedule_stg_gijutsu_sms import schedule_stg_gijutsu_sms
 from .schedules_items.engineering.public.schedule_stg_paint_iot import schedule_stg_paint_iot
 """ marketing """
 from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
@@ -62,6 +63,8 @@ schedules.append(schedule_d_sias)
 # ワランティ
 schedules.append(schedule_stg_warranty)
 """ engineering """
+# UDC　設変情報追加　認証不正対応
+schedules.append(schedule_stg_gijutsu_sms)
 # TMK塗装IoT
 schedules.append(schedule_stg_paint_iot)
 """ marketing """
