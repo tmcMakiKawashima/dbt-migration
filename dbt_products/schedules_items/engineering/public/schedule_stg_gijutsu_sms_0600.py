@@ -3,7 +3,7 @@ from dagster import DefaultScheduleStatus, RunConfig
 from dagster_dbt import build_schedule_from_dbt_selection
 
 # UDC　設変情報追加　認証不正対応
-schedule_stg_gijutsu_sms = build_schedule_from_dbt_selection(
+schedule_stg_gijutsu_sms_0600 = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_stg_gijutsu_sms_0600",
     schedule_name="gijutsu_sms_0600",
