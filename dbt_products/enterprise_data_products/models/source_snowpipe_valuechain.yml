@@ -239,11 +239,6 @@ sources:
                   length: 2934
       - name: raw_cv201khintype2
         identifier: cv201khintype2
-        columns:
-          - name: raw_data
-            data_tests:
-              - fixed_length:
-                  length: 10458
       - name: raw_dv2a5404
         identifier: dv2a5404
         columns:

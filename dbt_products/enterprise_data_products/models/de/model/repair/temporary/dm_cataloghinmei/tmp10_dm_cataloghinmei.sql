@@ -47,33 +47,10 @@ with
             prts1kbn, -- 1品番絞り込み区分
             tksyuflg -- 特殊車フラグ
         from {{ ref('stg_syamei') }} -- 車名
-    ),
-    stg_hinbankensakutype2 as (
-        select
-            langkbn, -- 言語区分
-            ctlgcd, -- カタログコード
-            hinmeicd, -- 品名コード
-            hinban, -- 品番
-            kosu, -- 個数(検索)
-            siyoptno, -- 仕様パターンNO
-            epckataptno, -- EPC型式パターンNO
-            kiricdk, -- 切替コードカラ
-            kiricdm, -- 切替コードマデ
-            trmcdmlt, -- トリムコード(複数)
-            clrcdmlt, -- カラーコード(複数)
-            tkstkbn, -- 特設区分
-            hktkgaikbn, -- 引当適用外区分
-            hosemhin, -- ホース元品番
-            srcflg, -- 検索対象フラグ
-            tkkatahgn -- 適用型式表現
-        from {{ ref('stg_hinbankensakutype2')}} -- 品番検索Type2
     )
 select
     stg_syaryokatashikijoho.*,
-    stg_syamei.* exclude (ctlgcd),
-    stg_hinbankensakutype2.* exclude (ctlgcd)
+    stg_syamei.* exclude (ctlgcd)
 from stg_syaryokatashikijoho
 inner join stg_syamei
   on stg_syaryokatashikijoho.ctlgcd = stg_syamei.ctlgcd
-inner join stg_hinbankensakutype2
-  on stg_syaryokatashikijoho.ctlgcd = stg_hinbankensakutype2.ctlgcd

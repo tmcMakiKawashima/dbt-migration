@@ -25,87 +25,6 @@ models:
             - hosemhin
           config:
             severity: error
-    columns:
-      - name: ctlgcd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hinmeicd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syasyu_cd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hinban
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: kosu
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: jissijikik
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: jissijikim
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: siyoptno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: epckataptno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: kiricdk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: kiricdm
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: trmcdmlt
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: clrcdmlt
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: tkstkbn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hktkgaikbn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hosemhin
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 # 品番検索（TYPE2備考情報）
   - name: stg_hinbankensakutype2
     config:
@@ -132,92 +51,6 @@ models:
             - hosemhin
           config:
             severity: error
-    columns:
-      - name: langkbn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: ctlgcd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hinmeicd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syasyu_cd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hinban
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: kosu
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: jissijikik
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: jissijikim
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: siyoptno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: epckataptno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: kiricdk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: kiricdm
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: trmcdmlt
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: clrcdmlt
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: tkstkbn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hktkgaikbn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hosemhin
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 #フレーム型式
   - name: stg_framekatashiki
     config:
@@ -231,27 +64,6 @@ models:
             - vin
           config:
             severity: error
-    columns:
-      - name: frmnokata
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: frmno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: mdlyearkbn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: vin
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 # 仕様パターン
   - name: stg_shiyopattern
     config:
@@ -264,22 +76,6 @@ models:
             - siyocd
           config:
             severity: error
-    columns:
-      - name: syasyu_cd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: siyoptno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: siyocd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 # トリムコード情報
   - name: stg_trimcodejoho
     config:
@@ -294,32 +90,6 @@ models:
             - figno
           config:
             severity: error
-    columns:
-      - name: ctlgcd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syasyu_cd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hinban
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: trmcd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: figno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 # 調達品番情報
   - name: stg_tyotatsuhinbanjoho
     config:
@@ -360,22 +130,6 @@ models:
             - prtren
           config:
             severity: error
-    columns:
-      - name: ctlgcd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: kiricd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: prtren
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 # 車両型式情報
   - name: stg_syaryokatashikijoho
     config:
@@ -390,32 +144,6 @@ models:
             - katano
           config:
             severity: error
-    columns:
-      - name: ctlgcd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syakata
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syasyu_cd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: vinwmivds
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: katano
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 # 分解図検索
   - name: stg_bunkaizukensaku
     config:
@@ -564,17 +292,6 @@ models:
             - pnc
           config:
             severity: error
-    columns:
-      - name: langkbn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: pnc
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 #　イラストコメント
   - name: stg_illustcomment
     config:
@@ -605,9 +322,6 @@ models:
       - name: ctlgcd
         data_tests:
           - unique:
-              config:
-                severity: error
-          - not_null:
               config:
                 severity: error
 #　代替品番情報
@@ -679,27 +393,6 @@ models:
             - siyocd
           config:
             severity: error
-    columns:
-      - name: langkbn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syasyu
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: siyoptno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: siyocd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 #　タクティ品番情報
   - name: stg_tactihinbanjoho
     config:

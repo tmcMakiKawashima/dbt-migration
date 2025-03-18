@@ -1,6 +1,6 @@
 with
-    tmp10_dm_cataloghinmei as (
-        select * from {{ ref('tmp10_dm_cataloghinmei') }}
+    tmp15_dm_cataloghinmei as (
+        select * from {{ ref('tmp15_dm_cataloghinmei') }}
     ),
     stg_hinbankensakutype1 as (
         select
@@ -25,24 +25,24 @@ with
         from {{ ref('stg_hinbankensakutype1') }} -- 品番検索Type1
     )
 select
-    tmp10_dm_cataloghinmei.*,
+    tmp15_dm_cataloghinmei.*,
     stg_hinbankensakutype1.siyocdmlt,
     stg_hinbankensakutype1.katanomlt
-from tmp10_dm_cataloghinmei
+from tmp15_dm_cataloghinmei
 inner join stg_hinbankensakutype1
-  on tmp10_dm_cataloghinmei.ctlgcd = stg_hinbankensakutype1.ctlgcd
- and tmp10_dm_cataloghinmei.hinmeicd = stg_hinbankensakutype1.hinmeicd
- and tmp10_dm_cataloghinmei.syasyu_cd = stg_hinbankensakutype1.syasyu_cd
- and tmp10_dm_cataloghinmei.hinban = stg_hinbankensakutype1.hinban
- and tmp10_dm_cataloghinmei.kosu = stg_hinbankensakutype1.kosu
- and tmp10_dm_cataloghinmei.jissijikik = stg_hinbankensakutype1.jissijikik
- and tmp10_dm_cataloghinmei.jissijikim = stg_hinbankensakutype1.jissijikim
- and tmp10_dm_cataloghinmei.siyoptno = stg_hinbankensakutype1.siyoptno
- and tmp10_dm_cataloghinmei.epckataptno = stg_hinbankensakutype1.epckataptno
- and tmp10_dm_cataloghinmei.kiricdk = stg_hinbankensakutype1.kiricdk
- and tmp10_dm_cataloghinmei.kiricdm = stg_hinbankensakutype1.kiricdm
- and tmp10_dm_cataloghinmei.trmcdmlt = stg_hinbankensakutype1.trmcdmlt
- and tmp10_dm_cataloghinmei.clrcdmlt = stg_hinbankensakutype1.clrcdmlt
- and tmp10_dm_cataloghinmei.tkstkbn = stg_hinbankensakutype1.tkstkbn
- and tmp10_dm_cataloghinmei.hktkgaikbn = stg_hinbankensakutype1.hktkgaikbn
- and tmp10_dm_cataloghinmei.hosemhin = stg_hinbankensakutype1.hosemhin
+  on tmp15_dm_cataloghinmei.ctlgcd = stg_hinbankensakutype1.ctlgcd
+ and tmp15_dm_cataloghinmei.hinmeicd = stg_hinbankensakutype1.hinmeicd
+ and tmp15_dm_cataloghinmei.syasyu_cd = stg_hinbankensakutype1.syasyu_cd
+ and tmp15_dm_cataloghinmei.hinban = stg_hinbankensakutype1.hinban
+ and tmp15_dm_cataloghinmei.kosu = stg_hinbankensakutype1.kosu
+ and tmp15_dm_cataloghinmei.jissijikik = stg_hinbankensakutype1.jissijikik
+ and tmp15_dm_cataloghinmei.jissijikim = stg_hinbankensakutype1.jissijikim
+ and tmp15_dm_cataloghinmei.siyoptno = stg_hinbankensakutype1.siyoptno
+ and tmp15_dm_cataloghinmei.epckataptno = stg_hinbankensakutype1.epckataptno
+ and tmp15_dm_cataloghinmei.kiricdk = stg_hinbankensakutype1.kiricdk
+ and tmp15_dm_cataloghinmei.kiricdm = stg_hinbankensakutype1.kiricdm
+ and tmp15_dm_cataloghinmei.trmcdmlt = stg_hinbankensakutype1.trmcdmlt
+ and tmp15_dm_cataloghinmei.clrcdmlt = stg_hinbankensakutype1.clrcdmlt
+ and tmp15_dm_cataloghinmei.tkstkbn = stg_hinbankensakutype1.tkstkbn
+ and tmp15_dm_cataloghinmei.hktkgaikbn = stg_hinbankensakutype1.hktkgaikbn
+ and tmp15_dm_cataloghinmei.hosemhin = stg_hinbankensakutype1.hosemhin

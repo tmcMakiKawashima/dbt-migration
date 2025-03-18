@@ -5,7 +5,10 @@ To add a daily schedule that materializes your dbt assets, uncomment the followi
 """ D """
 """ administration """
 from .schedules_items.administration.public.schedule_stg_mikado_nyutaijo import schedule_stg_mikado_nyutaijo
+from .schedules_items.administration.public.schedule_stg_mikado_jnet_0645 import schedule_stg_mikado_jnet_0645
+from .schedules_items.administration.public.schedule_stg_mikado_jnet_0715 import schedule_stg_mikado_jnet_0715
 """ customerservice """
+from .schedules_items.customerservice.public.schedule_d_sias import schedule_d_sias
 from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
 """ engineering """
 from .schedules_items.engineering.public.schedule_stg_paint_iot import schedule_stg_paint_iot
@@ -16,15 +19,20 @@ from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import sch
 from .schedules_items.supplydemand.public.schedule_stg_aqua import schedule_stg_aqua
 from .schedules_items.supplydemand.public.schedule_stg_dly_rpt_mst import schedule_stg_dly_rpt_mst
 from .schedules_items.supplydemand.public.schedule_stg_dly_rpt import schedule_stg_dly_rpt
+from .schedules_items.supplydemand.public.schedule_stg_galc_kpi import schedule_stg_galc_kpi
 from .schedules_items.supplydemand.public.schedule_stg_syaryoindex import schedule_stg_syaryoindex
 from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_stg_vlt_ord
 """ valuechain """
 from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
-from .schedules_items.valuechain.public.schedule_stg_t_linx_epc import schedule_stg_t_linx_epc
-
+from .schedules_items.valuechain.public.schedule_d_gsps import schedule_d_gsps
 """ E """
+""" model repair """
+from .schedules_items.model.repair.schedule_dm_figbunkaiinfo import schedule_dm_figbunkaiinfo
+from .schedules_items.model.repair.schedule_dm_vehicle_generation import schedule_dm_vehicle_generation
 """ vinhis maint """
 from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
+""" vinhis model """
+from .schedules_items.vinhis.model.schedule_dm_vin_model import schedule_dm_vin_model
 """ vinhis spec """
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kaigai import schedule_dm_vinhis_specification_kaigai
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kokunai import schedule_dm_vinhis_specification_kokunai
@@ -46,7 +54,12 @@ schedules = []
 """ administration """
 # MIKADO
 schedules.append(schedule_stg_mikado_nyutaijo)
+# MIKADO JNET
+schedules.append(schedule_stg_mikado_jnet_0645)
+schedules.append(schedule_stg_mikado_jnet_0715)
 """ customerservice """
+# D層SIAS
+schedules.append(schedule_d_sias)
 # ワランティ
 schedules.append(schedule_stg_warranty)
 """ engineering """
@@ -63,6 +76,8 @@ schedules.append(schedule_stg_aqua)
 # 生産日報STEP3
 schedules.append(schedule_stg_dly_rpt_mst)
 schedules.append(schedule_stg_dly_rpt)
+# 物流管理KPI(GALC_KPI)
+schedules.append(schedule_stg_galc_kpi)
 # 車両INDEX
 schedules.append(schedule_stg_syaryoindex)
 # VLTオーダー確定日チェックEUC
@@ -70,13 +85,20 @@ schedules.append(schedule_stg_vlt_ord)
 """ valuechain """
 # 補給品番基本情報提供
 schedules.append(schedule_d_epc)
-# T-LINX_EPC
-schedules.append(schedule_stg_t_linx_epc)
-
+# D層GSPS
+schedules.append(schedule_d_gsps)
 """ E層作成ジョブ """
+""" model repair """
+# FIG分解情報
+schedules.append(schedule_dm_figbunkaiinfo)
+# 車種世代
+schedules.append(schedule_dm_vehicle_generation)
 """ vinhis maint """
 # VIN整備
 schedules.append(schedule_dm_vinhis_maint)
+""" vinhis model """
+# VIN x 車両情報
+schedules.append(schedule_dm_vin_model)
 """ vinhis spec """
 # VIN装備
 schedules.append(schedule_dm_vinhis_specification_kaigai)
