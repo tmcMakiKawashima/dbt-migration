@@ -4,7 +4,7 @@ from dagster_dbt import build_schedule_from_dbt_selection
 from pathlib import Path
 import sys
 sys.path.append(str(Path(__file__).resolve().parent.parent))
- 
+
 # 物流管理KPI
 schedule_stg_galc_kpi = build_schedule_from_dbt_selection(
     [dbt_products_assets],
@@ -28,7 +28,7 @@ schedule_stg_galc_kpi = build_schedule_from_dbt_selection(
                                                       "source:*,+stg_hostalc_allsfvam"])
                           }
                      ),
- 
+
     tags={"ecs/cpu": "256", "ecs/memory": "1024",
           "job_name": "job_build_stg_galc_kpi"},
 )
