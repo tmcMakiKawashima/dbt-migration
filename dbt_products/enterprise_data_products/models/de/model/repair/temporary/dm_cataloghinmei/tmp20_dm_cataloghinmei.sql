@@ -1,46 +1,49 @@
 with
-    tmp15_dm_cataloghinmei as (
-        select * from {{ ref('tmp15_dm_cataloghinmei') }}
+    tmp10_dm_cataloghinmei as (
+        select * from {{ ref('tmp10_dm_cataloghinmei') }}
     ),
-    stg_hinbankensakutype1 as (
+    stg_syaryokatashikijoho as (
         select
             ctlgcd, -- カタログコード
-            hinmeicd, -- 品名コード
+            syakata, -- 車両型式
             syasyu_cd, -- 車種コード
-            hinban, -- 品番
-            kosu, -- 個数(検索)
             jissijikik, -- 実施時期カラ
             jissijikim, -- 実施時期マデ
-            siyoptno, -- 仕様パターンNO
-            epckataptno, -- EPC型式パターンNO
-            kiricdk, -- 切替コードカラ
-            kiricdm, -- 切替コードマデ
-            trmcdmlt, -- トリムコード(複数)
-            clrcdmlt, -- カラーコード(複数)
-            tkstkbn, -- 特設区分
-            hktkgaikbn, -- 引当適用外区分
-            hosemhin, -- ホース元品番
-            katanomlt -- 型式NO(複数)
-        from {{ ref('stg_hinbankensakutype1') }} -- 品番検索Type1
+            frmnokata, -- フレームNO型式
+            katano, -- 型式NO
+            katatokukg1, -- 型式特徴記号1
+            katatokukg2, -- 型式特徴記号2
+            katatokukg3, -- 型式特徴記号3
+            katatokukg4, -- 型式特徴記号4
+            katatokukg5, -- 型式特徴記号5
+            katatokukg6, -- 型式特徴記号6
+            katatokukg7 -- 型式特徴記号7
+        from {{ ref('stg_syaryokatashikijoho') }} -- 車両型式情報
+        group by all
+    ),
+    stg_syamei as (
+        select
+            ctlgcd, -- カタログコード
+            syamei, -- 車名
+            syameizen, -- 車名(全角)
+            syameizenkana, -- 車名(全角)カナ
+            daikata, -- 代表型式
+            seisank, -- 生産年月カラ
+            seisanm, -- 生産年月マデ
+            lexusflg, -- レクサス車フラグ
+            prts1kbn, -- 1品番絞り込み区分
+            tksyuflg -- 特殊車フラグ
+        from {{ ref('stg_syamei') }} -- 車名
     )
 select
-    tmp15_dm_cataloghinmei.*,
-    stg_hinbankensakutype1.katanomlt
-from tmp15_dm_cataloghinmei
-inner join stg_hinbankensakutype1
-  on tmp15_dm_cataloghinmei.ctlgcd = stg_hinbankensakutype1.ctlgcd
- and tmp15_dm_cataloghinmei.hinmeicd = stg_hinbankensakutype1.hinmeicd
- and tmp15_dm_cataloghinmei.syasyu_cd = stg_hinbankensakutype1.syasyu_cd
- and tmp15_dm_cataloghinmei.hinban = stg_hinbankensakutype1.hinban
- and tmp15_dm_cataloghinmei.kosu = stg_hinbankensakutype1.kosu
- and tmp15_dm_cataloghinmei.jissijikik = stg_hinbankensakutype1.jissijikik
- and tmp15_dm_cataloghinmei.jissijikim = stg_hinbankensakutype1.jissijikim
- and tmp15_dm_cataloghinmei.siyoptno = stg_hinbankensakutype1.siyoptno
- and tmp15_dm_cataloghinmei.epckataptno = stg_hinbankensakutype1.epckataptno
- and tmp15_dm_cataloghinmei.kiricdk = stg_hinbankensakutype1.kiricdk
- and tmp15_dm_cataloghinmei.kiricdm = stg_hinbankensakutype1.kiricdm
- and tmp15_dm_cataloghinmei.trmcdmlt = stg_hinbankensakutype1.trmcdmlt
- and tmp15_dm_cataloghinmei.clrcdmlt = stg_hinbankensakutype1.clrcdmlt
- and tmp15_dm_cataloghinmei.tkstkbn = stg_hinbankensakutype1.tkstkbn
- and tmp15_dm_cataloghinmei.hktkgaikbn = stg_hinbankensakutype1.hktkgaikbn
- and tmp15_dm_cataloghinmei.hosemhin = stg_hinbankensakutype1.hosemhin
+    tmp10_dm_cataloghinmei.*,
+    stg_syaryokatashikijoho.* exclude (ctlgcd, syasyu_cd, jissijikik, jissijikim),
+    stg_syamei.* exclude (ctlgcd)
+from tmp10_dm_cataloghinmei
+inner join stg_syaryokatashikijoho
+  on tmp10_dm_cataloghinmei.ctlgcd = stg_syaryokatashikijoho.ctlgcd
+ and tmp10_dm_cataloghinmei.syasyu_cd = stg_syaryokatashikijoho.syasyu_cd
+ and tmp10_dm_cataloghinmei.jissijikik = stg_syaryokatashikijoho.jissijikik
+ and tmp10_dm_cataloghinmei.jissijikim = stg_syaryokatashikijoho.jissijikim
+inner join stg_syamei
+  on tmp10_dm_cataloghinmei.ctlgcd = stg_syamei.ctlgcd
