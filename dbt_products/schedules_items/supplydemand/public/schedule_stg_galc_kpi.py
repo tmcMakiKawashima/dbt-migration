@@ -12,7 +12,7 @@ schedule_stg_galc_kpi = build_schedule_from_dbt_selection(
     schedule_name="GALC_KPI",
     cron_schedule="00 23 * * *",
     execution_timezone="Asia/Tokyo",
- 
+
     dbt_select="+file:stg_hostalc_1?_erasure_achievements +file:stg_hostalc_1?_production_progress +file:stg_hostalc_1?_reject_vehicle +file:stg_hostalc_1?_vehicle_specification +file:stg_hostalc_1?_virtual_line +stg_hostalc_allsfh +stg_hostalc_allsfp +stg_hostalc_allsfl +stg_hostalc_allsft +stg_hostalc_allsfvam",
     config=RunConfig(ops={"dbt_products_assets":
                           DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_galc_kpi"},
