@@ -12,9 +12,9 @@ with stg_chiikimaster as (
         to_number(bodetectionflag,1,0)::number(1,0) as bodetectionflag,
         areanamejp::varchar(64) as areanamejp, 
         createuserid::varchar(15) as createuserid, 
-        to_timestamp(createdatetime,'YYYY-MM-DD HH24:MI:SS.FF6')::timestamp(6) as createdatetime,
+        to_timestamp(createdatetime,'yyyy-mm-dd hh24:mi:ss.ff6')::timestamp(6) as createdatetime,
         updateuserid::varchar(15) as updateuserid,
-        to_timestamp(updatedatetime,'YYYY-MM-DD HH24:MI:SS.FF6')::timestamp(6) as updatedatetime,
+        to_timestamp(updatedatetime,'yyyy-mm-dd hh24:mi:ss.ff6')::timestamp(6) as updatedatetime,
         ldts::timestamp_ntz(9) as ldts,
         row_number() over (
             partition by areacd
