@@ -20,6 +20,6 @@ with dm_yousi_all as (
         eciyousijp::varchar(25) as eciyousijp, -- 要旨日本語
         eciyousien::varchar(50) as eciyousien, -- 要旨英語
         current_timestamp()::timestamp_ntz(9) as load_date -- 最終更新日時
-    from {{ source('engineering_db_public', 'raw_stg_eci_yousi') }}
+    from {{ ref('stg_eci_yousi') }}
 )
 select * from dm_yousi_all
