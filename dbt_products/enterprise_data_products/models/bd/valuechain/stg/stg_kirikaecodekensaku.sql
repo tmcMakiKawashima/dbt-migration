@@ -18,9 +18,9 @@
 with stg_kirikaecodekensaku as (
     select
         mntkbn::varchar(1) as mntkbn, 
-        ctlgcd::varchar(6) as ctlgcd, 
-        kiricd::varchar(4) as kiricd, 
-        prtren::varchar(3) as prtren, 
+        rtrim(ctlgcd, ' 　')::varchar(6) as ctlgcd, 
+        rtrim(kiricd, ' 　')::varchar(4) as kiricd, 
+        rtrim(prtren, ' 　')::varchar(3) as prtren, 
         datakbn::varchar(1) as datakbn, 
         frmnok::varchar(20) as frmnok, 
         frmnom::varchar(20) as frmnom, 
