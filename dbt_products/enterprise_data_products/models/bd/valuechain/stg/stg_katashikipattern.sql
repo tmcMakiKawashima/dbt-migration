@@ -1,8 +1,8 @@
 with stg_katashikipattern as (
     select
         mntkbn::varchar(1) as mntkbn, 
-        ctlgcd::varchar(6) as ctlgcd, 
-        epckataptno::varchar(6) as epckataptno, 
+        rtrim(ctlgcd,' 　')::varchar(6) as ctlgcd, 
+        rtrim(epckataptno,' 　')::varchar(6) as epckataptno, 
         rtrim(katano,' 　')::varchar(3) as katano, -- 右blank
         ldts, --B層取込日時
         line_number,
