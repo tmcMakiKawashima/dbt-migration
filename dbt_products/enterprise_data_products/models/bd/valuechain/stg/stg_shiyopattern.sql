@@ -14,9 +14,9 @@
 with stg_shiyopattern as (
     select
         mntkbn::varchar(1) as mntkbn, 
-        syasyu_cd::varchar(4) as syasyu_cd, 
-        siyoptno::varchar(4) as siyoptno, 
-        siyocd::varchar(4) as siyocd, 
+        rtrim(syasyu_cd, ' 　')::varchar(4) as syasyu_cd, 
+        rtrim(siyoptno, ' 　')::varchar(4) as siyoptno, 
+        rtrim(siyocd, ' 　')::varchar(4) as siyocd, 
         ldts, -- b層のldts
         rank() over (
                 partition by
