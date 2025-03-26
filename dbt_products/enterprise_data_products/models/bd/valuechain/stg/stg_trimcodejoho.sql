@@ -16,11 +16,11 @@
 with stg_trimcodejoho as (
     select
         mntkbn::varchar(1) as mntkbn, 
-        ctlgcd::varchar(6) as ctlgcd, 
-        syasyu_cd::varchar(4) as syasyu_cd, 
-        hinban::varchar(12) as hinban, 
-        trmcd::varchar(2) as trmcd, 
-        figno::varchar(4) as figno, 
+        rtrim(ctlgcd, ' 　')::varchar(6) as ctlgcd, 
+        rtrim(syasyu_cd, ' 　')::varchar(4) as syasyu_cd, 
+        rtrim(hinban, ' 　')::varchar(12) as hinban, 
+        rtrim(trmcd, ' 　')::varchar(2) as trmcd, 
+        rtrim(figno, ' 　')::varchar(4) as figno, 
         ldts, -- b層のldts
         rank() over (
                 partition by
