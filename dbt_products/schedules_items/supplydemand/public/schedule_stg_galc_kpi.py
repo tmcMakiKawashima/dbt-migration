@@ -9,7 +9,7 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 schedule_stg_galc_kpi = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_stg_galc_kpi",
-    schedule_name="GLAC_KPI",
+    schedule_name="GALC_KPI",
     cron_schedule="00 23 * * *",
     execution_timezone="Asia/Tokyo",
 
