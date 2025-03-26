@@ -3,7 +3,7 @@ with
         select
             parse_json(response_json) as response_json
         from
-            {{ source("engineering_db_public", "raw_tmp_sms_api_parts_info_res_json") }}
+            {{ source('engineering_db_public', 'raw_tmp_sms_api_parts_info_res_json') }}
     ),
     tmp_sms_api_parts_info_res_relational as (
         -- JSON element names are case-sensitive.
