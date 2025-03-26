@@ -21,7 +21,7 @@
 with stg_syamei as (
     select
         mntkbn::varchar(1) as mntkbn, 
-        ctlgcd::varchar(6) as ctlgcd, 
+        rtrim(ctlgcd,' 　')::varchar(6) as ctlgcd, 
         syamei::varchar(30) as syamei, 
         syameizen::varchar(120) as syameizen, 
         syameizenkana::varchar(120) as syameizenkana, 
