@@ -8,7 +8,7 @@ with
                 )
             ) as hinbanList
         from
-            {{ ref("tmp_sms_api_parts_info_tartget_hinban") }}
+            {{ ref('tmp_sms_api_parts_info_tartget_hinban') }}
     ),
     tmp_sms_api_parts_info_req_json as (
         -- JSON element names are case-sensitive.
