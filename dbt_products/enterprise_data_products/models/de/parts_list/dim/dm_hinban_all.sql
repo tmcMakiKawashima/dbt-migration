@@ -40,8 +40,7 @@ with hin as(
         cond,--Condition
         mototaio,--元対応
         ninsyo--認証
-    from {{source('engineering_db_public', 'raw_stg_eci_hinban') }}
-    --from {{ref('stg_eci_hinban')}}
+    from {{ref('stg_eci_hinban')}}
 ),stz as(
     select
         seppenno,--設変№
@@ -69,12 +68,33 @@ with hin as(
         gojitu9,--後日出図予定日9
         rddp10,--RDDP№10
         gojitu10--後日出図予定日10
-    from {{source('engineering_db_public', 'raw_stg_eci_syutuzu') }}
---from {{ref('stg_eci_syutuzu')}}
+    from {{ref('stg_eci_syutuzu')}}
 )
 select
     hin.*,
-    stz.* exclude(seppenno,jun) ,
+    coalesce(stz.kokunaizu, rpad('', 2))::varchar(2) as kokunaizu,
+    coalesce(stz.kaigaizu, rpad('', 2))::varchar(2) as kaigaizu,
+    coalesce(stz.cadzu, rpad('', 2))::varchar(2) as cadzu,
+    coalesce(stz.rddp1, rpad('', 10))::varchar(10) as rddp1,
+    coalesce(stz.gojitu1, rpad('', 8))::varchar(8) as gojitu1,
+    coalesce(stz.rddp2, rpad('', 10))::varchar(10) as rddp2,
+    coalesce(stz.gojitu2, rpad('', 8))::varchar(8) as gojitu2,
+    coalesce(stz.rddp3, rpad('', 10))::varchar(10) as rddp3,
+    coalesce(stz.gojitu3, rpad('', 8))::varchar(8) as gojitu3,
+    coalesce(stz.rddp4, rpad('', 10))::varchar(10) as rddp4,
+    coalesce(stz.gojitu4, rpad('', 8))::varchar(8) as gojitu4,
+    coalesce(stz.rddp5, rpad('', 10))::varchar(10) as rddp5,
+    coalesce(stz.gojitu5, rpad('', 8))::varchar(8) as gojitu5,
+    coalesce(stz.rddp6, rpad('', 10))::varchar(10) as rddp6,
+    coalesce(stz.gojitu6, rpad('', 8))::varchar(8) as gojitu6,
+    coalesce(stz.rddp7, rpad('', 10))::varchar(10) as rddp7,
+    coalesce(stz.gojitu7, rpad('', 8))::varchar(8) as gojitu7,
+    coalesce(stz.rddp8, rpad('', 10))::varchar(10) as rddp8,
+    coalesce(stz.gojitu8, rpad('', 8))::varchar(8) as gojitu8,
+    coalesce(stz.rddp9, rpad('', 10))::varchar(10) as rddp9,
+    coalesce(stz.gojitu9, rpad('', 8))::varchar(8) as gojitu9,
+    coalesce(stz.rddp10, rpad('', 10))::varchar(10) as rddp10,
+    coalesce(stz.gojitu10, rpad('', 8))::varchar(8) as gojitu10,
     current_timestamp()::timestamp_ntz(9) as load_date -- 最終更新日時
 from hin
 left join stz
