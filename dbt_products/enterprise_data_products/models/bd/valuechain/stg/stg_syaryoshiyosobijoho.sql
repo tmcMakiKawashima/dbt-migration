@@ -18,10 +18,10 @@
 with stg_syaryoshiyosobijoho as (
     select
         mntkbn::varchar(1) as mntkbn, 
-        langkbn::varchar(3) as langkbn, 
-        syasyu::varchar(4) as syasyu, 
-        siyoptno::varchar(4) as siyoptno, 
-        siyocd::varchar(4) as siyocd, 
+        rtrim(langkbn,' 　')::varchar(3) as langkbn, 
+        rtrim(syasyu,' 　')::varchar(4) as syasyu, 
+        rtrim(siyoptno,' 　')::varchar(4) as siyoptno, 
+        rtrim(siyocd,' 　')::varchar(4) as siyocd, 
         dispseq::varchar(3) as dispseq, 
         rtrim(siyodaibnrmei,' 　')::varchar(320) as siyodaibnrmei, -- 右blank
         rtrim(siyosaimokumei,' 　')::varchar(320) as siyosaimokumei, -- 右blank 
