@@ -3,6 +3,29 @@ version: 2
 models:
 # 設変書出図情報
   - name: stg_eci_syutuzu
+      config:
+        tags: ["gijutsu_sms"]
+
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - seppenno
+            - jun
+          config:
+            severity: error
+    columns:
+      - name: seppenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 設変書品番欄情報
+  - name: stg_eci_hinban
     config:
         tags: ["gijutsu_sms"]
 
