@@ -1,8 +1,8 @@
 with stg_illustcomment as (
     select
         mntkbn::varchar(1) as mntkbn, 
-        langkbn::varchar(3) as langkbn, 
-        ilstcmtno::varchar(5) as ilstcmtno, 
+        rtrim(langkbn,' 　')::varchar(3) as langkbn, 
+        rtrim(ilstcmtno,' 　')::varchar(5) as ilstcmtno, 
         rtrim(ilstcmt,' 　')::varchar(140) as ilstcmt,  -- 右blank
         ldts, --B層取込日時
         line_number,
