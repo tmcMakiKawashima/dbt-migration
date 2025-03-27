@@ -30,7 +30,7 @@ from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_v
 """ vinhis model """
 from .schedules_items.vinhis.model.schedule_dm_vin_model import schedule_dm_vin_model
 """ vinhis spec """
-from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_union import schedule_dm_vinhis_specification
+from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification import schedule_dm_vinhis_specification
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kaigai import schedule_dm_vinhis_specification_kaigai
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kokunai import schedule_dm_vinhis_specification_kokunai
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_oem import schedule_dm_vinhis_specification_oem
