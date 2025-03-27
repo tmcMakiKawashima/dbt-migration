@@ -23,12 +23,12 @@
 with
     stg_riyopubmaster2 as (
         select
-            no_ofr_alt_pub::varchar(16) as no_ofr_alt_pub, 
+            rtrim(no_ofr_alt_pub,' 　')::varchar(16) as no_ofr_alt_pub, -- 右blank
             rtrim(cd_pubbnd,' 　')::varchar(6) as cd_pubbnd, -- 右blank
             no_pub::varchar(10) as no_pub, 
             no_pub_termfrid::varchar(3) as no_pub_termfrid, 
             kb_lang::varchar(1) as kb_lang, 
-            dd_pub_trmfrym::varchar(6) as dd_pub_trmfrym, 
+            rtrim(dd_pub_trmfrym,' 　')::varchar(6) as dd_pub_trmfrym, -- 右blank
             kb_pub_type::varchar(1) as kb_pub_type, 
             kb_cont_type::varchar(2) as kb_cont_type, 
             cd_trgt::varchar(1) as cd_trgt, 
