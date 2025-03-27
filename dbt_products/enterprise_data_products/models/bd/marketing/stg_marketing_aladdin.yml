@@ -1,0 +1,63 @@
+version: 2
+
+models:
+#　発行承認管理
+  - name: stg_hakkosyonin
+    config:
+      tags: ["aladdin"]
+    columns:
+      - name: hanbaino
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 販売引当
+  - name: stg_hanbaihikiate
+    config:
+      tags: ["aladdin"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hanbaino
+            - kosyokata
+            - suffix_code
+            - shiyoudai
+            - shiyousai
+            - hkata
+          config:
+            severity: error
+
+    columns:
+      - name: hanbaino
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kosyokata
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: suffix_code
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shiyoudai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shiyousai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkata
+        data_tests:
+          - not_null:
+              config:
+                severity: error 

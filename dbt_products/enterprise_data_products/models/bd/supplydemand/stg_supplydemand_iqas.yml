@@ -1,0 +1,99 @@
+version: 2
+
+models:
+# 部品シリアル№
+  - name: stg_buhinserialno
+    config:
+      tags: ["iqas"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - index_cls
+            - syadai_kt
+            - frmno
+            - wmi
+            - vds
+            - vis
+            - parts_id
+            - parts_repl_seq
+          config:
+            severity: error
+
+    columns:
+      - name: index_cls
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syadai_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 生産実績
+  - name: stg_seisanjisseki
+    config:
+      tags: ["iqas"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - index_cls
+            - syadai_kt
+            - frmno
+            - wmi
+            - vds
+            - vis
+          config:
+            severity: error
+    columns:
+      - name: index_cls
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syadai_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 車両INDEX
+  - name: stg_syaryoindex
+    config:
+      tags: ["iqas"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - index_cls
+            - syadai_kt
+            - frmno
+            - wmi
+            - vds
+            - vis
+          config:
+            severity: error
+    columns:
+      - name: index_cls
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syadai_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        data_tests:
+          - not_null:
+              config:
+                severity: error

@@ -1,0 +1,49 @@
+version: 2
+
+models:
+# スペック名称
+  - name: stg_specname
+    config:
+      tags: ["spec"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu
+            - shiyodai
+            - shiyosai
+            - sketa
+            - skigo
+            - sijikara
+          config:
+            severity: error
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shiyodai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shiyosai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sketa
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: skigo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sijikara
+        data_tests:
+          - not_null:
+              config:
+                severity: error
