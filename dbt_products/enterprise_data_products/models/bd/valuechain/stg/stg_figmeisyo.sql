@@ -1,8 +1,8 @@
 with stg_figmeisyo as (
     select
         mntkbn::varchar(1) as mntkbn, 
-        langkbn::varchar(3) as langkbn, 
-        figno::varchar(4) as figno, 
+        rtrim(langkbn,' 　')::varchar(3) as langkbn, 
+        rtrim(figno,' 　')::varchar(4) as figno, 
         rtrim(figmei,' 　')::varchar(240) as figmei,  -- 右blank
         ldts, --B層取込日時
         line_number,
