@@ -3,7 +3,7 @@ version: 2
 models:
 # 設変書出図情報
   - name: stg_eci_syutuzu
-      config:
+    config:
         tags: ["gijutsu_sms"]
 
     data_tests:
