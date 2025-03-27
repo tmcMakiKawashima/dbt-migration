@@ -11,5 +11,7 @@ sources:
    
     tables:
     # 設変情報追加　認証不正対応
+      - name: raw_cyp17ecisyutuzu
+        identifier: cyp17ecisyutuzu
       - name: raw_cyp17ecihinban
         identifier: cyp17ecihinban
