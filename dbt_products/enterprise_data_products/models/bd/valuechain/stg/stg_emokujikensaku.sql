@@ -1,9 +1,9 @@
 with stg_emokujikensaku as (
     select
         mntkbn::varchar(1) as mntkbn,
-        rtrim(ctlgcd,' 　')::varchar(6) as ctlgcd,
-        rtrim(emkjgrpcd,' 　')::varchar(1) as emkjgrpcd,
-        rtrim(figno,' 　')::varchar(4) as figno,
+        rtrim(ctlgcd,' 　')::varchar(6) as ctlgcd, -- 右blank
+        rtrim(emkjgrpcd,' 　')::varchar(1) as emkjgrpcd, -- 右blank
+        rtrim(figno,' 　')::varchar(4) as figno, -- 右blank
         rtrim(hansno,' 　')::varchar(7) as hansno, -- 右blank
         emkjimgflmei::varchar(20) as emkjimgflmei,
         ldts, -- b層のldts
