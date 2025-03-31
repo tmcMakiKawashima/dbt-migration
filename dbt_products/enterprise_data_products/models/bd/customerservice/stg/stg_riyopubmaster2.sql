@@ -19,6 +19,7 @@
             ) as select * from {{this}}'
     )
 }}
+--ハイブリッドテーブルに変更
 
 with
     stg_riyopubmaster2 as (
