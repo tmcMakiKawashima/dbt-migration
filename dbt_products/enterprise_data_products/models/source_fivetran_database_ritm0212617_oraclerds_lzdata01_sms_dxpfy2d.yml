@@ -1,0 +1,103 @@
+sources:
+  - name: fivetran_database_ritm0212617_oraclerds_lzdata01_sms_dxpfy2d
+    database: fivetran_database_ritm0212617
+    schema: oraclerds_lzdata01_sms_dxpfy2d
+   
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: _fivetran_synced
+
+    tables:
+      - name: raw_cyp23colorno
+        identifier: CYP23COLORNO
+        columns:
+          - name: gclrno
+            data_tests:
+              - fixed_length:
+                  length: 6
+        columns:
+          - name: datakbn
+            data_tests:
+              - fixed_length:
+                  length: 1
+        columns:
+          - name: syukan
+            data_tests:
+              - fixed_length:
+                  length: 2
+        columns:
+          - name: iromei
+            data_tests:
+              - fixed_length:
+                  length: 25
+        columns:
+          - name: oclrno
+            data_tests:
+              - fixed_length:
+                  length: 20
+        columns:
+          - name: clrkumi
+            data_tests:
+              - fixed_length:
+                  length: 18
+        columns:
+          - name: kihon
+            data_tests:
+              - fixed_length:
+                  length: 6
+        columns:
+          - name: hyohimei
+            data_tests:
+              - fixed_length:
+                  length: 30
+        columns:
+          - name: sozai
+            data_tests:
+              - fixed_length:
+                  length: 30
+        columns:
+          - name: maker
+            data_tests:
+              - fixed_length:
+                  length: 10
+        columns:
+          - name: siyobui
+            data_tests:
+              - fixed_length:
+                  length: 30
+        columns:
+          - name: ruikbn
+            data_tests:
+              - fixed_length:
+                  length: 1
+        columns:
+          - name: yoteijiki
+            data_tests:
+              - fixed_length:
+                  length: 8
+        columns:
+          - name: ssyasyu
+            data_tests:
+              - fixed_length:
+                  length: 4
+        columns:
+          - name: ssyamei
+            data_tests:
+              - fixed_length:
+                  length: 10
+        columns:
+          - name: skaisya
+            data_tests:
+              - fixed_length:
+                  length: 5
+        columns:
+          - name: sbusyo
+            data_tests:
+              - fixed_length:
+                  length: 10
+        columns:
+          - name: ssya
+            data_tests:
+              - fixed_length:
+                  length: 20
