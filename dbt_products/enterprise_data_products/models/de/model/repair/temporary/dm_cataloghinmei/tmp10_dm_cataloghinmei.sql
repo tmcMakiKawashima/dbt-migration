@@ -42,7 +42,8 @@ with
         from {{ ref('stg_hinbankensakutype2')}} -- 品番検索Type2
     )
 select
-    stg_hinbankensakutype1.katanomlt, stg_hinbankensakutype1.ctlgcd,
+    stg_hinbankensakutype1.katanomlt,
+    stg_hinbankensakutype1.ctlgcd,
     stg_hinbankensakutype2.* exclude (ctlgcd)
 from stg_hinbankensakutype1
 inner join stg_hinbankensakutype2
