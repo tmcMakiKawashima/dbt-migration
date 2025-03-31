@@ -26,6 +26,8 @@ from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
 """ E """
 """ model repair """
 from .schedules_items.model.repair.schedule_dm_figbunkaiinfo import schedule_dm_figbunkaiinfo
+""" parts_list seppen """
+from .schedules_items.model.repair.schedule_dm_seppen_bunseki import schedule_dm_seppen_bunseki
 """ vinhis maint """
 from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
 """ vinhis model """
@@ -84,6 +86,9 @@ schedules.append(schedule_d_epc)
 """ model repair """
 # FIG分解情報
 schedules.append(schedule_dm_figbunkaiinfo)
+""" parts_list seppen """
+# 認証不正防止対応(設変分析)
+schedules.append(schedule_dm_seppen_bunseki)
 """ vinhis maint """
 # VIN整備
 schedules.append(schedule_dm_vinhis_maint)
