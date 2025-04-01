@@ -23,26 +23,6 @@ models:
           - not_null:
               config:
                 severity: error
-      - name: eciyousijp
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: eciyousien
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: mttime
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: ldts
-        data_tests:
-          - not_null:
-              config:
-                severity: error
 # 設変No.管理						
   - name: stg_eci_seppenkan
     config:
@@ -64,4 +44,5 @@ models:
         data_tests:
           - not_null:
               config:
+                severity: error
                 severity: error
