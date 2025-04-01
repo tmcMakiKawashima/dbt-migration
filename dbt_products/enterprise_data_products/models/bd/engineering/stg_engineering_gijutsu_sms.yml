@@ -23,6 +23,28 @@ models:
           - not_null:
               config:
                 severity: error
+# 設変No.管理						
+  - name: stg_eci_seppenkan
+    config:
+      tags: ["gijutsu_sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - seppenno
+            - jigyoutai
+          config:
+            severity: error
+    columns:
+      - name: seppenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jigyoutai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
 # 設変書タイトル
   - name: stg_eci_title
     config:
