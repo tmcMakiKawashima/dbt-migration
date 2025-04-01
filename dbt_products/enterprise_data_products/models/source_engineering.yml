@@ -6,4 +6,4 @@ sources:
     schema: public
     tables:
       - name: raw_tmp_m_cyp16ecizokusei
-        identifier: tmp_m_cyp16ecizokusei_300_test
+        identifier: tmp_m_cyp16ecizokusei
