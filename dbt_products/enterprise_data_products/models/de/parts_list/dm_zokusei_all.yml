@@ -1,0 +1,15 @@
+version: 2
+models:
+# 設変書基本情報(ALL)
+  - name: dm_zokusei_all
+    config:
+      tags: ["gijutsu_sms"]
+    columns:
+      - name: seppenno
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
