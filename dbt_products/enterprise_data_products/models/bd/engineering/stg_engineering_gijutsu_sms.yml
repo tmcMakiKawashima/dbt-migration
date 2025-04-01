@@ -45,3 +45,16 @@ models:
           - not_null:
               config:
                 severity: error
+# 設変書タイトル
+  - name: stg_eci_title
+    config:
+      tags: ["gijutsu_sms"]
+    columns:
+      - name: seppenno
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
