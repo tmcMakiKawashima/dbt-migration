@@ -12,3 +12,7 @@ sources:
     tables:
       - name: raw_cyp17eciyousi
         identifier: cyp17eciyousi
+      - name: raw_cyp05seppenkan
+        identifier: cyp05seppenkan
+      - name: raw_cyp17ecititle
+        identifier: cyp17ecititle
