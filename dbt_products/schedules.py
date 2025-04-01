@@ -26,6 +26,7 @@ from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_s
 """ valuechain """
 from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
 from .schedules_items.valuechain.public.schedule_d_gsps import schedule_d_gsps
+from .schedules_items.valuechain.public.schedule_stg_yui_cpos import schedule_stg_yui_cpos
 """ E """
 """ model repair """
 from .schedules_items.model.repair.schedule_dm_figbunkaiinfo import schedule_dm_figbunkaiinfo
@@ -90,6 +91,8 @@ schedules.append(schedule_stg_vlt_ord)
 schedules.append(schedule_d_epc)
 # D層GSPS
 schedules.append(schedule_d_gsps)
+# YUI_CPOS
+schedules.append(schedule_stg_yui_cpos)
 """ E層作成ジョブ """
 """ model repair """
 # FIG分解情報
