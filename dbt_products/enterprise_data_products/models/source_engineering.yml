@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: engineering_db_public
+    database: engineering_db
+    schema: public
+    tables:
+      - name: raw_tmp_m_cyp16ecizokusei
+        identifier: tmp_m_cyp16ecizokusei_300_test
