@@ -11,7 +11,6 @@ from .schedules_items.administration.public.schedule_stg_mikado_jnet_0715 import
 from .schedules_items.customerservice.public.schedule_d_sias import schedule_d_sias
 from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
 """ engineering """
-from .schedules_items.engineering.public.schedule_stg_gijutsu_sms_0600 import schedule_stg_gijutsu_sms_0600
 from .schedules_items.engineering.public.schedule_stg_paint_iot import schedule_stg_paint_iot
 """ marketing """
 from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
@@ -40,7 +39,7 @@ from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_oem import sc
 """ vinhis yohin """
 from .schedules_items.vinhis.yohin.schedule_dm_vinhis_yohin import schedule_dm_vinhis_yohin
 """ parts_list """
-from .schedules_items.parts_list.public.schedule_dm_gijutsu_sms_0700 import schedule_dm_gijutsu_sms_0700
+from .schedules_items.parts_list.public.schedule_dm_gijutsu_sms import schedule_dm_gijutsu_sms
 
 
 """ F """
@@ -66,8 +65,6 @@ schedules.append(schedule_d_sias)
 # ワランティ
 schedules.append(schedule_stg_warranty)
 """ engineering """
-# UDC　設変情報追加　認証不正対応
-schedules.append(schedule_stg_gijutsu_sms_0600)
 # TMK塗装IoT
 schedules.append(schedule_stg_paint_iot)
 """ marketing """
@@ -112,7 +109,7 @@ schedules.append(schedule_dm_vinhis_specification_oem)
 schedules.append(schedule_dm_vinhis_yohin)
 """ parts_list """
 # UDC　設変情報追加　認証不正対応
-schedules.append(schedule_dm_gijutsu_sms_0700)
+schedules.append(schedule_dm_gijutsu_sms)
 
 """ F層作成ジョブ """
 """ datamart """
