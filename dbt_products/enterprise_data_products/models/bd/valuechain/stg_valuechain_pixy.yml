@@ -57,3 +57,998 @@ models:
           - not_null:
               config:
                 severity: error
+# DX用品マスター
+  - name: stg_yohinmaster_pixy
+    config:
+      tags: ["pixy"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syameino
+            - tuikou
+            - seg
+            - seq
+          config:
+            severity: error
+    columns:
+      - name: syameino
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikou
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seq
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuimei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: katbitno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: naigai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir1
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir2
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir3
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir4
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir5
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir6
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir7
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir8
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir9
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir10
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir11
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir12
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir13
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir14
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir15
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir16
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir17
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir18
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir19
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir20
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir21
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir22
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir23
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir24
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir25
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir26
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir27
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir28
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir29
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiir30
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ruibet
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinmei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ruimei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekikr
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekimd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sochak
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekicm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kosuu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: torihi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: torijkn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syohincd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: treecd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: suisyo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sakujo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syorikbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# DX用品マスター型式BIT
+  - name: stg_katashikibit_pixy
+    config:
+      tags: ["pixy"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syameino
+            - tuikou
+            - seg
+            - seq
+            - bitno
+          config:
+            severity: error
+    columns:
+      - name: syameino
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikou
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seq
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bitno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 型式変換マスター
+  - name: stg_katashikihenkanmaster_pixy
+    config:
+      tags: ["pixy"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syameino
+            - ctlkata
+            - hanbaicd
+          config:
+            severity: error
+    columns:
+      - name: syameino
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ctlkata
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hanbaicd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bitno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: reqop
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: reqac
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: reqad
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kousin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tantou
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 追工親子関連TBL
+  - name: stg_tuikouoyakokanren_pixy
+    config:
+      tags: ["pixy"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syameino
+            - oyatui
+            - setcd
+          config:
+            severity: error
+    columns:
+      - name: syameino
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: oyatui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: setcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: suisyo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuimei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui1
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui2
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui3
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui4
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui5
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui6
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui7
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui8
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui9
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui10
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui11
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui12
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui13
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui14
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui15
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui16
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui17
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui18
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui19
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui20
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui21
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui22
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui23
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui24
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui25
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui26
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui27
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui28
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui29
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotui30
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kousin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tantou
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# バッティング情報TBL
+  - name: stg_battingjoho_pixy
+    config:
+      tags: ["pixy"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syameino
+            - tuikocd
+            - seg
+            - seq
+            - renban
+          config:
+            severity: error
+    columns:
+      - name: syameino
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikocd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seq
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: renban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hsopt1
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hsopt2
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hsopt3
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt1
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt2
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt3
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt4
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt5
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt6
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt7
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt8
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kousin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tantou
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hsopt4
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hsopt5
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hsopt6
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hsopt7
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hsopt8
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hsopt9
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hsopt10
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt9
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt10
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt11
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt12
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt13
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt14
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt15
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt16
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt17
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt18
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt19
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt20
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt21
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt22
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt23
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt24
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt25
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt26
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt27
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt28
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt29
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkopt30
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# DX用品ﾏｽﾀｰ追工全角名称TBL
+  - name: stg_tuikouzenkakumeisyou_pixy
+    config:
+      tags: ["pixy"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syameino
+            - tuikou
+          config:
+            severity: error
+    columns:
+      - name: syameino
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikou
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuimeig
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# DX親子追工関連全角名称TBL
+  - name: stg_oyakotuikoukanrenzenkakumeisyou_pixy
+    config:
+      tags: ["pixy"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syameino
+            - stcd
+          config:
+            severity: error
+    columns:
+      - name: syameino
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: stcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: stmeip
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 用品車名№TBL
+  - name: stg_yohinsyameino_pixy
+    config:
+      tags: ["pixy"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syameino
+          config:
+            severity: error
+    columns:
+      - name: syameino
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syameip
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syameid
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kara
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: made
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kahi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: gketa
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kousin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tantou
+        data_tests:
+          - not_null:
+              config:
+                severity: error
