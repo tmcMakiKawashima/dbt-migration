@@ -11,6 +11,10 @@ sources:
     loaded_at_field: mttime
 
     tables:
+    # aisac
+      - name: raw_cyp22syasyu
+        identifier: cyp22syasyu
+    # sms
       - name: raw_cyp03kouseicom
         identifier: cyp03kouseicom
       - name: raw_cyp03kousei

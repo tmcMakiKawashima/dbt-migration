@@ -1,0 +1,8 @@
+sources:
+  - name: common_tbl_db_public
+    database: common_tbl_db
+    schema: public
+    # 工場コードマスタ
+    tables:
+      - name: raw_m_hostalc_psc_plantcode
+        identifier: m_hostalc_psc_plantcode
