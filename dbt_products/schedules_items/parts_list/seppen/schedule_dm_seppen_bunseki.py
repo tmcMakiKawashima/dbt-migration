@@ -5,7 +5,7 @@ from dagster_dbt import build_schedule_from_dbt_selection
 # SEPPEN_BUNSEKI
 schedule_dm_seppen_bunseki = build_schedule_from_dbt_selection(
     [dbt_products_assets],
-    job_name="job_build_dm_seppen_hinban_all",
+    job_name="job_build_dm_hinban_all",
     schedule_name="seppen_bunseki",
     cron_schedule="00 07 * * *",
     execution_timezone="Asia/Tokyo",
@@ -16,5 +16,5 @@ schedule_dm_seppen_bunseki = build_schedule_from_dbt_selection(
                           }
                      ),
     tags={"ecs/cpu": "256", "ecs/memory": "1024",
-          "job_name": "job_build_dm_seppen_hinban_all"},
+          "job_name": "job_build_dm_hinban_all"},
 )
