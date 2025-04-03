@@ -104,6 +104,20 @@ sources:
             data_tests:
               - fixed_length:
                   length: 645
+      - name: raw_da5a213a
+        identifier: da5a213a
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 147
+      - name: raw_da5a214a
+        identifier: da5a214a
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 147
     # SPEC
       - name: raw_ktrla01ezz0ka20001
         identifier: ktrla01ezz0ka20001
