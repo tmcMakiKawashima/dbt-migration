@@ -1,5 +1,6 @@
 {{
     config(
+        materialized='table',
         post_hook = "
             update {{this}} u --tmp_junkanri03_blktenkai
                 set torokutimem = s.next_timestamp
