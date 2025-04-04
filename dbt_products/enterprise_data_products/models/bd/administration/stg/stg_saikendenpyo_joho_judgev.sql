@@ -7,6 +7,7 @@
 }}
 
 with stg_saikendenpyo_joho_judgev as (
+  select
         snsid::varchar(21) as snsid, -- 申請ID
         yzdtid::varchar(20) as yzdtid, -- ユーザデータID
         dnpsyri::varchar(1) as dnpsyri, -- 伝票種類
@@ -63,7 +64,7 @@ with stg_saikendenpyo_joho_judgev as (
         mtuser::varchar(13) as mtuser, -- 更新ユーザーID
         mttime::varchar(26) as mttime, -- 更新日時
         recvdate::varchar(8) as recvdate, -- 受信日
-        ldts::timestamp_ntz(9) as timestamp -- タイムスタンプ
+        current_timestamp()::timestamp_ntz as timestamp -- タイムスタンプ
     from {{source('snowpipe_db_administration', 'raw_ktrla02kzz0kgta005')}}
     {% if is_incremental() %}
         where to_varchar(timestamp,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'raw_ktrla02kzz0kgta005')}})
