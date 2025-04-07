@@ -64,10 +64,10 @@ with stg_saikendenpyo_joho_judgev as (
         mtuser::varchar(13) as mtuser, -- 更新ユーザーID
         mttime::varchar(26) as mttime, -- 更新日時
         recvdate::varchar(8) as recvdate, -- 受信日
-        current_timestamp()::timestamp_ntz as timestamp -- タイムスタンプ
-    from {{source('snowpipe_db_administration', 'raw_ktrla02kzz0kgta005')}}
-    {% if is_incremental() %}
-        where to_varchar(timestamp,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'raw_ktrla02kzz0kgta005')}})
-    {% endif %}
+        current_timestamp()::timestamp_ntz as timestamp, -- タイムスタンプ
+        from {{source('snowpipe_db_administration', 'raw_ktrla02kzz0kgta005')}}
+      {% if is_incremental() %}
+        where to_varchar(ldts,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'raw_ktrla02kzz0kgta005')}})
+      {% endif %}
 )
 select *  from stg_saikendenpyo_joho_judgev
