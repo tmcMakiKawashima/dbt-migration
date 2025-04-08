@@ -10,12 +10,13 @@
             ) as select * from {{this}}'
     )
 }}
+--ハイブリッドテーブルに変更
 
 with
     stg_riyosyasyusedaitekiyonengetsu as (
         select
             rtrim(cd_pubbnd,' 　')::varchar(6) as cd_pubbnd, -- 右blank
-            dd_pubbnd_trmfrym::varchar(6) as dd_pubbnd_trmfrym, 
+            rtrim(dd_pubbnd_trmfrym,' 　')::varchar(6) as dd_pubbnd_trmfrym, -- 右blank
             dd_mdly::varchar(4) as my, 
             ldts, -- b層のldts
             line_number,
