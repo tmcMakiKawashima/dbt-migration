@@ -1,0 +1,67 @@
+version: 2
+
+models:
+# Judge-V
+   - name: stg_saikendenpyo_joho_judgev
+     config:
+      tags: ["judgev"]
+
+   - name: stg_saikenmaeuke_meisai_judgev
+     config:
+       tags: ["judgev"]
+
+   - name: stg_saikentorihikisaki_meisai_judgev
+     config:
+       tags: ["judgev"]
+
+   - name: stg_saimudenpyo_meisai_judgev
+     config:
+       tags: ["judgev"]
+
+   - name: stg_hinmoku_meisai_judgev
+     config:
+       tags: ["judgev"]
+
+   - name: stg_torihikisaki_masta_judgev
+     config:
+       tags: ["judgev"]
+
+   - name: stg_furikomikoza_masta_judgev
+     config:
+       tags: ["judgev"]
+
+   - name: stg_torihikitanto_kaigai_masta_judgev
+     config:
+       tags: ["judgev"]
+
+   - name: stg_seikyusofu_kokunai_masta_judgev
+     config:
+       tags: ["judgev"]
+
+   - name: stg_shinsei_header_judgev
+     config:
+       tags: ["judgev"]
+
+   - name: stg_torihiki_tekiyo_judgev
+     config:
+       tags: ["judgev"]
+
+   - name: stg_torihiki_meisai_judgev
+     config:
+       tags: ["judgev"]
+
+   - name: stg_kosaihijizen_meisai_judgev
+     config:
+       tags: ["judgev"]
+
+   - name: stg_busyo_meisai_judgev
+     config:
+       tags: ["judgev"]
+
+   - name: stg_zeimu_himoduke_judgev
+     config:
+       tags: ["judgev"]
+
+   - name: stg_zeimu_meisai_judgev
+     config:
+       tags: ["judgev"]

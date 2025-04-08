@@ -67,7 +67,7 @@ with stg_saikendenpyo_joho_judgev as (
         current_timestamp()::timestamp_ntz as timestamp, -- タイムスタンプ
         from {{source('snowpipe_db_administration', 'raw_ktrla02kzz0kgta005')}}
       {% if is_incremental() %}
-        where to_varchar(ldts,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'raw_ktrla02kzz0kgta005')}})
+        where to_varchar(ldts,'yyyymmdd') > (select to_varchar(coalesce(max(timestamp),'1970-01-01 00:00:00.000'),'yyyymmdd') from {{this}})
       {% endif %}
 )
 select *  from stg_saikendenpyo_joho_judgev
