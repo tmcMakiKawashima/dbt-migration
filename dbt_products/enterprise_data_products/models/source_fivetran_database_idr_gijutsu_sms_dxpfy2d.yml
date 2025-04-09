@@ -16,3 +16,5 @@ sources:
         identifier: cyp05seppenkan
       - name: raw_cyp17ecititle
         identifier: cyp17ecititle
+      - name: raw_cyp17ecikirijiki
+        identifier: cyp17ecikirijiki

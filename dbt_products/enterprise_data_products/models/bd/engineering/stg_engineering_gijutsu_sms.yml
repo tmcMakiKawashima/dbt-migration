@@ -58,3 +58,25 @@ models:
           - not_null:
               config:
                 severity: error
+# 設変書切替希望時期
+  - name: stg_eci_kirikaejiki
+    config:
+      tags: ["gijutsu-sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - seppenno
+            - ecikbn
+          config:
+            severity: error
+    columns:
+      - name: seppenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ecikbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
