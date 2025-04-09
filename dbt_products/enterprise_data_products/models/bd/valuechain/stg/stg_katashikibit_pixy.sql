@@ -7,7 +7,7 @@ with stg_katashikibit_pixy as (
         bitno::varchar(3) as bitno, 
         touroku::varchar(8) as touroku, 
         _fivetran_synced::timestamp_ntz as ldts
-    from {{ source('fivetran_database_idr_pixy','raw_cva97dxyohinmktbit') }}
+    from {{ source('fivetran_database_idr_pixy_dxpfy2d','raw_cva97dxyohinmktbit') }}
     where _fivetran_deleted = 'false'
 )
 select * from stg_katashikibit_pixy
