@@ -47,6 +47,5 @@ with stg_eci_hinban as (
         _fivetran_synced::timestamp_ntz(9) as ldts--最終更新日時
     from {{ source('fivetran_database_idr_gijutsu_sms_dxpfy2d', 'raw_cyp17ecihinban') }}
     where _fivetran_deleted = 'false'
-
 )
 select * from stg_eci_hinban

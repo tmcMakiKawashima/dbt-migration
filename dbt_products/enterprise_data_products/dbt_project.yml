@@ -156,7 +156,7 @@ models:
         +snowflake_warehouse: parts_list_wh
         +group: parts_list
         +database: parts_list_db
-        +schema: public
+        +schema: seppen
         dim:
           +access: public
           +materialized: table

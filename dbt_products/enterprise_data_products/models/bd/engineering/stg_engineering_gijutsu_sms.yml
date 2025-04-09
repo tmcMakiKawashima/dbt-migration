@@ -4,7 +4,7 @@ models:
 # 設変書出図情報
   - name: stg_eci_syutuzu
     config:
-        tags: ["gijutsu_sms"]
+        tags: ["gijutsu-sms"]
 
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -27,7 +27,7 @@ models:
 # 設変書品番欄情報
   - name: stg_eci_hinban
     config:
-        tags: ["gijutsu_sms"]
+        tags: ["gijutsu-sms"]
 
     data_tests:
       - dbt_utils.unique_combination_of_columns:
