@@ -11,7 +11,7 @@ with stg_yohinsyameino_pixy as (
         kousin::varchar(8) as kousin, 
         tantou::varchar(7) as tantou, 
         _fivetran_synced::timestamp_ntz as ldts
-    from {{ source('fivetran_database_idr_pixy','raw_cva89syameino') }}
+    from {{ source('fivetran_database_idr_pixy_dxpfy2d','raw_cva89syameino') }}
     where _fivetran_deleted = 'false'
 )
 select * from stg_yohinsyameino_pixy
