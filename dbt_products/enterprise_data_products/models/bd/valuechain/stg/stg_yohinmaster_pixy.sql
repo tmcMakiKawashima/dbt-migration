@@ -58,7 +58,7 @@ with stg_yohinmaster_pixy as (
         syorikbn::varchar(1) as syorikbn, 
         touroku::varchar(8) as touroku,  
         _fivetran_synced::timestamp_ntz as ldts
-    from {{ source('fivetran_database_idr_pixy','raw_cva97dxyohinm') }}
+    from {{ source('fivetran_database_idr_pixy_dxpfy2d','raw_cva97dxyohinm') }}
     where _fivetran_deleted = 'false'
 )
 select * from stg_yohinmaster_pixy
