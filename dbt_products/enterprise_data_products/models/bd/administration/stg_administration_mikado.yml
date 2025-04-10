@@ -577,7 +577,7 @@ models:
                 severity: error
   - name: stg_kaisya
     config:
-      tags: [mikado_jnet]
+      tags: ["mikado_jnet"]
     columns:
       - name: kaisyacd
         data_tests:
