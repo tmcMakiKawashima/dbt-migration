@@ -40,7 +40,7 @@ with stg_tuikouoyakokanren_pixy as (
         kousin::varchar(8) as kousin, 
         tantou::varchar(7) as tantou,  
         _fivetran_synced::timestamp_ntz as ldts
-    from {{ source('fivetran_database_idr_pixy','raw_cva97oyakot') }}
+    from {{ source('fivetran_database_idr_pixy_dxpfy2d','raw_cva97oyakot') }}
     where _fivetran_deleted = 'false'
 )
 select * from stg_tuikouoyakokanren_pixy

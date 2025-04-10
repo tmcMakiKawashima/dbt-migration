@@ -1,9 +1,9 @@
 version: 2
 
 sources:
-  - name: fivetran_database_idr_pixy
+  - name: fivetran_database_idr_pixy_dxpfy2d
     database: fivetran_database
-    schema: idr_pixy
+    schema: idr_pixy_dxpfy2d
     freshness:
       warn_after: { count: 1, period: hour }
       error_after: { count: 24, period: hour }
