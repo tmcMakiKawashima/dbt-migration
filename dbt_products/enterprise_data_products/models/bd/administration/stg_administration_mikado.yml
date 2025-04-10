@@ -575,3 +575,20 @@ models:
           - not_null:
               config:
                 severity: error
+  - name: stg_bunya
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: bnycd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
