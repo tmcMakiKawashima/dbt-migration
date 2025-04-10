@@ -577,7 +577,7 @@ models:
                 severity: error
   - name: stg_mail
     config:
-      tags: [mikado_jnet]
+      tags: ["mikado_jnet"]
     columns:
       - name: employee_cd
         data_tests:
