@@ -577,7 +577,7 @@ models:
                 severity: error
   - name: stg_kinmutaiyo
     config:
-      tags: [mikado_jnet]
+      tags: ["mikado_jnet"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
