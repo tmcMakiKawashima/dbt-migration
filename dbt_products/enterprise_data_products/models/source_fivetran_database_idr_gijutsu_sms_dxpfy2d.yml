@@ -18,3 +18,5 @@ sources:
         identifier: cyp17ecititle
       - name: raw_cyp17ecikirijiki
         identifier: cyp17ecikirijiki
+      - name: raw_cyp17ecitousai
+        identifier: cyp17ecitousai
