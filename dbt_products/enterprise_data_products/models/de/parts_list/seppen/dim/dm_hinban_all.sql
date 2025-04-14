@@ -95,7 +95,7 @@ select
     coalesce(stz.gojitu9, rpad('', 8))::varchar(8) as gojitu9,
     coalesce(stz.rddp10, rpad('', 10))::varchar(10) as rddp10,
     coalesce(stz.gojitu10, rpad('', 8))::varchar(8) as gojitu10,
-    current_timestamp()::timestamp_ntz(9) as load_date -- 最終更新日時
+    current_timestamp()::timestamp_ntz(9) as ldts -- 最終更新日時
 from hin
 left join stz
 on(
