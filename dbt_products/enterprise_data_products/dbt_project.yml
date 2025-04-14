@@ -161,7 +161,6 @@ models:
           dim:
             +access: public
             +materialized: table
-            parts_list:
       vinhis:
         +snowflake_warehouse: vinhis_wh
         +database: vinhis_db
