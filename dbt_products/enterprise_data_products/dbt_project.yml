@@ -152,15 +152,6 @@ models:
         dim:
           +access: public
           +materialized: table
-      parts_list:
-        +snowflake_warehouse: parts_list_wh
-        +database: parts_list_db
-        seppen:
-          +group: parts_list_seppen
-          +schema: seppen
-          dim:
-            +access: public
-            +materialized: table
       vinhis:
         +snowflake_warehouse: vinhis_wh
         +database: vinhis_db
@@ -194,6 +185,21 @@ models:
         repair:
           +group: model_repair
           +schema: repair
+          dim:
+            +access: public
+            +materialized: table
+      parts_list:
+        +snowflake_warehouse: parts_list_wh
+        +database: parts_list_db
+        seppen:
+          +group: parts_list_seppen
+          +schema: seppen
+          dim:
+            +access: public
+            +materialized: table
+        sms:
+          +group: parts_list_sms
+          +schema: sms
           dim:
             +access: public
             +materialized: table
