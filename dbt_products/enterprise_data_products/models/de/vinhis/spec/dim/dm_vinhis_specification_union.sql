@@ -30,7 +30,7 @@ select
     hanbai_sotyaku_cd, --販売装着形態 hanbaihikiate
     ldts
 from kokunai
-union
+union all
 select
     syadai_kt, -- 車台型式 stg_kaigaiseisan
     frm_no, -- フレームNo stg_kaigaiseisan
@@ -58,7 +58,7 @@ select
     '' as hanbai_sotyaku_cd, --販売装着形態 ''
     ldts
 from kaigai
-union
+union all
 select
     syadai_kt, -- 車台型式 stg_oemseisan
     frm_no, -- フレームNo stg_oemseisan
