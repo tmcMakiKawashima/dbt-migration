@@ -1,0 +1,99 @@
+version: 2
+models:
+# 制約フォーマット
+  - name: stg_seiyakuformat_kodomo
+    config:
+      tags: ["kodomo"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - company_member
+            - getudo
+            - restrictionname
+            - line
+            - model
+            - dom_exp
+            - unit
+            - body_type
+            - ss
+            - subseriescode
+            - yyyymm
+          config:
+            severity: error
+
+    columns:
+      - name: company_member
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+    columns:
+      - name: getudo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+                
+    columns:
+      - name: restrictionname
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+                
+    columns:
+      - name: line
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+                
+    columns:
+      - name: model
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+                
+    columns:
+      - name: dom_exp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+                
+    columns:
+      - name: unit
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+                
+    columns:
+      - name: body_type
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+                
+    columns:
+      - name: ss
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+                
+    columns:
+      - name: subseriescode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+                
+    columns:
+      - name: yyyymm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
