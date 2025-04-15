@@ -1,0 +1,410 @@
+version: 2
+
+models:
+  # Y品番マスタ(D層)
+  - name: stg_yhinban_master_maps_view
+    description: "Y品番マスタ(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - y_item_no_id
+          config:
+            severity: error
+
+    columns:
+      - name: y_item_no_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # Y品番-仕入先マスタ(D層)
+  - name: stg_yhinban_shiiresaki_master_maps_view
+    description: "Y品番-仕入先マスタ(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - y_item_no_supplier_id
+          config:
+            severity: error
+
+    columns:
+      - name: y_item_no_supplier_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # ガスボンベ保管場所履歴(D層)
+  - name: stg_gashokanbasyo_maps_view
+    description: "ガスボンベ保管場所履歴(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - gas_cylinder_storage_hstr_id
+          config:
+            severity: error
+
+    columns:
+      - name: gas_cylinder_storage_hstr_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # カレンダーマスタ(D層)
+  - name: stg_calendar_master_maps_view
+    description: "カレンダーマスタ(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - calendar_id
+          config:
+            severity: error
+
+    columns:
+      - name: calendar_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # ポストNo代表者マスタ(D層)
+  - name: stg_postnodaihyosya_master_maps_view
+    description: "ポストNo代表者マスタ(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - post_no_spokesperson_id
+          config:
+            severity: error
+
+    columns:
+      - name: post_no_spokesperson_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # 基準表鋼材手配(D層)
+  - name: stg_kijunhyo_kouzaitehai_maps_view
+    description: "基準表鋼材手配(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - std_tbl_steel_prct_arng_id
+          config:
+            severity: error
+
+    columns:
+      - name: std_tbl_steel_prct_arng_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # 基準表在庫(D層)
+  - name: stg_kijunhyo_zaiko_maps_view
+    description: "基準表在庫(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - std_tbl_stock_id
+          config:
+            severity: error
+
+    columns:
+      - name: std_tbl_stock_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # 基準表仕掛内示(D層)
+  - name: stg_kijunhyo_shikakenaiji_maps_view
+    description: "基準表仕掛内示(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - std_tbl_in_prcs_mtl_rqi_id
+          config:
+            severity: error
+
+    columns:
+      - name: std_tbl_in_prcs_mtl_rqi_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # 計量票(D層)
+  - name: stg_keiryohyo_maps_view
+    description: "計量票(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - measurement_vote_id
+          config:
+            severity: error
+
+    columns:
+      - name: measurement_vote_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # 工場間･工場内調達依頼(D層)
+  - name: stg_chotatsuirai_kojokannai_maps_view
+    description: "工場間･工場内調達依頼(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - factory_procurement_rqe_id
+          config:
+            severity: error
+
+    columns:
+      - name: factory_procurement_rqe_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # 鋼材手配(D層)
+  - name: stg_kozaitehai_maps_view
+    description: "鋼材手配(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - steel_arrangement_id
+          config:
+            severity: error
+
+    columns:
+      - name: steel_arrangement_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # 在庫取引(D層)
+  - name: stg_zaikotorihiki_maps_view
+    description: "在庫取引(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - stock_trade_id
+          config:
+            severity: error
+
+    columns:
+      - name: stock_trade_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # 資材内示(D層)
+  - name: stg_sizainaiji_maps_view
+    description: "資材内示(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - mtl_mtl_rqi_id
+          config:
+            severity: error
+
+    columns:
+      - name: mtl_mtl_rqi_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # 修理Y品番マスタ(D層)
+  - name: stg_syuriyhinban_master_maps_view
+    description: "修理Y品番マスタ(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - repair_y_item_no_id
+          config:
+            severity: error
+
+    columns:
+      - name: repair_y_item_no_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # 所番地_鉄(D層)
+  - name: stg_tokorobanchi_tetsu_maps_view
+    description: "所番地_鉄(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - location_code_iron_id
+          config:
+            severity: error
+
+    columns:
+      - name: location_code_iron_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # 所番地_鉄以外(D層)
+  - name: stg_tokorobanchi_tetsuigai_maps_view
+    description: "所番地_鉄以外(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - location_code_not_iron_id
+          config:
+            severity: error
+
+    columns:
+      - name: location_code_not_iron_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # 代替品マスタ(D層)
+  - name: stg_daitaihin_master_maps_view
+    description: "代替品マスタ(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - substitute_item_id
+          config:
+            severity: error
+
+    columns:
+      - name: substitute_item_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # 発注依頼(D層)
+  - name: stg_hachuirai_maps_view
+    description: "発注依頼(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - odr_rqe_id
+          config:
+            severity: error
+
+    columns:
+      - name: odr_rqe_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # 発注付加情報(D層)
+  - name: stg_hachuhuka_maps_view
+    description: "発注付加情報(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - odr_rqe_id
+          config:
+            severity: error
+
+    columns:
+      - name: odr_rqe_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # 所番地廃止_鉄以外(D層)
+  - name: stg_tokorobanchi_tetsuigai_haishi_maps_view
+    description: "所番地廃止_鉄以外(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - location_abls_not_iron_id
+          config:
+            severity: error
+
+    columns:
+      - name: location_abls_not_iron_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # 鉄余剰材マスタ(D層)
+  - name: stg_yojozai_tetsu_master_maps_view
+    description: "鉄余剰材マスタ(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - iron_spls_mtl_id
+          config:
+            severity: error
+
+    columns:
+      - name: iron_spls_mtl_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # 発注変更(D層)
+  - name: stg_hachuhenko_maps_view
+    description: "発注変更(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - odr_chg_id
+          config:
+            severity: error
+
+    columns:
+      - name: odr_chg_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # Y品番変更履歴(D層)
+  - name: stg_yhinbanhenko_maps_view
+    description: "Y品番変更履歴(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - y_item_no_update_hstr_id
+          config:
+            severity: error
+
+    columns:
+      - name: y_item_no_update_hstr_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
+  # 決裁ルートマスタ(D層)
+  - name: stg_kessairoute_maps_view
+    description: "決裁ルートマスタ(D層)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - decision_route_id
+          config:
+            severity: error
+
+    columns:
+      - name: decision_route_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
