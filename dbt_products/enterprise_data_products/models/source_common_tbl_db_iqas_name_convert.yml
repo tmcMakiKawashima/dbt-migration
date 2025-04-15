@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: common_tbl_db_iqas_name_convert
+    database: common_tbl_db
+    schema: iqas_name_convert
+    tables:
+      - name: raw_mst_041veh_plnt_code_name
+        identifier: mst_041veh_plnt_code_name
+

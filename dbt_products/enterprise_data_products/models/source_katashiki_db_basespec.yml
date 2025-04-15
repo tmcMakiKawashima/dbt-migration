@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: katashiki_db_basespec
+    database: katashiki_db
+    schema: basespec
+    tables:
+      - name: raw_dm_syasyu_katashiki_syaryokoujyo
+        identifier: dm_syasyu_katashiki_syaryokoujyo
+
