@@ -575,3 +575,50 @@ models:
           - not_null:
               config:
                 severity: error
+  - name: stg_employee_kenmu
+    config:
+      tags: ["mikado_jnet"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - employee_cd
+            - syozoku_cd_honrai
+          config:
+            severity: error
+    columns:
+      - name: jigsnymd
+        meta:
+            masking_policy: jigsnymd_mask
+      - name: jigseb
+        meta:
+            masking_policy: jigseb_mask
+      - name: gakrei
+        meta:
+            masking_policy: gakrei_mask
+      - name: nnjgrk
+        meta:
+            masking_policy: nnjgrk_mask
+      - name: hgsumf
+        meta:
+            masking_policy: hgsumf_mask
+      - name: tgntkycd
+        meta:
+            masking_policy: tgntkycd_mask
+      - name: sytkyf
+        meta:
+            masking_policy: sytkyf_mask
+      - name: employee_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syozoku_cd_honrai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
