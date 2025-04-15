@@ -981,7 +981,7 @@ models:
           - not_null:
               config:
                 severity: error
-      - name: stmeip
+      - name: stmeig
         data_tests:
           - not_null:
               config:
