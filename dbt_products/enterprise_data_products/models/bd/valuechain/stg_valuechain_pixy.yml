@@ -995,15 +995,12 @@ models:
   - name: stg_yohinsyameino_pixy
     config:
       tags: ["pixy"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syameino
-          config:
-            severity: error
     columns:
       - name: syameino
         data_tests:
+          - unique:
+              config:
+                severity: error
           - not_null:
               config:
                 severity: error
