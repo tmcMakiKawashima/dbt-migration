@@ -5,7 +5,7 @@ sources:
     database: administration_db
     schema: public
     tables:
-    # kodomo
+    # 従業員情報
       - name: raw_empmasterknm
         identifier: empmasterknm
       - name: raw_empmastershm
