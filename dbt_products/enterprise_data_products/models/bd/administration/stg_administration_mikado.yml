@@ -575,3 +575,41 @@ models:
           - not_null:
               config:
                 severity: error
+  - name: stg_yakuwari_history
+    config:
+      tags: ["mikado_jnet"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - employee_cd
+            - htrymd
+            - syozoku_cd
+            - ykwrcd
+          config:
+            severity: error
+    columns:
+      - name: employee_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: htrymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syozoku_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ykwrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
