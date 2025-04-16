@@ -20,78 +20,57 @@ models:
             - yyyymm
           config:
             severity: error
-
     columns:
       - name: company_member
         data_tests:
           - not_null:
               config:
                 severity: error
-
-    columns:
       - name: getudo
         data_tests:
           - not_null:
               config:
                 severity: error
-                
-    columns:
       - name: restrictionname
         data_tests:
           - not_null:
               config:
                 severity: error
-                
-    columns:
       - name: line
         data_tests:
           - not_null:
               config:
                 severity: error
-                
-    columns:
       - name: model
         data_tests:
           - not_null:
               config:
                 severity: error
-                
-    columns:
       - name: dom_exp
         data_tests:
           - not_null:
               config:
                 severity: error
-                
-    columns:
       - name: unit
         data_tests:
           - not_null:
               config:
                 severity: error
-                
-    columns:
       - name: body_type
         data_tests:
           - not_null:
               config:
                 severity: error
-                
-    columns:
       - name: ss
         data_tests:
           - not_null:
               config:
                 severity: error
-                
-    columns:
       - name: subseriescode
         data_tests:
           - not_null:
               config:
                 severity: error
-                
-    columns:
       - name: yyyymm
         data_tests:
           - not_null:
