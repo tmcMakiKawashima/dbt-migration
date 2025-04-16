@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: administration_db_public
+    database: administration_db
+    schema: public
+    tables:
+      - name: empmasterknm
+        identifier: empmasterknm
+      - name: empmastershm
+        identifier: empmastershm

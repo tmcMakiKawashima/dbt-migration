@@ -44,3 +44,6 @@ groups:
   - name: snowpipe_supplydemand
     owner:
       email: maki_kawashima@mail.toyota.co.jp
+  - name: employee_organization
+    owner:
+      email: satoshi_shinohara@mail.toyota.co.jp
