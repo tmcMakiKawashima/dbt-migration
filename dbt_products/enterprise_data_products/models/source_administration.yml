@@ -7,10 +7,5 @@ sources:
     tables:
       - name: empmasterknm
         identifier: empmasterknm
-
-  - name: administration_db_public
-    database: administration_db
-    schema: public
-    tables:
       - name: empmastershm
         identifier: empmastershm
