@@ -4,7 +4,6 @@
     unique_key = ['nysketcd'],
     incremental_strategy = 'append',
     pre_hook=[
-      "{{ dbt_snow_mask.create_masking_policy('models')}}",
       "
       {% if is_incremental() %}
       delete from {{this}}
