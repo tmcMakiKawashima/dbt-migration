@@ -14,7 +14,6 @@
                   and a.kumitate = b.kumitate
                   and a.bui = b.bui;
             {% endif %}
-
         "
     )
 }}
@@ -27,6 +26,7 @@ with
        siyoubui, -- 使用部位
        kumitate, -- 組立番号
        bui, -- 部位
+       motosiyoubui, --元使用部位
        vari, -- バリエーション
        oyahin, -- 親品番
        lv, -- レベル
@@ -53,6 +53,7 @@ select
   tmp_kousei03_blktenkai.siyoubui,
   tmp_kousei03_blktenkai.kumitate,
   tmp_kousei03_blktenkai.bui,
+  tmp_kousei03_blktenkai.motosiyoubui,
   tmp_kousei03_blktenkai.vari,
   tmp_kousei03_blktenkai.oyahin,
   tmp_kousei03_blktenkai.lv,
