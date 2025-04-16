@@ -188,12 +188,15 @@ models:
           dim:
             +access: public
             +materialized: table
-      organization:
+      employee:
         +snowflake_warehouse: employee_wh
         +database: employee_db
-        mask:
-          +group: employee
+        organization:
+          +group: employee_organization        
           +schema: organization
+          dim:
+            +access: public
+            +materialized: table
     ef:
       datamart:
         +snowflake_warehouse: datamart_wh

@@ -29,7 +29,7 @@ from .schedules_items.valuechain.public.schedule_d_gsps import schedule_d_gsps
 from .schedules_items.valuechain.public.schedule_stg_yui_cpos import schedule_stg_yui_cpos
 """ E """
 """ employee """
-from .schedules_items.employee.public.schedule_dm_jugyoinjoho import schedule_dm_jugyoinjoho
+from .schedules_items.employee.organization.schedule_dm_jugyoinjoho import schedule_dm_jugyoinjoho
 """ model repair """
 from .schedules_items.model.repair.schedule_dm_cataloghinmei import schedule_dm_cataloghinmei
 from .schedules_items.model.repair.schedule_dm_figbunkaiinfo import schedule_dm_figbunkaiinfo

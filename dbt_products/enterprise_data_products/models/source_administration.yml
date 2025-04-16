@@ -5,7 +5,8 @@ sources:
     database: administration_db
     schema: public
     tables:
-      - name: empmasterknm
+    # kodomo
+      - name: raw_empmasterknm
         identifier: empmasterknm
-      - name: empmastershm
+      - name: raw_empmastershm
         identifier: empmastershm
