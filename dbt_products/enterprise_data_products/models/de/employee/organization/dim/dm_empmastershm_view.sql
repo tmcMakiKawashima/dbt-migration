@@ -58,6 +58,6 @@ with
             ,jsnamkkg
             ,jssykikkg
             ,jsemailkkg
-        from {{  source('administration_db_public','empmastershm') }}
+        from {{  source('administration_db_public','raw_empmastershm') }}
     )
 select * from dm_empmastershm_view
