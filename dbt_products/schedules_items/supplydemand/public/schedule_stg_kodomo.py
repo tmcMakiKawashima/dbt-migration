@@ -11,7 +11,7 @@ schedule_stg_kodomo = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_stg_kodomo",
     schedule_name="KODOMO",
-    cron_schedule="00 06 * * *",
+    cron_schedule="00 03 * * *",
     execution_timezone="Asia/Tokyo",
     dbt_select="+stg_seiyakuformat_kodomo",
     config=RunConfig(ops={"dbt_products_assets":
