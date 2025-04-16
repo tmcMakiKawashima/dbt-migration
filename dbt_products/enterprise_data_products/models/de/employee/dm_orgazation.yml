@@ -17,7 +17,6 @@ models:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: hriszcd
         data_tests:
           - not_null:
@@ -27,15 +26,12 @@ models:
   - name: dm_empmastershm_view
     config:
       tags: ["j-net"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - jcd
-          config:
-            severity: error
     columns:
       - name: jcd
         data_tests:
+          - unique:
+              config:
+                severity: error
           - not_null:
               config:
                 severity: error
