@@ -2,7 +2,8 @@
       materialized='incremental',
       unique_key = ['syasyu','blkcode'],
       incremental_strategy = 'merge'
-   ) }}
+  )
+ }}
 
 
 with stg_blkmei as (
