@@ -36,6 +36,7 @@ from .schedules_items.model.repair.schedule_dm_vehicle_generation import schedul
 from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
 """ vinhis model """
 from .schedules_items.vinhis.model.schedule_dm_vin_model import schedule_dm_vin_model
+from .schedules_items.vinhis.model.schedule_dm_vin_model_nonesyasyu import schedule_dm_vin_model_nonesyasyu
 """ vinhis spec """
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kaigai import schedule_dm_vinhis_specification_kaigai
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kokunai import schedule_dm_vinhis_specification_kokunai
@@ -108,6 +109,8 @@ schedules.append(schedule_dm_vinhis_maint)
 """ vinhis model """
 # VIN x 車両情報
 schedules.append(schedule_dm_vin_model)
+# VIN x 車両情報（車種コード指定なし）
+schedules.append(schedule_dm_vin_model_nonesyasyu)
 """ vinhis spec """
 # VIN装備
 schedules.append(schedule_dm_vinhis_specification_kaigai)
