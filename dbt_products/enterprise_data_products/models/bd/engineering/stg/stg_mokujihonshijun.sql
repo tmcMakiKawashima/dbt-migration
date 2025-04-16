@@ -2,7 +2,8 @@
       materialized='incremental',
       unique_key = ['jigyoutai','syasyu_cd','seppenno','torokujun'],
       incremental_strategy = 'merge'
-   ) }}
+  )
+ }}
 
 
 with stg_mokujihonshijun as (
