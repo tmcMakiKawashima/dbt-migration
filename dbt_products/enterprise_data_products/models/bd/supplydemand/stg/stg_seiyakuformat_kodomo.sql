@@ -43,13 +43,20 @@ with stg_seiyakuformat_kodomo as (
             order by file_name desc,line_number desc
         ) aggkey
    from {{ source('snowpipe_db_supplydemand','raw_t_restriction_formats') }}
-),
-stg_seiyakuformat_kodomo_max as (
+   ),
+   stg_seiyakuformat_kodomo_max as (
    --ほぼ同時に着弾するとldtsでは最新の判断が困難な為、file_nameを使用する(現行コドモの仕様と合わせる)
-   select getudo,max(file_name) as max_ldts  from {{ source('snowpipe_db_supplydemand','raw_t_restriction_formats') }} group by getudo 
-)
-select stg_seiyakuformat_kodomo.* exclude(aggkey,file_name) from stg_seiyakuformat_kodomo
+   select
+     getudo,
+     max(file_name) as max_ldts
+   from {{ source('snowpipe_db_supplydemand','raw_t_restriction_formats') }}
+   group by 
+     getudo 
+   )
+select
+  stg_seiyakuformat_kodomo.* exclude(aggkey,file_name) 
+from stg_seiyakuformat_kodomo
 inner join stg_seiyakuformat_kodomo_max
-on stg_seiyakuformat_kodomo.getudo = stg_seiyakuformat_kodomo_max.getudo
-and stg_seiyakuformat_kodomo.ldts = stg_seiyakuformat_kodomo_max.max_ldts
+  on stg_seiyakuformat_kodomo.getudo = stg_seiyakuformat_kodomo_max.getudo
+  and stg_seiyakuformat_kodomo.ldts = stg_seiyakuformat_kodomo_max.max_ldts
 where stg_seiyakuformat_kodomo.aggkey = 1
