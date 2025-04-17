@@ -1,3 +1,17 @@
+{{ 
+  config(
+    materialized='incremental',
+    incremental_strategy = 'append',
+    transient = false,
+    pre_hook="
+      {% if is_incremental() %}
+      delete from {{this}}
+      {% endif %}
+    "
+  )
+ }}
+-- 洗い替え処理で常に最新断面のみとするためpre_hookで全件削除する処理を記載
+
 with stg_jugyoin_masta_judgev as (
     select
         jgyinkd::varchar(10) as jgyinkd, -- 従業員コード
@@ -21,7 +35,7 @@ with stg_jugyoin_masta_judgev as (
         mttime::varchar(26) as mttime, -- 更新日時
         recvdate::varchar(8) as recvdate, -- 受信日
         current_timestamp::timestamp as timestamp -- タイムスタンプ
-    from {{ source('snowpipe_db_administration', 'ktrla02kzz0kgta021') }}
-   where to_varchar(ldts,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'ktrla02kzz0kgta021')}})
+    from {{ source('snowpipe_db_administration', 'raw_ktrla02kzz0kgta021') }}
+   where to_varchar(ldts,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'raw_ktrla02kzz0kgta021')}})
 )
 select * from stg_jugyoin_masta_judgev
