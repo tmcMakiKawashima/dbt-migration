@@ -12,7 +12,7 @@
     ]
   )
 }}
--- 性能問題のためpost_hookで最新データ以外を削除する処理
+-- 洗い替え処理で常に最新断面のみとするためpre_hookで全件削除する処理を記載
 with stg_twave_tel as (
     select
         emplid::varchar(7) as employee_cd, -- 従業員ID
