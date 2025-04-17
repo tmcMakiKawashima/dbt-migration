@@ -575,3 +575,21 @@ models:
           - not_null:
               config:
                 severity: error
+  - name: stg_twave_tel
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: employee_cd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: employee_cd
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
