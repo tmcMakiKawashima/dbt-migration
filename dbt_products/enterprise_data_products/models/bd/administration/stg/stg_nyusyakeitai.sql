@@ -12,7 +12,7 @@
     ]
   )
 }}
--- 性能問題のためpre_hookで全件削除する処理
+-- 洗い替え処理で常に最新断面のみとするためpre_hookで全件削除する処理を記載
 with stg_nyusyakeitai as (
     select
         nysketcd::varchar(1) as nysketcd, -- 入社形態コード
