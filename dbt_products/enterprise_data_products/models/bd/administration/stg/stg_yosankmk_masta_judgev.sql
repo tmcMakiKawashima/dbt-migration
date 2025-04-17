@@ -14,6 +14,6 @@ with stg_yosankmk_masta_judgev as (
         recvdate::varchar(8) as recvdate, -- 受信日
         current_timestamp::timestamp as timestamp -- タイムスタンプ
     from {{ source('snowpipe_db_administration', 'ktrla02kzz0kgta025') }}
-   where ldts = (select max(ldts) from {{ source('snowpipe_db_administration', 'ktrla02kzz0kgta025') }}) 
+   where to_varchar(ldts,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'ktrla02kzz0kgta025')}})
 )
 select * from stg_yosankmk_masta_judgev
