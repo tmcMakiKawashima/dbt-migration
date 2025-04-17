@@ -10,10 +10,8 @@ sources:
     loaded_at_field: _fivetran_synced
 
     tables:
-    # aisac
       - name: raw_cyp22syasyu
         identifier: cyp22syasyu
-    # 設変情報追加　認証不正対応
       - name: raw_cyp17ecisyutuzu
         identifier: cyp17ecisyutuzu
       - name: raw_cyp17ecihinban
