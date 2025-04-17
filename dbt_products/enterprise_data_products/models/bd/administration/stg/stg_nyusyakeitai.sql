@@ -12,7 +12,7 @@
     ]
   )
 }}
-
+-- 性能問題のためpre_hookで全件削除する処理
 with stg_nyusyakeitai as (
     select
         nysketcd::varchar(1) as nysketcd, -- 入社形態コード
