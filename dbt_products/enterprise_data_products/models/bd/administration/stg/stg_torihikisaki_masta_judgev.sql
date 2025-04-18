@@ -57,9 +57,7 @@ with stg_torihikisaki_masta_judgev as (
         recvdate::varchar(8) as recvdate, -- 受信日
         current_timestamp()::timestamp_ntz as timestamp -- タイムスタンプ
     from {{source('snowpipe_db_administration', 'raw_ktrla02kzz0kgta010')}}
-    {% if is_incremental() %}
-        where to_varchar(ldts,'yyyymmdd') = ((select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'raw_ktrla02kzz0kgta010')}}))
-    {% endif %}
+    where to_varchar(ldts,'yyyymmdd') = ((select to_varchar(max(ldts),'yyyymmdd') from {{source('snowpipe_db_administration', 'raw_ktrla02kzz0kgta010')}}))
         
 )
 select * from stg_torihikisaki_masta_judgev
