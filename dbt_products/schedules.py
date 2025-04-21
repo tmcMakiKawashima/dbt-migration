@@ -11,6 +11,7 @@ from .schedules_items.administration.public.schedule_stg_mikado_jnet_0715 import
 from .schedules_items.customerservice.public.schedule_d_sias import schedule_d_sias
 from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
 """ engineering """
+from .schedules_items.engineering.public.schedule_stg_aisac import schedule_stg_aisac
 from .schedules_items.engineering.public.schedule_stg_paint_iot import schedule_stg_paint_iot
 """ marketing """
 from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
@@ -24,8 +25,11 @@ from .schedules_items.supplydemand.public.schedule_stg_syaryoindex import schedu
 from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_stg_vlt_ord
 """ valuechain """
 from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
+from .schedules_items.valuechain.public.schedule_d_gsps import schedule_d_gsps
+from .schedules_items.valuechain.public.schedule_stg_yui_cpos import schedule_stg_yui_cpos
 """ E """
 """ model repair """
+from .schedules_items.model.repair.schedule_dm_cataloghinmei import schedule_dm_cataloghinmei
 from .schedules_items.model.repair.schedule_dm_figbunkaiinfo import schedule_dm_figbunkaiinfo
 from .schedules_items.model.repair.schedule_dm_vehicle_generation import schedule_dm_vehicle_generation
 """ vinhis maint """
@@ -62,6 +66,8 @@ schedules.append(schedule_d_sias)
 # ワランティ
 schedules.append(schedule_stg_warranty)
 """ engineering """
+# AISAC
+schedules.append(schedule_stg_aisac)
 # TMK塗装IoT
 schedules.append(schedule_stg_paint_iot)
 """ marketing """
@@ -84,8 +90,14 @@ schedules.append(schedule_stg_vlt_ord)
 """ valuechain """
 # 補給品番基本情報提供
 schedules.append(schedule_d_epc)
+# D層GSPS
+schedules.append(schedule_d_gsps)
+# YUI_CPOS
+schedules.append(schedule_stg_yui_cpos)
 """ E層作成ジョブ """
 """ model repair """
+# EPCカタログ品名
+schedules.append(schedule_dm_cataloghinmei)
 # FIG分解情報
 schedules.append(schedule_dm_figbunkaiinfo)
 # 車種世代
