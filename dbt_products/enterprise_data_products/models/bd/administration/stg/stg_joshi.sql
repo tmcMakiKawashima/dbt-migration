@@ -4,7 +4,6 @@
     unique_key = ['syozoku_cd'],
     incremental_strategy = 'append',
     pre_hook=[
-      "{{ dbt_snow_mask.create_masking_policy('models')}}",
       "
       {% if is_incremental() %}
       delete from {{this}}
@@ -13,7 +12,7 @@
     ]
   )
 }}
-
+-- 洗い替え処理で常に最新断面のみとするためpre_hookで全件削除する処理を記載
 with stg_joshi as (
     select
         szcd::varchar(5) as syozoku_cd, -- 所属コード
