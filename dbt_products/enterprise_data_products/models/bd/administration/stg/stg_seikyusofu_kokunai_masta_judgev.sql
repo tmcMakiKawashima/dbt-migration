@@ -10,7 +10,7 @@
     "
   )
  }}
-
+-- 洗い替え処理で常に最新断面のみとするためpre_hookで全件削除する処理を記載
 with stg_seikyusofu_kokunai_masta_judgev as (
     select
         bsykd2kt::varchar(2) as bsykd2kt, -- 部署コード(上2桁)
