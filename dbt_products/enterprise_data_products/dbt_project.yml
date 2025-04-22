@@ -159,8 +159,8 @@ models:
           +group: vinhis_yohin
           +schema: yohin
           dim:
-          +access: public
-          +materialized: table
+            +access: public
+            +materialized: table
         spec:
           +group: vinhis_spec
           +schema: spec
