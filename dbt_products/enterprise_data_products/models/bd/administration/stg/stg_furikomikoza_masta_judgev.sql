@@ -10,7 +10,7 @@
     "
   )
  }}
-
+-- 洗い替え処理で常に最新断面のみとするためpre_hookで全件削除する処理を記載
 with stg_furikomikoza_masta_judgev as (
     select
         trhkskkd::varchar(10) as trhkskkd, -- 取引先コード
