@@ -31,7 +31,8 @@ schedule_stg_mikado_jnet_0645 = build_schedule_from_dbt_selection(
                                                       "source:*,+stg_kyumurigyo_haken",
                                                       "source:*,+stg_kintai_monthly",
                                                       "source:*,+stg_kintai_daily",
-                                                      "source:*,+stg_pclog"])
+                                                      "source:*,+stg_pclog"
+                                                      "source:*,+stg_nyusyakeitai"])
                           }
                      ),
     # default_status=DefaultScheduleStatus.RUNNING,
