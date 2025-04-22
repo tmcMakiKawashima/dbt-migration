@@ -1,9 +1,9 @@
 with stg_figmeisyo as (
     select
         mntkbn::varchar(1) as mntkbn, 
-        langkbn::varchar(3) as langkbn, 
-        figno::varchar(4) as figno, 
-        rtrim(figmei,' 　')::varchar(240) as figmei,  -- 右blank
+        rtrim(langkbn,' 　')::varchar(3) as langkbn, -- 右blank
+        rtrim(figno,' 　')::varchar(4) as figno, -- 右blank
+        rtrim(figmei,' 　')::varchar(240) as figmei, -- 右blank
         ldts, --B層取込日時
         line_number,
         rank() over (partition by langkbn, figno order by ldts desc, line_number desc) aggkey
