@@ -575,6 +575,23 @@ models:
           - not_null:
               config:
                 severity: error
+  - name: stg_nyusyakeitai
+    config:
+      tags: ["mikado_jnet"]
+    columns:
+      - name: nysketcd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   - name: stg_joshi
     config:
       tags: ["mikado_jnet"]
