@@ -1,9 +1,9 @@
 with stg_tyotatsuhinbanjoho as (
     select
         mntkbn::varchar(1) as mntkbn,
-        hinban::varchar(12) as hinban,
-        dntikicd::varchar(3) as dntikicd,
-        cthin::varchar(12) as cthin,
+        rtrim(hinban, ' 　')::varchar(12) as hinban, -- 右blank
+        rtrim(dntikicd, ' 　')::varchar(3) as dntikicd, -- 右blank
+        rtrim(cthin, ' 　')::varchar(12) as cthin, -- 右blank
         tktermk::varchar(8) as tktermk,
         tktermm::varchar(8) as tktermm,
         ldts, -- b層のldts

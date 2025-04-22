@@ -7,8 +7,8 @@ with stg_buigroupkensakujoho as (
         chuchubnrcd::varchar(4) as chuchubnrcd,
         ldts,
         line_number,
-        rank() over(partition by ctlgcd, chubnrcd, svglayermei order by ldts desc, mntkbn asc, line_number desc) aggkey
+        rank() over(partition by ctlgcd, chubnrcd, svglayermei order by ldts desc, line_number desc) aggkey
     from {{ref('substr_k9jfv219')}}
 )
 
-select * exclude(line_number, aggkey) from stg_buigroupkensakujoho where aggkey = 1
+select * exclude(mntkbn, line_number, aggkey) from stg_buigroupkensakujoho where aggkey = 1 and  mntkbn in ('C', 'U')
