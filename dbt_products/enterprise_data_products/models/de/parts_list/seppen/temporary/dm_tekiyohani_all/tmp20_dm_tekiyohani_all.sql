@@ -1,3 +1,5 @@
+{{ config(materialized='table') }}
+
 with tmp10_dm_tekiyohani_all as (
   select * from {{ref('tmp10_dm_tekiyohani_all')}}
 ), ltekiyo as (
@@ -7,7 +9,7 @@ with tmp10_dm_tekiyohani_all as (
     syasyu as syasyu, -- 車種コード
     substr(tekiyo,1,4) as kumitate, -- 組立番号
     substr(tekiyo,5,2) as bui, -- 部位
-    substr(tekiyo,7,3) as variation, -- バリエーション
+    substr(tekiyo,7,4) as variation, -- バリエーション
     sinhaikbn as sinhaikbn, -- 新廃区分
     'LECI' as ecikbn, -- 設変書区分
     rpad('', 4) as tousai, -- 搭載車種
@@ -52,7 +54,7 @@ with tmp10_dm_tekiyohani_all as (
     syasyu as syasyu, -- 車種コード
     substr(tekiyo,1,4) as kumitate, -- 組立番号
     substr(tekiyo,5,2) as bui, -- 部位
-    substr(tekiyo,7,3) as variation, -- バリエーション
+    substr(tekiyo,7,4) as variation, -- バリエーション
     rpad('', 1) as sinhaikbn, -- 新廃区分
     'ECI(Name)' as ecikbn, -- 設変書区分
     rpad('', 4) as tousai, -- 搭載車種

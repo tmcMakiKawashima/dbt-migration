@@ -39,12 +39,12 @@ with thn as (
   from thn
   left join bmts
   on (
-      trim(bmts.jigyoutai) = '  '
+      trim(bmts.jigyoutai) = ''
   and thn.syasyu = bmts.syasyu
   and thn.kumitate = bmts.kumitate
   and thn.bui = bmts.bui
   and thn.seppenno = bmts.seppenno
-  and thn.cond in ('ECI(Contents)','LECI(Contents)')
+  and thn.ecikbn in ('ECI(Contents)','LECI(Contents)')
   )
 ), thn_bmts_syasyu as (
   select
@@ -78,7 +78,7 @@ select
     thn_bmts_syasyu.variation::varchar(4) as variation, -- バリエーション
     thn_bmts_syasyu.sinhaikbn::varchar(1) as sinhaikbn, -- 新廃区分
     thn_bmts_syasyu.tousai::varchar(4) as tousai, -- 搭載車種
-    thn_bmts_syasyu.ecikbn::varchar(10) as ecikbn, -- 設変書区分
+    thn_bmts_syasyu.ecikbn::varchar(15) as ecikbn, -- 設変書区分
     thn_bmts_syasyu.meisyo::varchar(40) as meisyo, -- 名称
     thn_bmts_syasyu.cond::varchar(30) as cond, -- Condition
     coalesce(kkj.kirijikijp, rpad('', 50))::varchar(50) as kirijikijp , -- 切替希望時期(日)
