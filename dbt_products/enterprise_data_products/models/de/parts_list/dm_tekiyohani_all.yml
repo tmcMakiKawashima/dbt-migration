@@ -1,0 +1,60 @@
+version: 2
+models:
+# 設変書 X 適用範囲(ALL)
+  - name: dm_tekiyohani_all
+    config:
+      tags: ["gijutsu_sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - seppenno
+            - ecikbn
+            - kubun
+            - syasyu
+            - kumitate
+            - bui
+            - variation
+            - tousai
+          config:
+            severity: error
+    columns:
+      - name: seppenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ecikbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kubun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kumitate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: variation
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tousai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
