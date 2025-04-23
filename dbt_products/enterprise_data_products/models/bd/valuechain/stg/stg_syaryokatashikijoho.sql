@@ -38,18 +38,19 @@
             ) as select * from {{this}}'
     )
 }}
+-- ハイブリッドテーブルに変更
 
 with stg_syaryokatashikijoho as (
     select
         mntkbn::varchar(1) as mntkbn, 
-        ctlgcd::varchar(6) as ctlgcd, 
-        syakata::varchar(20) as syakata, 
-        syasyu_cd::varchar(4) as syasyu_cd, 
-        vinwmivds::varchar(9) as vinwmivds, 
-        jissijikik::varchar(6) as jissijikik, 
-        jissijikim::varchar(6) as jissijikim, 
+        rtrim(ctlgcd, ' 　')::varchar(6) as ctlgcd, -- 右blank
+        rtrim(syakata, ' 　')::varchar(20) as syakata, -- 右blank
+        rtrim(syasyu_cd, ' 　')::varchar(4) as syasyu_cd, -- 右blank
+        rtrim(vinwmivds, ' 　')::varchar(9) as vinwmivds, -- 右blank
+        rtrim(jissijikik, ' 　')::varchar(6) as jissijikik, -- 右blank
+        rtrim(jissijikim, ' 　')::varchar(6) as jissijikim, -- 右blank
         frmnokata::varchar(7) as frmnokata, 
-        katano::varchar(3) as katano, 
+        rtrim(katano, ' 　')::varchar(3) as katano, -- 右blank
         katatokukg1::varchar(10) as katatokukg1, 
         katatokukg2::varchar(10) as katatokukg2, 
         katatokukg3::varchar(5) as katatokukg3, 

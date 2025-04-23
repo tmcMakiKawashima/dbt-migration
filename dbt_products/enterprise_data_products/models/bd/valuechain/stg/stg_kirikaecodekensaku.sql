@@ -14,13 +14,14 @@
             ) as select * from {{this}}'
     )
 }}
+-- ハイブリッドテーブルに変更
 
 with stg_kirikaecodekensaku as (
     select
         mntkbn::varchar(1) as mntkbn, 
-        ctlgcd::varchar(6) as ctlgcd, 
-        kiricd::varchar(4) as kiricd, 
-        prtren::varchar(3) as prtren, 
+        rtrim(ctlgcd, ' 　')::varchar(6) as ctlgcd, -- 右blank
+        rtrim(kiricd, ' 　')::varchar(4) as kiricd, -- 右blank
+        rtrim(prtren, ' 　')::varchar(3) as prtren, -- 右blank
         datakbn::varchar(1) as datakbn, 
         frmnok::varchar(20) as frmnok, 
         frmnom::varchar(20) as frmnom, 
