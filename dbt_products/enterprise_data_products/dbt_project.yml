@@ -159,8 +159,8 @@ models:
           +group: vinhis_yohin
           +schema: yohin
           dim:
-          +access: public
-          +materialized: table
+            +access: public
+            +materialized: table
         spec:
           +group: vinhis_spec
           +schema: spec
@@ -190,9 +190,8 @@ models:
             +materialized: table
       parts_list:
         +snowflake_warehouse: parts_list_wh
-        +group: parts_list
         +database: parts_list_db
-        seppen: 
+        seppen:
           +group: parts_list_seppen
           +schema: seppen
           dim:

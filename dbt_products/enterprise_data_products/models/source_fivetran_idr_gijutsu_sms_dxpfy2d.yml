@@ -4,11 +4,18 @@ sources:
   - name: fivetran_database_idr_gijutsu_sms_dxpfy2d
     database: fivetran_database
     schema: idr_gijutsu_sms_dxpfy2d
-   
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: _fivetran_synced
+
     tables:
-    # aisac
       - name: raw_cyp22syasyu
         identifier: cyp22syasyu
+      - name: raw_cyp17ecisyutuzu
+        identifier: cyp17ecisyutuzu
+      - name: raw_cyp17ecihinban
+        identifier: cyp17ecihinban
       - name: raw_cyp17eciyousi
         identifier: cyp17eciyousi
       - name: raw_cyp05seppenkan
