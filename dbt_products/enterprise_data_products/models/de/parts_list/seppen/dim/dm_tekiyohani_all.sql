@@ -1,7 +1,7 @@
 {{ 
   config(
     materialized='incremental',
-    unique_key = ['seppenno','ecikubun','kubun','syasyu ','kumitate','bui ','variation'],
+    unique_key = ['seppenno','ecikubun','kubun','syasyu','kumitate','bui','variation','tousai'],
     incremental_strategy = 'append',
     transient = false,
     pre_hook="

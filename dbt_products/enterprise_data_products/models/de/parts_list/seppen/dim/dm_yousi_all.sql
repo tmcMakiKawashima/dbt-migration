@@ -19,7 +19,7 @@ with dm_yousi_all as (
         jun::varchar(3) as jun, -- 順
         eciyousijp::varchar(25) as eciyousijp, -- 要旨日本語
         eciyousien::varchar(50) as eciyousien, -- 要旨英語
-        current_timestamp()::timestamp_ntz(9) as load_date -- 最終更新日時
+        current_timestamp()::timestamp_ntz(9) as ldts -- 最終更新日時
     from {{ ref('stg_eci_yousi') }}
 )
 select * from dm_yousi_all

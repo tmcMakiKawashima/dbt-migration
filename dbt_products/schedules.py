@@ -44,8 +44,6 @@ from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kokunai impor
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_oem import schedule_dm_vinhis_specification_oem
 """ vinhis yohin """
 from .schedules_items.vinhis.yohin.schedule_dm_vinhis_yohin import schedule_dm_vinhis_yohin
-""" parts_list """
-from .schedules_items.parts_list.public.schedule_dm_gijutsu_sms import schedule_dm_gijutsu_sms
 
 
 """ F """
@@ -124,9 +122,6 @@ schedules.append(schedule_dm_vinhis_specification_oem)
 """ vinhis yohin """
 # VIN用品
 schedules.append(schedule_dm_vinhis_yohin)
-""" parts_list """
-# UDC　設変情報追加　認証不正対応
-schedules.append(schedule_dm_gijutsu_sms)
 
 """ F層作成ジョブ """
 """ datamart """

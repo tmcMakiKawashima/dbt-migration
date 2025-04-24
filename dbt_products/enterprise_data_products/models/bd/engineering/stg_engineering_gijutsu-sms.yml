@@ -50,7 +50,7 @@ models:
 # 設変書要旨
   - name: stg_eci_yousi
     config:
-      tags: ["gijutsu_sms"]
+      tags: ["gijutsu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -72,7 +72,7 @@ models:
 # 設変No.管理						
   - name: stg_eci_seppenkan
     config:
-      tags: ["gijutsu_sms"]
+      tags: ["gijutsu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -94,7 +94,7 @@ models:
 # 設変書タイトル
   - name: stg_eci_title
     config:
-      tags: ["gijutsu_sms"]
+      tags: ["gijutsu-sms"]
     columns:
       - name: seppenno
         data_tests:

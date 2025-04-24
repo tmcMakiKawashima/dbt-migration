@@ -114,7 +114,7 @@ select
     coalesce(zok_ttl.renraku3en, rpad('', 40))::varchar(40) as renraku3en, -- 事前連絡3（英語）
     coalesce(zok_ttl.eibumei, rpad('', 46))::varchar(46) as eibumei, -- 英文設計室名称
     coalesce(kan.torokutime, rpad('', 16))::varchar(16) as torokutime, -- 登録生認日時
-    current_timestamp()::timestamp_ntz(9) as load_date -- 最終更新日時
+    current_timestamp()::timestamp_ntz(9) as ldts -- 最終更新日時
 from zok_ttl
 left join kan
 on(
