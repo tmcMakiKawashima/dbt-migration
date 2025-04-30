@@ -18,7 +18,7 @@ with thn as (
 ), bmts as (
   select * from {{source('engineering_db_public','raw_tmp_m_cyp02mokujibuijun')}}
 ), sy as (
-  select * from {{ref('stg_syasyu')}}
+  select * from {{source('engineering_db_public','raw_stg_syasyu')}}
 ), kkj as (
   select * from {{ref('stg_eci_kirikaejiki')}}
 )
