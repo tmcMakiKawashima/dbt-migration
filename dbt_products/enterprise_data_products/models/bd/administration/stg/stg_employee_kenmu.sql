@@ -16,7 +16,7 @@
     ]
   )
 }}
--- 洗い替え処理で常に最新断面のみとするためpre_hookで全件削除する処理を記載
+-- 洗い替え処理で常に最新断面のみとするためpre_hookで全件削除する処理、pre_hookとpost_hookマスキング用の処理を記載
 with stg_employee_kenmu as (
     select
         jcd::varchar(7) as employee_cd, -- 従業員コード
