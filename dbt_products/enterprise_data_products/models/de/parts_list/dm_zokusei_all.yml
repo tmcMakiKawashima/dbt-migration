@@ -3,7 +3,7 @@ models:
 # 設変書基本情報(ALL)
   - name: dm_zokusei_all
     config:
-      tags: ["gijutsu_sms"]
+      tags: ["gijutsu-sms"]
     columns:
       - name: seppenno
         data_tests:
