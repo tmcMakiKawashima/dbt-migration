@@ -144,12 +144,12 @@ models:
           +access: public
           +materialized: table
       manufacturing:
-        +snowflake_warehouse: "manufacturing_wh"
+        +snowflake_warehouse: manufacturing_wh
         +group: manufacturing
-        +database: "manufacturing_db"
-        +schema: "public"
+        +database: manufacturing_db
+        +schema: public
         stg:
-          +access: "public"
+          +access: public
           +materialized: table
     de:
       parts:

@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-# 資材調達システム　UDC公開用
+# 資材調達システム_UDC公開用
 schedule_stg_maps = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_stg_maps",
