@@ -1,7 +1,10 @@
 {{ config(materialized='table') }}
 
-with eth as (select * from {{source('engineering_db_public','raw_ecitekiyo')}}),
-tsy as (select * from {{ref('stg_eci_tousaisyasyu')}})
+with eth as (
+  select * from {{source('engineering_db_public','raw_ecitekiyo')}}
+),tsy as (
+  select * from {{ref('stg_eci_tousaisyasyu')}}
+)
 select
   eth.seppenno as seppenno, -- 設変№
   eth.ecikbn as kubun, -- 区分
