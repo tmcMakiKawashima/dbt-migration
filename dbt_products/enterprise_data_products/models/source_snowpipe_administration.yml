@@ -84,3 +84,11 @@ sources:
 
       - name: raw_ktrla015zz0kh20071
         identifier: ktrla015zz0kh20071
+
+      - name: raw_ktrla0bkzz0kh20001
+        identifier: ktrla0bkzz0kh20001
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 31
