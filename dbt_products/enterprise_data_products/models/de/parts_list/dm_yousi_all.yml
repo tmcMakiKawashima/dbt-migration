@@ -3,7 +3,7 @@ models:
 # 設変書 X 要旨(ALL)
   - name: dm_yousi_all
     config:
-      tags: ["gijutsu_sms"]
+      tags: ["gijutsu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:

@@ -17,3 +17,5 @@ sources:
         identifier: lecihikihen
       - name: raw_tmp_m_cyp02mokujibuijun
         identifier: tmp_m_cyp02mokujibuijun
+      - name: raw_stg_syasyu
+        identifier: stg_syasyu
