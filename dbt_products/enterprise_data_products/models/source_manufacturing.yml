@@ -4,120 +4,61 @@ sources:
   - name: manufacturing_db_public
     database: manufacturing_db
     schema: public
-    freshness:
-      warn_after: { count: 1, period: hour }
-      error_after: { count: 24, period: hour }
-    loaded_at_field: ldts
-
     tables:
-      # 入出庫検索テーブル詳細データ
+    # maps
       - name: raw_stg_nyusyukkokensaku
         identifier: stg_nyusyukkokensaku
-
-      # 出庫情報経理保管データ
       - name: raw_stg_syukko_keirihokan
         identifier: stg_syukko_keirihokan
-
-      # 受領情報経理保管データ
       - name: raw_stg_juryo_keirihokan
         identifier: stg_juryo_keirihokan
-
-      # 発注情報経理保管データ
       - name: raw_stg_hachu_keirihokan
         identifier: stg_hachu_keirihokan
-
-      # Y品番マスタ
       - name: raw_stg_yhinban_master
         identifier: stg_yhinban_master
-
-      # Y品番-仕入先マスタ
       - name: raw_stg_yhinban_shiiresaki_master
         identifier: stg_yhinban_shiiresaki_master
-
-      # ガスボンベ保管場所履歴
       - name: raw_stg_gashokanbasyo
         identifier: stg_gashokanbasyo
-
-      # カレンダーマスタ
       - name: raw_stg_calendar_master
-        identifier: "stg_calendar_master"
-
-      # ポストNo代表者マスタ
+        identifier: stg_calendar_master
       - name: raw_stg_postnodaihyosya_master
         identifier: stg_postnodaihyosya_master
-
-      # 基準表鋼材手配
       - name: raw_stg_kijunhyo_kouzaitehai
         identifier: stg_kijunhyo_kouzaitehai
-
-      # 基準表在庫
       - name: raw_stg_kijunhyo_zaiko
         identifier: stg_kijunhyo_zaiko
-
-      # 基準表仕掛内示
       - name: raw_stg_kijunhyo_shikakenaiji
         identifier: stg_kijunhyo_shikakenaiji
-
-      # 計量票
       - name: raw_stg_keiryohyo
         identifier: stg_keiryohyo
-
-      # 工場間･工場内調達依頼
       - name: raw_stg_chotatsuirai_kojokannai
         identifier: stg_chotatsuirai_kojokannai
-
-      # 鋼材手配
       - name: raw_stg_kozaitehai
         identifier: stg_kozaitehai
-
-      # 在庫取引
       - name: raw_stg_zaikotorihiki
         identifier: stg_zaikotorihiki
-
-      # 資材内示
       - name: raw_stg_sizainaiji
         identifier: stg_sizainaiji
-
-      # 修理Y品番マスタ
       - name: raw_stg_syuriyhinban_master
         identifier: stg_syuriyhinban_master
-
-      # 所番地_鉄
       - name: raw_stg_tokorobanchi_tetsu
         identifier: stg_tokorobanchi_tetsu
-
-      # 所番地_鉄以外
       - name: raw_stg_tokorobanchi_tetsuigai
         identifier: stg_tokorobanchi_tetsuigai
-
-      # 代替品マスタ
       - name: raw_stg_daitaihin_master
         identifier: stg_daitaihin_master
-
-      # 発注依頼
       - name: raw_stg_hachuirai
         identifier: stg_hachuirai
-
-      # 発注付加情報
       - name: raw_stg_hachuhuka
         identifier: stg_hachuhuka
-
-      # 所番地廃止_鉄以外
       - name: raw_stg_tokorobanchi_tetsuigai_haishi
         identifier: stg_tokorobanchi_tetsuigai_haishi
-
-      # 鉄余剰材マスタ
       - name: raw_stg_yojozai_tetsu_master
         identifier: stg_yojozai_tetsu_master
-
-      # 発注変更
       - name: raw_stg_hachuhenko
         identifier: stg_hachuhenko
-
-      # Y品番変更履歴
       - name: raw_stg_yhinbanhenko
         identifier: stg_yhinbanhenko
-
-      # 決裁ルートマスタ
       - name: raw_stg_kessairoute
         identifier: stg_kessairoute
