@@ -6,7 +6,6 @@
   )
 }}
 
-
 with stg_saikenmaeuke_meisai_judgev as (
     select
         snsid::varchar(21) as snsid, -- 申請ID
