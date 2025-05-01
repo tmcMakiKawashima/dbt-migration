@@ -1,7 +1,10 @@
 {{ config(materialized='table') }}
 
-with eth as (select * from {{source('engineering_db_public','raw_ecitekiyo')}}),
-tsy as (select * from {{ref('stg_eci_tousaisyasyu')}})
+with eth as (
+  select * from {{source('engineering_db_public','raw_ecitekiyo')}}
+),tsy as (
+  select * from {{ref('stg_eci_tousaisyasyu')}}
+)
 select
   eth.seppenno as seppenno, -- 設変№
   eth.ecikbn as kubun, -- 区分
@@ -10,11 +13,10 @@ select
   substr(eth.tekiyo,5,2) as bui, -- 部位
   substr(eth.tekiyo,7,4) as variation, -- バリエーション
   eth.sinhaikbn as sinhaikbn, -- 新廃区分
-  'ECI' as ecikbn, -- 設変書区分
   coalesce(tsy.tousai, rpad('', 4)) as tousai, -- 搭載車種
-  rpad('', 30) as cond, -- Condition
+  'ECI' as ecikubun, -- 設変書区分
   rpad('', 40) as meisyo, -- 名称
-  current_timestamp() as ldts -- 最終更新日時
+  rpad('', 30) as cond -- Condition
 from eth
 left join tsy
 on (

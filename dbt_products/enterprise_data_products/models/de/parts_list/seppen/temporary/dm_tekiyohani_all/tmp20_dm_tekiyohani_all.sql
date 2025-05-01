@@ -11,11 +11,10 @@ with tmp10_dm_tekiyohani_all as (
     substr(tekiyo,5,2) as bui, -- 部位
     substr(tekiyo,7,4) as variation, -- バリエーション
     sinhaikbn as sinhaikbn, -- 新廃区分
-    'LECI' as ecikbn, -- 設変書区分
     rpad('', 4) as tousai, -- 搭載車種
-    rpad('', 30) as cond, -- Condition
+    'LECI' as ecikubun, -- 設変書区分
     rpad('', 40) as meisyo, -- 名称
-    current_timestamp() as ldts -- 最終更新日時
+    rpad('', 30) as cond -- Condition
   from {{source('engineering_db_public','raw_lecitekiyo')}}
 ), mokujihen as (
   select
@@ -26,11 +25,10 @@ with tmp10_dm_tekiyohani_all as (
     tekiyobui as bui, -- 部位
     rpad('', 4) as variation, -- バリエーション
     rpad('', 1) as sinhaikbn, -- 新廃区分
-    'ECI(Contents)' as ecikbn, -- 設変書区分
     tousai as tousai, -- 搭載車種
-    rpad('', 30) as cond, -- Condition
+    'ECI(Contents)' as ecikubun, -- 設変書区分
     rpad('', 40) as meisyo, -- 名称
-    current_timestamp() as ldts -- 最終更新日時
+    rpad('', 30) as cond -- Condition
   from {{source('engineering_db_public','raw_ecimokujihen')}}
 ), lhikihen as (
   select
@@ -41,11 +39,10 @@ with tmp10_dm_tekiyohani_all as (
     bui as bui, -- 部位
     rpad('', 4) as variation, -- バリエーション
     rpad('', 1) as sinhaikbn, -- 新廃区分
-    'LECI(Contents)' as ecikbn, -- 設変書区分
     rpad('', 4) as tousai, -- 搭載車種
-    rpad('', 30) as cond, -- Condition
+    'LECI(Contents)' as ecikubun, -- 設変書区分
     rpad('', 40) as meisyo, -- 名称
-    current_timestamp() as ldts -- 最終更新日時
+    rpad('', 30) as cond -- Condition
   from {{source('engineering_db_public','raw_lecihikihen')}}
 ), meihen as (
   select
@@ -56,11 +53,10 @@ with tmp10_dm_tekiyohani_all as (
     substr(tekiyo,5,2) as bui, -- 部位
     substr(tekiyo,7,4) as variation, -- バリエーション
     rpad('', 1) as sinhaikbn, -- 新廃区分
-    'ECI(Name)' as ecikbn, -- 設変書区分
     rpad('', 4) as tousai, -- 搭載車種
-    rpad('', 30) as cond, -- Condition
+    'ECI(Name)' as ecikubun, -- 設変書区分
     meisyo as meisyo, -- 名称
-    current_timestamp() as ldts -- 最終更新日時
+    rpad('', 30) as cond -- Condition
   from {{ref('stg_eci_meihen')}}
 )
 select *

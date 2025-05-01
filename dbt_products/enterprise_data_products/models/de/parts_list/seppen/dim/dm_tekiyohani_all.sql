@@ -23,17 +23,7 @@ with thn as (
   select * from {{ref('stg_eci_kirikaejiki')}}
 )
 select
-    thn.seppenno::varchar(10) as seppenno, -- 設変No.
-    thn.kubun::varchar(3) as kubun, -- 区分
-    thn.syasyu::varchar(4) as syasyu, -- 車種コード
-    thn.kumitate::varchar(4) as kumitate, -- 組立番号
-    thn.bui::varchar(2) as bui, -- 部位
-    thn.variation::varchar(4) as variation, -- バリエーション
-    thn.sinhaikbn::varchar(1) as sinhaikbn, -- 新廃区分
-    thn.tousai::varchar(4) as tousai, -- 搭載車種
-    thn.ecikbn::varchar(15) as ecikubun, -- 設変書区分
-    thn.meisyo::varchar(40) as meisyo, -- 名称
-    thn.cond::varchar(30) as cond, -- Condition
+    thn.*,
     coalesce(kkj.kirijikijp, rpad('', 50))::varchar(50) as kirijikijp , -- 切替希望時期(日)
     coalesce(kkj.kirijikien, rpad('', 100))::varchar(100) as kirijikien, -- 切替希望時期(英)
     coalesce(sy.syukan, rpad('', 2))::varchar(2) as syukan, -- 主管会社
@@ -49,7 +39,7 @@ and thn.syasyu = bmts.syasyu
 and thn.kumitate = bmts.kumitate
 and thn.bui = bmts.bui
 and thn.seppenno = bmts.seppenno
-and thn.ecikbn in ('ECI(Contents)','LECI(Contents)')
+and thn.ecikubun in ('ECI(Contents)','LECI(Contents)')
 )
 left join sy
 on (

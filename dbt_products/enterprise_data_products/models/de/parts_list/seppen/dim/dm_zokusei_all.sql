@@ -54,13 +54,7 @@ with zok as(
     from {{ref('stg_eci_seppenkan')}}
 )
 select
-    zok.seppenno::varchar(10) as seppenno, -- 設変No.
-    zok.sepsyurui::varchar(2) as sepsyurui, -- 設変書種類
-    zok.hakkotime::varchar(14) as hakkotime , -- 発行日時
-    zok.hakkositu::varchar(5) as hakkositu, -- 発行設計室
-    zok.hakkotanto::varchar(10) as hakkotanto, -- 発行担当者
-    zok.tel::varchar(12) as tel, -- 発行TEL
-    zok.fax::varchar(12) as fax, -- 発行FAX
+    zok.*,
     coalesce(ttl.dbuhin, rpad('', 40))::varchar(40) as dbuhin, -- 代表部品名
     coalesce(ttl.rf1, rpad('', 1))::varchar(1) as rf1, -- R/C･F/F切替制約A
     coalesce(ttl.rf2, rpad('', 1))::varchar(1) as rf2, -- R/C･F/F切替制約B
