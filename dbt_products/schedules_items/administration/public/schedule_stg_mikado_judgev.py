@@ -2,7 +2,7 @@ from ....enterprise_data_products_assets.assets import DbtConfig, dbt_products_a
 from dagster import DefaultScheduleStatus, RunConfig
 from dagster_dbt import build_schedule_from_dbt_selection
 
-# MIKADO JNET
+# MIKADO_JUDGEV
 schedule_stg_mikado_judgev = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_stg_mikado_judgev",
