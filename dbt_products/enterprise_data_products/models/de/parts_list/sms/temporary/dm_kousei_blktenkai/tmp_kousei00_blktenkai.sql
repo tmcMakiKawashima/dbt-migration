@@ -1,3 +1,8 @@
+{{
+    config(
+        materialized='table'
+    )
+}}
 with
   kousei_all as (
     select * from {{ref('tmp_kousei00_blktenkai_4_kousei_all')}}

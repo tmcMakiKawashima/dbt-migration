@@ -1,3 +1,8 @@
+{{
+    config(
+        materialized='table'
+    )
+}}
 --再帰処理の為、with句内で結合
 with recursive
   siyoubui_blk as (

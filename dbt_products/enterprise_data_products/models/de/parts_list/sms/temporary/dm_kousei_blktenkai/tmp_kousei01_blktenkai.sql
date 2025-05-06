@@ -1,3 +1,8 @@
+{{
+    config(
+        materialized='table'
+    )
+}}
 with
     tmp_kousei00_blktenkai as (
         select * 
