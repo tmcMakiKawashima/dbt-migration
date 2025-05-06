@@ -195,7 +195,7 @@ models:
           +group: parts_list_sms
           +schema: sms
           dim:
-            +access: public
+            +access: public 
             +materialized: table
     ef:
       datamart:
