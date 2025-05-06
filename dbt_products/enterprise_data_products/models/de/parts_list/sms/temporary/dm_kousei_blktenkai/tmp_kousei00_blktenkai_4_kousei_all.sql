@@ -1,3 +1,8 @@
+{{
+    config(
+        materialized='table'
+    )
+}}
 with
   siyoubui_target as (
     select
