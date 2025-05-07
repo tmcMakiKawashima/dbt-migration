@@ -40,13 +40,6 @@ sources:
             data_tests:
             - fixed_length:
                 length: 70
-      - name: raw_da34b13
-        identifier: da34b13
-        columns:
-          - name: raw_data
-            data_tests:
-            - fixed_length:
-                length: 60
       - name: raw_tsjfa396
         identifier: tsjfa396
         columns:
@@ -54,6 +47,13 @@ sources:
             data_tests:
             - fixed_length:
                 length: 70
+      - name: raw_da34b13
+        identifier: da34b13
+        columns:
+          - name: raw_data
+            data_tests:
+            - fixed_length:
+                length: 60
     # AQUA
       - name: raw_nojfa560
         identifier: nojfa560
