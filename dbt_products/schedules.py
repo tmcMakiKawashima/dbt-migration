@@ -45,7 +45,6 @@ from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_oem import sc
 """ vinhis yohin """
 from .schedules_items.vinhis.yohin.schedule_dm_vinhis_yohin import schedule_dm_vinhis_yohin
 
-
 """ F """
 """ datamart """
 from .schedules_items.datamart.public.schedule_hokyunoki_mieruka import schedule_hokyunoki_mieruka
