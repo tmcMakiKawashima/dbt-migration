@@ -21,3 +21,7 @@ models:
   - name: stg_karikarifuri_syaryosys
     config:
       tags: ["syaryosys"]
+  # 仕様エラー
+  - name: stg_juchuzan_shiyoerr_syaryosys
+    config:
+      tags: ["syaryosys"]
