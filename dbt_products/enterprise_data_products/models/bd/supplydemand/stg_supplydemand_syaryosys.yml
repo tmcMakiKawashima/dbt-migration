@@ -17,3 +17,86 @@ models:
   - name: stg_vltsohutaisho
     config:
       tags: ["syaryosys"]
+  # 車種コード・仕様書№対応DB
+  - name: stg_syasyu_siyousho
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu
+            - sno
+            - ldts
+          config:
+            severity: error
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jidokbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sktire
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: skdoitu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tokusyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syflg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: maesyasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tutisyo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tutisuf
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lang
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lang2
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mtdate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
