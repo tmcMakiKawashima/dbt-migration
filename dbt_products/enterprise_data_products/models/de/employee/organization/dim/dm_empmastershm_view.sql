@@ -59,5 +59,7 @@ with
             ,jssykikkg
             ,jsemailkkg
         from {{  source('administration_db_public','raw_empmastershm') }}
+        where load_end_date is null
+        and (shgaishkbncd is null or shgaishkbncd in('1','2','3','4','5','6'))
     )
 select * from dm_empmastershm_view
