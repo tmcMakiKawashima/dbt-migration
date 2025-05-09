@@ -86,7 +86,7 @@ schedules.append(schedule_stg_dly_rpt_mst)
 schedules.append(schedule_stg_dly_rpt)
 # 物流管理KPI(GALC_KPI)
 schedules.append(schedule_stg_galc_kpi)
-# 仕様マスタ
+# 仕様装備
 schedules.append(schedule_stg_siyou_soubi)
 # 車両INDEX
 schedules.append(schedule_stg_syaryoindex)
