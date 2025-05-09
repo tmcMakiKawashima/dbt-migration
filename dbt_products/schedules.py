@@ -21,6 +21,7 @@ from .schedules_items.supplydemand.public.schedule_stg_aqua import schedule_stg_
 from .schedules_items.supplydemand.public.schedule_stg_dly_rpt_mst import schedule_stg_dly_rpt_mst
 from .schedules_items.supplydemand.public.schedule_stg_dly_rpt import schedule_stg_dly_rpt
 from .schedules_items.supplydemand.public.schedule_stg_galc_kpi import schedule_stg_galc_kpi
+from .schedules_items.supplydemand.public.schedule_stg_siyou_soubi import schedule_stg_siyou_soubi
 from .schedules_items.supplydemand.public.schedule_stg_syaryoindex import schedule_stg_syaryoindex
 from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_stg_vlt_ord
 """ valuechain """
@@ -85,6 +86,8 @@ schedules.append(schedule_stg_dly_rpt_mst)
 schedules.append(schedule_stg_dly_rpt)
 # 物流管理KPI(GALC_KPI)
 schedules.append(schedule_stg_galc_kpi)
+# 仕様マスタ
+schedules.append(schedule_stg_siyou_soubi)
 # 車両INDEX
 schedules.append(schedule_stg_syaryoindex)
 # VLTオーダー確定日チェックEUC
