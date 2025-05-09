@@ -1,11 +1,6 @@
-{{ config(
-      materialized='incremental',
-      unique_key = ['yohinsyamei','tuikou'],
-      incremental_strategy = 'merge'
-   ) }}
-
 with stg_genyohinmaster as (
     select
+        kbn::varchar(1) as kbn, --なし
         syamei::varchar(3) as yohinsyamei, --なし
         rtrim(tuikou, ' 　')::varchar(8) as tuikou, -- 右blank
         rtrim(seg, ' 　')::varchar(3) as seg, -- 右blank
@@ -80,10 +75,6 @@ with stg_genyohinmaster as (
         ldts, -- B層のldts
         row_number() over(partition by yohinsyamei, tuikou order by data2_tekikr desc, seg desc, seq desc, ldts desc) aggkey
     from {{ ref('substr_tpjfva41') }}
-           
-  {% if is_incremental() %}
-      where ldts > (select max(ldts) from {{this}})
-  {% endif %}
 )
-select * exclude(aggkey) from stg_genyohinmaster
-where aggkey = 1
+select * exclude(kbn,aggkey) from stg_genyohinmaster
+where aggkey = 1 and kbn in ('C','U')

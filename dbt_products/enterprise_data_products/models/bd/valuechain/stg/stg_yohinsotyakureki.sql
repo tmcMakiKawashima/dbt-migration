@@ -1,11 +1,6 @@
-{{ config(
-      materialized='incremental',
-      unique_key = ['kbsyadai', 'nosyadai', 'ddtorituke', 'cdyouhinban', 'cdtorihan', 'cdtoritenpo'],
-      incremental_strategy = 'merge'
-   ) }}
-
 with stg_yohinsotyakureki as (
     select
+        kbn::varchar(1) as kbn, --なし C,U,Dのメンテ区分
         kbsyadai::varchar(3) as kbsyadai, -- なし
         rtrim(nosyadai, ' 　')::varchar(20) as nosyadai, -- 右ブランク
         split_part(nosyadai, '-', 1) as syadai_kt, -- 車台番号ハイフンの左
@@ -21,9 +16,6 @@ with stg_yohinsotyakureki as (
         line_number,
         rank() over (partition by kbsyadai, nosyadai, ddtorituke, cdyouhinban, cdtorihan, cdtoritenpo order by ldts desc, line_number desc) aggkey
     from {{ ref('substr_ktrla025zz0kil3201') }}
-           {% if is_incremental() %}
-               where ldts > (select max(ldts) from {{this}})
-           {% endif %}
 )
-select * exclude(aggkey, line_number) from stg_yohinsotyakureki
-where aggkey = 1
+select * exclude(kbn, aggkey, line_number) from stg_yohinsotyakureki
+where aggkey = 1 and kbn in ('C','U')
