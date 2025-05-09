@@ -55,5 +55,6 @@ with
             ,jssykikkg
             ,jsemailkkg
         from {{ source('administration_db_public','raw_empmasterknm') }}
+        where load_end_date is null
     )
 select * from dm_empmasterknm_view
