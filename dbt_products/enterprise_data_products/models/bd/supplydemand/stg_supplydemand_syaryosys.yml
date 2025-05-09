@@ -1128,3 +1128,49 @@ models:
           - not_null:
               config:
                 severity: error
+  # 仕様変換
+  - name: stg_siyouhenkan
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu
+            - shiyodai
+            - shiyosai
+            - s1keta
+            - s1kigo
+            - ctlkata
+          config:
+            severity: error
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shiyodai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shiyosai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: s1keta
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: s1kigo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ctlkata
+        data_tests:
+          - not_null:
+              config:
+                severity: error
