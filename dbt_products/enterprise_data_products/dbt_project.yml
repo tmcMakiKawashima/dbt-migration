@@ -48,9 +48,10 @@ models:
         +schema: public
       snowpipe:
         +snowflake_warehouse: snowpipe_wh
-        +group: snowpipe
         +database: snowpipe_db
-        +schema: supplydemand
+        supplydemand:
+          +group: snowpipe_supplydemand
+          +schema: supplydemand
     bd:
       valuechain:
         +snowflake_warehouse: valuechain_wh
@@ -158,8 +159,8 @@ models:
           +group: vinhis_yohin
           +schema: yohin
           dim:
-          +access: public
-          +materialized: table
+            +access: public
+            +materialized: table
         spec:
           +group: vinhis_spec
           +schema: spec
@@ -184,6 +185,15 @@ models:
         repair:
           +group: model_repair
           +schema: repair
+          dim:
+            +access: public
+            +materialized: table
+      parts_list:
+        +snowflake_warehouse: parts_list_wh
+        +database: parts_list_db
+        seppen:
+          +group: parts_list_seppen
+          +schema: seppen
           dim:
             +access: public
             +materialized: table
