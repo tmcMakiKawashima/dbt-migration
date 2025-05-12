@@ -1,7 +1,6 @@
 {{ 
   config(
     materialized='incremental',
-    unique_key = ['knmtyostaym','knmtyocd'],
     incremental_strategy = 'append',
     pre_hook=[
       "
