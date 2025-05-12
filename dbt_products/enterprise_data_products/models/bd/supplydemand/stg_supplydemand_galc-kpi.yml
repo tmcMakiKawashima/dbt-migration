@@ -2465,9 +2465,10 @@ models:
               config:
                 severity: error
 
-  # 生産進度_TMEJ宮城大衡(D層)
+# 生産進度_TMEJ宮城大衡
   - name: stg_hostalc_1g_production_progress
-    description: "生産進度_TMEJ宮城大衡(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:

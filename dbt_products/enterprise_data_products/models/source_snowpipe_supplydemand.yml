@@ -417,8 +417,6 @@ sources:
       # 生産進度_TMEJ岩手(B層)
       - name: raw_hostalc_1v_dkae06047201
         identifier: hostalc_1v_dkae06047201
-
-      # 生産進度_TMEJ宮城大衡(B層)
       - name: raw_hostalc_1g_dkae06047201
         identifier: hostalc_1g_dkae06047201
       - name: raw_hostalc_1p_dkae06047201
