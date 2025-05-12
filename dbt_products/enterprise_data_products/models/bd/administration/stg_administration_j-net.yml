@@ -1,0 +1,279 @@
+version: 2
+
+models:
+# W＿入社形態
+  - name: stg_nyusyakeitai
+    config:
+      tags: ["j-net"]
+    columns:
+      - name: nysketcd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 従業員メールアドレス
+  - name: stg_mail
+    config:
+      tags: ["j-net"]
+    columns:
+      - name: employee_cd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# R所属上司＿現在
+  - name: stg_joshi
+    config:
+      tags: ["j-net"]
+    columns:
+      - name: syozoku_cd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 勤務態様区分
+  - name: stg_kinmutaiyo
+    config:
+      tags: ["j-net"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - knmtyostaym
+            - knmtyocd
+          config:
+            severity: error
+    columns:
+      - name: knmtyostaym
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: knmtyocd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 会社
+  - name: stg_kaisya
+    config:
+      tags: ["j-net"]
+    columns:
+      - name: kaisyacd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 分野マスター
+  - name: stg_bunya
+    config:
+      tags: ["j-net"]
+    columns:
+      - name: bnycd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# W＿社外者区分
+  - name: stg_syagaisya_kubun
+    config:
+      tags: ["j-net"]
+    columns:
+      - name: syagaikbn
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 全社ＥＸメールアドレス
+  - name: stg_exmail
+    config:
+      tags: ["j-net"]
+    columns:
+      - name: employee_cd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# ＥＵＣ現在基本＿兼務
+  - name: stg_employee_kenmu
+    config:
+      tags: ["j-net"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - employee_cd
+            - syozoku_cd_honrai
+          config:
+            severity: error
+    columns:
+      - name: jigsnymd
+        meta:
+            masking_policy: jigsnymd_mask
+      - name: jigseb
+        meta:
+            masking_policy: jigseb_mask
+      - name: gakrei
+        meta:
+            masking_policy: gakrei_mask
+      - name: nnjgrk
+        meta:
+            masking_policy: nnjgrk_mask
+      - name: hgsumf
+        meta:
+            masking_policy: hgsumf_mask
+      - name: tgntkycd
+        meta:
+            masking_policy: tgntkycd_mask
+      - name: sytkyf
+        meta:
+            masking_policy: sytkyf_mask
+      - name: employee_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syozoku_cd_honrai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 役割履歴
+  - name: stg_yakuwari_history
+    config:
+      tags: ["j-net"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - employee_cd
+            - htrymd
+            - syozoku_cd
+            - ykwrcd
+          config:
+            severity: error
+    columns:
+      - name: employee_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: htrymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syozoku_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ykwrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# TWAVE電話帳
+  - name: stg_twave_tel
+    config:
+      tags: ["j-net"]
+    columns:
+      - name: employee_cd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 従業員証・社外者証データ
+  - name: stg_iccard
+    config:
+      tags: ["j-net"]
+    columns:
+      - name: employee_cd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
