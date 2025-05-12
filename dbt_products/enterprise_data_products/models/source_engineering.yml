@@ -5,6 +5,7 @@ sources:
     database: engineering_db
     schema: public
     tables:
+    # gijutsu-sms
       - name: raw_tmp_m_cyp16ecizokusei
         identifier: tmp_m_cyp16ecizokusei
       - name: raw_ecitekiyo
