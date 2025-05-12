@@ -1,7 +1,6 @@
 {{
   config(
     materialized='incremental',
-    unique_key = ['nysketcd'],
     incremental_strategy = 'append',
     pre_hook=[
       "
