@@ -1,7 +1,6 @@
 version: 2
 
 models:
-# Judge-V
 # 少量債権伝票情報
    - name: stg_saikendenpyo_joho_judgev
      config:
