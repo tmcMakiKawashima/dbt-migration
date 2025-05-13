@@ -1,7 +1,6 @@
 {{ 
   config(
     materialized='incremental',
-    unique_key = ['employee_cd'],
     incremental_strategy = 'append',
     pre_hook=[
       "
