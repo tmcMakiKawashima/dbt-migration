@@ -1,7 +1,6 @@
 {{
   config(
     materialized='incremental',
-    unique_key = ['employee_cd','syozoku_cd_honrai'],
     incremental_strategy = 'append',
     pre_hook=[
       "{{ dbt_snow_mask.create_masking_policy('models')}}",
