@@ -50,9 +50,8 @@ models:
         +snowflake_warehouse: snowpipe_wh
         +database: snowpipe_db
         supplydemand:
-          tmp:
-            +group: snowpipe_supplydemand
-            +schema: supplydemand
+          +group: snowpipe_supplydemand
+          +schema: supplydemand
     bd:
       valuechain:
         +snowflake_warehouse: valuechain_wh
