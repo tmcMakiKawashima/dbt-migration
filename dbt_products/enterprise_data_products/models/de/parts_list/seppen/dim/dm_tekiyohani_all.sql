@@ -24,7 +24,17 @@ with thn as (
   select * from {{ref('stg_eci_kirikaejiki')}}
 )
 select
-    thn.*,
+    thn.seppenno, -- 設変№
+    thn.ecikbn as kubun, -- 区分
+    thn.syasyu, -- 車種コード
+    thn.kumitate, -- 組立番号
+    thn.bui, -- 部位
+    thn.variation, -- バリエーション
+    thn.sinhaikbn, -- 新廃区分
+    thn.tousai, -- 搭載車種
+    thn.ecikubun, -- 設変書区分
+    thn.meisyo, -- 名称
+    thn.cond, -- Condition,
     coalesce(kkj.kirijikijp, rpad('', 50))::varchar(50) as kirijikijp , -- 切替希望時期(日)
     coalesce(kkj.kirijikien, rpad('', 100))::varchar(100) as kirijikien, -- 切替希望時期(英)
     coalesce(sy.syukan, rpad('', 2))::varchar(2) as syukan, -- 主管会社
@@ -49,5 +59,5 @@ on (
 left join kkj
 on(
     thn.seppenno = kkj.seppenno
-and thn.kubun = kkj.ecikbn
+and thn.ecikbn = kkj.ecikbn
 )
