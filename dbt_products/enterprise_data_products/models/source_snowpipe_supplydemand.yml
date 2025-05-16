@@ -75,6 +75,13 @@ sources:
             data_tests:
             - fixed_length:
                 length: 40
+      - name: raw_da34b19
+        identifier: da34b19
+        columns:
+          - name: raw_data
+            data_tests:
+            - fixed_length:
+                length: 20
       - name: raw_da34b43
         identifier: da34b43
         columns:
