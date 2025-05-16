@@ -1,7 +1,6 @@
 {{ 
   config(
     materialized='incremental',
-    unique_key = ['employee_cd','htrymd','syozoku_cd','ykwrcd'],
     pre_hook=[
       "
       {% if is_incremental() %}
