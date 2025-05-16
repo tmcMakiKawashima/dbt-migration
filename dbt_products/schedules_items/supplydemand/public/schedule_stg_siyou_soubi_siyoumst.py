@@ -5,24 +5,22 @@ from pathlib import Path
 import sys
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-# 仕様装備
-schedule_stg_siyou_soubi = build_schedule_from_dbt_selection(
+# 仕様マスタ
+schedule_stg_siyou_soubi_siyoumst = build_schedule_from_dbt_selection(
     [dbt_products_assets],
-    job_name="job_build_stg_siyou_soubi",
-    schedule_name="SIYOU_SOUBI",
+    job_name="job_build_stg_siyou_soubi_siyoumst",
+    schedule_name="SIYOU_SOUBI_SIYOUMST",
     cron_schedule="00 04 * * *",
     execution_timezone="Asia/Tokyo",
-    dbt_select="+stg_siyouhenkan +stg_syasyu_siyousho +stg_siyoumst_katashiki +stg_siyoumst_check +stg_siyoumst_generate",
+    dbt_select="+stg_siyoumst_katashiki +stg_siyoumst_check +stg_siyoumst_generate",
     config=RunConfig(ops={"dbt_products_assets":
-                          DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_siyou_soubi"},
-                                    source_test_list=["source:*,+stg_siyouhenkan",
-                                                      "source:*,+stg_syasyu_siyousho",
-                                                      "source:*,+stg_siyoumst_katashiki",
+                          DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_siyou_soubi_siyoumst"},
+                                    source_test_list=["source:*,+stg_siyoumst_katashiki",
                                                       "source:*,+stg_siyoumst_check",
                                                       "source:*,+stg_siyoumst_generate"])
                           }
                      ),
     # default_status=DefaultScheduleStatus.RUNNING,
     tags={"ecs/cpu": "256", "ecs/memory": "1024",
-          "job_name": "job_build_stg_siyou_soubi"},
+          "job_name": "job_build_stg_siyou_soubi_siyoumst"},
 )
