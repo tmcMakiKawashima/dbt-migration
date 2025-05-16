@@ -196,6 +196,15 @@ models:
           dim:
             +access: public
             +materialized: table
+      parts_list:
+        +snowflake_warehouse: parts_list_wh
+        +database: parts_list_db
+        seppen:
+          +group: parts_list_seppen
+          +schema: seppen
+          dim:
+            +access: public
+            +materialized: table
     ef:
       datamart:
         +snowflake_warehouse: datamart_wh
