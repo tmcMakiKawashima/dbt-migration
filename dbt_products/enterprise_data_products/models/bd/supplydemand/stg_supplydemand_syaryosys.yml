@@ -37,3 +37,7 @@ models:
   - name: stg_dfsc_kinomeisaicd_syaryosys
     config:
       tags: ["syaryosys"]
+  # 販売店別月台数ファーム
+  - name: stg_daisu_month_syaryosys
+    config:
+      tags: ["syaryosys"]
