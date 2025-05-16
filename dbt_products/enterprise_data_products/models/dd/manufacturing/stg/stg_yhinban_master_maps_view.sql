@@ -3,8 +3,6 @@
    )
 }}
 
-{% set source_table = source('manufacturing_db_public', 'raw_stg_yhinban_master') %}
-
 with stg_yhinban_master_maps_view as (
   select
     y_item_no_id::varchar(15) as y_item_no_id, -- Y品番ID
@@ -87,8 +85,7 @@ with stg_yhinban_master_maps_view as (
     program_application_id::varchar(15) as program_application_id, -- コンカレント・プログラム・アプリケーションID
     program_id::varchar(15) as program_id, -- コンカレント・プログラムID
     program_update_date::varchar(14) as program_update_date, -- プログラム更新日時
-    "ldts" -- B層取込日時
-  from {{ source_table.database }}.{{ source_table.schema }}."{{ source_table.name | lower }}"
+    ldts -- B層取込日時
+  from {{source('manufacturing_db_public', 'raw_stg_yhinban_master')}}
 )
-
 select * from stg_yhinban_master_maps_view
