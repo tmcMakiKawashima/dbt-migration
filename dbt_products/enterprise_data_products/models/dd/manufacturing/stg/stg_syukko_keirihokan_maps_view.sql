@@ -3,8 +3,6 @@
    )
 }}
 
-{% set source_table = source('manufacturing_db_public', 'raw_stg_syukko_keirihokan') %}
-
 with stg_syukko_keirihokan_maps_view as (
   select
     form_no::varchar(4) as form_no, -- 帳票No
@@ -44,8 +42,7 @@ with stg_syukko_keirihokan_maps_view as (
     gi_person_name_all_digits::varchar(10) as gi_person_name_all_digits, -- 出庫者名(全桁)
     depart_code::varchar(5) as depart_code, -- 部署ｺｰﾄﾞ
     processing_date2::varchar(8) as processing_date2, -- 処理年月日2
-    "ldts" -- B層取込日時
-  from {{ source_table.database }}.{{ source_table.schema }}."{{ source_table.name | lower }}"
+    ldts -- B層取込日時
+  from {{source('manufacturing_db_public', 'raw_stg_syukko_keirihokan')}}
 )
-
 select * from stg_syukko_keirihokan_maps_view

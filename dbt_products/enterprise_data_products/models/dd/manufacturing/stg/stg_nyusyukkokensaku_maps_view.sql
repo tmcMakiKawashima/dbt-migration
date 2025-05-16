@@ -3,6 +3,8 @@
    )
 }}
 
+{% set source_table = source('manufacturing_db_public', 'raw_stg_nyusyukkokensaku') %}
+
 with stg_nyusyukkokensaku_maps_view as (
   select
     y_item_no::varchar(10) as y_item_no, -- Y品番
@@ -28,7 +30,8 @@ with stg_nyusyukkokensaku_maps_view as (
     factory_cls::varchar(1) as factory_cls, -- 工場区分
     st_no::varchar(2) as st_no, -- ｽﾃｰｼｮﾝNo
     depart_code::varchar(5) as depart_code, -- 部署ｺｰﾄﾞ
-    ldts -- B層取込日時
-  from {{source('manufacturing_db_public', 'raw_stg_nyusyukkokensaku')}}
+    "ldts" -- B層取込日時
+  from {{ source_table.database }}.{{ source_table.schema }}."{{ source_table.name | lower }}"
 )
+
 select * from stg_nyusyukkokensaku_maps_view
