@@ -32,17 +32,6 @@ schedule_stg_mikado_jnet_0645 = build_schedule_from_dbt_selection(
                                                       "source:*,+stg_kintai_monthly",
                                                       "source:*,+stg_kintai_daily",
                                                       "source:*,+stg_pclog",
-                                                      "source:*,+stg_nyusyakeitai",
-                                                      "source:*,+stg_mail",
-                                                      "source:*,+stg_joshi",
-                                                      "source:*,+stg_kinmutaiyo",
-                                                      "source:*,+stg_kaisya",
-                                                      "source:*,+stg_bunya",
-                                                      "source:*,+stg_syagaisya_kubun",
-                                                      "source:*,+stg_exmail",
-                                                      "source:*,+stg_employee_kenmu",
-                                                      "source:*,+stg_yakuwari_history",
-                                                      "source:*,+stg_twave_tel",
                                                       "source:*,+stg_iccard"
 ])
                           }
