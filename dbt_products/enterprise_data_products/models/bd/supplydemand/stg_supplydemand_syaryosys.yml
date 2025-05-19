@@ -41,3 +41,7 @@ models:
   - name: stg_daisu_month_syaryosys
     config:
       tags: ["syaryosys"]
+  # 需給ステイタスDB
+  - name: stg_jukyustatus_syaryosys
+    config:
+      tags: ["syaryosys"]
