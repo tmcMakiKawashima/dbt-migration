@@ -89,6 +89,13 @@ sources:
             data_tests:
             - fixed_length:
                 length: 80
+      - name: raw_da36b63
+        identifier: da36b63
+        columns:
+          - name: raw_data
+            data_tests:
+            - fixed_length:
+                length: 40
     # AQUA
       - name: raw_nojfa560
         identifier: nojfa560
