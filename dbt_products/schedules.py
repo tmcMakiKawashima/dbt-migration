@@ -33,6 +33,8 @@ from .schedules_items.valuechain.public.schedule_stg_yui_cpos import schedule_st
 from .schedules_items.model.repair.schedule_dm_cataloghinmei import schedule_dm_cataloghinmei
 from .schedules_items.model.repair.schedule_dm_figbunkaiinfo import schedule_dm_figbunkaiinfo
 from .schedules_items.model.repair.schedule_dm_vehicle_generation import schedule_dm_vehicle_generation
+""" parts_list seppen """
+from .schedules_items.parts_list.seppen.schedule_dm_seppen_bunseki import schedule_dm_seppen_bunseki
 """ vinhis maint """
 from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
 """ vinhis model """
@@ -105,6 +107,9 @@ schedules.append(schedule_dm_cataloghinmei)
 schedules.append(schedule_dm_figbunkaiinfo)
 # 車種世代
 schedules.append(schedule_dm_vehicle_generation)
+""" parts_list seppen """
+# 認証不正防止対応(設変分析)
+schedules.append(schedule_dm_seppen_bunseki)
 """ vinhis maint """
 # VIN整備
 schedules.append(schedule_dm_vinhis_maint)
