@@ -21,7 +21,7 @@ with stg_siyouhenkan as (
         tutisufmade::varchar(2) as tutisufmade,
         tekikara::varchar(8) as tekikara,
         tekimade::varchar(8) as tekimade,
-        mtdate::varchar(14) as mtdate,
+        to_timestamp_ntz(mtdate, 'yyyymmddhh24miss') as mtdate,
         ldts::timestamp_ntz(9) as ldts,
         line_number,
         rank() over (partition by syasyu, shiyodai, shiyosai, s1keta, s1kigo, ctlkata order by sijikara desc, ldts desc, line_number desc) aggkey

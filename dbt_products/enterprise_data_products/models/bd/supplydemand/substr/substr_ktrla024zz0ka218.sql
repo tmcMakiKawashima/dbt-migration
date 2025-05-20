@@ -22,7 +22,6 @@ with substr_ktrla024zz0ka218 as (
         substr(raw_data, 67, 8)::varchar(8) as tekikara,
         substr(raw_data, 75, 8)::varchar(8) as tekimade,
         substr(raw_data, 83, 14)::varchar(14) as mtdate,
-        substr(raw_data, 97, 14)::varchar(14) as dummy,
         line_number,
         ldts
     from {{source('snowpipe_db_supplydemand', 'raw_ktrla024zz0ka218')}}
