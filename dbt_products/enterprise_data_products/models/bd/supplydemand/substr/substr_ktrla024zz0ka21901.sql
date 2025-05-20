@@ -14,7 +14,6 @@ with substr_ktrla024zz0ka21901 as (
         substr(raw_data, 22, 1)::varchar(1) as lang,
         substr(raw_data, 23, 1)::varchar(1) as lang2,
         substr(raw_data, 24, 14)::varchar(14) as mtdate,
-        substr(raw_data, 38, 13)::varchar(13) as dummy,
         line_number,
         ldts
     from {{source('snowpipe_db_supplydemand', 'raw_ktrla024zz0ka21901')}}
