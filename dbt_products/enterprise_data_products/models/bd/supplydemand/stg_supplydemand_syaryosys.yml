@@ -45,3 +45,7 @@ models:
   - name: stg_maker_line_syaryosys
     config:
       tags: ["syaryosys"]
+  # ファーム管理オーダー枠
+  - name: stg_fwaku_syaryosys
+    config:
+      tags: ["syaryosys"]
