@@ -1,11 +1,14 @@
+/*
+tsjfa38tはマルチレイアウトであり、このsubstrは仕様マスタ（型式）のレイアウトで分割している
+仕様マスタ（チェック）と仕様マスタ（ジェネレート）のレコードは正しく分割されていない
+rtrim(segmei,' 　') = 'EA31022'のデータのみstg_siyoumst_katashikiに取り込まれる
+*/
 with substr_tsjfa38t1 as (
     select
         substr(raw_data, 1, 1)::varchar(1) as mtkbn, --C,U,Dのメンテ区分
-        substr(raw_data, 2, 1)::varchar(1) as dum1,
         substr(raw_data, 3, 8)::varchar(8) as segmei,
         substr(raw_data, 11, 20)::varchar(20) as renkey_hkata,
         substr(raw_data, 31, 1)::varchar(1) as renkey_sedai,
-        substr(raw_data, 32, 100)::varchar(100) as dum2,
         substr(raw_data, 132, 20)::varchar(20) as hkata,
         substr(raw_data, 152, 1)::varchar(1) as sedai,
         substr(raw_data, 153, 4)::varchar(4) as jkkyy,
@@ -72,7 +75,6 @@ with substr_tsjfa38t1 as (
         substr(raw_data, 318, 1)::varchar(1) as hassou,
         substr(raw_data, 319, 1)::varchar(1) as sofu,
         substr(raw_data, 320, 1)::varchar(1) as lflg,
-        substr(raw_data, 321, 10)::varchar(10) as dum3,
         ldts,
         line_number
     from {{source('snowpipe_db_supplydemand', 'raw_tsjfa38t')}}
