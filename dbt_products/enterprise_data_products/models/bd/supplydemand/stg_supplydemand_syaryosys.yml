@@ -20,7 +20,7 @@ models:
   # 仕様マスタ(型式)
   - name: stg_siyoumst_katashiki
     config:
-      tags: ["sayryosys"]
+      tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -381,10 +381,10 @@ models:
           - not_null:
               config:
                 severity: error
- # 仕様マスタ(チェック)
+  # 仕様マスタ(チェック)
   - name: stg_siyoumst_check
     config:
-      tags: ["sayryosys"]
+      tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -592,7 +592,7 @@ models:
   # 仕様マスタ(ジェネレート)
   - name: stg_siyoumst_generate
     config:
-      tags: ["sayryosys"]
+      tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
