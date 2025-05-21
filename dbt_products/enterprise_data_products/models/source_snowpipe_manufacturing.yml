@@ -10,6 +10,8 @@ sources:
     loaded_at_field: ldts
 
     tables:
-# 工場IoT
+    # 工場IoT
       - name: raw_iotpmcbtinftrm
         identifier: iotpmcbtinftrm
+      - name: raw_iotpmcbtinfptr
+        identifier: iotpmcbtinfptr
