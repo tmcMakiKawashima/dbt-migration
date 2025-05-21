@@ -1,0 +1,35 @@
+version: 2
+
+models:
+# 電池情報（P-TR）
+  - name: stg_denchijoho_ptr_kojoiotpf
+    config:
+      tags: ["kojoiotpf"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - package_id
+            - traceability_id
+          config:
+            severity: error
+    columns:
+      - name: package_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: traceability_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: manufacturer_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
