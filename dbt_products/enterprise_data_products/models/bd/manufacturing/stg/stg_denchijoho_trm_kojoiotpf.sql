@@ -12,7 +12,7 @@ with stg_denchijoho_trm_kojoiotpf as (
         rtrim(manufacturer_cd,' 　')::varchar(4) as manufacturer_cd,  -- 右blank
         rtrim(receive_file_name,' 　')::varchar(200) as receive_file_name,  -- 右blank
         try_to_timestamp_ntz(receive_date , 'yyyy-mm-dd hh24:mi:ss.ff6') as receive_date,  -- timestamp
-        try_to_boolean(delete_flag) as delete_flag,  -- booleans
+        try_to_boolean(delete_flag) as delete_flag,  -- boolean
         try_to_timestamp_ntz(regist_date , 'yyyy-mm-dd hh24:mi:ss.ff6') as regist_date,  -- timestamp
         try_to_timestamp_ntz(update_date , 'yyyy-mm-dd hh24:mi:ss.ff6') as update_date,  -- timestamp
         ldts,
