@@ -53,3 +53,7 @@ models:
   - name: stg_fwaku_syaryosys
     config:
       tags: ["syaryosys"]
+  # 旬間オーダー枠ロケータ
+  - name: stg_roketa_syaryosys
+    config:
+      tags: ["syaryosys"]
