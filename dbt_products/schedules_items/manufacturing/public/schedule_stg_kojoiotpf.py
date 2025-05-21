@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-# çHèÍIoT
+# Â∑•Â†¥IoT
 schedule_stg_kojoiotpf = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_stg_kojoiotpf",
