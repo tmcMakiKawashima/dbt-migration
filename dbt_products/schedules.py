@@ -13,6 +13,8 @@ from .schedules_items.customerservice.public.schedule_stg_warranty import schedu
 """ engineering """
 from .schedules_items.engineering.public.schedule_stg_aisac import schedule_stg_aisac
 from .schedules_items.engineering.public.schedule_stg_paint_iot import schedule_stg_paint_iot
+""" manufacturing """
+from .schedules_items.manufacturing.public.schedule_stg_kojoiotpf import schedule_stg_kojoiotpf
 """ marketing """
 from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
 from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import schedule_stg_yohinhinbanmeisai
@@ -73,6 +75,9 @@ schedules.append(schedule_stg_warranty)
 schedules.append(schedule_stg_aisac)
 # TMK塗装IoT
 schedules.append(schedule_stg_paint_iot)
+""" manufacturing """
+# 工場Iot
+schedules.append(schedule_stg_kojoiotpf)
 """ marketing """
 # RISM連携IF変更
 schedules.append(schedule_stg_mashotoroku)
