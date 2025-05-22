@@ -96,6 +96,27 @@ sources:
             data_tests:
             - fixed_length:
                 length: 40
+      - name: raw_da36b52
+        identifier: da36b52
+        columns:
+          - name: raw_data
+            data_tests:
+            - fixed_length:
+                length: 120
+      - name: raw_da39b80
+        identifier: da39b80
+        columns:
+          - name: raw_data
+            data_tests:
+            - fixed_length:
+                length: 50
+      - name: raw_da39b81
+        identifier: da39b81
+        columns:
+          - name: raw_data
+            data_tests:
+            - fixed_length:
+                length: 60
       - name: raw_tsjfa36q
         identifier: tsjfa36q
         columns:
