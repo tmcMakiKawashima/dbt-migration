@@ -57,3 +57,61 @@ models:
   - name: stg_roketa_syaryosys
     config:
       tags: ["syaryosys"]
+  # 需給ステイタスDB
+  - name: stg_jukyustatus_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - chumon
+            - jyuhasei
+            - simuke
+            - odno
+            - ojyy
+            - frmkbn
+            - frmno
+          config:
+            severity: error
+    columns:
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: chumon
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jyuhasei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: simuke
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: odno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ojyy
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
