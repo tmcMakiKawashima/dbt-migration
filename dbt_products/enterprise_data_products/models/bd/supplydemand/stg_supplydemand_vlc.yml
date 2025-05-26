@@ -1,0 +1,101 @@
+version: 2
+
+models:
+# 完成車物流KEY情報
+  - name: stg_cubc001key_vlc
+    config:
+      tags: ["vlc"]
+    columns:
+      - name: vhc_key
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: idno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: prdct_year
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: prdct_country_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hbtcd_orderno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: order_acpt_date
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lrn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lrn_country_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frame_vis
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: edds
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syadaino
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vhc_yuko_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
