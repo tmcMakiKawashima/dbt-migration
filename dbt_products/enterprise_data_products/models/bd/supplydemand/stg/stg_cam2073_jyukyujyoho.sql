@@ -1,6 +1,6 @@
 with stg_cam2073_jyukyujyoho as (
     select
-                ojyy::varchar(4) as ojyy, 
+        ojyy::varchar(4) as ojyy, 
         dum1::varchar(1) as dum1, 
         segmei::varchar(8) as segmei, 
         dlrcd::varchar(5) as dlrcd, 
