@@ -1,5 +1,5 @@
 from ....enterprise_data_products_assets.assets import DbtConfig, dbt_products_assets
-from dagster import RunConfig
+from dagster import DefaultScheduleStatus, RunConfig
 from dagster_dbt import build_schedule_from_dbt_selection
 from pathlib import Path
 import sys
