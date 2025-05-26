@@ -13,3 +13,5 @@ sources:
     # VLC
       - name: raw_cubc001key
         identifier: cubc001key
+      - name: raw_cubc024plodplan
+        identifier: cubc024plodplan
