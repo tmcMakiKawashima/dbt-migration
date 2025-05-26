@@ -155,3 +155,108 @@ models:
           - not_null:
               config:
                 severity: error
+# オーダーDB（物流）
+  - name: stg_cam2073_jyukyujyoho
+    config:
+      tags: ["jyukyujyoho"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ojyy
+            - segmei
+            - dlrcd
+            - odno
+            - kubn
+          config:
+            severity: error
+    columns:
+      - name: ojyy
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dum1
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: segmei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: odno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kubn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dum2
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kubn2
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: yusosk2
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tsdate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jifuri
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tokcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kmaker
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hassou
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seikyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dum3
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: create_date
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: update_date
+        data_tests:
+          - not_null:
+              config:
+                severity: error
