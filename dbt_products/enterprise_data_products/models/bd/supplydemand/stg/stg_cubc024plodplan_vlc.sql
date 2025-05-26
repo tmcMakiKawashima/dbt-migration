@@ -19,11 +19,11 @@ with stg_cubc024plodplan_vlc as (
         appointed_date_update::varchar(12) as appointed_date_update, 
         recover_line::varchar(12) as recover_line, 
         new_hope::varchar(12) as new_hope, 
-        inst_datetime, 
+        inst_datetime::timestamp_ntz(9) as inst_datetime,
         inst_id::varchar(20) as inst_id, 
-        upd_datetime, 
+        upd_datetime::timestamp_ntz(9) as upd_datetime,
         upd_id::varchar(20) as upd_id, 
-        _fivetran_synced as ldts
+        _fivetran_synced::timestamp_ntz(9) as ldts
     from {{ source('fivetran_database_ogg_vlc_osubsp0200db20', 'raw_cubc024plodplan') }}
     where _fivetran_deleted = 'false'
 )
