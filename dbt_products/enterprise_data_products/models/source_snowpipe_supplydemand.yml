@@ -425,3 +425,7 @@ sources:
       # 生産進度_日野羽村(B層)
       - name: raw_hostalc_1p_dkae06047201
         identifier: hostalc_1p_dkae06047201
+    # コドモ
+      # 制約フォーマット
+      - name: raw_t_restriction_formats
+        identifier: t_restriction_formats
