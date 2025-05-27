@@ -14,15 +14,7 @@ schedule_stg_pixy = build_schedule_from_dbt_selection(
     execution_timezone="Asia/Tokyo",
     dbt_select="+stg_yohinmaster_pixy_view +stg_katashikihenkanmaster_pixy_view +stg_tuikouoyakokanren_pixy_view +stg_battingjoho_pixy_view +stg_yohinsyameino_pixy_view +stg_katashikibit_pixy +stg_tuikouzenkakumeisyou_pixy +stg_oyakotuikoukanrenzenkakumeisyou_pixy",
     config=RunConfig(ops={"dbt_products_assets":
-                          DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_pixy"},
-                                    source_test_list=["source:*,+stg_yohinmaster_pixy_view",
-                                                      "source:*,+stg_katashikihenkanmaster_pixy_view",
-                                                      "source:*,+stg_tuikouoyakokanren_pixy_view",
-                                                      "source:*,+stg_battingjoho_pixy_view",
-                                                      "source:*,+stg_yohinsyameino_pixy_view",
-                                                      "source:*,+stg_katashikibit_pixy",
-                                                      "source:*,+stg_tuikouzenkakumeisyou_pixy",
-                                                      "source:*,+stg_oyakotuikoukanrenzenkakumeisyou_pixy"])
+                          DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_pixy"})
                           }
                      ),
     tags={"ecs/cpu": "256", "ecs/memory": "1024",
