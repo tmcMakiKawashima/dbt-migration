@@ -229,3 +229,107 @@ models:
           - not_null:
               config:
                 severity: error
+# 車両PL生産実績情報
+  - name: stg_cubc028plodresult_vlc
+    config:
+      tags: ["vlc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - vhc_key
+            - kyoten_cd
+            - kyoten_kaisu
+            - tp_kbn
+          config:
+            severity: error
+    columns:
+      - name: vhc_key
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_kaisu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tp_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: final_dest_flg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ship_final_dest_sign
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: zaihai_sign
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: zaiko_sign
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisya_chushi_sign
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: saisin_sts_flg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: prdct_line
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: in_datetime_jsk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: out_datetime_jsk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: koujyo_reki
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
