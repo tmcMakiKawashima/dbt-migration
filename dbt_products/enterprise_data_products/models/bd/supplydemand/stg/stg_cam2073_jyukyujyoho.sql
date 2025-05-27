@@ -17,10 +17,10 @@ with stg_cam2073_jyukyujyoho as (
         seikyu::varchar(5) as seikyu, 
         dum3::varchar(60) as dum3, 
         create_user::varchar(15) as create_user, 
-        create_date,
+        create_date::timestamp_ntz(9) as create_date,
         update_user::varchar(15) as update_user, 
-        update_date,
-        _fivetran_synced as ldts
+        update_date::timestamp_ntz(9) as update_date,
+        _fivetran_synced::timestamp_ntz(9) as ldts
     from {{ source('fivetran_database_oraclerds_orcl_jukyu_osamsp01sam202', 'raw_cam2073') }}
     where _fivetran_deleted = 'false'
 )
