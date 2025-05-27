@@ -260,3 +260,50 @@ models:
           - not_null:
               config:
                 severity: error
+# DWH車名マスタ（市販車）
+  - name: stg_cam6075_jyukyujyoho
+    config:
+      tags: ["jyukyujyoho"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - carnm_cd
+            - aply_dt_kara
+          config:
+            severity: error
+    columns:
+      - name: carnm_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: carnm_ttl
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: carnm_kana_ttl
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: aply_dt_kara
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: aply_dt_made
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: create_user
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: update_user
+        data_tests:
+          - not_null:
+              config:
+                severity: error
