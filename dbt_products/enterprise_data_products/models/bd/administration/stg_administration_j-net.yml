@@ -259,21 +259,3 @@ models:
           - not_null:
               config:
                 severity: error
-# 従業員証・社外者証データ
-  - name: stg_iccard
-    config:
-      tags: ["j-net"]
-    columns:
-      - name: employee_cd
-        data_tests:
-          - unique:
-              config:
-                severity: error
-          - not_null:
-              config:
-                severity: error
-      - name: ldts
-        data_tests:
-          - not_null:
-              config:
-                severity: error
