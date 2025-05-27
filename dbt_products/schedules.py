@@ -21,6 +21,7 @@ from .schedules_items.supplydemand.public.schedule_stg_aqua import schedule_stg_
 from .schedules_items.supplydemand.public.schedule_stg_dly_rpt_mst import schedule_stg_dly_rpt_mst
 from .schedules_items.supplydemand.public.schedule_stg_dly_rpt import schedule_stg_dly_rpt
 from .schedules_items.supplydemand.public.schedule_stg_galc_kpi import schedule_stg_galc_kpi
+from .schedules_items.supplydemand.public.schedule_stg_kodomo import schedule_stg_kodomo
 from .schedules_items.supplydemand.public.schedule_stg_siyou_soubi_siyoumst import schedule_stg_siyou_soubi_siyoumst
 from .schedules_items.supplydemand.public.schedule_stg_siyou_soubi_syasyu_siyousyo import schedule_stg_siyou_soubi_syasyu_siyousyo
 from .schedules_items.supplydemand.public.schedule_stg_syaryoindex import schedule_stg_syaryoindex
@@ -87,6 +88,8 @@ schedules.append(schedule_stg_dly_rpt_mst)
 schedules.append(schedule_stg_dly_rpt)
 # 物流管理KPI(GALC_KPI)
 schedules.append(schedule_stg_galc_kpi)
+# コドモ
+schedules.append(schedule_stg_kodomo)
 # 仕様装備
 schedules.append(schedule_stg_siyou_soubi_siyoumst)
 schedules.append(schedule_stg_siyou_soubi_syasyu_siyousyo)

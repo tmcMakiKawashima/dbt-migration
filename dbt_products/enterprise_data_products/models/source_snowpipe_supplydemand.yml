@@ -184,265 +184,138 @@ sources:
         identifier: t_imp_plan
       - name: raw_t_monthly_reports
         identifier: t_monthly_reports
-
-    # GLAC_KPI
-    
-      # 車両バーチャルライン情報_元町(B層)
+    # galc-kpi
       - name: raw_hostalc_1h_dkae02072301
         identifier: hostalc_1h_dkae02072301
-
-      # 車両バーチャルライン情報_堤(B層)
       - name: raw_hostalc_1r_dkae02072301
         identifier: hostalc_1r_dkae02072301
-
-      # 車両バーチャルライン情報_田原(B層)
       - name: raw_hostalc_1n_dkae02072301
         identifier: hostalc_1n_dkae02072301
-
-      # 車両バーチャルライン情報_高岡(B層)
       - name: raw_hostalc_1k_dkae02072301
         identifier: hostalc_1k_dkae02072301
-
-      # 車両バーチャルライン情報_織機(B層)
       - name: raw_hostalc_1o_dkae02072301
         identifier: hostalc_1o_dkae02072301
-
-      # 車両バーチャルライン情報_TMK(B層)
       - name: raw_hostalc_1w_dkae02072301
         identifier: hostalc_1w_dkae02072301
-
-      # 車両バーチャルライン情報_トヨタ車体富士松(B層)
       - name: raw_hostalc_1f_dkae02072301
         identifier: hostalc_1f_dkae02072301
-
-      # 車両バーチャルライン情報_トヨタ車体吉原(B層)
       - name: raw_hostalc_1a_dkae02072301
         identifier: hostalc_1a_dkae02072301
-
-      # 車両バーチャルライン情報_トヨタ車体いなべ(B層)
       - name: raw_hostalc_1i_dkae02072301
         identifier: hostalc_1i_dkae02072301
-
-      # 車両バーチャルライン情報_岐阜車体各務原(B層)
       - name: raw_hostalc_1j_dkae02072301
         identifier: hostalc_1j_dkae02072301
-
-      # 車両バーチャルライン情報_TMEJ岩手(B層)
       - name: raw_hostalc_1v_dkae02072301
         identifier: hostalc_1v_dkae02072301
-
-      # 車両バーチャルライン情報_TMEJ宮城大衡(B層)
       - name: raw_hostalc_1g_dkae02072301
         identifier: hostalc_1g_dkae02072301
-
-      # 車両バーチャルライン情報_日野羽村(B層)
       - name: raw_hostalc_1p_dkae02072301
         identifier: hostalc_1p_dkae02072301
-
-      # リジェクト車両_堤(B層)
       - name: raw_hostalc_1r_dkae02072401
         identifier: hostalc_1r_dkae02072401
-
-      # リジェクト車両_田原(B層)
       - name: raw_hostalc_1n_dkae02072401
         identifier: hostalc_1n_dkae02072401
-
-      # リジェクト車両_元町(B層)
       - name: raw_hostalc_1h_dkae02072401
         identifier: hostalc_1h_dkae02072401
-
-      # リジェクト車両_高岡(B層)
       - name: raw_hostalc_1k_dkae02072401
         identifier: hostalc_1k_dkae02072401
-
-      # リジェクト車両_織機(B層)
       - name: raw_hostalc_1o_dkae02072401
         identifier: hostalc_1o_dkae02072401
-
-      # リジェクト車両_TMK(B層)
       - name: raw_hostalc_1w_dkae02072401
         identifier: hostalc_1w_dkae02072401
-
-      # リジェクト車両_トヨタ車体富士松(B層)
       - name: raw_hostalc_1f_dkae02072401
         identifier: hostalc_1f_dkae02072401
-
-      # リジェクト車両_トヨタ車体吉原(B層)
       - name: raw_hostalc_1a_dkae02072401
         identifier: hostalc_1a_dkae02072401
-
-      # リジェクト車両_トヨタ車体いなべ(B層)
       - name: raw_hostalc_1i_dkae02072401
         identifier: hostalc_1i_dkae02072401
-
-      # リジェクト車両_岐阜車体各務原(B層)
       - name: raw_hostalc_1j_dkae02072401
         identifier: hostalc_1j_dkae02072401
-
-      # リジェクト車両_TMEJ岩手(B層)
       - name: raw_hostalc_1v_dkae02072401
         identifier: hostalc_1v_dkae02072401
-
-      # リジェクト車両_TMEJ宮城大衡(B層)
       - name: raw_hostalc_1g_dkae02072401
         identifier: hostalc_1g_dkae02072401
-
-      # リジェクト車両_日野羽村(B層)
       - name: raw_hostalc_1p_dkae02072401
         identifier: hostalc_1p_dkae02072401
-
-      # 抹消実績_堤(B層)
       - name: raw_hostalc_1r_dkae06046602
         identifier: hostalc_1r_dkae06046602
-
-      # 抹消実績_田原(B層)
       - name: raw_hostalc_1n_dkae06046602
         identifier: hostalc_1n_dkae06046602
-
-      # 抹消実績_元町(B層)
       - name: raw_hostalc_1h_dkae06046602
         identifier: hostalc_1h_dkae06046602
-
-      # 抹消実績_高岡(B層)
       - name: raw_hostalc_1k_dkae06046602
         identifier: hostalc_1k_dkae06046602
-
-      # 抹消実績_織機(B層)
       - name: raw_hostalc_1o_dkae06046602
         identifier: hostalc_1o_dkae06046602
-
-      # 抹消実績_TMK(B層)
       - name: raw_hostalc_1w_dkae06046602
         identifier: hostalc_1w_dkae06046602
-
-      # 抹消実績_トヨタ車体富士松(B層)
       - name: raw_hostalc_1f_dkae06046602
         identifier: hostalc_1f_dkae06046602
-
-      # 抹消実績_トヨタ車体吉原(B層)
       - name: raw_hostalc_1a_dkae06046602
         identifier: hostalc_1a_dkae06046602
-
-      # 抹消実績_トヨタ車体いなべ(B層)
       - name: raw_hostalc_1i_dkae06046602
         identifier: hostalc_1i_dkae06046602
-
-      # 抹消実績_岐阜車体各務原(B層)
       - name: raw_hostalc_1j_dkae06046602
         identifier: hostalc_1j_dkae06046602
-
-      # 抹消実績_TMEJ岩手(B層)
       - name: raw_hostalc_1v_dkae06046602
         identifier: hostalc_1v_dkae06046602
-
-      # 抹消実績_TMEJ宮城大衡(B層)
       - name: raw_hostalc_1g_dkae06046602
         identifier: hostalc_1g_dkae06046602
-
-      # 抹消実績_日野羽村(B層)
       - name: raw_hostalc_1p_dkae06046602
         identifier: hostalc_1p_dkae06046602
-
-      # 車両仕様_堤(B層)
       - name: raw_hostalc_1r_dkae02072402
         identifier: hostalc_1r_dkae02072402
-
-      # 車両仕様_田原(B層)
       - name: raw_hostalc_1n_dkae02072402
         identifier: hostalc_1n_dkae02072402
-
-      # 車両仕様_元町(B層)
       - name: raw_hostalc_1h_dkae02072402
         identifier: hostalc_1h_dkae02072402
-
-      # 車両仕様_高岡(B層)
       - name: raw_hostalc_1k_dkae02072402
         identifier: hostalc_1k_dkae02072402
-
-      # 車両仕様_織機(B層)
       - name: raw_hostalc_1o_dkae02072402
         identifier: hostalc_1o_dkae02072402
-
-      # 車両仕様_TMK(B層)
       - name: raw_hostalc_1w_dkae02072402
         identifier: hostalc_1w_dkae02072402
-
-      # 車両仕様_トヨタ車体富士松(B層)
       - name: raw_hostalc_1f_dkae02072402
         identifier: hostalc_1f_dkae02072402
-
-      # 車両仕様_トヨタ車体吉原(B層)
       - name: raw_hostalc_1a_dkae02072402
         identifier: hostalc_1a_dkae02072402
-
-      # 車両仕様_トヨタ車体いなべ(B層)
       - name: raw_hostalc_1i_dkae02072402
         identifier: hostalc_1i_dkae02072402
-
-      # 車両仕様_岐阜車体各務原(B層)
       - name: raw_hostalc_1j_dkae02072402
         identifier: hostalc_1j_dkae02072402
-
-      # 車両仕様_TMEJ岩手(B層)
       - name: raw_hostalc_1v_dkae02072402
         identifier: hostalc_1v_dkae02072402
-
-      # 車両仕様_TMEJ宮城大衡(B層)
       - name: raw_hostalc_1g_dkae02072402
         identifier: hostalc_1g_dkae02072402
-
-      # 車両仕様_日野羽村(B層)
       - name: raw_hostalc_1p_dkae02072402
         identifier: hostalc_1p_dkae02072402
-
-      # 生産進度_トヨタ車体吉原(B層)
       - name: raw_hostalc_1a_dkae06047201
         identifier: hostalc_1a_dkae06047201
-
-      # 生産進度_堤(B層)
       - name: raw_hostalc_1r_dkae06047201
         identifier: hostalc_1r_dkae06047201
-
-      # 生産進度_田原(B層)
       - name: raw_hostalc_1n_dkae06047201
         identifier: hostalc_1n_dkae06047201
-
-      # 生産進度_元町(B層)
       - name: raw_hostalc_1h_dkae06047201
         identifier: hostalc_1h_dkae06047201
-
-      # 生産進度_高岡(B層)
       - name: raw_hostalc_1k_dkae06047201
         identifier: hostalc_1k_dkae06047201
-
-      # 生産進度_織機(B層)
       - name: raw_hostalc_1o_dkae06047201
         identifier: hostalc_1o_dkae06047201
-
-      # 生産進度_TMK(B層)
       - name: raw_hostalc_1w_dkae06047201
         identifier: hostalc_1w_dkae06047201
-
-      # 生産進度_トヨタ車体富士松(B層)
       - name: raw_hostalc_1f_dkae06047201
         identifier: hostalc_1f_dkae06047201
-
-      # 生産進度_トヨタ車体いなべ(B層)
       - name: raw_hostalc_1i_dkae06047201
         identifier: hostalc_1i_dkae06047201
-
-      # 生産進度_岐阜車体各務原(B層)
       - name: raw_hostalc_1j_dkae06047201
         identifier: hostalc_1j_dkae06047201
-
-      # 生産進度_TMEJ岩手(B層)
       - name: raw_hostalc_1v_dkae06047201
         identifier: hostalc_1v_dkae06047201
-
-      # 生産進度_TMEJ宮城大衡(B層)
       - name: raw_hostalc_1g_dkae06047201
         identifier: hostalc_1g_dkae06047201
-
-      # 生産進度_日野羽村(B層)
       - name: raw_hostalc_1p_dkae06047201
         identifier: hostalc_1p_dkae06047201
+    # コドモ
+      # 制約フォーマット
+      - name: raw_t_restriction_formats
+        identifier: t_restriction_formats
