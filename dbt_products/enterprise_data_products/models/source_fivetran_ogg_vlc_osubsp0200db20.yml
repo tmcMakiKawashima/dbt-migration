@@ -15,3 +15,5 @@ sources:
         identifier: cubc001key
       - name: raw_cubc024plodplan
         identifier: cubc024plodplan
+      - name: raw_cubc028plodresult
+        identifier: cubc028plodresult
