@@ -14,11 +14,11 @@ with stg_cubc001key_vlc as (
         edds::varchar(10) as edds, 
         syadaino::varchar(14) as syadaino, 
         vhc_yuko_kbn::varchar(1) as vhc_yuko_kbn, 
-        inst_datetime, 
+        inst_datetime::timestamp_ntz(9) as inst_datetime, 
         inst_id::varchar(20) as inst_id, 
-        upd_datetime, 
+        upd_datetime::timestamp_ntz(9) as upd_datetime, 
         upd_id::varchar(20) as upd_id, 
-        _fivetran_synced as ldts
+        _fivetran_synced::timestamp_ntz(9) as ldts
     from {{ source('fivetran_database_ogg_vlc_osubsp0200db20', 'raw_cubc001key') }}
     where _fivetran_deleted = 'false'
 )
