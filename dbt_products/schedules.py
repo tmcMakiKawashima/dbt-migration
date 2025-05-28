@@ -24,6 +24,8 @@ from .schedules_items.supplydemand.public.schedule_stg_dly_rpt_mst import schedu
 from .schedules_items.supplydemand.public.schedule_stg_dly_rpt import schedule_stg_dly_rpt
 from .schedules_items.supplydemand.public.schedule_stg_galc_kpi import schedule_stg_galc_kpi
 from .schedules_items.supplydemand.public.schedule_stg_kodomo import schedule_stg_kodomo
+from .schedules_items.supplydemand.public.schedule_stg_siyou_soubi_siyoumst import schedule_stg_siyou_soubi_siyoumst
+from .schedules_items.supplydemand.public.schedule_stg_siyou_soubi_syasyu_siyousyo import schedule_stg_siyou_soubi_syasyu_siyousyo
 from .schedules_items.supplydemand.public.schedule_stg_syaryoindex import schedule_stg_syaryoindex
 from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_stg_vlt_ord
 """ valuechain """
@@ -93,6 +95,9 @@ schedules.append(schedule_stg_dly_rpt)
 schedules.append(schedule_stg_galc_kpi)
 # コドモ
 schedules.append(schedule_stg_kodomo)
+# 仕様装備
+schedules.append(schedule_stg_siyou_soubi_siyoumst)
+schedules.append(schedule_stg_siyou_soubi_syasyu_siyousyo)
 # 車両INDEX
 schedules.append(schedule_stg_syaryoindex)
 # VLTオーダー確定日チェックEUC
