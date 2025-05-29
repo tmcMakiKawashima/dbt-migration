@@ -47,3 +47,6 @@ groups:
   - name: employee_organization
     owner:
       email: satoshi_shinohara@mail.toyota.co.jp
+  - name: parts_list_seppen
+    owner:
+      email: maki_kawashima@mail.toyota.co.jp

@@ -1,5 +1,6 @@
 with substr_tpjfva40 as (
   select
+    substr(raw_data, 1, 1)::varchar(1) as kbn, --C,U,Dのメンテ区分
     substr(raw_data, 2, 4)::varchar(4) as syasyug,
     substr(raw_data, 6, 3)::varchar(3) as syameino,
     substr(raw_data, 9, 8)::varchar(8) as touroku,

@@ -10,8 +10,8 @@ with stg_buisyobunruikensakujoho as (
         fignotaiouflg::varchar(1) as fignotaiouflg,
         ldts,
         line_number,
-        rank() over(partition by ctlgcd, chubnrcd, svglayermei, figno order by ldts desc, mntkbn asc, line_number desc) aggkey
+        rank() over(partition by ctlgcd, chubnrcd, svglayermei, figno order by ldts desc, line_number desc) aggkey
     from {{ref('substr_k9jfv220')}}
 )
 
-select * exclude(line_number, aggkey) from stg_buisyobunruikensakujoho where aggkey = 1
+select * exclude(mntkbn, line_number, aggkey) from stg_buisyobunruikensakujoho where aggkey = 1 and mntkbn in ('C', 'U')
