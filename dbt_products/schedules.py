@@ -24,6 +24,8 @@ from .schedules_items.supplydemand.public.schedule_stg_dly_rpt_mst import schedu
 from .schedules_items.supplydemand.public.schedule_stg_dly_rpt import schedule_stg_dly_rpt
 from .schedules_items.supplydemand.public.schedule_stg_galc_kpi import schedule_stg_galc_kpi
 from .schedules_items.supplydemand.public.schedule_stg_kodomo import schedule_stg_kodomo
+from .schedules_items.supplydemand.public.schedule_stg_siyou_soubi_siyoumst import schedule_stg_siyou_soubi_siyoumst
+from .schedules_items.supplydemand.public.schedule_stg_siyou_soubi_syasyu_siyousyo import schedule_stg_siyou_soubi_syasyu_siyousyo
 from .schedules_items.supplydemand.public.schedule_stg_syaryoindex import schedule_stg_syaryoindex
 from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_stg_vlt_ord
 """ valuechain """
@@ -31,6 +33,8 @@ from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
 from .schedules_items.valuechain.public.schedule_d_gsps import schedule_d_gsps
 from .schedules_items.valuechain.public.schedule_stg_yui_cpos import schedule_stg_yui_cpos
 """ E """
+""" employee """
+from .schedules_items.employee.organization.schedule_dm_jugyoinjoho import schedule_dm_jugyoinjoho
 """ model repair """
 from .schedules_items.model.repair.schedule_dm_cataloghinmei import schedule_dm_cataloghinmei
 from .schedules_items.model.repair.schedule_dm_figbunkaiinfo import schedule_dm_figbunkaiinfo
@@ -93,6 +97,9 @@ schedules.append(schedule_stg_dly_rpt)
 schedules.append(schedule_stg_galc_kpi)
 # コドモ
 schedules.append(schedule_stg_kodomo)
+# 仕様装備
+schedules.append(schedule_stg_siyou_soubi_siyoumst)
+schedules.append(schedule_stg_siyou_soubi_syasyu_siyousyo)
 # 車両INDEX
 schedules.append(schedule_stg_syaryoindex)
 # VLTオーダー確定日チェックEUC
@@ -105,6 +112,9 @@ schedules.append(schedule_d_gsps)
 # YUI_CPOS
 schedules.append(schedule_stg_yui_cpos)
 """ E層作成ジョブ """
+""" employee """
+# 従業員情報
+schedules.append(schedule_dm_jugyoinjoho)
 """ model repair """
 # EPCカタログ品名
 schedules.append(schedule_dm_cataloghinmei)

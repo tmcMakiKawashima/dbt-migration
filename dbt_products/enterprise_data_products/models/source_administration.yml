@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: administration_db_public
+    database: administration_db
+    schema: public
+    tables:
+    # 従業員情報
+      - name: raw_empmasterknm
+        identifier: empmasterknm
+      - name: raw_empmastershm
+        identifier: empmastershm
