@@ -12,7 +12,7 @@ with
         select
             hinban
         from
-            {{ source('engineering_db_public', 'raw_stg_hinban') }}
+            {{ ref('tmp_hinban_eph') }}
     )
 select
   distinct ks.kohin as hinban
