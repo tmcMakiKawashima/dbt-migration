@@ -8,5 +8,3 @@ sources:
     # sms-kousei
       - name: raw_tmp_junkanri_blktenkai
         identifier: tmp_junkanri_blktenkai
-      - name: raw_tmp_kousei03_blktenkai
-        identifier: tmp_kousei03_blktenkai

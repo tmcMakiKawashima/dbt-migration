@@ -9,7 +9,7 @@
                     select distinct syasyu,
                                     substr(siyoubui, 1, 4) as kumitate,
                                     substr(siyoubui, 5, 2) as bui
-                    from {{ source('parts_list_db_sms', 'raw_tmp_kousei03_blktenkai') }} ) b
+                    from {{ ref('tmp_kousei03_blktenkai') }} ) b
                 where a.syasyu = b.syasyu
                   and a.kumitate = b.kumitate
                   and a.bui = b.bui;
@@ -45,7 +45,7 @@ with
        to_timestamp(torokutimek || iff(torokujunk = '999999999','9', '0'), 'yyyymmddhh24missff3') as torokutimek, -- LOAD TIMEカラ
        to_timestamp(torokutimem || iff(torokujunm = '999999999','9', '0'), 'yyyymmddhh24missff3') as torokutimem, -- LOAD TIMEマデ
        ldts -- B層処理日時
-     from {{ source('parts_list_db_sms', 'raw_tmp_kousei03_blktenkai') }}
+     from {{ ref('tmp_kousei03_blktenkai') }}
    )
 
 select 
