@@ -14,8 +14,7 @@ schedule_tmp_kousei03_blktenkai = build_schedule_from_dbt_selection(
     execution_timezone="Asia/Tokyo",
     dbt_select="+tmp_kousei03_blktenkai",
     config=RunConfig(ops={"dbt_products_assets":
-                          DbtConfig(dbt_vars={"DBT_JOB_NAME": "tmp_kousei03_blktenkai"},
-                                    source_test_list=["source:*,tmp_kousei03_blktenkai"])
+                          DbtConfig(dbt_vars={"DBT_JOB_NAME": "tmp_kousei03_blktenkai"})
                           }
                      ),
     tags={"ecs/cpu": "256", "ecs/memory": "1024",
