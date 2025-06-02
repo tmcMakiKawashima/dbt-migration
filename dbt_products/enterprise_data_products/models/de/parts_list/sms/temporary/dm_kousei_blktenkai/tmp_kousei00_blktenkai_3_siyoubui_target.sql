@@ -42,7 +42,7 @@ with
       syasyu,-- 車種コード
       target, -- ターゲット
       maxmttime -- maxmttime
-    from {{ source('parts_list_db_sms', 'raw_tmp_junkanri_blktenkai') }}
+    from {{ ref('tmp_junkanri_blktenkai_eph') }}
   )
 --構成側でメンテがあった使用部位を求める
 select

@@ -5,7 +5,7 @@
         pre_hook = "
             {% if is_incremental() %}
               delete from {{this}} a
-              using {{ source('parts_list_db_sms', 'raw_tmp_kousei03_blktenkai') }} b
+              using {{ ref('tmp_kousei03_blktenkai') }} b
               where a.syasyu = b.syasyu 
             {% endif %}
         "
@@ -20,7 +20,7 @@ with
       'KOUSEI' as target,
       max(iff(torokujunm='999999999', torokujunk, torokujunm)) as torokujun,
       to_char(current_timestamp, 'yyyymmddhhmissff2') as mttime 
-    from {{ source('parts_list_db_sms', 'raw_tmp_kousei03_blktenkai') }}
+    from {{ ref('tmp_kousei03_blktenkai') }}
     group by
     syasyu
   ),
@@ -29,7 +29,7 @@ with
       syasyu_cd,
       torokujun,
       seppenno
-     from {{ source('engineering_db_public', 'raw_stg_mokujihonshijun') }}
+     from {{ ref('stg_mokujihonshijun') }}
      where trim(jigyoutai) = ''
      group by
      syasyu_cd,
@@ -40,7 +40,7 @@ with
     select
       syasyu,
       max(mttime) as maxmttime
-    from {{ source('engineering_db_public', 'raw_stg_kousei') }}
+    from {{ ref('stg_kousei') }}
     where trim(jigyoutai) = ''
     group by
     syasyu
@@ -49,7 +49,7 @@ with
     select
       syasyu,
       max(mttime) as maxmttime
-    from {{ source('engineering_db_public', 'raw_stg_kouseicom') }}
+    from {{ ref('stg_kouseicom') }}
     where trim(jigyoutai) = '' 
     and comkbn='11'
     group by

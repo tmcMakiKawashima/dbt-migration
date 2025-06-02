@@ -6,12 +6,6 @@ sources:
     schema: public
     tables:
     # sms-kousei
-      - name: raw_stg_kousei
-        identifier: stg_kousei
-      - name: raw_stg_kouseicom
-        identifier: stg_kouseicom
-      - name: raw_stg_mokujihonshijun
-        identifier: stg_mokujihonshijun
       - name: raw_tmp_sms_api_parts_info_res_json
         identifier: tmp_sms_api_parts_info_res_json
       - name: raw_stg_hinban

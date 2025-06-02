@@ -17,7 +17,7 @@ with
             syasyu, --車種コード
             target, --ターゲット
             maxmttime --MAXMTTIME
-        from {{ source('parts_list_db_sms', 'raw_tmp_junkanri_blktenkai') }}
+        from {{ ref('tmp_junkanri_blktenkai_eph') }}
     ),
     stg_kouseicom as (
         select
