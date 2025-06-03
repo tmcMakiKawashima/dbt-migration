@@ -101,6 +101,14 @@ models:
         stg:
           +access: public
           +materialized: table
+      manufacturing:
+        +snowflake_warehouse: manufacturing_wh
+        +group: manufacturing
+        +database: manufacturing_db
+        +schema: public
+        stg:
+          +access: public
+          +materialized: table
     dd:
       valuechain:
         +snowflake_warehouse: valuechain_wh
@@ -188,6 +196,15 @@ models:
           dim:
             +access: public
             +materialized: table
+      employee:
+        +snowflake_warehouse: employee_wh
+        +database: employee_db
+        organization:
+          +group: employee_organization        
+          +schema: organization
+          dim:
+            +access: public
+            +materialized: table          
       parts_list:
         +snowflake_warehouse: parts_list_wh
         +database: parts_list_db
@@ -254,4 +271,9 @@ snapshots:
         +snowflake_warehouse: engineering_wh
         +group: engineering
         +target_database: engineering_db
+        +target_schema: dbt_snapshots
+      manufacturing:
+        +snowflake_warehouse: manufacturing_wh
+        +group: manufacturing
+        +target_database: manufacturing_db
         +target_schema: dbt_snapshots
