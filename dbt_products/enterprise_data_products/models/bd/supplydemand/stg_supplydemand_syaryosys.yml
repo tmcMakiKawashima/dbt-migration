@@ -115,3 +115,7 @@ models:
           - not_null:
               config:
                 severity: error
+  # 受注残付与結果
+  - name: stg_jyuchuzan_syaryosys
+    config:
+      tags: ["syaryosys"]
