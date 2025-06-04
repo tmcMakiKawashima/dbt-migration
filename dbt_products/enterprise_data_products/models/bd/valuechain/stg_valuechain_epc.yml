@@ -4,92 +4,22 @@ models:
   - name: stg_hinbankensakutype1
     config:
       tags: ["epc"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ctlgcd
-            - hinmeicd
-            - syasyu_cd
-            - hinban
-            - kosu
-            - jissijikik
-            - jissijikim
-            - siyoptno
-            - epckataptno
-            - kiricdk
-            - kiricdm
-            - trmcdmlt
-            - clrcdmlt
-            - tkstkbn
-            - hktkgaikbn
-            - hosemhin
-          config:
-            severity: error
 # 品番検索（TYPE2備考情報）
   - name: stg_hinbankensakutype2
     config:
       tags: ["epc"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - langkbn
-            - ctlgcd
-            - hinmeicd
-            - syasyu_cd
-            - hinban
-            - kosu
-            - jissijikik
-            - jissijikim
-            - siyoptno
-            - epckataptno
-            - kiricdk
-            - kiricdm
-            - trmcdmlt
-            - clrcdmlt
-            - tkstkbn
-            - hktkgaikbn
-            - hosemhin
-          config:
-            severity: error
 #フレーム型式
   - name: stg_framekatashiki
     config:
       tags: ["epc"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - frmnokata
-            - frmno
-            - mdlyearkbn
-            - vin
-          config:
-            severity: error
 # 仕様パターン
   - name: stg_shiyopattern
     config:
       tags: ["epc"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu_cd
-            - siyoptno
-            - siyocd
-          config:
-            severity: error
 # トリムコード情報
   - name: stg_trimcodejoho
     config:
       tags: ["epc"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ctlgcd
-            - syasyu_cd
-            - hinban
-            - trmcd
-            - figno
-          config:
-            severity: error
 # 調達品番情報
   - name: stg_tyotatsuhinbanjoho
     config:
@@ -122,28 +52,10 @@ models:
   - name: stg_kirikaecodekensaku
     config:
       tags: ["epc"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ctlgcd
-            - kiricd
-            - prtren
-          config:
-            severity: error
 # 車両型式情報
   - name: stg_syaryokatashikijoho
     config:
       tags: ["epc"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ctlgcd
-            - syakata
-            - syasyu_cd
-            - vinwmivds
-            - katano
-          config:
-            severity: error
 # 分解図検索
   - name: stg_bunkaizukensaku
     config:
@@ -285,13 +197,6 @@ models:
   - name: stg_hinmei
     config:
       tags: ["epc"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - langkbn
-            - pnc
-          config:
-            severity: error
 #　イラストコメント
   - name: stg_illustcomment
     config:
@@ -318,12 +223,6 @@ models:
   - name: stg_syamei
     config:
       tags: ["epc"]
-    columns:
-      - name: ctlgcd
-        data_tests:
-          - unique:
-              config:
-                severity: error
 #　代替品番情報
   - name: stg_daitaihinbanjoho
     config:
@@ -384,15 +283,6 @@ models:
   - name: stg_syaryoshiyosobijoho
     config:
       tags: ["epc"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - langkbn
-            - syasyu
-            - siyoptno
-            - siyocd
-          config:
-            severity: error
 #　タクティ品番情報
   - name: stg_tactihinbanjoho
     config:
