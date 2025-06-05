@@ -119,3 +119,7 @@ models:
   - name: stg_jyuchuzan_syaryosys
     config:
       tags: ["syaryosys"]
+  # 受注残付与結果_dec_test
+  - name: stg_jyuchuzan_dec_test_syaryosys
+    config:
+      tags: ["syaryosys"]
