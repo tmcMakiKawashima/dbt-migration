@@ -319,3 +319,32 @@ sources:
       # 制約フォーマット
       - name: raw_t_restriction_formats
         identifier: t_restriction_formats
+    # JPASS
+      - name: raw_ktrla038zz0kaddb01
+        identifier: ktrla038zz0kaddb01
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 300
+      - name: raw_ktrla038zz0kaddb02
+        identifier: ktrla038zz0kaddb02
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 80
+      - name: raw_ktrla038zz0kadda01
+        identifier: ktrla038zz0kadda01
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 397
+      - name: raw_ktrla038zz0kaddb03
+        identifier: ktrla038zz0kaddb03
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 80
