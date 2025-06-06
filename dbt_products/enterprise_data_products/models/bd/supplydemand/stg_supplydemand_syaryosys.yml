@@ -119,3 +119,7 @@ models:
   - name: stg_jyuchuzan_syaryosys
     config:
       tags: ["syaryosys"]
+  # COオーダー付与結果
+  - name: stg_coorder_syaryosys
+    config:
+      tags: ["syaryosys"]
