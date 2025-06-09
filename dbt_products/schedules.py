@@ -83,8 +83,9 @@ schedules.append(schedule_stg_aisac)
 # TMK塗装IoT
 schedules.append(schedule_stg_paint_iot)
 """ manufacturing """
-# 資材調達システム_UDC公開用
+# 工場Iot
 schedules.append(schedule_stg_kojoiotpf)
+# 資材調達システム_UDC公開用
 schedules.append(schedule_stg_maps)
 """ marketing """
 # RISM連携IF変更
