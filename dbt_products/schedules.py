@@ -14,6 +14,7 @@ from .schedules_items.customerservice.public.schedule_stg_warranty import schedu
 from .schedules_items.engineering.public.schedule_stg_aisac import schedule_stg_aisac
 from .schedules_items.engineering.public.schedule_stg_paint_iot import schedule_stg_paint_iot
 """ manufacturing """
+from .schedules_items.manufacturing.public.schedule_stg_kojoiotpf import schedule_stg_kojoiotpf
 from .schedules_items.manufacturing.public.schedule_stg_maps import schedule_stg_maps
 """ marketing """
 from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
@@ -33,6 +34,8 @@ from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
 from .schedules_items.valuechain.public.schedule_d_gsps import schedule_d_gsps
 from .schedules_items.valuechain.public.schedule_stg_yui_cpos import schedule_stg_yui_cpos
 """ E """
+""" employee """
+from .schedules_items.employee.organization.schedule_dm_jugyoinjoho import schedule_dm_jugyoinjoho
 """ model repair """
 from .schedules_items.model.repair.schedule_dm_cataloghinmei import schedule_dm_cataloghinmei
 from .schedules_items.model.repair.schedule_dm_figbunkaiinfo import schedule_dm_figbunkaiinfo
@@ -43,7 +46,9 @@ from .schedules_items.parts_list.seppen.schedule_dm_seppen_bunseki import schedu
 from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
 """ vinhis model """
 from .schedules_items.vinhis.model.schedule_dm_vin_model import schedule_dm_vin_model
+from .schedules_items.vinhis.model.schedule_dm_vin_model_nonesyasyu import schedule_dm_vin_model_nonesyasyu
 """ vinhis spec """
+from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification import schedule_dm_vinhis_specification
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kaigai import schedule_dm_vinhis_specification_kaigai
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kokunai import schedule_dm_vinhis_specification_kokunai
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_oem import schedule_dm_vinhis_specification_oem
@@ -79,6 +84,7 @@ schedules.append(schedule_stg_aisac)
 schedules.append(schedule_stg_paint_iot)
 """ manufacturing """
 # 資材調達システム_UDC公開用
+schedules.append(schedule_stg_kojoiotpf)
 schedules.append(schedule_stg_maps)
 """ marketing """
 # RISM連携IF変更
@@ -110,6 +116,9 @@ schedules.append(schedule_d_gsps)
 # YUI_CPOS
 schedules.append(schedule_stg_yui_cpos)
 """ E層作成ジョブ """
+""" employee """
+# 従業員情報
+schedules.append(schedule_dm_jugyoinjoho)
 """ model repair """
 # EPCカタログ品名
 schedules.append(schedule_dm_cataloghinmei)
@@ -126,8 +135,11 @@ schedules.append(schedule_dm_vinhis_maint)
 """ vinhis model """
 # VIN x 車両情報
 schedules.append(schedule_dm_vin_model)
+# VIN x 車両情報（車種コード指定なし）
+schedules.append(schedule_dm_vin_model_nonesyasyu)
 """ vinhis spec """
 # VIN装備
+schedules.append(schedule_dm_vinhis_specification)
 schedules.append(schedule_dm_vinhis_specification_kaigai)
 schedules.append(schedule_dm_vinhis_specification_kokunai)
 schedules.append(schedule_dm_vinhis_specification_oem)
