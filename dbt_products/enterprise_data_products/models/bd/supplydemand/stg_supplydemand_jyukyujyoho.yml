@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  # 地域マスタ
+  - name: stg_cam2502_jyukyujyoho
+    config:
+      tags: ["jyukyujyoho"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - r_area_code
+            - load_date
+          config:
+            severity: error
+    columns:
+      - name: r_area_code
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: r_area_name
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: r_division_code
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: r_section_code
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: create_user
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: update_user
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: load_date
+        data_tests:
+          - not_null:
+              config:
+                severity: error
