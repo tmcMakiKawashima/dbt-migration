@@ -15,6 +15,7 @@ from .schedules_items.engineering.public.schedule_stg_aisac import schedule_stg_
 from .schedules_items.engineering.public.schedule_stg_paint_iot import schedule_stg_paint_iot
 """ manufacturing """
 from .schedules_items.manufacturing.public.schedule_stg_kojoiotpf import schedule_stg_kojoiotpf
+from .schedules_items.manufacturing.public.schedule_stg_maps import schedule_stg_maps
 """ marketing """
 from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
 from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import schedule_stg_yohinhinbanmeisai
@@ -84,6 +85,8 @@ schedules.append(schedule_stg_paint_iot)
 """ manufacturing """
 # 工場Iot
 schedules.append(schedule_stg_kojoiotpf)
+# 資材調達システム_UDC公開用
+schedules.append(schedule_stg_maps)
 """ marketing """
 # RISM連携IF変更
 schedules.append(schedule_stg_mashotoroku)
