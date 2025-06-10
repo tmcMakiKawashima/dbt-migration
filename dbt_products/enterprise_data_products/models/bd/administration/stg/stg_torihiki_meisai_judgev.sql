@@ -153,6 +153,7 @@ with stg_torihiki_meisai_judgev as (
         mmrn::varchar(40) as mmrn, -- メモ欄
         mtuser::varchar(13) as mtuser, -- 更新ユーザーID
         mttime::varchar(26) as mttime, -- 更新日時
+<<<<<<< HEAD
         uktrnkgijsytsmiyrme::varchar(70) as uktrnkgijsytsmiyrme, -- 受取人海外_住所_都市名より前
         uktrnkgijsytsmi::varchar(27) as uktrnkgijsytsmi, -- 受取人海外_住所_都市名
         uktrnkgijsytsmiyrat::varchar(30) as uktrnkgijsytsmiyrat, -- 受取人海外_住所_都市名より後
@@ -166,6 +167,8 @@ with stg_torihiki_meisai_judgev as (
         smktknkd::varchar(2) as smktknkd, -- 仕向地_国コード
         smkttsmi::varchar(27) as smkttsmi, -- 仕向地_都市名
         prpskd::varchar(10) as prpskd, -- Purpose Code
+=======
+>>>>>>> 768ad04709bf1b7708dede4e2d3f7a96ed3385c8
         recvdate::varchar(8) as recvdate, -- 受信日
         current_timestamp()::timestamp_ntz as timestamp -- タイムスタンプ
     from {{ source('snowpipe_db_administration', 'raw_ktrla02kzz0kgta016') }}
