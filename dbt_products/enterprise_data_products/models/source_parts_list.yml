@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: parts_list_db_sms
+    database: parts_list_db
+    schema: sms
+    tables:
+    # sms-kousei
+      - name: raw_tmp_junkanri_blktenkai
+        identifier: tmp_junkanri_blktenkai

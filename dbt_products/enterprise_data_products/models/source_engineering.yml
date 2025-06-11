@@ -18,3 +18,8 @@ sources:
         identifier: lecihikihen
       - name: raw_tmp_m_cyp02mokujibuijun
         identifier: tmp_m_cyp02mokujibuijun
+    # sms-kousei
+      - name: raw_tmp_sms_api_parts_info_res_json
+        identifier: tmp_sms_api_parts_info_res_json
+      - name: raw_stg_hinban
+        identifier: stg_hinban
