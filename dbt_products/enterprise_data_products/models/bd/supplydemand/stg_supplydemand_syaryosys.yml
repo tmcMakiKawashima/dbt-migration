@@ -123,3 +123,7 @@ models:
   - name: stg_coorder_syaryosys
     config:
       tags: ["syaryosys"]
+  # COオーダー付与結果_dec
+  - name: stg_coorder_dec_syaryosys
+    config:
+      tags: ["syaryosys"]
