@@ -100,6 +100,13 @@ with stg_saimudenpyo_meisai_judgev as (
         mmr::varchar(40) as mmr, -- メモ欄
         mtuser::varchar(13) as mtuser, -- 更新ユーザーID
         mttime::varchar(26) as mttime, -- 更新日時
+        tukykatrnksttskb::varchar(1) as tukykatrnksttskb, -- 当局宛連絡事項連携ステータス区分
+        gnsntknkd::varchar(2) as gnsntknkd, -- 原産地_国コード
+        fntmtknkd::varchar(2) as fntmtknkd, -- 船積地_国コード
+        fntmttsmi::varchar(27) as fntmttsmi, -- 船積地_都市名
+        smktknkd::varchar(2) as smktknkd, -- 仕向地_国コード
+        smkttsmi::varchar(27) as smkttsmi, -- 仕向地_都市名
+        prpskd::varchar(10) as prpskd, -- Purpose Code        
         recvdate::varchar(8) as recvdate, -- 受信日
         current_timestamp()::timestamp_ntz as timestamp -- タイムスタンプ
     from {{source('snowpipe_db_administration', 'raw_ktrla02kzz0kgta008')}}
