@@ -9,7 +9,7 @@ schedule_stg_mikado_jnet_0645 = build_schedule_from_dbt_selection(
     schedule_name="MIKADO_JNET_0645",
     cron_schedule="45 06 * * *",
     execution_timezone="Asia/Tokyo",
-    dbt_select="+stg_employee_shumu +stg_organization_english +stg_name_history +stg_syokusyu +stg_syokutakupart +stg_shikaku +stg_syokui +stg_syoninkubun +stg_bu +stg_shitsuka +stg_kakarigroup +stg_syagaisya +stg_syozoku +stg_bumon +stg_kyumurigyo +stg_kyumurigyo_sk +stg_kyumurigyo_haken +stg_kintai_monthly +stg_kintai_daily +stg_pclog",
+    dbt_select="+stg_employee_shumu +stg_organization_english +stg_name_history +stg_syokusyu +stg_syokutakupart +stg_shikaku +stg_syokui +stg_syoninkubun +stg_bu +stg_shitsuka +stg_kakarigroup +stg_syagaisya +stg_syozoku +stg_bumon +stg_kyumurigyo +stg_kyumurigyo_sk +stg_kyumurigyo_haken +stg_kintai_monthly +stg_kintai_daily +stg_pclog +stg_nyusyakeitai +stg_mail +stg_joshi +stg_kinmutaiyo +stg_kaisya +stg_bunya +stg_syagaisya_kubun +stg_exmail +stg_employee_kenmu +stg_yakuwari_history +stg_twave_tel",
     config=RunConfig(ops={"dbt_products_assets":
                           DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_mikado_jnet_0645"},
                                     source_test_list=["source:*,+stg_employee_shumu",
@@ -31,7 +31,8 @@ schedule_stg_mikado_jnet_0645 = build_schedule_from_dbt_selection(
                                                       "source:*,+stg_kyumurigyo_haken",
                                                       "source:*,+stg_kintai_monthly",
                                                       "source:*,+stg_kintai_daily",
-                                                      "source:*,+stg_pclog"])
+                                                      "source:*,+stg_pclog"
+])
                           }
                      ),
     # default_status=DefaultScheduleStatus.RUNNING,
