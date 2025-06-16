@@ -68,6 +68,13 @@ sources:
             data_tests:
             - fixed_length:
                 length: 110
+      - name: raw_tsjfa393
+        identifier: tsjfa393
+        columns:
+          - name: raw_data
+            data_tests:
+            - fixed_length:
+                length: 90
     # AQUA
       - name: raw_nojfa560
         identifier: nojfa560
