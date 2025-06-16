@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: fivetran_database_ogg_vlc_osubsp0200db20
+    database: fivetran_database
+    schema: ogg_vlc_osubsp0200db20
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: _fivetran_synced
+   
+    tables:
+    # VLC
+      - name: raw_cubd003shihanho
+        identifier: cubd003shihanho
