@@ -1,4 +1,4 @@
-﻿with
+with
     stg_shinsyameisai as ( 
         select
             dlrcd, -- 販売店コード
