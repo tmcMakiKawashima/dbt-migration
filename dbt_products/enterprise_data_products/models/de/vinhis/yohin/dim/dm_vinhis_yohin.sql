@@ -25,5 +25,5 @@ select
      current_timestamp::timestamp_ntz as ldts -- Load Date
 from tmp40_dm_vinhis_yohin
 left outer join stg_genyohinmaster
-    on tmp40_dm_vinhis_yohin.yohinsyamei = stg_genyohinmaster.yohinsyamei
+    on tmp40_dm_vinhis_yohin.syameino = stg_genyohinmaster.yohinsyamei
     and tmp40_dm_vinhis_yohin.tkcd = stg_genyohinmaster.tk_cd
