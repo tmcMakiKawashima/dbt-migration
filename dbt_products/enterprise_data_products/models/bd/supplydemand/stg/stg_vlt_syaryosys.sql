@@ -58,6 +58,7 @@ with stg_vlt_syaryosys as (
         dum3::varchar(9) as dum3, 
         current_timestamp::timestamp_ntz(9) as load_date, 
         ldts, -- B層LDTS
+        line_number,
         rank() over(
             partition by 
                 line,
@@ -67,7 +68,7 @@ with stg_vlt_syaryosys as (
                 ssmm,
                 ssdd,
                 symei
-            order by ldts desc
+            order by ldts desc, line_number desc
         ) aggkey
     from {{ref('substr_tsjfa391')}}
 
@@ -76,4 +77,4 @@ with stg_vlt_syaryosys as (
     {% endif %}
 
 )
-select * exclude(aggkey) from stg_vlt_syaryosys where aggkey = 1
+select * exclude(aggkey, line_number) from stg_vlt_syaryosys where aggkey = 1

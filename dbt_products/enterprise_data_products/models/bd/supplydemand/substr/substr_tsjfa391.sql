@@ -48,7 +48,8 @@ with substr_tsjfa391 as (
         substr(raw_data, 172, 200)::varchar(200) as jkspc,
         substr(raw_data, 372, 200)::varchar(200) as jhspc,
         substr(raw_data, 572, 9)::varchar(9) as dum3,
-        ldts
+        ldts,
+        line_number
     from {{ source('snowpipe_db_supplydemand', 'raw_tsjfa391') }}
 )
 select * from substr_tsjfa391
