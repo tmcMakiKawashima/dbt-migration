@@ -1,0 +1,17 @@
+{% snapshot scd_cam2501_jyukyujyoho %}
+
+{{
+    config(
+        unique_key="concat_ws('-',
+                    r_country_code,
+                    load_date)",
+
+        strategy='timestamp',
+        updated_at='ldts',
+        invalidate_hard_deletes=True,
+    )
+}}
+
+select * from {{ ref('stg_cam2501_jyukyujyoho') }}
+
+{% endsnapshot %}
