@@ -3,7 +3,7 @@ from .. import job_util
 from ..job_util import job_name_base_call, tags_base
 
 tags_api = tags_base.copy()
-tags_api["job_name"] = job_name_base_call + "sms_api_parts_info",
+tags_api["job_name"] = job_name_base_call + "sms_api_parts_info"
 
 """ api models """
 model_sms_api_parts_info_req = [{"name": "tmp_sms_api_parts_info_req_json", "snapshot": None}]
