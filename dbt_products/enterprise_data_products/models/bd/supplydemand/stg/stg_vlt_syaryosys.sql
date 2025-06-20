@@ -59,7 +59,7 @@ with stg_vlt_syaryosys as (
         current_timestamp::timestamp_ntz(9) as load_date, 
         ldts, -- B層LDTS
         line_number,
-        rank() over(
+        row_number() over(
             partition by 
                 line,
                 sno,
