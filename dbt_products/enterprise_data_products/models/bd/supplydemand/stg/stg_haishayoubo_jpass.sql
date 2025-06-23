@@ -54,7 +54,7 @@ with stg_haishayoubo_jpass as (
         rtrim(haiybknsjji,' 　')::varchar(14) as haiybknsjji,  -- 右blank
         rtrim(haiybknserrjyoho,' 　')::varchar(85) as haiybknserrjyoho,  -- 右blank
         rtrim(mtuser,' 　')::varchar(18) as mtuser,  -- 右blank
-        try_to_timestamp_ntz(rtrim(mttime,' 　'),'yyyy-mm-dd hh24:mi:ss.ff9') as mttime,  -- timestamp,右blank
+        try_to_timestamp_ntz(rtrim(mttime,' 　'),'yyyy-mm-dd-hh24.mi.ss.ff9') as mttime,  -- timestamp,右blank
         ldts,
         row_number() over(partition by ym, caltimingkbn, shamei, sno, yosokbn, yosoren order by ldts desc, line_number desc) aggkey
     from {{ ref('substr_ktrla038zz0kadda01') }}
