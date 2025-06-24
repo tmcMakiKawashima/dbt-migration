@@ -20,6 +20,10 @@ from .schedules_items.manufacturing.public.schedule_stg_maps import schedule_stg
 from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
 from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import schedule_stg_yohinhinbanmeisai
 """ supplydemand """
+from .schedules_items.supplydemand.public.schedule_d_dly_rpt_cam2204 import schedule_d_dly_rpt_cam2204
+from .schedules_items.supplydemand.public.schedule_d_dly_rpt_cam2501 import schedule_d_dly_rpt_cam2501
+from .schedules_items.supplydemand.public.schedule_d_dly_rpt_cam2502 import schedule_d_dly_rpt_cam2502
+from .schedules_items.supplydemand.public.schedule_d_dly_rpt_syaryosys import schedule_d_dly_rpt_syaryosys
 from .schedules_items.supplydemand.public.schedule_stg_aqua import schedule_stg_aqua
 from .schedules_items.supplydemand.public.schedule_stg_dly_rpt_mst import schedule_stg_dly_rpt_mst
 from .schedules_items.supplydemand.public.schedule_stg_dly_rpt import schedule_stg_dly_rpt
@@ -93,6 +97,14 @@ schedules.append(schedule_stg_mashotoroku)
 # 用品品番明細
 schedules.append(schedule_stg_yohinhinbanmeisai)
 """ supplydemand """
+# 生産日報_月度VCT
+schedules.append(schedule_d_dly_rpt_cam2204)
+# 生産日報_国マスタ
+schedules.append(schedule_d_dly_rpt_cam2501)
+# 生産日報_地域マスタ
+schedules.append(schedule_d_dly_rpt_cam2502)
+# 生産日報_車両システム
+schedules.append(schedule_d_dly_rpt_syaryosys)
 # AQUA
 schedules.append(schedule_stg_aqua)
 # 生産日報STEP3
