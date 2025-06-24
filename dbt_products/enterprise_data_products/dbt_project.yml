@@ -222,6 +222,12 @@ models:
           dim:
             +access: public
             +materialized: table
+        sms:
+          +group: parts_list_sms
+          +schema: sms
+          dim:
+            +access: public
+            +materialized: table
     ef:
       datamart:
         +snowflake_warehouse: datamart_wh
@@ -284,4 +290,10 @@ snapshots:
         +snowflake_warehouse: manufacturing_wh
         +group: manufacturing
         +target_database: manufacturing_db
+        +target_schema: dbt_snapshots
+    dd:
+      engineering:
+        +snowflake_warehouse: engineering_wh
+        +group: engineering
+        +target_database: engineering_db
         +target_schema: dbt_snapshots
