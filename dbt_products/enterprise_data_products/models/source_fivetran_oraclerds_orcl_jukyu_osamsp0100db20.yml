@@ -13,3 +13,5 @@ sources:
 # JYUKYUJYOHO
       - name: raw_cam2502
         identifier: cam2502
+      - name: raw_cam2501
+        identifier: cam2501
