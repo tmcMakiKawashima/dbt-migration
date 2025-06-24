@@ -13,8 +13,10 @@ from .schedules_items.customerservice.public.schedule_stg_warranty import schedu
 """ engineering """
 from .schedules_items.engineering.public.schedule_stg_aisac import schedule_stg_aisac
 from .schedules_items.engineering.public.schedule_stg_paint_iot import schedule_stg_paint_iot
+from .schedules_items.engineering.public.schedule_tmp_sms_api_parts_info_req_json import schedule_tmp_sms_api_parts_info_req_json
 """ manufacturing """
 from .schedules_items.manufacturing.public.schedule_stg_kojoiotpf import schedule_stg_kojoiotpf
+from .schedules_items.manufacturing.public.schedule_stg_maps import schedule_stg_maps
 """ marketing """
 from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
 from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import schedule_stg_yohinhinbanmeisai
@@ -42,10 +44,14 @@ from .schedules_items.model.repair.schedule_dm_figbunkaiinfo import schedule_dm_
 from .schedules_items.model.repair.schedule_dm_vehicle_generation import schedule_dm_vehicle_generation
 """ parts_list seppen """
 from .schedules_items.parts_list.seppen.schedule_dm_seppen_bunseki import schedule_dm_seppen_bunseki
+""" parts_list sms"""
+from .schedules_items.parts_list.sms.schedule_dm_kousei_blktenkai import schedule_dm_kousei_blktenkai
+from .schedules_items.parts_list.sms.schedule_tmp_kousei03_blktenkai import schedule_tmp_kousei03_blktenkai
 """ vinhis maint """
 from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
 """ vinhis model """
 from .schedules_items.vinhis.model.schedule_dm_vin_model import schedule_dm_vin_model
+from .schedules_items.vinhis.model.schedule_dm_vin_model_nonesyasyu import schedule_dm_vin_model_nonesyasyu
 """ vinhis spec """
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification import schedule_dm_vinhis_specification
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kaigai import schedule_dm_vinhis_specification_kaigai
@@ -81,9 +87,13 @@ schedules.append(schedule_stg_warranty)
 schedules.append(schedule_stg_aisac)
 # TMK塗装IoT
 schedules.append(schedule_stg_paint_iot)
+# SMS API（品番情報） REQUEST
+schedules.append(schedule_tmp_sms_api_parts_info_req_json)
 """ manufacturing """
 # 工場Iot
 schedules.append(schedule_stg_kojoiotpf)
+# 資材調達システム_UDC公開用
+schedules.append(schedule_stg_maps)
 """ marketing """
 # RISM連携IF変更
 schedules.append(schedule_stg_mashotoroku)
@@ -129,12 +139,18 @@ schedules.append(schedule_dm_vehicle_generation)
 """ parts_list seppen """
 # 認証不正防止対応(設変分析)
 schedules.append(schedule_dm_seppen_bunseki)
+""" parts_list sms"""
+#SMS構成
+schedules.append(schedule_dm_kousei_blktenkai)
+schedules.append(schedule_tmp_kousei03_blktenkai)
 """ vinhis maint """
 # VIN整備
 schedules.append(schedule_dm_vinhis_maint)
 """ vinhis model """
 # VIN x 車両情報
 schedules.append(schedule_dm_vin_model)
+# VIN x 車両情報（車種コード指定なし）
+schedules.append(schedule_dm_vin_model_nonesyasyu)
 """ vinhis spec """
 # VIN装備
 schedules.append(schedule_dm_vinhis_specification)
