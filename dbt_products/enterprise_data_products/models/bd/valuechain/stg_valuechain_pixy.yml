@@ -1049,3 +1049,237 @@ models:
           - not_null:
               config:
                 severity: error
+# ラインナップマスタ
+  - name: stg_lineupmaster_pixy
+    config:
+      tags: ["pixy"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hincd
+            - syucd
+          config:
+            severity: error
+    columns:
+      - name: hincd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syucd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikocd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinmokumei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syuruimei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: teikyokahi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikosyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: categorycd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kousin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tantou
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# カテゴリマスタ
+  - name: stg_categorymaster_pixy
+    config:
+      tags: ["pixy"]
+    columns:
+      - name: categorycd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: categorykai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: categorymei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kousin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tantou
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# タグマスタ
+  - name: stg_tagmaster_pixy
+    config:
+      tags: ["pixy"]
+    columns:
+      - name: tagcd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: tagkaiso
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tagmei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kousin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tantou
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# タグ情報
+  - name: stg_tagjoho_pixy
+    config:
+      tags: ["pixy"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - tuikocd
+            - tagcd
+          config:
+            severity: error
+    columns:
+      - name: tuikocd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tagcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kousin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tantou
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# セット品ラインナップマスタ
+  - name: stg_sethinlineupmaster_pixy
+    config:
+      tags: ["pixy"]
+    columns:
+      - name: tuikocd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: tuikomei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: teikyokahi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikosyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: categorycd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kousin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tantou
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 車種別ラインナップ情報
+# 品番情報(PIXY)
+# 追工装着条件情報
+# バッチ処理状況TBL
+# 車両情報(用品車名No)
+# AVN商品品目名称
