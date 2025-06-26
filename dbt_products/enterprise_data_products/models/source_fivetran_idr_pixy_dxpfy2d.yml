@@ -26,3 +26,26 @@ sources:
         identifier: cva97dxoyakotknmz
       - name: raw_cva89syameino
         identifier: cva89syameino
+      - name: raw_cva32lineupm
+        identifier: cva32lineupm
+      - name: raw_cva32categorym
+        identifier: cva32categorym
+      - name: raw_cva32tagm
+        identifier: cva32tagm
+      - name: raw_cva32taginf
+        identifier: cva32taginf
+      - name: raw_cva32stlineupm
+        identifier: cva32stlineupm
+      - name: raw_cva33syalineupinf
+        identifier: cva33syalineupinf
+      - name: raw_cva33hinbanpy
+        identifier: cva33hinbanpy
+      - name: raw_cva33tuikosochaku
+        identifier: cva33tuikosochaku
+      - name: raw_cva33batchstatus
+        identifier: cva33batchstatus
+      - name: raw_cva33syaryosya
+        identifier: cva33syaryosya
+      - name: raw_cva31avnsyohin
+        identifier: cva31avnsyohin
+        
