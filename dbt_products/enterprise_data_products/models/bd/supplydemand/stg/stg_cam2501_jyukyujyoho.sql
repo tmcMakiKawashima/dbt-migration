@@ -1,3 +1,20 @@
+{{
+    config (
+        materialized = 'incremental',
+        unique_key = 'r_country_code',
+        incremental_strategy = 'merge',
+        post_hook="
+            {% if is_incremental() %}
+                delete from {{this}}
+                where (r_country_code) in (select r_country_code
+                from {{ source('fivetran_database_oraclerds_orcl_jukyu_osamsp0100db20', 'raw_cam2501') }}
+                where _fivetran_deleted = 'true'
+                and _fivetran_synced >= (select max(ldts) from {{ this }}))
+            {% endif %}
+        "
+    )
+}}
+
 with stg_cam2501_jyukyujyoho as (
     select
         r_country_code::varchar(3) as r_country_code, 
@@ -25,3 +42,7 @@ with stg_cam2501_jyukyujyoho as (
     where _fivetran_deleted = 'false'
 )
 select * from stg_cam2501_jyukyujyoho
+
+{% if is_incremental() %}
+    where ldts > (select max(ldts) from {{ this }})
+{% endif %}
