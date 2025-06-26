@@ -1295,57 +1295,57 @@ models:
               config:
                 severity: error
       - name: tuikocd
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: tuikomei
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: teikyokahi
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: tuikosyu
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hincd
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syucd
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syasyug
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sinsetuflg
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: touroku
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: kousin
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: tantou
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -1375,82 +1375,82 @@ models:
               config:
                 severity: error
       - name: tuikocd
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: siyousyono
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hankata
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vari
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: lv1hinban
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: htyhkykbn
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hinban
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: iroruibetu
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syaryouclr
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: kosu
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hinmei
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: colormei
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: naigaikbn
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: touroku
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: kousin
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: tantou
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -1477,107 +1477,107 @@ models:
               config:
                 severity: error
       - name: tuikocd
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: siyousyono
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hankata
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: kotuikocd
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: vari
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: varix
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: torizikan
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: tuikomei
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hissucd
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: fukacd1
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: fukacd2
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hincd
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syucd
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: tuikosyu
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syameino
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syameiedaban
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: avnmodely
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: oiban
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: touroku
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: kousin
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: tantou
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -1599,32 +1599,32 @@ models:
               config:
                 severity: error
       - name: syasyug
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syoristatime
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syoriendtime
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: touroku
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: kousin
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: tantou
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -1647,62 +1647,62 @@ models:
               config:
                 severity: error
       - name: siyousyono
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: hankata
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syameikbn
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: sinkyukbn
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: seikansyamei
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: nensiki
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syameiedasan
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syameino
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syameiedaban
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: touroku
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: kousin
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: tantou
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
@@ -1727,42 +1727,42 @@ models:
               config:
                 severity: error
       - name: dbase
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: avnmodely
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: oiban
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syouhinno
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: syouhinmei
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: touroku
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: kousin
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
       - name: tantou
-         data_tests:
+        data_tests:
           - not_null:
               config:
                 severity: error
