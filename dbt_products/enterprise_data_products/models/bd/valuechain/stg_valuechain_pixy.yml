@@ -1278,8 +1278,491 @@ models:
               config:
                 severity: error
 # 車種別ラインナップ情報
+  - name: stg_syasyubetulineupjoho_pixy
+    config:
+      tags: ["pixy"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syameino
+            - tuikocd
+          config:
+            severity: error
+    columns:
+      - name: syameino
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikocd
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikomei
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: teikyokahi
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikosyu
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hincd
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syucd
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyug
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sinsetuflg
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kousin
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tantou
+         data_tests:
+          - not_null:
+              config:
+                severity: error
 # 品番情報(PIXY)
+  - name: stg_hinbanjoho_pixy
+    config:
+      tags: ["pixy"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyug
+            - tuikocd
+            - siyousyono
+            - hankata
+            - vari
+            - lv1hinban
+            - htyhkykbn
+            - hinban
+            - iroruibetu
+            - syaryouclr
+          config:
+            severity: error
+    columns:
+      - name: syasyug
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikocd
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siyousyono
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hankata
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vari
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lv1hinban
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: htyhkykbn
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinban
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: iroruibetu
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syaryouclr
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kosu
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinmei
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: colormei
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: naigaikbn
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kousin
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tantou
+         data_tests:
+          - not_null:
+              config:
+                severity: error
 # 追工装着条件情報
+  - name: stg_tuikousotyakujokenjoho_pixy
+    config:
+      tags: ["pixy"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyug
+            - tuikocd
+            - siyousyono
+            - hankata
+            - kotuikocd
+            - vari
+            - varix
+          config:
+            severity: error
+    columns:
+      - name: syasyug
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikocd
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siyousyono
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hankata
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kotuikocd
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vari
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: varix
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: torizikan
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikomei
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hissucd
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: fukacd1
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: fukacd2
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hincd
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syucd
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikosyu
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syameino
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syameiedaban
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: avnmodely
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: oiban
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kousin
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tantou
+         data_tests:
+          - not_null:
+              config:
+                severity: error
 # バッチ処理状況TBL
+  - name: stg_batchsyorijokyo_pixy
+    config:
+      tags: ["pixy"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - kinouid
+            - syasyug
+          config:
+            severity: error
+    columns:
+      - name: kinouid
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyug
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syoristatime
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syoriendtime
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kousin
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tantou
+         data_tests:
+          - not_null:
+              config:
+                severity: error
 # 車両情報(用品車名No)
+  - name: stg_syaryojoho_yohinsyameino_pixy
+    config:
+      tags: ["pixy"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyug
+            - siyousyono
+            - hankata
+          config:
+            severity: error
+    columns:
+      - name: syasyug
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siyousyono
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hankata
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syameikbn
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sinkyukbn
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seikansyamei
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nensiki
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syameiedasan
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syameino
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syameiedaban
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kousin
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tantou
+         data_tests:
+          - not_null:
+              config:
+                severity: error
 # AVN商品品目名称
+  - name: stg_avnsyohinhinmokumeisyo_pixy
+    config:
+      tags: ["pixy"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyug
+            - dbase
+            - avnmodely
+            - oiban
+            - syouhinno
+          config:
+            severity: error
+    columns:
+      - name: syasyug
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dbase
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: avnmodely
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: oiban
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syouhinno
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syouhinmei
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: touroku
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kousin
+         data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tantou
+         data_tests:
+          - not_null:
+              config:
+                severity: error
