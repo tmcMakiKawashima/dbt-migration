@@ -3,7 +3,8 @@
     config(
         unique_key="concat_ws('-',
                     kinouid,
-                    syasyug
+                    syasyug,
+                    syoristatime
                     )",
 
         strategy='timestamp',
