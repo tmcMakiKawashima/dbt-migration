@@ -1590,6 +1590,7 @@ models:
           combination_of_columns:
             - kinouid
             - syasyug
+            - syoristatime
           config:
             severity: error
     columns:
