@@ -43,6 +43,24 @@ models:
   - name: stg_juchuzan_shiyoerr_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - chumon
+          config:
+            severity: error
+    columns:
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: chumon
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # 納期付与結果日別能力枠
   - name: stg_noryokuwaku_date_syaryosys
     config:
