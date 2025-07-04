@@ -21,3 +21,21 @@ models:
   - name: stg_karikarifuri_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - odno
+          config:
+            severity: error
+    columns:
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: odno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
