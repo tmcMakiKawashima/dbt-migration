@@ -39,3 +39,123 @@ models:
           - not_null:
               config:
                 severity: error
+  # 仕様エラー
+  - name: stg_juchuzan_shiyoerr_syaryosys
+    config:
+      tags: ["syaryosys"]
+  # 納期付与結果日別能力枠
+  - name: stg_noryokuwaku_date_syaryosys
+    config:
+      tags: ["syaryosys"]
+  # 納期付与結果月別能力枠
+  - name: stg_noryokuwaku_month_syaryosys
+    config:
+      tags: ["syaryosys"]
+  # DFSC×機能明細コード
+  - name: stg_dfsc_kinomeisaicd_syaryosys
+    config:
+      tags: ["syaryosys"]
+  # 販売店別月台数ファーム
+  - name: stg_daisu_month_syaryosys
+    config:
+      tags: ["syaryosys"]
+  # メーカー・ライン対応マスタ
+  - name: stg_maker_line_syaryosys
+    config:
+      tags: ["syaryosys"]
+  # 組立ライン別カレンダー
+  - name: stg_line_cal_syaryosys
+    config:
+      tags: ["syaryosys"]
+  # ファーム管理オーダー枠
+  - name: stg_fwaku_syaryosys
+    config:
+      tags: ["syaryosys"]
+  # 旬間オーダー枠ロケータ
+  - name: stg_roketa_syaryosys
+    config:
+      tags: ["syaryosys"]
+  # 需給ステイタスDB
+  - name: stg_jukyustatus_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - chumon
+            - jyuhasei
+            - simuke
+            - odno
+            - ojyy
+            - frmkbn
+            - frmno
+          config:
+            severity: error
+    columns:
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: chumon
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jyuhasei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: simuke
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: odno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ojyy
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  # 受注残付与結果
+  - name: stg_jyuchuzan_syaryosys
+    config:
+      tags: ["syaryosys"]
+  # COオーダー付与結果
+  - name: stg_coorder_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - odno
+          config:
+            severity: error
+    columns:
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: odno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
