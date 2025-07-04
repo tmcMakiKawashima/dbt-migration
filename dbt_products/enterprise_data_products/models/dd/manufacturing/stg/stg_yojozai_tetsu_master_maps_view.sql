@@ -3,8 +3,6 @@
    )
 }}
 
-{% set source_table = source('manufacturing_db_public', 'raw_stg_yojozai_tetsu_master') %}
-
 with stg_yojozai_tetsu_master_maps_view as (
   select
     iron_spls_mtl_id::varchar(15) as iron_spls_mtl_id, -- 鉄余剰材ID
@@ -79,8 +77,7 @@ with stg_yojozai_tetsu_master_maps_view as (
     program_application_id::varchar(15) as program_application_id, -- コンカレント・プログラム・アプリケーションID
     program_id::varchar(15) as program_id, -- コンカレント・プログラムID
     program_update_date::varchar(14) as program_update_date, -- プログラム更新日時
-    "ldts" -- B層取込日時
-  from {{ source_table.database }}.{{ source_table.schema }}."{{ source_table.name | lower }}"
+    ldts -- B層取込日時
+  from {{source('manufacturing_db_public', 'raw_stg_yojozai_tetsu_master')}}
 )
-
 select * from stg_yojozai_tetsu_master_maps_view

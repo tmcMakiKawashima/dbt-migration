@@ -3,8 +3,6 @@
    )
 }}
 
-{% set source_table = source('manufacturing_db_public', 'raw_stg_calendar_master') %}
-
 with stg_calendar_master_maps_view as (
   select
     calendar_id::varchar(15) as calendar_id, -- カレンダー_ID
@@ -67,8 +65,7 @@ with stg_calendar_master_maps_view as (
     program_id::varchar(15) as program_id, -- コンカレント・プログラムID
     program_update_date::varchar(14) as program_update_date, -- プログラム更新日時
     org_id::varchar(15) as org_id, -- 営業単位ID
-    "ldts" -- B層取込日時
-  from {{ source_table.database }}.{{ source_table.schema }}."{{ source_table.name | lower }}"
+    ldts -- B層取込日時
+  from {{source('manufacturing_db_public', 'raw_stg_calendar_master')}}
 )
-
 select * from stg_calendar_master_maps_view
