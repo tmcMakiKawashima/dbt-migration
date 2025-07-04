@@ -3,8 +3,6 @@
    )
 }}
 
-{% set source_table = source('manufacturing_db_public', 'raw_stg_chotatsuirai_kojokannai') %}
-
 with stg_chotatsuirai_kojokannai_maps_view as (
   select
     factory_procurement_rqe_id::varchar(15) as factory_procurement_rqe_id, -- 工場間・工場内調達依頼ID
@@ -111,8 +109,7 @@ with stg_chotatsuirai_kojokannai_maps_view as (
     program_id::varchar(15) as program_id, -- コンカレント・プログラムID
     program_update_date::varchar(14) as program_update_date, -- プログラム更新日時
     location_code_not_iron_id::varchar(15) as location_code_not_iron_id, -- 所番地(鉄以外)ID
-    "ldts" -- B層取込日時
-  from {{ source_table.database }}.{{ source_table.schema }}."{{ source_table.name | lower }}"
+    ldts -- B層取込日時
+  from {{source('manufacturing_db_public', 'raw_stg_chotatsuirai_kojokannai')}}
 )
-
 select * from stg_chotatsuirai_kojokannai_maps_view

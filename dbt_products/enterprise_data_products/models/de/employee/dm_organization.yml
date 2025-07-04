@@ -1,0 +1,37 @@
+version: 2
+models:
+# 従業員情報(兼務)
+  - name: dm_empmasterknm_view
+    config:
+      tags: ["jnet"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - jcd
+            - hriszcd
+          config:
+            severity: error
+    columns:
+      - name: jcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hriszcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 従業員情報(主務)
+  - name: dm_empmastershm_view
+    config:
+      tags: ["jnet"]
+    columns:
+      - name: jcd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
