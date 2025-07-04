@@ -63,6 +63,24 @@ models:
   - name: stg_maker_line_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - maker
+            - idline
+          config:
+            severity: error
+    columns:
+      - name: maker
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: idline
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # 組立ライン別カレンダー
   - name: stg_line_cal_syaryosys
     config:
