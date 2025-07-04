@@ -3,8 +3,6 @@
    )
 }}
 
-{% set source_table = source('manufacturing_db_public', 'raw_stg_kijunhyo_zaiko') %}
-
 with stg_kijunhyo_zaiko_maps_view as (
   select
     std_tbl_stock_id::varchar(15) as std_tbl_stock_id, -- 基準表在庫ID
@@ -44,8 +42,7 @@ with stg_kijunhyo_zaiko_maps_view as (
     program_update_date::varchar(14) as program_update_date, -- プログラム更新日時
     stock_correction_use::varchar(9) as stock_correction_use, -- たな卸補正(使用実績)
     stock_correction_delivery::varchar(9) as stock_correction_delivery, -- たな卸補正(納入実績)
-    "ldts" -- B層取込日時
-  from {{ source_table.database }}.{{ source_table.schema }}."{{ source_table.name | lower }}"
+    ldts -- B層取込日時
+  from {{source('manufacturing_db_public', 'raw_stg_kijunhyo_zaiko')}}
 )
-
 select * from stg_kijunhyo_zaiko_maps_view

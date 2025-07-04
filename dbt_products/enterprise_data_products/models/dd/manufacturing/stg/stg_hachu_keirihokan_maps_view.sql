@@ -3,8 +3,6 @@
    )
 }}
 
-{% set source_table = source('manufacturing_db_public', 'raw_stg_hachu_keirihokan') %}
-
 with stg_hachu_keirihokan_maps_view as (
   select
     data_cls::varchar(1) as data_cls, -- ﾃﾞｰﾀ区分
@@ -77,8 +75,7 @@ with stg_hachu_keirihokan_maps_view as (
     regular_amount::varchar(12) as regular_amount, -- 正規金額
     processing_date::varchar(8) as processing_date, -- 処理年月日
     return_quantity::varchar(9) as return_quantity, -- 返却数量
-    "ldts" -- B層取込日時
-  from {{ source_table.database }}.{{ source_table.schema }}."{{ source_table.name | lower }}"
+    ldts -- B層取込日時
+  from {{source('manufacturing_db_public', 'raw_stg_hachu_keirihokan')}}
 )
-
 select * from stg_hachu_keirihokan_maps_view

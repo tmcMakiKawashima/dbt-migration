@@ -3,8 +3,6 @@
    )
 }}
 
-{% set source_table = source('manufacturing_db_public', 'raw_stg_hachuhuka') %}
-
 with stg_hachuhuka_maps_view as (
   select
     odr_rqe_id::varchar(15) as odr_rqe_id, -- 発注依頼_ID
@@ -256,8 +254,7 @@ with stg_hachuhuka_maps_view as (
     reserve_odr_emergency_flag::varchar(1) as reserve_odr_emergency_flag, -- 引当発注緊急フラグ
     rep_pattern_supplier_answer::varchar(1) as rep_pattern_supplier_answer, -- 修理パターン（仕入先回答）
     po_line_id::varchar(15) as po_line_id, -- 購入単価明細ID
-    "ldts" -- B層取込日時
-  from {{ source_table.database }}.{{ source_table.schema }}."{{ source_table.name | lower }}"
+    ldts -- B層取込日時
+  from {{source('manufacturing_db_public', 'raw_stg_hachuhuka')}}
 )
-
 select * from stg_hachuhuka_maps_view
