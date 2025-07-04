@@ -3,8 +3,6 @@
    )
 }}
 
-{% set source_table = source('manufacturing_db_public', 'raw_stg_kijunhyo_shikakenaiji') %}
-
 with stg_kijunhyo_shikakenaiji_maps_view as (
   select
     std_tbl_in_prcs_mtl_rqi_id::varchar(15) as std_tbl_in_prcs_mtl_rqi_id, -- 基準表仕掛内示ID
@@ -45,8 +43,7 @@ with stg_kijunhyo_shikakenaiji_maps_view as (
     program_application_id::varchar(15) as program_application_id, -- コンカレント・プログラム・アプリケーションID
     program_id::varchar(15) as program_id, -- コンカレント・プログラムID
     program_update_date::varchar(14) as program_update_date, -- プログラム更新日時
-    "ldts" -- B層取込日時
-  from {{ source_table.database }}.{{ source_table.schema }}."{{ source_table.name | lower }}"
+    ldts -- B層取込日時
+  from {{source('manufacturing_db_public', 'raw_stg_kijunhyo_shikakenaiji')}}
 )
-
 select * from stg_kijunhyo_shikakenaiji_maps_view

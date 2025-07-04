@@ -3,8 +3,6 @@
    )
 }}
 
-{% set source_table = source('manufacturing_db_public', 'raw_stg_juryo_keirihokan') %}
-
 with stg_juryo_keirihokan_maps_view as (
   select
     data_cls::varchar(1) as data_cls, -- ﾃﾞｰﾀ区分
@@ -33,8 +31,7 @@ with stg_juryo_keirihokan_maps_view as (
     sha2('accepted_emp_code', 256) as accepted_emp_code, -- 検収(従業員ｺｰﾄﾞ)
     accepted_update_dttm::varchar(14) as accepted_update_dttm, -- 検収(更新日時)
     current_operation_date::varchar(8) as current_operation_date, -- 処理年月日
-    "ldts" -- B層取込日時
-  from {{ source_table.database }}.{{ source_table.schema }}."{{ source_table.name | lower }}"
+    ldts -- B層取込日時
+  from {{source('manufacturing_db_public', 'raw_stg_juryo_keirihokan')}}
 )
-
 select * from stg_juryo_keirihokan_maps_view

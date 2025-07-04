@@ -3,8 +3,6 @@
    )
 }}
 
-{% set source_table = source('manufacturing_db_public', 'raw_stg_hachuhenko') %}
-
 with stg_hachuhenko_maps_view as (
   select
     odr_chg_id::varchar(15) as odr_chg_id, -- 発注変更ID
@@ -106,8 +104,7 @@ with stg_hachuhenko_maps_view as (
     sha2('approver_employee_code', 256) as approver_employee_code, -- 決裁者_品番担当者従業員番号
     approver_employee_name::varchar(10) as approver_employee_name, -- 決裁者_品番担当者従業員名
     credit_note_sup_on_remand::varchar(1) as credit_note_sup_on_remand, -- 赤伝仕入先差戻し中
-    "ldts" -- B層取込日時
-  from {{ source_table.database }}.{{ source_table.schema }}."{{ source_table.name | lower }}"
+    ldts -- B層取込日時
+  from {{source('manufacturing_db_public', 'raw_stg_hachuhenko')}}
 )
-
 select * from stg_hachuhenko_maps_view

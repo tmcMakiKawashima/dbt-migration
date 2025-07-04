@@ -3,8 +3,6 @@
    )
 }}
 
-{% set source_table = source('manufacturing_db_public', 'raw_stg_hachuirai') %}
-
 with stg_hachuirai_maps_view as (
   select
     odr_rqe_id::varchar(15) as odr_rqe_id, -- 発注依頼_ID
@@ -371,8 +369,7 @@ with stg_hachuirai_maps_view as (
     supplier_confirmation_date::varchar(14) as supplier_confirmation_date, -- 仕入先確認日
     radio_law_report_necessity::varchar(1) as radio_law_report_necessity, -- 電波法届出要否
     reserve_odr_emergency_flag::varchar(1) as reserve_odr_emergency_flag, -- 引当発注緊急フラグ
-    "ldts" -- B層取込日時
-  from {{ source_table.database }}.{{ source_table.schema }}."{{ source_table.name | lower }}"
+    ldts -- B層取込日時
+  from {{source('manufacturing_db_public', 'raw_stg_hachuirai')}}
 )
-
 select * from stg_hachuirai_maps_view
