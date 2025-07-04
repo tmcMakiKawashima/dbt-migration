@@ -3,8 +3,6 @@
    )
 }}
 
-{% set source_table = source('manufacturing_db_public', 'raw_stg_yhinbanhenko') %}
-
 with stg_yhinbanhenko_maps_view as (
   select
     y_item_no_update_hstr_id::varchar(15) as y_item_no_update_hstr_id, -- Y品番更新履歴ID
@@ -125,8 +123,7 @@ with stg_yhinbanhenko_maps_view as (
     program_id::varchar(15) as program_id, -- コンカレント・プログラムID
     program_update_date::varchar(14) as program_update_date, -- プログラム更新日時
     inner_chg_ntc::varchar(1) as inner_chg_ntc, -- 変更通知有無（社内）
-    "ldts" -- B層取込日時
-  from {{ source_table.database }}.{{ source_table.schema }}."{{ source_table.name | lower }}"
+    ldts -- B層取込日時
+  from {{source('manufacturing_db_public', 'raw_stg_yhinbanhenko')}}
 )
-
 select * from stg_yhinbanhenko_maps_view

@@ -3,8 +3,6 @@
    )
 }}
 
-{% set source_table = source('manufacturing_db_public', 'raw_stg_tokorobanchi_tetsuigai_haishi') %}
-
 with stg_tokorobanchi_tetsuigai_haishi_maps_view as (
   select
     location_abls_not_iron_id::varchar(15) as location_abls_not_iron_id, -- 所番地廃止(鉄以外)ID
@@ -65,8 +63,7 @@ with stg_tokorobanchi_tetsuigai_haishi_maps_view as (
     program_application_id::varchar(15) as program_application_id, -- コンカレント・プログラム・アプリケーションID
     program_id::varchar(15) as program_id, -- コンカレント・プログラムID
     program_update_date::varchar(14) as program_update_date, -- プログラム更新日時
-    "ldts" -- B層取込日時
-  from {{ source_table.database }}.{{ source_table.schema }}."{{ source_table.name | lower }}"
+    ldts -- B層取込日時
+  from {{source('manufacturing_db_public', 'raw_stg_tokorobanchi_tetsuigai_haishi')}}
 )
-
 select * from stg_tokorobanchi_tetsuigai_haishi_maps_view

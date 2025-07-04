@@ -3,8 +3,6 @@
    )
 }}
 
-{% set source_table = source('manufacturing_db_public', 'raw_stg_daitaihin_master') %}
-
 with stg_daitaihin_master_maps_view as (
   select
     substitute_item_id::varchar(15) as substitute_item_id, -- 代替品ID
@@ -33,8 +31,7 @@ with stg_daitaihin_master_maps_view as (
     program_application_id::varchar(15) as program_application_id, -- コンカレント・プログラム・アプリケーションID
     program_id::varchar(15) as program_id, -- コンカレント・プログラムID
     program_update_date::varchar(14) as program_update_date, -- プログラム更新日時
-    "ldts" -- B層取込日時
-  from {{ source_table.database }}.{{ source_table.schema }}."{{ source_table.name | lower }}"
+    ldts -- B層取込日時
+  from {{source('manufacturing_db_public', 'raw_stg_daitaihin_master')}}
 )
-
 select * from stg_daitaihin_master_maps_view
