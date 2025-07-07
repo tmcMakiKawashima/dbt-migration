@@ -3,7 +3,7 @@
   values:
     beforeCommands:
       - dbt deps --project-dir "{{ namespace.DBT.PROJ_DIR }}"
-    containerImage: "{{ namespace.DOCKER.IMAGE.DBT }}"
+    containerImage: "{{ namespace.DOCKER.IMAGE_VERSION.DBT }}"
     profiles: |
       enterprise_data_products:
         target: dev
@@ -25,17 +25,17 @@
   forced: false
   values:
     branch: "{{ namespace.GIT.BRANCH }}"
-    password: "{{ secret('GIT_PASS_EKUBOI') }}"
+    password: "{{ secret('GIT_PASS') }}"
     url: "{{ namespace.GIT.URL }}"
     username: "{{ namespace.GIT.USER }}"
 - type: io.kestra.plugin.git.PushFlows
   forced: false
   values:
     authorEmail: "{{ inputs.email }}"
-    branch: "{{ inputs.child_namespace }}"
-    commitMessage: "{{ inputs.massage }}"
+    branch: "{{ inputs.proj_namespace }}"
+    commitMessage: "{{ inputs.message }}"
     flows: "*"
-    gitDirectory: kestra/dbt_products/flows/{{ inputs.child_namespace }}
+    gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/flows
     password: "{{ inputs.pass }}"
     url: "{{ namespace.GIT.URL }}"
     username: "{{ inputs.user }}"
@@ -43,10 +43,10 @@
   forced: false
   values:
     authorEmail: "{{ inputs.email }}"
-    branch: "{{ inputs.child_namespace }}"
-    commitMessage: "{{ inputs.massage }}"
+    branch: "{{ inputs.proj_namespace }}"
+    commitMessage: "{{ inputs.message }}"
     files: "**"
-    gitDirectory: kestra/dbt_products/files/{{ inputs.child_namespace }}
+    gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/files
     password: "{{ inputs.pass }}"
     url: "{{ namespace.GIT.URL }}"
     username: "{{ inputs.user }}"
@@ -54,7 +54,7 @@
   forced: false
   values:
     delete: true
-    gitDirectory: kestra/dbt_products/flows/{{ inputs.child_namespace }}
+    gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/flows
     password: "{{ inputs.pass }}"
     url: "{{ namespace.GIT.URL }}"
     username: "{{ inputs.user }}"
@@ -62,7 +62,7 @@
   forced: false
   values:
     delete: true
-    gitDirectory: kestra/dbt_products/files/{{ inputs.child_namespace }}
+    gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/files
     password: "{{ inputs.pass }}"
     url: "{{ namespace.GIT.URL }}"
     username: "{{ inputs.user }}"
@@ -71,7 +71,7 @@
   values:
     from:
       - data: |
-          The Kestra workflow execution failed.
+          The Kestra workflow execution failed. [{{ namespace.ENV }}]
 
           -----------------------------------------------------------------------------------------------------------------------------
           - Namespace: {{trigger.namespace}}
@@ -81,22 +81,22 @@
 
           ※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
           ※  下の「unsubscribe」のリンクをクリックしないでください（1番目のリンク）       ※
-          ※  リンクをクリックするとSnowflakeのエラー通知が一切飛ばなくなってしまいます   ※
+          ※  リンクをクリックするとKestraのエラー通知が一切飛ばなくなってしまいます   ※
           ※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
           -
           -
           -
           -
           -
-        subject: "Kestra Workflow Error: {{trigger.flowId}}"
+        subject: "[{{ namespace.ENV }}] Kestra Workflow Error: {{trigger.flowId}}"
     region: "{{ namespace.ALERTS.REGION }}"
     topicArn: "{{ namespace.ALERTS.TOPIC }}"
 - type: io.kestra.plugin.scripts.python.Commands
   forced: false
   values:
     beforeCommands:
-      - pip install "{{ namespace.PYTHON.SNOWFLAKE_CONNECTOR }}"
-    containerImage: "{{ namespace.DOCKER.IMAGE.PYTHON }}"
+      - pip install "{{ namespace.PYTHON.SNOWFLAKE_CONNECTOR_VERSION }}"
+    containerImage: "{{ namespace.DOCKER.IMAGE_VERSION.PYTHON }}"
     taskRunner:
       type: io.kestra.plugin.scripts.runner.docker.Docker
 - type: io.kestra.plugin.jdbc.snowflake
