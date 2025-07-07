@@ -287,6 +287,60 @@ models:
   - name: stg_fwaku_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - shamei
+            - sno
+            - bukbn
+            - kncode
+            - dlrcd
+            - firmyy
+            - firmmm
+            - firmjn
+          config:
+            severity: error
+    columns:
+      - name: shamei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bukbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kncode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: firmyy
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: firmmm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: firmjn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # 旬間オーダー枠ロケータ
   - name: stg_roketa_syaryosys
     config:
