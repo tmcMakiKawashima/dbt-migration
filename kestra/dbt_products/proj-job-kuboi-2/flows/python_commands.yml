@@ -1,0 +1,35 @@
+id: python_commands
+namespace: kestra_dbt_project.proj-job-kuboi-2
+tasks:
+  - id: python
+    type: io.kestra.plugin.scripts.python.Commands
+    namespaceFiles:
+      enabled: true
+      include:
+        - python/api/api_util.py
+        - python/api/assets_sms.py
+    commands:
+      - python python/api/assets_sms.py
+    env:
+      ENV: "{{ namespace.ENV }}"
+      SNOWFLAKE_ACCOUNT: "{{ namespace.SNOWFLAKE.ACCOUNT }}"
+      SNOWFLAKE_USER: "{{ namespace.SNOWFLAKE.USER }}"
+      DBT_SNOWFLAKE_PASS: "{{ secret('DBT_SNOWFLAKE_PASS') }}"
+      SNOWFLAKE_ROLE: "{{ namespace.SNOWFLAKE.ROLE }}"
+      X_TMC_CLIENT_ID_SMS: "{{ secret('X_TMC_CLIENT_ID_SMS') }}"
+      X_TMC_CLIENT_SECRET_SMS: "{{ secret('X_TMC_CLIENT_SECRET_SMS') }}"
+      X_TMC_ZDFW_USERID_SMS: "{{ secret('X_TMC_ZDFW_USERID_SMS') }}"
+      X_TMC_ZDFW_COMPCODE_SMS: "{{ secret('X_TMC_ZDFW_COMPCODE_SMS') }}"
+  
+triggers:
+  - id: flow_trigger
+    type: io.kestra.plugin.core.trigger.Flow
+    preconditions:
+      id: flows
+      flows:
+        - namespace: kestra_dbt_project.proj-job-kuboi-2
+          flowId: dbt-snowflake-build-triger-before
+          states: [SUCCESS]
+        - namespace: kestra_dbt_project.proj-job-kuboi-2
+          flowId: dbt-snowflake-build-triger-before2
+          states: [SUCCESS]

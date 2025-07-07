@@ -1,0 +1,63 @@
+id: dbt-docs-generate
+namespace: kestra_dbt_project
+description: dbtドキュメントを生成してS3に格納するFlow
+
+labels:
+  type: common_root
+  
+inputs:
+  - id: branch
+    type: STRING
+    defaults: proj-job-
+
+tasks:
+
+  - id: if_branch_isnot_common_root
+    type: io.kestra.plugin.core.flow.If
+    condition: "{{ inputs.branch != 'common_root' }}"
+    # 共通部品以外のプロジェクトのsyncの場合はdbt docs generateする
+    then:
+
+    - id: dbt
+
+      type: io.kestra.plugin.core.flow.WorkingDirectory
+      tasks:
+        - id: clone_repository
+          type: io.kestra.plugin.git.Clone
+          branch: "{{ inputs.branch }}"
+
+        - id: dbt_docs_generate
+          type: io.kestra.plugin.dbt.cli.DbtCLI
+          commands:
+            - dbt docs generate --static --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+          outputFiles:
+            - enterprise_data_products/target/static_index.html
+
+        - id: S3_upload
+          type: io.kestra.plugin.aws.s3.Upload
+          from: "{{ outputs.dbt_docs_generate['outputFiles']['enterprise_data_products/target/static_index.html'] }}"
+          bucket: "{{ namespace.DBT_DOCS.S3_BUCKET }}"
+          key: "{{ namespace.DBT_DOCS.BASE_PATH }}{{ inputs.branch }}/static_index.html"
+          contentType: text/html
+
+# git syncの完了をトリガーにdbt docs generateする（対象ブランチを取得する）
+triggers:
+  - id: flow_trigger
+    type: io.kestra.plugin.core.trigger.Flow
+    inputs:
+      branch: "{{ trigger.outputs.target_branch }}"
+    preconditions:
+      id: flows
+      flows:
+        - namespace: kestra_dbt_project
+          flowId: git_sync_flows_files
+          states: [SUCCESS]
+
+finally:
+  - id: finally_log 
+    type: io.kestra.plugin.core.log.Log
+    message: 
+      - "Git branch *dev -> {{ inputs.branch }}"
+      - "Git branch *stg or prod -> {{ namespace.GIT.BRANCH }}"
+      - "Path -> {{ namespace.DBT_DOCS.S3_BUCKET }}/{{ namespace.DBT_DOCS.BASE_PATH }}{{ inputs.branch }}/static_index.html"
+      # Execution RUNNING

@@ -1,0 +1,24 @@
+id: alert_failure_warning_default
+namespace: kestra_dbt_project
+
+labels:
+  type: common_root
+
+tasks:
+  - id: publish
+    type: io.kestra.plugin.aws.sns.Publish
+
+triggers:
+  - id: flow_trigger
+    type: io.kestra.plugin.core.trigger.Flow
+    conditions:
+      - type: io.kestra.plugin.core.condition.ExecutionLabels
+        labels:
+          error: default
+      - type: io.kestra.plugin.core.condition.ExecutionNamespace
+        namespace: "dev_kuboi"
+        prefix: true
+      - type: io.kestra.plugin.core.condition.ExecutionStatus
+        in:
+          - FAILED
+          - WARNING

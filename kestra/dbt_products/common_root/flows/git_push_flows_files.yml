@@ -1,0 +1,69 @@
+id: git_push_flows_files
+namespace: kestra_dbt_project
+description: GitLabに指定のNamespaceからFlow YamlとNamespace FileをCommit&PushするFlow
+
+labels:
+  type: common_root
+
+inputs:
+  - id: error
+    type: STRING
+    defaults: "！非本番環境以外での実行はできません！"
+    dependsOn:
+      condition: "{{ namespace.ENV  != 'dev' }}"
+  - id: child_namespace
+    type: STRING
+    defaults: "proj-job-"
+    dependsOn:
+      condition: "{{ namespace.ENV  == 'dev' }}"
+  - id: user
+    type: STRING
+    dependsOn:
+      condition: "{{ namespace.ENV  == 'dev' }}"
+  - id: email
+    type: STRING
+    dependsOn:
+      condition: "{{ namespace.ENV  == 'dev' }}"
+  - id: pass
+    type: SECRET
+    dependsOn:
+      condition: "{{ namespace.ENV  == 'dev' }}"
+  - id: massage
+    type: STRING
+    dependsOn:
+      condition: "{{ namespace.ENV  == 'dev' }}"
+
+tasks:
+  - id: if
+    type: io.kestra.plugin.core.flow.If
+    condition: "{{ inputs.child_namespace == 'common_root' }}"
+    then:
+
+      - id: commit_and_push_flows_root
+        type: io.kestra.plugin.git.PushFlows
+        sourceNamespace: "{{ namespace.NAME }}"
+
+      - id: commit_and_push_files_root
+        type: io.kestra.plugin.git.PushNamespaceFiles
+        namespace: "{{ namespace.NAME }}"
+
+    else:
+
+      - id: commit_and_push_flows
+        type: io.kestra.plugin.git.PushFlows
+        sourceNamespace: "{{ namespace.NAME }}.{{ inputs.child_namespace }}"
+
+      - id: commit_and_push_files
+        type: io.kestra.plugin.git.PushNamespaceFiles
+        namespace: "{{ namespace.NAME }}.{{ inputs.child_namespace }}"
+
+
+finally:
+  - id: finally_log 
+    type: io.kestra.plugin.core.log.Log
+    message: 
+      - "Child namespace and Git branch *dev -> {{ inputs.child_namespace }}"
+      - "Git user -> {{ inputs.user }}"
+      - "Git email -> {{ inputs.email }}"
+      - "Git massage -> {{ inputs.massage }}"
+      # Execution RUNNING
