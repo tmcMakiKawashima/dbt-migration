@@ -191,6 +191,48 @@ models:
   - name: stg_daisu_month_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - shamei
+            - sno
+            - shinq
+            - firmymj
+            - kncode
+          config:
+            severity: error
+    columns:
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shamei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shinq
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: firmymj
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kncode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # メーカー・ライン対応マスタ
   - name: stg_maker_line_syaryosys
     config:
