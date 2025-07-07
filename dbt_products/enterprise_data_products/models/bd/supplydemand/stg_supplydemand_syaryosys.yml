@@ -157,6 +157,36 @@ models:
   - name: stg_dfsc_kinomeisaicd_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - sno
+            - shamei
+            - dfsc
+            - kncode
+          config:
+            severity: error
+    columns:
+      - name: sno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shamei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dfsc
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kncode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # 販売店別月台数ファーム
   - name: stg_daisu_month_syaryosys
     config:
