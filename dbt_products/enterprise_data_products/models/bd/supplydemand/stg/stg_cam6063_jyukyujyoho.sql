@@ -1,3 +1,21 @@
+{{
+    config (
+        materialized = 'incremental',
+        unique_key = ['segmei', 'renkey_hkata', 'renkry_sedai', 'aply_dt_kara'],
+        incremental_strategy = 'merge',
+        post_hook="
+            {% if is_incremental() %}
+                delete from {{this}}
+                where (segmei, renkey_hkata, renkry_sedai, aply_dt_kara) in (select segmei, renkey_hkata, renkry_sedai, aply_dt_kara
+                from {{ source('fivetran_database_oraclerds_orcl_jukyu_osamsp02sam202', 'raw_cam6063') }}
+                where _fivetran_deleted = 'true'
+                and _fivetran_synced >= (select max(ldts) from {{ this }}))
+            {% endif %}
+        "
+    )
+}}
+
+
 with stg_cam6063_jyukyujyoho as (
     select
         segmei::varchar(8) as segmei, 
@@ -83,3 +101,7 @@ with stg_cam6063_jyukyujyoho as (
     where _fivetran_deleted = 'false'
 )
 select * from stg_cam6063_jyukyujyoho
+
+{% if is_incremental() %}
+    where ldts > (select max(ldts) from {{ this }})
+{% endif %}
