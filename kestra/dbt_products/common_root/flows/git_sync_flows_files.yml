@@ -7,7 +7,7 @@ labels:
   dbt_docs: generate
 
 inputs:
-  - id: child_namespace
+  - id: proj_namespace
     type: STRING
     defaults: "proj-job-"
   - id: user
@@ -26,65 +26,65 @@ tasks:
     then:
     - id: target_namespace
       type: io.kestra.plugin.core.debug.Return
-      format: "{{ inputs.child_namespace }}"
+      format: "{{ inputs.proj_namespace }}"
 
-    - id: if_child_namespace_is_common_root_dev
+    - id: if_proj_namespace_is_common_root_dev
       type: io.kestra.plugin.core.flow.If
-      condition: "{{ inputs.child_namespace == 'common_root' }}"
+      condition: "{{ inputs.proj_namespace == 'common_root' }}"
       # ルートNamespaceの共通部品の場合=targetNmaspaceはルート
       then:
 
-        - id: git_flows_root_dev
+        - id: sync_flows_root_dev
           type: io.kestra.plugin.git.SyncFlows
           targetNamespace: "{{ namespace.NAME }}"
-          branch: "{{ inputs.child_namespace }}"
+          branch: "{{ inputs.proj_namespace }}"
     
-        - id: git_files_root_dev
+        - id: sync_files_root_dev
           type: io.kestra.plugin.git.SyncNamespaceFiles
           namespace: "{{ namespace.NAME }}"
-          branch: "{{ inputs.child_namespace }}"
+          branch: "{{ inputs.proj_namespace }}"
 
       # プロジェクト資産の場合=targetNmaspaceは入力したchildNamespace
       else:
-        - id: git_flows_dev
+        - id: sync_flows_dev
           type: io.kestra.plugin.git.SyncFlows
-          targetNamespace: "{{ namespace.NAME }}.{{ inputs.child_namespace }}"
-          branch: "{{ inputs.child_namespace }}"
+          targetNamespace: "{{ namespace.NAME }}.{{ inputs.proj_namespace }}"
+          branch: "{{ inputs.proj_namespace }}"
     
-        - id: git_files_dev
+        - id: sync_files_dev
           type: io.kestra.plugin.git.SyncNamespaceFiles
-          namespace: "{{ namespace.NAME }}.{{ inputs.child_namespace }}"
-          branch: "{{ inputs.child_namespace }}"
+          namespace: "{{ namespace.NAME }}.{{ inputs.proj_namespace }}"
+          branch: "{{ inputs.proj_namespace }}"
 
     # 準本番または本番の場合=ブランチはstg_ or deploy
     else:
 
-    - id: if_child_namespace_is_common_root
+    - id: if_proj_namespace_is_common_root
       type: io.kestra.plugin.core.flow.If
-      condition: "{{ inputs.child_namespace == 'common_root' }}"
+      condition: "{{ inputs.proj_namespace == 'common_root' }}"
       # ルートNamespaceの共通部品の場合=targetNmaspaceはルート
       then:
 
-        - id: git_flows_root
+        - id: sync_flows_root
           type: io.kestra.plugin.git.SyncFlows
           targetNamespace: "{{ namespace.NAME }}"
           branch: "{{ namespace.GIT.BRANCH }}"
     
-        - id: git_files_root
+        - id: sync_files_root
           type: io.kestra.plugin.git.SyncNamespaceFiles
           namespace: "{{ namespace.NAME }}"
           branch: "{{ namespace.GIT.BRANCH }}"
 
       # プロジェクト資産の場合=targetNmaspaceは入力したchildNamespace
       else:
-        - id: git_flows
+        - id: sync_flows
           type: io.kestra.plugin.git.SyncFlows
-          targetNamespace: "{{ namespace.NAME }}.{{ inputs.child_namespace }}"
+          targetNamespace: "{{ namespace.NAME }}.{{ inputs.proj_namespace }}"
           branch: "{{ namespace.GIT.BRANCH }}"
     
-        - id: git_files
+        - id: sync_files
           type: io.kestra.plugin.git.SyncNamespaceFiles
-          namespace: "{{ namespace.NAME }}.{{ inputs.child_namespace }}"
+          namespace: "{{ namespace.NAME }}.{{ inputs.proj_namespace }}"
           branch: "{{ namespace.GIT.BRANCH }}"
 
 # Gitブランチを出力
@@ -98,8 +98,8 @@ finally:
   - id: finally_log 
     type: io.kestra.plugin.core.log.Log
     message: 
-      - "Child namespace -> {{ inputs.child_namespace }}"
-      - "Git branch *dev -> {{ inputs.child_namespace }}"
+      - "Child namespace -> {{ inputs.proj_namespace }}"
+      - "Git branch *dev -> {{ inputs.proj_namespace }}"
       - "Git branch *stg or prod -> {{ namespace.GIT.BRANCH }}"
       - "Git user -> {{ inputs.user }}"
       # Execution RUNNING
