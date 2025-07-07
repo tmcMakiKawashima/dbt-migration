@@ -259,6 +259,30 @@ models:
   - name: stg_line_cal_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - nen
+            - tuki
+            - kline
+          config:
+            severity: error
+    columns:
+      - name: nen
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuki
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kline
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # ファーム管理オーダー枠
   - name: stg_fwaku_syaryosys
     config:
