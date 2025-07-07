@@ -1,0 +1,39 @@
+id: dbt-snowflake-snapshot
+namespace: kestra_dbt_project.proj-job-kuboi
+tasks:
+  - id: git
+    type: io.kestra.plugin.core.flow.WorkingDirectory
+    tasks:
+      - id: clone_repository
+        type: io.kestra.plugin.git.Clone
+        url: http://ip-100-80-0-103.ap-northeast-1.compute.internal/kestra_dbt/kestra_dbt_project.git
+        branch: kestra-trial-kuboi
+        username: e.kuboi
+        password: 11Nmoka30
+      - id: dbt
+        type: io.kestra.plugin.dbt.cli.DbtCLI
+        taskRunner:
+          type: io.kestra.plugin.scripts.runner.docker.Docker
+        containerImage: ghcr.io/kestra-io/dbt-snowflake:latest
+        projectDir: enterprise_data_products
+        profiles: |
+          enterprise_data_products:
+            target: dev
+            outputs:
+              dev:
+                account: "nw21470.ap-northeast-1.aws"
+                database: "datamart_db"
+                password: "Password123"
+                role: "dbt_role"
+                schema: "public"
+                threads: 16
+                type: snowflake
+                user: "dbt"
+                warehouse: "dbt_default_wh"
+        commands:
+          - dbt deps --project-dir enterprise_data_products
+          - dbt snapshot --select scd_cvn18nosiodrjyoho_initial scd_cvn18nosiodrjyoho_latest scd_cvn18nosiodrjyoho_previous --project-dir enterprise_data_products
+triggers:
+  - id: schedule
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "00 15 * * *"

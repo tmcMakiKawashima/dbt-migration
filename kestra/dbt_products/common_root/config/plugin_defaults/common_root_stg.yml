@@ -1,0 +1,124 @@
+- type: io.kestra.plugin.dbt.cli.DbtCLI
+  forced: false
+  values:
+    beforeCommands:
+      - dbt deps --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+    containerImage: "{{ namespace.DOCKER.IMAGE.DBT }}"
+    profiles: |
+      enterprise_data_products:
+        target: dev
+        outputs:
+          dev:
+            account: "{{ namespace.DBT.SNOWFLAKE_ACCOUNT }}"
+            database: "{{ namespace.DBT.SNOWFLAKE_DATABASE }}"
+            password: "{{ secret('DBT_SNOWFLAKE_PASS') }}"
+            role: "{{ namespace.DBT.SNOWFLAKE_ROLE }}"
+            schema: "{{ namespace.DBT.SNOWFLAKE_SCHEMA }}"
+            threads: 16
+            type: snowflake
+            user: "{{ namespace.DBT.SNOWFLAKE_USER }}"
+            warehouse: "dbt_default_wh"
+    projectDir: "{{ namespace.DBT.PROJ_DIR }}"
+    taskRunner:
+      type: io.kestra.plugin.scripts.runner.docker.Docker
+- type: io.kestra.plugin.git.Clone
+  forced: false
+  values:
+    branch: "{{ namespace.GIT.BRANCH }}"
+    password: "{{ secret('GIT_PASS_EKUBOI') }}"
+    url: "{{ namespace.GIT.URL }}"
+    username: "{{ namespace.GIT.USER }}"
+- type: io.kestra.plugin.git.PushFlows
+  forced: false
+  values:
+    authorEmail: "{{ inputs.email }}"
+    branch: "{{ inputs.child_namespace }}"
+    commitMessage: "{{ inputs.massage }}"
+    flows: "*"
+    gitDirectory: kestra/dbt_products/flows/{{ inputs.child_namespace }}
+    password: "{{ inputs.pass }}"
+    url: "{{ namespace.GIT.URL }}"
+    username: "{{ inputs.user }}"
+- type: io.kestra.plugin.git.PushNamespaceFiles
+  forced: false
+  values:
+    authorEmail: "{{ inputs.email }}"
+    branch: "{{ inputs.child_namespace }}"
+    commitMessage: "{{ inputs.massage }}"
+    files: "**"
+    gitDirectory: kestra/dbt_products/files/{{ inputs.child_namespace }}
+    password: "{{ inputs.pass }}"
+    url: "{{ namespace.GIT.URL }}"
+    username: "{{ inputs.user }}"
+- type: io.kestra.plugin.git.SyncFlows
+  forced: false
+  values:
+    delete: true
+    gitDirectory: kestra/dbt_products/flows/{{ inputs.child_namespace }}
+    password: "{{ inputs.pass }}"
+    url: "{{ namespace.GIT.URL }}"
+    username: "{{ inputs.user }}"
+- type: io.kestra.plugin.git.SyncNamespaceFiles
+  forced: false
+  values:
+    delete: true
+    gitDirectory: kestra/dbt_products/files/{{ inputs.child_namespace }}
+    password: "{{ inputs.pass }}"
+    url: "{{ namespace.GIT.URL }}"
+    username: "{{ inputs.user }}"
+- type: io.kestra.plugin.aws.sns.Publish
+  forced: false
+  values:
+    from:
+      - data: |
+          The Kestra workflow execution failed.
+
+          -----------------------------------------------------------------------------------------------------------------------------
+          - Namespace: {{trigger.namespace}}
+          - Flow ID: {{trigger.flowId}}
+          - Execution ID: {{trigger.executionId}}
+          -----------------------------------------------------------------------------------------------------------------------------
+
+          ※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
+          ※  下の「unsubscribe」のリンクをクリックしないでください（1番目のリンク）       ※
+          ※  リンクをクリックするとSnowflakeのエラー通知が一切飛ばなくなってしまいます   ※
+          ※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
+          -
+          -
+          -
+          -
+          -
+        subject: "Kestra Workflow Error: {{trigger.flowId}}"
+    region: "{{ namespace.ALERTS.REGION }}"
+    topicArn: "{{ namespace.ALERTS.TOPIC }}"
+- type: io.kestra.plugin.scripts.python.Commands
+  forced: false
+  values:
+    beforeCommands:
+      - pip install "{{ namespace.PYTHON.SNOWFLAKE_CONNECTOR }}"
+    containerImage: "{{ namespace.DOCKER.IMAGE.PYTHON }}"
+    taskRunner:
+      type: io.kestra.plugin.scripts.runner.docker.Docker
+- type: io.kestra.plugin.jdbc.snowflake
+  forced: false
+  values:
+    fetchType: FETCH
+    password: "{{ secret('DBT_SNOWFLAKE_PASS') }}"
+    role: "{{ namespace.SNOWFLAKE.ROLE }}"
+    url: jdbc:snowflake://{{ namespace.SNOWFLAKE.ACCOUNT }}.snowflakecomputing.com
+    username: "{{ namespace.SNOWFLAKE.USER }}"
+    warehouse: "{{ namespace.SNOWFLAKE.WAREHOUSE }}"
+- type: io.kestra.plugin.core.kv.Set
+  forced: false
+  values:
+    namespace: "{{ namespace.NAME }}"
+    overwrite: true
+    ttl: P30D
+- type: io.kestra.plugin.aws.s3.Trigger
+  forced: false
+  values:
+    accessKeyId: "{{ namespace.AWS.ACCESS_KEY_ID }}"
+    action: NONE
+    region: ap-northeast-1
+    secretKeyId: "{{ namespace.AWS.SECRET_ACCESS_KEY }}"
+    stsRoleArn: "{{ namespace.AWS.STS_ROLE_ARN }}"

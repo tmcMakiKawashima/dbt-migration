@@ -1,0 +1,37 @@
+ALERTS:
+  REGION: ap-northeast-1
+  SUBJECT: kestra trial-kuboi
+  TOPIC: arn:aws:sns:ap-northeast-1:248810166614:dajp1-dxpf-edp-dev-sns-kestra01
+AWS:
+  ACCESS_KEY_ID: REDACTED
+  SECRET_ACCESS_KEY: 2hUz3m+A/wveqfAx/S06tVsGsrl5rImxyH8YvpZL
+  STS_ROLE_ARN: arn:aws:iam::248810166614:role/da-dxpf-edp-role-infra01
+DBT:
+  PROJ_DIR: enterprise_data_products
+  SNOWFLAKE_ACCOUNT: nw21470.ap-northeast-1.aws
+  SNOWFLAKE_DATABASE: DATAMART_DB
+  SNOWFLAKE_ROLE: DBT_ROLE
+  SNOWFLAKE_SCHEMA: public
+  SNOWFLAKE_USER: dbt
+DBT_DOCS:
+  BASE_PATH: trial/dbt_documents/kestra/
+  S3_BUCKET: dajp1-dxpf-edp-dev-s3-kestra
+DOCKER:
+  IMAGE:
+    DBT: ghcr.io/dbt-labs/dbt-snowflake:1.9.0
+    PYTHON: ghcr.io/kestra-io/pydata:latest
+ENV: stg
+GIT:
+  BRANCH: stg_kuboi
+  URL: http://ip-100-80-0-103.ap-northeast-1.compute.internal/kestra_dbt/kestra_dbt_project.git
+  USER: e.kuboi
+NAME: stg_kuboi
+PYTHON:
+  SNOWFLAKE_CONNECTOR: snowflake-connector-python[pandas]==3.15.0
+SNOWFLAKE:
+  ACCOUNT: nw21470.ap-northeast-1.aws
+  DATABASE: DATAMART_DB
+  ROLE: DBT_ROLE
+  SCHEMA: public
+  USER: dbt
+  WAREHOUSE: DATAMART_WH
