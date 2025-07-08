@@ -345,6 +345,24 @@ models:
   - name: stg_roketa_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syoribi
+            - stime
+          config:
+            severity: error
+    columns:
+      - name: syoribi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: stime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # 需給ステイタスDB
   - name: stg_jukyustatus_syaryosys
     config:
