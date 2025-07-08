@@ -1,6 +1,5 @@
 ALERTS:
   REGION: ap-northeast-1
-  SUBJECT: kestra trial-kuboi
   TOPIC: arn:aws:sns:ap-northeast-1:248810166614:dajp1-dxpf-edp-dev-sns-kestra01
 AWS:
   ACCESS_KEY_ID: REDACTED
@@ -17,17 +16,20 @@ DBT_DOCS:
   BASE_PATH: trial/dbt_documents/kestra/
   S3_BUCKET: dajp1-dxpf-edp-dev-s3-kestra
 DOCKER:
-  IMAGE:
+  IMAGE_VERSION:
     DBT: ghcr.io/dbt-labs/dbt-snowflake:1.9.0
     PYTHON: ghcr.io/kestra-io/pydata:latest
 ENV: dev
 GIT:
   BRANCH: xxx
-  URL: http://ip-100-80-0-103.ap-northeast-1.compute.internal/kestra_dbt/kestra_dbt_project.git
-  USER: e.kuboi
-NAME: dev_kuboi
+  URL: http://ip-100-80-0-103.ap-northeast-1.compute.internal/enterprise_orchestration_products/kestra_dbt_project.git
+  USER: kestra.dbt
+KUBERNETES:
+  MASTER_URL: https://792D6FD8199A980FC7CC517D69717F34.gr7.ap-northeast-1.eks.amazonaws.com
+  USER_NAME: arn:aws:eks:ap-northeast-1:248810166614:cluster/dajp1-dxpf-edp-eks-kestra01
+NAME: kestra_dbt_project
 PYTHON:
-  SNOWFLAKE_CONNECTOR: snowflake-connector-python[pandas]==3.15.0
+  SNOWFLAKE_CONNECTOR_VERSION: snowflake-connector-python[pandas]==3.15.0
 SNOWFLAKE:
   ACCOUNT: nw21470.ap-northeast-1.aws
   DATABASE: DATAMART_DB
