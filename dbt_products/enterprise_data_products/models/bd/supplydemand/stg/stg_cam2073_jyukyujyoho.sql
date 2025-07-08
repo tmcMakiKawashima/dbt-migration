@@ -1,3 +1,20 @@
+{{
+    config (
+        materialized = 'incremental',
+        unique_key = ['ojyy', 'segmei', 'dlrcd', 'odno', 'kubn'],
+        incremental_strategy = 'merge',
+        post_hook="
+            {% if is_incremental() %}
+                delete from {{this}}
+                where (ojyy, segmei, dlrcd, odno, kubn) in (select ojyy, segmei, dlrcd, odno, kubn
+                from {{ source('fivetran_database_oraclerds_orcl_jukyu_osamsp01sam202', 'raw_cam2073') }}
+                where _fivetran_deleted = 'true'
+                and _fivetran_synced >= (select max(ldts) from {{ this }}))
+            {% endif %}
+        "
+    )
+}}
+
 with stg_cam2073_jyukyujyoho as (
     select
         ojyy::varchar(4) as ojyy, 
@@ -25,3 +42,7 @@ with stg_cam2073_jyukyujyoho as (
     where _fivetran_deleted = 'false'
 )
 select * from stg_cam2073_jyukyujyoho
+
+{% if is_incremental() %}
+    where ldts > (select max(ldts) from {{ this }})
+{% endif %}
