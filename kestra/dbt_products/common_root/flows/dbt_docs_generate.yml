@@ -1,4 +1,4 @@
-id: dbt-docs-generate
+id: dbt_docs_generate
 namespace: kestra_dbt_project
 description: dbtドキュメントを生成してS3に格納するFlow
 

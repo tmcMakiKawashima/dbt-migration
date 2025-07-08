@@ -16,7 +16,7 @@ triggers:
         labels:
           error: default
       - type: io.kestra.plugin.core.condition.ExecutionNamespace
-        namespace: "dev_kuboi"
+        namespace: "kestra_dbt_project"
         prefix: true
       - type: io.kestra.plugin.core.condition.ExecutionStatus
         in:
