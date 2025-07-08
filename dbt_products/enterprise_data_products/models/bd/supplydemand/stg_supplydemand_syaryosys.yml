@@ -345,6 +345,24 @@ models:
   - name: stg_roketa_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syoribi
+            - stime
+          config:
+            severity: error
+    columns:
+      - name: syoribi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: stime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # 需給ステイタスDB
   - name: stg_jukyustatus_syaryosys
     config:
@@ -443,6 +461,28 @@ models:
               config:
                 severity: error
       - name: odno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  # 受注残付与結果_dec
+  - name: stg_jyuchuzan_dec_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - chumon
+          config:
+            severity: error
+    columns:
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: chumon
         data_tests:
           - not_null:
               config:
