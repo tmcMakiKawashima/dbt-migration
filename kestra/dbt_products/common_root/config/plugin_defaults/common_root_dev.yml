@@ -24,9 +24,7 @@
 - type: io.kestra.plugin.git
   forced: false
   values:
-    password: "{{ inputs.pass }}"
     url: "{{ namespace.GIT.URL }}"
-    username: "{{ inputs.user }}"
 - type: io.kestra.plugin.git.Clone
   forced: false
   values:
@@ -41,6 +39,8 @@
     commitMessage: "{{ inputs.message }}"
     flows: "*"
     gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/flows
+    password: "{{ inputs.pass }}"
+    username: "{{ inputs.user }}"
 - type: io.kestra.plugin.git.PushNamespaceFiles
   forced: false
   values:
@@ -49,16 +49,22 @@
     commitMessage: "{{ inputs.message }}"
     files: "**"
     gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/files
+    password: "{{ inputs.pass }}"
+    username: "{{ inputs.user }}"
 - type: io.kestra.plugin.git.SyncFlows
   forced: false
   values:
     delete: true
     gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/flows
+    password: "{{ inputs.pass }}"
+    username: "{{ inputs.user }}"
 - type: io.kestra.plugin.git.SyncNamespaceFiles
   forced: false
   values:
     delete: true
     gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/files
+    password: "{{ inputs.pass }}"
+    username: "{{ inputs.user }}"
 - type: io.kestra.plugin.aws.sns.Publish
   forced: false
   values:
