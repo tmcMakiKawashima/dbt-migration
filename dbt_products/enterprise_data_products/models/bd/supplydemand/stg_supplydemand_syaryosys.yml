@@ -21,42 +21,348 @@ models:
   - name: stg_karikarifuri_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - odno
+          config:
+            severity: error
+    columns:
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: odno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # 仕様エラー
   - name: stg_juchuzan_shiyoerr_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - chumon
+          config:
+            severity: error
+    columns:
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: chumon
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # 納期付与結果日別能力枠
   - name: stg_noryokuwaku_date_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - renkey_shamei
+            - renkey_sno
+            - renkey_nen
+            - renkey_tuki
+            - renkey_kncode
+            - renkey_knkubn
+            - dsyubetum
+          config:
+            severity: error
+    columns:
+      - name: renkey_shamei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: renkey_sno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: renkey_nen
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: renkey_tuki
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: renkey_kncode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: renkey_knkubn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dsyubetum
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # 納期付与結果月別能力枠
   - name: stg_noryokuwaku_month_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - shamei
+            - sno
+            - nengetu
+            - kncode
+            - dsyubetum
+          config:
+            severity: error
+    columns:
+      - name: shamei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nengetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kncode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dsyubetum
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # DFSC×機能明細コード
   - name: stg_dfsc_kinomeisaicd_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - sno
+            - shamei
+            - dfsc
+            - kncode
+          config:
+            severity: error
+    columns:
+      - name: sno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shamei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dfsc
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kncode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # 販売店別月台数ファーム
   - name: stg_daisu_month_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - shamei
+            - sno
+            - shinq
+            - firmymj
+            - kncode
+          config:
+            severity: error
+    columns:
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shamei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shinq
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: firmymj
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kncode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # メーカー・ライン対応マスタ
   - name: stg_maker_line_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - maker
+            - idline
+          config:
+            severity: error
+    columns:
+      - name: maker
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: idline
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # 組立ライン別カレンダー
   - name: stg_line_cal_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - nen
+            - tuki
+            - kline
+          config:
+            severity: error
+    columns:
+      - name: nen
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuki
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kline
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # ファーム管理オーダー枠
   - name: stg_fwaku_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - shamei
+            - sno
+            - bukbn
+            - kncode
+            - dlrcd
+            - firmyy
+            - firmmm
+            - firmjn
+          config:
+            severity: error
+    columns:
+      - name: shamei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bukbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kncode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: firmyy
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: firmmm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: firmjn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # 旬間オーダー枠ロケータ
   - name: stg_roketa_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syoribi
+            - stime
+          config:
+            severity: error
+    columns:
+      - name: syoribi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: stime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # 需給ステイタスDB
   - name: stg_jukyustatus_syaryosys
     config:
@@ -119,10 +425,68 @@ models:
   - name: stg_jyuchuzan_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - chumon
+          config:
+            severity: error
+    columns:
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: chumon
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # COオーダー付与結果
   - name: stg_coorder_syaryosys
     config:
       tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - odno
+          config:
+            severity: error
+    columns:
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: odno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  # 受注残付与結果_dec
+  - name: stg_jyuchuzan_dec_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlrcd
+            - chumon
+          config:
+            severity: error
+    columns:
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: chumon
+        data_tests:
+          - not_null:
+              config:
+                severity: error
   # COオーダー付与結果_dec
   - name: stg_coorder_dec_syaryosys
     config:
