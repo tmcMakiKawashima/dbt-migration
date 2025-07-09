@@ -43,20 +43,11 @@ with stg_tokorobanchi_tetsuigai_maps_view as (
     new_date::varchar(14) as new_date, -- 新設年月日
     update_date::varchar(14) as update_date, -- 更新年月日
     subinventory_code_gi::varchar(2) as subinventory_code_gi, -- 保管場所コード(出庫元)
-    sha2('rqe_emp_code', 256) as rqe_emp_code, -- 依頼者従業員コード
     rqe_date::varchar(14) as rqe_date, -- 依頼年月日
-    sha2('new_emp_code', 256) as new_emp_code, -- 新設(従業員コード)
-    sha2('update_emp_code', 256) as update_emp_code, -- 更新(従業員コード)
     new_gi_years::varchar(6) as new_gi_years, -- 最新出庫年月
     object_version_number::varchar(9) as object_version_number, -- Object Version Number
-    sha2('created_by', 256) as created_by, -- 作成者
-    created_user_name::varchar(30) as created_user_name, -- 作成者ユーザー名
     creation_date::varchar(14) as creation_date, -- 作成日時
-    sha2('last_updated_by', 256) as last_updated_by, -- 最終更新者
-    last_updated_user_name::varchar(30) as last_updated_user_name, -- 最終更新者ユーザー名
     last_update_date::varchar(14) as last_update_date, -- 最終更新日時
-    sha2('last_update_login', 256) as last_update_login, -- 最終更新ログイン
-    last_upd_login_fnd_user_name::varchar(30) as last_upd_login_fnd_user_name, -- 最終更新ログインユーザー名
     request_id::varchar(15) as request_id, -- 要求ID
     program_application_id::varchar(15) as program_application_id, -- コンカレント・プログラム・アプリケーションID
     program_id::varchar(15) as program_id, -- コンカレント・プログラムID
