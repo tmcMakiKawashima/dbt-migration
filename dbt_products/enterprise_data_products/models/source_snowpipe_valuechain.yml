@@ -399,3 +399,11 @@ sources:
         identifier: ktrea04tzz0kel0908
       - name: raw_ktrea04tzz0kel0909
         identifier: ktrea04tzz0kel0909
+    # GSPS
+      - name: raw_tmjfvk04
+        identifier: tmjfvk04
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 100

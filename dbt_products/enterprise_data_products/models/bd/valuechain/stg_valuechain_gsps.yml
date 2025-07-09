@@ -70,3 +70,31 @@ models:
           - not_null:
               config:
                 severity: error
+# 品番情報.品名
+  - name: stg_cvk01hinmeit_gsps
+    config:
+      tags: ["gsps"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hinban
+            - hinbansbetu
+            - syusbetu
+          config:
+            severity: error
+    columns:
+      - name: hinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinbansbetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syusbetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
