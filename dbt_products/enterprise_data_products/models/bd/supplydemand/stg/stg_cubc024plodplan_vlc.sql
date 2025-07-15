@@ -1,3 +1,21 @@
+{{
+    config (
+        materialized = 'incremental',
+        unique_key = ['vhc_key', 'plan_section', 'kyoten_cd', 'kyoten_kaisu', 'tp_kbn'],
+        incremental_strategy = 'merge',
+        post_hook="
+            {% if is_incremental() %}
+                delete from {{this}}
+                where (vhc_key, plan_section, kyoten_cd, kyoten_kaisu, tp_kbn) in (select vhc_key, plan_section, kyoten_cd, kyoten_kaisu, tp_kbn
+                from {{ source('fivetran_database_ogg_vlc_osubsp0200db20', 'raw_cubc024plodplan') }}
+                where _fivetran_deleted = 'true'
+                and _fivetran_synced >= (select max(ldts) from {{ this }}))
+            {% endif %}
+        "
+    )
+}}
+-- 削除フラグがtrueに更新されたレコードを削除
+
 with stg_cubc024plodplan_vlc as (
     select
         vhc_key::varchar(15) as vhc_key, 
@@ -28,3 +46,7 @@ with stg_cubc024plodplan_vlc as (
     where _fivetran_deleted = 'false'
 )
 select * from stg_cubc024plodplan_vlc
+
+{% if is_incremental() %}
+    where ldts > (select max(ldts) from {{ this }})
+{% endif %}
