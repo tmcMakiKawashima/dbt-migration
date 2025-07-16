@@ -19,3 +19,5 @@ sources:
         identifier: cubc028plodresult
       - name: raw_cubc029logkyotenresult
         identifier: cubc029logkyotenresult
+      - name: raw_cubc026logopeplan
+        identifier: cubc026logopeplan
