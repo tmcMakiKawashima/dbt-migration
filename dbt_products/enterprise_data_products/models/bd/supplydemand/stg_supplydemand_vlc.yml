@@ -437,6 +437,136 @@ models:
           - not_null:
               config:
                 severity: error
+# 車両PL物流構内作業架装計画情報
+  - name: stg_cubc026logopeplan_vlc
+    config:
+      tags: ["vlc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - vhc_key
+            - plan_section
+            - kyoten_cd
+            - kyoten_kaisu
+            - tp_kbn
+          config:
+            severity: error
+    columns:
+      - name: vhc_key
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plan_section
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_kaisu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tp_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: rootseq_no
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: final_dest_flg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ship_final_dest_sign
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: prdct_line
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: in_datetime_plan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: out_datetime_plan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: fst_in_datetime_plan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: fst_out_datetime_plan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lst_in_datetime_plan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lst_out_datetime_plan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: appointed_date
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: appointed_date_update
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: recover_line
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: new_hope
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
 # 拠点マスタ（VLC)
   - name: stg_cubc101kyoten_vlc
     config:
