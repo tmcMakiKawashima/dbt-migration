@@ -7,7 +7,7 @@
             {% if is_incremental() %}
                 delete from {{this}}
                 where (vhc_key, plan_section, kyoten_cd, kyoten_kaisu, tp_kbn) in (select vhc_key, plan_section, kyoten_cd, kyoten_kaisu, tp_kbn
-                from {{ source('fivetran_database_ogg_vlc_osubsp0200db20', 'raw_cubc024plodplan') }}
+                from {{ source('fivetran_database_ogg_vlc_osubsp0200db20', 'raw_cubc026logopeplan') }}
                 where _fivetran_deleted = 'true'
                 and _fivetran_synced >= (select max(ldts) from {{ this }}))
             {% endif %}
@@ -16,7 +16,7 @@
 }}
 -- 削除フラグがtrueに更新されたレコードを削除
 
-with stg_cubc024plodplan_vlc as (
+with stg_cubc026logopeplan_vlc as (
     select
         vhc_key::varchar(15) as vhc_key, 
         plan_section::varchar(2) as plan_section, 
@@ -42,10 +42,10 @@ with stg_cubc024plodplan_vlc as (
         upd_datetime::timestamp_ntz(9) as upd_datetime,
         upd_id::varchar(20) as upd_id, 
         _fivetran_synced::timestamp_ntz(9) as ldts
-    from {{ source('fivetran_database_ogg_vlc_osubsp0200db20', 'raw_cubc024plodplan') }}
+    from {{ source('fivetran_database_ogg_vlc_osubsp0200db20', 'raw_cubc026logopeplan') }}
     where _fivetran_deleted = 'false'
 )
-select * from stg_cubc024plodplan_vlc
+select * from stg_cubc026logopeplan_vlc
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{ this }})
