@@ -437,3 +437,128 @@ models:
           - not_null:
               config:
                 severity: error
+# 拠点マスタ（VLC)
+  - name: stg_cubc101kyoten_vlc
+    config:
+      tags: ["vlc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - kyoten_cd
+            - tkiy_k
+          config:
+            severity: error
+    columns:
+      - name: kyoten_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+    columns:
+      - name: tkiy_k
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+    columns:
+      - name: tkiy_m
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+    columns:
+      - name: mng_company_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+    columns:
+      - name: mng_country_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+    columns:
+      - name: kyoten_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+    columns:
+      - name: saiban_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+    columns:
+      - name: yobi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+    columns:
+      - name: kyoten_kino
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+    columns:
+      - name: kyoten_nm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+    columns:
+      - name: kyoten_nm_en
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+    columns:
+      - name: hyouji_nm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+    columns:
+      - name: hyouji_nm_en
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+    columns:
+      - name: district_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+    columns:
+      - name: syuyo_kyoten_flg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+    columns:
+      - name: inst_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+    columns:
+      - name: inst_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+    columns:
+      - name: upd_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+    columns:
+      - name: upd_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
