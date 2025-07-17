@@ -21,3 +21,5 @@ sources:
         identifier: cubc029logkyotenresult
       - name: raw_cubc026logopeplan
         identifier: cubc026logopeplan
+      - name: raw_cubc101kyoten
+        identifier: cubc101kyoten
