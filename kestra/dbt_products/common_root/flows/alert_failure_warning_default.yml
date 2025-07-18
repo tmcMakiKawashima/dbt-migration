@@ -4,6 +4,11 @@ namespace: kestra_dbt_project
 labels:
   type: common_root
 
+inputs:
+  - id: error_log
+    type: STRING
+    defaults: No message found.
+
 tasks:
   - id: publish
     type: io.kestra.plugin.aws.sns.Publish
@@ -11,6 +16,8 @@ tasks:
 triggers:
   - id: flow_trigger
     type: io.kestra.plugin.core.trigger.Flow
+    inputs:
+      error_log: "{{ trigger.outputs.output_error_log ?? 'No message found.' }}"
     conditions:
       - type: io.kestra.plugin.core.condition.ExecutionLabels
         labels:
