@@ -8,3 +8,7 @@ sources:
     # sms-kousei
       - name: raw_tmp_junkanri_blktenkai
         identifier: tmp_junkanri_blktenkai
+
+      #legacy
+      - name: raw_tmp_legacy_junkanri_blktenkai
+        identifier: tmp_legacy_junkanri_blktenkai
