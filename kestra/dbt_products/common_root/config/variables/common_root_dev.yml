@@ -17,7 +17,7 @@ DBT_DOCS:
   S3_BUCKET: dajp1-dxpf-edp-dev-s3-kestra
 DOCKER:
   IMAGE_VERSION:
-    DBT: ghcr.io/kestra-io/dbt-snowflake:latest
+    DBT: ghcr.io/dbt-labs/dbt-snowflake:1.9.0
     PYTHON: ghcr.io/jumpserver/python:3.11-slim
 ENV: dev
 GIT:
