@@ -98,7 +98,7 @@ finally:
   - id: finally_log 
     type: io.kestra.plugin.core.log.Log
     message: 
-      - "Child namespace -> {{ inputs.proj_namespace }}"
+      - "project namespace -> {{ inputs.proj_namespace }}"
       - "Git branch *dev -> {{ inputs.proj_namespace }}"
       - "Git branch *stg or prod -> {{ namespace.GIT.BRANCH }}"
       - "Git user -> {{ inputs.user }}"
