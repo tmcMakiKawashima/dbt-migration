@@ -27,3 +27,5 @@ sources:
         identifier: cubc030logoperesult
       - name: raw_cubd001shihan
         identifier: cubd001shihan
+      - name: raw_cubd002shihandtl
+        identifier: cubd002shihandtl
