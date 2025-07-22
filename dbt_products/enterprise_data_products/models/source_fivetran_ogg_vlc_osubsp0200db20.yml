@@ -17,6 +17,8 @@ sources:
         identifier: cubc024plodplan
       - name: raw_cubc028plodresult
         identifier: cubc028plodresult
+      - name: raw_cubc025logkyotenplan
+        identifier: cubc025logkyotenplan
       - name: raw_cubc029logkyotenresult
         identifier: cubc029logkyotenresult
       - name: raw_cubc026logopeplan
