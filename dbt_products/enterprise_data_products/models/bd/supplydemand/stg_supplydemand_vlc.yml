@@ -352,133 +352,111 @@ models:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: plan_section
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: kyoten_cd
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: kyoten_kaisu
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: tp_kbn
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: rootseq_no
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: final_dest_flg
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: ship_final_dest_sign
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: prdct_line
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: in_datetime_plan
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: out_datetime_plan
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: fst_in_datetime_plan
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: fst_out_datetime_plan
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: lst_in_datetime_plan
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: lst_out_datetime_plan
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: appointed_date
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: appointed_date_update
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: recover_line
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: new_hope
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: inst_datetime
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: inst_id
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: upd_datetime
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: upd_id
         data_tests:
           - not_null:
