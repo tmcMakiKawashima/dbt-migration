@@ -1,0 +1,402 @@
+version: 2
+models:
+# 車両指示書断面
+  - name: stg_syasyusiji_gcas
+    config:
+      tags: ["gcas"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu
+            - hansiyono8
+            - jyokenno
+          config:
+            severity: error
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hansiyono8
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jyokenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seisan80
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seisan100
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hankatajk1ud
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hankatajk1keta
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hankatajk1val
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hankatajk2ud
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hankatajk2val
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: framejkkara
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: framejkmade
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: yusendo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syori
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: com
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mttime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 品目種類別引当設定
+  - name: stg_hinmokuhiki_gcas
+    config:
+      tags: ["gcas"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu
+            - db
+            - hansiyono8
+            - hinmoku
+            - syurui
+            - jyokenno
+          config:
+            severity: error
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: db
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hansiyono8
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinmoku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syurui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jyokenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seisanjk1keta
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seisanjk1val
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seisanjk2keta
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seisanjk2val
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hankatajk1ud
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hankatajk1keta
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hankatajk1val
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hankatajk2ud
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hankatajk2val
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: framejkkara
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: framejkmade
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mttime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 車種付属情報
+  - name: stg_syasyufuzoku_gcas
+    config:
+      tags: ["gcas"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu
+            - hansiyono8
+            - hankata
+          config:
+            severity: error
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: db
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hansiyono8
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinmoku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syurui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jyokenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seisanjk1keta
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seisanjk1val
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seisanjk2keta
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seisanjk2val
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hankatajk1ud
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hankatajk1keta
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hankatajk1val
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hankatajk2ud
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hankatajk2val
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: framejkkara
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: framejkmade
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mttime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 色付属情報
+  - name: stg_irofuzoku_gcas
+    config:
+      tags: ["gcas"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - naigaikbn
+            - clrno
+            - syasyu
+          config:
+            severity: error
+    columns:
+      - name: naigaikbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: clrno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: clrmei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mttime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 用品付属情報
+  - name: stg_yohinfuzoku_gcas
+    config:
+      tags: ["gcas"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu
+            - tuikocd
+            - syameino
+            - edaban
+            - fuzokukbn
+          config:
+            severity: error
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikocd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tuikomei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syameino
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: edaban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: fuzokukbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: title
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: value
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mttime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
