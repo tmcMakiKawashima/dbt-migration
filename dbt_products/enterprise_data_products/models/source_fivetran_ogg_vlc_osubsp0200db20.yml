@@ -25,3 +25,5 @@ sources:
         identifier: cubc101kyoten
       - name: raw_cubc030logoperesult
         identifier: cubc030logoperesult
+      - name: raw_cubd001shihan
+        identifier: cubd001shihan
