@@ -82,7 +82,7 @@
           - Namespace: {{ trigger.namespace }}
           - Flow ID: {{ trigger.flowId }}
           - Execution ID: {{ trigger.executionId }}
-          - Error Message: {{ inputs.error_log }}
+          - Error Info: {{ inputs.error_log }}
           -----------------------------------------------------------------------------------------------------------------------------
 
           ※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
