@@ -217,82 +217,42 @@ models:
           - not_null:
               config:
                 severity: error
-      - name: db
-        data_tests:
-          - not_null:
-              config:
-                severity: error
       - name: hansiyono8
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: hinmoku
+      - name: hankata
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: syurui
+      - name: syamei
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: jyokenno
+      - name: brand
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: seisanjk1keta
+      - name: bodytype
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: seisanjk1val
+      - name: grademei
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: seisanjk2keta
+      - name: nensiki
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: seisanjk2val
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hankatajk1ud
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hankatajk1keta
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hankatajk1val
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hankatajk2ud
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hankatajk2val
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: framejkkara
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: framejkmade
+      - name: kirinaiyo
         data_tests:
           - not_null:
               config:
