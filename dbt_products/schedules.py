@@ -47,7 +47,6 @@ from .schedules_items.parts_list.seppen.schedule_dm_seppen_bunseki import schedu
 """ parts_list sms"""
 from .schedules_items.parts_list.sms.schedule_dm_kousei_blktenkai import schedule_dm_kousei_blktenkai
 from .schedules_items.parts_list.sms.schedule_tmp_kousei03_blktenkai import schedule_tmp_kousei03_blktenkai
-""" parts_list legacy_sms"""
 from .schedules_items.parts_list.sms.schedule_dm_legacy_kousei_blktenkai import schedule_dm_legacy_kousei_blktenkai
 from .schedules_items.parts_list.sms.schedule_tmp_legacy_kousei03_blktenkai import schedule_tmp_legacy_kousei03_blktenkai
 """ vinhis maint """
@@ -146,8 +145,7 @@ schedules.append(schedule_dm_seppen_bunseki)
 #SMS構成
 schedules.append(schedule_dm_kousei_blktenkai)
 schedules.append(schedule_tmp_kousei03_blktenkai)
-""" parts_list legacy_sms"""
-#SMS構成
+#部品表データ活用
 schedules.append(schedule_dm_legacy_kousei_blktenkai)
 schedules.append(schedule_tmp_legacy_kousei03_blktenkai)
 """ vinhis maint """

@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-# SMS構成(tmp)
+# 部品表データ活用(tmp)
 schedule_tmp_legacy_kousei03_blktenkai = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_tmp_legacy_kousei03_blktenkai",
