@@ -36,8 +36,6 @@ sources:
         identifier: cyp05junkanri
       - name: raw_cyp01blkmei
         identifier: cyp01blkmei
-
-    #legacy
       - name: raw_cyl15kouseicom
         identifier: cyl15kouseicom
       - name: raw_cyl15kousei
