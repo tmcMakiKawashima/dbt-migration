@@ -9,7 +9,7 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 schedule_tmp_legacy_kousei03_blktenkai = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_tmp_legacy_kousei03_blktenkai",
-    schedule_name="sms_kousei_tmp",
+    schedule_name="sms_legacy_kousei_tmp",
     cron_schedule="00 06 * * *",
     execution_timezone="Asia/Tokyo",
     dbt_select="+tmp_legacy_kousei03_blktenkai",
