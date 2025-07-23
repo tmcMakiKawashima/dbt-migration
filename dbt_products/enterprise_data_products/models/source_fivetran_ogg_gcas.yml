@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: fivetran_database_ogg_gcas
+    database: fivetran_database
+    schema: ogg_gcas
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: _fivetran_synced
+
+    tables:
+    # GCAS
+      - name: raw_cyyg9syasyusiji
+        identifier: cyyg9syasyusiji
+      - name: raw_cyyg9hinmokuhiki
+        identifier: cyyg9hinmokuhiki
+      - name: raw_cyyg9syasyufuzoku
+        identifier: cyyg9syasyufuzoku
+      - name: raw_cyyg9irofuzoku
+        identifier: cyyg9irofuzoku
+      - name: raw_cyyg9yohinfuzoku
+        identifier: cyyg9yohinfuzoku
