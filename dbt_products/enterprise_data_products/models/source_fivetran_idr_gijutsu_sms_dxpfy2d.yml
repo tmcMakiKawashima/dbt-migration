@@ -16,6 +16,15 @@ sources:
         identifier: cyp17ecisyutuzu
       - name: raw_cyp17ecihinban
         identifier: cyp17ecihinban
+    # sms
+      - name: raw_cyp03kouseicom
+        identifier: cyp03kouseicom
+      - name: raw_cyp03kousei
+        identifier: cyp03kousei
+      - name: raw_cyp05junkanri
+        identifier: cyp05junkanri
+      - name: raw_cyp01blkmei
+        identifier: cyp01blkmei
       - name: raw_cyp17eciyousi
         identifier: cyp17eciyousi
       - name: raw_cyp05seppenkan
