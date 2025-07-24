@@ -11,9 +11,20 @@
             'lok_y',
             'msgno'
             ],
-        incremental_strategy = 'merge'
+        incremental_strategy = 'merge',
+        post_hook="
+            {% if is_incremental() %}
+                delete from {{this}}
+                where (syadai_kt, frmno, wmi, vds, mdlyr, vin_vds_cd, lok_y, msgno)
+                in (select syadai_kt, frmno, wmi, vds, mdlyr, vin_vds_cd, lok_y, msgno
+                from {{ ref('substr_da5a214a') }}
+                where mtkbn = 'D'
+                and ldts >= (select max(ldts) from {{ this }}))
+            {% endif %}
+        "
     )
 }}
+-- MT区分が'D'に更新されたレコードを削除
 
 with stg_kaigaitracability as (
     select
