@@ -20,7 +20,7 @@ with
       'KOUSEI' as target,
       max(iff(torokujunm='999999999', torokujunk, torokujunm)) as torokujun,
       to_char(current_timestamp, 'yyyymmddhhmissff2') as mttime 
-    from {{ ref('tmp_legacy_kousei03_blktenkai') }} --legacy_
+    from {{ ref('tmp_legacy_kousei03_blktenkai') }}
     group by
     syasyu
   ),
