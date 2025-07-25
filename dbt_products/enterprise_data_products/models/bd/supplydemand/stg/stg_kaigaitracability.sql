@@ -28,7 +28,6 @@
                     from ranked
                     where mtkbn = 'D'
                     and aggkey = 1
-                    and ldts >= (select max(ldts) from {{ this }})
                 )
             {% endif %}
         "
