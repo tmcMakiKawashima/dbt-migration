@@ -12,14 +12,24 @@
             'msgno'
             ],
         incremental_strategy = 'merge',
-        post_hook="
+        post_hook = "
             {% if is_incremental() %}
                 delete from {{this}}
-                where (syadai_kt, frmno, wmi, vds, mdlyr, vin_vds_cd, lok_y, msgno)
-                in (select syadai_kt, frmno, wmi, vds, mdlyr, vin_vds_cd, lok_y, msgno
-                from {{ ref('substr_da5a214a') }}
-                where mtkbn = 'D'
-                and ldts >= (select max(ldts) from {{ this }}))
+                where (syadai_kt, frmno, wmi, vds, mdlyr, vin_vds_cd, lok_y, msgno) in (
+                    with ranked as (
+                        select mtkbn, syadai_kt, frmno, wmi, vds, mdlyr, vin_vds_cd, lok_y, msgno, ldts, line_number,
+                            rank() over(
+                                partition by syadai_kt, frmno, wmi, vds, mdlyr, vin_vds_cd, lok_y, msgno
+                                order by ldts desc, line_number desc
+                            ) as aggkey
+                        from {{ ref('substr_da5a214a') }}
+                    )
+                    select syadai_kt, frmno, wmi, vds, mdlyr, vin_vds_cd, lok_y, msgno
+                    from ranked
+                    where mtkbn = 'D'
+                    and aggkey = 1
+                    and ldts >= (select max(ldts) from {{ this }})
+                )
             {% endif %}
         "
     )
