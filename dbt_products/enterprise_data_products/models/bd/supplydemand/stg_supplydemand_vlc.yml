@@ -1323,3 +1323,237 @@ models:
           - not_null:
               config:
                 severity: error
+# NB拠点計画情報(配車)
+  - name: stg_cubc260nbkyotenplanhaisha_vlc
+    config:
+      tags: ["vlc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - vhc_key
+            - kyoten_cd
+            - kyoten_kaisu
+          config:
+            severity: error
+    columns:
+      - name: vhc_key
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plan_section
+        data_tests:
+          - not_null:
+              config:
+      - name: kyoten_cd_org
+        data_tests:
+          - not_null:
+              config:
+      - name: kyoten_cd
+        data_tests:
+          - not_null:
+              config:
+      - name: kyoten_kaisu
+        data_tests:
+          - not_null:
+              config:
+      - name: renkei_count
+        data_tests:
+          - not_null:
+              config:
+      - name: keikaku_keiro_jun
+        data_tests:
+          - not_null:
+              config:
+      - name: kyoten_cd_fowd
+        data_tests:
+          - not_null:
+              config:
+      - name: kyoten_cd_next
+        data_tests:
+          - not_null:
+              config:
+      - name: furikae_kyoten_cd_gkyoten_fowd
+        data_tests:
+          - not_null:
+              config:
+      - name: furikae_kyoten_cd
+        data_tests:
+          - not_null:
+              config:
+      - name: furikae_kyoten_cd_gkyoten
+        data_tests:
+          - not_null:
+              config:
+      - name: furikae_kyoten_cd_gkyoten_next
+        data_tests:
+          - not_null:
+              config:
+      - name: hyouji_nm
+        data_tests:
+          - not_null:
+              config:
+      - name: hyouji_nm_fowd
+        data_tests:
+          - not_null:
+              config:
+      - name: hyouji_nm_cd_next
+        data_tests:
+          - not_null:
+              config:
+      - name: furikae_kyoten_nm
+        data_tests:
+          - not_null:
+              config:
+      - name: furikae_kyoten_nm_fowd
+        data_tests:
+          - not_null:
+              config:
+      - name: furikae_kyoten_nm_next
+        data_tests:
+          - not_null:
+              config:
+      - name: in_datetime_plan_kaku
+        data_tests:
+          - not_null:
+              config:
+      - name: out_datetime_plan_kaku
+        data_tests:
+          - not_null:
+              config:
+      - name: in_datetime_plan_lt
+        data_tests:
+          - not_null:
+              config:
+      - name: out_datetime_plan_lt
+        data_tests:
+          - not_null:
+              config:
+      - name: in_datetime_plan_funa
+        data_tests:
+          - not_null:
+              config:
+      - name: out_datetime_plan_funa
+        data_tests:
+          - not_null:
+              config:
+      - name: rikukai_kbn_fowd
+        data_tests:
+          - not_null:
+              config:
+      - name: rikukai_kbn_next
+        data_tests:
+          - not_null:
+              config:
+      - name: nouki_fydm_kyoten_flg
+        data_tests:
+          - not_null:
+              config:
+      - name: mzai_tecs_nokan_kbn
+        data_tests:
+          - not_null:
+              config:
+      - name: hokanti_tome_flg
+        data_tests:
+          - not_null:
+              config:
+      - name: saisyu_agekou_flg
+        data_tests:
+          - not_null:
+              config:
+      - name: haisha_hadure_fg
+        data_tests:
+          - not_null:
+              config:
+      - name: haisha_hadure_yns
+        data_tests:
+          - not_null:
+              config:
+      - name: tairyu_lt_mst
+        data_tests:
+          - not_null:
+              config:
+      - name: tairyu_lt_plan
+        data_tests:
+          - not_null:
+              config:
+      - name: tairyu_lt_plan_hikado
+        data_tests:
+          - not_null:
+              config:
+      - name: kasan_lt_mst
+        data_tests:
+          - not_null:
+              config:
+      - name: dest_lt_mst
+        data_tests:
+          - not_null:
+              config:
+      - name: dest_lt
+        data_tests:
+          - not_null:
+              config:
+      - name: businessoffice_cd
+        data_tests:
+          - not_null:
+              config:
+      - name: businessoffice_nm
+        data_tests:
+          - not_null:
+              config:
+      - name: district_cd
+        data_tests:
+          - not_null:
+              config:
+      - name: district_nm
+        data_tests:
+          - not_null:
+              config:
+      - name: kyotenarea_cd
+        data_tests:
+          - not_null:
+              config:
+      - name: kyotenarea_nm
+        data_tests:
+          - not_null:
+              config:
+      - name: fune_cd
+        data_tests:
+          - not_null:
+              config:
+      - name: fune_nm
+        data_tests:
+          - not_null:
+              config:
+      - name: cutoff_datetime
+        data_tests:
+          - not_null:
+              config:
+      - name: departure_datetime
+        data_tests:
+          - not_null:
+              config:
+      - name: arrival_datetime
+        data_tests:
+          - not_null:
+              config:
+      - name: unload_datetime
+        data_tests:
+          - not_null:
+              config:
+      - name: inst_datetime
+        data_tests:
+          - not_null:
+              config:
+      - name: inst_id
+        data_tests:
+          - not_null:
+              config:
+      - name: upd_datetime
+        data_tests:
+          - not_null:
+              config:
+      - name: upd_id
+        data_tests:
+          - not_null:
+              config:
