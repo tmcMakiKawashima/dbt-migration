@@ -7,7 +7,7 @@ AWS:
   STS_ROLE_ARN: arn:aws:iam::248810166614:role/da-dxpf-edp-role-infra01
 DBT:
   PROJ_DIR: enterprise_data_products
-  SNOWFLAKE_ACCOUNT: nw21470.ap-northeast-1.aws
+  SNOWFLAKE_ACCOUNT: nw21470.ap-northeast-1.privatelink
   SNOWFLAKE_DATABASE: DATAMART_DB
   SNOWFLAKE_ROLE: DBT_ROLE
   SNOWFLAKE_SCHEMA: public
@@ -31,7 +31,7 @@ NAME: kestra_dbt_project
 PYTHON:
   SNOWFLAKE_CONNECTOR_VERSION: snowflake-connector-python[pandas]==3.15.0
 SNOWFLAKE:
-  ACCOUNT: nw21470.ap-northeast-1.aws
+  ACCOUNT: nw21470.ap-northeast-1.privatelink
   DATABASE: DATAMART_DB
   ROLE: DBT_ROLE
   SCHEMA: public
