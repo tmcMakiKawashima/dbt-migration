@@ -10,9 +10,9 @@ import pandas as pd
 # snowflake connect
 con = snowflake.connector.connect(
     account=os.environ["SNOWFLAKE_ACCOUNT"],
-    user=os.environ["SNOWFLAKE_USER"],
-    password=os.environ["DBT_SNOWFLAKE_PASS"],
     role=os.environ["SNOWFLAKE_ROLE"],
+    private_key=os.environ["SNOWFLAKE_PRIVATE_KEY_KESTRA"],
+    private_key_file_pwd=os.environ["SNOWFLAKE_PRIVATE_KEY_PASSPHRASE_KESTRA"],
 )
 
 
