@@ -5,14 +5,34 @@ import requests
 import snowflake.connector
 from snowflake.connector.pandas_tools import write_pandas
 import pandas as pd
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives.asymmetric import rsa
+from cryptography.hazmat.primitives.asymmetric import dsa
+from cryptography.hazmat.primitives import serialization
 
+
+passphrase=os.environ["SNOWFLAKE_PRIVATE_KEY_PASSPHRASE_KESTRA"]
+passphrase_byte = passphrase.encode('latin-1')
+private_key=os.environ["SNOWFLAKE_PRIVATE_KEY_KESTRA"]
+private_key_byte = private_key.encode('latin-1')
+
+p_key= serialization.load_pem_private_key(
+    private_key_byte,
+    password=passphrase_byte,
+    backend=default_backend()
+    )
+
+pkb = p_key.private_bytes(
+    encoding=serialization.Encoding.DER,
+    format=serialization.PrivateFormat.PKCS8,
+    encryption_algorithm=serialization.NoEncryption())
 
 # snowflake connect
 con = snowflake.connector.connect(
     account=os.environ["SNOWFLAKE_ACCOUNT"],
+    user=os.environ["SNOWFLAKE_USER"],
     role=os.environ["SNOWFLAKE_ROLE"],
-    private_key=os.environ["SNOWFLAKE_PRIVATE_KEY_KESTRA"],
-    private_key_file_pwd=os.environ["SNOWFLAKE_PRIVATE_KEY_PASSPHRASE_KESTRA"],
+    private_key=pkb,
 )
 
 
