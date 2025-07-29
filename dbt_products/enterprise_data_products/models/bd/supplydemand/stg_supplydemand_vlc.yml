@@ -259,3 +259,161 @@ models:
           - not_null:
               config:
                 severity: error
+  # 納期統合情報(市販)明細(保管)
+  - name: stg_cubd004shihandtlho_vlc
+    config:
+      tags: ["vlc"]
+    columns:
+      - name: vhc_key
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: prdct_year
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: idno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tenpo_yotei_bi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tenpo_kibo_bi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: okure_nissu_sinten
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: chakko_yotei_nitiji
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: chakko_jsk_nitiji
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tck_jsk_bi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nyumon_jsk_nitiji
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syuken_yotei_nitiji
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisya_yotei_nitiji
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisya_jsk_nitiji
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_cd_syukka
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kaso_maker_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_cd_kasomaker
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: yoteihokanti_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_cd_hokan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hbtcd_ai21
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: chakusen_yotei_bi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: chakusen_jsk_bi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: gaiban_color_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sales_ktsk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_kaisu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tenpo_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: huriate_bi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
