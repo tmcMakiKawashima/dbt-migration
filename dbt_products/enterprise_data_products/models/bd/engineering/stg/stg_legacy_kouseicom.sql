@@ -24,9 +24,9 @@ with stg_legacy_kouseicom as (
     from {{ source('fivetran_database_idr_gijutsu_sms_dxpfy2d', 'raw_cyl15kouseicom') }}
      where _fivetran_deleted = 'false'
 
-{% if is_incremental() %}
-    and _fivetran_synced > (select max(ldts) from {{this}})
-{% endif %}
+  {% if is_incremental() %}
+      and _fivetran_synced > (select coalesce(max(ldts), '1970-01-01 00:00:00.000') from {{ this }})
+  {% endif %}
 
     )
 select * from stg_legacy_kouseicom
