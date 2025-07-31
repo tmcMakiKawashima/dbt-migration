@@ -15,9 +15,9 @@ with stg_legacy_blkmei as (
         _fivetran_synced::timestamp_ntz as ldts -- timestamp型
     from {{ source('fivetran_database_idr_gijutsu_sms_dxpfy2d', 'raw_cyl15blkmei') }}
     where _fivetran_deleted = 'false'
-           
+
   {% if is_incremental() %}
-      and _fivetran_synced > (select max(ldts) from {{this}})
+      and _fivetran_synced > (select coalesce(max(ldts), '1970-01-01 00:00:00.000') from {{ this }})
   {% endif %}
 )
 select * from stg_legacy_blkmei
