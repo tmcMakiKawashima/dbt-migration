@@ -14,7 +14,7 @@
         "
     )
 }}
-
+-- 削除フラグがtrueに更新されたレコードを削除
 
 with stg_cam6063_jyukyujyoho as (
     select
