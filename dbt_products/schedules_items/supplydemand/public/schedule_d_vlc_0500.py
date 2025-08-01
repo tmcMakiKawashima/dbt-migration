@@ -14,7 +14,7 @@ schedule_d_vlc_0500 = build_schedule_from_dbt_selection(
     execution_timezone="Asia/Tokyo",
     dbt_select="+stg_cubc260nbkyotenplanhaisha_vlc +stg_cubc262nbkyotenjsk_vlc",
     config=RunConfig(ops={"dbt_products_assets":
-                          DbtConfig(dbt_vars={"DBT_JOB_NAME": "_d_vlc_0130"},
+                          DbtConfig(dbt_vars={"DBT_JOB_NAME": "_d_vlc_0500"},
                                     source_test_list=["source:*,+stg_cubc260nbkyotenplanhaisha_vlc",
                                                       "source:*,+stg_cubc262nbkyotenjsk_vlc"])
                           }
