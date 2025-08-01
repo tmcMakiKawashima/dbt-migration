@@ -1,0 +1,88 @@
+version: 2
+models:
+# SPEC生産実績台数
+  - name: dm_siyo_seisan_daisu
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu
+            - haisya_kt
+            - spec200
+            - int_cd
+            - ext_cd
+            - dest_cd
+            - koujyou_cd
+            - eng_kt
+            - prodkuni_cd
+            - psc
+            - o_idline
+            - sk_y
+            - sk_m
+          config:
+            severity: error
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisya_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: spec200
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: int_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ext_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dest_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: koujyou_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eng_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: prodkuni_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: psc
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: o_idline
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sk_y
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sk_m
+        data_tests:
+          - not_null:
+              config:
+                severity: error
