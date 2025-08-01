@@ -1,3 +1,21 @@
+{{
+    config (
+        materialized = 'incremental',
+        unique_key = 'vhc_key',
+        incremental_strategy = 'merge',
+        post_hook="
+            {% if is_incremental() %}
+                delete from {{this}}
+                where vhc_key in (select vhc_key
+                from {{ source('fivetran_database_ogg_vlc_osubsp0200db20', 'raw_cubd003shihanho') }}
+                where _fivetran_deleted = 'true'
+                and _fivetran_synced >= (select max(ldts) from {{ this }}))
+            {% endif %}
+        "
+    )
+}}
+-- 削除フラグがtrueに更新されたレコードを削除
+
 with stg_cubd003shihanho_vlc as (
     select
         vhc_key::varchar(15) as vhc_key, 
@@ -55,3 +73,7 @@ with stg_cubd003shihanho_vlc as (
     where _fivetran_deleted = 'false'
 )
 select * from stg_cubd003shihanho_vlc
+
+{% if is_incremental() %}
+    where ldts > (select max(ldts) from {{ this }})
+{% endif %}
