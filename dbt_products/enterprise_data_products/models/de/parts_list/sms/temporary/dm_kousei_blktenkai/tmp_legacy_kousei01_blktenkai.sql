@@ -11,6 +11,7 @@ with
     stg_kouseicom as (
         select
             syasyu, --車種コード
+            syasyu32, --車種コード32
             siyoubui, --使用部位
             oyahin, --親使用部位/品番
             kohin, --子品番/BLK
