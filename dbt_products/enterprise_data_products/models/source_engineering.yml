@@ -1,0 +1,25 @@
+version: 2
+
+sources:
+  - name: engineering_db_public
+    database: engineering_db
+    schema: public
+    tables:
+    # gijutsu-sms
+      - name: raw_tmp_m_cyp16ecizokusei
+        identifier: tmp_m_cyp16ecizokusei
+      - name: raw_ecitekiyo
+        identifier: ecitekiyo
+      - name: raw_lecitekiyo
+        identifier: lecitekiyo
+      - name: raw_ecimokujihen
+        identifier: ecimokujihen
+      - name: raw_lecihikihen
+        identifier: lecihikihen
+      - name: raw_tmp_m_cyp02mokujibuijun
+        identifier: tmp_m_cyp02mokujibuijun
+    # sms-kousei
+      - name: raw_tmp_sms_api_parts_info_res_json
+        identifier: tmp_sms_api_parts_info_res_json
+      - name: raw_stg_hinban
+        identifier: stg_hinban

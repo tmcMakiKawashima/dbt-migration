@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: snowpipe_db_manufacturing
+    database: snowpipe_db
+    schema: manufacturing
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: ldts
+
+    tables:
+    # 工場IoT
+      - name: raw_iotpmcbtinftrm
+        identifier: iotpmcbtinftrm
+      - name: raw_iotpmcbtinfptr
+        identifier: iotpmcbtinfptr
