@@ -16,7 +16,7 @@
 }}
 -- 削除フラグがtrueに更新されたレコードを削除
 
-with stg_cam2073_jyukyujyoho as (
+with stg_orderdb_buturyu_jyukyujyoho as (
     select
         ojyy::varchar(4) as ojyy, 
         dum1::varchar(1) as dum1, 
@@ -42,7 +42,7 @@ with stg_cam2073_jyukyujyoho as (
     from {{ source('fivetran_database_oraclerds_orcl_jukyu_osamsp01sam202', 'raw_cam2073') }}
     where _fivetran_deleted = 'false'
 )
-select * from stg_cam2073_jyukyujyoho
+select * from stg_orderdb_buturyu_jyukyujyoho
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{ this }})

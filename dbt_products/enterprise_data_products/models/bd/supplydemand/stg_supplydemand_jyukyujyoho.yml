@@ -156,7 +156,7 @@ models:
               config:
                 severity: error
 # オーダーDB（物流）
-  - name: stg_cam2073_jyukyujyoho
+  - name: stg_orderdb_buturyu_jyukyujyoho
     config:
       tags: ["jyukyujyoho"]
     data_tests:
