@@ -2,7 +2,7 @@ version: 2
 
 models:
 # オーダーDB（オーダー）
-  - name: stg_cam2072_jyukyujyoho
+  - name: stg_orderdb_order_jyukyujyoho
     config:
       tags: ["jyukyujyoho"]
     data_tests:
