@@ -438,7 +438,7 @@ models:
               config:
                 severity: error
 # 車両PL物流構内作業架装計画情報
-  - name: stg_cubc026logopeplan_vlc
+  - name: stg_syaryoplbuturyuopeplan_vlc
     config:
       tags: ["vlc"]
     data_tests:

@@ -16,7 +16,7 @@
 }}
 -- 削除フラグがtrueに更新されたレコードを削除
 
-with stg_cubc026logopeplan_vlc as (
+with stg_syaryoplbuturyuopeplan_vlc as (
     select
         vhc_key::varchar(15) as vhc_key, 
         plan_section::varchar(2) as plan_section, 
@@ -45,7 +45,7 @@ with stg_cubc026logopeplan_vlc as (
     from {{ source('fivetran_database_ogg_vlc_osubsp0200db20', 'raw_cubc026logopeplan') }}
     where _fivetran_deleted = 'false'
 )
-select * from stg_cubc026logopeplan_vlc
+select * from stg_syaryoplbuturyuopeplan_vlc
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{ this }})
