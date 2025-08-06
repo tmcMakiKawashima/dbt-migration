@@ -334,7 +334,7 @@ models:
               config:
                 severity: error
 # 車両PL物流拠点移動実績情報
-  - name: stg_cubc029logkyotenresult_vlc
+  - name: stg_syaryoplbuturyukyotenresult_vlc
     config:
       tags: ["vlc"]
     data_tests:
