@@ -2,7 +2,7 @@ version: 2
 
 models:
 # 完成車物流KEY情報
-  - name: stg_cubc001key_vlc
+  - name: stg_kanseisyabuturyukey_vlc
     config:
       tags: ["vlc"]
     columns:
