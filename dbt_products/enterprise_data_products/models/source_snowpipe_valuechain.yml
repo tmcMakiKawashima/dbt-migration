@@ -407,3 +407,10 @@ sources:
             data_tests:
               - fixed_length:
                   length: 100
+      - name: raw_tmjfvk02
+        identifier: tmjfvk02
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 88
