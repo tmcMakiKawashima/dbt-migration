@@ -1,4 +1,4 @@
-{% snapshot scd_cubc001key_vlc %}
+{% snapshot scd_kanseisyabuturyukey_vlc %}
 
 {{
     config(
@@ -9,6 +9,6 @@
     )
 }}
 
-select * from {{ ref('stg_cubc001key_vlc') }}
+select * from {{ ref('stg_kanseisyabuturyukey_vlc') }}
 
 {% endsnapshot %}
