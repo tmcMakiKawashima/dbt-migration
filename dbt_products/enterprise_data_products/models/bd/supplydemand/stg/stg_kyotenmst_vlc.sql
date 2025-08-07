@@ -16,7 +16,7 @@
 }}
 -- 削除フラグがtrueに更新されたレコードを削除
 
-with stg_cubc101kyoten_vlc as (
+with stg_kyotenmst_vlc as (
     select
         kyoten_cd::varchar(20) as kyoten_cd, 
         tkiy_k::varchar(12) as tkiy_k, 
@@ -41,7 +41,7 @@ with stg_cubc101kyoten_vlc as (
     from {{ source('fivetran_database_ogg_vlc_osubsp0200db20', 'raw_cubc101kyoten') }}
     where _fivetran_deleted = 'false'
 )
-select * from stg_cubc101kyoten_vlc
+select * from stg_kyotenmst_vlc
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{ this }})
