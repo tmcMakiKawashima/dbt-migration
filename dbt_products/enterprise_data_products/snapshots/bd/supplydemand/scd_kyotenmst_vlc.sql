@@ -1,4 +1,4 @@
-{% snapshot scd_cubc101kyoten_vlc %}
+{% snapshot scd_kyotenmst_vlc %}
 
 {{
     config(
@@ -12,6 +12,6 @@
     )
 }}
 
-select * from {{ ref('stg_cubc101kyoten_vlc') }}
+select * from {{ ref('stg_kyotenmst_vlc') }}
 
 {% endsnapshot %}

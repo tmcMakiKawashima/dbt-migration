@@ -568,7 +568,7 @@ models:
               config:
                 severity: error
 # 拠点マスタ（VLC)
-  - name: stg_cubc101kyoten_vlc
+  - name: stg_kyotenmst_vlc
     config:
       tags: ["vlc"]
     data_tests:
