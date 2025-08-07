@@ -16,7 +16,7 @@
 }}
 -- 削除フラグがtrueに更新されたレコードを削除
 
-with stg_cubd002shihandtl_vlc as (
+with stg_noukitougoujyoho_shihandtl_vlc as (
     select
         vhc_key::varchar(15) as vhc_key, 
         prdct_year::varchar(4) as prdct_year, 
@@ -52,7 +52,7 @@ with stg_cubd002shihandtl_vlc as (
     from {{ source('fivetran_database_ogg_vlc_osubsp0200db20', 'raw_cubd002shihandtl') }}
     where _fivetran_deleted = 'false'
 )
-select * from stg_cubd002shihandtl_vlc
+select * from stg_noukitougoujyoho_shihandtl_vlc
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{ this }})
