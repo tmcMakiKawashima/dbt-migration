@@ -1,4 +1,4 @@
-{% snapshot scd_cubc026logopeplan_vlc %}
+{% snapshot scd_syaryoplbuturyuopeplan_vlc %}
 
 {{
     config(
@@ -15,6 +15,6 @@
     )
 }}
 
-select * from {{ ref('stg_cubc026logopeplan_vlc') }}
+select * from {{ ref('stg_syaryoplbuturyuopeplan_vlc') }}
 
 {% endsnapshot %}
