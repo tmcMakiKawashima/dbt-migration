@@ -1037,7 +1037,7 @@ models:
               config:
                 severity: error
 # 納期統合情報(市販)明細
-  - name: stg_cubd002shihandtl_vlc
+  - name: stg_noukitougoujyoho_shihandtl_vlc
     config:
       tags: ["vlc"]
     columns:
