@@ -3,6 +3,7 @@ namespace: kestra_dbt_project.proj-job-hokyunoki_mieruka
 
 labels:
   error: default_failed
+  dbt: build
 
 tasks:
   - id: dbt
