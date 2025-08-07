@@ -100,7 +100,7 @@ models:
               config:
                 severity: error
 # 車両PL生産計画情報
-  - name: stg_cubc024plodplan_vlc
+  - name: stg_syaryoplseisaneplan_vlc
     config:
       tags: ["vlc"]
     data_tests:
