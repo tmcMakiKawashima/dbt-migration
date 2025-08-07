@@ -260,7 +260,7 @@ models:
               config:
                 severity: error
   # 納期統合情報(市販)明細(保管)
-  - name: stg_cubd004shihandtlho_vlc
+  - name: stg_noukitougoujyoho_shihandtlho_vlc
     config:
       tags: ["vlc"]
     columns:
