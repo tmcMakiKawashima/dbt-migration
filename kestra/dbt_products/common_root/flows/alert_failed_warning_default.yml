@@ -43,4 +43,4 @@ triggers:
         in:
           - FAILED
           - WARNING
-          # - SUCCESS
+disabled: false
