@@ -16,6 +16,7 @@ with dm_siyo_seisan_daisu as (
     select
         syasyu, -- 車種コード
         haisya_kt, -- 配車型式
+        null::varchar(2) as r_sfx_code,
         spec200, -- SPEC200桁組合せ
         max(daisai200) as daisai200, -- SPEC対応4桁仕様
         coalesce(int_cd, '') as int_cd, -- 内張コード
@@ -31,7 +32,8 @@ with dm_siyo_seisan_daisu as (
         coalesce(o_idline, '') as o_idline, -- アイデントライン
         coalesce(sk_y, '') as sk_y, -- 終検日年
         coalesce(sk_m, '') as sk_m, -- 終検日月
-        count(*)::number(13,0) as daisu -- 台数
+        count(*)::number(13,0) as dais, -- 台数
+        current_timestamp::timestamp_ntz as ldts -- 作成日時
     from
         {{source('vinhis_db_spec','raw_dm_vinhis_spec200_allsalecar')}}
     group by
@@ -49,25 +51,4 @@ with dm_siyo_seisan_daisu as (
         sk_y,
         sk_m
 )
-select 
-  syasyu,
-  haisya_kt,
-  null::varchar(2) as r_sfx_code,
-  spec200,
-  daisai200,
-  int_cd,
-  int_cd_iromei,
-  ext_cd,
-  ext_cd_iromei,
-  dest_cd,
-  dest,
-  koujyou_cd,
-  eng_kt,
-  prodkuni_cd,
-  psc,
-  o_idline,
-  sk_y,
-  sk_m,
-  daisu,
-  current_timestamp()::timestamp_ntz(9) as ldts -- 最終更新日時
-from dm_siyo_seisan_daisu
+select * from dm_siyo_seisan_daisu
