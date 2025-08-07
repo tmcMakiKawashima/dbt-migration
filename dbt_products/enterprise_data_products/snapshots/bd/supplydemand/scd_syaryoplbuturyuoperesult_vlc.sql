@@ -1,4 +1,4 @@
-{% snapshot scd_cubc030logoperesult_vlc %}
+{% snapshot scd_syaryoplbuturyuoperesult_vlc %}
 
 {{
     config(
@@ -14,6 +14,6 @@
     )
 }}
 
-select * from {{ ref('stg_cubc030logoperesult_vlc') }}
+select * from {{ ref('stg_syaryoplbuturyuoperesult_vlc') }}
 
 {% endsnapshot %}

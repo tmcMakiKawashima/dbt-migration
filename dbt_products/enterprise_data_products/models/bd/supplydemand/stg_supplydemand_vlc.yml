@@ -804,7 +804,7 @@ models:
               config:
                 severity: error
 # 車両PL物流構内作業架装実績情報
-  - name: stg_cubc030logoperesult_vlc
+  - name: stg_syaryoplbuturyuoperesult_vlc
     config:
       tags: ["vlc"]
     data_tests:
