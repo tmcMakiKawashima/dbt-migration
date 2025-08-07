@@ -1324,7 +1324,7 @@ models:
               config:
                 severity: error
 # NB拠点計画情報(配車)
-  - name: stg_cubc260nbkyotenplanhaisha_vlc
+  - name: stg_nbkyotenplanhaisha_vlc
     config:
       tags: ["vlc"]
     data_tests:
