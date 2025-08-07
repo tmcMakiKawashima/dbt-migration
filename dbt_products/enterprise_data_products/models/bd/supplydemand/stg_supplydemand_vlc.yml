@@ -230,7 +230,7 @@ models:
               config:
                 severity: error
 # 車両PL生産実績情報
-  - name: stg_cubc028plodresult_vlc
+  - name: stg_syaryoplseisanresult_vlc
     config:
       tags: ["vlc"]
     data_tests:
