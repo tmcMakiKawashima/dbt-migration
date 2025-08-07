@@ -16,7 +16,7 @@
 }}
 -- 削除フラグがtrueに更新されたレコードを削除
 
-with stg_cam6063_jyukyujyoho as (
+with stg_siyomst_jyukyujyoho as (
     select
         segmei::varchar(8) as segmei, 
         renkey_hkata::varchar(20) as renkey_hkata, 
@@ -100,7 +100,7 @@ with stg_cam6063_jyukyujyoho as (
     from {{ source('fivetran_database_oraclerds_orcl_jukyu_osamsp02sam202', 'raw_cam6063') }}
     where _fivetran_deleted = 'false'
 )
-select * from stg_cam6063_jyukyujyoho
+select * from stg_siyomst_jyukyujyoho
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{ this }})

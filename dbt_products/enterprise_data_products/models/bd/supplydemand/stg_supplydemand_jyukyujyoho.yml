@@ -308,7 +308,7 @@ models:
               config:
                 severity: error
 # 仕様マスタ
-  - name: stg_cam6063_jyukyujyoho
+  - name: stg_siyomst_jyukyujyoho
     config:
       tags: ["jyukyujyoho"]
     data_tests:
