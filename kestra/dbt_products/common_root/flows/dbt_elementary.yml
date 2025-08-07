@@ -71,7 +71,7 @@ triggers:
     type: io.kestra.plugin.core.trigger.Flow
     conditions:
       - type: io.kestra.plugin.core.condition.Expression
-        expression: "{{ namespace.ENV  == 'dev' or namespace.ENV  == 'prod' or namespace.ENV  == 'prod' }}"
+        expression: "{{ namespace.ENV  == 'dev' or namespace.ENV  == 'prod' }}"
       - type: io.kestra.plugin.core.condition.ExecutionLabels
         labels:
           dbt: build
