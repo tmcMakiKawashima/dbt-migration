@@ -1612,7 +1612,7 @@ models:
               config:
                 severity: error
 # NB拠点実績情報
-  - name: stg_cubc262nbkyotenjsk_vlc
+  - name: stg_nbkyotenresult_vlc
     config:
       tags: ["vlc"]
     data_tests:
