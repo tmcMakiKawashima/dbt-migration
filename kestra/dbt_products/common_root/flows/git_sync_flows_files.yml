@@ -61,7 +61,7 @@ tasks:
           namespace: "{{ namespace.NAME }}.{{ inputs.proj_namespace }}"
           branch: "{{ inputs.branch ?? inputs.proj_namespace }}"
 
-    # 準本番または本番の場合=ブランチはstg_ or deploy
+    # 準本番または本番の場合=ブランチはstg_test or deploy
     else:
 
     - id: if_proj_namespace_is_common_root
@@ -69,6 +69,9 @@ tasks:
       condition: "{{ inputs.proj_namespace == 'common_root' }}"
       # ルートNamespaceの共通部品の場合=targetNmaspaceはルート
       then:
+        - id: target_namespace_root
+          type: io.kestra.plugin.core.debug.Return
+          format: "{{ inputs.proj_namespace }}"
 
         - id: sync_flows_root
           type: io.kestra.plugin.git.SyncFlows
@@ -96,7 +99,7 @@ tasks:
 outputs: 
   - id: target_branch
     type: STRING
-    value: "{{ outputs.target_namespace.value ?? namespace.GIT.BRANCH }}"
+    value: "{{ outputs.target_namespace.value ?? outputs.target_namespace_root.value ?? namespace.GIT.BRANCH }}"
 
 
 finally:
