@@ -1,19 +1,15 @@
 ALERTS:
   REGION: ap-northeast-1
   TOPIC: arn:aws:sns:ap-northeast-1:248810166614:dajp1-dxpf-edp-dev-sns-kestra01
-AWS:
-  ACCESS_KEY_ID: REDACTED
-  SECRET_ACCESS_KEY: 2hUz3m+A/wveqfAx/S06tVsGsrl5rImxyH8YvpZL
-  STS_ROLE_ARN: arn:aws:iam::248810166614:role/da-dxpf-edp-role-infra01
 DBT:
   PROJ_DIR: enterprise_data_products
   SNOWFLAKE_ACCOUNT: nw21470.ap-northeast-1.privatelink
   SNOWFLAKE_DATABASE: DATAMART_DB
   SNOWFLAKE_ROLE: DBT_ROLE
   SNOWFLAKE_SCHEMA: public
-  SNOWFLAKE_USER: dbt
+  SNOWFLAKE_USER: DBT_USER
 DBT_DOCS:
-  BASE_PATH: trial/dbt_documents/kestra/
+  BASE_PATH: dbt_documents/kestra/
   S3_BUCKET: dajp1-dxpf-edp-dev-s3-kestra
 DOCKER:
   IMAGE_VERSION:
@@ -33,7 +29,7 @@ PYTHON:
 SNOWFLAKE:
   ACCOUNT: nw21470.ap-northeast-1.privatelink
   DATABASE: DATAMART_DB
-  ROLE: DBT_ROLE
+  ROLE: TRF_ACT_ROLE
   SCHEMA: public
-  USER: dbt
+  USER: KESTRA_USER
   WAREHOUSE: DATAMART_WH

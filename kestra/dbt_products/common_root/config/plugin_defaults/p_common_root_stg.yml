@@ -1,0 +1,128 @@
+- type: io.kestra.plugin.dbt.cli.DbtCLI
+  forced: false
+  values:
+    beforeCommands:
+      - dbt deps --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+    containerImage: "{{ namespace.DOCKER.IMAGE_VERSION.DBT }}"
+    profiles: |
+      enterprise_data_products:
+        target: dev
+        outputs:
+          dev:
+            account: "{{ namespace.DBT.SNOWFLAKE_ACCOUNT }}"
+            database: "{{ namespace.DBT.SNOWFLAKE_DATABASE }}"
+            private_key: "{{ secret('SNOWFLAKE_PRIVATE_KEY_DBT') }}"
+            private_key_passphrase: "{{ secret('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE_DBT') }}"
+            role: "{{ namespace.DBT.SNOWFLAKE_ROLE }}"
+            schema: "{{ namespace.DBT.SNOWFLAKE_SCHEMA }}"
+            threads: 16
+            type: snowflake
+            user: "{{ namespace.DBT.SNOWFLAKE_USER }}"
+            warehouse: "dbt_default_wh"
+      elementary:
+        target: dev
+        outputs:
+          dev:
+            account: "{{ namespace.DBT.SNOWFLAKE_ACCOUNT }}"
+            database: common_tbl_db
+            private_key: "{{ secret('SNOWFLAKE_PRIVATE_KEY_DBT') }}"
+            private_key_passphrase: "{{ secret('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE_DBT') }}"
+            role: "{{ namespace.DBT.SNOWFLAKE_ROLE }}"
+            schema: elementary
+            threads: 16
+            type: snowflake
+            user: "{{ namespace.DBT.SNOWFLAKE_USER }}"
+            warehouse: dbt_default_wh
+    projectDir: "{{ namespace.DBT.PROJ_DIR }}"
+    taskRunner:
+      type: io.kestra.plugin.ee.kubernetes.runner.Kubernetes
+      namespace: kestra
+      config:
+        caCertData: "{{ secret('KUBERNETES_CA_CERT_DATA') }}"
+        masterUrl: "{{ namespace.KUBERNETES.MASTER_URL }}"
+        oauthToken: "{{ secret('KUBERNETES_OAUTH_TOKEN') }}"
+        username: "{{ namespace.KUBERNETES.USER_NAME }}"
+      pullPolicy: IF_NOT_PRESENT
+- type: io.kestra.plugin.git
+  forced: false
+  values:
+    url: "{{ namespace.GIT.URL }}"
+- type: io.kestra.plugin.git.Clone
+  forced: false
+  values:
+    branch: "{{ namespace.GIT.BRANCH }}"
+    password: "{{ secret('GIT_PASS') }}"
+    username: "{{ namespace.GIT.USER }}"
+- type: io.kestra.plugin.git.PushFlows
+  forced: false
+  values:
+    authorEmail: "{{ inputs.email }}"
+    commitMessage: "{{ inputs.message }}"
+    flows: "*"
+    gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/flows
+    password: "{{ inputs.pass }}"
+    username: "{{ inputs.user }}"
+- type: io.kestra.plugin.git.PushNamespaceFiles
+  forced: false
+  values:
+    authorEmail: "{{ inputs.email }}"
+    commitMessage: "{{ inputs.message }}"
+    files: "**"
+    gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/files
+    password: "{{ inputs.pass }}"
+    username: "{{ inputs.user }}"
+- type: io.kestra.plugin.git.SyncFlows
+  forced: false
+  values:
+    delete: true
+    gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/flows
+    password: "{{ inputs.pass }}"
+    username: "{{ inputs.user }}"
+- type: io.kestra.plugin.git.SyncNamespaceFiles
+  forced: false
+  values:
+    delete: true
+    gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/files
+    password: "{{ inputs.pass }}"
+    username: "{{ inputs.user }}"
+- type: io.kestra.plugin.aws.sns.Publish
+  forced: false
+  values:
+    from:
+      - data: |
+          The Kestra workflow execution failed. [{{ namespace.ENV }}]
+
+          -----------------------------------------------------------------------------------------------------------------------------
+          - Namespace: {{ trigger.namespace }}
+          - Flow ID: {{ trigger.flowId }}
+          - Execution ID: {{ trigger.executionId }}
+          - Error Info: {{ inputs.error_log }}
+          -----------------------------------------------------------------------------------------------------------------------------
+
+          ※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
+          ※  下の「unsubscribe」のリンクをクリックしないでください（1番目のリンク）       ※
+          ※  リンクをクリックするとKestraのエラー通知が一切飛ばなくなってしまいます       ※
+          ※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
+          -
+          -
+          -
+          -
+          -
+        subject: "[{{ namespace.ENV }}] Kestra Workflow Error: {{ trigger.flowId }}"
+    region: "{{ namespace.ALERTS.REGION }}"
+    topicArn: "{{ namespace.ALERTS.TOPIC }}"
+- type: io.kestra.plugin.scripts.python.Commands
+  forced: false
+  values:
+    beforeCommands:
+      - pip install "{{ namespace.PYTHON.SNOWFLAKE_CONNECTOR_VERSION }}"
+    containerImage: "{{ namespace.DOCKER.IMAGE_VERSION.PYTHON }}"
+    taskRunner:
+      type: io.kestra.plugin.ee.kubernetes.runner.Kubernetes
+      namespace: kestra
+      config:
+        caCertData: "{{ secret('KUBERNETES_CA_CERT_DATA') }}"
+        masterUrl: "{{ namespace.KUBERNETES.MASTER_URL }}"
+        oauthToken: "{{ secret('KUBERNETES_OAUTH_TOKEN') }}"
+        username: "{{ namespace.KUBERNETES.USER_NAME }}"
+      pullPolicy: IF_NOT_PRESENT
