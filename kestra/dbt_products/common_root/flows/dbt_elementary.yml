@@ -27,7 +27,7 @@ tasks:
       tasks:
         - id: clone_repository_dbt
           type: io.kestra.plugin.git.Clone
-          branch: kestra-move
+          branch: "{{ namespace.GIT.BRANCH }}"
 
         - id: dbt_run
           type: io.kestra.plugin.dbt.cli.DbtCLI
@@ -70,9 +70,11 @@ triggers:
   - id: flow_trigger
     type: io.kestra.plugin.core.trigger.Flow
     conditions:
+      - type: io.kestra.plugin.core.condition.Expression
+        expression: "{{ namespace.ENV  == 'stg' or namespace.ENV  == 'prod' }}"
       - type: io.kestra.plugin.core.condition.ExecutionLabels
         labels:
-          error: default_failed
+          dbt: build
       - type: io.kestra.plugin.core.condition.ExecutionNamespace
         namespace: "kestra_dbt_project"
         prefix: true
@@ -92,3 +94,5 @@ outputs:
   - id: output_error_log
     type: STRING
     value: "{{ outputs.error_log.value ?? 'No message found.' }}"
+    
+disabled: false
