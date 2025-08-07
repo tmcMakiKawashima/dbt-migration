@@ -12,11 +12,11 @@ schedule_d_jyukyujyoho_0130 = build_schedule_from_dbt_selection(
     schedule_name="jyukyujyoho_0130",
     cron_schedule="30 01 * * *",
     execution_timezone="Asia/Tokyo",
-    dbt_select="+stg_cam6075_jyukyujyoho +stg_cam6063_jyukyujyoho",
+    dbt_select="+stg_dwhsyameimst_jyukyujyoho +stg_siyomst_jyukyujyoho",
     config=RunConfig(ops={"dbt_products_assets":
                           DbtConfig(dbt_vars={"DBT_JOB_NAME": "_d_jyukyujyoho_0130"},
-                                    source_test_list=["source:*,+stg_cam6075_jyukyujyoho",
-                                                      "source:*,+stg_cam6063_jyukyujyoho"])
+                                    source_test_list=["source:*,+stg_dwhsyameimst_jyukyujyoho",
+                                                      "source:*,+stg_siyomst_jyukyujyoho"])
                           }
                      ),
     # default_status=DefaultScheduleStatus.RUNNING,
