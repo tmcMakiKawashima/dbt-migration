@@ -107,4 +107,5 @@ finally:
       - "Git branch *dev -> {{ inputs.branch ?? inputs.proj_namespace }}"
       - "Git branch *stg or prod -> {{ namespace.GIT.BRANCH }}"
       - "Git user -> {{ inputs.user }}"
-      # Execution RUNNING
+      
+disabled: false

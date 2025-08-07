@@ -77,4 +77,5 @@ finally:
       - "Git user -> {{ inputs.user }}"
       - "Git email -> {{ inputs.email }}"
       - "Git message -> {{ inputs.message }}"
-      # Execution RUNNING
+      
+disabled: false
