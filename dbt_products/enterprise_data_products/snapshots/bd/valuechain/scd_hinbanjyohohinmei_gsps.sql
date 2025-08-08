@@ -1,4 +1,4 @@
-{% snapshot scd_cvk01hinmeit_gsps %}
+{% snapshot scd_hinbanjyohohinmei_gsps %}
 
 {{
     config(
@@ -13,6 +13,6 @@
     )
 }}
 
-select * from {{ ref('stg_cvk01hinmeit_gsps') }}
+select * from {{ ref('stg_hinbanjyohohinmei_gsps') }}
 
 {% endsnapshot %}
