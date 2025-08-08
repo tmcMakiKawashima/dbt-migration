@@ -1174,3 +1174,36 @@ models:
           - not_null:
               config:
                 severity: error
+  # 生産枠（車両枠）TBL
+  - name: stg_seisanwaku_syaryowaku_tbl_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - spec_no
+            - carnm_cd
+            - lineoff_beto_ymd
+          config:
+            severity: error
+    columns:
+      - name: spec_no
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: carnm_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lineoff_beto_ymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
