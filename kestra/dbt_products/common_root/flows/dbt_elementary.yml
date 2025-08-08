@@ -27,7 +27,6 @@ tasks:
       tasks:
         - id: clone_repository_dbt
           type: io.kestra.plugin.git.Clone
-          branch: "{{ namespace.GIT.BRANCH }}"
 
         - id: dbt_run
           type: io.kestra.plugin.dbt.cli.DbtCLI
@@ -42,7 +41,6 @@ tasks:
     tasks:
       - id: clone_repository_elementary
         type: io.kestra.plugin.git.Clone
-        branch: kestra-move
 
       - id: edr_report
         type: io.kestra.plugin.dbt.cli.DbtCLI
