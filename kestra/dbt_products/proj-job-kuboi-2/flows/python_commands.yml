@@ -6,15 +6,16 @@ tasks:
     namespaceFiles:
       enabled: true
       include:
-        - python/api/api_util.py
-        - python/api/assets_sms.py
+        - python/api_call_kitora/api_util.py
+        - python/api_call_kitora/assets_sms.py
     commands:
-      - python python/api/assets_sms.py
+      - python python/api_call_kitora/assets_sms.py
     env:
       ENV: "{{ namespace.ENV }}"
       SNOWFLAKE_ACCOUNT: "{{ namespace.SNOWFLAKE.ACCOUNT }}"
       SNOWFLAKE_USER: "{{ namespace.SNOWFLAKE.USER }}"
-      DBT_SNOWFLAKE_PASS: "{{ secret('DBT_SNOWFLAKE_PASS') }}"
+      SNOWFLAKE_PRIVATE_KEY_PASSPHRASE_KESTRA: "{{ secret('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE_KESTRA') }}"
+      SNOWFLAKE_PRIVATE_KEY_KESTRA: "{{ secret('SNOWFLAKE_PRIVATE_KEY_KESTRA') }}"
       SNOWFLAKE_ROLE: "{{ namespace.SNOWFLAKE.ROLE }}"
       X_TMC_CLIENT_ID_SMS: "{{ secret('X_TMC_CLIENT_ID_SMS') }}"
       X_TMC_CLIENT_SECRET_SMS: "{{ secret('X_TMC_CLIENT_SECRET_SMS') }}"
