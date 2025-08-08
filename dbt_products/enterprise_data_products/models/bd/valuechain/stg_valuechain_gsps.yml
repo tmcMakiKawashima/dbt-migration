@@ -71,7 +71,7 @@ models:
               config:
                 severity: error
 # 品番情報.品名
-  - name: stg_cvk01hinmeit_gsps
+  - name: stg_hinbanjyohohinmei_gsps
     config:
       tags: ["gsps"]
     data_tests:
