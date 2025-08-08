@@ -1,6 +1,6 @@
 ALERTS:
   REGION: ap-northeast-1
-  TOPIC: arn:aws:sns:ap-northeast-1:248810166614:dajp1-dxpf-edp-dev-sns-kestra01
+  TOPIC: arn:aws:sns:ap-northeast-1:085931761001:sajp1-dxpf-edp-sns-kestra01
 DBT:
   PROJ_DIR: enterprise_data_products
   SNOWFLAKE_ACCOUNT: rf70500.ap-northeast-1.privatelink
