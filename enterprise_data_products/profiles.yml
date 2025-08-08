@@ -4,7 +4,8 @@ enterprise_data_products:
     dev:
       account: "{{ env_var('DBT_SNOWFLAKE_ACCOUNT', 'xxx') }}"
       database: "{{ env_var('DBT_SNOWFLAKE_DATABASE', 'xxx') }}"
-      password: "{{ env_var('DBT_SNOWFLAKE_PASS', 'xxx') }}"
+      private_key: "{{ env_var('SNOWFLAKE_PRIVATE_KEY_DBT', 'xxx') }}"
+      private_key_passphrase: "{{ env_var('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE_DBT', 'xxx') }}"
       role: "{{ env_var('DBT_SNOWFLAKE_ROLE', 'xxx') }}"
       schema: "{{ env_var('DBT_SNOWFLAKE_SCHEMA', 'xxx') }}"
       threads: 16
@@ -17,7 +18,8 @@ elementary:
     dev:
       account: "{{ env_var('DBT_SNOWFLAKE_ACCOUNT', 'xxx') }}"
       database: common_tbl_db
-      password: "{{ env_var('DBT_SNOWFLAKE_PASS', 'xxx') }}"
+      private_key: "{{ env_var('SNOWFLAKE_PRIVATE_KEY_DBT', 'xxx') }}"
+      private_key_passphrase: "{{ env_var('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE_DBT', 'xxx') }}"
       role: "{{ env_var('DBT_SNOWFLAKE_ROLE', 'xxx') }}"
       schema: elementary
       threads: 16
