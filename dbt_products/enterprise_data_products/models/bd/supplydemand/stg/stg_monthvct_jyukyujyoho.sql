@@ -5,7 +5,7 @@
     )
 }}
 
-with stg_cam2204_jyukyujyoho as (
+with stg_monthvct_jyukyujyoho as (
     select
         rmth::varchar(6) as rmth, 
         maker::varchar(4) as maker, 
@@ -146,7 +146,7 @@ with stg_cam2204_jyukyujyoho as (
     from {{ source('fivetran_database_oraclerds_orcl_jukyu_osamsp01sam202', 'raw_cam2204') }}
     where _fivetran_deleted = 'false'
 )
-select * from stg_cam2204_jyukyujyoho 
+select * from stg_monthvct_jyukyujyoho 
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{ this }})

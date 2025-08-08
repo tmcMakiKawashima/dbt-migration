@@ -1,4 +1,4 @@
-{% snapshot scd_cam2204_jyukyujyoho %}
+{% snapshot scd_monthvct_jyukyujyoho %}
 
 {{
     config(
@@ -25,6 +25,6 @@
     )
 }}
 
-select * from {{ ref('stg_cam2204_jyukyujyoho') }}
+select * from {{ ref('stg_monthvct_jyukyujyoho') }}
 
 {% endsnapshot %}
