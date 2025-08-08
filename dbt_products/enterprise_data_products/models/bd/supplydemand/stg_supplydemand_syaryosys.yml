@@ -1174,3 +1174,36 @@ models:
           - not_null:
               config:
                 severity: error
+  # オプション仕様マスタ
+  - name: stg_optionsiyo_master_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - carnm_cd
+            - spec_no
+            - opt_cd
+          config:
+            severity: error
+    columns:
+      - name: carnm_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: spec_no
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: opt_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
