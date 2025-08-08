@@ -1174,3 +1174,30 @@ models:
           - not_null:
               config:
                 severity: error
+  # DFSCオプションマスタ
+  - name: stg_dfsc_option_master_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dfsc
+            - opt_cd
+          config:
+            severity: error
+    columns:
+      - name: dfsc
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: opt_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
