@@ -36,7 +36,7 @@
     projectDir: "{{ namespace.DBT.PROJ_DIR }}"
     taskRunner:
       type: io.kestra.plugin.ee.kubernetes.runner.Kubernetes
-      namespace: kestra
+      namespace: "{{ namespace.KUBERNETES.NAMESPACE }}"
       config:
         caCertData: "{{ secret('KUBERNETES_CA_CERT_DATA') }}"
         masterUrl: "{{ namespace.KUBERNETES.MASTER_URL }}"
@@ -119,7 +119,7 @@
     containerImage: "{{ namespace.DOCKER.IMAGE_VERSION.PYTHON }}"
     taskRunner:
       type: io.kestra.plugin.ee.kubernetes.runner.Kubernetes
-      namespace: kestra
+      namespace: "{{ namespace.KUBERNETES.NAMESPACE }}"
       config:
         caCertData: "{{ secret('KUBERNETES_CA_CERT_DATA') }}"
         masterUrl: "{{ namespace.KUBERNETES.MASTER_URL }}"

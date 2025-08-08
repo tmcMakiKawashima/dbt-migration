@@ -22,6 +22,7 @@ GIT:
   USER: kestra.dbt
 KUBERNETES:
   MASTER_URL: https://792D6FD8199A980FC7CC517D69717F34.gr7.ap-northeast-1.eks.amazonaws.com
+  NAMESPACE: default
   USER_NAME: arn:aws:eks:ap-northeast-1:248810166614:cluster/dajp1-dxpf-edp-eks-kestra01
 NAME: kestra_dbt_project
 PYTHON:
