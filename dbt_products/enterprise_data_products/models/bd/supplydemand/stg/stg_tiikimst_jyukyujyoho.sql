@@ -15,7 +15,7 @@
     )
 }}
 
-with stg_cam2502_jyukyujyoho as (
+with stg_tiikimst_jyukyujyoho as (
     select
         r_area_code::varchar(1) as r_area_code, 
         r_area_name::varchar(10) as r_area_name, 
@@ -31,7 +31,7 @@ with stg_cam2502_jyukyujyoho as (
     from {{ source('fivetran_database_oraclerds_orcl_jukyu_osamsp0100db20', 'raw_cam2502') }}
     where _fivetran_deleted = 'false'
 )
-select * from stg_cam2502_jyukyujyoho
+select * from stg_tiikimst_jyukyujyoho
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{ this }})
