@@ -2,8 +2,6 @@ with vd1 as (
   select * from {{ref('tmp20_dm_variation_seisan_daisu')}}
 ),sd as (
   select * from {{source('katashiki_db_spec','raw_dm_siyo_daisu')}}
-  -- TODO 開発中のためコメントアウト　解除後source.ymlの記載も削除忘れずに
-  -- from {{ref('dm_siyo_daisu')}}
 )
 select
   vd1.*,

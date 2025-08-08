@@ -2,6 +2,8 @@ version: 2
 models:
 # バリエーション台数
   - name: dm_variation_seisan_daisu
+    config:
+      tags: ["gijutsu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
