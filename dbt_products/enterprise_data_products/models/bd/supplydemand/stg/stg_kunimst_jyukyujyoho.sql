@@ -15,7 +15,7 @@
     )
 }}
 
-with stg_cam2501_jyukyujyoho as (
+with stg_kunimst_jyukyujyoho as (
     select
         r_country_code::varchar(3) as r_country_code, 
         r_country_name::varchar(20) as r_country_name, 
@@ -41,7 +41,7 @@ with stg_cam2501_jyukyujyoho as (
     from {{ source('fivetran_database_oraclerds_orcl_jukyu_osamsp0100db20', 'raw_cam2501') }}
     where _fivetran_deleted = 'false'
 )
-select * from stg_cam2501_jyukyujyoho
+select * from stg_kunimst_jyukyujyoho
 
 {% if is_incremental() %}
     where ldts > (select max(ldts) from {{ this }})
