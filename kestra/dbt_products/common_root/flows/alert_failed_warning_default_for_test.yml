@@ -1,4 +1,4 @@
-id: alert_failed_warning_default
+id: alert_failed_warning_default_for_test
 namespace: kestra_dbt_project
 
 labels:
@@ -43,5 +43,6 @@ triggers:
         in:
           - FAILED
           - WARNING
+          - SUCCESS
           
-disabled: false
+disabled: true
