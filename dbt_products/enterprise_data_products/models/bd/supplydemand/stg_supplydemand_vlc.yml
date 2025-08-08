@@ -2,7 +2,7 @@ version: 2
 
 models:
   # 納期統合情報(市販)(保管)
-  - name: stg_cubd003shihanho_vlc
+  - name: stg_noukitougoujyoho_shihanho_vlc
     config:
       tags: ["vlc"]
     columns:
