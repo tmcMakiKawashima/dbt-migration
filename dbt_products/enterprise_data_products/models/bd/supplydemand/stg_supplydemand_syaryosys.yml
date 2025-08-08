@@ -1174,3 +1174,108 @@ models:
           - not_null:
               config:
                 severity: error
+  # 管理機能明細引当マスタ（生産枠）
+  - name: stg_kanrikino_meisaihikiate_master_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - spec_no
+            - carnm_cd
+            - funcdtl_cd
+            - ctl_model
+            - bdcol_cd
+            - inner_cd
+            - eqp_cond1
+            - eqp_cond2
+            - eqp_cond3
+            - eqp_cond4
+            - eqp_cond5
+            - eqp_cond6
+            - eqp_cond7
+            - eqp_cond8
+            - tire_cd
+          config:
+            severity: error
+    columns:
+      - name: spec_no
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: carnm_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: funcdtl_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ctl_model
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bdcol_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inner_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cond1
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cond2
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cond3
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cond4
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cond5
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cond6
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cond7
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cond8
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tire_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error

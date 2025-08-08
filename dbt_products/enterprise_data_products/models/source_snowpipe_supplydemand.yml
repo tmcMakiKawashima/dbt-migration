@@ -68,6 +68,13 @@ sources:
             data_tests:
             - fixed_length:
                 length: 110
+      - name: raw_ktrla038zz0kadcb89
+        identifier: ktrla038zz0kadcb89
+        columns:
+          - name: raw_data
+            data_tests:
+            - fixed_length:
+                length: 80
     # AQUA
       - name: raw_nojfa560
         identifier: nojfa560
