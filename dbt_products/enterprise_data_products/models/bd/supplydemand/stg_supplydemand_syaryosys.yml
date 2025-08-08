@@ -1192,3 +1192,77 @@ models:
           - not_null:
               config:
                 severity: error
+  # オーダー台数サマリ
+  - name: stg_order_daisu_summary_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - shamei
+            - sno
+            - dlrcd
+            - dfsc
+          config:
+            severity: error
+    columns:
+      - name: shamei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dfsc
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: oddaisu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kndaisu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hidaisu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: codaisu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: odno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kndate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hydate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
