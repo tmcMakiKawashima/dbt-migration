@@ -254,7 +254,7 @@ models:
               config:
                 severity: error
   # 国マスタ
-  - name: stg_cam2501_jyukyujyoho
+  - name: stg_kunimst_jyukyujyoho
     config:
       tags: ["jyukyujyoho"]
     data_tests:
