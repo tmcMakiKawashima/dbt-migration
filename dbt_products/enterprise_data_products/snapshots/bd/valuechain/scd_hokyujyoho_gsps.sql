@@ -1,11 +1,11 @@
-{% snapshot scd_cvk01hinmeit_gsps %}
+{% snapshot scd_hokyujyoho_gsps %}
 
 {{
     config(
         unique_key="concat_ws('-',
                     hinban,
-                    hinbansbetu,
-                    syusbetu)",
+                    syusbetu,
+                    seppenjun)",
 
         strategy='timestamp',
         updated_at='ldts',
@@ -13,6 +13,6 @@
     )
 }}
 
-select * from {{ ref('stg_cvk01hinmeit_gsps') }}
+select * from {{ ref('stg_hokyujyoho_gsps') }}
 
 {% endsnapshot %}
