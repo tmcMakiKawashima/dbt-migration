@@ -1,4 +1,4 @@
-{% snapshot scd_cvk01hokyu_gsps %}
+{% snapshot scd_hokyujyoho_gsps %}
 
 {{
     config(
@@ -13,6 +13,6 @@
     )
 }}
 
-select * from {{ ref('stg_cvk01hokyu_gsps') }}
+select * from {{ ref('stg_hokyujyoho_gsps') }}
 
 {% endsnapshot %}

@@ -6,7 +6,7 @@
     )
 }}
 
-with stg_cvk01hokyu_gsps as (
+with stg_hokyujyoho_gsps as (
     select
         rtrim(hinban, ' 　')::varchar(15) as hinban, -- 右blank
         rtrim(syusbetu, ' 　')::varchar(4) as syusbetu, -- 右blank
@@ -32,6 +32,6 @@ with stg_cvk01hokyu_gsps as (
     {% endif %}
 
 )
-select * exclude(aggkey, line_number) from stg_cvk01hokyu_gsps 
+select * exclude(aggkey, line_number) from stg_hokyujyoho_gsps 
 where aggkey = 1 and seppenjun is not null
 order by hinban asc

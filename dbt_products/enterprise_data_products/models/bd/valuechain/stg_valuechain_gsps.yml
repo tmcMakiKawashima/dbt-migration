@@ -99,7 +99,7 @@ models:
               config:
                 severity: error
 # 補給情報
-  - name: stg_cvk01hokyu_gsps
+  - name: stg_hokyujyoho_gsps
     config:
       tags: ["gsps"]
     data_tests:
