@@ -13,8 +13,6 @@ with vsas as (
     sk_y,  -- 終検日年
     sk_m  -- 終検日月
   from {{source('vinhis_db_spec','raw_dm_vinhis_spec200_allsalecar')}}
-  -- TODO 別チーム開発中のためコメントアウト　解除後source.ymlの記載も削除忘れずに
-  -- from {{ref('dm_vinhis_spec200_allsalecar')}}
 ),ascv as (
   select
     syadai_kt,  -- 車台型式
@@ -26,8 +24,8 @@ with vsas as (
     kumitate,  -- 組立番号
     bui,  -- 部位
     vari,  -- バリエーション
-    seppen_no_kara  -- 設変Noカラ
-  -- TODO データ件数が多いため、source.ymlの参照先をテスト用に変えているため変更忘れずに
+    seppen_no_kara,  -- 設変Noカラ
+    update_date -- 更新日時
   from {{source('vinhis_db_parts','raw_dm_allsalescar_variation')}}
 )
 select
@@ -56,4 +54,20 @@ and vsas.wmi = ascv.wmi
 and vsas.vds = ascv.vds
 and vsas.mdlyr = ascv.mdlyr
 and vsas.vin_vds_cd = ascv.vin_vds_cd
+)
+where(
+  case
+    when (
+      vsas.sk_y <> ''
+      and vsas.sk_m <> ''
+    ) then (
+      cast(vsas.sk_y as number(4, 0)) = year(dateadd(month, -1, current_date()))
+      and cast(vsas.sk_m as number(2, 0)) = month(dateadd(month, -1, current_date()))
+    )
+    else false
+  end
+)
+or (
+  year(ascv.update_date) = year(dateadd(month, -1, current_date()))
+  and month(ascv.update_date) = month(dateadd(month, -1, current_date()))
 )
