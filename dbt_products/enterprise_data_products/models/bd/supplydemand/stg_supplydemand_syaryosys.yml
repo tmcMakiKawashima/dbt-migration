@@ -1174,3 +1174,21 @@ models:
           - not_null:
               config:
                 severity: error
+  # 車名マスタ
+  - name: stg_shamei_master_syaryosys
+    config:
+      tags: ["syaryosys"]
+    columns:
+      - name: shamei
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
