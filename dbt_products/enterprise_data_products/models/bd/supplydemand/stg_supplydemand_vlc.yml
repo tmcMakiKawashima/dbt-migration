@@ -666,7 +666,7 @@ models:
               config:
                 severity: error
   # 納期統合情報(輸出)明細(保管)
-  - name: stg_cubd008yusyutudtlho_vlc
+  - name: stg_noukitougoujyoho_yusyutudtlho_vlc
     config:
       tags: ["vlc"]
     columns:
