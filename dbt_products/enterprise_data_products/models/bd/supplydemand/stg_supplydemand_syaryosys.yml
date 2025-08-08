@@ -1174,3 +1174,30 @@ models:
           - not_null:
               config:
                 severity: error
+  # 販売店制約マスタ
+  - name: stg_hanbaiseiyaku_master_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlr_cd
+            - sle_model
+          config:
+            severity: error
+    columns:
+      - name: dlr_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sle_model
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
