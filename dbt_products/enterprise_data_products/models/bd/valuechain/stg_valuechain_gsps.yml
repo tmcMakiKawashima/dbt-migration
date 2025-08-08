@@ -99,7 +99,7 @@ models:
               config:
                 severity: error
 # 品番情報
-  - name: stg_cvk02hinbantbl_gsps
+  - name: stg_hinbanjyoho_gsps
     config:
       tags: ["gsps"]
     data_tests:
