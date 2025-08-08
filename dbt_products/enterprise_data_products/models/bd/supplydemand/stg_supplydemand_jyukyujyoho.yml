@@ -2,7 +2,7 @@ version: 2
 
 models:
   # 地域マスタ
-  - name: stg_cam2502_jyukyujyoho
+  - name: stg_tiikimst_jyukyujyoho
     config:
       tags: ["jyukyujyoho"]
     data_tests:
