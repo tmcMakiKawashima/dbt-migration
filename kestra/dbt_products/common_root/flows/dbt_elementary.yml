@@ -51,7 +51,8 @@ tasks:
         env:
           DBT_SNOWFLAKE_ACCOUNT: "{{ namespace.DBT.SNOWFLAKE_ACCOUNT }}"
           DBT_SNOWFLAKE_USER: "{{ namespace.DBT.SNOWFLAKE_USER }}"
-          DBT_SNOWFLAKE_PASS: "{{ secret('DBT_SNOWFLAKE_PASS') }}"
+          SNOWFLAKE_PRIVATE_KEY_DBT: "{{ secret('SNOWFLAKE_PRIVATE_KEY_DBT') }}"
+          SNOWFLAKE_PRIVATE_KEY_PASSPHRASE_DBT: "{{ secret('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE_DBT') }}"
           DBT_SNOWFLAKE_ROLE: "{{ namespace.DBT.SNOWFLAKE_ROLE }}"
         outputFiles:
           - edr_target/elementary_report.html
