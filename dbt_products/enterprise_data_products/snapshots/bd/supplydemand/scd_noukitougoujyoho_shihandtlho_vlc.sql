@@ -1,4 +1,4 @@
-{% snapshot scd_cubd004shihandtlho_vlc %}
+{% snapshot scd_noukitougoujyoho_shihandtlho_vlc %}
 
 {{
     config(
@@ -9,6 +9,6 @@
     )
 }}
 
-select * from {{ ref('stg_cubd004shihandtlho_vlc') }}
+select * from {{ ref('stg_noukitougoujyoho_shihandtlho_vlc') }}
 
 {% endsnapshot %}
