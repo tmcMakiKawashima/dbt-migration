@@ -1174,3 +1174,60 @@ models:
           - not_null:
               config:
                 severity: error
+  # 仕様マスタ
+  - name: stg_siyoumaster_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - sle_model
+            - che_fil_clss
+            - eqp_typ
+            - eqp_cond_cd
+            - set_contno
+            - set_eqp_typ
+            - set_eqp_cd
+          config:
+            severity: error
+    columns:
+      - name: sle_model
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: che_fil_clss
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_typ
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cond_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: set_contno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: set_eqp_typ
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: set_eqp_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
