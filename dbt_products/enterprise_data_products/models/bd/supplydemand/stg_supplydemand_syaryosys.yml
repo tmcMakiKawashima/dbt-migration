@@ -1266,3 +1266,547 @@ models:
           - not_null:
               config:
                 severity: error
+  # DFSC・管理機能明細関連マスタ（生産枠）
+  - name: stg_dfsc_kanrikino_meisai_kanren_master_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dfsc
+            - funcdtl_cd
+          config:
+            severity: error
+    columns:
+      - name: dfsc
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: funcdtl_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  # DFSCオプションマスタ
+  - name: stg_dfsc_option_master_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dfsc
+            - opt_cd
+          config:
+            severity: error
+    columns:
+      - name: dfsc
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: opt_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  # 仕様マスタ
+  - name: stg_siyoumaster_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - sle_model
+            - che_fil_clss
+            - eqp_typ
+            - eqp_cond_cd
+            - set_contno
+            - set_eqp_typ
+            - set_eqp_cd
+          config:
+            severity: error
+    columns:
+      - name: sle_model
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: che_fil_clss
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_typ
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cond_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: set_contno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: set_eqp_typ
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: set_eqp_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  # 管理機能明細引当マスタ（生産枠）
+  - name: stg_kanrikino_meisaihikiate_master_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - spec_no
+            - carnm_cd
+            - funcdtl_cd
+            - ctl_model
+            - bdcol_cd
+            - inner_cd
+            - eqp_cond1
+            - eqp_cond2
+            - eqp_cond3
+            - eqp_cond4
+            - eqp_cond5
+            - eqp_cond6
+            - eqp_cond7
+            - eqp_cond8
+            - tire_cd
+          config:
+            severity: error
+    columns:
+      - name: spec_no
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: carnm_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: funcdtl_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ctl_model
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bdcol_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inner_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cond1
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cond2
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cond3
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cond4
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cond5
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cond6
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cond7
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cond8
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tire_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  # 販売店制約マスタ
+  - name: stg_hanbaiseiyaku_master_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlr_cd
+            - sle_model
+          config:
+            severity: error
+    columns:
+      - name: dlr_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sle_model
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  # 地域標準装備マスタ
+  - name: stg_chiikihyoujun_soubi_master_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlr_cd
+            - sle_model
+            - eqp_clss
+            - eqp_itm
+          config:
+            severity: error
+    columns:
+      - name: dlr_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sle_model
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_clss
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_itm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  # 内張仕様マスタ
+  - name: stg_uchibarisiyou_master_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - carnm_cd
+            - spec_no
+            - inner_cd
+          config:
+            severity: error
+    columns:
+      - name: carnm_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: spec_no
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inner_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  # 外鈑色仕様マスタ
+  - name: stg_gaihanshoku_master_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - carnm_cd
+            - spec_no
+            - bdcol_cd
+          config:
+            severity: error
+    columns:
+      - name: carnm_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: spec_no
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bdcol_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  # オプション仕様マスタ
+  - name: stg_optionsiyo_master_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - carnm_cd
+            - spec_no
+            - opt_cd
+          config:
+            severity: error
+    columns:
+      - name: carnm_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: spec_no
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: opt_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  # 生産枠（車両枠）TBL
+  - name: stg_seisanwaku_syaryowaku_tbl_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - spec_no
+            - carnm_cd
+            - lineoff_beto_ymd
+          config:
+            severity: error
+    columns:
+      - name: spec_no
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: carnm_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lineoff_beto_ymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  # 生産枠(部品枠)TBL
+  - name: stg_seisanwaku_buhinwaku_tbl_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - spec_no
+            - carnm_cd
+            - funcdtl_cd
+            - lineoff_beto_ymd
+          config:
+            severity: error
+    columns:
+      - name: spec_no
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: carnm_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: funcdtl_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lineoff_beto_ymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  # ファーム枠
+  - name: stg_farmwaku_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dlr_cd
+            - carnm_cd
+            - spec_no
+            - obj_ym_jun
+            - funcdtl_cd
+          config:
+            severity: error
+    columns:
+      - name: dlr_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: carnm_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: spec_no
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: obj_ym_jun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: funcdtl_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  # 工場カレンダーTBL
+  - name: stg_koujou_calendar_tbl_syaryosys
+    config:
+      tags: ["syaryosys"]
+    columns:
+      - name: ymd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+  # オーダー確定日TBL
+  - name: stg_order_kakuteibi_tbl_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - spec_no
+            - carnm_cd
+            - odr_dcson_ymd
+          config:
+            severity: error
+    columns:
+      - name: spec_no
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: carnm_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: odr_dcson_ymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
