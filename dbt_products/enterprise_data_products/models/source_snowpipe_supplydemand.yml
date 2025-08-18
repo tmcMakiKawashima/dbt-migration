@@ -178,8 +178,8 @@ sources:
         columns:
           - name: raw_data
             data_tests:
-              - fixed_length:
-                  length: 40
+            - fixed_length:
+                length: 40
       - name: raw_tsjfa36e
         identifier: tsjfa36e
         columns:
