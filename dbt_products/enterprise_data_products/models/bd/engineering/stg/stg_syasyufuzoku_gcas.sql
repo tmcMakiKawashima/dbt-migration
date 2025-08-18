@@ -13,7 +13,6 @@
                     and stg.hansiyono8 = raw.hansiyono8
                     and stg.hankata = raw.hankata
                     and raw._fivetran_deleted = 'true'
-                    and raw._fivetran_synced > (select max(ldts) from {{ this }})
             {% endif %}
         "
     )
