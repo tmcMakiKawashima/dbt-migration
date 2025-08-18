@@ -16,7 +16,6 @@
                     and stg.syurui = raw.syurui
                     and stg.jyokenno = raw.jyokenno
                     and raw._fivetran_deleted = 'true'
-                    and raw._fivetran_synced > (select max(ldts) from {{ this }})
             {% endif %}
         "
     )
