@@ -15,7 +15,6 @@
                     and stg.edaban = raw.edaban
                     and stg.fuzokukbn = raw.fuzokukbn
                     and raw._fivetran_deleted = 'true'
-                    and raw._fivetran_synced > (select max(ldts) from {{ this }})
             {% endif %}
         "
     )
