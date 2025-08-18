@@ -23,7 +23,7 @@ from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import sch
 from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_cam2204 import schedule_d_jyukyujyoho_cam2204
 from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_cam2501 import schedule_d_jyukyujyoho_cam2501
 from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_cam2502 import schedule_d_jyukyujyoho_cam2502
-from .schedules_items.supplydemand.public.schedule_d_syaryosys_2200 import schedule_d_syaryosys_2200
+from .schedules_items.supplydemand.public.schedule_d_syaryosys_0500 import schedule_d_syaryosys_0500
 from .schedules_items.supplydemand.public.schedule_stg_aqua import schedule_stg_aqua
 from .schedules_items.supplydemand.public.schedule_stg_dly_rpt_mst import schedule_stg_dly_rpt_mst
 from .schedules_items.supplydemand.public.schedule_stg_dly_rpt import schedule_stg_dly_rpt
@@ -103,8 +103,8 @@ schedules.append(schedule_d_jyukyujyoho_cam2204)
 schedules.append(schedule_d_jyukyujyoho_cam2501)
 # 需給情報基盤_地域マスタ
 schedules.append(schedule_d_jyukyujyoho_cam2502)
-# 車両システム_2200
-schedules.append(schedule_d_syaryosys_2200)
+# 車両システム_0500
+schedules.append(schedule_d_syaryosys_0500)
 # AQUA
 schedules.append(schedule_stg_aqua)
 # 生産日報STEP3
