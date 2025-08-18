@@ -13,7 +13,6 @@
                     and stg.clrno = raw.clrno
                     and stg.syasyu = raw.syasyu
                     and raw._fivetran_deleted = 'true'
-                    and raw._fivetran_synced > (select max(ldts) from {{ this }})
             {% endif %}
         "
     )
