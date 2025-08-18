@@ -21,3 +21,11 @@ sources:
     tables:
       - name: raw_dm_vinhis_spec200_allsalecar
         identifier: dm_vinhis_spec200_allsalecar
+
+  - name: vinhis_db_parts
+    database: vinhis_db
+    schema: parts
+    tables:
+    # gijutsu-sms
+      - name: raw_dm_allsalescar_variation
+        identifier: dm_allsalescar_variation

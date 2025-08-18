@@ -1,0 +1,66 @@
+version: 2
+models:
+# バリエーション台数
+  - name: dm_variation_seisan_daisu
+    config:
+      tags: ["gijutsu-sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu
+            - kumitate
+            - bui
+            - vari
+            - seppen_no_kara
+            - haisya_kt
+            - spec200
+            - sk_y
+            - sk_m
+          config:
+            severity: error
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kumitate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vari
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seppen_no_kara
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisya_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: spec200
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sk_y
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sk_m
+        data_tests:
+          - not_null:
+              config:
+                severity: error
