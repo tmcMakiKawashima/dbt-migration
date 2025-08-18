@@ -13,7 +13,6 @@
                     and stg.hansiyono8 = raw.hansiyono8
                     and stg.jyokenno = raw.jyokenno
                     and raw._fivetran_deleted = 'true'
-                    and raw._fivetran_synced > (select max(ldts) from {{ this }})
             {% endif %}
         "
     )
@@ -30,7 +29,7 @@ with stg_syasyusiji_gcas as (
         hankatajk1keta::varchar(1) as hankatajk1keta,
         hankatajk1val::varchar(1) as hankatajk1val,
         hankatajk2ud::varchar(1) as hankatajk2ud,
-        hankatajk2val::varchar(1) as hankatajk2val,
+        hankatajk2val::varchar(10) as hankatajk2val,
         framejkkara::varchar(7) as framejkkara,
         framejkmade::varchar(7) as framejkmade,
         yusendo::varchar(2) as yusendo,
