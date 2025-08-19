@@ -28,6 +28,9 @@ from .schedules_items.supplydemand.public.schedule_stg_kodomo import schedule_st
 from .schedules_items.supplydemand.public.schedule_stg_siyou_soubi_siyoumst import schedule_stg_siyou_soubi_siyoumst
 from .schedules_items.supplydemand.public.schedule_stg_siyou_soubi_syasyu_siyousyo import schedule_stg_siyou_soubi_syasyu_siyousyo
 from .schedules_items.supplydemand.public.schedule_stg_syaryoindex import schedule_stg_syaryoindex
+from .schedules_items.supplydemand.public.schedule_stg_syaryosys_0830 import schedule_stg_syaryosys_0830
+from .schedules_items.supplydemand.public.schedule_stg_syaryosys_0830_1130_1430 import schedule_stg_syaryosys_0830_1130_1430
+from .schedules_items.supplydemand.public.schedule_stg_syaryosys_0945 import schedule_stg_syaryosys_0945
 from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_stg_vlt_ord
 """ valuechain """
 from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
@@ -107,6 +110,10 @@ schedules.append(schedule_stg_siyou_soubi_siyoumst)
 schedules.append(schedule_stg_siyou_soubi_syasyu_siyousyo)
 # 車両INDEX
 schedules.append(schedule_stg_syaryoindex)
+#車両システム
+schedules.append(schedule_stg_syaryosys_0830)
+schedules.append(schedule_stg_syaryosys_0830_1130_1430)
+schedules.append(schedule_stg_syaryosys_0945)
 # VLTオーダー確定日チェックEUC
 schedules.append(schedule_stg_vlt_ord)
 """ valuechain """
