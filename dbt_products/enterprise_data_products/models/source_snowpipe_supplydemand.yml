@@ -73,8 +73,8 @@ sources:
         columns:
           - name: raw_data
             data_tests:
-            - fixed_length:
-                length: 90
+              - fixed_length:
+                  length: 90
       - name: raw_tsjfa392
         identifier: tsjfa392
         columns:
