@@ -87,8 +87,8 @@ sources:
         columns:
           - name: raw_data
             data_tests:
-            - fixed_length:
-                length: 580
+              - fixed_length:
+                  length: 580
     # AQUA
       - name: raw_nojfa560
         identifier: nojfa560
