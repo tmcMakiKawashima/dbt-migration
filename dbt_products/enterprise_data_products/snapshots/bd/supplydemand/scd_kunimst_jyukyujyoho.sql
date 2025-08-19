@@ -1,9 +1,9 @@
-{% snapshot scd_cam2502_jyukyujyoho %}
+{% snapshot scd_kunimst_jyukyujyoho %}
 
 {{
     config(
         unique_key="concat_ws('-',
-                    r_area_code,
+                    r_country_code,
                     load_date)",
 
         strategy='timestamp',
@@ -12,6 +12,6 @@
     )
 }}
 
-select * from {{ ref('stg_cam2502_jyukyujyoho') }}
+select * from {{ ref('stg_kunimst_jyukyujyoho') }}
 
 {% endsnapshot %}

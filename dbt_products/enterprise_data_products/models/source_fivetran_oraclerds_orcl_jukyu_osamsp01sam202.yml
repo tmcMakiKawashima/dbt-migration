@@ -1,9 +1,9 @@
 version: 2
 
 sources:
-  - name: fivetran_database_oraclerds_orcl_jukyu_osamsp0100db20
+  - name: fivetran_database_oraclerds_orcl_jukyu_osamsp01sam202
     database: fivetran_database
-    schema: oraclerds_orcl_jukyu_osamsp0100db20
+    schema: oraclerds_orcl_jukyu_osamsp01sam202
     freshness:
       warn_after: { count: 1, period: hour }
       error_after: { count: 24, period: hour }
@@ -11,7 +11,5 @@ sources:
    
     tables:
 # JYUKYUJYOHO
-      - name: raw_cam2502
-        identifier: cam2502
-      - name: raw_cam2501
-        identifier: cam2501
+      - name: raw_cam2204
+        identifier: cam2204
