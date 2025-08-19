@@ -22,7 +22,7 @@ with dm_siyo_daisu as (
         sk_y, -- 終検日年
         sk_m, -- 終検日月
         sum(daisu)::number(13,0) as daisu, -- 台数
-        current_timestamp::timestamp_ntz as ldts -- 作成日時
+        current_timestamp::timestamp_ntz(9) as ldts -- 作成日時
     from
         {{ref('dm_siyo_seisan_daisu')}}
     group by
