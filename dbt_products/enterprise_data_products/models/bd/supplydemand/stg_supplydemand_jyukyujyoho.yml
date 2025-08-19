@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  # 地域マスタ
+# 地域マスタ
   - name: stg_tiikimst_jyukyujyoho
     config:
       tags: ["jyukyujyoho"]
