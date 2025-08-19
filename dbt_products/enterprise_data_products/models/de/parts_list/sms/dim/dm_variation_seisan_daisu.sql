@@ -1,4 +1,3 @@
-
 {{ 
   config(
     materialized = 'incremental',
@@ -69,10 +68,7 @@ inserts_vsd as (
 {% if is_incremental() %}
     where
         not exists (
-            select
-            1
-            from
-                {{ this }} ti
+            select 1 from {{ this }} ti
             where
                 vd.syasyu = ti.syasyu
             and vd.kumitate = ti.kumitate
