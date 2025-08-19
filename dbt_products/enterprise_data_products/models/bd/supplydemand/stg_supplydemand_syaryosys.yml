@@ -1194,7 +1194,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # CMFDUMPデータ
+# CMFDUMPデータ
   - name: stg_cmf_syaryosys
     config:
       tags: ["syaryosys"]
