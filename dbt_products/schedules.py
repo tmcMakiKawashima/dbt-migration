@@ -105,13 +105,15 @@ schedules.append(schedule_stg_mashotoroku)
 # 用品品番明細
 schedules.append(schedule_stg_yohinhinbanmeisai)
 """ supplydemand """
-# 需給情報基盤
+# 需給情報基盤_0130
 schedules.append(schedule_d_jyukyujyoho_0130)
+# 需給情報基盤(オーダーDB)
 schedules.append(schedule_d_jyukyujyoho_0530)
-# 車両システム
+# 車両システム_0200
 schedules.append(schedule_d_syaryosys_0200)
-# VLC本体
+# VLC本体_0130
 schedules.append(schedule_d_vlc_0130)
+# VLC本体_0500
 schedules.append(schedule_d_vlc_0500)
 # AQUA
 schedules.append(schedule_stg_aqua)

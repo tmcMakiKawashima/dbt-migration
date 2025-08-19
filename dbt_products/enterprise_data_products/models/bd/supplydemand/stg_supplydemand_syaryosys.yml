@@ -1174,7 +1174,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 仮仮振り当て結果
+# 仮仮振り当て結果
   - name: stg_karikarifuri_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1196,7 +1196,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 仕様エラー
+# 仕様エラー
   - name: stg_juchuzan_shiyoerr_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1218,7 +1218,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 納期付与結果日別能力枠
+# 納期付与結果日別能力枠
   - name: stg_noryokuwaku_date_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1270,7 +1270,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 納期付与結果月別能力枠
+# 納期付与結果月別能力枠
   - name: stg_noryokuwaku_month_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1310,7 +1310,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # DFSC×機能明細コード
+# DFSC×機能明細コード
   - name: stg_dfsc_kinomeisaicd_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1344,7 +1344,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 販売店別月台数ファーム
+# 販売店別月台数ファーム
   - name: stg_daisu_month_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1390,7 +1390,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # メーカー・ライン対応マスタ
+# メーカー・ライン対応マスタ
   - name: stg_maker_line_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1412,7 +1412,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 組立ライン別カレンダー
+# 組立ライン別カレンダー
   - name: stg_line_cal_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1440,7 +1440,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # ファーム管理オーダー枠
+# ファーム管理オーダー枠
   - name: stg_fwaku_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1498,7 +1498,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 旬間オーダー枠ロケータ
+# 旬間オーダー枠ロケータ
   - name: stg_roketa_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1520,7 +1520,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 需給ステイタスDB
+# 需給ステイタスDB
   - name: stg_jukyustatus_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1578,7 +1578,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 受注残付与結果
+# 受注残付与結果
   - name: stg_jyuchuzan_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1600,52 +1600,8 @@ models:
           - not_null:
               config:
                 severity: error
-  # COオーダー付与結果
+# COオーダー付与結果
   - name: stg_coorder_syaryosys
-    config:
-      tags: ["syaryosys"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - odno
-          config:
-            severity: error
-    columns:
-      - name: dlrcd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: odno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-  # 受注残付与結果_dec
-  - name: stg_jyuchuzan_dec_syaryosys
-    config:
-      tags: ["syaryosys"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - chumon
-          config:
-            severity: error
-    columns:
-      - name: dlrcd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: chumon
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-  # COオーダー付与結果_dec
-  - name: stg_coorder_dec_syaryosys
     config:
       tags: ["syaryosys"]
     data_tests:
