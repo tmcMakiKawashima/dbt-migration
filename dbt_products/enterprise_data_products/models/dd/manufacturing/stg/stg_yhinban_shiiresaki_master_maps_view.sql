@@ -58,14 +58,8 @@ with stg_yhinban_shiiresaki_master_maps_view as (
     note_for_supplier::varchar(80) as note_for_supplier, -- 仕入先備考
     org_id::varchar(15) as org_id, -- 営業単位ID
     object_version_number::varchar(9) as object_version_number, -- Object Version Number
-    sha2('created_by', 256) as created_by, -- 作成者
-    created_user_name::varchar(30) as created_user_name, -- 作成者ユーザー名
     creation_date::varchar(14) as creation_date, -- 作成日時
-    sha2('last_updated_by', 256) as last_updated_by, -- 最終更新者
-    last_updated_user_name::varchar(30) as last_updated_user_name, -- 最終更新者ユーザー名
     last_update_date::varchar(14) as last_update_date, -- 最終更新日時
-    sha2('last_update_login', 256) as last_update_login, -- 最終更新ログイン
-    last_upd_login_user_name::varchar(30) as last_upd_login_user_name, -- 最終更新ログインユーザー名
     request_id::varchar(15) as request_id, -- 要求ID
     program_application_id::varchar(15) as program_application_id, -- コンカレント・プログラム・アプリケーションID
     program_id::varchar(15) as program_id, -- コンカレント・プログラムID
