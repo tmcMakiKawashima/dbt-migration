@@ -10,7 +10,6 @@ sources:
     loaded_at_field: _fivetran_synced
    
     tables:
-# JYUKYUJYOHO
       - name: raw_cam2502
         identifier: cam2502
       - name: raw_cam2501
