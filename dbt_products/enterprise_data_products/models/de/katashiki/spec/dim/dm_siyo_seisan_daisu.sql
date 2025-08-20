@@ -33,7 +33,7 @@ with dm_siyo_seisan_daisu as (
         coalesce(sk_y, '') as sk_y, -- 終検日年
         coalesce(sk_m, '') as sk_m, -- 終検日月
         count(*)::number(13,0) as daisu, -- 台数
-        current_timestamp::timestamp_ntz as ldts -- 作成日時
+        current_timestamp::timestamp_ntz(9) as ldts -- 作成日時
     from
         {{source('vinhis_db_spec','raw_dm_vinhis_spec200_allsalecar')}}
     group by
