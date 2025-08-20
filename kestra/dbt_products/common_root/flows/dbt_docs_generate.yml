@@ -52,12 +52,16 @@ triggers:
     type: io.kestra.plugin.core.trigger.Flow
     inputs:
       branch: "{{ trigger.outputs.target_branch }}"
-    preconditions:
-      id: flows
-      flows:
-        - namespace: kestra_dbt_project
-          flowId: git_sync_flows_files
-          states: [SUCCESS]
+    conditions:
+      - type: io.kestra.plugin.core.condition.ExecutionLabels
+        labels:
+          dbt_docs: generate
+      - type: io.kestra.plugin.core.condition.ExecutionNamespace
+        namespace: "kestra_dbt_project"
+        prefix: true
+      - type: io.kestra.plugin.core.condition.ExecutionStatus
+        in:
+          - SUCCESS
 
 finally:
   - id: finally_log 
