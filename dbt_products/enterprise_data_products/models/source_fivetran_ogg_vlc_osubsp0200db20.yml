@@ -10,7 +10,6 @@ sources:
     loaded_at_field: _fivetran_synced
    
     tables:
-    # VLC
       - name: raw_cubd003shihanho
         identifier: cubd003shihanho
       - name: raw_cubd004shihandtlho
