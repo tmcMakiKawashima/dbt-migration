@@ -1,7 +1,7 @@
 with vd1 as (
   select * from {{ref('tmp20_dm_variation_seisan_daisu')}}
 ),sd as (
-  select * from {{source('katashiki_db_spec','raw_dm_siyo_daisu')}}
+  select * from {{ref('dm_siyo_daisu')}}
 )
 select
   vd1.*,
