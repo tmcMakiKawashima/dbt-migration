@@ -1,0 +1,66 @@
+version: 2
+models:
+# 補給設定
+  - name: stg_hokyusettei_smshokyu
+    config:
+      tags: ["smshokyu"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu32
+            - syasyu
+            - kumitate
+            - bui
+            - vari
+            - oyahin
+            - gc
+            - kohin
+            - sepjunk
+          config:
+            severity: error
+    columns:
+      - name: syasyu32
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kumitate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vari
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: oyahin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: gc
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kohin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sepjunk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
