@@ -12,3 +12,5 @@ sources:
     tables:
       - name: raw_cvf03hosetu
         identifier: cvf03hosetu
+      - name: raw_cvf03hosetuclr
+        identifier: cvf03hosetuclr

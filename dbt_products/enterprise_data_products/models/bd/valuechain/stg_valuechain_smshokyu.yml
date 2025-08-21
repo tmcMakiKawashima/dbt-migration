@@ -64,3 +64,67 @@ models:
           - not_null:
               config:
                 severity: error
+# 補給設定色
+  - name: stg_hokyusetteisyoku_smshokyu
+    config:
+      tags: ["smshokyu"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu
+            - kumitate
+            - bui
+            - vari
+            - oyahin
+            - gc
+            - kohin
+            - ruibetu
+            - sepjunk
+          config:
+            severity: error
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kumitate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vari
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: oyahin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: gc
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kohin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ruibetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sepjunk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
