@@ -833,3 +833,51 @@ models:
           - not_null:
               config:
                 severity: error
+# 区分マスタ
+  - name: stg_kbnmst_vlc
+    config:
+      tags: ["vlc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - kbn
+            - cd
+            - lang_cd
+          config:
+            severity: error
+    columns:
+      - name: kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lang_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: field
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: disp_seq
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
