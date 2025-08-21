@@ -417,7 +417,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 納期統合情報(輸出)(保管)
+# 納期統合情報(輸出)(保管)
   - name: stg_noukitougoujyoho_yusyutuho_vlc
     config:
       tags: ["vlc"]
