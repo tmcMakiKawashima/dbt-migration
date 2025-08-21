@@ -1,6 +1,6 @@
 version: 2
 models:
-# SPEC生産実績台数
+# 仕様生産情報実績
   - name: dm_siyo_seisan_daisu
     data_tests:
       - dbt_utils.unique_combination_of_columns:
