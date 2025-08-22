@@ -83,7 +83,6 @@ triggers:
           - WARNING
           - SUCCESS
 
-
 # エラーログを出力
 errors:
   - id: error_log
