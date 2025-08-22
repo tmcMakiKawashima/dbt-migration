@@ -63,6 +63,21 @@ triggers:
         in:
           - SUCCESS
 
+# エラーログを出力
+errors:
+  - id: error_log
+    type: io.kestra.plugin.core.debug.Return
+    format: "{{ errorLogs()[0]['message'] }}"
+
+outputs: 
+  - id: output_error_log
+    type: STRING
+    value: "{{ outputs.error_log.value ?? 'No message found.' }}"
+  - id: output_state
+    type: STRING
+    value: "{{ tasks.dbt.state ?? 'No state' }}"
+
+# ログ出力
 finally:
   - id: finally_log 
     type: io.kestra.plugin.core.log.Log
