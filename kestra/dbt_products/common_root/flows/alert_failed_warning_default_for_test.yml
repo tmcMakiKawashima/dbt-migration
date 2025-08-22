@@ -18,6 +18,7 @@ triggers:
     type: io.kestra.plugin.core.trigger.Flow
     inputs:
       error_log: "{{ trigger.outputs.output_error_log ?? 'No message found.' }}"
+      state: "{{ trigger.outputs.output_state ?? 'No state' }}"
     conditions:
       - type: io.kestra.plugin.core.condition.ExecutionLabels
         labels:
@@ -33,6 +34,7 @@ triggers:
     type: io.kestra.plugin.core.trigger.Flow
     inputs:
       error_log: "{{ trigger.outputs.output_error_log ?? 'No message found.' }}"
+      state: "{{ trigger.outputs.output_state ?? 'No state' }}"
     conditions:
       - type: io.kestra.plugin.core.condition.ExecutionLabels
         labels:
@@ -46,4 +48,4 @@ triggers:
           - WARNING
           - SUCCESS
           
-disabled: true
+disabled: false
