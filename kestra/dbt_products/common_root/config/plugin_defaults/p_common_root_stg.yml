@@ -90,7 +90,7 @@
   values:
     from:
       - data: |
-          The Kestra workflow execution failed. [{{ namespace.ENV }}]
+          The Kestra workflow execution {{ inputs.state }}. [{{ namespace.ENV }}]
 
           -----------------------------------------------------------------------------------------------------------------------------
           - Namespace: {{ trigger.namespace }}
@@ -108,7 +108,7 @@
           -
           -
           -
-        subject: "[{{ namespace.ENV }}] Kestra Workflow Error: {{ trigger.flowId }}"
+        subject: "[{{ namespace.ENV }}] Kestra Workflow {{ inputs.state }}: {{ trigger.flowId }}"
     region: "{{ namespace.ALERTS.REGION }}"
     topicArn: "{{ namespace.ALERTS.TOPIC }}"
 - type: io.kestra.plugin.scripts.python.Commands
