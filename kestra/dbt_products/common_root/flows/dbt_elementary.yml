@@ -83,6 +83,7 @@ triggers:
           - WARNING
           - SUCCESS
 
+
 # エラーログを出力
 errors:
   - id: error_log
@@ -93,5 +94,8 @@ outputs:
   - id: output_error_log
     type: STRING
     value: "{{ outputs.error_log.value ?? 'No message found.' }}"
+  - id: output_state
+    type: STRING
+    value: "{{ tasks.dbt.state ?? 'No state' }}"
     
 disabled: false
