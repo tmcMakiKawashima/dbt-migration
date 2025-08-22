@@ -16,6 +16,6 @@
     )
 }}
 
-select * from {{ ref('stg_daitaijoho_smshokyu' )}}
+select * from {{ ref('stg_daitaijoho_smshokyu') }}
 
 {% endsnapshot%}
