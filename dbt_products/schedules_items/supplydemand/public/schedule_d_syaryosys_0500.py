@@ -10,7 +10,7 @@ schedule_d_syaryosys_0500 = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_d_syaryosys_0500",
     schedule_name="SYARYOSYS_0500",
-    cron_schedule="00 05 * * 1-5",
+    cron_schedule="00 05 * * 2-6",
     execution_timezone="Asia/Tokyo",
     dbt_select="+stg_vlt_syaryosys +stg_oem_syaryosys +stg_cmf_syaryosys",
     config=RunConfig(ops={"dbt_products_assets":
