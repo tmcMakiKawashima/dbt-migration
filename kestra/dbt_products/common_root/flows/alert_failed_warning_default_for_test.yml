@@ -1,0 +1,51 @@
+id: alert_failed_warning_default_for_test
+namespace: kestra_dbt_project
+
+labels:
+  type: common_root
+
+inputs:
+  - id: error_log
+    type: STRING
+    defaults: No message found.
+
+tasks:
+  - id: publish
+    type: io.kestra.plugin.aws.sns.Publish
+
+triggers:
+  - id: flow_trigger_failed
+    type: io.kestra.plugin.core.trigger.Flow
+    inputs:
+      error_log: "{{ trigger.outputs.output_error_log ?? 'No message found.' }}"
+      state: "{{ trigger.outputs.output_state ?? 'No state' }}"
+    conditions:
+      - type: io.kestra.plugin.core.condition.ExecutionLabels
+        labels:
+          error: default_failed
+      - type: io.kestra.plugin.core.condition.ExecutionNamespace
+        namespace: "kestra_dbt_project"
+        prefix: true
+      - type: io.kestra.plugin.core.condition.ExecutionStatus
+        in:
+          - FAILED
+          - SUCCESS
+  - id: flow_trigger_failed_warning
+    type: io.kestra.plugin.core.trigger.Flow
+    inputs:
+      error_log: "{{ trigger.outputs.output_error_log ?? 'No message found.' }}"
+      state: "{{ trigger.outputs.output_state ?? 'No state' }}"
+    conditions:
+      - type: io.kestra.plugin.core.condition.ExecutionLabels
+        labels:
+          error: default_failed_warning
+      - type: io.kestra.plugin.core.condition.ExecutionNamespace
+        namespace: "kestra_dbt_project"
+        prefix: true
+      - type: io.kestra.plugin.core.condition.ExecutionStatus
+        in:
+          - FAILED
+          - WARNING
+          - SUCCESS
+          
+disabled: true

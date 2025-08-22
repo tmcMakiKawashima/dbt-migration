@@ -1,0 +1,33 @@
+id: dbt-snowflake-build
+namespace: kestra_dbt_project.proj-job-kuboi
+
+labels:
+  error: default
+
+tasks:
+  - id: dbt
+
+    type: io.kestra.plugin.core.flow.WorkingDirectory
+    tasks:
+      - id: clone_repository
+        type: io.kestra.plugin.git.Clone
+
+      - id: dbt_build
+        type: io.kestra.plugin.dbt.cli.DbtCLI
+        commands:
+          - dbt build
+            --select +dm_tmc_ippan_jutyunokikaito
+            --vars '{"DBT_JOB_NAME":"_chekk"}'
+            --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+
+triggers:
+  - id: schedule
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "00 11 * * *"
+
+finally:
+  - id: finally_log 
+    type: io.kestra.plugin.core.log.Log
+    message: 
+      - "Git branch -> {{ namespace.GIT.BRANCH }}"
+      # Execution RUNNING
