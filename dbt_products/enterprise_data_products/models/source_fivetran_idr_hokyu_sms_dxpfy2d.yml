@@ -14,3 +14,5 @@ sources:
         identifier: cvf03hosetu
       - name: raw_cvf03hosetuclr
         identifier: cvf03hosetuclr
+      - name: raw_cvf12daitai
+        identifier: cvf12daitai
