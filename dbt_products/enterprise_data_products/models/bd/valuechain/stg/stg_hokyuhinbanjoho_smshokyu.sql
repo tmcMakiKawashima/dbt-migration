@@ -3,7 +3,7 @@ with stg_hokyuhinbanjoho_smshokyu as (
         trim(syusbetu, ' 　')::varchar(4) as syusbetu, -- 左右ブランク
         trim(hinban, ' 　')::varchar(10) as hinban, -- 左右ブランク
         trim(ruibetu, ' 　')::varchar(2) as ruibetu, -- 左右ブランク
-        trim(kerekijun)::varchar(5) as kerekijun, -- 左右ブランク
+        trim(kerekijun,' 　')::varchar(5) as kerekijun, -- 左右ブランク
         sepnok::varchar(10) as sepnok,
         sepnom::varchar(10) as sepnom,
         trim(hokyukbn, ' 　')::varchar(2) as hokyukbn, -- 左右ブランク
