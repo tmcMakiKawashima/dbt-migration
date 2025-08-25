@@ -16,7 +16,7 @@ with vsd as(
         seppen_no_kara,  -- 設変Noカラ
         haisya_kt,  -- 配車型式
         spec200,  -- SPEC200桁組合せ
-        daisai200,  -- SPEC対応4桁仕様
+        spec200_siyo,  -- SPEC対応4桁仕様
         sk_y,  -- 終検日年
         sk_m,  -- 終検日月
         daisu,  -- 台数
@@ -33,7 +33,7 @@ updates_vsd as (
         vs.seppen_no_kara,  -- 設変Noカラ
         vs.haisya_kt,  -- 配車型式
         vs.spec200,  -- SPEC200桁組合せ
-        vs.daisai200,  -- SPEC対応4桁仕様
+        vs.spec200_siyo,  -- SPEC対応4桁仕様
         vs.sk_y,  -- 終検日年
         vs.sk_m,  -- 終検日月
         cast(vs.daisu + th.daisu as number(13,0)) as daisu,  -- 台数

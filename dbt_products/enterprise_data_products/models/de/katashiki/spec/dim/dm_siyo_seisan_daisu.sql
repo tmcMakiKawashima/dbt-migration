@@ -18,7 +18,7 @@ with dm_siyo_seisan_daisu as (
         haisya_kt, -- 配車型式
         null::varchar(2) as r_sfx_code,
         spec200, -- SPEC200桁組合せ
-        max(daisai200) as daisai200, -- SPEC対応4桁仕様
+        max(spec200_siyo) as spec200_siyo, -- SPEC対応4桁仕様
         coalesce(int_cd, '') as int_cd, -- 内張コード
         max(int_cd_iromei) as int_cd_iromei, -- 内張名
         coalesce(ext_cd, '') as ext_cd, -- 鈑色コード

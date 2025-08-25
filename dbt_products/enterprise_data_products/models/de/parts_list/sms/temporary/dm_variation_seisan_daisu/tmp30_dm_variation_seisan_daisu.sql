@@ -12,7 +12,7 @@ on (
     vd1.syasyu = sd.syasyu
 and vd1.haisya_kt = sd.haisya_kt
 and vd1.spec200 = sd.spec200
-and vd1.daisai200 = sd.daisai200
+and vd1.spec200_siyo = sd.spec200_siyo
 and vd1.sk_y = sd.sk_y
 and vd1.sk_m = sd.sk_m
 )

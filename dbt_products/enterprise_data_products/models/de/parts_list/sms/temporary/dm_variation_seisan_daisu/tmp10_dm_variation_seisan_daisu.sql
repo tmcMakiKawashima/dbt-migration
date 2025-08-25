@@ -9,7 +9,7 @@ with vsas as (
     syasyu,  -- 車種コード
     haisya_kt,  -- 配車型式
     spec200,  -- SPEC200桁組合せ
-    daisai200,  -- SPEC対応4桁仕様
+    spec200_siyo,  -- SPEC対応4桁仕様
     sk_y,  -- 終検日年
     sk_m  -- 終検日月
   from {{source('vinhis_db_spec','raw_dm_vinhis_spec200_allsalecar')}}
@@ -42,7 +42,7 @@ select
     coalesce(ascv.seppen_no_kara, '') as seppen_no_kara,  -- 設変Noカラ
     coalesce(vsas.haisya_kt, '') as haisya_kt,  -- 配車型式
     coalesce(vsas.spec200, '') as spec200,  -- SPEC200桁組合せ
-    vsas.daisai200,  -- SPEC対応4桁仕様
+    vsas.spec200_siyo,  -- SPEC対応4桁仕様
     coalesce(vsas.sk_y, '') as sk_y,  -- 終検日年
     coalesce(vsas.sk_m, '') as sk_m  -- 終検日月
 from vsas
