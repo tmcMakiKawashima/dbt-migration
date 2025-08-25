@@ -1,1192 +1,941 @@
 version: 2
 
 models:
-  # ライン別稼働形態DB（N数）
-  - name: stg_line_kadokeitai
+# 完成車物流KEY情報
+  - name: stg_kanseisyabuturyukey_vlc
     config:
-      tags: ["syaryosys"]
-  # オーダー確定日ファイル（市販）
-  - name: stg_orderkakutei_shihan
+      tags: ["vlc"]
+    columns:
+      - name: vhc_key
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: idno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: prdct_year
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: prdct_country_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hbtcd_orderno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: order_acpt_date
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lrn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lrn_country_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frame_vis
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: edds
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syadaino
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vhc_yuko_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 車両PL生産計画情報
+  - name: stg_syaryoplseisaneplan_vlc
     config:
-      tags: ["syaryosys"]
-  # 輸出オーダー確定日ファイル
-  - name: stg_orderkakutei_yusyutu
-    config:
-      tags: ["syaryosys"]
-  # VLT送付対象日ファイル
-  - name: stg_vltsohutaisho
-    config:
-      tags: ["syaryosys"]
-  # 仕様マスタ(型式)
-  - name: stg_siyoumst_katashiki
-    config:
-      tags: ["syaryosys"]
+      tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - segmei
-            - renkey_hkata
-            - renkey_sedai
-            - ldts
+            - vhc_key
+            - plan_section
+            - kyoten_cd
+            - kyoten_kaisu
+            - tp_kbn
           config:
             severity: error
     columns:
-      - name: segmei
+      - name: vhc_key
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: renkey_hkata
+      - name: plan_section
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: renkey_sedai
+      - name: kyoten_cd
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: hkata
+      - name: kyoten_kaisu
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: sedai
+      - name: tp_kbn
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: jkkyy
+      - name: rootseq_no
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: jkkmm
+      - name: final_dest_flg
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: jkkdd
+      - name: ship_final_dest_sign
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: jkmyy
+      - name: prdct_line
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: jkmmm
+      - name: in_datetime_plan
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: jkmdd
+      - name: out_datetime_plan
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: dkkyy
+      - name: fst_in_datetime_plan
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: dkkmm
+      - name: fst_out_datetime_plan
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: dkkdd
+      - name: lst_in_datetime_plan
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: dkmyy
+      - name: lst_out_datetime_plan
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: dkmmm
+      - name: appointed_date
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: dkmdd
+      - name: appointed_date_update
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: syamei
+      - name: recover_line
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: sno
+      - name: new_hope
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: odt
+      - name: inst_datetime
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: katacd
+      - name: inst_id
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: bkata
+      - name: upd_datetime
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: ckata
+      - name: upd_id
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: fix
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seikbn1
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seijbn1
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seiyk1
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seibkbn1
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seikbn2
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seijbn2
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seiyk2
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seibkbn2
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seikbn3
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seijbn3
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seiyk3
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seibkbn3
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seikbn4
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seijbn4
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seiyk4
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seibkbn4
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seikbn5
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seijbn5
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seiyk5
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seibkbn5
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seikbn6
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seijbn6
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seiyk6
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seibkbn6
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seikbn7
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seijbn7
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seiyk7
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seibkbn7
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seikbn8
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seijbn8
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seiyk8
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seibkbn8
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seikbn9
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seijbn9
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seiyk9
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seibkbn9
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seikbn10
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seijbn10
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seiyk10
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seibkbn10
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: tecs
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: kmaker
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hassou
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: sofu
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: lflg
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: ldts
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-  # 仕様マスタ(チェック)
-  - name: stg_siyoumst_check
+# 車両PL生産実績情報
+  - name: stg_syaryoplseisanresult_vlc
     config:
-      tags: ["syaryosys"]
+      tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-          - segmei
-          - renkey_hkata
-          - renkey_sedai
-          - renkey_psign
-          - renkey_keykbn
-          - renkey_chk
-          - renkey_renban
-          - ldts
+            - vhc_key
+            - kyoten_cd
+            - kyoten_kaisu
+            - tp_kbn
           config:
             severity: error
     columns:
-      - name: segmei
+      - name: vhc_key
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: renkey_hkata
+      - name: kyoten_cd
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: renkey_sedai
+      - name: kyoten_kaisu
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: renkey_psign
+      - name: tp_kbn
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: renkey_keykbn
+      - name: final_dest_flg
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: renkey_chk
+      - name: ship_final_dest_sign
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: renkey_renban
+      - name: zaihai_sign
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: psign
+      - name: zaiko_sign
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: keykbn
+      - name: haisya_chushi_sign
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: chk
+      - name: saisin_sts_flg
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: renban
+      - name: prdct_line
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: jkkyy
+      - name: in_datetime_jsk
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: jkkmm
+      - name: out_datetime_jsk
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: jkkdd
+      - name: koujyo_reki
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: jkmyy
+      - name: inst_datetime
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: jkmmm
+      - name: inst_id
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: jkmdd
+      - name: upd_datetime
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: dkkyy
+      - name: upd_id
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: dkkmm
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: dkkdd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: dkmyy
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: dkmmm
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: dkmdd
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: setkbn1
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seiyak1
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: setkbn2
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seiyak2
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: setkbn3
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seiyak3
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: setkbn4
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seiyak4
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: setkbn5
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seiyak5
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: setkbn6
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seiyak6
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: setkbn7
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seiyak7
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: ldts
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-  # 仕様マスタ(ジェネレート)
-  - name: stg_siyoumst_generate
+# 車両PL物流拠点移動計画情報
+  - name: stg_syaryoplbuturyukyotenplan_vlc
     config:
-      tags: ["syaryosys"]
+      tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - segmei
-            - renkey_hkata
-            - renkey_sedai
-            - renkey_keykbn
-            - renkey_keykmk
-            - ldts
+            - vhc_key
+            - plan_section
+            - kyoten_cd
+            - kyoten_kaisu
           config:
             severity: error
     columns:
-      - name: segmei
+      - name: vhc_key
         data_tests:
-         - not_null:
-             config:
-               severity: error
-      - name: renkey_hkata
-        data_tests:
-            - not_null:
-                config:
-                  severity: error
-      - name : renkey_sedai
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : renkey_keykbn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : renkey_keykmk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : keykbn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : keykmk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt01
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt02
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt03
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt04
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt05
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt06
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt07
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt08
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt09
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt10
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt11
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt12
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt13
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt14
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt15
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt16
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt17
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt18
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt19
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt20
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt21
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt22
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt23
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt24
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt25
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt26
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt27
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt28
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt29
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt30
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt31
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt32
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt33
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt34
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt35
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt36
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt37
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt38
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt39
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt40
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt41
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt42
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt43
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt44
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt45
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt46
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt47
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt48
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt49
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt50
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt51
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt52
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt53
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt54
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt55
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt56
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt57
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt58
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name  : opt59
-        data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt60
+      - name: plan_section
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt61
+      - name: kyoten_cd
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt62
+      - name: kyoten_kaisu
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt63
+      - name: tp_kbn
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt64
+      - name: rootseq_no
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt65
+      - name: final_dest_flg
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt66
+      - name: ship_final_dest_sign
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt67
+      - name: prdct_line
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt68
+      - name: in_datetime_plan
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt69
+      - name: out_datetime_plan
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt70
+      - name: fst_in_datetime_plan
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt71
+      - name: fst_out_datetime_plan
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt72
+      - name: lst_in_datetime_plan
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt73
+      - name: lst_out_datetime_plan
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt74
+      - name: appointed_date
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt75
+      - name: appointed_date_update
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt76
+      - name: recover_line
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt77
+      - name: new_hope
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt78
+      - name: inst_datetime
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt79
+      - name: inst_id
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt80
+      - name: upd_datetime
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : ldts
+      - name: upd_id
         data_tests:
           - not_null:
               config:
                 severity: error
-  # 車種コード・仕様書№対応DB
-  - name: stg_syasyu_siyousho
+# 車両PL物流拠点移動実績情報
+  - name: stg_syaryoplbuturyukyotenresult_vlc
     config:
-      tags: ["syaryosys"]
+      tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - syasyu
-            - sno
-            - ldts
+            - vhc_key
+            - kyoten_cd
+            - kyoten_kaisu
+            - tp_kbn
           config:
             severity: error
     columns:
-      - name: syasyu
+      - name: vhc_key
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: sno
+      - name: kyoten_cd
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: jidokbn
+      - name: kyoten_kaisu
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: sktire
+      - name: tp_kbn
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: skdoitu
+      - name: final_dest_flg
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: tokusyu
+      - name: ship_final_dest_sign
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: syflg
+      - name: zaihai_sign
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: maesyasyu
+      - name: zaiko_sign
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: tutisyo
+      - name: haisya_chushi_sign
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: tutisuf
+      - name: saisin_sts_flg
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: lang
+      - name: prdct_line
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: lang2
+      - name: in_datetime_jsk
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: mtdate
+      - name: out_datetime_jsk
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: ldts
+      - name: koujyo_reki
         data_tests:
           - not_null:
               config:
                 severity: error
-  # 仕様変換
-  - name: stg_siyouhenkan
+      - name: inst_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 車両PL物流構内作業架装計画情報
+  - name: stg_syaryoplbuturyuopeplan_vlc
     config:
-      tags: ["syaryosys"]
+      tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - syasyu
-            - shiyodai
-            - shiyosai
-            - s1keta
-            - s1kigo
-            - ctlkata
+            - vhc_key
+            - plan_section
+            - kyoten_cd
+            - kyoten_kaisu
+            - tp_kbn
           config:
             severity: error
     columns:
-      - name: syasyu
+      - name: vhc_key
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: shiyodai
+      - name: plan_section
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: shiyosai
+      - name: kyoten_cd
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: s1keta
+      - name: kyoten_kaisu
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: s1kigo
+      - name: tp_kbn
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: ctlkata
+      - name: rootseq_no
         data_tests:
           - not_null:
               config:
                 severity: error
-# 仮仮振り当て結果
-  - name: stg_karikarifuri_syaryosys
+      - name: final_dest_flg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ship_final_dest_sign
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: prdct_line
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: in_datetime_plan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: out_datetime_plan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: fst_in_datetime_plan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: fst_out_datetime_plan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lst_in_datetime_plan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lst_out_datetime_plan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: appointed_date
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: appointed_date_update
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: recover_line
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: new_hope
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 拠点マスタ（VLC)
+  - name: stg_kyotenmst_vlc
     config:
-      tags: ["syaryosys"]
+      tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - dlrcd
-            - odno
+            - kyoten_cd
+            - tkiy_k
           config:
             severity: error
     columns:
-      - name: dlrcd
+      - name: kyoten_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tkiy_k
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tkiy_m
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mng_company_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mng_country_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: saiban_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: yobi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_kino
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_nm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_nm_en
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hyouji_nm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hyouji_nm_en
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: district_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syuyo_kyoten_flg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 車両PL物流構内作業架装実績情報
+  - name: stg_syaryoplbuturyuoperesult_vlc
+    config:
+      tags: ["vlc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - vhc_key
+            - kyoten_cd
+            - kyoten_kaisu
+            - tp_kbn
+          config:
+            severity: error
+    columns:
+      - name: vhc_key
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_kaisu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tp_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: final_dest_flg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ship_final_dest_sign
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: zaihai_sign
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: zaiko_sign
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisya_chushi_sign
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: saisin_sts_flg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: prdct_line
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: in_datetime_jsk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: out_datetime_jsk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: koujyo_reki
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 納期統合情報(市販)
+  - name: stg_noukitougoujyoho_shihan_vlc
+    config:
+      tags: ["vlc"]
+    columns:
+      - name: vhc_key
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_cd_finaldest
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_cd_plant
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_cd_genkyoten
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hbtcd
         data_tests:
           - not_null:
               config:
@@ -1196,428 +945,956 @@ models:
           - not_null:
               config:
                 severity: error
-# 仕様エラー
-  - name: stg_juchuzan_shiyoerr_syaryosys
+      - name: chumonno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyaku_umu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: businessoffice_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frame_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frame_no
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vhc_yuko_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: latest_kosin_nitiji
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tck_yotei_bi_haisya
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tck_yotei_bi_annai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: okure_nissu_annai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tck_yotei_bi_latest
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: noukikosin_sinsei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: noukikosin_siteinitiji
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: noukikosin_jyokyo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: noukikosin_kaisu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tokkyu_flg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vhc_sts_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: yuso_cd_haisya
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: yuso_cd_latest
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seikansyamei_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ijyo_flg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: osirase_info_flg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lo_date_plan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: naikosen_umu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tecs_sign
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sinten_yotei_bi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sinten_kibo_bi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sinten_seq
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: disp_vhc_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ctrl_ktsk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kosyo_ktsk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syuken_jsk_nitiji
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lo_jsk_nitiji
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ukewatasi_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: noki_sanshutsu_nitiji
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ijyo_riyu_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bankai_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tck_yotei_bi_annai_sai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: taisho_vhc
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tck_yotei_bi_chakou
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 納期統合情報(市販)明細
+  - name: stg_noukitougoujyoho_shihandtl_vlc
     config:
-      tags: ["syaryosys"]
+      tags: ["vlc"]
+    columns:
+      - name: vhc_key
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: prdct_year
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: idno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tenpo_yotei_bi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tenpo_kibo_bi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: okure_nissu_sinten
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: chakko_yotei_nitiji
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: chakko_jsk_nitiji
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tck_jsk_bi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nyumon_jsk_nitiji
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syuken_yotei_nitiji
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisya_yotei_nitiji
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisya_jsk_nitiji
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_cd_syukka
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kaso_maker_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_cd_kasomaker
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: yoteihokanti_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_cd_hokan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hbtcd_ai21
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: chakusen_yotei_bi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: chakusen_jsk_bi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: gaiban_color_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sales_ktsk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_kaisu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tenpo_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: huriate_bi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# NB拠点計画情報(配車)
+  - name: stg_nbkyotenplanhaisha_vlc
+    config:
+      tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - dlrcd
-            - chumon
+            - vhc_key
+            - kyoten_cd
+            - kyoten_kaisu
           config:
             severity: error
     columns:
-      - name: dlrcd
+      - name: vhc_key
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: chumon
+      - name: plan_section
         data_tests:
           - not_null:
               config:
                 severity: error
-# 納期付与結果日別能力枠
-  - name: stg_noryokuwaku_date_syaryosys
+      - name: kyoten_cd_org
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_kaisu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: renkei_count
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: keikaku_keiro_jun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_cd_fowd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyoten_cd_next
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: furikae_kyoten_cd_gkyoten_fowd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: furikae_kyoten_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: furikae_kyoten_cd_gkyoten
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: furikae_kyoten_cd_gkyoten_next
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hyouji_nm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hyouji_nm_fowd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hyouji_nm_cd_next
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: furikae_kyoten_nm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: furikae_kyoten_nm_fowd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: furikae_kyoten_nm_next
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: in_datetime_plan_kaku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: out_datetime_plan_kaku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: in_datetime_plan_lt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: out_datetime_plan_lt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: in_datetime_plan_funa
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: out_datetime_plan_funa
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: rikukai_kbn_fowd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: rikukai_kbn_next
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nouki_fydm_kyoten_flg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mzai_tecs_nokan_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hokanti_tome_flg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: saisyu_agekou_flg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisha_hadure_fg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisha_hadure_yns
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tairyu_lt_mst
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tairyu_lt_plan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tairyu_lt_plan_hikado
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kasan_lt_mst
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dest_lt_mst
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dest_lt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: businessoffice_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: businessoffice_nm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: district_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: district_nm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyotenarea_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyotenarea_nm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: fune_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: fune_nm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cutoff_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: departure_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: arrival_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: unload_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# NB拠点実績情報
+  - name: stg_nbkyotenresult_vlc
     config:
-      tags: ["syaryosys"]
+      tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - renkey_shamei
-            - renkey_sno
-            - renkey_nen
-            - renkey_tuki
-            - renkey_kncode
-            - renkey_knkubn
-            - dsyubetum
+            - vhc_key
+            - kyoten_cd
+            - kyoten_kaisu
           config:
             severity: error
     columns:
-      - name: renkey_shamei
+      - name: vhc_key
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: renkey_sno
+      - name: kyoten_cd
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: renkey_nen
+      - name: kyoten_kaisu
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: renkey_tuki
+      - name: keikaku_keiro_jun
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: renkey_kncode
+      - name: kyoten_cd_fowd
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: renkey_knkubn
+      - name: kyoten_cd_next
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: dsyubetum
+      - name: hyouji_nm
         data_tests:
           - not_null:
               config:
                 severity: error
-# 納期付与結果月別能力枠
-  - name: stg_noryokuwaku_month_syaryosys
-    config:
-      tags: ["syaryosys"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - shamei
-            - sno
-            - nengetu
-            - kncode
-            - dsyubetum
-          config:
-            severity: error
-    columns:
-      - name: shamei
+      - name: hyouji_nm_fowd
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: sno
+      - name: hyouji_nm_cd_next
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: nengetu
+      - name: outgate_datetime_fowd
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: kncode
+      - name: ingate_datetime
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: dsyubetum
+      - name: outgate_datetime
         data_tests:
           - not_null:
               config:
                 severity: error
-# DFSC×機能明細コード
-  - name: stg_dfsc_kinomeisaicd_syaryosys
-    config:
-      tags: ["syaryosys"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - sno
-            - shamei
-            - dfsc
-            - kncode
-          config:
-            severity: error
-    columns:
-      - name: sno
+      - name: okure_riyu_cd
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: shamei
+      - name: okure_riyu_cd_nm
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: dfsc
+      - name: okure_riyu_kbn
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: kncode
+      - name: okure_riyu_kbn_nm
         data_tests:
           - not_null:
               config:
                 severity: error
-# 販売店別月台数ファーム
-  - name: stg_daisu_month_syaryosys
-    config:
-      tags: ["syaryosys"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - shamei
-            - sno
-            - shinq
-            - firmymj
-            - kncode
-          config:
-            severity: error
-    columns:
-      - name: dlrcd
+      - name: okure_yoin_kbn
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: shamei
+      - name: okure_yoin_kbn_nm
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: sno
+      - name: kyoten_destmethod_fowd
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: shinq
+      - name: kyoten_destmethod_next
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: firmymj
+      - name: final_dest_flg
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: kncode
+      - name: limited_flg
         data_tests:
           - not_null:
               config:
                 severity: error
-# メーカー・ライン対応マスタ
-  - name: stg_maker_line_syaryosys
-    config:
-      tags: ["syaryosys"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - maker
-            - idline
-          config:
-            severity: error
-    columns:
-      - name: maker
+      - name: tairyu_lt_jsk
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: idline
+      - name: tairyu_lt_jsk_hikado
         data_tests:
           - not_null:
               config:
                 severity: error
-# 組立ライン別カレンダー
-  - name: stg_line_cal_syaryosys
-    config:
-      tags: ["syaryosys"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - nen
-            - tuki
-            - kline
-          config:
-            severity: error
-    columns:
-      - name: nen
+      - name: dest_lt_jsk
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: tuki
+      - name: laneno_kpi
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: kline
+      - name: lanesubno_kpi
         data_tests:
           - not_null:
               config:
                 severity: error
-# ファーム管理オーダー枠
-  - name: stg_fwaku_syaryosys
-    config:
-      tags: ["syaryosys"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - shamei
-            - sno
-            - bukbn
-            - kncode
-            - dlrcd
-            - firmyy
-            - firmmm
-            - firmjn
-          config:
-            severity: error
-    columns:
-      - name: shamei
+      - name: noryokuno
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: sno
+      - name: tosai_position
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: bukbn
+      - name: businessoffice_cd
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: kncode
+      - name: businessoffice_nm
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: dlrcd
+      - name: district_cd
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: firmyy
+      - name: district_nm
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: firmmm
+      - name: kyotenarea_cd
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: firmjn
+      - name: kyotenarea_nm
         data_tests:
           - not_null:
               config:
                 severity: error
-# 旬間オーダー枠ロケータ
-  - name: stg_roketa_syaryosys
-    config:
-      tags: ["syaryosys"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syoribi
-            - stime
-          config:
-            severity: error
-    columns:
-      - name: syoribi
+      - name: ingate_kitencd_jsk_yns
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: stime
+      - name: ingate_kitencd_new_yns
         data_tests:
           - not_null:
               config:
                 severity: error
-# 需給ステイタスDB
-  - name: stg_jukyustatus_syaryosys
-    config:
-      tags: ["syaryosys"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - chumon
-            - jyuhasei
-            - simuke
-            - odno
-            - ojyy
-            - frmkbn
-            - frmno
-          config:
-            severity: error
-    columns:
-      - name: dlrcd
+      - name: fune_cd
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: chumon
+      - name: fune_nm
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: jyuhasei
+      - name: cutoff_datetime
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: simuke
+      - name: rsltdeparture_datetime
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: odno
+      - name: rsltarrivaldate_datetime
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: ojyy
+      - name: unload_end_datetime
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: frmkbn
+      - name: funesu_plan_chakko
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: frmno
+      - name: funesu_plan_haisha
         data_tests:
           - not_null:
               config:
                 severity: error
-# 受注残付与結果
-  - name: stg_jyuchuzan_syaryosys
-    config:
-      tags: ["syaryosys"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - chumon
-          config:
-            severity: error
-    columns:
-      - name: dlrcd
+      - name: funesu_jsk_chakko
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: chumon
+      - name: funesu_jsk_haisha
         data_tests:
           - not_null:
               config:
                 severity: error
-# COオーダー付与結果
-  - name: stg_coorder_syaryosys
-    config:
-      tags: ["syaryosys"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - odno
-          config:
-            severity: error
-    columns:
-      - name: dlrcd
+      - name: unload_star_datetime
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: odno
+      - name: upload_posbl_datetim
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kizai_upload_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tumikomi_end_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: inst_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: upd_id
         data_tests:
           - not_null:
               config:
