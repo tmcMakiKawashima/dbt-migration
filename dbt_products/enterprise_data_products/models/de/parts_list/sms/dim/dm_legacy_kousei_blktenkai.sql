@@ -76,4 +76,4 @@ select
   tmp_kousei03_blktenkai.torokutimem,
   tmp_kousei03_blktenkai.ldts
 from tmp_kousei03_blktenkai
-where tmp_kousei03_blktenkai.syayu not in (select syasyu from {{ ref('dm_kousei_blktenkai') }}) --流用元にない車種をE層に入れる
+where tmp_kousei03_blktenkai.syayu not in (select syasyu from {{ ref('dm_kousei_blktenkai') }})
