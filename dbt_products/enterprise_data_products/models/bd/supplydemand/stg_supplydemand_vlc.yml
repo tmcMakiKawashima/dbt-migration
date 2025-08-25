@@ -259,7 +259,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 納期統合情報(市販)明細(保管)
+# 納期統合情報(市販)明細(保管)
   - name: stg_noukitougoujyoho_shihandtlho_vlc
     config:
       tags: ["vlc"]
