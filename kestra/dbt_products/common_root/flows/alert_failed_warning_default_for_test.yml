@@ -48,5 +48,4 @@ triggers:
           - WARNING
           - SUCCESS
           
-disabled: false
-# test
+disabled: true
