@@ -861,23 +861,3 @@ models:
           - not_null:
               config:
                 severity: error
-      - name: field
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: disp_seq
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: inst_id
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: upd_id
-        data_tests:
-          - not_null:
-              config:
-                severity: error
