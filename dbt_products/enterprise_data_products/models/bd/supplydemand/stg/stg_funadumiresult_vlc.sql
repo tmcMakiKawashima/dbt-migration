@@ -18,7 +18,7 @@
 
 with stg_funadumiresult_vlc as (
     select
-                vesselcode::varchar(6) as vesselcode, 
+        vesselcode::varchar(6) as vesselcode, 
         kitencd::varchar(20) as kitencd, 
         departuredate::varchar(8) as departuredate, 
         tocd::varchar(20) as tocd, 
