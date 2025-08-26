@@ -68,9 +68,6 @@ with stg_hachuhuka_maps_view as (
     req_depart_code::varchar(5) as req_depart_code, -- 依頼部署コード
     spec::varchar(59) as spec, -- スペック
     item_name::varchar(15) as item_name, -- 品名
-    requester_name::varchar(10) as requester_name, -- 依頼者名
-    requester_tel_external::varchar(13) as requester_tel_external, -- 依頼者TEL(外線)
-    requester_tel_extension::varchar(13) as requester_tel_extension, -- 依頼者TEL(内線)
     nekase_cls::varchar(1) as nekase_cls, -- ねかせ区分
     divers_cls::varchar(1) as divers_cls, -- 転用区分
     transmission_yn_cls::varchar(1) as transmission_yn_cls, -- 伝送可否区分
@@ -117,8 +114,6 @@ with stg_hachuhuka_maps_view as (
     pre_study_no::varchar(10) as pre_study_no, -- 事前検討No
     color_dif_application::varchar(1) as color_dif_application, -- 色違い製品申請
     supplier_meeting_date::varchar(14) as supplier_meeting_date, -- 仕入先打合せ年月日
-    supplier_contact_name::varchar(10) as supplier_contact_name, -- 仕入先担当者名
-    supplier_contact_tel::varchar(13) as supplier_contact_tel, -- 仕入先担当者TEL
     rep_burden_depart::varchar(5) as rep_burden_depart, -- 修理負担部署
     dunning_cls::varchar(1) as dunning_cls, -- 督促区分
     dunning_cls_update_reason::varchar(1) as dunning_cls_update_reason, -- 督促区分更新理由
@@ -128,21 +123,13 @@ with stg_hachuhuka_maps_view as (
     toyota_note::varchar(30) as toyota_note, -- トヨタ備考
     preferred_delivery_date::varchar(14) as preferred_delivery_date, -- 希望納期
     desired_delivery_req_date::varchar(14) as desired_delivery_req_date, -- 希望納期依頼年月日
-    delivery_chg_name::varchar(20) as delivery_chg_name, -- 納期変更(氏名)
     delivery_chg_dept_code::varchar(5) as delivery_chg_dept_code, -- 納期変更(部署コード)
-    sha2('delivery_chg_update_id', 256) as delivery_chg_update_id, -- 納期変更(従業員コード)
     delivery_chg_update::varchar(14) as delivery_chg_update, -- 納期変更(更新日時)
-    kanban_odr_name::varchar(10) as kanban_odr_name, -- かんばん発注(氏名)
     kanban_odr_dept_code::varchar(5) as kanban_odr_dept_code, -- かんばん発注者(部署コード)
-    sha2('kanban_odr_emp_code', 256) as kanban_odr_emp_code, -- かんばん発注(従業員コード)
     kanban_odr_update::varchar(14) as kanban_odr_update, -- かんばん発注者(更新日時)
-    accepted_name::varchar(10) as accepted_name, -- 検収(氏名)
     accepted_dept_code::varchar(5) as accepted_dept_code, -- 検収(部署コード)
-    sha2('accepter', 256) as accepter, -- 検収実施者
     accepted_update_dttm::varchar(14) as accepted_update_dttm, -- 検収(更新日時)
-    odr_can_name::varchar(20) as odr_can_name, -- 発注キャンセル(氏名)
     odr_can_dept_code::varchar(5) as odr_can_dept_code, -- 発注キャンセル(部署コード)
-    sha2('odr_can_update_id', 256) as odr_can_update_id, -- 発注キャンセル(従業員コード)
     odr_can_reason::varchar(60) as odr_can_reason, -- 発注キャンセル理由
     form_no::varchar(4) as form_no, -- 帳票No
     delivery_date::varchar(14) as delivery_date, -- 納期
@@ -180,8 +167,6 @@ with stg_hachuhuka_maps_view as (
     recm_disagreement_reason::varchar(2) as recm_disagreement_reason, -- 推奨不一致理由
     recm_disagree_reason_note::varchar(30) as recm_disagree_reason_note, -- 推奨不一致理由記述
     maker_disagreement_reason::varchar(2) as maker_disagreement_reason, -- 商社メーカー不一致理由
-    office_rp_extension::varchar(13) as office_rp_extension, -- 事務所担当者(内線)
-    office_rp_outside_line::varchar(13) as office_rp_outside_line, -- 事務所担当者(外線)
     kanban_print_date::varchar(14) as kanban_print_date, -- かんばん印刷日
     if_created_date::varchar(14) as if_created_date, -- IF作成日
     office_contact_code::varchar(2) as office_contact_code, -- 事務所担当者コード
@@ -202,7 +187,6 @@ with stg_hachuhuka_maps_view as (
     to_sub_address_proc::varchar(3) as to_sub_address_proc, -- 宛先サブアドレス(統括)
     process_cls_proc::varchar(1) as process_cls_proc, -- 取引区分(統括)
     tns_date::varchar(14) as tns_date, -- TNS処理日時
-    sha2('req_code', 256) as req_code, -- 依頼者コード
     spls_arrange_order_srl_num::varchar(6) as spls_arrange_order_srl_num, -- 余剰関連手配連番
     fixed_amount_unit_price::varchar(12) as fixed_amount_unit_price, -- 定額単価
     actual_no1::varchar(20) as actual_no1, -- 現品No.1
@@ -220,14 +204,8 @@ with stg_hachuhuka_maps_view as (
     use_transfer_flag::varchar(1) as use_transfer_flag, -- 活用品振替フラグ
     tool_sys_sent_flag::varchar(1) as tool_sys_sent_flag, -- 工具システム連携済みフラグ
     object_version_number::varchar(9) as object_version_number, -- Object Version Number
-    sha2('created_by', 256) as created_by, -- 作成者
-    created_user_name::varchar(30) as created_user_name, -- 作成者ユーザー名
     creation_date::varchar(14) as creation_date, -- 作成日時
-    sha2('last_updated_by', 256) as last_updated_by, -- 最終更新者
-    last_updated_user_name::varchar(30) as last_updated_user_name, -- 最終更新者ユーザー名
     last_update_date::varchar(14) as last_update_date, -- 最終更新日時
-    sha2('last_update_login', 256) as last_update_login, -- 最終更新ログイン
-    last_upd_login_user_name::varchar(30) as last_upd_login_user_name, -- 最終更新ログインユーザー名
     request_id::varchar(15) as request_id, -- 要求ID
     program_application_id::varchar(15) as program_application_id, -- コンカレント・プログラム・アプリケーションID
     program_id::varchar(15) as program_id, -- コンカレント・プログラムID
