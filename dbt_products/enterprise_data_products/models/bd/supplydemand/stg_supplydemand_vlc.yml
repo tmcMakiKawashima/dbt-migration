@@ -833,3 +833,37 @@ models:
           - not_null:
               config:
                 severity: error
+# 船積実績
+  - name: stg_funadumiresult_vlc
+    config:
+      tags: ["vlc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - vesselcode
+            - kitencd
+            - departuredate
+            - vhcuniqinfo
+          config:
+            severity: error
+    columns:
+      - name: vesselcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kitencd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: departuredate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vhcuniqinfo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
