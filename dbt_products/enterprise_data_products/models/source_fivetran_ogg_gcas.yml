@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: fivetran_database_ogg_gcas
     database: fivetran_database
-    schema: ogg_gcas
+    schema: ogg_gcas_osyyvl0100db20
     freshness:
       warn_after: { count: 1, period: hour }
       error_after: { count: 24, period: hour }
