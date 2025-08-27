@@ -1,0 +1,18 @@
+id: alert_test
+namespace: kestra_dbt_project.proj-job-kuboi
+
+labels:
+  dbt_docs: generate
+
+tasks:
+  - id: hello
+    type: io.kestra.plugin.core.log.Log
+    message: Hello World! 🚀
+    
+  - id: error
+    type: io.kestra.plugin.core.log.Log
+    level: ERROR
+    message: "This is an ERROR message"
+ 
+  - id: throwError
+    type: io.kestra.plugin.core.execution.Fail

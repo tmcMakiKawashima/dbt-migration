@@ -2,7 +2,8 @@ id: dbt-snowflake-build
 namespace: kestra_dbt_project.proj-job-kuboi
 
 labels:
-  error: default
+  error: default_failed
+  dbt: build
 
 tasks:
   - id: dbt
@@ -23,11 +24,32 @@ tasks:
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
-    cron: "00 11 * * *"
+    cron: "20 06 * * *"
+    timezone: Asia/Tokyo
 
+# エラーログを出力
+errors:
+  - id: fetch_warning_logs
+    type: io.kestra.plugin.core.log.Fetch
+    tasksId:
+      - dbt_build
+    level: WARN
+    executionId: "{{ execution.id }}"
+
+  - id: error_log
+    type: io.kestra.plugin.core.debug.Return
+    format: "{{ errorLogs()[0]['message'] }}"
+
+outputs: 
+  - id: output_error_log
+    type: STRING
+    value: "{{ outputs.error_log.value ?? 'No message found.' }}"
+
+# ログ出力
 finally:
   - id: finally_log 
     type: io.kestra.plugin.core.log.Log
     message: 
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
-      # Execution RUNNING
+      
+disabled: false

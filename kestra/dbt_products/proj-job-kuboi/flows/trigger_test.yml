@@ -1,0 +1,7 @@
+id: trigger_test
+namespace: kestra_dbt_project.proj-job-kuboi
+
+tasks:
+  - id: hello
+    type: io.kestra.plugin.core.log.Log
+    message: Hello World! 🚀
