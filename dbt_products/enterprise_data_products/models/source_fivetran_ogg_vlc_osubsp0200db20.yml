@@ -26,3 +26,5 @@ sources:
         identifier: cubm536loadres
       - name: raw_cubs009funahimoduke
         identifier: cubs009funahimoduke
+      - name: raw_cubs100shipnamem
+        identifier: cubs100shipnamem
