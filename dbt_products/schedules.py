@@ -46,6 +46,7 @@ from .schedules_items.model.repair.schedule_dm_vehicle_generation import schedul
 from .schedules_items.parts_list.seppen.schedule_dm_seppen_bunseki import schedule_dm_seppen_bunseki
 """ parts_list sms"""
 from .schedules_items.parts_list.sms.schedule_dm_kousei_blktenkai import schedule_dm_kousei_blktenkai
+from .schedules_items.parts_list.sms.schedule_dm_variation_seisan_daisu import schedule_dm_variation_seisan_daisu
 from .schedules_items.parts_list.sms.schedule_tmp_kousei03_blktenkai import schedule_tmp_kousei03_blktenkai
 """ vinhis maint """
 from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
