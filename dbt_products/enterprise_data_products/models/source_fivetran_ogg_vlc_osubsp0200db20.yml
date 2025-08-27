@@ -18,5 +18,9 @@ sources:
         identifier: cubd007yusyutuho
       - name: raw_cubd008yusyutudtlho
         identifier: cubd008yusyutudtlho
+      - name: raw_cubc111kbn
+        identifier: cubc111kbn
       - name: raw_cubc130kyotenattach
         identifier: cubc130kyotenattach
+      - name: raw_cubm536loadres
+        identifier: cubm536loadres
