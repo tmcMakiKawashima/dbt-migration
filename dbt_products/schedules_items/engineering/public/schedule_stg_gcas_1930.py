@@ -5,18 +5,18 @@ from pathlib import Path
 import sys
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-# GCAS_2
-schedule_stg_gcas_2 = build_schedule_from_dbt_selection(
+# GCAS_1930
+schedule_stg_gcas_1930 = build_schedule_from_dbt_selection(
     [dbt_products_assets],
-    job_name="job_build_stg_gcas_2",
-    schedule_name="gcas_2",
+    job_name="job_build_stg_gcas_1930",
+    schedule_name="gcas_1930",
     cron_schedule="30 19 * * *",
     execution_timezone="Asia/Tokyo",
     dbt_select="+stg_syasyufuzoku_gcas +stg_irofuzoku_gcas +stg_yohinfuzoku_gcas",
     config=RunConfig(ops={"dbt_products_assets":
-                          DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_gcas_2"})
+                          DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_gcas_1930"})
                           }
                      ),
     tags={"ecs/cpu": "256", "ecs/memory": "1024",
-          "job_name": "job_build_stg_gcas_2"},
+          "job_name": "job_build_stg_gcas_1930"},
 )

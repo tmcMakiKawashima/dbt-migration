@@ -12,8 +12,8 @@ from .schedules_items.customerservice.public.schedule_d_sias import schedule_d_s
 from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
 """ engineering """
 from .schedules_items.engineering.public.schedule_stg_aisac import schedule_stg_aisac
-from .schedules_items.engineering.public.schedule_stg_gcas_1 import schedule_stg_gcas_1
-from .schedules_items.engineering.public.schedule_stg_gcas_2 import schedule_stg_gcas_2
+from .schedules_items.engineering.public.schedule_stg_gcas import schedule_stg_gcas
+from .schedules_items.engineering.public.schedule_stg_gcas_1930 import schedule_stg_gcas_1930
 from .schedules_items.engineering.public.schedule_stg_paint_iot import schedule_stg_paint_iot
 from .schedules_items.engineering.public.schedule_tmp_sms_api_parts_info_req_json import schedule_tmp_sms_api_parts_info_req_json
 """ manufacturing """
@@ -87,10 +87,10 @@ schedules.append(schedule_stg_warranty)
 """ engineering """
 # AISAC
 schedules.append(schedule_stg_aisac)
-# GCAS_1
-schedules.append(schedule_stg_gcas_1)
-# GCAS_2
-schedules.append(schedule_stg_gcas_2)
+# GCAS
+schedules.append(schedule_stg_gcas)
+# GCAS_1930
+schedules.append(schedule_stg_gcas_1930)
 # TMK塗装IoT
 schedules.append(schedule_stg_paint_iot)
 # SMS API（品番情報） REQUEST
