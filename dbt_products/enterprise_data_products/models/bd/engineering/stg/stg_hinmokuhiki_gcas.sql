@@ -1,27 +1,3 @@
-{{
-    config (
-        materialized = 'incremental',
-        unique_key = ['syasyu', 'db', 'hansiyono8','hinmoku','syurui','jyokenno'],
-        incremental_strategy = 'merge',
-        pre_hook ="
-            {% if is_incremental() %}
-                delete from {{ this }} stg
-                using 
-                  {{ source('fivetran_database_ogg_gcas','raw_cyyg9hinmokuhiki') }} raw
-                   where 
-                    stg.syasyu = raw.syasyu
-                    and stg.db = raw.db
-                    and stg.hansiyono8 = raw.hansiyono8
-                    and stg.hinmoku = raw.hinmoku
-                    and stg.syurui = raw.syurui
-                    and stg.jyokenno = raw.jyokenno
-                    and raw._fivetran_deleted = 'true'
-                    and raw._fivetran_synced > (select max(ldts) from {{ this }})
-            {% endif %}
-        "
-    )
-}}
---pre_hookによる不要データ削除処理を実装
 with stg_hinmokuhiki_gcas as (
     select 
         syasyu::varchar(4) as syasyu,
@@ -45,10 +21,5 @@ with stg_hinmokuhiki_gcas as (
         _fivetran_synced::timestamp_ntz as ldts
     from {{ source('fivetran_database_ogg_gcas','raw_cyyg9hinmokuhiki') }}
     where _fivetran_deleted = 'false'
-
-    {% if is_incremental() %}
-        and _fivetran_synced > (select max(ldts) from {{ this }})
-    {% endif %}
-
 )
 select * from stg_hinmokuhiki_gcas
