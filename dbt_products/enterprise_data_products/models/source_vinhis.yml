@@ -20,7 +20,7 @@ sources:
     schema: spec
     tables:
       - name: raw_dm_vinhis_spec200_allsalecar
-        identifier: dm_vinhis_spec200_allsalecar
+        identifier: dm_vinhis_spec200_allsalecar_133
 
   - name: vinhis_db_parts
     database: vinhis_db
@@ -28,4 +28,4 @@ sources:
     tables:
     # gijutsu-sms
       - name: raw_dm_allsalescar_variation
-        identifier: dm_allsalescar_variation
+        identifier: dm_allsalescar_variation_133
