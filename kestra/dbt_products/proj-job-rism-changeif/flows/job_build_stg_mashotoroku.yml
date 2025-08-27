@@ -1,8 +1,9 @@
-id: dbt-snowflake-build-triger-before
-namespace: kestra_dbt_project.proj-job-kuboi-2
+id: job_build_stg_mashotoroku
+namespace: kestra_dbt_project.proj-job-rism-changeif
 
 labels:
   error: default_failed
+  dbt: build
 
 tasks:
   - id: dbt
@@ -11,20 +12,19 @@ tasks:
     tasks:
       - id: clone_repository
         type: io.kestra.plugin.git.Clone
-        branch: kestra-trial-kuboi
 
       - id: dbt_build
         type: io.kestra.plugin.dbt.cli.DbtCLI
         commands:
           - dbt build
-            --select +stg_tbdaiml
-            --vars '{"DBT_JOB_NAME":"_chekk"}'
+            --select +stg_mashotoroku
+            --vars '{"DBT_JOB_NAME":"_stg_mashotoroku"}'
             --project-dir "{{ namespace.DBT.PROJ_DIR }}"
 
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
-    cron: "00 11 * * *"
+    cron: "45 10 * * 1,2,3,4,5"
     timezone: Asia/Tokyo
 
 # エラーログを出力
@@ -37,6 +37,9 @@ outputs:
   - id: output_error_log
     type: STRING
     value: "{{ outputs.error_log.value ?? 'No message found.' }}"
+  - id: output_state
+    type: STRING
+    value: "{{ tasks.dbt.state ?? 'No state' }}"
 
 # ログ出力
 finally:

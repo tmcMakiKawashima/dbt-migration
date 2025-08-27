@@ -1,8 +1,10 @@
 packages:
-- package: dbt-labs/dbt_utils
-  version: 1.1.1
-- package: Snowflake-Labs/dbt_constraints
-  version: 0.6.3
-- package: entechlog/dbt_snow_mask
-  version: 0.2.5
-sha1_hash: 7ed089d1a25d6b8dccda75d0f8fcfa45b783ed48
+  - package: dbt-labs/dbt_utils
+    version: 1.1.1
+  - package: Snowflake-Labs/dbt_constraints
+    version: 0.6.3
+  - package: entechlog/dbt_snow_mask
+    version: 0.2.5
+  - package: elementary-data/elementary
+    version: 0.19.1
+sha1_hash: 3482c14d80a87996f8e5817e8be628637179866d

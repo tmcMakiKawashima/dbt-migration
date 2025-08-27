@@ -2,19 +2,37 @@ import os
 from typing import Any
 
 import requests
-import snowflake.connector
+import snowflake.connector as sc
 from snowflake.connector.pandas_tools import write_pandas
 import pandas as pd
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives import serialization
 
+# snowflakeキーペア
+passphrase=os.environ["SNOWFLAKE_PRIVATE_KEY_PASSPHRASE_KESTRA"]
+passphrase_byte = passphrase.encode('latin-1')
+private_key=os.environ["SNOWFLAKE_PRIVATE_KEY_KESTRA"]
+private_key_byte = private_key.encode('latin-1')
 
-# snowflake connect
-con = snowflake.connector.connect(
-    account=os.environ["SNOWFLAKE_ACCOUNT"],
-    user=os.environ["SNOWFLAKE_USER"],
-    password=os.environ["DBT_SNOWFLAKE_PASS"],
-    role=os.environ["SNOWFLAKE_ROLE"],
-)
+p_key= serialization.load_pem_private_key(
+    private_key_byte,
+    password=passphrase_byte,
+    backend=default_backend()
+    )
 
+pkb = p_key.private_bytes(
+    encoding=serialization.Encoding.DER,
+    format=serialization.PrivateFormat.PKCS8,
+    encryption_algorithm=serialization.NoEncryption())
+
+# snowflake connect params
+conn_params = {
+    "account": os.environ["SNOWFLAKE_ACCOUNT"],
+    "user": os.environ["SNOWFLAKE_USER"],
+    "role": os.environ["SNOWFLAKE_ROLE"],
+    "private_key": pkb,
+    "warehouse": "xxxxx",
+}
 
 # snowflake columns
 req_column_name = "request_json"
@@ -41,7 +59,9 @@ prod_stg = ["prod", "stg"]
 prod = ["prod"]
 
 # リクエストデータ抽出
-def get_request_data_from_snowflake(table_full_name: str) -> pd.DataFrame:
+def get_request_data_from_snowflake(table_full_name: str, wh_name: str) -> pd.DataFrame:
+    conn_params["warehouse"] = wh_name
+    con = sc.connect(**conn_params)
     column_name = req_column_name
     sql = f"""select {column_name} from {table_full_name};"""
     request_body_df = pd.DataFrame(
@@ -80,7 +100,9 @@ def post_web_api_call_to_kitora(url: str, headers: dict[str, Any], dataframe: pd
 
 
 # レスポンスデータ書き込み
-def put_response_data_to_snowflake(res_table: dict, dataframe: pd.DataFrame) -> int:
+def put_response_data_to_snowflake(res_table: dict, dataframe: pd.DataFrame, wh_name: str) -> int:
+    conn_params["warehouse"] = wh_name
+    con = sc.connect(**conn_params)
     success, number_chunks, rows_inserted, output = write_pandas(
         conn = con,
         # DataFrame

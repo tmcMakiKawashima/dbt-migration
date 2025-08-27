@@ -3,6 +3,7 @@ namespace: kestra_dbt_project.proj-job-hokyunoki_mieruka
 
 labels:
   error: default_failed
+  dbt: build
 
 tasks:
   - id: dbt
@@ -36,6 +37,9 @@ outputs:
   - id: output_error_log
     type: STRING
     value: "{{ outputs.error_log.value ?? 'No message found.' }}"
+  - id: output_state
+    type: STRING
+    value: "{{ tasks.dbt.state ?? 'No state' }}"
 
 # ログ出力
 finally:
@@ -43,3 +47,5 @@ finally:
     type: io.kestra.plugin.core.log.Log
     message: 
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
+      
+disabled: false

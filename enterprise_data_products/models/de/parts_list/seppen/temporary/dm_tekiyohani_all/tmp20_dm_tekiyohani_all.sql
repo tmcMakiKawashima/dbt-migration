@@ -2,8 +2,8 @@ with tmp10_dm_tekiyohani_all as (
   select * from {{ref('tmp10_dm_tekiyohani_all')}}
 ), ltekiyo as (
   select
-    lecino as seppenno, -- 設変№
-    ecikbn as kubun, -- 区分
+    lecino, -- 設変№
+    ecikbn, -- 区分
     syasyu, -- 車種コード
     substr(tekiyo,1,4)::varchar(4) as kumitate, -- 組立番号
     substr(tekiyo,5,2)::varchar(2) as bui, -- 部位
@@ -17,10 +17,10 @@ with tmp10_dm_tekiyohani_all as (
 ), mokujihen as (
   select
     seppenno, -- 設変№
-    ecikbn as kubun, -- 区分
+    ecikbn, -- 区分
     syasyu, -- 車種コード
-    tekiyokumitate as kumitate, -- 組立番号
-    tekiyobui as bui, -- 部位
+    tekiyokumitate, -- 組立番号
+    tekiyobui, -- 部位
     rpad('', 4)::varchar(4) as variation, -- バリエーション
     rpad('', 1)::varchar(1) as sinhaikbn, -- 新廃区分
     tousai, -- 搭載車種
@@ -30,8 +30,8 @@ with tmp10_dm_tekiyohani_all as (
   from {{source('engineering_db_public','raw_ecimokujihen')}}
 ), lhikihen as (
   select
-    lecino as seppenno, -- 設変№
-    ecikbn as kubun, -- 区分
+    lecino, -- 設変№
+    ecikbn, -- 区分
     syasyu, -- 車種コード
     kumitate, -- 組立番号
     bui, -- 部位
@@ -45,7 +45,7 @@ with tmp10_dm_tekiyohani_all as (
 ), meihen as (
   select
     seppenno, -- 設変№
-    ecikbn as kubun, -- 区分
+    ecikbn, -- 区分
     syasyu, -- 車種コード
     substr(tekiyo,1,4)::varchar(4) as kumitate, -- 組立番号
     substr(tekiyo,5,2)::varchar(2) as bui, -- 部位

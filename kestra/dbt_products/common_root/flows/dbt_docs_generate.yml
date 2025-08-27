@@ -4,11 +4,16 @@ description: dbtドキュメントを生成してS3に格納するFlow
 
 labels:
   type: common_root
+  error: default_failed
   
 inputs:
   - id: branch
     type: STRING
     defaults: proj-job-
+
+concurrency:
+  behavior: QUEUE
+  limit: 1
 
 tasks:
 
@@ -39,20 +44,40 @@ tasks:
           bucket: "{{ namespace.DBT_DOCS.S3_BUCKET }}"
           key: "{{ namespace.DBT_DOCS.BASE_PATH }}{{ inputs.branch }}/static_index.html"
           contentType: text/html
-
+          region: ap-northeast-1
+          
 # git syncの完了をトリガーにdbt docs generateする（対象ブランチを取得する）
 triggers:
   - id: flow_trigger
     type: io.kestra.plugin.core.trigger.Flow
     inputs:
       branch: "{{ trigger.outputs.target_branch }}"
-    preconditions:
-      id: flows
-      flows:
-        - namespace: kestra_dbt_project
-          flowId: git_sync_flows_files
-          states: [SUCCESS]
+    conditions:
+      - type: io.kestra.plugin.core.condition.ExecutionLabels
+        labels:
+          dbt_docs: generate
+      - type: io.kestra.plugin.core.condition.ExecutionNamespace
+        namespace: "kestra_dbt_project"
+        prefix: true
+      - type: io.kestra.plugin.core.condition.ExecutionStatus
+        in:
+          - SUCCESS
 
+# エラーログを出力
+errors:
+  - id: error_log
+    type: io.kestra.plugin.core.debug.Return
+    format: "{{ errorLogs()[0]['message'] }}"
+
+outputs: 
+  - id: output_error_log
+    type: STRING
+    value: "{{ outputs.error_log.value ?? 'No message found.' }}"
+  - id: output_state
+    type: STRING
+    value: "{{ tasks.dbt.state ?? 'No state' }}"
+
+# ログ出力
 finally:
   - id: finally_log 
     type: io.kestra.plugin.core.log.Log
@@ -60,4 +85,5 @@ finally:
       - "Git branch *dev -> {{ inputs.branch }}"
       - "Git branch *stg or prod -> {{ namespace.GIT.BRANCH }}"
       - "Path -> {{ namespace.DBT_DOCS.S3_BUCKET }}/{{ namespace.DBT_DOCS.BASE_PATH }}{{ inputs.branch }}/static_index.html"
-      # Execution RUNNING
+
+disabled: false
