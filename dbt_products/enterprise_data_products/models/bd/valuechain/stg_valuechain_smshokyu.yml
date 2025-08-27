@@ -241,4 +241,4 @@ models:
         data_tests:
           - not_null:
               config:
-                severty: error
+                severity: error
