@@ -189,3 +189,16 @@ models:
           - not_null:
               config:
                 severity: error
+# 船名マスタ
+  - name: stg_shipnamemst_vlc
+    config:
+      tags: ["vlc"]
+    columns:
+      - name: fune_cd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
