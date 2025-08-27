@@ -158,7 +158,9 @@ schedules.append(schedule_dm_seppen_bunseki)
 """ parts_list sms"""
 #SMS構成
 schedules.append(schedule_dm_kousei_blktenkai)
+# 生産仕様実績の見える化
 schedules.append(schedule_dm_variation_seisan_daisu)
+#SMS構成
 schedules.append(schedule_tmp_kousei03_blktenkai)
 """ vinhis maint """
 # VIN整備
