@@ -8,8 +8,32 @@ sources:
       warn_after: { count: 1, period: hour }
       error_after: { count: 24, period: hour }
     loaded_at_field: _fivetran_synced
-   
+
     tables:
+      - name: raw_cubc001key
+        identifier: cubc001key
+      - name: raw_cubc024plodplan
+        identifier: cubc024plodplan
+      - name: raw_cubc028plodresult
+        identifier: cubc028plodresult
+      - name: raw_cubc025logkyotenplan
+        identifier: cubc025logkyotenplan
+      - name: raw_cubc029logkyotenresult
+        identifier: cubc029logkyotenresult
+      - name: raw_cubc026logopeplan
+        identifier: cubc026logopeplan
+      - name: raw_cubc101kyoten
+        identifier: cubc101kyoten
+      - name: raw_cubc030logoperesult
+        identifier: cubc030logoperesult
+      - name: raw_cubd001shihan
+        identifier: cubd001shihan
+      - name: raw_cubd002shihandtl
+        identifier: cubd002shihandtl
+      - name: raw_cubc260nbkyotenplanhaisha
+        identifier: cubc260nbkyotenplanhaisha
+      - name: raw_cubc262nbkyotenjsk
+        identifier: cubc262nbkyotenjsk
       - name: raw_cubd003shihanho
         identifier: cubd003shihanho
       - name: raw_cubd004shihandtlho
