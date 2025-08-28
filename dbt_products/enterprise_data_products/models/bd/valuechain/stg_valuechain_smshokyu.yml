@@ -242,3 +242,43 @@ models:
           - not_null:
               config:
                 severity: error
+# 補給出荷場所
+  - name: stg_hokyusyukkabasyo_smshokyu
+    config:
+      tags: ["smshokyu"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syusbetu
+            - hinban
+            - ruibetu
+            - kyokucd
+            - kerekijun
+          config:
+            severity: error
+    columns:
+      - name: syusbetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ruibetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyokucd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kerekijun
+        data_tests:
+          - not_null:
+              config:
+                severity: error

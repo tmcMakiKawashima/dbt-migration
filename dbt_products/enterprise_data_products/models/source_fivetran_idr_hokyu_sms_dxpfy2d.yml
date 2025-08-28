@@ -20,3 +20,5 @@ sources:
         identifier: cvf13hohinban
       - name: raw_cvf13hohincmt
         identifier: cvf13hohincmt
+      - name: raw_cvg03hosyukka
+        identifier: cvg03hosyukka
