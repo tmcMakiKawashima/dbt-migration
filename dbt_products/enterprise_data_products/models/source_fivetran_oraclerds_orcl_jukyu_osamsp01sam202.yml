@@ -14,5 +14,3 @@ sources:
         identifier: cam2072
       - name: raw_cam2073
         identifier: cam2073
-      - name: raw_cam2204
-        identifier: cam2204
