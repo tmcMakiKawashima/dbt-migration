@@ -7,4 +7,6 @@ sources:
     tables:
       - name: raw_m_koujyomaster
         identifier: m_koujyomaster
+      - name: raw_stg_syasyu
+        identifier: stg_syasyu
 

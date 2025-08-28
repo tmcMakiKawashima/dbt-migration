@@ -7,8 +7,8 @@ sources:
     tables:
       - name: raw_mst_vinhis_specification_nameconvert
         identifier: mst_vinhis_specification_nameconvert
-      - name: raw_dm_vinhis_specification_union_test
-        identifier: dm_vinhis_specification_union_test
+      - name: raw_dm_vinhis_specification_union
+        identifier: dm_vinhis_specification_union
   - name: vinhis_db_iqas
     database: vinhis_db
     schema: iqas

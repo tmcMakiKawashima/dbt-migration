@@ -15,5 +15,5 @@ sources:
         identifier: ST_JPSALECAR_AQUA_JPSEISAN_FRMKBN
       - name: raw_st_jpsalecar
         identifier: ST_JPSALECAR_AQUA_JPSEISAN
-      - name: raw_da20943a
-        identifier: DA20943A
+      - name: raw_stg_siyouhenkan
+        identifier: STG_SIYOUHENKAN
