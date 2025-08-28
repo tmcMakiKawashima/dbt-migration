@@ -685,9 +685,7 @@ models:
         data_tests:
           - not_null:
               config:
-                severity: errorversion: 2
-
-models:
+                severity: error
 # 地域マスタ
   - name: stg_tiikimst_jyukyujyoho
     config:
