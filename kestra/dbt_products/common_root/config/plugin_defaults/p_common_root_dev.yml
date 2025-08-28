@@ -1,9 +1,6 @@
 - type: io.kestra.plugin.dbt.cli.DbtCLI
   forced: false
   values:
-    beforeCommands:
-      - dbt deps --project-dir "{{ namespace.DBT.PROJ_DIR }}"
-    containerImage: "{{ namespace.DOCKER.IMAGE_VERSION.DBT }}"
     profiles: |
       enterprise_data_products:
         target: dev
@@ -38,11 +35,14 @@
       type: io.kestra.plugin.ee.kubernetes.runner.Kubernetes
       namespace: "{{ namespace.KUBERNETES.NAMESPACE }}"
       config:
-        caCertData: "{{ secret('KUBERNETES_CA_CERT_DATA') }}"
-        masterUrl: "{{ namespace.KUBERNETES.MASTER_URL }}"
-        oauthToken: "{{ secret('KUBERNETES_OAUTH_TOKEN') }}"
         username: "{{ namespace.KUBERNETES.USER_NAME }}"
+        masterUrl: "{{ namespace.KUBERNETES.MASTER_URL }}"
+        caCertData: "{{ secret('KUBERNETES_CA_CERT_DATA') }}"
+        oauthToken: "{{ secret('KUBERNETES_OAUTH_TOKEN') }}"
       pullPolicy: IF_NOT_PRESENT
+    beforeCommands:
+      - dbt deps --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+    containerImage: "{{ namespace.DOCKER.IMAGE_VERSION.DBT }}"
 - type: io.kestra.plugin.git
   forced: false
   values:
@@ -56,35 +56,37 @@
 - type: io.kestra.plugin.git.PushFlows
   forced: false
   values:
-    authorEmail: "{{ inputs.email }}"
-    commitMessage: "{{ inputs.message }}"
     flows: "*"
-    gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/flows
     password: "{{ inputs.pass }}"
     username: "{{ inputs.user }}"
+    authorEmail: "{{ inputs.email }}"
+    gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/flows
+    commitMessage: "{{ inputs.message }}"
 - type: io.kestra.plugin.git.PushNamespaceFiles
   forced: false
   values:
-    authorEmail: "{{ inputs.email }}"
-    commitMessage: "{{ inputs.message }}"
     files: "**"
-    gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/files
     password: "{{ inputs.pass }}"
     username: "{{ inputs.user }}"
+    authorEmail: "{{ inputs.email }}"
+    gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/files
+    commitMessage: "{{ inputs.message }}"
 - type: io.kestra.plugin.git.SyncFlows
   forced: false
   values:
     delete: true
-    gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/flows
     password: "{{ inputs.pass }}"
     username: "{{ inputs.user }}"
+    gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/flows
 - type: io.kestra.plugin.git.SyncNamespaceFiles
   forced: false
   values:
     delete: true
-    gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/files
     password: "{{ inputs.pass }}"
     username: "{{ inputs.user }}"
+    allowFailure: true
+    allowWarning: true
+    gitDirectory: kestra/dbt_products/{{ inputs.proj_namespace }}/files
 - type: io.kestra.plugin.aws.sns.Publish
   forced: false
   values:
@@ -114,15 +116,15 @@
 - type: io.kestra.plugin.scripts.python.Commands
   forced: false
   values:
-    beforeCommands:
-      - pip install "{{ namespace.PYTHON.SNOWFLAKE_CONNECTOR_VERSION }}"
-    containerImage: "{{ namespace.DOCKER.IMAGE_VERSION.PYTHON }}"
     taskRunner:
       type: io.kestra.plugin.ee.kubernetes.runner.Kubernetes
       namespace: "{{ namespace.KUBERNETES.NAMESPACE }}"
       config:
-        caCertData: "{{ secret('KUBERNETES_CA_CERT_DATA') }}"
-        masterUrl: "{{ namespace.KUBERNETES.MASTER_URL }}"
-        oauthToken: "{{ secret('KUBERNETES_OAUTH_TOKEN') }}"
         username: "{{ namespace.KUBERNETES.USER_NAME }}"
+        masterUrl: "{{ namespace.KUBERNETES.MASTER_URL }}"
+        caCertData: "{{ secret('KUBERNETES_CA_CERT_DATA') }}"
+        oauthToken: "{{ secret('KUBERNETES_OAUTH_TOKEN') }}"
       pullPolicy: IF_NOT_PRESENT
+    beforeCommands:
+      - pip install "{{ namespace.PYTHON.SNOWFLAKE_CONNECTOR_VERSION }}"
+    containerImage: "{{ namespace.DOCKER.IMAGE_VERSION.PYTHON }}"
