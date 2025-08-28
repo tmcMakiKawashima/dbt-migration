@@ -44,6 +44,3 @@ groups:
   - name: snowpipe
     owner:
       email: maki_kawashima@mail.toyota.co.jp
-  - name: manufacturing
-    owner:
-      email: fj8851it@fujitsu.com
