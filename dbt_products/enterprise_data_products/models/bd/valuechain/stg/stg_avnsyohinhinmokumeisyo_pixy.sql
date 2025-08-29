@@ -5,7 +5,7 @@ with stg_avnsyohinhinmokumeisyo_pixy as (
         avnmodely::varchar(4) as avnmodely,
         oiban::varchar(1) as oiban,
         syouhinno::varchar(4) as syouhinno,
-        syouhinmei::varchar(25) as syouhinmei,
+        syouhinmei::varchar(49) as syouhinmei,
         touroku::varchar(8) as touroku,
         kousin::varchar(8) as kousin,
         tantou::varchar(7) as tantou,
