@@ -23,11 +23,7 @@ from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import sch
 """ supplydemand """
 from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_0130 import schedule_d_jyukyujyoho_0130
 from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_0530 import schedule_d_jyukyujyoho_0530
-from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_cam2204 import schedule_d_jyukyujyoho_cam2204
-from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_cam2501 import schedule_d_jyukyujyoho_cam2501
-from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_cam2502 import schedule_d_jyukyujyoho_cam2502
 from .schedules_items.supplydemand.public.schedule_d_syaryosys_0200 import schedule_d_syaryosys_0200
-from .schedules_items.supplydemand.public.schedule_d_syaryosys_0500 import schedule_d_syaryosys_0500
 from .schedules_items.supplydemand.public.schedule_d_vlc_0130 import schedule_d_vlc_0130
 from .schedules_items.supplydemand.public.schedule_d_vlc_0500 import schedule_d_vlc_0500
 from .schedules_items.supplydemand.public.schedule_stg_aqua import schedule_stg_aqua
@@ -113,16 +109,8 @@ schedules.append(schedule_stg_yohinhinbanmeisai)
 schedules.append(schedule_d_jyukyujyoho_0130)
 # 需給情報基盤(オーダーDB)
 schedules.append(schedule_d_jyukyujyoho_0530)
-# 需給情報基盤_月度VCT
-schedules.append(schedule_d_jyukyujyoho_cam2204)
-# 需給情報基盤_国マスタ
-schedules.append(schedule_d_jyukyujyoho_cam2501)
-# 需給情報基盤_地域マスタ
-schedules.append(schedule_d_jyukyujyoho_cam2502)
 # 車両システム_0200
 schedules.append(schedule_d_syaryosys_0200)
-# 車両システム_0500
-schedules.append(schedule_d_syaryosys_0500)
 # VLC本体_0130
 schedules.append(schedule_d_vlc_0130)
 # VLC本体_0500
