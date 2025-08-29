@@ -6,7 +6,7 @@
     )
 }}
 
-with stg_cvk02siki_gsps as (
+with stg_hinbanseppenjyohosiki_gsps as (
     select
         rtrim(hinban, ' 　')::varchar(15) as hinban, -- 右blank
         rtrim(syusbetu, ' 　')::varchar(4) as syusbetu, -- 右blank
@@ -25,4 +25,4 @@ with stg_cvk02siki_gsps as (
     {% endif %}
 
 )
-select * exclude(aggkey, line_number) from stg_cvk02siki_gsps where aggkey = 1 order by hinban asc
+select * exclude(aggkey, line_number) from stg_hinbanseppenjyohosiki_gsps where aggkey = 1 order by hinban asc

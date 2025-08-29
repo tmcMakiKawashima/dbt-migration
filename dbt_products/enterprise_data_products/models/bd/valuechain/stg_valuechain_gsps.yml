@@ -149,7 +149,7 @@ models:
               config:
                 severity: error
 # 品番設変情報.始期
-  - name: stg_cvk02siki_gsps
+  - name: stg_hinbanseppenjyohosiki_gsps
     config:
       tags: ["gsps"]
     data_tests:
