@@ -282,3 +282,43 @@ models:
           - not_null:
               config:
                 severity: error
+# 品番地域別対応品番TBL
+  - name: stg_hinbantikibetsutaiouhinban_smshokyu
+    config:
+      tags: ["smshokyu"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hinban
+            - ruibetu
+            - syaryoszoco
+            - dounyutiikicd
+            - tkerekijun
+          config:
+            severity: error
+    columns:
+      - name: hinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ruibetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syaryoszoco
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dounyutiikicd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tkerekijun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
