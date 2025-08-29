@@ -12,11 +12,20 @@ schedule_d_vlc_0500 = build_schedule_from_dbt_selection(
     schedule_name="vlc_0500",
     cron_schedule="00 5 * * 1-5",
     execution_timezone="Asia/Tokyo",
-    dbt_select="+stg_nbkyotenplanhaisha_vlc +stg_nbkyotenresult_vlc",
+    dbt_select="+stg_nbkyotenplanhaisha_vlc +stg_nbkyotenresult_vlc +stg_noukitougoujyoho_shihanho_vlc +stg_noukitougoujyoho_shihandtlho_vlc +stg_noukitougoujyoho_yusyutuho_vlc +stg_noukitougoujyoho_yusyutudtlho_vlc +stg_kbnmst_vlc +stg_kyotenmstfuzoku_vlc +stg_funadumiresult_vlc +stg_funahimoduke_vlc +stg_shipnamemst_vlc",
     config=RunConfig(ops={"dbt_products_assets":
                           DbtConfig(dbt_vars={"DBT_JOB_NAME": "_d_vlc_0500"},
                                     source_test_list=["source:*,+stg_nbkyotenplanhaisha_vlc",
-                                                      "source:*,+stg_nbkyotenresult_vlc"])
+                                                      "source:*,+stg_nbkyotenresult_vlc",
+                                                      "source:*,+stg_noukitougoujyoho_shihanho_vlc",
+                                                      "source:*,+stg_noukitougoujyoho_shihandtlho_vlc",
+                                                      "source:*,+stg_noukitougoujyoho_yusyutuho_vlc",
+                                                      "source:*,+stg_noukitougoujyoho_yusyutudtlho_vlc",
+                                                      "source:*,+stg_kbnmst_vlc",
+                                                      "source:*,+stg_kyotenmstfuzoku_vlc",
+                                                      "source:*,+stg_funadumiresult_vlc",
+                                                      "source:*,+stg_funahimoduke_vlc",
+                                                      "source:*,+stg_shipnamemst_vlc"])
                           }
                      ),
     # default_status=DefaultScheduleStatus.RUNNING,
