@@ -3,7 +3,7 @@
 {{
     config(
         unique_key="concat_ws('-',
-                    gclrno,
+                    gclrno
                     )",
 
         strategy='timestamp',
