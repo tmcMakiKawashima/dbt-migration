@@ -14,7 +14,7 @@ tasks:
     level: ERROR
     message: "This is an ERROR message"
  
-  - id: throwError
+  - id: dbt
     type: io.kestra.plugin.core.execution.Fail
 
 # エラーログを出力
