@@ -1,4 +1,4 @@
-{% snapshot scd_hinban_hikiate %}
+{% snapshot scd_color_no %}
 
 {{
     config(
@@ -12,6 +12,6 @@
     )
 }}
 
-select * from {{ ref('stg_hinban_hikiate') }}
+select * from {{ ref('stg_color_no') }}
 
 {% endsnapshot %}
