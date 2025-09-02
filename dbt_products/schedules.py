@@ -35,6 +35,7 @@ from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_v
 """ vinhis model """
 from .schedules_items.vinhis.model.schedule_dm_vin_model import schedule_dm_vin_model
 """ vinhis spec """
+from .schedules_items.vinhis.spec.schedule_dm_vinhis_spec200_allsalecar import schedule_dm_vinhis_spec200_allsalecar
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kaigai import schedule_dm_vinhis_specification_kaigai
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kokunai import schedule_dm_vinhis_specification_kokunai
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_oem import schedule_dm_vinhis_specification_oem
@@ -103,6 +104,8 @@ schedules.append(schedule_dm_vinhis_maint)
 # VIN x 車両情報
 schedules.append(schedule_dm_vin_model)
 """ vinhis spec """
+# VIN X SPEC
+schedules.append(schedule_dm_vinhis_spec200_allsalecar)
 # VIN装備
 schedules.append(schedule_dm_vinhis_specification_kaigai)
 schedules.append(schedule_dm_vinhis_specification_kokunai)
