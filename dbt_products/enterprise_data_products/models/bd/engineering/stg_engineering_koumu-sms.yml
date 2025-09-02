@@ -1,0 +1,16 @@
+version: 2
+
+models:
+# カラーNo
+  - name: stg_color_no
+    config:
+      tags: ["koumu_sms"]
+    columns:
+      - name: gclrno
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
