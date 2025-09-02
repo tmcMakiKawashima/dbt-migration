@@ -170,3 +170,16 @@ models:
           - not_null:
               config:
                 severity: error
+# 販売地域
+  - name: stg_hanbaitiiki_gsps
+    config:
+      tags: ["gsps"]
+    columns:
+      - name: donyutiiki
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
