@@ -148,6 +148,54 @@ models:
           - not_null:
               config:
                 severity: error
+# 品番設変情報.始期
+  - name: stg_hinbanseppenjyohosiki_gsps
+    config:
+      tags: ["gsps"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hinban
+            - syusbetu
+          config:
+            severity: error
+    columns:
+      - name: hinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syusbetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 販売地域
+  - name: stg_hanbaitiiki_gsps
+    config:
+      tags: ["gsps"]
+    columns:
+      - name: donyutiiki
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 事業体
+  - name: stg_jigyotai_gsps
+    config:
+      tags: ["gsps"]
+    columns:
+      - name: jtai
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
 # オーダ先承認済.オーダ先情報
   - name: stg_ordersakisyoninzumi_ordersaki_gsps
     config:
