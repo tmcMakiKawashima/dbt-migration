@@ -7,10 +7,17 @@ sources:
     tables:
       - name: raw_mst_vinhis_specification_nameconvert
         identifier: mst_vinhis_specification_nameconvert
-
+      - name: raw_dm_vinhis_specification_union
+        identifier: dm_vinhis_specification_union
   - name: vinhis_db_iqas
     database: vinhis_db
     schema: iqas
     tables:
       - name: raw_dm_e010index
         identifier: dm_e010index
+  - name: vinhis_db_public
+    database: vinhis_db
+    schema: public
+    tables:
+      - name: raw_dm_allsalecar_seisanjisseki
+        identifier: dm_allsalecar_seisanjisseki

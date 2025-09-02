@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: engineering_db_public
+    database: engineering_db
+    schema: public
+    tables:
+      - name: raw_m_koujyomaster
+        identifier: m_koujyomaster
+      - name: raw_stg_syasyu
+        identifier: stg_syasyu
+
