@@ -21,35 +21,28 @@ models:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: frm_no
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: wmi
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: vds
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: mdlyr
         data_tests:
           - not_null:
               config:
                 severity: error
-    columns:
       - name: vin_vds_cd
         data_tests:
           - not_null:
               config:
                 severity: error
-
-            
