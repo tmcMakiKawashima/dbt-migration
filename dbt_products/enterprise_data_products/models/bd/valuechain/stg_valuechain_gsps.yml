@@ -183,3 +183,16 @@ models:
           - not_null:
               config:
                 severity: error
+# 事業体
+  - name: stg_jigyotai_gsps
+    config:
+      tags: ["gsps"]
+    columns:
+      - name: jtai
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
