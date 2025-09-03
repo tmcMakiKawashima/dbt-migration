@@ -21,12 +21,23 @@ sources:
     tables:
       - name: raw_dm_e010index
         identifier: dm_e010index
+
+
+  - name: vinhis_db_parts
+    database: vinhis_db
+    schema: parts
+    tables:
+    # gijutsu-sms
+      - name: raw_dm_allsalescar_variation
+        identifier: dm_allsalescar_variation
+
   - name: vinhis_db_public
     database: vinhis_db
     schema: public
     tables:
       - name: raw_dm_allsalecar_seisanjisseki
         identifier: dm_allsalecar_seisanjisseki
+
   - name: vinhis_db_seppen_yokoten
     database: vinhis_db
     schema: seppen_yokoten
