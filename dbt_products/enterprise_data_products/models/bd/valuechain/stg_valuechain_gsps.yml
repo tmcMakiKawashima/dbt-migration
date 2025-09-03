@@ -242,3 +242,37 @@ models:
           - not_null:
               config:
                 severity: error
+# 代替切替日情報
+  - name: stg_daitaikirikaebi_gsps
+    config:
+      tags: ["gsps"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - daiohin
+            - orderjtai
+            - hantiiki
+            - syusbetu
+          config:
+            severity: error
+    columns:
+      - name: daiohin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: orderjtai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hantiiki
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syusbetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error

@@ -449,3 +449,10 @@ sources:
             data_tests:
               - fixed_length:
                   length: 170
+      - name: raw_tmjfvk07
+        identifier: tmjfvk07
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 90
