@@ -6,3 +6,10 @@ sources:
     tables:
       - name: raw_m_hostalc_psc_plantcode
         identifier: m_hostalc_psc_plantcode
+        
+  - name: common_tbl_db_iqas_name_convert
+    database: common_tbl_db
+    schema: iqas_name_convert
+    tables:
+      - name: raw_mst_041veh_plnt_code_name
+        identifier: mst_041veh_plnt_code_name
