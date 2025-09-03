@@ -11,7 +11,7 @@ with tmp_add_plant as (
         on trim(a.veh_plnt_code) = trim(b.table_data_id)
     left join {{ source('engineering_db_public','raw_m_koujyomaster') }} as c
         on trim(a.veh_plnt_code) = trim(c.veh_plnt_code)
-    left join {{ source('vinhis_db_seppen_yokoten','raw_dm_syasyu_katashiki_syaryokoujyo') }} as d
+    left join {{ source('katashiki_db_basespec','raw_dm_syasyu_katashiki_syaryokoujyo') }} as d
        on trim(a.syasyu) = trim(d.syasyu) and
         trim(a.haisya_kt) = trim(d.kata)
 ),
