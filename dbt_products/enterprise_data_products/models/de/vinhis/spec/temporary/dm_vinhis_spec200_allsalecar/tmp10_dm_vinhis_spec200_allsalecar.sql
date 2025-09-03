@@ -2,7 +2,7 @@
 with tmp_yoko as (
     select
         a.syadai_kt,              -- 車台型式
-        a.frm_no,                 -- フレームNo
+        a.frm_no as frmno,        -- フレームNo
         a.wmi,                    -- WMI
         a.vds,                    -- チェックディジット
         a.mdlyr,                  -- モデル年
@@ -14,7 +14,7 @@ with tmp_yoko as (
       from {{ source('vinhis_db_spec','raw_dm_vinhis_specification_union') }} as a
     left join {{ source('vinhis_db_spec','raw_dm_vinhis_spec200_allsalecar') }} as b
         on trim(a.syadai_kt) = trim(b.syadai_kt) and
-        trim(a.frm_no) = trim(b.frm_no) and
+        trim(a.frm_no) = trim(b.frmno) and
         trim(a.wmi) = trim(b.wmi) and
         trim(a.vds) = trim(b.vds) and
         trim(a.mdlyr) = trim(b.mdlyr) and
@@ -43,7 +43,7 @@ tmp_target_tate as (
         row_number() over (
             partition by
                 syadai_kt,
-                frm_no,
+                frmno,
                 wmi,
                 vds,
                 mdlyr,
@@ -58,7 +58,7 @@ tmp_target_tate as (
 tmp_siyo_yoko as (
     select
         syadai_kt,
-        frm_no,
+        frmno,
         wmi,
         vds,
         mdlyr,
@@ -472,7 +472,7 @@ tmp_siyo_yoko as (
     from tmp_target_tate
     group by
         syadai_kt,
-        frm_no,
+        frmno,
         wmi,
         vds,
         mdlyr,
@@ -483,7 +483,7 @@ tmp_siyo_yoko as (
 tmp_pick as (
     select
         a.syadai_kt,              -- 車台型式
-        a.frm_no,                 -- フレームNo
+        a.frmno,                 -- フレームNo
         a.wmi,                    -- WMI
         a.vds,                    -- チェックディジット
         a.mdlyr,                  -- モデル年
@@ -509,14 +509,14 @@ tmp_pick as (
     from tmp_siyo_yoko as a
       inner join {{ source('vinhis_db_public','raw_dm_allsalecar_seisanjisseki') }} as b
         on trim(a.syadai_kt) = trim(b.syadai_kt) and
-        trim(a.frm_no) = trim(b.frmno) and
+        trim(a.frmno) = trim(b.frmno) and
         trim(a.wmi) = trim(b.wmi) and
         trim(a.vds) = trim(b.vds) and
         trim(a.mdlyr) = trim(b.mdlyr) and
         trim(a.vin_vds_cd) = trim(b.vin_vds_cd)
     left join tmp_yoko c
         on trim(a.syadai_kt) = trim(c.syadai_kt) and
-        trim(a.frm_no) = trim(c.frm_no) and
+        trim(a.frmno) = trim(c.frmno) and
         trim(a.wmi) = trim(c.wmi) and
         trim(a.vds) = trim(c.vds) and
         trim(a.mdlyr) = trim(c.mdlyr) and
@@ -524,7 +524,7 @@ tmp_pick as (
 )
 select
     a.syadai_kt,                    -- 車台型式
-    a.frm_no,                       -- フレームNo
+    a.frmno,                       -- フレームNo
     a.wmi,                          -- WMI
     a.vds,                          -- チェックディジット
     a.mdlyr,                        -- モデル年
