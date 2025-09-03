@@ -10,7 +10,6 @@ sources:
     loaded_at_field: _fivetran_synced
 
     tables:
-    # GCAS
       - name: raw_cyyg9syasyusiji
         identifier: cyyg9syasyusiji
       - name: raw_cyyg9hinmokuhiki
