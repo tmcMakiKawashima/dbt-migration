@@ -19,7 +19,7 @@ with stg_hinmokuhiki_gcas as (
         framejkmade::varchar(7) as framejkmade,
         mttime::varchar(16) as mttime,
         _fivetran_synced::timestamp_ntz as ldts
-    from {{ source('fivetran_database_ogg_gcas','raw_cyyg9hinmokuhiki') }}
+    from {{ source('fivetran_database_ogg_gcas_osyyvl0100db20','raw_cyyg9hinmokuhiki') }}
     where _fivetran_deleted = 'false'
 )
 select * from stg_hinmokuhiki_gcas
