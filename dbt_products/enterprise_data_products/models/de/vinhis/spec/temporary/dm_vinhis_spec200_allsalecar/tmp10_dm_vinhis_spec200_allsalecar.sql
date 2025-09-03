@@ -11,7 +11,7 @@ with tmp_yoko as (
         a.haisya_kt,              -- 配車型式
         a.sketa_cd,               -- 仕様桁コード
         a.skigo_cd                -- 仕様記号コード
-      from {{ source('vinhis_db_vinspec','raw_dm_vinhis_specification_union') }} as a
+      from {{ source('vinhis_db_spec','raw_dm_vinhis_specification_union') }} as a
     left join {{ source('vinhis_db_spec','raw_dm_vinhis_spec200_allsalecar') }} as b
         on trim(a.syadai_kt) = trim(b.syadai_kt) and
         trim(a.frm_no) = trim(b.frm_no) and

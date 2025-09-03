@@ -7,8 +7,14 @@ sources:
     tables:
       - name: raw_mst_vinhis_specification_nameconvert
         identifier: mst_vinhis_specification_nameconvert
+  - name: vinhis_db_spec
+    database: vinhis_db
+    schema: spec
+    tables: 
       - name: raw_dm_vinhis_specification_union
         identifier: dm_vinhis_specification_union
+      - name: raw_dm_vinhis_spec200_allsalecar
+        identifier: dm_vinhis_spec200_allsalecar
   - name: vinhis_db_iqas
     database: vinhis_db
     schema: iqas

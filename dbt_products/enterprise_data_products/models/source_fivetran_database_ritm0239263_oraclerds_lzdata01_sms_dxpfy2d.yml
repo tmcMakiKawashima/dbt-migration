@@ -1,8 +1,8 @@
 sources:
-  - name: fivetran_database_oraclerds_lzdata01_sms_dxpfy2d
-    database: fivetran_database
+  - name: fivetran_database_ritm0239263_oraclerds_lzdata01_sms_dxpfy2d
+    database: fivetran_database_ritm0239263
     schema: oraclerds_lzdata01_sms_dxpfy2d
-   
+
     freshness:
       warn_after: { count: 1, period: hour }
       error_after: { count: 24, period: hour }

@@ -1,8 +1,8 @@
 version: 2
 
 sources:
-  - name: parts_list_db_public
-    database: parts_list_db
+  - name: parts_list_db_ritm0221441_public
+    database: parts_list_db_ritm0221441
     schema: public
     tables:
       - name: raw_dm_ktfgo_list
