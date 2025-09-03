@@ -79,7 +79,7 @@ tmp_rank_target as (
 -- 6. 工程符号を付与し出力
 select
     a.syadai_kt,
-    a.frm_no,
+    a.frmno,
     a.wmi,
     a.vds,
     a.mdlyr,
