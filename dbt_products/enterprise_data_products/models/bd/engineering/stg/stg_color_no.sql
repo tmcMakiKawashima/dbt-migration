@@ -20,7 +20,7 @@ with stg_color_no as (
         sbusyo::varchar(10) as sbusyo, --取得部署
         ssya::varchar(20) as ssya, --取得者
         _fivetran_synced::timestamp as ldts
-    from {{ source('fivetran_database_ritm0239263_oraclerds_lzdata01_sms_dxpfy2d','raw_cyp23colorno') }}
+    from {{ source('fivetran_database_oraclerds_lzdata01_sms_dxpfy2d','raw_cyp23colorno') }}
     where _fivetran_deleted = FALSE
 )
 select * from stg_color_no
