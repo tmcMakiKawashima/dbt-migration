@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: fivetran_database_ogg_gcas
+  - name: fivetran_database_ogg_gcas_osyyvl0100db20
     database: fivetran_database
     schema: ogg_gcas_osyyvl0100db20
     freshness:
