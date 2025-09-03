@@ -110,5 +110,5 @@ select
     a.sk_y,
     a.sk_m
 from tmp_rank_target as a
-left join {{ source('parts_list_db_public','raw_dm_ktfgo_list') }} as b
+left join {{ source('parts_list_db_ritm0221441_public','raw_dm_ktfgo_list') }} as b
     on trim(a.seisanbasyo) = trim(b.ktfgo)
