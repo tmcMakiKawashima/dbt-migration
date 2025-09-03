@@ -11,7 +11,7 @@ with stg_syasyufuzoku_gcas as (
         kirinaiyo::varchar(1) as kirinaiyo,
         mttime::varchar(16) as mttime,
         _fivetran_synced::timestamp_ntz as ldts
-    from {{ source('fivetran_database_ogg_gcas','raw_cyyg9syasyufuzoku') }}
+    from {{ source('fivetran_database_ogg_gcas_osyyvl0100db20','raw_cyyg9syasyufuzoku') }}
     where _fivetran_deleted = 'false'
 )
 select * from stg_syasyufuzoku_gcas
