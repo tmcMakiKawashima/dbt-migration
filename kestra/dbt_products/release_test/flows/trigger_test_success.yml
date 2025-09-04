@@ -3,7 +3,6 @@ namespace: kestra_dbt_project.release_test
 
 labels:
   error: default_failed
-  dbt: build
 
 tasks:
   - id: hello
