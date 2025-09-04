@@ -242,3 +242,135 @@ models:
           - not_null:
               config:
                 severity: error
+# 代替切替日情報
+  - name: stg_daitaikirikaebi_gsps
+    config:
+      tags: ["gsps"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - daiohin
+            - orderjtai
+            - hantiiki
+            - syusbetu
+          config:
+            severity: error
+    columns:
+      - name: daiohin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: orderjtai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hantiiki
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syusbetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 代替.オーダ先ルート情報
+  - name: stg_daitaiordersakiroot_gsps
+    config:
+      tags: ["gsps"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - daiohin
+            - daiohinsbetu
+            - hantiiki
+            - syusbetu
+            - orderjtai1
+            - orderjtai2
+            - orderjtai3
+            - orderjtai4
+            - orderjtai5
+          config:
+            severity: error
+    columns:
+      - name: daiohin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: daiohinsbetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hantiiki
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syusbetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: orderjtai1
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: orderjtai2
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: orderjtai3
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: orderjtai4
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: orderjtai5
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 代替情報
+  - name: stg_daitai_gsps
+    config:
+      tags: ["gsps"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - daiohin
+            - syusbetu
+            - seppenjun
+            - dainhin
+          config:
+            severity: error
+    columns:
+      - name: daiohin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syusbetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seppenjun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dainhin
+        data_tests:
+          - not_null:
+              config:
+                severity: error

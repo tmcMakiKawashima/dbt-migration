@@ -449,6 +449,27 @@ sources:
             data_tests:
               - fixed_length:
                   length: 170
+      - name: raw_tmjfvk07
+        identifier: tmjfvk07
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 90
+      - name: raw_tmjfvk06
+        identifier: tmjfvk06
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 110
+      - name: raw_tmjfvk10
+        identifier: tmjfvk10
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 210
     # TOPACS
       - name: raw_ktrla01xzz0kv200v6
         identifier: ktrla01xzz0kv200v6
