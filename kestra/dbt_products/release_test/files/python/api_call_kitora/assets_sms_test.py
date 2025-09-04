@@ -18,7 +18,7 @@ def sms_api_parts_info_asset():
     # Parameters
     # --------------------
     # Request
-    req_table_full_name = db_name + ".public." + req_table_name
+    req_table_full_name = db_name + "." + schema_name + "." + req_table_name
     # Web-API call
     url = "engineering/GSMS/api/v2/registered/partsNo"
     headers_sms = headers.copy()
