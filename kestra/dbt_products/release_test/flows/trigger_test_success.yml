@@ -1,4 +1,4 @@
-id: alert_test_success
+id: trigger_test_success
 namespace: kestra_dbt_project.release_test
 
 labels:
@@ -6,10 +6,9 @@ labels:
   dbt: build
 
 tasks:
-  - id: dbt
+  - id: hello
     type: io.kestra.plugin.core.log.Log
     message: Hello World! 🚀
-    
 
 # エラーログを出力
 errors:
@@ -31,6 +30,5 @@ finally:
     type: io.kestra.plugin.core.log.Log
     message: 
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
-      - "dbt options -> {{ inputs.dbt_options }}"
-      
+
 disabled: false
