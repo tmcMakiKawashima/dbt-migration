@@ -449,3 +449,11 @@ sources:
             data_tests:
               - fixed_length:
                   length: 170
+    # TOPACS
+      - name: raw_ktrla01xzz0kv200v6
+        identifier: ktrla01xzz0kv200v6
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 530
