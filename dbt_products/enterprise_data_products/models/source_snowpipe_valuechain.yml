@@ -456,3 +456,10 @@ sources:
             data_tests:
               - fixed_length:
                   length: 90
+      - name: raw_tmjfvk06
+        identifier: tmjfvk06
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 110
