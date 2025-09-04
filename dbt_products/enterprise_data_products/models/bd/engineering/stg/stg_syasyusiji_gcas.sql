@@ -17,7 +17,7 @@ with stg_syasyusiji_gcas as (
         com::varchar(100) as com,
         mttime::varchar(16) as mttime,
         _fivetran_synced::timestamp_ntz as ldts
-    from {{ source('fivetran_database_ogg_gcas','raw_cyyg9syasyusiji') }}
+    from {{ source('fivetran_database_ogg_gcas_osyyvl0100db20','raw_cyyg9syasyusiji') }}
     where _fivetran_deleted = 'false'
 )
 select * from stg_syasyusiji_gcas
