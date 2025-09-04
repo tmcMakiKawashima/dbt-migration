@@ -9,6 +9,12 @@ tasks:
     type: io.kestra.plugin.core.log.Log
     message: Hello World! 🚀
 
+triggers:
+  - id: schedule
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "00 06 * * *"
+    timezone: Asia/Tokyo
+
 # エラーログを出力
 errors:
   - id: error_log
