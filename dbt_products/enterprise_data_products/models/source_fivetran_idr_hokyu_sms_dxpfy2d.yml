@@ -24,3 +24,5 @@ sources:
         identifier: cvg03hosyukka
       - name: raw_cvh02taiohhinban
         identifier: cvh02taiohhinban
+      - name: raw_cvh02tikihokyu
+        identifier: cvh02tikihokyu
