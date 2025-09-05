@@ -1,0 +1,85 @@
+version: 2
+models:
+
+# カタログ情報データ
+  - name: stg_catalog_topacs
+    config:
+      tags: ["topacs"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - catalg
+            - syasyu
+            - figno
+            - pnc1
+            - hkhin
+            - kosu
+            - jissijkara
+            - setpospnno
+            - bnrsiypnno
+            - trmgaihan
+            - katahyono
+            - hikiatetkgkbn
+          config:
+            severity: error
+    columns:
+      - name: catalg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: figno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: pnc1
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkhin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kosu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jissijkara
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: setpospnno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bnrsiypnno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: trmgaihan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: katahyono
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hikiatetkgkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
