@@ -8,14 +8,18 @@ with
             variation, -- バリエーション
             sochaku    -- 装着形態
          from {{ source('parts_list_db_public','raw_dm_latest_sekkei') }}
-         where syasyu REGEXP '^[0-9]{1,3}[WJ]$'
+         where syasyu regexp '^[0-9]{1,3}[WJ]$'
     )
 select 
     pl.kohin,   -- 品番
     pl.syasyu,  -- 車種コード
     pl.oyakt,   -- 親工程
     se.kata,    -- 呼称型式
-    substring(to_varchar(dateadd(month,sabun,to_date(to_varchar(std_month || '01'),'YYYYMMDD')),'YYYYMMDD'),1,6)::varchar(6) as taisho_month,  -- 年月
+    substring(
+        to_varchar(
+            dateadd(month,sabun,to_date(to_varchar(std_month || '01'),'YYYYMMDD'))
+                  ,'YYYYMMDD')
+            ,1,6)::varchar(6) as taisho_month,  -- 年月
     max(pl.daisu) as daisu,                                      -- 台数
     max(coalesce(pl.kohinmei,'')) as kohinmei,                   -- 品名名称
     max(coalesce(pl.oyaktmeijp,'')) as oyaktmeijp,               -- 親工程工程符号名称(和)
@@ -25,7 +29,8 @@ select
     max(coalesce(pl.tkkara,'')) as tkkara,                       -- 工場適用カラ
     case when max(se.sochaku) = 'P' and min(se.sochaku) = 'P' then 'P'
          when max(se.sochaku) = 'S' and min(se.sochaku) = 'S' then 'S'
-         else 'SP' end as sochaku                                -- 装着形態
+         else 'SP' end as sochaku,                               -- 装着形態
+    current_timestamp()::timestamp_ntz(9) as ldts                -- 最終更新日時
   from {{ ref('tmp10_dm_kousei_plantjiseki_kata') }} as pl
   left outer join dm_latest_sekkei_syasyu as se
     on se.syasyu = pl.syasyu
@@ -33,4 +38,9 @@ select
    and se.bui = pl.bui
    and se.variation = pl.vari
   where se.kata is not null
-  group by pl.kohin, pl.syasyu, pl.oyakt, se.kata, substring(to_varchar(dateadd(month,sabun,to_date(to_varchar(std_month || '01'),'YYYYMMDD')),'YYYYMMDD'),1,6)
+  group by pl.kohin, pl.syasyu, pl.oyakt, se.kata,
+           substring(
+                to_varchar(
+                    dateadd(month,sabun,to_date(to_varchar(std_month || '01'),'YYYYMMDD'))
+                            ,'YYYYMMDD')
+                    ,1,6)
