@@ -5,6 +5,7 @@ labels:
   error: default_failed
   dbt: build
 
+# 手動実行時に指定できるdbtオプション
 inputs:
   - id: dbt_options
     type: SELECT
