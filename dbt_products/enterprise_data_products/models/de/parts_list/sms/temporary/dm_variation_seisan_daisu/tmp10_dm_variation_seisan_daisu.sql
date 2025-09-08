@@ -68,6 +68,6 @@ where(
   end
 )
 or (
-  year(ascv.update_date) = year(dateadd(month, -1, current_date()))
-  and month(ascv.update_date) = month(dateadd(month, -1, current_date()))
+  year(ascv.update_date) = year(dateadd(month, -3, current_date()))
+  and month(ascv.update_date) = month(dateadd(month, -3, current_date()))
 )
