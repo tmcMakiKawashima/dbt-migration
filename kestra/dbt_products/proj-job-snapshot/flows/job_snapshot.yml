@@ -5,6 +5,7 @@ labels:
   error: default_failed
   dbt: build
 
+# 手動実行時に指定できるdbtオプション
 inputs:
   - id: dbt_options
     type: SELECT
@@ -35,7 +36,7 @@ tasks:
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
-    cron: "00 21 * * *"
+    cron: "00 19 * * *"
     timezone: Asia/Tokyo
 
 # エラーログを出力
