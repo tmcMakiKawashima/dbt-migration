@@ -76,4 +76,3 @@ select
   tmp_kousei03_blktenkai.torokutimem,
   tmp_kousei03_blktenkai.ldts
 from tmp_kousei03_blktenkai
-where tmp_kousei03_blktenkai.syasyu not in (select syasyu from {{ ref('dm_kousei_blktenkai') }})
