@@ -1,11 +1,3 @@
-{{
-    config(
-        materialized = 'incremental',
-        unique_key = ['hinban', 'syusbetu', 'seppenjun'],
-        incremental_strategy = 'merge'
-    )
-}}
-
 with stg_hokyujyoho_gsps as (
     select
         rtrim(hinban, ' 　')::varchar(15) as hinban, -- 右blank
@@ -26,11 +18,6 @@ with stg_hokyujyoho_gsps as (
         line_number,
         rank() over (partition by hinban, syusbetu, seppenjun order by ldts desc, line_number desc) aggkey
     from {{ ref('substr_tmjfvk09') }}
-
-    {% if is_incremental() %}
-        where ldts > (select max(ldts) from {{ this }})
-    {% endif %}
-
 )
 select * exclude(aggkey, line_number) from stg_hokyujyoho_gsps 
 where aggkey = 1 and seppenjun is not null
