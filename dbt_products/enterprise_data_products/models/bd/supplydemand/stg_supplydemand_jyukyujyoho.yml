@@ -368,7 +368,7 @@ models:
               config:
                 severity: error
 # 月度ＶＣＴ(日別)(N+1月)
-  - name: stg_getsudo_vct_jyukyujyoho
+  - name: stg_getsudo_vct_n1_jyukyujyoho
     config:
       tags: ["jyukyujyoho"]
     data_tests:
