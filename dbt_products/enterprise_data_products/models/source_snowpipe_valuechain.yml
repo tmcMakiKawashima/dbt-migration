@@ -485,3 +485,11 @@ sources:
             data_tests:
               - fixed_length:
                   length: 220
+    # HOKYUSMS
+      - name: raw_cvg01kyoku_manual
+        identifier: cvg01kyoku_manual
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 80
