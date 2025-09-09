@@ -83,3 +83,31 @@ models:
           - not_null:
               config:
                 severity: error
+# 発行型式データ
+  - name: stg_hakkokatasiki_topacs
+    config:
+      tags: ["topacs"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - catalg
+            - syasyu
+            - kosho
+          config:
+            severity: error
+    columns:
+      - name: catalg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kosho
+        data_tests:
+          - not_null:
+              config:
+                severity: error
