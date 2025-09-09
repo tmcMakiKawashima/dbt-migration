@@ -478,3 +478,10 @@ sources:
             data_tests:
               - fixed_length:
                   length: 530
+      - name: raw_ktrla01xzz0kv200v9
+        identifier: ktrla01xzz0kv200v9
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 220
