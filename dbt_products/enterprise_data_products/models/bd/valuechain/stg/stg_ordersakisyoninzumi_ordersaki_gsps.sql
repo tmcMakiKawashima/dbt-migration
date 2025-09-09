@@ -1,18 +1,3 @@
-{{
-    config(
-        materialized = 'incremental',
-        unique_key = [
-            'hinban',
-            'seisankyoku',
-            'hosyubas',
-            'hantiiki',
-            'syusbetu',
-            'seppenjun'
-        ],
-        incremental_strategy = 'merge'
-    )
-}}
-
 with stg_ordersakisyoninzumi_ordersaki_gsps as (
     select
         rtrim(hinban, ' 　')::varchar(15) as hinban, -- 右blank
@@ -52,11 +37,6 @@ with stg_ordersakisyoninzumi_ordersaki_gsps as (
             order by ldts desc, line_number desc
         ) aggkey
     from {{ ref('substr_tmjfvk05') }}
-
-    {% if is_incremental() %}
-        where ldts > (select max(ldts) from {{ this }})
-    {% endif %}
-
 )
 select * exclude(aggkey, line_number)
 from stg_ordersakisyoninzumi_ordersaki_gsps
