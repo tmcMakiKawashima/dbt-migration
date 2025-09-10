@@ -1,9 +1,9 @@
 with tmp as (
-  select * from {{ source('parts_list_db_sms', 'raw_tmp_junkanri_blktenkai')}}
+  select * from {{source('parts_list_db_sms', 'raw_tmp_junkanri_blktenkai')}}
 ) zt as (
-  select * from {{ source('parts_list_db', 'raw_tmp_junkanri_blktenkai')}}
+  select * from {{source('parts_list_db', 'raw_tmp_junkanri_blktenkai')}}
 ) ks as (
-  select * from {{ source('parts_list_db', 'raw_dm_kousei_blktenkai')}}
+  select * from {{source('parts_list_db', 'raw_dm_kousei_blktenkai')}}
 )
 select
   ks.*,
