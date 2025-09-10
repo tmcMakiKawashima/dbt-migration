@@ -8,3 +8,9 @@ sources:
     # sms-kousei
       - name: raw_tmp_junkanri_blktenkai
         identifier: tmp_junkanri_blktenkai
+  - name: parts_list_db_public
+    database: parts_list_db
+    schema: public
+    tables:
+      - name: raw_tmp_jyunkanri_jyufukublktenkai
+        identifier: tmp_jyunkanri_jyufukublktenkai
