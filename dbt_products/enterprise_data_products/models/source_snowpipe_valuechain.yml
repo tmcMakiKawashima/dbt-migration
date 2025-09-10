@@ -485,6 +485,13 @@ sources:
             data_tests:
               - fixed_length:
                   length: 220
+      - name: raw_ktrla01xzz0kv200v7
+        identifier: ktrla01xzz0kv200v7
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 50
     # HOKYUSMS
       - name: raw_cvg01kyoku_manual
         identifier: cvg01kyoku_manual
