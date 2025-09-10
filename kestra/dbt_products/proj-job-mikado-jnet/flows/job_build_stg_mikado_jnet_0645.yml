@@ -5,6 +5,16 @@ labels:
   error: default_failed
   dbt: build
 
+# 手動実行時に指定できるdbtオプション
+inputs:
+  - id: dbt_options
+    type: SELECT
+    displayName: Choose dbt options
+    values:
+      - --full-refresh
+    required: false
+    allowCustomValue: true
+
 tasks:
   - id: dbt
 
@@ -18,8 +28,8 @@ tasks:
         commands:
           - dbt build
             --select +stg_employee_shumu +stg_organization_english +stg_name_history +stg_syokusyu +stg_syokutakupart +stg_shikaku +stg_syokui +stg_syoninkubun +stg_bu +stg_shitsuka +stg_kakarigroup +stg_syagaisya +stg_syozoku +stg_bumon +stg_kyumurigyo +stg_kyumurigyo_sk +stg_kyumurigyo_haken +stg_kintai_monthly +stg_kintai_daily +stg_pclog +stg_nyusyakeitai +stg_mail +stg_joshi +stg_kinmutaiyo +stg_kaisya +stg_bunya +stg_syagaisya_kubun +stg_exmail +stg_employee_kenmu +stg_yakuwari_history +stg_twave_tel"
-
             --vars '{"DBT_JOB_NAME":"_stg_mikado_jnet_0645"}'
+            {{ inputs.dbt_options ?? "" }}
             --project-dir "{{ namespace.DBT.PROJ_DIR }}"
 
 triggers:
@@ -48,5 +58,6 @@ finally:
     type: io.kestra.plugin.core.log.Log
     message: 
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
+      - "dbt options -> {{ inputs.dbt_options }}"
       
 disabled: false
