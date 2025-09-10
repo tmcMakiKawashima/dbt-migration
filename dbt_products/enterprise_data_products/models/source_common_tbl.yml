@@ -6,3 +6,5 @@ sources:
     tables:
       - name: raw_m_hostalc_psc_plantcode
         identifier: m_hostalc_psc_plantcode
+      - name: raw_m_hostalc_psc_plantcode_kaigai
+        identifier: m_hostalc_psc_plantcode_kaigai
