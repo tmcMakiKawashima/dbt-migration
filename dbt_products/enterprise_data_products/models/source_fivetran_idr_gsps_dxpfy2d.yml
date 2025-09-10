@@ -18,3 +18,5 @@ sources:
         identifier: cvk09ykiken
       - name: raw_cvk02tksyasyu
         identifier: cvk02tksyasyu
+      - name: raw_cvk02hinsyasyu
+        identifier: cvk02hinsyasyu
