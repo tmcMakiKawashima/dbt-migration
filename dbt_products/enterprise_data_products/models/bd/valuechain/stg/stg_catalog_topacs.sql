@@ -1,44 +1,3 @@
-{{
-    config(
-        materialized = 'incremental',
-        unique_key = [
-            'catalg',
-            'syasyu',
-            'figno',
-            'pnc1',
-            'hkhin',
-            'kosu',
-            'jissijkara',
-            'setpospnno',
-            'bnrsiypnno',
-            'trmgaihan',
-            'katahyono',
-            'hikiatetkgkbn'
-        ],
-        incremental_strategy = 'merge',
-        post_hook = "
-            {% if is_incremental() %}
-                delete from {{this}}
-                where (catalg, syasyu, figno, pnc1, hkhin, kosu, jissijkara, setpospnno, bnrsiypnno, trmgaihan, katahyono, hikiatetkgkbn) in (
-                    with ranked as (
-                        select mtkbn, catalg, syasyu, figno, pnc1, hkhin, kosu, jissijkara, setpospnno, bnrsiypnno, trmgaihan, katahyono, hikiatetkgkbn, ldts, line_number,
-                            rank() over(
-                                partition by catalg, syasyu, figno, pnc1, hkhin, kosu, jissijkara, setpospnno, bnrsiypnno, trmgaihan, katahyono, hikiatetkgkbn
-                                order by ldts desc, line_number desc
-                            ) as aggkey
-                        from {{ ref('substr_ktrla01xzz0kv200v6') }}
-                    )
-                    select rtrim(catalg, ' 　'), rtrim(syasyu, ' 　'), rtrim(figno, ' 　'), rtrim(pnc1, ' 　'), rtrim(hkhin, ' 　'), rtrim(kosu, ' 　'), rtrim(jissijkara, ' 　'), rtrim(setpospnno, ' 　'), rtrim(bnrsiypnno, ' 　'), rtrim(trmgaihan, ' 　'), rtrim(katahyono, ' 　'), rtrim(hikiatetkgkbn, ' 　')
-                    from ranked
-                    where mtkbn = 2
-                    and aggkey = 1
-                )
-            {% endif %}
-        "
-    )
-}}
--- MT区分が'2'に更新されたレコードを削除
-
 with stg_catalog_topacs as (
     select
         mtkbn::varchar(1) as mtkbn, 
@@ -89,11 +48,6 @@ with stg_catalog_topacs as (
             order by ldts desc, line_number desc
         ) aggkey
     from {{ ref('substr_ktrla01xzz0kv200v6') }}
-
-    {% if is_incremental() %}
-        where ldts > (select max(ldts) from {{ this }})
-    {% endif %}
-
 )
 select * exclude(aggkey, mtkbn, line_number)
 from stg_catalog_topacs
