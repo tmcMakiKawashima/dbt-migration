@@ -5,7 +5,7 @@
         pre_hook = "
             {% if is_incremental() %}
               delete from {{this}} a
-              using {{ ref('tmp_kousei03_blktenkai') }} b
+              using {{ ref('tmp_legacy_kousei03_blktenkai') }} b --tmp_legacy_kousei03_blktenkai
               where a.syasyu = b.syasyu 
             {% endif %}
         "
@@ -20,7 +20,7 @@ with
       'KOUSEI' as target,
       max(iff(torokujunm='999999999', torokujunk, torokujunm)) as torokujun,
       to_char(current_timestamp, 'yyyymmddhhmissff2') as mttime 
-    from {{ ref('tmp_kousei03_blktenkai') }}
+    from {{ ref('tmp_legacy_kousei03_blktenkai') }}
     group by
     syasyu
   ),
@@ -29,7 +29,7 @@ with
       syasyu_cd,
       torokujun,
       seppenno
-     from {{ ref('stg_mokujihonshijun') }}
+     from {{ ref('stg_legacy_mokujihonshijun') }}
      where trim(jigyoutai) = ''
      group by
      syasyu_cd,
@@ -40,7 +40,7 @@ with
     select
       syasyu,
       max(mttime) as maxmttime
-    from {{ ref('stg_kousei') }}
+    from {{ ref('stg_legacy_kousei') }}
     where trim(jigyoutai) = ''
     group by
     syasyu
@@ -49,7 +49,7 @@ with
     select
       syasyu,
       max(mttime) as maxmttime
-    from {{ ref('stg_kouseicom') }}
+    from {{ ref('stg_legacy_kouseicom') }}
     where trim(jigyoutai) = '' 
     and comkbn='11'
     group by
@@ -64,7 +64,7 @@ select
   iff(tmp_kousei03_sub2.maxmttime < tmp_kousei03_sub3.maxmttime, tmp_kousei03_sub3.maxmttime, tmp_kousei03_sub2.maxmttime) as maxmttime,
   tmp_kousei03_main.mttime
 from tmp_kousei03_main
-inner join tmp_kousei03_sub1
+left join tmp_kousei03_sub1
   on tmp_kousei03_main.syasyu = tmp_kousei03_sub1.syasyu_cd
   and tmp_kousei03_main.torokujun = tmp_kousei03_sub1.torokujun
 left join tmp_kousei03_sub2
