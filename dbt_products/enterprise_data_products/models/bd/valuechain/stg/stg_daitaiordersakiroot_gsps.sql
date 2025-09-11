@@ -1,19 +1,3 @@
-{{
-    config(
-        materialized = 'incremental',
-        incremental_strategy = 'append',
-        pre_hook = "
-            {% if is_incremental() %}
-                delete from {{ this }}
-                where (daiohin, daiohinsbetu) in (select rtrim(daiohin, ' 　'), rtrim(daiohinsbetu, ' 　')
-                from {{ ref('substr_tmjfvk06') }}
-                where ldts > (select max(ldts) from {{ this }}))
-            {% endif %}
-        "
-    )
-}}
--- daiohin, daiohinsbetu 単位で洗い替え
-
 with stg_daitaiordersakiroot_gsps as (
     select
         rtrim(daiohin, ' 　')::varchar(15) as daiohin, -- 右blank
@@ -29,11 +13,21 @@ with stg_daitaiordersakiroot_gsps as (
         iff(rtrim(kosincompid, ' 　') = '', null, rtrim(kosincompid, ' 　'))::varchar(5) as kosincompid, -- 右blank,空値の場合はnull
         iff(rtrim(kosinuserid, ' 　') = '', null, rtrim(kosinuserid, ' 　'))::varchar(10) as kosinuserid, -- 右blank,空値の場合はnull
         iff(rtrim(kosintime, ' 　') = '', null, rtrim(kosintime, ' 　'))::varchar(16) as kosintime, -- 右blank,空値の場合はnull
-        ldts
+        ldts,
+        line_number,
+        rank() over (
+            partition by
+                daiohin,
+                daiohinsbetu,
+                hantiiki,
+                syusbetu,
+                orderjtai1,
+                orderjtai2,
+                orderjtai3,
+                orderjtai4,
+                orderjtai5
+            order by ldts desc, line_number desc
+        ) aggkey
     from {{ ref('substr_tmjfvk06') }}
 )
-select * from stg_daitaiordersakiroot_gsps
-
-{% if is_incremental() %}
-    where ldts > (select max(ldts) from {{ this }})
-{% endif %}
+select * exclude(aggkey, line_number) from stg_daitaiordersakiroot_gsps where aggkey = 1
