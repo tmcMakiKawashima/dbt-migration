@@ -61,13 +61,13 @@ where(
       trim(vsas.sk_y) <> ''
       and trim(vsas.sk_m) <> ''
     ) then (
-      cast(vsas.sk_y as number(4, 0)) = year(dateadd(month, -3, current_date()))
-      and cast(vsas.sk_m as number(2, 0)) = month(dateadd(month, -3, current_date()))
+      cast(vsas.sk_y as number(4, 0)) = year(dateadd(month, -1, current_date()))
+      and cast(vsas.sk_m as number(2, 0)) = month(dateadd(month, -1, current_date()))
     )
     else false
   end
 )
 or (
-  year(ascv.update_date) = year(dateadd(month, -3, current_date()))
-  and month(ascv.update_date) = month(dateadd(month, -3, current_date()))
+  year(ascv.update_date) = year(dateadd(month, -1, current_date()))
+  and month(ascv.update_date) = month(dateadd(month, -1, current_date()))
 )
