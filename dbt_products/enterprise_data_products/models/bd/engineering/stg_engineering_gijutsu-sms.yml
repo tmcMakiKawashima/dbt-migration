@@ -200,3 +200,104 @@ models:
           - not_null:
               config:
                 severity: error
+# 目次仕様
+  - name: stg_mokuji
+    config:
+      tags: ["gijutsu-sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu32
+            - syasyu_cd
+            - kumitate
+            - bui
+            - kosyokt
+            - vari
+            - torokujunk
+            - hikikey
+          config:
+            severity: error
+# 部位名称
+  - name: stg_buiname
+    config:
+      tags: ["gijutsu-sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu_cd
+            - kumitate
+            - bui
+          config:
+            severity: error
+    columns:
+      - name: syasyu_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kumitate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 組立番号名称
+  - name: stg_kumitatename
+    config:
+      tags: ["gijutsu-sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu_cd
+            - kumitate
+          config:
+            severity: error
+    columns:
+      - name: syasyu_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kumitate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# バリエーション名称
+  - name: stg_variationname
+    config:
+      tags: ["gijutsu-sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu_cd
+            - kumitate
+            - bui
+            - vari
+          config:
+            severity: error
+    columns:
+      - name: syasyu_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kumitate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vari
+        data_tests:
+          - not_null:
+              config:
+                severity: error
