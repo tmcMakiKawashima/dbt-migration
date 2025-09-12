@@ -460,3 +460,25 @@ sources:
             data_tests:
               - fixed_length:
                   length: 80
+    # 配車システム
+      - name: raw_tujfk001
+        identifier: tujfk001
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 2860
+      - name: raw_tujfk002
+        identifier: tujfk002
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 2860
+      - name: raw_tujfk003
+        identifier: tujfk003
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 2860
