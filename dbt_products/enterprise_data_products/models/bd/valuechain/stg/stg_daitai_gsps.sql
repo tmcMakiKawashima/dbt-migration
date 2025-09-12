@@ -1,19 +1,3 @@
-{{
-    config(
-        materialized = 'incremental',
-        incremental_strategy = 'append',
-        pre_hook = "
-            {% if is_incremental() %}
-                delete from {{ this }}
-                where (daiohin) in (select rtrim(daiohin, ' 　')
-                from {{ ref('substr_tmjfvk10') }}
-                where ldts > (select max(ldts) from {{ this }}))
-            {% endif %}
-        "
-    )
-}}
--- daiohin 単位で洗い替え
-
 with stg_daitai_gsps as (
     select
         rtrim(daiohin, ' 　')::varchar(15) as daiohin, -- 右blank
@@ -37,13 +21,17 @@ with stg_daitai_gsps as (
         iff(rtrim(kosincompid, ' 　') = '', null, rtrim(kosincompid, ' 　'))::varchar(5) as kosincompid, -- 右blank,空値の場合はnull
         iff(rtrim(kosinuserid, ' 　') = '', null, rtrim(kosinuserid, ' 　'))::varchar(10) as kosinuserid, -- 右blank,空値の場合はnull
         iff(rtrim(kosintime, ' 　') = '', null, rtrim(kosintime, ' 　'))::varchar(16) as kosintime, -- 右blank,空値の場合はnull
-        ldts
+        ldts,
+        line_number,
+        rank() over (
+            partition by
+                daiohin,
+                syusbetu,
+                seppenjun,
+                dainhin
+            order by ldts desc, line_number desc
+        ) aggkey
     from {{ ref('substr_tmjfvk10') }}
-
-    {% if is_incremental() %}
-    where ldts > (select max(ldts) from {{ this }})
-    {% endif %}
-
 )
-select * from stg_daitai_gsps
-where seppenjun is not null and kerekijun is not null
+select * exclude(aggkey, line_number) from stg_daitai_gsps
+where aggkey = 1 and seppenjun is not null and kerekijun is not null
