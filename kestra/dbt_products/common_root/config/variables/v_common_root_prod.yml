@@ -9,7 +9,7 @@ ENV: prod
 GIT:
   URL: http://ip-100-80-1-189.ap-northeast-1.compute.internal/enterprise_orchestration_products/kestra_dbt_project.git
   USER: kestra.dbt
-  BRANCH: deploy
+  BRANCH: prod
 NAME: kestra_dbt_project
 ALERTS:
   TOPIC: 
