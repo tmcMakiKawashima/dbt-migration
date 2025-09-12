@@ -1,0 +1,87 @@
+version: 2
+
+models:
+# 到着予定日算出結果(VCT仮々振当)_N月
+  - name: stg_touchakuyoteikekkavct_month_n_haisya
+    config:
+      tags: ["haisya"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - idno
+            - kaisu
+            - syear
+          config:
+            severity: error
+    columns:
+      - name: idno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kaisu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syear
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 到着予定日算出結果(VCT仮々振当)_N1月
+  - name: stg_touchakuyoteikekkavct_month_n1_haisya
+    config:
+      tags: ["haisya"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - idno
+            - kaisu
+            - syear
+          config:
+            severity: error
+    columns:
+      - name: idno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kaisu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syear
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 到着予定日算出結果(VCT仮々振当)_N2月
+  - name: stg_touchakuyoteikekkavct_month_n2_haisya
+    config:
+      tags: ["haisya"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - idno
+            - kaisu
+            - syear
+          config:
+            severity: error
+    columns:
+      - name: idno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kaisu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syear
+        data_tests:
+          - not_null:
+              config:
+                severity: error
