@@ -1,0 +1,49 @@
+{% snapshot scd_kousei %}
+{{
+    config(
+        unique_key="concat_ws('-'
+       ,jigyoutai
+       ,syasyu32
+       ,syasyu
+       ,siyoubui
+       ,oyahin
+       ,gc
+       ,kohin
+       ,kosu
+       ,sentaku
+       ,sakuseikbn
+       ,ktkbn
+       ,ktchk
+       ,ktkosu
+       ,jikt01
+       ,jikt02
+       ,jikt03
+       ,jikt04
+       ,jikt05
+       ,jikt06
+       ,jikt07
+       ,jikt08
+       ,jikt09
+       ,jikt10
+       ,jikt11
+       ,jikt12
+       ,jikt13
+       ,jikt14
+       ,oyakt
+       ,comno
+       ,zyoho1
+       ,zyoho2
+       ,zyoho3
+       ,torokujunk
+       ,torokujunm
+       ,zisikyuflg
+       ,tck
+       ,tcm)",
+
+        strategy='timestamp',
+        updated_at='ldts',
+        invalidate_hard_deletes=true,
+    )
+}}
+select * from {{ ref('stg_kousei') }}
+{% endsnapshot %}

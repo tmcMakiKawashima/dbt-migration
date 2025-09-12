@@ -1,0 +1,16 @@
+version: 2
+
+models:
+# 品番情報
+  - name: stg_hinban
+    config:
+      tags: ["sms-kousei"]
+    columns:
+      - name: hinban
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error

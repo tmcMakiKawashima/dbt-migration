@@ -10,5 +10,9 @@ sources:
     loaded_at_field: _fivetran_synced
 
     tables:
+      - name: raw_cam6075
+        identifier: cam6075
+      - name: raw_cam6063
+        identifier: cam6063
       - name: raw_cam6295
         identifier: cam6295
