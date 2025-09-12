@@ -167,3 +167,25 @@ models:
           - not_null:
               config:
                 severity: error
+# 品名コード名称データ
+  - name: stg_hinmeicodemeisyo_topacs
+    config:
+      tags: ["topacs"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - pnc1
+            - langua
+          config:
+            severity: error
+    columns:
+      - name: pnc1
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: langua
+        data_tests:
+          - not_null:
+              config:
+                severity: error
