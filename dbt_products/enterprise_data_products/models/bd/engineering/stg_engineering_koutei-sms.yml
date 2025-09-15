@@ -1,0 +1,135 @@
+version: 2
+
+models:
+# 生産場所正式
+  - name: stg_seisanbasyoseisiki_kouteisms
+    config:
+        tags: ["koutei-sms"]
+
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu
+            - tantoseikan
+            - jyokenno
+            - kata
+            - jigyoutai
+            - seisuffix
+            - genteikbn
+            - seisanbasyo
+          config:
+            severity: error
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tantoseikan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jyokenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kata
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jigyoutai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seisuffix
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: genteikbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seisanbasyo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: taisyogaiflg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siyoumu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: yusengenteiflg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mttime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 出図伝票テーブル
+  - name: stg_syutudenpyotbl_kouteisms
+    config:
+        tags: ["koutei-sms"]
+
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - seppenno
+            - siryono
+            - syasyu
+            - syurui
+            - maker
+            - koumoku
+            - minor
+            - bunsi
+            - bunbo
+          config:
+            severity: error
+    columns:
+      - name: seppenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siryono
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# グローバル設変ステータス
+  - name: stg_glseppenst_kouteisms
+    config:
+        tags: ["koutei-sms"]
+
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - seppenno
+            - siryono
+          config:
+            severity: error
+    columns:
+      - name: seppenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siryono
+        data_tests:
+          - not_null:
+              config:
+                severity: error
