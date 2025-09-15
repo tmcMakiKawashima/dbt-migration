@@ -301,3 +301,423 @@ models:
           - not_null:
               config:
                 severity: error
+# 設変ステータス
+  - name: stg_seppenst_gijutsusms
+    config:
+      tags: ["gijutsu-sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - seppenno
+            - siryono
+          config:
+            severity: error
+    columns:
+      - name: seppenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siryono
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 部位別目次登録/生認順
+  - name: stg_mokujibuijun_gijutsusms
+    config:
+      tags: ["gijutsu-sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - jigyoutai
+            - syasyu
+            - kumitate
+            - bui
+            - torokujun
+          config:
+            severity: error
+    columns:
+      - name: jigyoutai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kumitate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: torokujun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 目次作成設計室
+  - name: stg_mokujisitu_gijutsusms
+    config:
+      tags: ["gijutsu-sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - jigyoutai
+            - syasyu32
+            - syasyu
+            - kumitate
+            - bui
+            - kata
+            - torokujunk
+          config:
+            severity: error
+    columns:
+      - name: jigyoutai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu32
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kumitate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kata
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sekkei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: torokujunk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 本紙作成設計室
+  - name: stg_honsisitu_gijutsusms
+    config:
+      tags: ["gijutsu-sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - jigyoutai
+            - syasyu
+            - siyoubui
+            - torokujunk
+          config:
+            severity: error
+    columns:
+      - name: jigyoutai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siyoubui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sekkei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: torokujunk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: torokujunm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mttime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 工程符号
+  - name: stg_kouteifugo_gijutsusms
+    config:
+      tags: ["gijutsu-sms"]
+    columns:
+      - name: ktfgo
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: ktbunrui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jtaizoku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kojozoku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tatezoku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kouhouzoku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tktgicyuzoku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hojyofgozoku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tksnaiseizoku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: busyozoku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ktfgomeijp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ktfgomeien
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bmkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: oktfgo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: torokuymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisiymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mttime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: zisikyuflg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 国属性
+  - name: stg_kunizokusei_gijutsusms
+    config:
+      tags: ["gijutsu-sms"]
+    columns:
+      - name: kunizoku
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: tiikizoku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kunimeijp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kunimeien
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: torokuymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisiymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mttime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 地域属性
+  - name: stg_tiikizokusei_gijutsusms
+    config:
+      tags: ["gijutsu-sms"]
+    columns:
+      - name: tiikizoku
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: tiikimeijp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tiikimeien
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: torokuymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisiymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mttime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 事業体属性
+  - name: stg_jtaizokusei_gijutsusms
+    config:
+      tags: ["gijutsu-sms"]
+    columns:
+      - name: jtaizoku
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: jtaifgo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kunizoku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jtmeijp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jtrykjp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jtmeien
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jtryken
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ktsetgyomflg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tktsetflg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bmkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: torokuymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisiymd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mttime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
