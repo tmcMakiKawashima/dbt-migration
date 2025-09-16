@@ -36,6 +36,14 @@ sources:
         identifier: cyp05junkanri
       - name: raw_cyp01blkmei
         identifier: cyp01blkmei
+      - name: raw_cyl15kouseicom
+        identifier: cyl15kouseicom
+      - name: raw_cyl15kousei
+        identifier: cyl15kousei
+      - name: raw_cyl15junkanri
+        identifier: cyl15junkanri
+      - name: raw_cyl15blkmei
+        identifier: cyl15blkmei
       - name: raw_cyp02shinmokuji
         identifier: cyp02shinmokuji
       - name: raw_cyp01buimei
