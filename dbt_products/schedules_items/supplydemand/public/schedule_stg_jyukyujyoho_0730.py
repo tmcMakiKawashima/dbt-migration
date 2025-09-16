@@ -14,9 +14,7 @@ schedule_stg_jyukyujyoho_0730 = build_schedule_from_dbt_selection(
     execution_timezone="Asia/Tokyo",
     dbt_select="+stg_getsudo_vct_n1_jyukyujyoho +stg_sfx_kihonjyoho_tbl_jyukyujyoho",
     config=RunConfig(ops={"dbt_products_assets":
-                          DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_jyukyujyoho_0730"},
-                                    source_test_list=["source:*,+stg_getsudo_vct_n1_jyukyujyoho",
-                                                      "source:*,+stg_sfx_kihonjyoho_tbl_jyukyujyoho"])
+                          DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_jyukyujyoho_0730"})
                           }
                      ),
     tags={"ecs/cpu": "256", "ecs/memory": "1024",
