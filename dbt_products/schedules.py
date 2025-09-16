@@ -13,6 +13,7 @@ from .schedules_items.customerservice.public.schedule_stg_warranty import schedu
 """ engineering """
 from .schedules_items.engineering.public.schedule_stg_aisac import schedule_stg_aisac
 from .schedules_items.engineering.public.schedule_stg_paint_iot import schedule_stg_paint_iot
+from .schedules_items.engineering.public.schedule_stg_smsdatamart import schedule_stg_smsdatamart
 from .schedules_items.engineering.public.schedule_tmp_sms_api_parts_info_req_json import schedule_tmp_sms_api_parts_info_req_json
 """ manufacturing """
 from .schedules_items.manufacturing.public.schedule_stg_kojoiotpf import schedule_stg_kojoiotpf
@@ -87,6 +88,8 @@ schedules.append(schedule_stg_warranty)
 schedules.append(schedule_stg_aisac)
 # TMK塗装IoT
 schedules.append(schedule_stg_paint_iot)
+# SMSデータマート
+schedules.append(schedule_stg_smsdatamart)
 # SMS API（品番情報） REQUEST
 schedules.append(schedule_tmp_sms_api_parts_info_req_json)
 """ manufacturing """
