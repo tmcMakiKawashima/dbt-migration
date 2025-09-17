@@ -67,6 +67,6 @@ finally:
     type: io.kestra.plugin.core.log.Log
     message:
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
-      - "dbt options -> {{ inputs.dbt_options }}"
+      - "dbt options -> {{ inputs.dbt_options ?? '' }}"
       
 disabled: false
