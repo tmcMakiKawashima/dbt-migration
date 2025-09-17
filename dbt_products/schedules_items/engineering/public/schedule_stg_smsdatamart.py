@@ -12,7 +12,7 @@ schedule_stg_smsdatamart = build_schedule_from_dbt_selection(
     schedule_name="SMSDATAMART",
     cron_schedule="00 04 * * *",
     execution_timezone="Asia/Tokyo",
-    dbt_select="+stg_varimei +stg_kumimei +stg_buimei +stg_shinmokuji +stg_kouteifugo_gijutsusms +stg_seisanbasyoseisiki_kouteisms +stg_mokujisitu_gijutsusms +stg_jtaizokusei_gijutsusms +stg_tiikizokusei_gijutsusms +stg_kunizokusei_gijutsusms +stg_honsisitu_gijutsusms +stg_mokujibuijun_gijutsusms +stg_syutudenpyotbl_kouteisms +stg_seppenst_gijutsusms +stg_glseppenst_kouteisms",
+    dbt_select="+stg_variationname +stg_kumitatename +stg_buiname +stg_mokuji +stg_kouteifugo_gijutsusms +stg_seisanbasyoseisiki_kouteisms +stg_mokujisitu_gijutsusms +stg_jtaizokusei_gijutsusms +stg_tiikizokusei_gijutsusms +stg_kunizokusei_gijutsusms +stg_honsisitu_gijutsusms +stg_mokujibuijun_gijutsusms +stg_syutudenpyotbl_kouteisms +stg_seppenst_gijutsusms +stg_glseppenst_kouteisms",
     config=RunConfig(ops={"dbt_products_assets":
                           DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_smsdatamart"})
                           }
