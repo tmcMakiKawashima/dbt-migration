@@ -3,7 +3,7 @@ with stg_syasyusiji_gcas as (
         syasyu::varchar(4) as syasyu,
         hansiyono8::varchar(8) as hansiyono8,
         jyokenno::varchar(4) as jyokenno,
-        seisan80::varchar(6) as seisan80,
+        seisan80::varchar(1) as seisan80,
         seisan100::varchar(1) as seisan100,
         hankatajk1ud::varchar(1) as hankatajk1ud,
         hankatajk1keta::varchar(2) as hankatajk1keta,
