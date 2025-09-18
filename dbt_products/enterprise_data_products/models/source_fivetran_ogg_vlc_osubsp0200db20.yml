@@ -34,3 +34,21 @@ sources:
         identifier: cubc260nbkyotenplanhaisha
       - name: raw_cubc262nbkyotenjsk
         identifier: cubc262nbkyotenjsk
+      - name: raw_cubd003shihanho
+        identifier: cubd003shihanho
+      - name: raw_cubd004shihandtlho
+        identifier: cubd004shihandtlho
+      - name: raw_cubd007yusyutuho
+        identifier: cubd007yusyutuho
+      - name: raw_cubd008yusyutudtlho
+        identifier: cubd008yusyutudtlho
+      - name: raw_cubc111kbn
+        identifier: cubc111kbn
+      - name: raw_cubc130kyotenattach
+        identifier: cubc130kyotenattach
+      - name: raw_cubm536loadres
+        identifier: cubm536loadres
+      - name: raw_cubs009funahimoduke
+        identifier: cubs009funahimoduke
+      - name: raw_cubs100shipnamem
+        identifier: cubs100shipnamem
