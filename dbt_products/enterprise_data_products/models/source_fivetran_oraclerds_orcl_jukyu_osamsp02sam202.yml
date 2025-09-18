@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: fivetran_database_oraclerds_orcl_jukyu_osamsp02sam202
+    database: fivetran_database
+    schema: oraclerds_orcl_jukyu_osamsp02sam202
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: _fivetran_synced
+
+    tables:
+      - name: raw_cam6075
+        identifier: cam6075
+      - name: raw_cam6063
+        identifier: cam6063

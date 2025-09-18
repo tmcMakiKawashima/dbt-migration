@@ -7,6 +7,7 @@ To add a daily schedule that materializes your dbt assets, uncomment the followi
 from .schedules_items.administration.public.schedule_stg_mikado_nyutaijo import schedule_stg_mikado_nyutaijo
 from .schedules_items.administration.public.schedule_stg_mikado_jnet_0645 import schedule_stg_mikado_jnet_0645
 from .schedules_items.administration.public.schedule_stg_mikado_jnet_0715 import schedule_stg_mikado_jnet_0715
+from .schedules_items.administration.public.schedule_stg_mikado_judgev import schedule_stg_mikado_judgev
 """ customerservice """
 from .schedules_items.customerservice.public.schedule_d_sias import schedule_d_sias
 from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
@@ -21,6 +22,15 @@ from .schedules_items.manufacturing.public.schedule_stg_maps import schedule_stg
 from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
 from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import schedule_stg_yohinhinbanmeisai
 """ supplydemand """
+from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_0130 import schedule_d_jyukyujyoho_0130
+from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_0530 import schedule_d_jyukyujyoho_0530
+from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_cam2204 import schedule_d_jyukyujyoho_cam2204
+from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_cam2501 import schedule_d_jyukyujyoho_cam2501
+from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_cam2502 import schedule_d_jyukyujyoho_cam2502
+from .schedules_items.supplydemand.public.schedule_d_syaryosys_0200 import schedule_d_syaryosys_0200
+from .schedules_items.supplydemand.public.schedule_d_syaryosys_0500 import schedule_d_syaryosys_0500
+from .schedules_items.supplydemand.public.schedule_d_vlc_0130 import schedule_d_vlc_0130
+from .schedules_items.supplydemand.public.schedule_d_vlc_0500 import schedule_d_vlc_0500
 from .schedules_items.supplydemand.public.schedule_stg_aqua import schedule_stg_aqua
 from .schedules_items.supplydemand.public.schedule_stg_dly_rpt_mst import schedule_stg_dly_rpt_mst
 from .schedules_items.supplydemand.public.schedule_stg_dly_rpt import schedule_stg_dly_rpt
@@ -46,7 +56,9 @@ from .schedules_items.model.repair.schedule_dm_vehicle_generation import schedul
 from .schedules_items.parts_list.seppen.schedule_dm_seppen_bunseki import schedule_dm_seppen_bunseki
 """ parts_list sms"""
 from .schedules_items.parts_list.sms.schedule_dm_kousei_blktenkai import schedule_dm_kousei_blktenkai
+from .schedules_items.parts_list.sms.schedule_dm_legacy_kousei_blktenkai import schedule_dm_legacy_kousei_blktenkai
 from .schedules_items.parts_list.sms.schedule_tmp_kousei03_blktenkai import schedule_tmp_kousei03_blktenkai
+from .schedules_items.parts_list.sms.schedule_tmp_legacy_kousei03_blktenkai import schedule_tmp_legacy_kousei03_blktenkai
 """ vinhis maint """
 from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
 """ vinhis model """
@@ -77,6 +89,8 @@ schedules.append(schedule_stg_mikado_nyutaijo)
 # MIKADO JNET
 schedules.append(schedule_stg_mikado_jnet_0645)
 schedules.append(schedule_stg_mikado_jnet_0715)
+# MIKADO Judge-V
+schedules.append(schedule_stg_mikado_judgev)
 """ customerservice """
 # D層SIAS
 schedules.append(schedule_d_sias)
@@ -100,6 +114,24 @@ schedules.append(schedule_stg_mashotoroku)
 # 用品品番明細
 schedules.append(schedule_stg_yohinhinbanmeisai)
 """ supplydemand """
+# 需給情報基盤_0130
+schedules.append(schedule_d_jyukyujyoho_0130)
+# 需給情報基盤(オーダーDB)
+schedules.append(schedule_d_jyukyujyoho_0530)
+# 需給情報基盤_月度VCT
+schedules.append(schedule_d_jyukyujyoho_cam2204)
+# 需給情報基盤_国マスタ
+schedules.append(schedule_d_jyukyujyoho_cam2501)
+# 需給情報基盤_地域マスタ
+schedules.append(schedule_d_jyukyujyoho_cam2502)
+# 車両システム_0200
+schedules.append(schedule_d_syaryosys_0200)
+# 車両システム_0500
+schedules.append(schedule_d_syaryosys_0500)
+# VLC本体_0130
+schedules.append(schedule_d_vlc_0130)
+# VLC本体_0500
+schedules.append(schedule_d_vlc_0500)
 # AQUA
 schedules.append(schedule_stg_aqua)
 # 生産日報STEP3
@@ -142,7 +174,12 @@ schedules.append(schedule_dm_seppen_bunseki)
 """ parts_list sms"""
 #SMS構成
 schedules.append(schedule_dm_kousei_blktenkai)
+#部品表データ活用
+schedules.append(schedule_dm_legacy_kousei_blktenkai)
+#SMS構成
 schedules.append(schedule_tmp_kousei03_blktenkai)
+#部品表データ活用
+schedules.append(schedule_tmp_legacy_kousei03_blktenkai)
 """ vinhis maint """
 # VIN整備
 schedules.append(schedule_dm_vinhis_maint)
