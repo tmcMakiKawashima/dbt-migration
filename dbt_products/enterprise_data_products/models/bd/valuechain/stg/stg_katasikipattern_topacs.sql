@@ -20,4 +20,4 @@ with stg_katasikipattern_topacs as (
 select * exclude(aggkey, mtkbn, line_number)
 from stg_katasikipattern_topacs
 where aggkey = 1 and mtkbn in (1, 4)
-order by catalg asc
+order by syasyu asc
