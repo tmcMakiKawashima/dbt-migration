@@ -427,6 +427,636 @@ sources:
         identifier: hostalc_1g_dkae06047201
       - name: raw_hostalc_1p_dkae06047201
         identifier: hostalc_1p_dkae06047201
+      - name: raw_hostalc_2u_dkae02072301
+        identifier: hostalc_2u_dkae02072301
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 73
+                  config:
+                    severity: error
+      - name: raw_hostalc_2q_dkae02072301
+        identifier: hostalc_2q_dkae02072301
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 73
+                  config:
+                    severity: error
+      - name: raw_hostalc_tx_dkae02072301
+        identifier: hostalc_tx_dkae02072301
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 73
+                  config:
+                    severity: error
+      - name: raw_hostalc_3c_dkae02072301
+        identifier: hostalc_3c_dkae02072301
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 73
+                  config:
+                    severity: error
+      - name: raw_hostalc_3a_dkae02072301
+        identifier: hostalc_3a_dkae02072301
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 73
+                  config:
+                    severity: error
+      - name: raw_hostalc_3w_dkae02072301
+        identifier: hostalc_3w_dkae02072301
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 73
+                  config:
+                    severity: error
+      - name: raw_hostalc_vm_dkae02072301
+        identifier: hostalc_vm_dkae02072301
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 73
+                  config:
+                    severity: error
+      - name: raw_hostalc_8s_dkae02072301
+        identifier: hostalc_8s_dkae02072301
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 73
+                  config:
+                    severity: error
+      - name: raw_hostalc_qm_dkae02072301
+        identifier: hostalc_qm_dkae02072301
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 73
+                  config:
+                    severity: error
+      - name: raw_hostalc_0g_dkae02072301
+        identifier: hostalc_0g_dkae02072301
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 73
+                  config:
+                    severity: error
+      - name: raw_hostalc_7c_dkae02072301
+        identifier: hostalc_7c_dkae02072301
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 73
+                  config:
+                    severity: error
+      - name: raw_hostalc_pb_dkae02072301
+        identifier: hostalc_pb_dkae02072301
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 73
+                  config:
+                    severity: error
+      - name: raw_hostalc_pd_dkae02072301
+        identifier: hostalc_pd_dkae02072301
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 73
+                  config:
+                    severity: error
+      - name: raw_hostalc_mb_dkae02072301
+        identifier: hostalc_mb_dkae02072301
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 73
+                  config:
+                    severity: error
+      - name: raw_hostalc_2u_dkae02072401
+        identifier: hostalc_2u_dkae02072401
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 39
+                  config:
+                    severity: error
+      - name: raw_hostalc_2q_dkae02072401
+        identifier: hostalc_2q_dkae02072401
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 39
+                  config:
+                    severity: error
+      - name: raw_hostalc_tx_dkae02072401
+        identifier: hostalc_tx_dkae02072401
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 39
+                  config:
+                    severity: error
+      - name: raw_hostalc_3c_dkae02072401
+        identifier: hostalc_3c_dkae02072401
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 39
+                  config:
+                    severity: error
+      - name: raw_hostalc_3a_dkae02072401
+        identifier: hostalc_3a_dkae02072401
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 39
+                  config:
+                    severity: error
+      - name: raw_hostalc_3w_dkae02072401
+        identifier: hostalc_3w_dkae02072401
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 39
+                  config:
+                    severity: error
+      - name: raw_hostalc_vm_dkae02072401
+        identifier: hostalc_vm_dkae02072401
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 39
+                  config:
+                    severity: error
+      - name: raw_hostalc_8s_dkae02072401
+        identifier: hostalc_8s_dkae02072401
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 39
+                  config:
+                    severity: error
+      - name: raw_hostalc_qm_dkae02072401
+        identifier: hostalc_qm_dkae02072401
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 39
+                  config:
+                    severity: error
+      - name: raw_hostalc_0g_dkae02072401
+        identifier: hostalc_0g_dkae02072401
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 39
+                  config:
+                    severity: error
+      - name: raw_hostalc_7c_dkae02072401
+        identifier: hostalc_7c_dkae02072401
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 39
+                  config:
+                    severity: error
+      - name: raw_hostalc_pb_dkae02072401
+        identifier: hostalc_pb_dkae02072401
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 39
+                  config:
+                    severity: error
+      - name: raw_hostalc_pd_dkae02072401
+        identifier: hostalc_pd_dkae02072401
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 39
+                  config:
+                    severity: error
+      - name: raw_hostalc_mb_dkae02072401
+        identifier: hostalc_mb_dkae02072401
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 39
+                  config:
+                    severity: error
+      - name: raw_hostalc_2u_dkae02072402
+        identifier: hostalc_2u_dkae02072402
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 294
+                  config:
+                    severity: error
+      - name: raw_hostalc_2q_dkae02072402
+        identifier: hostalc_2q_dkae02072402
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 294
+                  config:
+                    severity: error
+      - name: raw_hostalc_tx_dkae02072402
+        identifier: hostalc_tx_dkae02072402
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 294
+                  config:
+                    severity: error
+      - name: raw_hostalc_3c_dkae02072402
+        identifier: hostalc_3c_dkae02072402
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 294
+                  config:
+                    severity: error
+      - name: raw_hostalc_3a_dkae02072402
+        identifier: hostalc_3a_dkae02072402
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 294
+                  config:
+                    severity: error
+      - name: raw_hostalc_3w_dkae02072402
+        identifier: hostalc_3w_dkae02072402
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 294
+                  config:
+                    severity: error
+      - name: raw_hostalc_vm_dkae02072402
+        identifier: hostalc_vm_dkae02072402
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 294
+                  config:
+                    severity: error
+      - name: raw_hostalc_8s_dkae02072402
+        identifier: hostalc_8s_dkae02072402
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 294
+                  config:
+                    severity: error
+      - name: raw_hostalc_qm_dkae02072402
+        identifier: hostalc_qm_dkae02072402
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 294
+                  config:
+                    severity: error
+      - name: raw_hostalc_0g_dkae02072402
+        identifier: hostalc_0g_dkae02072402
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 294
+                  config:
+                    severity: error
+      - name: raw_hostalc_7c_dkae02072402
+        identifier: hostalc_7c_dkae02072402
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 294
+                  config:
+                    severity: error
+      - name: raw_hostalc_pb_dkae02072402
+        identifier: hostalc_pb_dkae02072402
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 294
+                  config:
+                    severity: error
+      - name: raw_hostalc_pd_dkae02072402
+        identifier: hostalc_pd_dkae02072402
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 294
+                  config:
+                    severity: error
+      - name: raw_hostalc_mb_dkae02072402
+        identifier: hostalc_mb_dkae02072402
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 294
+                  config:
+                    severity: error
+      - name: raw_hostalc_2u_dkae06046602
+        identifier: hostalc_2u_dkae06046602
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 29
+                  config:
+                    severity: error
+      - name: raw_hostalc_2q_dkae06046602
+        identifier: hostalc_2q_dkae06046602
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 29
+                  config:
+                    severity: error
+      - name: raw_hostalc_tx_dkae06046602
+        identifier: hostalc_tx_dkae06046602
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 29
+                  config:
+                    severity: error
+      - name: raw_hostalc_3c_dkae06046602
+        identifier: hostalc_3c_dkae06046602
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 29
+                  config:
+                    severity: error
+      - name: raw_hostalc_3a_dkae06046602
+        identifier: hostalc_3a_dkae06046602
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 29
+                  config:
+                    severity: error
+      - name: raw_hostalc_3w_dkae06046602
+        identifier: hostalc_3w_dkae06046602
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 29
+                  config:
+                    severity: error
+      - name: raw_hostalc_vm_dkae06046602
+        identifier: hostalc_vm_dkae06046602
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 29
+                  config:
+                    severity: error
+      - name: raw_hostalc_8s_dkae06046602
+        identifier: hostalc_8s_dkae06046602
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 29
+                  config:
+                    severity: error
+      - name: raw_hostalc_qm_dkae06046602
+        identifier: hostalc_qm_dkae06046602
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 29
+                  config:
+                    severity: error
+      - name: raw_hostalc_0g_dkae06046602
+        identifier: hostalc_0g_dkae06046602
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 29
+                  config:
+                    severity: error
+      - name: raw_hostalc_7c_dkae06046602
+        identifier: hostalc_7c_dkae06046602
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 29
+                  config:
+                    severity: error
+      - name: raw_hostalc_pb_dkae06046602
+        identifier: hostalc_pb_dkae06046602
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 29
+                  config:
+                    severity: error
+      - name: raw_hostalc_pd_dkae06046602
+        identifier: hostalc_pd_dkae06046602
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 29
+                  config:
+                    severity: error
+      - name: raw_hostalc_mb_dkae06046602
+        identifier: hostalc_mb_dkae06046602
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 29
+                  config:
+                    severity: error
+      - name: raw_hostalc_2u_dkae06047201
+        identifier: hostalc_2u_dkae06047201
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 87
+                  config:
+                    severity: error
+      - name: raw_hostalc_2q_dkae06047201
+        identifier: hostalc_2q_dkae06047201
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 87
+                  config:
+                    severity: error
+      - name: raw_hostalc_tx_dkae06047201
+        identifier: hostalc_tx_dkae06047201
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 87
+                  config:
+                    severity: error
+      - name: raw_hostalc_3c_dkae06047201
+        identifier: hostalc_3c_dkae06047201
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 87
+                  config:
+                    severity: error
+      - name: raw_hostalc_3a_dkae06047201
+        identifier: hostalc_3a_dkae06047201
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 87
+                  config:
+                    severity: error
+      - name: raw_hostalc_3w_dkae06047201
+        identifier: hostalc_3w_dkae06047201
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 87
+                  config:
+                    severity: error
+      - name: raw_hostalc_vm_dkae06047201
+        identifier: hostalc_vm_dkae06047201
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 87
+                  config:
+                    severity: error
+      - name: raw_hostalc_8s_dkae06047201
+        identifier: hostalc_8s_dkae06047201
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 87
+                  config:
+                    severity: error
+      - name: raw_hostalc_qm_dkae06047201
+        identifier: hostalc_qm_dkae06047201
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 87
+                  config:
+                    severity: error
+      - name: raw_hostalc_0g_dkae06047201
+        identifier: hostalc_0g_dkae06047201
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 87
+                  config:
+                    severity: error
+      - name: raw_hostalc_7c_dkae06047201
+        identifier: hostalc_7c_dkae06047201
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 87
+                  config:
+                    severity: error
+      - name: raw_hostalc_pb_dkae06047201
+        identifier: hostalc_pb_dkae06047201
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 87
+                  config:
+                    severity: error
+      - name: raw_hostalc_pd_dkae06047201
+        identifier: hostalc_pd_dkae06047201
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 87
+                  config:
+                    severity: error
+      - name: raw_hostalc_mb_dkae06047201
+        identifier: hostalc_mb_dkae06047201
+        columns:
+          - name: raw_data
+            tests:
+              - fixed_length:
+                  length: 87
+                  config:
+                    severity: error
     # コドモ
       # 制約フォーマット
       - name: raw_t_restriction_formats
