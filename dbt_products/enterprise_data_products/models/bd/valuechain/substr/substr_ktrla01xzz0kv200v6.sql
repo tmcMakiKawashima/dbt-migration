@@ -16,7 +16,7 @@ with substr_ktrla01xzz0kv200v6 as (
         substr(raw_data, 162, 25)::varchar(25) as iromei,
         substr(raw_data, 187, 1)::varchar(1) as servsetkbn,
         substr(raw_data, 188, 1)::varchar(1) as hosekbn,
-        substr(raw_data, 199, 12)::varchar(12) as hosehin,
+        substr(raw_data, 189, 12)::varchar(12) as hosehin,
         substr(raw_data, 201, 100)::varchar(100) as hkcom,
         substr(raw_data, 301, 6)::varchar(6) as jissijmade,
         substr(raw_data, 307, 4)::varchar(4) as kiricdkara,
