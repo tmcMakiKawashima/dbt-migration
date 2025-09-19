@@ -6,7 +6,7 @@ with stg_syasyusiji_gcas as (
         seisan80::varchar(1) as seisan80,
         seisan100::varchar(1) as seisan100,
         hankatajk1ud::varchar(1) as hankatajk1ud,
-        hankatajk1keta::varchar(2) as hankatajk1keta,
+        hankatajk1keta::varchar(1) as hankatajk1keta,
         hankatajk1val::varchar(1) as hankatajk1val,
         hankatajk2ud::varchar(1) as hankatajk2ud,
         hankatajk2val::varchar(10) as hankatajk2val,
