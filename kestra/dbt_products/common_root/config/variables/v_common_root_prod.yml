@@ -12,7 +12,7 @@ GIT:
   BRANCH: prod
 NAME: kestra_dbt_project
 ALERTS:
-  TOPIC: 
+  TOPIC: arn:aws:sns:ap-northeast-1:433723560297:pajp1-dxpf-edp-sns-kestra01
   REGION: ap-northeast-1
 DOCKER:
   IMAGE_VERSION:
@@ -22,7 +22,7 @@ PYTHON:
   SNOWFLAKE_CONNECTOR_VERSION: snowflake-connector-python[pandas]==3.15.0
 DBT_DOCS:
   BASE_PATH: dbt_documents/kestra/
-  S3_BUCKET: 
+  S3_BUCKET: pajp1-dxpf-edp-s3-kestra01
 SNOWFLAKE:
   ROLE: TRF_ACT_ROLE
   USER: KESTRA_USER
@@ -32,5 +32,5 @@ SNOWFLAKE:
   WAREHOUSE: DATAMART_WH
 KUBERNETES:
   NAMESPACE: default
-  USER_NAME: 
-  MASTER_URL: 
+  USER_NAME: arn:aws:eks:ap-northeast-1:433723560297:cluster/pajp1-dxpf-edp-eks-kestra01
+  MASTER_URL: https://3D1F82E7D700743A0AA7C4066B2F3FA4.gr7.ap-northeast-1.eks.amazonaws.com
