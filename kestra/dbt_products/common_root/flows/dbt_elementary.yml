@@ -1,0 +1,100 @@
+id: dbt_elementary
+namespace: kestra_dbt_project
+
+labels:
+  type: common_root
+  error: default_failed
+
+concurrency:
+  behavior: QUEUE
+  limit: 1
+  
+inputs:
+  - id: build
+    type: BOOLEAN
+    defaults: false
+
+tasks:
+  
+  - id: if_build_is_true
+    type: io.kestra.plugin.core.flow.If
+    condition: "{{ inputs.build == true }}"
+    # 初回実行の場合
+    then:
+
+    - id: dbt
+      type: io.kestra.plugin.core.flow.WorkingDirectory
+      tasks:
+        - id: clone_repository_dbt
+          type: io.kestra.plugin.git.Clone
+
+        - id: dbt_run
+          type: io.kestra.plugin.dbt.cli.DbtCLI
+          commands:
+            - dbt run
+              --select elementary
+              --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+
+  - id: elementary
+
+    type: io.kestra.plugin.core.flow.WorkingDirectory
+    tasks:
+      - id: clone_repository_elementary
+        type: io.kestra.plugin.git.Clone
+
+      - id: edr_report
+        type: io.kestra.plugin.dbt.cli.DbtCLI
+        commands:
+          - pip install 'elementary-data[snowflake]'
+          - edr report
+            --profiles-dir "{{ namespace.DBT.PROJ_DIR }}"
+        env:
+          DBT_SNOWFLAKE_ACCOUNT: "{{ namespace.DBT.SNOWFLAKE_ACCOUNT }}"
+          DBT_SNOWFLAKE_USER: "{{ namespace.DBT.SNOWFLAKE_USER }}"
+          SNOWFLAKE_PRIVATE_KEY_DBT: "{{ secret('SNOWFLAKE_PRIVATE_KEY_DBT') }}"
+          SNOWFLAKE_PRIVATE_KEY_PASSPHRASE_DBT: "{{ secret('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE_DBT') }}"
+          DBT_SNOWFLAKE_ROLE: "{{ namespace.DBT.SNOWFLAKE_ROLE }}"
+        outputFiles:
+          - edr_target/elementary_report.html
+
+      - id: S3_upload
+        type: io.kestra.plugin.aws.s3.Upload
+        from: "{{ outputs.edr_report['outputFiles']['edr_target/elementary_report.html'] }}"
+        bucket: "{{ namespace.DBT_DOCS.S3_BUCKET }}"
+        key: "{{ namespace.DBT_DOCS.BASE_PATH }}edr_report/elementary_report.html"
+        contentType: text/html
+        region: ap-northeast-1
+
+triggers:
+  - id: flow_trigger
+    type: io.kestra.plugin.core.trigger.Flow
+    conditions:
+      - type: io.kestra.plugin.core.condition.Expression
+        expression: "{{ namespace.ENV  == 'stg' or namespace.ENV  == 'prod' }}"
+      - type: io.kestra.plugin.core.condition.ExecutionLabels
+        labels:
+          dbt: build
+      - type: io.kestra.plugin.core.condition.ExecutionNamespace
+        namespace: "kestra_dbt_project"
+        prefix: true
+      - type: io.kestra.plugin.core.condition.ExecutionStatus
+        in:
+          - FAILED
+          - WARNING
+          - SUCCESS
+
+# エラーログを出力
+errors:
+  - id: error_log
+    type: io.kestra.plugin.core.debug.Return
+    format: "{{ errorLogs()[0]['message'] }}"
+
+outputs: 
+  - id: output_error_log
+    type: STRING
+    value: "{{ outputs.error_log.value ?? 'No message found.' }}"
+  - id: output_state
+    type: STRING
+    value: "{{ tasks.dbt.state ?? 'No state' }}"
+    
+disabled: false

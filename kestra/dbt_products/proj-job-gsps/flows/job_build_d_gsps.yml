@@ -1,0 +1,64 @@
+id: job_build_d_gsps
+namespace: kestra_dbt_project.proj-job-gsps
+
+labels:
+  error: default_failed
+  dbt: build
+  
+
+# 手動実行時に指定できるdbtオプション
+inputs:
+  - id: dbt_options
+    type: SELECT
+    displayName: Choose dbt options
+    values:
+      - --full-refresh
+    required: false
+    allowCustomValue: true
+
+tasks:
+  - id: dbt
+
+    type: io.kestra.plugin.core.flow.WorkingDirectory
+    tasks:
+      - id: clone_repository
+        type: io.kestra.plugin.git.Clone
+
+      - id: dbt_build
+        type: io.kestra.plugin.dbt.cli.DbtCLI
+        commands:
+          - dbt build
+            --select +stg_kiken +stg_hazmat +stg_ykiken
+            --vars '{"DBT_JOB_NAME":"_d_gsps"}'
+            {{ inputs.dbt_options ?? "" }}
+            --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+
+triggers:
+  - id: schedule
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "00 02 * * *"
+    timezone: Asia/Tokyo
+
+# エラーログを出力
+errors:
+  - id: error_log
+    type: io.kestra.plugin.core.debug.Return
+    format: "{{ errorLogs()[0]['message'] }}"
+
+outputs: 
+  - id: output_error_log
+    type: STRING
+    value: "{{ outputs.error_log.value ?? 'No message found.' }}"
+  - id: output_state
+    type: STRING
+    value: "{{ tasks.dbt.state ?? 'No state' }}"
+
+# ログ出力
+finally:
+  - id: finally_log 
+    type: io.kestra.plugin.core.log.Log
+    message: 
+      - "Git branch -> {{ namespace.GIT.BRANCH }}"
+      - "dbt options -> {{ inputs.dbt_options ?? '' }}"
+      
+disabled: false
