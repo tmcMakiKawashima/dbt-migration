@@ -388,14 +388,14 @@ models:
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-          - segmei
-          - renkey_hkata
-          - renkey_sedai
-          - renkey_psign
-          - renkey_keykbn
-          - renkey_chk
-          - renkey_renban
-          - ldts
+            - segmei
+            - renkey_hkata
+            - renkey_sedai
+            - renkey_psign
+            - renkey_keykbn
+            - renkey_chk
+            - renkey_renban
+            - ldts
           config:
             severity: error
     columns:
@@ -615,432 +615,432 @@ models:
             - not_null:
                 config:
                   severity: error
-      - name : renkey_sedai
+      - name: renkey_sedai
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : renkey_keykbn
+      - name: renkey_keykbn
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : renkey_keykmk
+      - name: renkey_keykmk
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : keykbn
+      - name: keykbn
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : keykmk
+      - name: keykmk
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt01
+      - name: opt01
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt02
+      - name: opt02
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt03
+      - name: opt03
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt04
+      - name: opt04
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt05
+      - name: opt05
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt06
+      - name: opt06
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt07
+      - name: opt07
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt08
+      - name: opt08
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt09
+      - name: opt09
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt10
+      - name: opt10
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt11
+      - name: opt11
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt12
+      - name: opt12
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt13
+      - name: opt13
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt14
+      - name: opt14
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt15
+      - name: opt15
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt16
+      - name: opt16
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt17
+      - name: opt17
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt18
+      - name: opt18
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt19
+      - name: opt19
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt20
+      - name: opt20
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt21
+      - name: opt21
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt22
+      - name: opt22
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt23
+      - name: opt23
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt24
+      - name: opt24
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt25
+      - name: opt25
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt26
+      - name: opt26
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt27
+      - name: opt27
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt28
+      - name: opt28
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt29
+      - name: opt29
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt30
+      - name: opt30
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt31
+      - name: opt31
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt32
+      - name: opt32
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt33
+      - name: opt33
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt34
+      - name: opt34
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt35
+      - name: opt35
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt36
+      - name: opt36
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt37
+      - name: opt37
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt38
+      - name: opt38
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt39
+      - name: opt39
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt40
+      - name: opt40
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt41
+      - name: opt41
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt42
+      - name: opt42
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt43
+      - name: opt43
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt44
+      - name: opt44
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt45
+      - name: opt45
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt46
+      - name: opt46
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt47
+      - name: opt47
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt48
+      - name: opt48
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt49
+      - name: opt49
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt50
+      - name: opt50
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt51
+      - name: opt51
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt52
+      - name: opt52
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt53
+      - name: opt53
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt54
+      - name: opt54
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt55
+      - name: opt55
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt56
+      - name: opt56
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt57
+      - name: opt57
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt58
+      - name: opt58
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt59
+      - name: opt59
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt60
+      - name: opt60
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt61
+      - name: opt61
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt62
+      - name: opt62
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt63
+      - name: opt63
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt64
+      - name: opt64
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt65
+      - name: opt65
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt66
+      - name: opt66
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt67
+      - name: opt67
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt68
+      - name: opt68
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt69
+      - name: opt69
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt70
+      - name: opt70
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt71
+      - name: opt71
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt72
+      - name: opt72
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt73
+      - name: opt73
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt74
+      - name: opt74
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt75
+      - name: opt75
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt76
+      - name: opt76
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt77
+      - name: opt77
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt78
+      - name: opt78
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt79
+      - name: opt79
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : opt80
+      - name: opt80
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name  : ldts
+      - name: ldts
         data_tests:
           - not_null:
               config:
