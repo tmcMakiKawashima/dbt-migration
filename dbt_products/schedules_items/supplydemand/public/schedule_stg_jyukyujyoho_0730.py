@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-# 需給情報基盤_月度VCT(N+1)_SFX基本情報
+# 需給情報基盤_0730
 schedule_stg_jyukyujyoho_0730 = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_stg_jyukyujyoho_0730",
