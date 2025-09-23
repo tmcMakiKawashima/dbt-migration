@@ -1,0 +1,36 @@
+version: 2
+
+sources:
+  - name: fivetran_database_idr_hokyu_sms_dxpfy2d
+    database: fivetran_database
+    schema: idr_hokyu_sms_dxpfy2d
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: _fivetran_synced
+
+    tables:
+      - name: raw_cvf03hosetu
+        identifier: cvf03hosetu
+      - name: raw_cvf03hosetuclr
+        identifier: cvf03hosetuclr
+      - name: raw_cvf12daitai
+        identifier: cvf12daitai
+      - name: raw_cvf13hohinban
+        identifier: cvf13hohinban
+      - name: raw_cvf13hohincmt
+        identifier: cvf13hohincmt
+      - name: raw_cvg03hosyukka
+        identifier: cvg03hosyukka
+      - name: raw_cvh02taiohhinban
+        identifier: cvh02taiohhinban
+      - name: raw_cvh02tikihokyu
+        identifier: cvh02tikihokyu
+      - name: raw_cvf21kyugata
+        identifier: cvf21kyugata
+      - name: raw_cvf03jikimoku
+        identifier: cvf03jikimoku
+      - name: raw_cvf03hosetugen
+        identifier: CVF03HOSETUGEN
+      - name: raw_cvf03hosetuclrgen
+        identifier: cvf03hosetuclrgen
