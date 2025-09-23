@@ -10,6 +10,7 @@ from .schedules_items.administration.public.schedule_stg_mikado_jnet_0715 import
 from .schedules_items.administration.public.schedule_stg_mikado_judgev import schedule_stg_mikado_judgev
 """ customerservice """
 from .schedules_items.customerservice.public.schedule_d_sias import schedule_d_sias
+from .schedules_items.customerservice.public.schedule_stg_iqas_0000 import schedule_stg_iqas_0000
 from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
 """ engineering """
 from .schedules_items.engineering.public.schedule_stg_aisac import schedule_stg_aisac
@@ -96,6 +97,8 @@ schedules.append(schedule_stg_mikado_judgev)
 """ customerservice """
 # D層SIAS
 schedules.append(schedule_d_sias)
+# iQAS_0000
+schedules.append(schedule_stg_iqas_0000)
 # ワランティ
 schedules.append(schedule_stg_warranty)
 """ engineering """
