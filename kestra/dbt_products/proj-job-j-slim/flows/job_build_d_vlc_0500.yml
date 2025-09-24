@@ -27,7 +27,7 @@ tasks:
         type: io.kestra.plugin.dbt.cli.DbtCLI
         commands:
           - dbt build
-            --select +stg_nbkyotenplanhaisha_vlc +stg_nbkyotenresult_vlc
+            --select +stg_nbkyotenplanhaisha_vlc +stg_nbkyotenresult_vlc +stg_noukitougoujyoho_shihanho_vlc +stg_noukitougoujyoho_shihandtlho_vlc +stg_noukitougoujyoho_yusyutuho_vlc +stg_noukitougoujyoho_yusyutudtlho_vlc +stg_kbnmst_vlc +stg_kyotenmstfuzoku_vlc +stg_funadumiresult_vlc +stg_funahimoduke_vlc +stg_shipnamemst_vlc
             --vars '{"DBT_JOB_NAME":"_d_vlc_0500"}'
             {{ inputs.dbt_options ?? "" }}
             --project-dir "{{ namespace.DBT.PROJ_DIR }}"
