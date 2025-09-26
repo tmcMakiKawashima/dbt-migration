@@ -1,20 +1,23 @@
-with tmp3 as (
-  select * from {{ref('tmp03_dm_kousei_jyufukublktenkai')}}
-) recursive dm_kousei_oya as (
+{{
+    config(
+        materialized='table'
+    )
+}}
+-- 処理レスポンスを考慮しtable実装
+with recursive dm_kousei_oya as (
   select
     tmp3.syasyu, -- 車種コード
-    tmp3.siyoubui, -- 使用部位(重複対象)
-    tmp3.aite_siyoubui, -- 重複相手先使用部位
+    tmp3.siyoubui, -- 使用部位
+    tmp3.shusiyoubui, -- 主側使用部位
     tmp3.add_hinban, -- 重複の下の重複品番
+    tmp3.tyohuku, -- 重複記載
     tmp3.oyahin, -- 親品番
     tmp3.gc, -- GC
-    -- 確認中（この子品は重複対象？）
-    tmp3.kohin, -- 品番／BLKコード(重複対象)
+    tmp3.kohin, -- 品番／BLKコード
     tmp3.kosu, -- 使用個数
     tmp3.sentaku, -- 選択符号
     tmp3.torokujunk_15com, -- 登録生認順カラ(15コメントとして)
     tmp3.torokujunm_15com, -- 登録生認順マデ(15コメントとして)
-    tmp3.com -- 構成コメント
     tmp3.torokujunk, -- 登録／生認順カラ
     tmp3.torokujunm, -- 登録／生認順マデ
     tmp3.target, -- ターゲット
@@ -23,60 +26,56 @@ with tmp3 as (
     tmp3.maxmttime, -- MAXMTTIME
     tmp3.mttime, -- MTTIME
     1 as lv, -- レベル
-    id -- ID
-    from tmp3
-  where jyufuku_siyoubui = oyahin
+    tmp3.id -- ID
+    from {{ref('tmp03_dm_kousei_jyufukublktenkai')}} as tmp3
+  where tmp3.siyoubui = tmp3.oyahin
   union all
   select 
-    sg.syasyu,-- 車種コード
-    sg.siyoubui, -- 使用部位(重複対象)
-    sg.aite_siyoubui, -- 重複相手先使用部位
-    sg.add_hinban, -- 重複の下の重複品番
-    sg.oyahin, -- 親品番
-    sg.gc, -- GC
-    -- 確認中（この子品は重複対象？）
-    sg.kohin, -- 品番／BLKコード(重複対象)
-    sg.kosu, -- 使用個数
-    sg.sentaku, -- 選択符号
-    sg.torokujunk_15com, -- 登録生認順カラ(15コメントとして)
-    sg.torokujunm_15com, -- 登録生認順マデ(15コメントとして)
-    sg.com, -- 構成コメント
+    zt.syasyu,-- 車種コード
+    zt.siyoubui, -- 使用部位(重複対象)
+    zt.shusiyoubui, -- 主側使用部位
+    zt.add_hinban, -- 重複の下の重複品番
+    zt.tyohuku, -- 重複記載
+    zt.oyahin, -- 親品番
+    zt.gc, -- GC
+    zt.kohin, -- 品番／BLKコード
+    zt.kosu, -- 使用個数
+    zt.sentaku, -- 選択符号
+    zt.torokujunk_15com, -- 登録生認順カラ(15コメントとして)
+    zt.torokujunm_15com, -- 登録生認順マデ(15コメントとして)
     case 
-      when oy.torokujunk > sg.torokujunk 
-      then oy.torokujunk
-      else sg.torokujunk
+      when ks.torokujunk > zt.torokujunk 
+      then ks.torokujunk
+      else zt.torokujunk
     end as torokujunk, -- 登録／生認順カラ
     case
-      when oy.torokujunm < sg.torokujunm
-      then oy.torokujunm
-      else sg.torokujunm
+      when ks.torokujunm < zt.torokujunm
+      then ks.torokujunm
+      else zt.torokujunm
     end as torokujunm, -- 登録／生認順マデ
-    sg.target, -- ターゲット
-    sg.torokujun, -- 登録／生認順
-    sg.seppenno, -- 設変No.
-    sg.maxmttime, -- MAXMTTIME
-    sg.mttime, -- MTTIME
-    oy.lv + 1 as lv, -- レベル
-    concat(oy.id, '.', sg.id) as id -- ID
-  from dm_kousei_oya as oy
-  inner join tmp3 as sg
+    zt.target, -- ターゲット
+    zt.torokujun, -- 登録／生認順
+    zt.seppenno, -- 設変No.
+    zt.maxmttime, -- MAXMTTIME
+    zt.mttime, -- MTTIME
+    ks.lv + 1 as lv, -- レベル
+    concat(ks.id, '.', zt.id) as id -- ID
+  from dm_kousei_oya as ks
+  inner join {{ref('tmp03_dm_kousei_jyufukublktenkai')}} as zt
     on(
-        sg.oyahin   = oy.kohin
-    and sg.jyoufuku_siyoubui = oy.jyoufuku_siyoubui
-    and sg.syasyu   = oy.syasyu
-    and not (sg.torokujunm <= oy.torokujunk 
-         or oy.torokujunm <= sg.torokujunk)
-    and ( sg.torokujunk_15com != ''
-        and (oy.torokujunm_15com <= oy.torokujunk 
-         or oy.torokujunm <= oy.torokujunk_15com))
+        zt.oyahin   = ks.kohin
+    and zt.siyoubui = ks.siyoubui
+    and zt.syasyu   = ks.syasyu
+    and not (zt.torokujunm <= ks.torokujunk 
+         or ks.torokujunm <= zt.torokujunk)
+    and ( zt.torokujunk_15com != ''
+        and (ks.torokujunm_15com <= ks.torokujunk 
+         or ks.torokujunm <= ks.torokujunk_15com))
     )
-  where sg.aite_siyoubui = oy.aite_siyoubui
-      or oy.kohin = oy.add_hinban
+  where zt.shusiyoubui = ks.shusiyoubui
+      or ks.kohin = ks.add_hinban
   ) 
 select 
-  ko.* exclude(torokujunk_15com, torokujunm_15com),
-  left(ko.siyoubui, 4) as kumitate,
-  substr(ko.siyoubui, 5, 2) as bui,
-  substr(ko.siyoubui, 7, 2) as vari,
-  row_number() over (partition by ko.syasyu,ko.siyoubui order by ko.id) as kouseijyun,
+  ko.* exclude(add_hinban, torokujunk_15com, torokujunm_15com, id),
+  row_number() over (partition by ko.syasyu,ko.siyoubui order by ko.id) as kouseijyun
 from dm_kousei_oya as ko

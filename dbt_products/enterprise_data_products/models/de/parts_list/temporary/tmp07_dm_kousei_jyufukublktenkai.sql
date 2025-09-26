@@ -21,9 +21,9 @@ select
   ks.kosu, -- 使用個数
   ks.sentaku, -- 選択符号
   zt.tyohuku, -- 重複記載
-  1 as tyohuku_flg, -- 重複FLG
-  ks.torokujunk, -- 登録／生認順カラ
-  ks.torokujunm, -- 登録／生認順マデ
+  zt.tyohuku_flg, -- 重複FLG
+  zt.torokujunk, -- 登録／生認順カラ
+  zt.torokujunm, -- 登録／生認順マデ
   ks.seppennok, -- 設変No.カラ
   ks.seppennom, -- 設変No.マデ
   ks.torokutimek, -- LOAD TIMEカラ
@@ -33,7 +33,7 @@ select
   zt.seppenno, -- 設変No.
   zt.maxmttime, -- MAXMTTIME
   zt.mttime -- MTTIME
-from {{ref('tmp04_dm_kousei_jyufukublktenkai')}} as zt
+from {{ref('tmp06_dm_kousei_jyufukublktenkai')}} as zt
 left join {{source('parts_list_db_sms', 'raw_dm_kousei_blktenkai')}} as ks
 on (
     zt.syasyu = ks.syasyu
