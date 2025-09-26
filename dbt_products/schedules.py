@@ -7,6 +7,7 @@ To add a daily schedule that materializes your dbt assets, uncomment the followi
 from .schedules_items.administration.public.schedule_stg_mikado_nyutaijo import schedule_stg_mikado_nyutaijo
 from .schedules_items.administration.public.schedule_stg_mikado_jnet_0645 import schedule_stg_mikado_jnet_0645
 from .schedules_items.administration.public.schedule_stg_mikado_jnet_0715 import schedule_stg_mikado_jnet_0715
+from .schedules_items.administration.public.schedule_stg_mikado_judgev import schedule_stg_mikado_judgev
 """ customerservice """
 from .schedules_items.customerservice.public.schedule_d_sias import schedule_d_sias
 from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
@@ -23,7 +24,11 @@ from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import sch
 """ supplydemand """
 from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_0130 import schedule_d_jyukyujyoho_0130
 from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_0530 import schedule_d_jyukyujyoho_0530
+from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_cam2204 import schedule_d_jyukyujyoho_cam2204
+from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_cam2501 import schedule_d_jyukyujyoho_cam2501
+from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_cam2502 import schedule_d_jyukyujyoho_cam2502
 from .schedules_items.supplydemand.public.schedule_d_syaryosys_0200 import schedule_d_syaryosys_0200
+from .schedules_items.supplydemand.public.schedule_d_syaryosys_0500 import schedule_d_syaryosys_0500
 from .schedules_items.supplydemand.public.schedule_d_vlc_0130 import schedule_d_vlc_0130
 from .schedules_items.supplydemand.public.schedule_d_vlc_0500 import schedule_d_vlc_0500
 from .schedules_items.supplydemand.public.schedule_stg_aqua import schedule_stg_aqua
@@ -47,11 +52,15 @@ from .schedules_items.employee.organization.schedule_dm_jugyoinjoho import sched
 from .schedules_items.model.repair.schedule_dm_cataloghinmei import schedule_dm_cataloghinmei
 from .schedules_items.model.repair.schedule_dm_figbunkaiinfo import schedule_dm_figbunkaiinfo
 from .schedules_items.model.repair.schedule_dm_vehicle_generation import schedule_dm_vehicle_generation
+""" parts_list """
+from .schedules_items.parts_list.public.schedule_dm_kousei_plantjiseki_kata import schedule_dm_kousei_plantjiseki_kata
 """ parts_list seppen """
 from .schedules_items.parts_list.seppen.schedule_dm_seppen_bunseki import schedule_dm_seppen_bunseki
 """ parts_list sms"""
 from .schedules_items.parts_list.sms.schedule_dm_kousei_blktenkai import schedule_dm_kousei_blktenkai
+from .schedules_items.parts_list.sms.schedule_dm_legacy_kousei_blktenkai import schedule_dm_legacy_kousei_blktenkai
 from .schedules_items.parts_list.sms.schedule_tmp_kousei03_blktenkai import schedule_tmp_kousei03_blktenkai
+from .schedules_items.parts_list.sms.schedule_tmp_legacy_kousei03_blktenkai import schedule_tmp_legacy_kousei03_blktenkai
 """ vinhis maint """
 from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
 """ vinhis model """
@@ -82,6 +91,8 @@ schedules.append(schedule_stg_mikado_nyutaijo)
 # MIKADO JNET
 schedules.append(schedule_stg_mikado_jnet_0645)
 schedules.append(schedule_stg_mikado_jnet_0715)
+# MIKADO Judge-V
+schedules.append(schedule_stg_mikado_judgev)
 """ customerservice """
 # D層SIAS
 schedules.append(schedule_d_sias)
@@ -109,8 +120,16 @@ schedules.append(schedule_stg_yohinhinbanmeisai)
 schedules.append(schedule_d_jyukyujyoho_0130)
 # 需給情報基盤(オーダーDB)
 schedules.append(schedule_d_jyukyujyoho_0530)
+# 需給情報基盤_月度VCT
+schedules.append(schedule_d_jyukyujyoho_cam2204)
+# 需給情報基盤_国マスタ
+schedules.append(schedule_d_jyukyujyoho_cam2501)
+# 需給情報基盤_地域マスタ
+schedules.append(schedule_d_jyukyujyoho_cam2502)
 # 車両システム_0200
 schedules.append(schedule_d_syaryosys_0200)
+# 車両システム_0500
+schedules.append(schedule_d_syaryosys_0500)
 # VLC本体_0130
 schedules.append(schedule_d_vlc_0130)
 # VLC本体_0500
@@ -151,13 +170,21 @@ schedules.append(schedule_dm_cataloghinmei)
 schedules.append(schedule_dm_figbunkaiinfo)
 # 車種世代
 schedules.append(schedule_dm_vehicle_generation)
+""" parts_list """
+# AREA35品番属性情報追加
+schedules.append(schedule_dm_kousei_plantjiseki_kata)
 """ parts_list seppen """
 # 認証不正防止対応(設変分析)
 schedules.append(schedule_dm_seppen_bunseki)
 """ parts_list sms"""
 #SMS構成
 schedules.append(schedule_dm_kousei_blktenkai)
+#部品表データ活用
+schedules.append(schedule_dm_legacy_kousei_blktenkai)
+#SMS構成
 schedules.append(schedule_tmp_kousei03_blktenkai)
+#部品表データ活用
+schedules.append(schedule_tmp_legacy_kousei03_blktenkai)
 """ vinhis maint """
 # VIN整備
 schedules.append(schedule_dm_vinhis_maint)
