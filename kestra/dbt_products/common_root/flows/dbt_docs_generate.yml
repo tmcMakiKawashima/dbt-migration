@@ -4,6 +4,7 @@ description: dbtドキュメントを生成してS3に格納するFlow
 
 labels:
   type: common_root
+  error: default_failed
   
 inputs:
   - id: branch

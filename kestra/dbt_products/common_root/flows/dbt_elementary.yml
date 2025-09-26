@@ -3,6 +3,7 @@ namespace: kestra_dbt_project
 
 labels:
   type: common_root
+  error: default_failed
 
 concurrency:
   behavior: QUEUE
