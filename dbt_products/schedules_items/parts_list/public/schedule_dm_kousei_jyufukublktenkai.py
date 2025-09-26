@@ -10,7 +10,7 @@ schedule_dm_kousei_jyufukublktenkai = build_schedule_from_dbt_selection(
     cron_schedule="00 08 * * *",
     execution_timezone="Asia/Tokyo",
     dbt_select="+dm_kousei_jyufukublktenkai +tmp_junkanri_jyufukublktenkai",
-    dbt_exclude="+tmp08_dm_kousei_jyufukublktenkai",
+    dbt_exclude="tmp08_dm_kousei_jyufukublktenkai",
     config=RunConfig(ops={"dbt_products_assets":
                           DbtConfig(dbt_vars={"DBT_JOB_NAME": "_dm_kousei_jyufukublktenkai"})
                           }
