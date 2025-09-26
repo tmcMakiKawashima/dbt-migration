@@ -3,12 +3,11 @@ namespace: kestra_dbt_project
 
 labels:
   type: common_root
-  error: default_failed
 
 concurrency:
   behavior: QUEUE
   limit: 1
-  
+
 inputs:
   - id: build
     type: BOOLEAN
@@ -65,12 +64,13 @@ tasks:
         contentType: text/html
         region: ap-northeast-1
 
+
 triggers:
-  - id: flow_trigger
+  - id: flow_trigger_stg
     type: io.kestra.plugin.core.trigger.Flow
     conditions:
       - type: io.kestra.plugin.core.condition.Expression
-        expression: "{{ namespace.ENV  == 'stg' or namespace.ENV  == 'prod' }}"
+        expression: "{{ namespace.ENV  == 'stg' }}"
       - type: io.kestra.plugin.core.condition.ExecutionLabels
         labels:
           dbt: build
@@ -82,6 +82,13 @@ triggers:
           - FAILED
           - WARNING
           - SUCCESS
+  - id: schedule_prod
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "0 * * * *"
+    timezone: Asia/Tokyo
+    conditions:
+      - type: io.kestra.plugin.core.condition.Expression
+        expression: "{{ namespace.ENV  == 'prod' }}"
 
 # エラーログを出力
 errors:
@@ -95,6 +102,6 @@ outputs:
     value: "{{ outputs.error_log.value ?? 'No message found.' }}"
   - id: output_state
     type: STRING
-    value: "{{ tasks.dbt.state ?? 'No state' }}"
+    value: "{{ tasks.elementary.state ?? 'No state' }}"
     
 disabled: false
