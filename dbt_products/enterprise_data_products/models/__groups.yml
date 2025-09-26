@@ -53,6 +53,9 @@ groups:
   - name: manufacturing
     owner:
       email: maki_kawashima@mail.toyota.co.jp
+  - name: parts_list_sms
+    owner:
+      email: yasunori-okada@mail.toyota.co.jp
   - name: parts_list
     owner:
       email: yasunori-okada@mail.toyota.co.jp
