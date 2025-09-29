@@ -1,7 +1,7 @@
 {{
-    config(
-        materialized='table'
-    )
+  config(
+    materialized='table'
+  )
 }}
 -- 処理レスポンスを考慮しtable実装
 select
@@ -21,7 +21,7 @@ select
   ks.kosu, -- 使用個数
   ks.sentaku, -- 選択符号
   zt.tyohuku, -- 重複記載
-  1 as tyohuku_flg, -- 重複FLG
+  '1' as tyohuku_flg, -- 重複FLG
   ks.torokujunk, -- 登録／生認順カラ
   ks.torokujunm, -- 登録／生認順マデ
   ks.seppennok, -- 設変No.カラ

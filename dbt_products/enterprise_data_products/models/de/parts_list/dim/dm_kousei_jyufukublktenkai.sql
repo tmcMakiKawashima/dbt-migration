@@ -19,8 +19,7 @@
         "
     )
 }}
---車種,組立番号,部位の単位で置き換える
-
-select * exclude(target, torokujun, seppenno, maxmttime,mttime),
-current_timestamp() AS ldts
+-- 車種,組立番号,部位の単位で置き換える
+select * exclude(target, torokujun, seppenno, maxmttime, mttime),
+current_timestamp()::timestamp_ntz(9) as ldts
 from {{ ref('tmp08_dm_kousei_jyufukublktenkai')}}

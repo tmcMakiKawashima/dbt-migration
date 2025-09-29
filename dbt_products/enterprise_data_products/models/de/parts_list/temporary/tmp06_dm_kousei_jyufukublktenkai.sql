@@ -1,12 +1,11 @@
 {{
-    config(
-        materialized='table'
-    )
+  config(
+    materialized='table'
+  )
 }}
 -- 処理レスポンスを考慮しtable実装
--- 再帰cteを使ってチェーンを辿って1行にまとめる
+-- 再帰処理の為、with句内で結合
 with recursive chain_start as (
-  -- スタートとなる行（他のendと繋がっていない）
   select
     zt1.syasyu, -- 車種コード
     zt1.siyoubui, -- 使用部位
@@ -18,8 +17,8 @@ with recursive chain_start as (
     zt1.tyohuku, -- 重複記載
     case
       when zt1.siyoubui = zt1.shusiyoubui
-      then 3
-      else 0
+      then '3'
+      else '0'
     end as tyohuku_flg, -- 重複FLG
     zt1.torokujunk, -- 登録／生認順カラ
     zt1.torokujunm, -- 登録／生認順マデ
@@ -40,7 +39,6 @@ with recursive chain_start as (
         and zt1.kohin = zt2.kohin
     )
     union all
-    -- チェーンを辿って末尾を伸ばしていく
     select
       zt.syasyu, -- 車種コード
       zt.siyoubui, -- 使用部位
@@ -52,8 +50,8 @@ with recursive chain_start as (
       zt.tyohuku, -- 重複記載
       case 
         when zt.siyoubui = zt.shusiyoubui 
-        then 3
-        else 0
+        then '3'
+        else '0'
       end as tyohuku_flg, -- 重複FLG
       ch.torokujunk, -- 登録／生認順カラ
       zt.torokujunm, -- 登録／生認順マデ
@@ -64,14 +62,15 @@ with recursive chain_start as (
       zt.mttime -- MTTIME
     from {{ref('tmp05_dm_kousei_jyufukublktenkai')}} as zt
     join chain_start ch
-      on zt.torokujunk = ch.torokujunm
-     and zt.syasyu = ch.syasyu
-     and zt.siyoubui = ch.siyoubui
-     and zt.lv = ch.lv
-     and zt.oyahin = ch.oyahin
-     and zt.kohin = ch.kohin
+    on (
+        zt.torokujunk = ch.torokujunm
+    and zt.syasyu = ch.syasyu
+    and zt.siyoubui = ch.siyoubui
+    and zt.lv = ch.lv
+    and zt.oyahin = ch.oyahin
+    and zt.kohin = ch.kohin
+    )
 )
--- 最終結果：チェーンのスタートから末尾まで
 select
   syasyu, -- 車種コード
   siyoubui, -- 使用部位

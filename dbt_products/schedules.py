@@ -157,6 +157,7 @@ schedules.append(schedule_dm_vehicle_generation)
 """ parts_list """
 # 現導入国データ(Ci-SPEC)　公開
 schedules.append(schedule_dm_kousei_jyufukublktenkai)
+# 現導入国データ(Ci-SPEC)　公開(tmp)
 schedules.append(schedule_tmp08_dm_kousei_jyufukublktenkai)
 """ parts_list seppen """
 # 認証不正防止対応(設変分析)
