@@ -9,7 +9,7 @@
 with stg_bosu_sum_ym_iqas as (
     select
         lo_year_month::varchar(6) as lo_year_month,
-        to_date(lo_year_month || '10', 'yyyymmdd')::date as lo_year_month_date,
+        try_to_date(lo_year_month || '01', 'yyyymmdd')::date as lo_year_month_date,
         model_major_cls_code::varchar(2) as model_major_cls_code,
         model_veh_code::varchar(4) as model_veh_code,
         sms_veh_code::varchar(4) as sms_veh_code,
