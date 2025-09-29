@@ -22,7 +22,7 @@ PYTHON:
   SNOWFLAKE_CONNECTOR_VERSION: snowflake-connector-python[pandas]==3.15.0
 DBT_DOCS:
   BASE_PATH: dbt_documents/kestra/
-  S3_BUCKET: dajp1-dxpf-edp-s3-kestra10
+  S3_BUCKET: dajp1-dxpf-edp-s3-kestra11
 SNOWFLAKE:
   ROLE: TRF_ACT_ROLE
   USER: KESTRA_USER
