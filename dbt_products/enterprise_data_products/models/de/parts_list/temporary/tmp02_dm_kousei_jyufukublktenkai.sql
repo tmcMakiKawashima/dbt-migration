@@ -1,11 +1,12 @@
 {{
   config(
-    materialized='table'
+    materialized = 'table'
   )
 }}
 -- 処理レスポンスを考慮しtable実装
 -- 再帰処理の為、with句内で結合
 with recursive siyoubui_jyufuku as (
+  -- 使用部位単位で関係するjyufukuを求める
   select
     kj1.syasyu, -- 車種コード
     kj1.siyoubui, -- 使用部位(重複対象)
@@ -17,6 +18,7 @@ with recursive siyoubui_jyufuku as (
     kj3.kohin as add_hinban, -- 重複の下の重複品番
     kj3.tyohuku, -- 重複の下の重複コメント
     ksc.com -- 構成コメント
+  -- 重複コメントの使用部位を集める
   from 
     (
       select distinct
@@ -28,7 +30,8 @@ with recursive siyoubui_jyufuku as (
         gc
       from {{ref('tmp01_dm_kousei_jyufukublktenkai')}}
       where tyohuku != ''
-    ) as kj1 
+    ) as kj1
+    -- 対象のコメントの使用部位を集める
     left join {{ref('tmp01_dm_kousei_jyufukublktenkai')}} as kj2
     on (
         kj1.syasyu = kj2.syasyu
@@ -54,11 +57,13 @@ with recursive siyoubui_jyufuku as (
       from {{ref('tmp01_dm_kousei_jyufukublktenkai')}}
       where tyohuku != ''
     ) as kj3
+    -- 更に重複の下に重複がないか？求める
     on (
         kj2.syasyu = kj3.syasyu
     and kj2.siyoubui = kj3.siyoubui 
     )
     union all
+    -- jyufukuのjyufukuがあるので再帰する
     select
       sj.syasyu, -- 車種コード
       sj.siyoubui, -- 使用部位(重複対象)
@@ -71,6 +76,7 @@ with recursive siyoubui_jyufuku as (
       kj3.tyohuku, -- 重複の下の重複コメント
       ksc.com -- 構成コメント
     from siyoubui_jyufuku as sj
+    -- 対象のコメントの使用部位を集める
     inner join {{ref('tmp01_dm_kousei_jyufukublktenkai')}} as kj2
     on (
         sj.syasyu = kj2.syasyu
@@ -96,6 +102,7 @@ with recursive siyoubui_jyufuku as (
       from {{ref('tmp01_dm_kousei_jyufukublktenkai')}}
       where tyohuku != ''
     ) as kj3
+    -- 更に重複の下に重複がないか？求める
     on (
         kj2.syasyu = kj3.syasyu
     and kj2.siyoubui = kj3.siyoubui
@@ -103,6 +110,7 @@ with recursive siyoubui_jyufuku as (
 )
 select * from siyoubui_jyufuku
 union all
+-- 最初の使用部位を足す
 select distinct 
   syasyu, -- 車種コード
   siyoubui, -- 使用部位(重複対象)

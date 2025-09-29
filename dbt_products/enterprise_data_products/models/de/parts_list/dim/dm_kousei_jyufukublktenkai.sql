@@ -5,16 +5,16 @@
         transient = false,
         pre_hook = "
             {% if is_incremental() %}
-                delete from {{this}} a
+                delete from {{this}} th
                 using (
                     select distinct 
                         syasyu,
                         kumitate,
                         bui
-                    from {{ ref('tmp08_dm_kousei_jyufukublktenkai')}}) b
-                where a.syasyu = b.syasyu
-                  and a.kumitate = b.kumitate
-                  and a.bui = b.bui;
+                    from {{ ref('tmp08_dm_kousei_jyufukublktenkai')}}) zt
+                where th.syasyu = zt.syasyu
+                  and th.kumitate = zt.kumitate
+                  and th.bui = zt.bui;
             {% endif %}
         "
     )

@@ -1,5 +1,5 @@
 {{ 
-    config(materialized='ephemeral') 
+    config(materialized = 'ephemeral') 
 }}
 -- 循環処理のためE層のテーブルをソースとして扱う
 with tmp_junkanri_jyufukublktenkai_eph as (

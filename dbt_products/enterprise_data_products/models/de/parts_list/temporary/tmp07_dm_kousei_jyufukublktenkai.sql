@@ -1,6 +1,6 @@
 {{
   config(
-    materialized='table'
+    materialized = 'table'
   )
 }}
 -- 処理レスポンスを考慮しtable実装
@@ -39,5 +39,5 @@ on (
     zt.syasyu = ks.syasyu
 and zt.shusiyoubui = ks.siyoubui
 and zt.oyahin = ks.oyahin
-and zt.kohin = ks.kohin   
+and zt.kohin = ks.kohin
 )

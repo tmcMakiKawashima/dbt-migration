@@ -1,6 +1,6 @@
 {{
   config(
-    materialized='table'
+    materialized = 'table'
   )
 }}
 -- 処理レスポンスを考慮しtable実装
