@@ -158,3 +158,16 @@ models:
           - not_null:
               config:
                 severity: error
+# 納入LT
+  - name: stg_nonyult_atop
+    config:
+      tags: ["atop"]
+    columns:
+      - name: pno
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
