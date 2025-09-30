@@ -52,7 +52,7 @@ with recursive chain_start as (
         when zt.siyoubui = zt.shusiyoubui 
         then '3'
         else '0'
-      end as tyohuku_flg, -- 重複FLG
+      end, -- 重複FLG
       ch.torokujunk, -- 登録／生認順カラ
       zt.torokujunm, -- 登録／生認順マデ
       zt.target, -- ターゲット

@@ -60,7 +60,7 @@ with recursive dm_kousei_oya as (
     zt.maxmttime, -- MAXMTTIME
     zt.mttime, -- MTTIME
     ks.lv + 1 as lv, -- レベル
-    concat(ks.id, '.', zt.id) as id -- ID
+    concat(ks.id, '.', zt.id) -- ID
   from dm_kousei_oya as ks
   inner join {{ref('tmp03_dm_kousei_jyufukublktenkai')}} as zt
   on(
@@ -69,7 +69,7 @@ with recursive dm_kousei_oya as (
   and zt.syasyu   = ks.syasyu
   and not (zt.torokujunm <= ks.torokujunk 
         or ks.torokujunm <= zt.torokujunk)
-  and ( zt.torokujunk_15com != ''
+  and (zt.torokujunk_15com != ''
       and (ks.torokujunm_15com <= ks.torokujunk 
         or ks.torokujunm <= ks.torokujunk_15com))
   )

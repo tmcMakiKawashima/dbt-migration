@@ -12,7 +12,7 @@ with recursive siyoubui_jyufuku as (
     kj1.siyoubui, -- 使用部位(重複対象)
     kj1.kohin, -- 品番／BLKコード(重複対象)
     1 as jyufuku_kaisou, -- 重複階層
-    kj2.siyoubui as shusiyoubui, -- 重複相手先使用部位
+    kj2.siyoubui as shusiyoubui, -- 主側使用部位
     ksc.torokujunk, -- 登録生認順カラ(15コメントとして)
     ksc.torokujunm, -- 登録生認順マデ(15コメントとして)
     kj3.kohin as add_hinban, -- 重複の下の重複品番
@@ -68,11 +68,11 @@ with recursive siyoubui_jyufuku as (
       sj.syasyu, -- 車種コード
       sj.siyoubui, -- 使用部位(重複対象)
       sj.kohin, -- 品番／BLKコード(重複対象)
-      sj.jyufuku_kaisou + 1 as jyufuku_kaisou, -- 重複階層
-      kj2.siyoubui as shusiyoubui, -- 重複相手先使用部位
+      sj.jyufuku_kaisou + 1, -- 重複階層
+      kj2.siyoubui, -- 主側使用部位
       ksc.torokujunk, -- 登録生認順カラ(15コメントとして)
       ksc.torokujunm, -- 登録生認順マデ(15コメントとして)
-      kj3.kohin as add_hinban, -- 重複の下の重複品番
+      kj3.kohin, -- 重複の下の重複品番
       kj3.tyohuku, -- 重複の下の重複コメント
       ksc.com -- 構成コメント
     from siyoubui_jyufuku as sj
@@ -107,10 +107,8 @@ with recursive siyoubui_jyufuku as (
         kj2.syasyu = kj3.syasyu
     and kj2.siyoubui = kj3.siyoubui
     )
-)
-select * from siyoubui_jyufuku
-union all
--- 最初の使用部位を足す
+),
+tmp01_dm_kousei_jyufukublktenkai as (
 select distinct 
   syasyu, -- 車種コード
   siyoubui, -- 使用部位(重複対象)
@@ -124,3 +122,8 @@ select distinct
   '' as com -- 構成コメント
   from {{ref('tmp01_dm_kousei_jyufukublktenkai')}}
   where tyohuku != ''
+)
+select * from siyoubui_jyufuku
+union all
+-- 最初の使用部位を足す
+select * from tmp01_dm_kousei_jyufukublktenkai
