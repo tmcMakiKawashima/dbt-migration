@@ -40,3 +40,16 @@ models:
   - name: stg_dvsf509a
     config:
       tags: ["atop"]
+# 受注マスター
+  - name: stg_jutyuu_atop
+    config:
+      tags: ["atop"]
+    columns:
+      - name: jhinban
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error

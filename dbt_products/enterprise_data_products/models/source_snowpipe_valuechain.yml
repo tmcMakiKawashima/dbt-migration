@@ -102,6 +102,13 @@ sources:
             data_tests:
               - fixed_length:
                   length: 250
+      - name: raw_ktrla01vzz0kvs00m2
+        identifier: ktrla01vzz0kvs00m2
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 100
     # TAS
       - name: raw_tbdaihl
         identifier: dxdaih99
