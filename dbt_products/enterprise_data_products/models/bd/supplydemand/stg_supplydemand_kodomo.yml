@@ -1,0 +1,78 @@
+version: 2
+models:
+# 制約フォーマット
+  - name: stg_seiyakuformat_kodomo
+    config:
+      tags: ["kodomo"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - company_member
+            - getudo
+            - restrictionname
+            - line
+            - model
+            - dom_exp
+            - unit
+            - body_type
+            - ss
+            - subseriescode
+            - yyyymm
+          config:
+            severity: error
+    columns:
+      - name: company_member
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: getudo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: restrictionname
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: line
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: model
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dom_exp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: unit
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: body_type
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ss
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: subseriescode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: yyyymm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
