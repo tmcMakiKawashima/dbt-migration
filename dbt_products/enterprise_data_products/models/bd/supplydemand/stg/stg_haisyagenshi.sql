@@ -1,7 +1,7 @@
 {{
     config (
         materialized = 'incremental',
-        unique_key = ['frmno', 'hkata', 'frmkbn', 'shamei', 'sno', 'sketai'],
+        unique_key = ['frmno', 'hkata', 'frmkbn', 'shamei', 'sno'],
         incremental_strategy = 'merge'
     )
 }}
@@ -79,16 +79,16 @@ with stg_haisyagenshi as (
         ldts, -- b層のldts
         rank() over (
                 partition by
-                    frmno, hkata, frmkbn, shamei, sno, sketai
+                    frmno, hkata, frmkbn, shamei, sno
                 order by ldts desc, mtdate desc
-            ) aggkey
-        from {{ ref('substr_tsjfa368') }}
+               ) aggkey
+    from {{ ref('substr_tsjfa368') }}
 
-        {% if is_incremental() %}
-            where ldts > (select max(ldts) from {{ this }})
-        {% endif %}
+    {% if is_incremental() %}
+        where ldts > (select max(ldts) from {{ this }})
+    {% endif %}
 
-    )
+)
 select * exclude(aggkey)
 from stg_haisyagenshi
 where aggkey = 1
