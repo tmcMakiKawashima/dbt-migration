@@ -7,4 +7,6 @@ COPY . /opt/dagster/app
 
 RUN pip install -e .
 
+RUN dagster-dbt project prepare-and-package --file /opt/dagster/app/project.py
+
 EXPOSE 4000
