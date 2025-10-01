@@ -1,56 +1,65 @@
 with
-    stg_syaryokatashikijoho as (
+    stg_hinbankensakutype1 as (
         select
+            katanomlt, -- 型式NO(複数)
             ctlgcd, -- カタログコード
-            syakata, -- 車両型式
+            hinmeicd, -- 品名コード
             syasyu_cd, -- 車種コード
+            hinban, -- 品番
+            kosu, -- 個数(検索)
             jissijikik, -- 実施時期カラ
             jissijikim, -- 実施時期マデ
-            frmnokata, -- フレームNO型式
-            katano, -- 型式NO
-            katatokukg1, -- 型式特徴記号1
-            katatokukg2, -- 型式特徴記号2
-            katatokukg3, -- 型式特徴記号3
-            katatokukg4, -- 型式特徴記号4
-            katatokukg5, -- 型式特徴記号5
-            katatokukg6, -- 型式特徴記号6
-            katatokukg7, -- 型式特徴記号7
-            katatokukg8, -- 型式特徴記号8
-            katatokukg9, -- 型式特徴記号9
-            katatokukg10, -- 型式特徴記号10
-            katatokukg11, -- 型式特徴記号11
-            katatokukg12, -- 型式特徴記号12
-            katatokukg13, -- 型式特徴記号13
-            katatokukg14, -- 型式特徴記号14
-            katatokukg15, -- 型式特徴記号15
-            katatokukg16, -- 型式特徴記号16
-            katatokukg17, -- 型式特徴記号17
-            katatokukg18, -- 型式特徴記号18
-            katatokukg19, -- 型式特徴記号19
-            katatokukg20, -- 型式特徴記号20
-            katatokukg21, -- 型式特徴記号21
-            katatokukg22, -- 型式特徴記号22
-            katatokukg23 -- 型式特徴記号23
-        from {{ ref('stg_syaryokatashikijoho') }} -- 車両型式情報
-        group by all
+            siyoptno, -- 仕様パターンNO
+            epckataptno, -- EPC型式パターンNO
+            kiricdk, -- 切替コードカラ
+            kiricdm, -- 切替コードマデ
+            trmcdmlt, -- トリムコード(複数)
+            clrcdmlt, -- カラーコード(複数)
+            tkstkbn, -- 特設区分
+            hktkgaikbn, -- 引当適用外区分
+            hosemhin -- ホース元品番
+        from {{ ref('stg_hinbankensakutype1') }} -- 品番検索Type1
     ),
-    stg_syamei as (
+    stg_hinbankensakutype2 as (
         select
+            langkbn, -- 言語区分
             ctlgcd, -- カタログコード
-            syamei, -- 車名
-            syameizen, -- 車名(全角)
-            syameizenkana, -- 車名(全角)カナ
-            daikata, -- 代表型式
-            seisank, -- 生産年月カラ
-            seisanm, -- 生産年月マデ
-            lexusflg, -- レクサス車フラグ
-            prts1kbn, -- 1品番絞り込み区分
-            tksyuflg -- 特殊車フラグ
-        from {{ ref('stg_syamei') }} -- 車名
+            hinmeicd, -- 品名コード
+            hinban, -- 品番
+            kosu, -- 個数(検索)
+            siyoptno, -- 仕様パターンNO
+            epckataptno, -- EPC型式パターンNO
+            kiricdk, -- 切替コードカラ
+            kiricdm, -- 切替コードマデ
+            trmcdmlt, -- トリムコード(複数)
+            clrcdmlt, -- カラーコード(複数)
+            tkstkbn, -- 特設区分
+            hktkgaikbn, -- 引当適用外区分
+            hosemhin, -- ホース元品番
+            syasyu_cd, -- 車種コード
+            jissijikik, -- 実施時期カラ
+            jissijikim -- 実施時期マデ
+        from {{ ref('stg_hinbankensakutype2')}} -- 品番検索Type2
     )
 select
-    stg_syaryokatashikijoho.*,
-    stg_syamei.* exclude (ctlgcd)
-from stg_syaryokatashikijoho
-inner join stg_syamei
-  on stg_syaryokatashikijoho.ctlgcd = stg_syamei.ctlgcd
+    stg_hinbankensakutype1.katanomlt,
+    stg_hinbankensakutype1.ctlgcd,
+    stg_hinbankensakutype2.* exclude (ctlgcd)
+from stg_hinbankensakutype1
+inner join stg_hinbankensakutype2
+  on stg_hinbankensakutype1.ctlgcd = stg_hinbankensakutype2.ctlgcd
+ and stg_hinbankensakutype1.hinmeicd = stg_hinbankensakutype2.hinmeicd
+ and stg_hinbankensakutype1.syasyu_cd = stg_hinbankensakutype2.syasyu_cd
+ and stg_hinbankensakutype1.hinban = stg_hinbankensakutype2.hinban
+ and stg_hinbankensakutype1.kosu = stg_hinbankensakutype2.kosu
+ and stg_hinbankensakutype1.jissijikik = stg_hinbankensakutype2.jissijikik
+ and stg_hinbankensakutype1.jissijikim = stg_hinbankensakutype2.jissijikim
+ and stg_hinbankensakutype1.siyoptno = stg_hinbankensakutype2.siyoptno
+ and stg_hinbankensakutype1.epckataptno = stg_hinbankensakutype2.epckataptno
+ and stg_hinbankensakutype1.kiricdk = stg_hinbankensakutype2.kiricdk
+ and stg_hinbankensakutype1.kiricdm = stg_hinbankensakutype2.kiricdm
+ and stg_hinbankensakutype1.trmcdmlt = stg_hinbankensakutype2.trmcdmlt
+ and stg_hinbankensakutype1.clrcdmlt = stg_hinbankensakutype2.clrcdmlt
+ and stg_hinbankensakutype1.tkstkbn = stg_hinbankensakutype2.tkstkbn
+ and stg_hinbankensakutype1.hktkgaikbn = stg_hinbankensakutype2.hktkgaikbn
+ and stg_hinbankensakutype1.hosemhin = stg_hinbankensakutype2.hosemhin
