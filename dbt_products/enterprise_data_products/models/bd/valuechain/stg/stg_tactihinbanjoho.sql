@@ -1,9 +1,9 @@
 with stg_tactihinbanjoho as (
     select
         mntkbn::varchar(1) as mntkbn, 
-        toyotahin::varchar(14) as toyotahin, 
-        siirecd::varchar(5) as siirecd, 
-        rentacti::varchar(1) as rentacti, 
+        rtrim(toyotahin,' 　')::varchar(14) as toyotahin, -- 右blank
+        rtrim(siirecd,' 　')::varchar(5) as siirecd, -- 右blank
+        rtrim(rentacti,' 　')::varchar(1) as rentacti, -- 右blank
         rectype::varchar(1) as rectype, 
         tactihin::varchar(14) as tactihin, 
         sikitacti::varchar(6) as sikitacti, 

@@ -10,13 +10,14 @@
             ) as select * from {{this}}'
     )
 }}
+-- ハイブリッドテーブルに変更
 
 with stg_shiyopattern as (
     select
         mntkbn::varchar(1) as mntkbn, 
-        syasyu_cd::varchar(4) as syasyu_cd, 
-        siyoptno::varchar(4) as siyoptno, 
-        siyocd::varchar(4) as siyocd, 
+        rtrim(syasyu_cd, ' 　')::varchar(4) as syasyu_cd, -- 右blank
+        rtrim(siyoptno, ' 　')::varchar(4) as siyoptno, -- 右blank
+        rtrim(siyocd, ' 　')::varchar(4) as siyocd, -- 右blank
         ldts, -- b層のldts
         rank() over (
                 partition by
