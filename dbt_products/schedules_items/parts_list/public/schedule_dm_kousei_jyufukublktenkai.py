@@ -6,7 +6,7 @@ from dagster_dbt import build_schedule_from_dbt_selection
 schedule_dm_kousei_jyufukublktenkai = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_dm_kousei_jyufukublktenkai",
-    schedule_name="dm_kousei_jyufukublktenkai",
+    schedule_name="kousei_jyufukublktenkai_dm",
     cron_schedule="00 08 * * *",
     execution_timezone="Asia/Tokyo",
     dbt_select="+dm_kousei_jyufukublktenkai +tmp_junkanri_jyufukublktenkai",

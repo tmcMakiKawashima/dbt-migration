@@ -22,8 +22,8 @@ select
   ks.sentaku, -- 選択符号
   zt.tyohuku, -- 重複記載
   '1' as tyohuku_flg, -- 重複FLG
-  ks.torokujunk, -- 登録／生認順カラ
-  ks.torokujunm, -- 登録／生認順マデ
+  ks.torokujunk::varchar(9) as torokujunk, -- 登録／生認順カラ 参照元桁数定義に不備があるため
+  ks.torokujunm::varchar(9) as torokujunm, -- 登録／生認順マデ 参照元桁数定義に不備があるため
   ks.seppennok, -- 設変No.カラ
   ks.seppennom, -- 設変No.マデ
   ks.torokutimek, -- LOAD TIMEカラ
