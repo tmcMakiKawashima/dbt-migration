@@ -1,9 +1,10 @@
-﻿version: 2
+version: 2
 
 models:
-  # SF(V,A,M)(D層)
+# SF(V,A,M)
   - name: stg_hostalc_allsfvam
-    description: "SF(V,A,M)(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -13,7 +14,6 @@ models:
             - lodate
           config:
             severity: error
-
     columns:
       - name: psc
         data_tests:
@@ -35,10 +35,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # SF(L)(D層)
+# SF(L)
   - name: stg_hostalc_allsfl
-    description: "SF(L)(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -49,7 +49,6 @@ models:
             - msgno
           config:
             severity: error
-
     columns:
       - name: psc
         data_tests:
@@ -76,10 +75,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # SF(H)(D層)
+# SF(H)
   - name: stg_hostalc_allsfh
-    description: "SF(H)(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -93,7 +92,6 @@ models:
             - times
           config:
             severity: error
-
     columns:
       - name: psc
         data_tests:
@@ -135,10 +133,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # SF(P)(D層)
+# SF(P)
   - name: stg_hostalc_allsfp
-    description: "SF(P)(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -150,7 +148,6 @@ models:
             - tp
           config:
             severity: error
-
     columns:
       - name: psc
         data_tests:
@@ -182,10 +179,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # SF(T)(D層)
+# SF(T)
   - name: stg_hostalc_allsft
-    description: "SF(T)(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -195,7 +192,6 @@ models:
             - idno
           config:
             severity: error
-
     columns:
       - name: psc
         data_tests:
@@ -217,10 +213,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両バーチャルライン情報_元町(D層)
+# 車両バーチャルライン情報_元町
   - name: stg_hostalc_1h_virtual_line
-    description: "車両バーチャルライン情報_元町(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -231,7 +227,6 @@ models:
             - line
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -258,10 +253,10 @@ models:
           - not_null:
               config:
                 severity: error
- 
-  # 車両バーチャルライン情報_堤(D層)
+# 車両バーチャルライン情報_堤
   - name: stg_hostalc_1r_virtual_line
-    description: "車両バーチャルライン情報_堤(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -272,7 +267,6 @@ models:
             - line
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -299,10 +293,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両バーチャルライン情報_田原(D層)
+# 車両バーチャルライン情報_田原
   - name: stg_hostalc_1n_virtual_line
-    description: "車両バーチャルライン情報_田原(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -313,7 +307,6 @@ models:
             - line
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -340,10 +333,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両バーチャルライン情報_高岡(D層)
+# 車両バーチャルライン情報_高岡
   - name: stg_hostalc_1k_virtual_line
-    description: "車両バーチャルライン情報_高岡(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -354,7 +347,6 @@ models:
             - line
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -381,10 +373,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両バーチャルライン情報_織機(D層)
+# 車両バーチャルライン情報_織機
   - name: stg_hostalc_1o_virtual_line
-    description: "車両バーチャルライン情報_織機(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -395,7 +387,6 @@ models:
             - line
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -422,10 +413,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両バーチャルライン情報_TMK(D層)
+# 車両バーチャルライン情報_TMK
   - name: stg_hostalc_1w_virtual_line
-    description: "車両バーチャルライン情報_TMK(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -436,7 +427,6 @@ models:
             - line
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -463,10 +453,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両バーチャルライン情報_トヨタ車体富士松(D層)
+# 車両バーチャルライン情報_トヨタ車体富士松
   - name: stg_hostalc_1f_virtual_line
-    description: "車両バーチャルライン情報_トヨタ車体富士松(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -477,7 +467,6 @@ models:
             - line
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -504,10 +493,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両バーチャルライン情報_トヨタ車体吉原(D層)
+# 車両バーチャルライン情報_トヨタ車体吉原
   - name: stg_hostalc_1a_virtual_line
-    description: "車両バーチャルライン情報_トヨタ車体吉原(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -518,7 +507,6 @@ models:
             - line
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -545,10 +533,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両バーチャルライン情報_トヨタ車体いなべ(D層)
+# 車両バーチャルライン情報_トヨタ車体いなべ
   - name: stg_hostalc_1i_virtual_line
-    description: "車両バーチャルライン情報_トヨタ車体いなべ(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -559,7 +547,6 @@ models:
             - line
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -586,10 +573,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両バーチャルライン情報_岐阜車体各務原(D層)
+# 車両バーチャルライン情報_岐阜車体各務原
   - name: stg_hostalc_1j_virtual_line
-    description: "車両バーチャルライン情報_岐阜車体各務原(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -600,7 +587,6 @@ models:
             - line
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -627,10 +613,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両バーチャルライン情報_TMEJ岩手(D層)
+# 車両バーチャルライン情報_TMEJ岩手
   - name: stg_hostalc_1v_virtual_line
-    description: "車両バーチャルライン情報_TMEJ岩手(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -641,7 +627,6 @@ models:
             - line
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -668,10 +653,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両バーチャルライン情報_TMEJ宮城大衡(D層)
+# 車両バーチャルライン情報_TMEJ宮城大衡
   - name: stg_hostalc_1g_virtual_line
-    description: "車両バーチャルライン情報_TMEJ宮城大衡(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -682,7 +667,6 @@ models:
             - line
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -709,10 +693,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両バーチャルライン情報_日野羽村(D層)
+# 車両バーチャルライン情報_日野羽村
   - name: stg_hostalc_1p_virtual_line
-    description: "車両バーチャルライン情報_日野羽村(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -723,7 +707,6 @@ models:
             - line
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -750,10 +733,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # リジェクト車両_堤(D層)
+# リジェクト車両_堤
   - name: stg_hostalc_1r_reject_vehicle
-    description: "リジェクト車両_堤(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -762,7 +745,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -779,10 +761,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # リジェクト車両_田原(D層)
+# リジェクト車両_田原
   - name: stg_hostalc_1n_reject_vehicle
-    description: "リジェクト車両_田原(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -791,7 +773,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -808,10 +789,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # リジェクト車両_元町(D層)
+# リジェクト車両_元町
   - name: stg_hostalc_1h_reject_vehicle
-    description: "リジェクト車両_元町(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -820,7 +801,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -837,10 +817,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # リジェクト車両_高岡(D層)
+# リジェクト車両_高岡
   - name: stg_hostalc_1k_reject_vehicle
-    description: "リジェクト車両_高岡(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -849,7 +829,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -866,10 +845,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # リジェクト車両_織機(D層)
+# リジェクト車両_織機
   - name: stg_hostalc_1o_reject_vehicle
-    description: "リジェクト車両_織機(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -878,7 +857,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -895,10 +873,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # リジェクト車両_TMK(D層)
+# リジェクト車両_TMK
   - name: stg_hostalc_1w_reject_vehicle
-    description: "リジェクト車両_TMK(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -907,7 +885,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -924,10 +901,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # リジェクト車両_トヨタ車体富士松(D層)
+# リジェクト車両_トヨタ車体富士松
   - name: stg_hostalc_1f_reject_vehicle
-    description: "リジェクト車両_トヨタ車体富士松(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -936,7 +913,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -953,10 +929,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # リジェクト車両_トヨタ車体吉原(D層)
+# リジェクト車両_トヨタ車体吉原
   - name: stg_hostalc_1a_reject_vehicle
-    description: "リジェクト車両_トヨタ車体吉原(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -965,7 +941,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -982,10 +957,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # リジェクト車両_トヨタ車体いなべ(D層)
+# リジェクト車両_トヨタ車体いなべ
   - name: stg_hostalc_1i_reject_vehicle
-    description: "リジェクト車両_トヨタ車体いなべ(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -994,7 +969,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1011,10 +985,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # リジェクト車両_岐阜車体各務原(D層)
+# リジェクト車両_岐阜車体各務原
   - name: stg_hostalc_1j_reject_vehicle
-    description: "リジェクト車両_岐阜車体各務原(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1023,7 +997,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1040,10 +1013,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # リジェクト車両_TMEJ岩手(D層)
+# リジェクト車両_TMEJ岩手
   - name: stg_hostalc_1v_reject_vehicle
-    description: "リジェクト車両_TMEJ岩手(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1052,7 +1025,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1069,10 +1041,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # リジェクト車両_TMEJ宮城大衡(D層)
+# リジェクト車両_TMEJ宮城大衡
   - name: stg_hostalc_1g_reject_vehicle
-    description: "リジェクト車両_TMEJ宮城大衡(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1081,7 +1053,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1098,10 +1069,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # リジェクト車両_日野羽村(D層)
+# リジェクト車両_日野羽村
   - name: stg_hostalc_1p_reject_vehicle
-    description: "リジェクト車両_日野羽村(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1110,7 +1081,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1127,10 +1097,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 抹消実績_堤(D層)
+# 抹消実績_堤
   - name: stg_hostalc_1r_erasure_achievements
-    description: "抹消実績_堤(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1139,7 +1109,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1156,10 +1125,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 抹消実績_田原(D層)
+# 抹消実績_田原
   - name: stg_hostalc_1n_erasure_achievements
-    description: "抹消実績_田原(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1168,7 +1137,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1185,10 +1153,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 抹消実績_元町(D層)
+# 抹消実績_元町
   - name: stg_hostalc_1h_erasure_achievements
-    description: "抹消実績_元町(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1197,7 +1165,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1214,10 +1181,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 抹消実績_高岡(D層)
+# 抹消実績_高岡
   - name: stg_hostalc_1k_erasure_achievements
-    description: "抹消実績_高岡(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1226,7 +1193,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1243,10 +1209,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 抹消実績_織機(D層)
+# 抹消実績_織機
   - name: stg_hostalc_1o_erasure_achievements
-    description: "抹消実績_織機(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1255,7 +1221,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1272,10 +1237,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 抹消実績_TMK(D層)
+# 抹消実績_TMK
   - name: stg_hostalc_1w_erasure_achievements
-    description: "抹消実績_TMK(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1284,7 +1249,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1301,10 +1265,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 抹消実績_トヨタ車体富士松(D層)
+# 抹消実績_トヨタ車体富士松
   - name: stg_hostalc_1f_erasure_achievements
-    description: "抹消実績_トヨタ車体富士松(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1313,7 +1277,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1330,10 +1293,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 抹消実績_トヨタ車体吉原(D層)
+# 抹消実績_トヨタ車体吉原
   - name: stg_hostalc_1a_erasure_achievements
-    description: "抹消実績_トヨタ車体吉原(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1342,7 +1305,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1359,10 +1321,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 抹消実績_トヨタ車体いなべ(D層)
+# 抹消実績_トヨタ車体いなべ
   - name: stg_hostalc_1i_erasure_achievements
-    description: "抹消実績_トヨタ車体いなべ(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1371,7 +1333,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1388,10 +1349,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 抹消実績_岐阜車体各務原(D層)
+# 抹消実績_岐阜車体各務原
   - name: stg_hostalc_1j_erasure_achievements
-    description: "抹消実績_岐阜車体各務原(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1400,7 +1361,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1417,10 +1377,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 抹消実績_TMEJ岩手(D層)
+# 抹消実績_TMEJ岩手
   - name: stg_hostalc_1v_erasure_achievements
-    description: "抹消実績_TMEJ岩手(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1429,7 +1389,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1446,10 +1405,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 抹消実績_TMEJ宮城大衡(D層)
+# 抹消実績_TMEJ宮城大衡
   - name: stg_hostalc_1g_erasure_achievements
-    description: "抹消実績_TMEJ宮城大衡(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1458,7 +1417,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1475,10 +1433,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 抹消実績_日野羽村(D層)
+# 抹消実績_日野羽村
   - name: stg_hostalc_1p_erasure_achievements
-    description: "抹消実績_日野羽村(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1487,7 +1445,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1504,10 +1461,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両仕様_堤(D層)
+# 車両仕様_堤
   - name: stg_hostalc_1r_vehicle_specification
-    description: "車両仕様_堤(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1516,7 +1473,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1533,10 +1489,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両仕様_田原(D層)
+# 車両仕様_田原
   - name: stg_hostalc_1n_vehicle_specification
-    description: "車両仕様_田原(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1545,7 +1501,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1562,10 +1517,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両仕様_元町(D層)
+# 車両仕様_元町
   - name: stg_hostalc_1h_vehicle_specification
-    description: "車両仕様_元町(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1574,7 +1529,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1591,10 +1545,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両仕様_高岡(D層)
+# 車両仕様_高岡
   - name: stg_hostalc_1k_vehicle_specification
-    description: "車両仕様_高岡(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1603,7 +1557,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1620,10 +1573,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両仕様_織機(D層)
+# 車両仕様_織機
   - name: stg_hostalc_1o_vehicle_specification
-    description: "車両仕様_織機(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1632,7 +1585,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1649,10 +1601,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両仕様_TMK(D層)
+# 車両仕様_TMK
   - name: stg_hostalc_1w_vehicle_specification
-    description: "車両仕様_TMK(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1661,7 +1613,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1678,10 +1629,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両仕様_トヨタ車体富士松(D層)
+# 車両仕様_トヨタ車体富士松
   - name: stg_hostalc_1f_vehicle_specification
-    description: "車両仕様_トヨタ車体富士松(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1690,7 +1641,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1707,10 +1657,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両仕様_トヨタ車体吉原(D層)
+# 車両仕様_トヨタ車体吉原
   - name: stg_hostalc_1a_vehicle_specification
-    description: "車両仕様_トヨタ車体吉原(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1719,7 +1669,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1736,10 +1685,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両仕様_トヨタ車体いなべ(D層)
+# 車両仕様_トヨタ車体いなべ
   - name: stg_hostalc_1i_vehicle_specification
-    description: "車両仕様_トヨタ車体いなべ(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1748,7 +1697,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1765,10 +1713,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両仕様_岐阜車体各務原(D層)
+# 車両仕様_岐阜車体各務原
   - name: stg_hostalc_1j_vehicle_specification
-    description: "車両仕様_岐阜車体各務原(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1777,7 +1725,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1794,10 +1741,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両仕様_TMEJ岩手(D層)
+# 車両仕様_TMEJ岩手
   - name: stg_hostalc_1v_vehicle_specification
-    description: "車両仕様_TMEJ岩手(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1806,7 +1753,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1823,10 +1769,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両仕様_TMEJ宮城大衡(D層)
+# 車両仕様_TMEJ宮城大衡
   - name: stg_hostalc_1g_vehicle_specification
-    description: "車両仕様_TMEJ宮城大衡(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1835,7 +1781,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1852,10 +1797,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 車両仕様_日野羽村(D層)
+# 車両仕様_日野羽村
   - name: stg_hostalc_1p_vehicle_specification
-    description: "車両仕様_日野羽村(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1864,7 +1809,6 @@ models:
             - urn
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1881,10 +1825,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 生産進度_トヨタ車体吉原(D層)
+# 生産進度_トヨタ車体吉原
   - name: stg_hostalc_1a_production_progress
-    description: "生産進度_トヨタ車体吉原(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1897,7 +1841,6 @@ models:
             - shift
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1934,10 +1877,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 生産進度_堤(D層)
+# 生産進度_堤
   - name: stg_hostalc_1r_production_progress
-    description: "生産進度_堤(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -1950,7 +1893,6 @@ models:
             - shift
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -1987,10 +1929,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 生産進度_田原(D層)
+# 生産進度_田原
   - name: stg_hostalc_1n_production_progress
-    description: "生産進度_田原(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -2003,7 +1945,6 @@ models:
             - shift
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -2040,10 +1981,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 生産進度_元町(D層)
+# 生産進度_元町
   - name: stg_hostalc_1h_production_progress
-    description: "生産進度_元町(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -2056,7 +1997,6 @@ models:
             - shift
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -2093,10 +2033,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 生産進度_高岡(D層)
+# 生産進度_高岡
   - name: stg_hostalc_1k_production_progress
-    description: "生産進度_高岡(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -2109,7 +2049,6 @@ models:
             - shift
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -2146,10 +2085,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 生産進度_織機(D層)
+# 生産進度_織機
   - name: stg_hostalc_1o_production_progress
-    description: "生産進度_織機(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -2162,7 +2101,6 @@ models:
             - shift
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -2199,10 +2137,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 生産進度_TMK(D層)
+# 生産進度_TMK
   - name: stg_hostalc_1w_production_progress
-    description: "生産進度_TMK(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -2215,7 +2153,6 @@ models:
             - shift
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -2252,10 +2189,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 生産進度_トヨタ車体富士松(D層)
+# 生産進度_トヨタ車体富士松
   - name: stg_hostalc_1f_production_progress
-    description: "生産進度_トヨタ車体富士松(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -2268,7 +2205,6 @@ models:
             - shift
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -2305,10 +2241,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 生産進度_トヨタ車体いなべ(D層)
+# 生産進度_トヨタ車体いなべ
   - name: stg_hostalc_1i_production_progress
-    description: "生産進度_トヨタ車体いなべ(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -2321,7 +2257,6 @@ models:
             - shift
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -2358,10 +2293,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 生産進度_岐阜車体各務原(D層)
+# 生産進度_岐阜車体各務原
   - name: stg_hostalc_1j_production_progress
-    description: "生産進度_岐阜車体各務原(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -2374,7 +2309,6 @@ models:
             - shift
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -2411,10 +2345,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 生産進度_TMEJ岩手(D層)
+# 生産進度_TMEJ岩手
   - name: stg_hostalc_1v_production_progress
-    description: "生産進度_TMEJ岩手(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -2427,7 +2361,6 @@ models:
             - shift
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -2464,10 +2397,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 生産進度_TMEJ宮城大衡(D層)
+# 生産進度_TMEJ宮城大衡
   - name: stg_hostalc_1g_production_progress
-    description: "生産進度_TMEJ宮城大衡(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -2480,7 +2413,6 @@ models:
             - shift
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:
@@ -2517,10 +2449,10 @@ models:
           - not_null:
               config:
                 severity: error
-
-  # 生産進度_日野羽村(D層)
+# 生産進度_日野羽村
   - name: stg_hostalc_1p_production_progress
-    description: "生産進度_日野羽村(D層)"
+    config:
+      tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -2533,7 +2465,6 @@ models:
             - shift
           config:
             severity: error
-
     columns:
       - name: pscexlk
         data_tests:

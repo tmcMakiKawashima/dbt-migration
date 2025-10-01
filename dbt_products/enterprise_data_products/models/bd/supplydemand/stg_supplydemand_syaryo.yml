@@ -13,7 +13,6 @@ models:
             - frmkbn
             - shamei
             - sno
-            - sketai
           config:
             severity: error
     columns:
@@ -38,11 +37,6 @@ models:
               config:
                 severity: error
       - name: sno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: sketai
         data_tests:
           - not_null:
               config:

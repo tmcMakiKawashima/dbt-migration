@@ -1,0 +1,202 @@
+version: 2
+
+models:
+# 設変書出図情報
+  - name: stg_eci_syutuzu
+    config:
+        tags: ["gijutsu-sms"]
+
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - seppenno
+            - jun
+          config:
+            severity: error
+    columns:
+      - name: seppenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 設変書品番欄情報
+  - name: stg_eci_hinban
+    config:
+        tags: ["gijutsu-sms"]
+
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - seppenno
+            - jun
+          config:
+            severity: error
+    columns:
+      - name: seppenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 設変書要旨
+  - name: stg_eci_yousi
+    config:
+      tags: ["gijutsu-sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - seppenno
+            - jun
+          config:
+            severity: error
+    columns:
+      - name: seppenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 設変No.管理						
+  - name: stg_eci_seppenkan
+    config:
+      tags: ["gijutsu-sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - seppenno
+            - jigyoutai
+          config:
+            severity: error
+    columns:
+      - name: seppenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jigyoutai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 設変書タイトル
+  - name: stg_eci_title
+    config:
+      tags: ["gijutsu-sms"]
+    columns:
+      - name: seppenno
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 設変書切替希望時期
+  - name: stg_eci_kirikaejiki
+    config:
+      tags: ["gijutsu-sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - seppenno
+            - ecikbn
+          config:
+            severity: error
+    columns:
+      - name: seppenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ecikbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 設変書搭載車種
+  - name: stg_eci_tousaisyasyu
+    config:
+      tags: ["gijutsu-sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - seppenno
+            - ecikbn
+            - unitcd
+            - tekiyo
+            - tousai
+          config:
+            severity: error
+    columns:
+      - name: seppenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ecikbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: unitcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiyo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tousai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 設変書名称変更
+  - name: stg_eci_meihen
+    config:
+      tags: ["gijutsu-sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - seppenno
+            - ecikbn
+            - syasyu
+            - tekiyo
+          config:
+            severity: error
+    columns:
+      - name: seppenno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ecikbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tekiyo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
