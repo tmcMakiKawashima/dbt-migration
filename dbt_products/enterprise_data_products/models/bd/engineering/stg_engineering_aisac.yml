@@ -1,0 +1,16 @@
+version: 2
+
+models:
+# 車種
+  - name: stg_syasyu
+    config:
+        tags: ["aisac"]
+    columns:
+      - name: syasyu
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
