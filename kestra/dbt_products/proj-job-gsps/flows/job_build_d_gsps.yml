@@ -28,7 +28,7 @@ tasks:
         type: io.kestra.plugin.dbt.cli.DbtCLI
         commands:
           - dbt build
-            --select +stg_kiken +stg_hazmat +stg_ykiken
+            --select +stg_kiken +stg_hazmat +stg_ykiken +stg_tikisyasyu_gsps +stg_hinbansyasyu_gsps
             --vars '{"DBT_JOB_NAME":"_d_gsps"}'
             {{ inputs.dbt_options ?? "" }}
             --project-dir "{{ namespace.DBT.PROJ_DIR }}"
