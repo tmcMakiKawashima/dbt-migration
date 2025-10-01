@@ -1,53 +1,71 @@
 version: 2
 models:
-# 車種世代
-  - name: dm_vehicle_generation
+
+# 危険品情報
+  - name: stg_kiken
     config:
-      tags: ["sias"]
+      tags: ["gsps"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - cd_model_nm
-            - no_ofr_alt_pub
-            - dd_mdly
-            - cd_fll_mdl
-            - cd_vtype
-            - no_pub
-            - dd_pubbnd_trmfrym
+            - hinban10
+            - syusbetu
+            - seppenjun
           config:
             severity: error
     columns:
-      - name: cd_model_nm
+      - name: hinban10
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: no_ofr_alt_pub
+      - name: syusbetu
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: dd_mdly
+      - name: seppenjun
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: cd_fll_mdl
+# HAZMAT
+  - name: stg_hazmat
+    config:
+      tags: ["gsps"]
+    columns:
+      - name: haz
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                  severity: error
+# 用品.危険品情報
+  - name: stg_ykiken
+    config:
+      tags: ["gsps"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hinban
+            - syusbetu
+            - seppenjun
+          config:
+            severity: error
+    columns:
+      - name: hinban
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: cd_vtype
+      - name: syusbetu
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: no_pub
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: dd_pubbnd_trmfrym
+      - name: seppenjun
         data_tests:
           - not_null:
               config:

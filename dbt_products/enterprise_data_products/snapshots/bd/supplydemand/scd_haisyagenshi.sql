@@ -7,8 +7,7 @@
                     hkata, 
                     frmkbn, 
                     shamei, 
-                    sno, 
-                    sketai)",
+                    sno)",
 
         strategy='timestamp',
         updated_at='mtdate',
