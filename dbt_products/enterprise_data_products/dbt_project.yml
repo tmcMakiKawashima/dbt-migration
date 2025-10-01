@@ -46,6 +46,12 @@ models:
         +group: valuechain
         +database: valuechain_db
         +schema: public
+      snowpipe:
+        +snowflake_warehouse: snowpipe_wh
+        +database: snowpipe_db
+        supplydemand:
+          +group: snowpipe_supplydemand
+          +schema: supplydemand
     bd:
       valuechain:
         +snowflake_warehouse: valuechain_wh
@@ -87,6 +93,22 @@ models:
         stg:
           +access: public
           +materialized: table
+      engineering:
+        +snowflake_warehouse: engineering_wh
+        +group: engineering
+        +database: engineering_db
+        +schema: public
+        stg:
+          +access: public
+          +materialized: table
+      manufacturing:
+        +snowflake_warehouse: manufacturing_wh
+        +group: manufacturing
+        +database: manufacturing_db
+        +schema: public
+        stg:
+          +access: public
+          +materialized: table
     dd:
       valuechain:
         +snowflake_warehouse: valuechain_wh
@@ -121,6 +143,14 @@ models:
             stg:
               +access: public
               +materialized: table
+      engineering:
+        +snowflake_warehouse: engineering_wh
+        +group: engineering
+        +database: engineering_db
+        +schema: public
+        stg:
+          +access: public
+          +materialized: table
     de:
       parts:
         +snowflake_warehouse: parts_wh
@@ -137,8 +167,8 @@ models:
           +group: vinhis_yohin
           +schema: yohin
           dim:
-          +access: public
-          +materialized: table
+            +access: public
+            +materialized: table
         spec:
           +group: vinhis_spec
           +schema: spec
@@ -148,6 +178,39 @@ models:
         maint:
           +group: vinhis_maint
           +schema: maint
+          dim:
+            +access: public
+            +materialized: table
+        model:
+          +group: vinhis_model
+          +schema: model
+          dim:
+            +access: public
+            +materialized: table
+      model:
+        +snowflake_warehouse: model_wh
+        +database: model_db
+        repair:
+          +group: model_repair
+          +schema: repair
+          dim:
+            +access: public
+            +materialized: table
+      employee:
+        +snowflake_warehouse: employee_wh
+        +database: employee_db
+        organization:
+          +group: employee_organization        
+          +schema: organization
+          dim:
+            +access: public
+            +materialized: table          
+      parts_list:
+        +snowflake_warehouse: parts_list_wh
+        +database: parts_list_db
+        seppen:
+          +group: parts_list_seppen
+          +schema: seppen
           dim:
             +access: public
             +materialized: table
@@ -203,4 +266,14 @@ snapshots:
         +snowflake_warehouse: customerservice_wh
         +group: customerservice
         +target_database: customerservice_db
+        +target_schema: dbt_snapshots
+      engineering:
+        +snowflake_warehouse: engineering_wh
+        +group: engineering
+        +target_database: engineering_db
+        +target_schema: dbt_snapshots
+      manufacturing:
+        +snowflake_warehouse: manufacturing_wh
+        +group: manufacturing
+        +target_database: manufacturing_db
         +target_schema: dbt_snapshots

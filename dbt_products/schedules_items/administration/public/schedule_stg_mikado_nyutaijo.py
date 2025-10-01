@@ -12,10 +12,10 @@ schedule_stg_mikado_nyutaijo = build_schedule_from_dbt_selection(
     dbt_select="+stg_nyutaijo",
     config=RunConfig(ops={"dbt_products_assets":
                           DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_mikado_nyutaijo"},
-                                    source_test_list=["source:*,+stg_nytaijo"])
+                                    source_test_list=["source:*,+stg_nyutaijo"])
                           }
                      ),
-    default_status=DefaultScheduleStatus.RUNNING,
+    # default_status=DefaultScheduleStatus.RUNNING,
     tags={"ecs/cpu": "256", "ecs/memory": "1024",
           "job_name": "job_build_stg_mikado_nyutaijo"},
 )

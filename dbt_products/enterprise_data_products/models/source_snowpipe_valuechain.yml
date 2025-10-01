@@ -335,6 +335,36 @@ sources:
         identifier: dv2a5717
       - name: raw_dv2b0205
         identifier: dv2b0205
+      - name: raw_k9jfv221
+        identifier: k9jfv221
+      - name: raw_k9jfv217
+        identifier: k9jfv217
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 18
+      - name: raw_k9jfv218
+        identifier: k9jfv218
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 22
+      - name: raw_k9jfv219
+        identifier: k9jfv219
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 19
+      - name: raw_k9jfv220
+        identifier: k9jfv220
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 47
     # PIXY
       - name: raw_tpjfva40
         identifier: tpjfva40
@@ -350,3 +380,22 @@ sources:
             data_tests:
               - fixed_length:
                   length: 550
+    # YUI_CPOS
+      - name: raw_ktrea04tzz0kel0901
+        identifier: ktrea04tzz0kel0901
+      - name: raw_ktrea04tzz0kel0902
+        identifier: ktrea04tzz0kel0902
+      - name: raw_ktrea04tzz0kel0903
+        identifier: ktrea04tzz0kel0903
+      - name: raw_ktrea04tzz0kel0904
+        identifier: ktrea04tzz0kel0904
+      - name: raw_ktrea04tzz0kel0905
+        identifier: ktrea04tzz0kel0905
+      - name: raw_ktrea04tzz0kel0906
+        identifier: ktrea04tzz0kel0906
+      - name: raw_ktrea04tzz0kel0907
+        identifier: ktrea04tzz0kel0907
+      - name: raw_ktrea04tzz0kel0908
+        identifier: ktrea04tzz0kel0908
+      - name: raw_ktrea04tzz0kel0909
+        identifier: ktrea04tzz0kel0909

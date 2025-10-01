@@ -17,18 +17,24 @@ with
         where odrtype = '7' -- オーダータイプ7:国内販売のみ
     ),
     haisya as (
-        select
-            frmno, -- フレームNo
-            frmkbn, -- フレーム区分
-            shamei, -- 社名コード
-            sno, -- 仕様書No
-            hkata -- 販売型式
-        from {{ ref('stg_haisyagenshi') }} -- 配車原始
-        where sketai in ('20', '30') -- 処理形態20:在庫配車、30:通常配車のみ
+        select * from (
+            select
+                frmno, -- フレームNo
+                frmkbn, -- フレーム区分
+                shamei, -- 社名コード
+                sno, -- 仕様書No
+                hkata, -- 販売型式
+                row_number() over(
+                    partition by frmno, frmkbn, shamei, sno, hkata
+                    order by ldts) as aggkey
+            from {{ ref('stg_haisyagenshi_valid') }} -- 配車原始（処理形態絞り込み）
+        )
+        -- 先頭１レコード抽出条件
+        where aggkey = 1
     )
 select
     kokunai.* exclude (frmkbn, shamei, sno),
-    haisya.* exclude (frmno, frmkbn, shamei, sno)
+    haisya.* exclude (frmno, frmkbn, shamei, sno, aggkey)
 from kokunai
 left outer join haisya
   on kokunai.frmno = haisya.frmno

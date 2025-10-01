@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: snowpipe_db_engineering
+    database: snowpipe_db
+    schema: engineering
+    freshness:
+      warn_after: { count: 1, period: hour }
+      error_after: { count: 24, period: hour }
+    loaded_at_field: ldts
+
+    tables:
+    # paint_iot
+      - name: raw_ktrla0g7zz0kqe0001
+        identifier: ktrla0g7zz0kqe0001
+      - name: raw_ktrla0g7zz0kqe0002
+        identifier: ktrla0g7zz0kqe0002
+      - name: raw_ktrla0g7zz0kqe0003
+        identifier: ktrla0g7zz0kqe0003
+      - name: raw_ktrla0g7zz0kqe0004
+        identifier: ktrla0g7zz0kqe0004
+      - name: raw_ktrla0g7zz0kqe0005
+        identifier: ktrla0g7zz0kqe0005
+      - name: raw_ktrla0g7zz0kqe0006
+        identifier: ktrla0g7zz0kqe0006
+      - name: raw_ktrla0g7zz0kqe0007
+        identifier: ktrla0g7zz0kqe0007
+      - name: raw_ktrla0g7zz0kqe0008
+        identifier: ktrla0g7zz0kqe0008
