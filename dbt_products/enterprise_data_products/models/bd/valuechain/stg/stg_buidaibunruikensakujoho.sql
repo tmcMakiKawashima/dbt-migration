@@ -6,7 +6,7 @@ with stg_buidaibunruikensakujoho as (
         rtrim(hansno, ' 　')::varchar(7) as hansno,
         ldts,
         line_number,
-        rank() over(partition by ctlgcd, daibnrcd order by ldts desc, mntkbn asc, line_number desc) aggkey
+        rank() over(partition by ctlgcd, daibnrcd order by ldts desc, line_number desc) aggkey
     from {{ref('substr_k9jfv217')}}
 )
-select * exclude(line_number, aggkey) from stg_buidaibunruikensakujoho where aggkey = 1
+select * exclude(mntkbn, line_number, aggkey) from stg_buidaibunruikensakujoho where aggkey = 1 and mntkbn in ('C', 'U')
