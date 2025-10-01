@@ -1,10 +1,10 @@
 with stg_figkensaku as (
     select
         mntkbn::varchar(1) as mntkbn,
-        rtrim(ctlgcd,' 　')::varchar(6) as ctlgcd,
+        rtrim(ctlgcd,' 　')::varchar(6) as ctlgcd, -- 右blank
         rtrim(hinban,' 　')::varchar(12) as hinban, -- 右blank
-        rtrim(pnc,' 　')::varchar(6) as pnc,
-        rtrim(figno,' 　')::varchar(4) as figno,
+        rtrim(pnc,' 　')::varchar(6) as pnc, -- 右blank
+        rtrim(figno,' 　')::varchar(4) as figno, -- 右blank
         ldts, --B層取込日時
         line_number,
         rank() over (partition by ctlgcd, hinban, pnc, figno order by ldts desc, line_number desc) aggkey
