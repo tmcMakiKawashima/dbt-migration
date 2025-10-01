@@ -9,7 +9,7 @@ with stg_tokuchokigojoho as (
         tokukbnmei::varchar(80) as tokukbnmei,
         ldts,
         line_number,
-        rank() over(partition by langkbn, ctlgcd, tokukbn, tokukg order by ldts desc, mntkbn asc, line_number desc) aggkey
+        rank() over(partition by langkbn, ctlgcd, tokukbn, tokukg order by ldts desc, line_number desc) aggkey
     from {{source('snowpipe_db_valuechain', 'raw_k9jfv221')}}
 )
-select * exclude(line_number, aggkey) from stg_tokuchokigojoho where aggkey = 1
+select * exclude(mntkbn, line_number, aggkey) from stg_tokuchokigojoho where aggkey = 1 and mntkbn in ('C', 'U')

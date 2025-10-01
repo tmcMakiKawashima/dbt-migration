@@ -1,4 +1,3 @@
-
 with stg_hostalc_1p_production_progress as (
   select
     rtrim(pscexlk, ' 　')::varchar(1) as pscexlk, -- PSC(外部連携用)
