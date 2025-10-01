@@ -27,8 +27,7 @@ with
                 row_number() over(
                     partition by frmno, frmkbn, shamei, sno, hkata
                     order by ldts) as aggkey
-            from {{ ref('stg_haisyagenshi') }} -- 配車原始
-            where sketai in ('20', '30') -- 処理形態20:在庫配車、30:通常配車のみ
+            from {{ ref('stg_haisyagenshi_valid') }} -- 配車原始（処理形態絞り込み）
         )
         -- 先頭１レコード抽出条件
         where aggkey = 1
