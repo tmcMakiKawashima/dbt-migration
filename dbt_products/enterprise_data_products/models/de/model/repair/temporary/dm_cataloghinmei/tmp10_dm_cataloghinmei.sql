@@ -1,7 +1,6 @@
 with
     stg_hinbankensakutype1 as (
         select
-            siyocdmlt, --仕様コード(複数)
             katanomlt, -- 型式NO(複数)
             ctlgcd, -- カタログコード
             hinmeicd, -- 品名コード
@@ -43,7 +42,8 @@ with
         from {{ ref('stg_hinbankensakutype2')}} -- 品番検索Type2
     )
 select
-    stg_hinbankensakutype1.siyocdmlt, stg_hinbankensakutype1.katanomlt, stg_hinbankensakutype1.ctlgcd,
+    stg_hinbankensakutype1.katanomlt,
+    stg_hinbankensakutype1.ctlgcd,
     stg_hinbankensakutype2.* exclude (ctlgcd)
 from stg_hinbankensakutype1
 inner join stg_hinbankensakutype2
@@ -63,4 +63,3 @@ inner join stg_hinbankensakutype2
  and stg_hinbankensakutype1.tkstkbn = stg_hinbankensakutype2.tkstkbn
  and stg_hinbankensakutype1.hktkgaikbn = stg_hinbankensakutype2.hktkgaikbn
  and stg_hinbankensakutype1.hosemhin = stg_hinbankensakutype2.hosemhin
- 
