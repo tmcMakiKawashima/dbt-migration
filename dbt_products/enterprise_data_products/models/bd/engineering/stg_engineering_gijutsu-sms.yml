@@ -213,8 +213,10 @@ models:
             - bui
             - kosyokt
             - vari
-            - torokujunk
             - hikikey
+            - torokujunk
+            - spkbn
+            - hikisiyo
           config:
             severity: error
 # 部位名称
