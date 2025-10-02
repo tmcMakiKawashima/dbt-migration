@@ -9,8 +9,10 @@
                     bui,
                     kosyokt,
                     vari,
+                    hikikey,
                     torokujunk,
-                    hikikey)",
+                    spkbn,
+                    hikisiyo)",
 
         strategy='timestamp',
         updated_at='ldts',

@@ -1,7 +1,7 @@
 {{
   config(
     materialized='incremental',
-    unique_key = ['syasyu32', 'syasyu_cd', 'kumitate', 'bui', 'kosyokt', 'vari', 'torokujunk', 'hikikey'],
+    unique_key = ['syasyu32', 'syasyu_cd', 'kumitate', 'bui', 'kosyokt', 'vari', 'hikikey', 'torokujunk', 'spkbn', 'hikisiyo'],
     incremental_strategy = 'merge'
   )
 }}
