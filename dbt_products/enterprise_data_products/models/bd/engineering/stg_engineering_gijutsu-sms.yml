@@ -310,6 +310,7 @@ models:
           combination_of_columns:
             - seppenno
             - siryono
+            - tantoseikan
           config:
             severity: error
     columns:
@@ -319,6 +320,11 @@ models:
               config:
                 severity: error
       - name: siryono
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tantoseikan
         data_tests:
           - not_null:
               config:
