@@ -1,6 +1,6 @@
 {{ config(
       materialized='incremental',
-      unique_key = ['seppenno','siryono'],
+      unique_key = ['seppenno','siryono','tantoseikan'],
       incremental_strategy = 'merge'
   )
  }}
