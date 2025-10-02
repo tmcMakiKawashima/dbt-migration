@@ -68,6 +68,118 @@ sources:
             data_tests:
             - fixed_length:
                 length: 110
+      - name: raw_da34b13
+        identifier: da34b13
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 60
+      - name: raw_da34b16
+        identifier: da34b16
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 60
+      - name: raw_da34b17
+        identifier: da34b17
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 300
+      - name: raw_da34b18
+        identifier: da34b18
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 40
+      - name: raw_da34b19
+        identifier: da34b19
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 20
+      - name: raw_da34b43
+        identifier: da34b43
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 80
+      - name: raw_da36b63
+        identifier: da36b63
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 40
+      - name: raw_da36b52
+        identifier: da36b52
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 120
+      - name: raw_da39b80
+        identifier: da39b80
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 50
+      - name: raw_da39b81
+        identifier: da39b81
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 60
+      - name: raw_tsjfa36q
+        identifier: tsjfa36q
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 550
+      - name: raw_da34b11
+        identifier: da34b11
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 60
+      - name: raw_da34b12
+        identifier: da34b12
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 60
+      - name: raw_tsjfa393
+        identifier: tsjfa393
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 90
+      - name: raw_tsjfa392
+        identifier: tsjfa392
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 800
+      - name: raw_tsjfa391
+        identifier: tsjfa391
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 580
     # AQUA
       - name: raw_nojfa560
         identifier: nojfa560
@@ -319,3 +431,32 @@ sources:
       # 制約フォーマット
       - name: raw_t_restriction_formats
         identifier: t_restriction_formats
+    # JPASS
+      - name: raw_ktrla038zz0kaddb01
+        identifier: ktrla038zz0kaddb01
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 300
+      - name: raw_ktrla038zz0kaddb02
+        identifier: ktrla038zz0kaddb02
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 80
+      - name: raw_ktrla038zz0kadda01
+        identifier: ktrla038zz0kadda01
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 397
+      - name: raw_ktrla038zz0kaddb03
+        identifier: ktrla038zz0kaddb03
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 80

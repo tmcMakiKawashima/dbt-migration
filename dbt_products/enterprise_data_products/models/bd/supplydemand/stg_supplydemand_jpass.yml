@@ -1,0 +1,598 @@
+version: 2
+
+models:
+# 受注取込結果詳細
+  - name: stg_jyuchu_shosai_seiyakukakunin_jpass
+    config:
+      tags: ["jpass"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ym
+            - caltimingkbn
+            - shamei
+            - sno
+            - shinq
+            - datarbn_7keta
+          config:
+            severity: error
+    columns:
+      - name: ym
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: caltimingkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shamei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shinq
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: datarbn_7keta
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dlrcd_smksk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: odno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nijsym_all
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nijsym_seiyakuari
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jkeijyotuki
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nosyakibotuki
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: daisu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hckata
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hkata
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: gaicd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ucd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tire
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hoption
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: knkkbnzenkokudumari
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jkeijyobi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jrdate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: motokndate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sstbi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sstbihan
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: skkibonk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kibonk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: odkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: odtjun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kibostukistipintome
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sydate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haiyouflg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: serrmflg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dummy
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 受注取込結果詳細_生管機能明細集計（制約のみ）
+  - name: stg_jyuchu_seiyakukinosyukei_seiyakukakunin_jpass
+    config:
+      tags: ["jpass"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ym
+            - caltimingkbn
+            - shamei
+            - sno
+            - shinq
+            - datarbn_7keta
+          config:
+            severity: error
+    columns:
+      - name: ym
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: caltimingkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shamei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shinq
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: datarbn_7keta
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dlrcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dlrcd_smksk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: odno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kncodewk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seiriyomaxym
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: fulllank
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dummy
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 配車要望最終仕様別
+  - name: stg_haishayoubo_jpass
+    config:
+      tags: ["jpass"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ym
+            - caltimingkbn
+            - shamei
+            - sno
+            - yosokbn
+            - yosoren
+          config:
+            severity: error
+    columns:
+      - name: ym
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: caltimingkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bukbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shamei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: yosokbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: yosoren
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hckata
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: gaicd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ucd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tire
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hoption
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain1
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain2
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain3
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain4
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain5
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain6
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain7
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain8
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain9
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain10
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain11
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain12
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain13
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain14
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain15
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain16
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain17
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain18
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain19
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain20
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain21
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain22
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisyaybdain23
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jdumflg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haiyouflg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: serrmflg
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haiybknssrj
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haiybknsjji
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haiybknserrjyoho
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mtuser
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mttime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 受注取込結果生管機能明細集計_制約有台数制約無台数
+  - name: stg_jyuchu_kinosyukei_seiyakukakunin_jpass
+    config:
+      tags: ["jpass"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ym
+            - caltimingkbn
+            - shamei
+            - sno
+            - shinq
+            - nijsym
+            - kncode
+          config:
+            severity: error
+    columns:
+      - name: ym
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: caltimingkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shamei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shinq
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nijsym
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kncode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seinasidai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seinasidaihi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sdai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seiaridai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: seiaridaihi
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: fulllank
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dummy
+        data_tests:
+          - not_null:
+              config:
+                severity: error
