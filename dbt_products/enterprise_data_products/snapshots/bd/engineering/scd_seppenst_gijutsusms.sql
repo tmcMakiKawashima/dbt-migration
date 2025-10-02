@@ -3,7 +3,8 @@
     config(
         unique_key="concat_ws('-',
                     seppenno,
-                    siryono
+                    siryono,
+                    tantoseikan
                     )",
 
         strategy='timestamp',
