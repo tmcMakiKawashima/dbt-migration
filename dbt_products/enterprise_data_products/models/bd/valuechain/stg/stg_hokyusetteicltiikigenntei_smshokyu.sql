@@ -1,4 +1,4 @@
-with stg_hokyusetteicltiikigennte_smshokyu as (
+with stg_hokyusetteicltiikigenntei_smshokyu as (
     select
         trim(syasyu, ' 　')::varchar(4) as syasyu,  -- 右左ブランク
         trim(kumitate, ' 　')::varchar(4) as kumitate,  -- 右左ブランク
@@ -25,4 +25,4 @@ with stg_hokyusetteicltiikigennte_smshokyu as (
     where _fivetran_deleted = 'false'
 )
 select *
-from stg_hokyusetteicltiikigennte_smshokyu
+from stg_hokyusetteicltiikigenntei_smshokyu
