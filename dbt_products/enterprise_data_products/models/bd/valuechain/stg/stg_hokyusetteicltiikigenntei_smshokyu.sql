@@ -1,4 +1,4 @@
-with stg_hokyusetteicltiikigenntei_smshokyu as (
+with stg_hokyusetteicltiikigennte_smshokyu as (
     select
         trim(syasyu, ' 　')::varchar(4) as syasyu,  -- 右左ブランク
         trim(kumitate, ' 　')::varchar(4) as kumitate,  -- 右左ブランク
@@ -8,9 +8,9 @@ with stg_hokyusetteicltiikigenntei_smshokyu as (
         trim(gc, ' 　')::varchar(2) as gc,  -- 右左ブランク
         trim(kohin, ' 　')::varchar(10) as kohin,  -- 右左ブランク
         trim(ruibetu, ' 　')::varchar(2) as ruibetu,  -- 右左ブランク
-        trim(sepjunk, ' 　')::varchar(9) as sepjunk,  -- 右左ブランク
+        sepjunk::varchar(9) as sepjunk,
         trim(gentetiki, ' 　')::varchar(20) as gentetiki,  -- 右左ブランク
-        trim(sepjunm, ' 　')::varchar(9) as sepjunm,  -- 右左ブランク
+        sepjunm::varchar(9) as sepjunm,
         trim(hikihokbn, ' 　')::varchar(2) as hikihokbn,  -- 右左ブランク
         trim(tekikara, ' 　')::varchar(8) as tekikara,  -- 右左ブランク
         trim(tekimade, ' 　')::varchar(8) as tekimade,  -- 右左ブランク
@@ -25,4 +25,4 @@ with stg_hokyusetteicltiikigenntei_smshokyu as (
     where _fivetran_deleted = 'false'
 )
 select *
-from stg_hokyusetteicltiikigenntei_smshokyu
+from stg_hokyusetteicltiikigennte_smshokyu
