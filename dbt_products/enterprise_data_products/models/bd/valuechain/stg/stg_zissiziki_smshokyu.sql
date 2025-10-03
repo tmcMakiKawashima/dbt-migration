@@ -7,8 +7,8 @@ with stg_zissiziki_smshokyu as (
         trim(kata, ' 　')::varchar(20) as kata,  -- 右左ブランク
         trim(sochaku, ' 　')::varchar(1) as sochaku,  -- 右左ブランク
         trim(vari, ' 　')::varchar(2) as vari,  -- 右左ブランク
-        trim(sepnok, ' 　')::varchar(10) as sepnok,  -- 右左ブランク
-        trim(sepnom, ' 　')::varchar(10) as sepnom,  -- 右左ブランク
+        sepnok::varchar(10) as sepnok,
+        sepnom::varchar(10) as sepnom,
         trim(tekikara, ' 　')::varchar(8) as tekikara,  -- 右左ブランク
         trim(tekimade, ' 　')::varchar(8) as tekimade,  -- 右左ブランク
         trim(ecikbn, ' 　')::varchar(3) as ecikbn,  -- 右左ブランク
