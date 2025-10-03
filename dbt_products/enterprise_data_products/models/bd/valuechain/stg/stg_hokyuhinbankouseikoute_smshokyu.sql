@@ -20,13 +20,13 @@ with stg_hokyuhinbankouseikoute_smshokyu as (
         trim(jikt13, ' 　')::varchar(6) as jikt13,  -- 右左ブランク
         trim(jikt14, ' 　')::varchar(6) as jikt14,  -- 右左ブランク
         trim(oyakt, ' 　')::varchar(6) as oyakt,  -- 右左ブランク
-        trim(sepjunk, ' 　')::varchar(9) as sepjunk,  -- 右左ブランク
-        trim(sepjunm, ' 　')::varchar(9) as sepjunm,  -- 右左ブランク
-        trim(kosu, ' 　')::varchar(3) as kosu,  -- 右左ブランク
+        sepjunk::varchar(9) as sepjunk,
+        sepjunm::varchar(9) as sepjunm,
+        kosu::varchar(3) as kosu,
         trim(sentaku, ' 　')::varchar(2) as sentaku,  -- 右左ブランク
         trim(ktkbn, ' 　')::varchar(2) as ktkbn,  -- 右左ブランク
         trim(ktchk, ' 　')::varchar(1) as ktchk,  -- 右左ブランク
-        trim(ktkosu, ' 　')::varchar(2) as ktkosu,  -- 右左ブランク
+        ktkosu::varchar(2) as ktkosu,
         trim(tekikara, ' 　')::varchar(8) as tekikara,  -- 右左ブランク
         trim(tekimade, ' 　')::varchar(8) as tekimade,  -- 右左ブランク
         trim(torokud, ' 　')::varchar(8) as torokud,  -- 右左ブランク
