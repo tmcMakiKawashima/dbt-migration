@@ -686,3 +686,72 @@ models:
           - not_null:
               config:
                 severity: error
+# COSMOS_SFX確定：SPEC情報
+  - name: stg_cam2148_jyukyujyoho
+    config:
+      tags: ["jyukyujyoho"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - r_prod_month
+            - r_edno
+            - r_spec_keta
+          config:
+            severity: error
+    columns:
+      - name: r_prod_month
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: r_edno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: r_spec_keta
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: r_spec_kigo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: r_std_opt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: r_cnty_rstr_mark
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: r_opt_mark
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: r_free_entry
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: r_spc_dtl_result
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: create_user
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: update_user
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+
