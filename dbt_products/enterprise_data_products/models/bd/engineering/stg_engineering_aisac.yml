@@ -14,3 +14,30 @@ models:
           - not_null:
               config:
                 severity: error
+# イベント変更内容一覧
+  - name: stg_swevent_ebidensu
+    config:
+      tags: ["aisac"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - eventno
+            - syasyu
+          config:
+            severity: error
+    columns:
+      - name: eventno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
