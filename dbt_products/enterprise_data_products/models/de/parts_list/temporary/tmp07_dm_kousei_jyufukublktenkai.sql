@@ -6,16 +6,16 @@
 -- 処理レスポンスを考慮しtable実装
 select
   zt.syasyu, -- 車種コード
-  ks.siyoubui, -- 使用部位
-  ks.kumitate, -- 組立番号
-  ks.bui, -- 部位
+  zt.siyoubui, -- 使用部位
+  zt.kumitate, -- 組立番号
+  zt.bui, -- 部位
   ks.motosiyoubui, -- 元使用部位
   zt.shusiyoubui, -- 主側使用部位
-  ks.vari, -- バリエーション
+  zt.vari, -- バリエーション
   zt.oyahin, -- 親品番
   zt.lv, -- レベル
   zt.kouseijyun, -- 構成順
-  ks.gc, -- GC
+  zt.gc, -- GC
   zt.kohin, -- 品番／BLKコード
   ks.kohinmei, -- 品名／BLKコード名称
   ks.kosu, -- 使用個数

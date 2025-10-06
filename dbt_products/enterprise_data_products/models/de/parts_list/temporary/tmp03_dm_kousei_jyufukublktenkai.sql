@@ -7,8 +7,8 @@
 with tmp02_dm_kousei_jyufukublktenkai as (
 select
   syasyu, -- 車種コード
-  siyoubui, -- 使用部位(重複対象) 
-  kohin as jyufku_kohin, -- 品番／BLKコード(重複対象)
+  siyoubui, -- 使用部位 
+  kohin as jyufku_kohin, -- 品番／BLKコード
   jyufuku_kaisou, -- 重複階層
   shusiyoubui, -- 主側使用部位
   torokujunk as torokujunk_15com, -- 登録生認順カラ(15コメントとして)
@@ -19,10 +19,10 @@ select
 ), tmp01_dm_kousei_jyufukublktenkai as (
 select
   syasyu, -- 車種コード
-  siyoubui, -- 使用部位(重複対象) 
+  siyoubui, -- 使用部位
   oyahin, -- 親品番
-  kohin, -- 品番／BLKコード
   gc, -- GC
+  kohin, -- 品番／BLKコード
   kosu, -- 使用個数
   sentaku, -- 選択符号
   torokujunk, -- 登録／生認順カラ

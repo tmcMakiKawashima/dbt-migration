@@ -9,14 +9,14 @@ with recursive siyoubui_jyufuku as (
   -- 使用部位単位で関係するjyufukuを求める
   select
     kj1.syasyu, -- 車種コード
-    kj1.siyoubui, -- 使用部位(重複対象)
-    kj1.kohin, -- 品番／BLKコード(重複対象)
+    kj1.siyoubui, -- 使用部位
+    kj1.kohin, -- 品番／BLKコード
     1 as jyufuku_kaisou, -- 重複階層
     kj2.siyoubui as shusiyoubui, -- 主側使用部位
-    ksc.torokujunk, -- 登録生認順カラ(15コメントとして)
-    ksc.torokujunm, -- 登録生認順マデ(15コメントとして)
+    ksc.torokujunk, -- 登録／生認順カラ
+    ksc.torokujunm, -- 登録／生認順マデ
     kj3.kohin as add_hinban, -- 重複の下の重複品番
-    kj3.tyohuku, -- 重複の下の重複コメント
+    kj3.tyohuku, -- 重複記載
     ksc.com -- 構成コメント
   -- 重複コメントの使用部位を集める
   from 
@@ -32,7 +32,7 @@ with recursive siyoubui_jyufuku as (
       where tyohuku != ''
     ) as kj1
     -- 対象のコメントの使用部位を集める
-    left join {{ref('tmp01_dm_kousei_jyufukublktenkai')}} as kj2
+    inner join {{ref('tmp01_dm_kousei_jyufukublktenkai')}} as kj2
     on (
         kj1.syasyu = kj2.syasyu
     and left(kj1.tyohuku, 4) = left(kj2.siyoubui, 4)
@@ -66,14 +66,14 @@ with recursive siyoubui_jyufuku as (
     -- jyufukuのjyufukuがあるので再帰する
     select
       sj.syasyu, -- 車種コード
-      sj.siyoubui, -- 使用部位(重複対象)
-      sj.kohin, -- 品番／BLKコード(重複対象)
+      sj.siyoubui, -- 使用部位
+      sj.kohin, -- 品番／BLKコード
       sj.jyufuku_kaisou + 1, -- 重複階層
       kj2.siyoubui, -- 主側使用部位
-      ksc.torokujunk, -- 登録生認順カラ(15コメントとして)
-      ksc.torokujunm, -- 登録生認順マデ(15コメントとして)
+      ksc.torokujunk, -- 登録／生認順カラ
+      ksc.torokujunm, -- 登録生認順マデ
       kj3.kohin, -- 重複の下の重複品番
-      kj3.tyohuku, -- 重複の下の重複コメント
+      kj3.tyohuku, -- 重複記載
       ksc.com -- 構成コメント
     from siyoubui_jyufuku as sj
     -- 対象のコメントの使用部位を集める
@@ -107,18 +107,19 @@ with recursive siyoubui_jyufuku as (
         kj2.syasyu = kj3.syasyu
     and kj2.siyoubui = kj3.siyoubui
     )
+  where sj.jyufuku_kaisou < 100
 ),
 tmp01_dm_kousei_jyufukublktenkai as (
 select distinct 
   syasyu, -- 車種コード
-  siyoubui, -- 使用部位(重複対象)
-  kohin, -- 品番／BLKコード(重複対象)
+  siyoubui, -- 使用部位
+  kohin, -- 品番／BLKコード
   0 as jyufuku_kaisou, -- 重複階層
-  siyoubui as shusiyoubui, -- 重複相手先使用部位
-  '' as torokujunk, -- 登録生認順カラ(15コメントとして)
-  '' as torokujunm, -- 登録生認順マデ(15コメントとして)
+  siyoubui as shusiyoubui, -- 主側使用部位
+  '' as torokujunk, -- 登録／生認順カラ
+  '' as torokujunm, -- 登録／生認順マデ
   kohin as add_hinban, -- 重複の下の重複品番
-  tyohuku, -- 重複の下の重複コメント
+  tyohuku, -- 重複記載
   '' as com -- 構成コメント
   from {{ref('tmp01_dm_kousei_jyufukublktenkai')}}
   where tyohuku != ''

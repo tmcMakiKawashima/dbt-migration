@@ -17,8 +17,8 @@ with recursive dm_kousei_oya as (
     tmp3.kohin, -- 品番／BLKコード
     tmp3.kosu, -- 使用個数
     tmp3.sentaku, -- 選択符号
-    tmp3.torokujunk_15com, -- 登録生認順カラ(15コメントとして)
-    tmp3.torokujunm_15com, -- 登録生認順マデ(15コメントとして)
+    tmp3.torokujunk_15com, -- 登録／生認順カラ(15コメントとして)
+    tmp3.torokujunm_15com, -- 登録／生認順マデ(15コメントとして)
     tmp3.torokujunk, -- 登録／生認順カラ
     tmp3.torokujunm, -- 登録／生認順マデ
     tmp3.target, -- ターゲット
@@ -26,14 +26,14 @@ with recursive dm_kousei_oya as (
     tmp3.seppenno, -- 設変No.
     tmp3.maxmttime, -- MAXMTTIME
     tmp3.mttime, -- MTTIME
-    1 as lv, -- レベル
+    to_decimal(1, 2, 0) as lv, -- レベル
     tmp3.id -- ID
     from {{ref('tmp03_dm_kousei_jyufukublktenkai')}} as tmp3
   where tmp3.siyoubui = tmp3.oyahin
   union all
   select 
     zt.syasyu,-- 車種コード
-    zt.siyoubui, -- 使用部位(重複対象)
+    zt.siyoubui, -- 使用部位
     zt.shusiyoubui, -- 主側使用部位
     zt.add_hinban, -- 重複の下の重複品番
     zt.tyohuku, -- 重複記載
@@ -59,7 +59,7 @@ with recursive dm_kousei_oya as (
     zt.seppenno, -- 設変No.
     zt.maxmttime, -- MAXMTTIME
     zt.mttime, -- MTTIME
-    ks.lv + 1 as lv, -- レベル
+    to_decimal(ks.lv + 1, 2, 0) as lv, -- レベル
     concat(ks.id, '.', zt.id) -- ID
   from dm_kousei_oya as ks
   inner join {{ref('tmp03_dm_kousei_jyufukublktenkai')}} as zt
@@ -73,10 +73,14 @@ with recursive dm_kousei_oya as (
       and (ks.torokujunm_15com <= ks.torokujunk 
         or ks.torokujunm <= ks.torokujunk_15com))
   )
-  where zt.shusiyoubui = ks.shusiyoubui
-      or ks.kohin = ks.add_hinban
+  where (zt.shusiyoubui = ks.shusiyoubui
+     or ks.kohin = ks.add_hinban)
+    and ks.lv < 100
   ) 
 select 
   ko.* exclude(add_hinban, torokujunk_15com, torokujunm_15com, id),
-  row_number() over (partition by ko.syasyu,ko.siyoubui order by ko.id) as kouseijyun
+  row_number() over (partition by ko.syasyu,ko.siyoubui order by ko.id)::number(4,0) as kouseijyun,
+  left(siyoubui, 4)::varchar(4) as kumitate,
+  substr(siyoubui, 5, 2)::varchar(2) as bui,
+  substr(siyoubui, 7, 2)::varchar(2) as vari
 from dm_kousei_oya as ko
