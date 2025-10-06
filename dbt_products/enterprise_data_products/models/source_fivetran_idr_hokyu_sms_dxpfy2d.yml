@@ -31,6 +31,6 @@ sources:
       - name: raw_cvf03jikimoku
         identifier: cvf03jikimoku
       - name: raw_cvf03hosetugen
-        identifier: CVF03HOSETUGEN
+        identifier: cvf03hosetugen
       - name: raw_cvf03hosetuclrgen
         identifier: cvf03hosetuclrgen
