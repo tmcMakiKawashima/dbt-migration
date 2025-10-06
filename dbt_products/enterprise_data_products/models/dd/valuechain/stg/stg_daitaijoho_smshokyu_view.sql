@@ -29,6 +29,6 @@ with stg_daitaijoho_smshokyu_view as (
     kosinsya::varchar(16) as kosinsya, -- 更新者
     ldts -- B層取込日時
   from {{ ref('stg_daitaijoho_smshokyu') }}
+  where syusbetu = '01TM'
 )
 select * from stg_daitaijoho_smshokyu_view
-where syusbetu = '01TM'
