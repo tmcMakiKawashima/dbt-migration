@@ -1,6 +1,6 @@
 version: 2
 models:
-# SPEC台数  
+# 仕様実績  
   - name: dm_siyo_daisu
     data_tests:
       - dbt_utils.unique_combination_of_columns:

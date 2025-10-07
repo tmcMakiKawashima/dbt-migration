@@ -2,7 +2,7 @@ from ....enterprise_data_products_assets.assets import DbtConfig, dbt_products_a
 from dagster import DefaultScheduleStatus, RunConfig
 from dagster_dbt import build_schedule_from_dbt_selection
 
-# バリエーション台数
+# バリエーション生産実績
 schedule_dm_variation_seisan_daisu = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_dm_variation_seisan_daisu",

@@ -21,6 +21,11 @@ from .schedules_items.manufacturing.public.schedule_stg_maps import schedule_stg
 from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
 from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import schedule_stg_yohinhinbanmeisai
 """ supplydemand """
+from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_0130 import schedule_d_jyukyujyoho_0130
+from .schedules_items.supplydemand.public.schedule_d_jyukyujyoho_0530 import schedule_d_jyukyujyoho_0530
+from .schedules_items.supplydemand.public.schedule_d_syaryosys_0200 import schedule_d_syaryosys_0200
+from .schedules_items.supplydemand.public.schedule_d_vlc_0130 import schedule_d_vlc_0130
+from .schedules_items.supplydemand.public.schedule_d_vlc_0500 import schedule_d_vlc_0500
 from .schedules_items.supplydemand.public.schedule_stg_aqua import schedule_stg_aqua
 from .schedules_items.supplydemand.public.schedule_stg_dly_rpt_mst import schedule_stg_dly_rpt_mst
 from .schedules_items.supplydemand.public.schedule_stg_dly_rpt import schedule_stg_dly_rpt
@@ -101,6 +106,16 @@ schedules.append(schedule_stg_mashotoroku)
 # 用品品番明細
 schedules.append(schedule_stg_yohinhinbanmeisai)
 """ supplydemand """
+# 需給情報基盤_0130
+schedules.append(schedule_d_jyukyujyoho_0130)
+# 需給情報基盤(オーダーDB)
+schedules.append(schedule_d_jyukyujyoho_0530)
+# 車両システム_0200
+schedules.append(schedule_d_syaryosys_0200)
+# VLC本体_0130
+schedules.append(schedule_d_vlc_0130)
+# VLC本体_0500
+schedules.append(schedule_d_vlc_0500)
 # AQUA
 schedules.append(schedule_stg_aqua)
 # 生産日報STEP3
@@ -143,7 +158,9 @@ schedules.append(schedule_dm_seppen_bunseki)
 """ parts_list sms"""
 #SMS構成
 schedules.append(schedule_dm_kousei_blktenkai)
+# 生産仕様実績の見える化
 schedules.append(schedule_dm_variation_seisan_daisu)
+#SMS構成
 schedules.append(schedule_tmp_kousei03_blktenkai)
 """ vinhis maint """
 # VIN整備
