@@ -67,8 +67,8 @@ with recursive dm_kousei_oya as (
       zt.oyahin   = ks.kohin
   and zt.siyoubui = ks.siyoubui
   and zt.syasyu   = ks.syasyu
-  and not (zt.torokujunm <= ks.torokujunk 
-        or ks.torokujunm <= zt.torokujunk)
+  and zt.torokujunm > ks.torokujunk 
+  and ks.torokujunm > zt.torokujunk
   and (zt.torokujunk_15com != ''
       and (ks.torokujunm_15com <= ks.torokujunk 
         or ks.torokujunm <= ks.torokujunk_15com))
