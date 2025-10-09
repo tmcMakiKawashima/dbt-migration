@@ -1,4 +1,4 @@
-"""
+﻿"""
 To add a daily schedule that materializes your dbt assets, uncomment the following lines.
 """
 
