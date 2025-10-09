@@ -1,88 +1,25 @@
 version: 2
 models:
-
-# 危険品情報
-  - name: stg_kiken
+# 補給設定
+  - name: stg_hokyusettei_smshokyu
     config:
-      tags: ["gsps"]
+      tags: ["smshokyu"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - hinban10
-            - syusbetu
-            - seppenjun
-          config:
-            severity: error
-    columns:
-      - name: hinban10
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syusbetu
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seppenjun
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# HAZMAT
-  - name: stg_hazmat
-    config:
-      tags: ["gsps"]
-    columns:
-      - name: haz
-        data_tests:
-          - unique:
-              config:
-                severity: error
-          - not_null:
-              config:
-                  severity: error
-# 用品.危険品情報
-  - name: stg_ykiken
-    config:
-      tags: ["gsps"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - syusbetu
-            - seppenjun
-          config:
-            severity: error
-    columns:
-      - name: hinban
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syusbetu
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seppenjun
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 地域車種情報
-  - name: stg_tikisyasyu_gsps
-    config:
-      tags: ["gsps"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - donyutiiki
+            - syasyu32
             - syasyu
+            - kumitate
+            - bui
+            - vari
+            - oyahin
+            - gc
+            - kohin
+            - sepjunk
           config:
             severity: error
     columns:
-      - name: donyutiiki
+      - name: syasyu32
         data_tests:
           - not_null:
               config:
@@ -92,334 +29,335 @@ models:
           - not_null:
               config:
                 severity: error
-# 品番車種情報
-  - name: stg_hinbansyasyu_gsps
-    config:
-      tags: ["gsps"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - syasyu
-            - syusbetu
-          config:
-            severity: error
-    columns:
-      - name: hinban
+      - name: kumitate
         data_tests:
           - not_null:
               config:
                 severity: error
+      - name: bui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vari
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: oyahin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: gc
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kohin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sepjunk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 補給設定色
+  - name: stg_hokyusetteisyoku_smshokyu
+    config:
+      tags: ["smshokyu"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu
+            - kumitate
+            - bui
+            - vari
+            - oyahin
+            - gc
+            - kohin
+            - ruibetu
+            - sepjunk
+          config:
+            severity: error
+    columns:
       - name: syasyu
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: syusbetu
+      - name: kumitate
         data_tests:
           - not_null:
               config:
                 severity: error
-# 品番情報.品名
-  - name: stg_hinbanjyohohinmei_gsps
-    config:
-      tags: ["gsps"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - hinbansbetu
-            - syusbetu
-          config:
-            severity: error
-    columns:
-      - name: hinban
+      - name: bui
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: hinbansbetu
+      - name: vari
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: syusbetu
+      - name: oyahin
         data_tests:
           - not_null:
               config:
                 severity: error
-# 補給情報
-  - name: stg_hokyujyoho_gsps
-    config:
-      tags: ["gsps"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - syusbetu
-            - seppenjun
-          config:
-            severity: error
-    columns:
-      - name: hinban
+      - name: gc
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: syusbetu
+      - name: kohin
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: seppenjun
+      - name: ruibetu
         data_tests:
           - not_null:
               config:
                 severity: error
-# 品番情報
-  - name: stg_hinbanjyoho_gsps
-    config:
-      tags: ["gsps"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - syusbetu
-          config:
-            severity: error
-    columns:
-      - name: hinban
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syusbetu
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 品番設変情報.始期
-  - name: stg_hinbanseppenjyohosiki_gsps
-    config:
-      tags: ["gsps"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - syusbetu
-          config:
-            severity: error
-    columns:
-      - name: hinban
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syusbetu
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 販売地域
-  - name: stg_hanbaitiiki_gsps
-    config:
-      tags: ["gsps"]
-    columns:
-      - name: donyutiiki
-        data_tests:
-          - unique:
-              config:
-                severity: error
-          - not_null:
-              config:
-                severity: error
-# 事業体
-  - name: stg_jigyotai_gsps
-    config:
-      tags: ["gsps"]
-    columns:
-      - name: jtai
-        data_tests:
-          - unique:
-              config:
-                severity: error
-          - not_null:
-              config:
-                severity: error
-# オーダ先承認済.オーダ先情報
-  - name: stg_ordersakisyoninzumi_ordersaki_gsps
-    config:
-      tags: ["gsps"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - seisankyoku
-            - hosyubas
-            - hantiiki
-            - syusbetu
-            - seppenjun
-          config:
-            severity: error
-    columns:
-      - name: hinban
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seisankyoku
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hosyubas
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hantiiki
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syusbetu
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: seppenjun
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 代替切替日情報
-  - name: stg_daitaikirikaebi_gsps
-    config:
-      tags: ["gsps"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - daiohin
-            - orderjtai
-            - hantiiki
-            - syusbetu
-          config:
-            severity: error
-    columns:
-      - name: daiohin
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: orderjtai
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hantiiki
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syusbetu
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 代替.オーダ先ルート情報
-  - name: stg_daitaiordersakiroot_gsps
-    config:
-      tags: ["gsps"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - daiohin
-            - daiohinsbetu
-            - hantiiki
-            - syusbetu
-            - orderjtai1
-            - orderjtai2
-            - orderjtai3
-            - orderjtai4
-            - orderjtai5
-          config:
-            severity: error
-    columns:
-      - name: daiohin
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: daiohinsbetu
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: hantiiki
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: syusbetu
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: orderjtai1
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: orderjtai2
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: orderjtai3
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: orderjtai4
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: orderjtai5
+      - name: sepjunk
         data_tests:
           - not_null:
               config:
                 severity: error
 # 代替情報
-  - name: stg_daitai_gsps
+  - name: stg_daitaijoho_smshokyu
     config:
-      tags: ["gsps"]
+      tags: ["smshokyu"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - daiohin
             - syusbetu
-            - seppenjun
-            - dainhin
+            - hinban
+            - ruibetu
+            - daihin
+            - daihinrui
+            - kerekijun
           config:
             severity: error
     columns:
-      - name: daiohin
-        data_tests:
-          - not_null:
-              config:
-                severity: error
       - name: syusbetu
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: seppenjun
+      - name: hinban
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: dainhin
+      - name: ruibetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: daihin
+        data_tests:
+          - not_null:
+              config:
+                severty: error
+      - name: daihinrui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kerekijun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 補給品番情報
+  - name: stg_hokyuhinbanjoho_smshokyu
+    config:
+      tags: ["smshokyu"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syusbetu
+            - hinban
+            - ruibetu
+            - kerekijun
+          config:
+            severity: error
+    columns:
+      - name: syusbetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ruibetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kerekijun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 補給品番コメント
+  - name: stg_hokyuhinbancomment_smshokyu
+    config:
+      tags: ["smshokyu"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syusbetu
+            - hinban
+            - ruibetu
+            - comkbn
+          config:
+            severity: error
+    columns:
+      - name: syusbetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ruibetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: comkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 補給出荷場所
+  - name: stg_hokyusyukkabasyo_smshokyu
+    config:
+      tags: ["smshokyu"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syusbetu
+            - hinban
+            - ruibetu
+            - kyokucd
+            - kerekijun
+          config:
+            severity: error
+    columns:
+      - name: syusbetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ruibetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kyokucd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kerekijun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 品番地域別対応品番TBL
+  - name: stg_hinbantikibetsutaiouhinban_smshokyu
+    config:
+      tags: ["smshokyu"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hinban
+            - ruibetu
+            - syaryoszoco
+            - dounyutiikicd
+            - tkerekijun
+          config:
+            severity: error
+    columns:
+      - name: hinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ruibetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syaryoszoco
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dounyutiikicd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tkerekijun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 地域別補給調達情報TBL
+  - name: stg_tikibetsuhokyutyotatsujoho_smshokyu
+    config:
+      tags: ["smshokyu"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hinban
+            - ruibetu
+            - syaryoszoco
+            - dounyutiikicd
+            - kerekijun
+          config:
+            severity: error
+    columns:
+      - name: hinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ruibetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syaryoszoco
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dounyutiikicd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kerekijun
         data_tests:
           - not_null:
               config:
