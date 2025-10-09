@@ -45,7 +45,7 @@ with recursive siyoubui_jyufuku as (
     and kj2.kohin = ksc.kohin
     and kj2.gc = ksc.gc
     and ksc.comkbn = '15'
-    and ksc.jigyoutai = ''
+    and trim(ksc.jigyoutai) = ''
     and ksc.com like '%' || left(kj1.siyoubui, 4) || '%'
     )
     left join (
@@ -90,7 +90,7 @@ with recursive siyoubui_jyufuku as (
     and kj2.kohin = ksc.kohin
     and kj2.gc = ksc.gc
     and ksc.comkbn = '15'
-    and ksc.jigyoutai = ''
+    and trim(ksc.jigyoutai) = ''
     and ksc.com like '%' || left(sj.shusiyoubui, 4) || '%'
     )
     left join (
