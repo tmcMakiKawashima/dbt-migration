@@ -1,23 +1,19 @@
-id: alert_test_error
+id: trigger_test_success
 namespace: kestra_dbt_project.release_test
 
 labels:
   error: default_failed
-  dbt_docs: generate
-  dbt: build
 
 tasks:
   - id: hello
     type: io.kestra.plugin.core.log.Log
     message: Hello World! 🚀
-    
-  - id: error
-    type: io.kestra.plugin.core.log.Log
-    level: ERROR
-    message: "This is an WARNING message"
- 
-  - id: dbt
-    type: io.kestra.plugin.core.execution.Fail
+
+triggers:
+  - id: schedule
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "00 06 * * *"
+    timezone: Asia/Tokyo
 
 # エラーログを出力
 errors:
@@ -39,6 +35,5 @@ finally:
     type: io.kestra.plugin.core.log.Log
     message: 
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
-      - "dbt options -> {{ inputs.dbt_options }}"
-      
+
 disabled: false

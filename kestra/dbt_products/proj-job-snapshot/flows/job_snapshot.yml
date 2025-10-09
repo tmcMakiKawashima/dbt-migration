@@ -15,6 +15,16 @@ inputs:
     required: false
     allowCustomValue: true
 
+# 手動実行時に指定できるdbtオプション
+inputs:
+  - id: dbt_options
+    type: SELECT
+    displayName: Choose dbt options
+    values:
+      - --full-refresh
+    required: false
+    allowCustomValue: true
+
 tasks:
   - id: dbt
 
@@ -36,7 +46,7 @@ tasks:
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
-    cron: "00 21 * * *"
+    cron: "00 19 * * *"
     timezone: Asia/Tokyo
 
 # エラーログを出力
@@ -59,6 +69,5 @@ finally:
     type: io.kestra.plugin.core.log.Log
     message: 
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
-      - "dbt options -> {{ inputs.dbt_options ?? '' }}"
       
 disabled: false
