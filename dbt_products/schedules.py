@@ -49,6 +49,7 @@ from .schedules_items.valuechain.public.schedule_d_gsps_0600 import schedule_d_g
 from .schedules_items.valuechain.public.schedule_d_hokyusms_0600 import schedule_d_hokyusms_0600
 from .schedules_items.valuechain.public.schedule_d_topacs_0600 import schedule_d_topacs_0600
 from .schedules_items.valuechain.public.schedule_stg_smshokyu import schedule_stg_smshokyu
+""" ダミー """
 from .schedules_items.valuechain.public.schedule_stg_yui_cpos import schedule_stg_yui_cpos
 """ E """
 """ employee """
