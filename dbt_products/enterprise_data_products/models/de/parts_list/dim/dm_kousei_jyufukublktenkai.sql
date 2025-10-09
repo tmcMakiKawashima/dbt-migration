@@ -11,7 +11,8 @@
                         syasyu,
                         kumitate,
                         bui
-                    from {{ ref('tmp08_dm_kousei_jyufukublktenkai')}}) zt
+                    from {{ ref('tmp08_dm_kousei_jyufukublktenkai')}}
+                ) zt
                 where th.syasyu = zt.syasyu
                   and th.kumitate = zt.kumitate
                   and th.bui = zt.bui;

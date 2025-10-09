@@ -5,9 +5,9 @@
         transient = false,
         pre_hook = "
             {% if is_incremental() %}
-              delete from {{this}} a
-              using {{ref('tmp08_dm_kousei_jyufukublktenkai')}} b
-              where a.syasyu = b.syasyu 
+                delete from {{this}} th
+                using {{ref('tmp08_dm_kousei_jyufukublktenkai')}} tmp
+                where th.syasyu = tmp.syasyu 
             {% endif %}
         "
     )
