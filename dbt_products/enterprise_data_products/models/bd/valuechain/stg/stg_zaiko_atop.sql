@@ -5,7 +5,7 @@
     )
 }}
 
-with stg_zaiko_file_atop as (
+with stg_zaiko_atop as (
     select
         iff(rtrim(hinban, ' 　') = '', null, rtrim(hinban, ' 　'))::varchar(20) as hinban,
         iff(rtrim(kaknoukbn, ' 　') = '', null, rtrim(kaknoukbn, ' 　'))::varchar(1) as kaknoukbn,
@@ -28,4 +28,4 @@ with stg_zaiko_file_atop as (
         where ldts > (select max(ldts) from {{this}})
     {% endif %}
 )
-select * from stg_zaiko_file_atop
+select * from stg_zaiko_atop
