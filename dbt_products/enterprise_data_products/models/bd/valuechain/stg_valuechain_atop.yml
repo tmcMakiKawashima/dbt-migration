@@ -89,7 +89,7 @@ models:
               config:
                 severity: error
 # 在庫ファイル
-  - name: stg_zaiko_file_atop
+  - name: stg_zaiko_atop
     config:
       tags: ["atop"]
     columns:
