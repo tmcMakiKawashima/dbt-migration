@@ -2,7 +2,6 @@
 {{ 
   config(
     materialized='incremental',
-    unique_key = ['seppenno','jun'],
     incremental_strategy = 'append',
     transient = false,
     pre_hook="

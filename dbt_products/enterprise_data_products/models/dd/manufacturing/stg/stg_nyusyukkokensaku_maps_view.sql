@@ -20,8 +20,6 @@ with stg_nyusyukkokensaku_maps_view as (
     gi_quantity::varchar(11) as gi_quantity, -- 出庫数量
     machine_number::varchar(8) as machine_number, -- 機番
     arrangement_serial_no::varchar(6) as arrangement_serial_no, -- 手配連番
-    sha2('emp_code', 256) as emp_code, -- 従業員ｺｰﾄﾞ
-    gi_person_name::varchar(10) as gi_person_name, -- 出庫者名
     sar_date::varchar(8) as sar_date, -- 入出庫年月日
     new_date::varchar(8) as new_date, -- 新設年月日
     update_date::varchar(8) as update_date, -- 更新年月日

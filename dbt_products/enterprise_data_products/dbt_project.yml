@@ -37,6 +37,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
 models:
+  +transient: false
   enterprise_data_products:
     +copy_grants: true
     +on_schema_change: "fail"
@@ -215,7 +216,9 @@ models:
             +materialized: table          
       parts_list:
         +snowflake_warehouse: parts_list_wh
+        +group: parts_list
         +database: parts_list_db
+        +schema: public
         seppen:
           +group: parts_list_seppen
           +schema: seppen
@@ -228,6 +231,9 @@ models:
           dim:
             +access: public
             +materialized: table
+        dim:
+          +access: public
+          +materialized: table
     ef:
       datamart:
         +snowflake_warehouse: datamart_wh
