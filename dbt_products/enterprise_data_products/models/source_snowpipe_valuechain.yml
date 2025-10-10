@@ -179,6 +179,83 @@ sources:
             data_tests:
               - fixed_length:
                   length: 200
+      - name: raw_ktrla01vzz0kvp00q2
+        identifier: ktrla01vzz0kvp00q2
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 320
+      - name: raw_ktrla01vzz0kvq00m1
+        identifier: ktrla01vzz0kvq00m1
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 300
+      - name: raw_ktrla01vzz0kvq00m2
+        identifier: ktrla01vzz0kvq00m2
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 100
+      - name: raw_ktrla01vzz0kvq00m3
+        identifier: ktrla01vzz0kvq00m3
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 150
+      - name: raw_ktrla01vzz0kvq00m4
+        identifier: ktrla01vzz0kvq00m4
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 100
+      - name: raw_ktrla01vzz0kvq00m5
+        identifier: ktrla01vzz0kvq00m5
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 80
+      - name: raw_ktrla01vzz0kvq00m6
+        identifier: ktrla01vzz0kvq00m6
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 110
+      - name: raw_ktrla01vzz0kvq00m7
+        identifier: ktrla01vzz0kvq00m7
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 100
+      - name: raw_ktrla01vzz0kvs00m1
+        identifier: ktrla01vzz0kvs00m1
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 180
+      - name: raw_ktrla01vzz0kvs00m4
+        identifier: ktrla01vzz0kvs00m4
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 150
+      - name: raw_ktrla01vzz0kvs00m0
+        identifier: ktrla01vzz0kvs00m0
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 130
     # TAS
       - name: raw_tbdaihl
         identifier: dxdaih99
