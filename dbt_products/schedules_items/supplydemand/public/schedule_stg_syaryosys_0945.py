@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-# 車両システム
+# 車両システム_0945
 schedule_stg_syaryosys_0945 = build_schedule_from_dbt_selection(
     [dbt_products_assets],
     job_name="job_build_stg_syaryosys_0945",
@@ -38,6 +38,6 @@ schedule_stg_syaryosys_0945 = build_schedule_from_dbt_selection(
                           }
                      ),
     # default_status=DefaultScheduleStatus.RUNNING,
-    tags={"ecs/cpu": "256", "ecs/memory": "1024",
+    tags={"ecs/cpu": "512", "ecs/memory": "2048",
           "job_name": "job_build_stg_syaryosys_0945"},
 )
