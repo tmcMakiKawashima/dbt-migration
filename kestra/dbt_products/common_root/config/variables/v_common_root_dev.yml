@@ -1,0 +1,36 @@
+DBT:
+  PROJ_DIR: enterprise_data_products
+  SNOWFLAKE_ROLE: DBT_ROLE
+  SNOWFLAKE_USER: DBT_USER
+  SNOWFLAKE_SCHEMA: public
+  SNOWFLAKE_ACCOUNT: nw21470.ap-northeast-1.privatelink
+  SNOWFLAKE_DATABASE: DATAMART_DB
+ENV: dev
+GIT:
+  URL: http://ip-100-80-0-103.ap-northeast-1.compute.internal/enterprise_orchestration_products/kestra_dbt_project.git
+  USER: kestra.dbt
+  BRANCH: xxx
+NAME: kestra_dbt_project
+ALERTS:
+  TOPIC: arn:aws:sns:ap-northeast-1:248810166614:dajp1-dxpf-edp-sns-kestra10
+  REGION: ap-northeast-1
+DOCKER:
+  IMAGE_VERSION:
+    DBT: ghcr.io/dbt-labs/dbt-snowflake:1.9.0
+    PYTHON: ghcr.io/jumpserver/python:3.11-slim
+PYTHON:
+  SNOWFLAKE_CONNECTOR_VERSION: snowflake-connector-python[pandas]==3.15.0
+DBT_DOCS:
+  BASE_PATH: dbt_documents/kestra/
+  S3_BUCKET: dajp1-dxpf-edp-s3-kestra11
+SNOWFLAKE:
+  ROLE: TRF_ACT_ROLE
+  USER: KESTRA_USER
+  SCHEMA: public
+  ACCOUNT: nw21470.ap-northeast-1.privatelink
+  DATABASE: DATAMART_DB
+  WAREHOUSE: DATAMART_WH
+KUBERNETES:
+  NAMESPACE: default
+  USER_NAME: arn:aws:eks:ap-northeast-1:248810166614:cluster/dajp1-dxpf-edp-eks-kestra10
+  MASTER_URL: https://C76D0B86432F90029B85622F084F1CA4.gr7.ap-northeast-1.eks.amazonaws.com
