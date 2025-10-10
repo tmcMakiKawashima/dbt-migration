@@ -40,3 +40,328 @@ models:
   - name: stg_dvsf509a
     config:
       tags: ["atop"]
+# 受注マスター
+  - name: stg_jutyuu_atop
+    config:
+      tags: ["atop"]
+    columns:
+      - name: jhinban
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 出庫作業品番マスター
+  - name: stg_syukkosagyohinban_atop
+    config:
+      tags: ["atop"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - shinban
+            - kaknoukbn
+          config:
+            severity: error
+    columns:
+      - name: shinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kaknoukbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 生産国名チェックテーブル
+  - name: stg_seisankokumeicheck_atop
+    config:
+      tags: ["atop"]
+    columns:
+      - name: seisnkokumei
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 在庫ファイル
+  - name: stg_zaiko_file_atop
+    config:
+      tags: ["atop"]
+    columns:
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 海外DIST別受注実績(日別)
+  - name: stg_kaigaidistbetsujutyujisseki_daily_atop
+    config:
+      tags: ["atop"]
+    columns:
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 見積／オーダー処理結果データ
+  - name: stg_mitsumori_ordersyorikekka_atop
+    config:
+      tags: ["atop"]
+    columns:
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 船積実績データ（インボイス品番情報）
+  - name: stg_hunadumijisseki_atop
+    config:
+      tags: ["atop"]
+    columns:
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 内示数
+  - name: stg_naiji_atop
+    config:
+      tags: ["atop"]
+    columns:
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 国内受注実績（日別）ファイル
+  - name: stg_kokunaijuchuujisseki_hibetsu_file_atop
+    config:
+      tags: ["atop"]
+    columns:
+      - name: ldts 
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 納期管理ファイル
+  - name: stg_noukikanri_file_atop
+    config:
+      tags: ["atop"]
+    columns:
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 納入LT
+  - name: stg_nonyult_atop
+    config:
+      tags: ["atop"]
+    columns:
+      - name: pno
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 書類汎用テーブル
+  - name: stg_syoruihanyo_atop
+    config:
+      tags: ["atop"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - srihnymtkey
+            - srihanyomstkey
+          config:
+            severity: error
+    columns:
+      - name: srihnymtkey
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: srihanyomstkey
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 販価品番マスター
+  - name: stg_hankahinban_atop
+    config:
+      tags: ["atop"]
+    columns:
+      - name: hinban
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 販価海外マスター
+  - name: stg_hankakaigai_atop
+    config:
+      tags: ["atop"]
+    columns:
+      - name: hinban
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 海外特価FOBマスター
+  - name: stg_kaigaitokkafob_atop
+    config:
+      tags: ["atop"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            -  hinban
+            -  dist
+            -  fdcd
+          config:
+            severity: error
+    columns:
+      - name: hinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dist
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: fdcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 海外適用販価DIST演算
+  - name: stg_kaigaitekiyouhankadistenzan_atop
+    config:
+      tags: ["atop"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dist
+            - fdcd
+          config:
+            severity: error
+    columns:
+      - name: dist
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: fdcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 海外適用販価FOB指数テーブル
+  - name: stg_kaigaitekiyouhankafobshisuu_atop
+    config:
+      tags: ["atop"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - rgncd3
+            - oprccls
+          config:
+            severity: error
+    columns:
+      - name: rgncd3
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: oprccls
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 車両モデル識別マスター
+  - name: stg_syaryomodelshikibetsu_atop
+    config:
+      tags: ["atop"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hinban
+            - tiikigrpcd
+          config:
+            severity: error
+    columns:
+      - name: hinban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tiikigrpcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 海外適用販価為替通貨テーブル
+  - name: stg_kaigaitekiyouhankakawasetsuuka_atop
+    config:
+      tags: ["atop"]
+    columns:
+      - name: tukacd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                  severity: error
+# 補給部品品番情報マスター
+  - name: stg_hokyubuhinhinbanjoho_atop
+    config:
+      tags: ["atop"]
+    columns:
+      - name: hinban
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                  severity: error
+# 書類外国産品マスター
+  - name: stg_syoruigaikokusanhin_atop
+    config:
+      tags: ["atop"]
+    columns:
+      - name: shinban
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                  severity: error
+# 書類品番基本マスター
+  - name: stg_syoruihinbankihon_atop
+    config:
+      tags: ["atop"]
+    columns:
+      - name: shinban
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                  severity: error
