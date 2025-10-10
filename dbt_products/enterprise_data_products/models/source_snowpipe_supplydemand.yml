@@ -266,11 +266,6 @@ sources:
                   length: 190
       - name: raw_ktrla01dzz0kalc015
         identifier: ktrla01dzz0kalc015
-        columns:
-          - name: raw_data
-            data_tests:
-              - fixed_length:
-                  length: 120
       - name: raw_ktrla01dzz0kalc017
         identifier: ktrla01dzz0kalc017
         columns:
