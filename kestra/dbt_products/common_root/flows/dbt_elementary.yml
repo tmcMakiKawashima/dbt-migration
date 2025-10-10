@@ -1,9 +1,16 @@
 id: dbt_elementary
 namespace: kestra_dbt_project
+description: elementaryドキュメントを生成してS3に格納するFlow
 
 labels:
   type: common_root
   error: default_failed
+
+retry:
+  maxAttempts: 3
+  behavior: RETRY_FAILED_TASK # or CREATE_NEW_EXECUTION 
+  type: constant
+  interval: PT1S
 
 concurrency:
   behavior: QUEUE
