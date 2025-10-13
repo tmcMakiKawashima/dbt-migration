@@ -4,8 +4,7 @@ models:
 # 生産場所正式
   - name: stg_seisanbasyoseisiki_kouteisms
     config:
-        tags: ["koutei-sms"]
-
+      tags: ["koutei-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -83,8 +82,7 @@ models:
 # 出図伝票テーブル
   - name: stg_syutudenpyotbl_kouteisms
     config:
-        tags: ["koutei-sms"]
-
+      tags: ["koutei-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -113,8 +111,7 @@ models:
 # グローバル設変ステータス
   - name: stg_glseppenst_kouteisms
     config:
-        tags: ["koutei-sms"]
-
+      tags: ["koutei-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
