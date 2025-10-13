@@ -19,7 +19,7 @@ with stg_syutudenpyotbl_kouteisms as (
         tokua0maisu::varchar(3) as tokua0maisu, --なし
         zsize::varchar(2) as zsize, --なし
         gmaisu::varchar(5) as gmaisu, --なし
-        waeikbn::varchar(1) as xwaeikbn, --なし
+        waeikbn::varchar(1) as waeikbn, --なし
         gojitu::varchar(1) as gojitu, --なし
         hakkositu::varchar(5) as hakkositu, --なし
         motoseppenno::varchar(10) as motoseppenno, --なし
