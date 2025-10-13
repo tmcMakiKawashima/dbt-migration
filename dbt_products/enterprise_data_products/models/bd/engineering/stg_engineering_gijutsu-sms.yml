@@ -428,6 +428,16 @@ models:
           - not_null:
               config:
                 severity: error
+      - name: torokujunm
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mttime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
 # 本紙作成設計室
   - name: stg_honsisitu_gijutsusms
     config:
