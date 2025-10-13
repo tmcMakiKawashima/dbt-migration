@@ -1,4 +1,4 @@
-{% snapshot scd_tw302_prdcton_parts_tbl_syaryosys %}
+{% snapshot scd_seisanwaku_buhinwaku_tbl_syaryosys %}
 
 {{
     config(
