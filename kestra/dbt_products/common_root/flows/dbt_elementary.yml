@@ -8,7 +8,7 @@ labels:
 
 retry:
   maxAttempts: 3
-  behavior: RETRY_FAILED_TASK # or CREATE_NEW_EXECUTION 
+  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK 
   type: constant
   interval: PT1S
 
