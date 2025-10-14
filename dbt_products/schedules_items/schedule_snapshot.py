@@ -15,6 +15,6 @@ schedule_snapshot = build_schedule_from_dbt_selection(
     dbt_select="resource_type:snapshot",
     dbt_exclude="scd_tbsmksk_noki",
     # default_status=DefaultScheduleStatus.RUNNING,
-    tags={"ecs/cpu": "256", "ecs/memory": "1024",
+    tags={"ecs/cpu": "512", "ecs/memory": "2048",
           "job_name": "job_snapshots"},
 )
