@@ -11,7 +11,8 @@
                     gc,
                     kohin,
                     ruibetu,
-                    sepjunk)",
+                    sepjunk,
+                    gentetiki)",
 
         strategy='timestamp',
         updated_at='ldts',
