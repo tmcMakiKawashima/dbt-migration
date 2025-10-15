@@ -20,3 +20,11 @@ sources:
         identifier: dm_latest_kouseikoutei_plant
       - name: raw_dm_latest_sekkei
         identifier: dm_latest_sekkei
+
+  - name: parts_list_db_aisac
+    database: parts_list_db
+    schema: aisac
+    tables:
+    # aisac
+      - name: raw_dm_swevent_ebidensu
+        identifier: dm_swevent_ebidensu
