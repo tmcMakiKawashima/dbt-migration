@@ -9,6 +9,10 @@ dict_sms_api_parts_info = {
     "job_api": "job_call_sms_api_parts_info",
     "job_res": "job_build_tmp_sms_api_parts_info_res_relational"
 }
+tags_api = tags_base.copy()
+tags_api["job_name"] = dict_sms_api_parts_info["job_api"]
+tags_res = tags_base.copy()
+tags_res["job_name"] = dict_sms_api_parts_info["job_res"]
 
 # run_status_sensorは１回の評価で１個しかトリガーできない
 
@@ -25,11 +29,11 @@ def dd_sms_api_parts_info_sensor(context: RunStatusSensorContext):
         yield RunRequest(
             run_config={},
             job_name=dict_sms_api_parts_info["job_api"],
-            tags=tags_base,
+            tags=tags_api,
         )
     elif job_name == dict_sms_api_parts_info["job_api"]:
         yield RunRequest(
             run_config={},
             job_name=dict_sms_api_parts_info["job_res"],
-            tags=tags_base,
+            tags=tags_res,
         )

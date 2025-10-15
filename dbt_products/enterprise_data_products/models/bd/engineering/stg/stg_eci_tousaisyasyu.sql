@@ -1,7 +1,6 @@
 {{ 
   config(
     materialized='incremental',
-    unique_key = ['seppenno','ecikbn','unitcd','tekiyo','tousai'],
     incremental_strategy = 'append',
     transient = false,
     pre_hook="
