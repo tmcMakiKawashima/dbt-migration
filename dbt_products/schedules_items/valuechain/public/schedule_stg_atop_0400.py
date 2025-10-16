@@ -12,7 +12,7 @@ schedule_stg_atop_0400 = build_schedule_from_dbt_selection(
     schedule_name="ATOP_0400",
     cron_schedule="00 04 * * *",
     execution_timezone="Asia/Tokyo",
-    dbt_select="+stg_sonekikanri_atop +stg_sonekikanri_atop",
+    dbt_select="+stg_sonekikanri_atop +stg_ukeirejisseki_atop",
     config=RunConfig(ops={"dbt_products_assets":
                           DbtConfig(dbt_vars={"DBT_JOB_NAME": "_stg_atop_0400"},
                                     source_test_list=["source:*,stg_sonekikanri_atop",
