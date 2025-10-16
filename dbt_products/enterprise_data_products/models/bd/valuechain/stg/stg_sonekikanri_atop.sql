@@ -1,4 +1,4 @@
-with stg_sonekikanri_sc_mieruka as (
+with stg_sonekikanri_atop as (
     select
         mntkbn::varchar(1) as mntkbn,
         thyono::varchar(4) as thyono,
@@ -51,5 +51,5 @@ with stg_sonekikanri_sc_mieruka as (
         where ldts = (select max(ldts) from {{ ref('substr_ktrla01vzz0kvq00m8') }})
 )
 select * exclude(aggkey)
-from stg_sonekikanri_sc_mieruka
+from stg_sonekikanri_atop
 where aggkey = 1
