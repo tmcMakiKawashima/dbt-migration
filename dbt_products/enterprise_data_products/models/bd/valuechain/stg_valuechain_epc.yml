@@ -222,6 +222,36 @@ models:
   - name: stg_framekatashiki
     config:
       tags: ["epc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - frmnokata
+            - frmno
+            - mdlyearkbn
+            - vin
+          config:
+            severity: error
+    columns:
+      - name: frmnokata
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: frmno
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mdlyearkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
 # 仕様パターン
   - name: stg_shiyopattern
     config:
