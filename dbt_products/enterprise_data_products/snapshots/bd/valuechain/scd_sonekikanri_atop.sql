@@ -1,4 +1,4 @@
-{% snapshot scd_sonekikanri_sc_mieruka %}
+{% snapshot scd_sonekikanri_atop %}
 
 {{
     config(
@@ -14,6 +14,6 @@
         invalidate_hard_deletes=true,
     )
 }}
-select * from {{ ref('stg_sonekikanri_sc_mieruka') }}
+select * from {{ ref('stg_sonekikanri_atop') }}
 
 {% endsnapshot %}
