@@ -399,3 +399,11 @@ sources:
         identifier: ktrea04tzz0kel0908
       - name: raw_ktrea04tzz0kel0909
         identifier: ktrea04tzz0kel0909
+    #SC_MIERUKA
+      - name: raw_ktrla01vzz0kvr00qe
+        identifier: ktrla01vzz0kvr00qe
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 279
