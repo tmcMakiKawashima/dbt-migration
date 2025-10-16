@@ -1,0 +1,31 @@
+version: 2
+models:
+
+# 受入実績ファイル
+  - name: stg_ukeirejisseki_sc_mieruka
+    config:
+      tags: ["atop"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - kaknokyotnkbn
+            - tyotathb
+            - srsirskcd
+            - brsirskcd
+            - nnymd
+          config:
+            severity: error
+# 損益管理基本ファイル
+  - name: stg_sonekikanri_sc_mieruka
+    config:
+      tags: ["atop"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - thyono
+            - jissekiym
+            - hinban
+            - distfd
+            - renban
+          config:
+            severity: error
