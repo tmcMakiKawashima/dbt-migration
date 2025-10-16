@@ -19,6 +19,7 @@ from .schedules_items.engineering.public.schedule_tmp_sms_api_parts_info_req_jso
 from .schedules_items.manufacturing.public.schedule_stg_kojoiotpf import schedule_stg_kojoiotpf
 from .schedules_items.manufacturing.public.schedule_stg_maps import schedule_stg_maps
 """ marketing """
+from .schedules_items.marketing.public.schedule_stg_carlog import schedule_stg_carlog
 from .schedules_items.marketing.public.schedule_stg_mashotoroku import schedule_stg_mashotoroku
 from .schedules_items.marketing.public.schedule_stg_yohinhinbanmeisai import schedule_stg_yohinhinbanmeisai
 """ supplydemand """
@@ -113,6 +114,8 @@ schedules.append(schedule_stg_kojoiotpf)
 # 資材調達システム_UDC公開用
 schedules.append(schedule_stg_maps)
 """ marketing """
+# CARLOG
+schedules.append(schedule_stg_carlog)
 # RISM連携IF変更
 schedules.append(schedule_stg_mashotoroku)
 # 用品品番明細
