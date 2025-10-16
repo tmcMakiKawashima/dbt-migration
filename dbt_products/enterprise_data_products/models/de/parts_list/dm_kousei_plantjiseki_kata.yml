@@ -1,0 +1,42 @@
+version: 2
+models:
+# 品番工場生産実績(搭載型式)
+  - name: dm_kousei_plantjiseki_kata
+    config:
+      tags: ["koumu-sms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu
+            - kata
+            - kohin
+            - oyakt
+            - taisho_month
+          config:
+            severity: error
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kata
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kohin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: oyakt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: taisho_month
+        data_tests:
+          - not_null:
+              config:
+                severity: error

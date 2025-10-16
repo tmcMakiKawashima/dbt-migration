@@ -1,22 +1,9 @@
-{{
-    config (
-        post_hook=
-            'create or replace hybrid table valuechain_db.public.stg_shiyopattern (
-                syasyu_cd varchar(4) not null,
-                siyoptno varchar(4) not null,
-                siyocd varchar(4) not null,
-                ldts timestamp_ntz(9),
-                constraint stg_shiyopattern_syasyu_cd_siyoptno_siyocd_uk primary key (syasyu_cd, siyoptno, siyocd) rely
-            ) as select * from {{this}}'
-    )
-}}
-
 with stg_shiyopattern as (
     select
         mntkbn::varchar(1) as mntkbn, 
-        syasyu_cd::varchar(4) as syasyu_cd, 
-        siyoptno::varchar(4) as siyoptno, 
-        siyocd::varchar(4) as siyocd, 
+        rtrim(syasyu_cd, ' 　')::varchar(4) as syasyu_cd, -- 右blank
+        rtrim(siyoptno, ' 　')::varchar(4) as siyoptno, -- 右blank
+        rtrim(siyocd, ' 　')::varchar(4) as siyocd, -- 右blank
         ldts, -- b層のldts
         rank() over (
                 partition by

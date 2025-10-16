@@ -12,6 +12,17 @@ models:
             - cd_pubbnd
           config:
             severity: error
+    columns:
+      - name: no_ofr_alt_pub
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cd_pubbnd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
 # 利用車種世代テーブル
   - name: stg_riyosyasyusedai
     config:
@@ -20,6 +31,9 @@ models:
       - name: cd_pubbnd
         data_tests:
           - unique:
+              config:
+                severity: error
+          - not_null:
               config:
                 severity: error
 # 利用車種世代適用年月テーブル
@@ -33,6 +47,17 @@ models:
             - dd_pubbnd_trmfrym
           config:
             severity: error
+    columns:
+      - name: cd_pubbnd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dd_pubbnd_trmfrym
+        data_tests:
+          - not_null:
+              config:
+                severity: error
 # 車種世代削除情報
   - name: stg_syasyusedaisakujo
     config:
@@ -56,6 +81,9 @@ models:
           - unique:
               config:
                 severity: error
+          - not_null:
+              config:
+                severity: error
 # 利用フレームマスタ
   - name: stg_riyoframemaster
     config:
@@ -64,6 +92,9 @@ models:
       - name: no_vin_frameno
         data_tests:
           - unique:
+              config:
+                severity: error
+          - not_null:
               config:
                 severity: error
 # 利用車種世代適用年月車名型式テーブル
@@ -80,3 +111,29 @@ models:
             - kosyo_kt
           config:
             severity: error
+    columns:
+      - name: cd_pubbnd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syamei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cd_vtype
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dd_pubbnd_trmfrym
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kosyo_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error

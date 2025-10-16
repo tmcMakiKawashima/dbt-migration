@@ -20,7 +20,7 @@ with stg_hostalc_allsfl as (
   from {{ ref('substr_hostalc_all_cka01t0020') }}
 
   {% if is_incremental() %}
-    where ldts > (select max(ldts) from {{this}})
+    where ldts > (select coalesce(max(ldts),'1970-01-01 00:00:00.000') from {{this}})
   {% endif %}
 )
 select * exclude(aggkey) from stg_hostalc_allsfl where aggkey = 1

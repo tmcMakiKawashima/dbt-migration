@@ -1,21 +1,8 @@
-{{
-    config (
-        post_hook=
-            'create or replace hybrid table customerservice_db.public.stg_riyosyasyusedaitekiyonengetsu (
-                cd_pubbnd varchar(6) not null,
-                dd_pubbnd_trmfrym varchar(6) not null,
-                my varchar(4),
-                ldts timestamp_ntz(9),
-                constraint stg_riyosyasyusedaitekiyonengetsu_cd_pubbnd_dd_pubbnd_trmfrym_uk primary key (cd_pubbnd, dd_pubbnd_trmfrym) rely
-            ) as select * from {{this}}'
-    )
-}}
-
 with
     stg_riyosyasyusedaitekiyonengetsu as (
         select
             rtrim(cd_pubbnd,' 　')::varchar(6) as cd_pubbnd, -- 右blank
-            dd_pubbnd_trmfrym::varchar(6) as dd_pubbnd_trmfrym, 
+            rtrim(dd_pubbnd_trmfrym,' 　')::varchar(6) as dd_pubbnd_trmfrym, -- 右blank
             dd_mdly::varchar(4) as my, 
             ldts, -- b層のldts
             line_number,

@@ -1,27 +1,7 @@
-{{
-    config (
-        post_hook=
-            'create or replace hybrid table valuechain_db.public.stg_syamei (
-                ctlgcd varchar(6) not null,
-                syamei varchar(30),
-                syameizen varchar(120),
-                syameizenkana varchar(120),
-                daikata varchar(50),
-                seisank varchar(6),
-                seisanm varchar(6),
-                lexusflg varchar(1),
-                prts1kbn varchar(1),
-                tksyuflg varchar(1),
-                ldts timestamp_ntz(9),
-                constraint stg_syamei_ctlgcd_uk primary key (ctlgcd) rely
-            ) as select * from {{this}}'
-    )
-}}
-
 with stg_syamei as (
     select
         mntkbn::varchar(1) as mntkbn, 
-        ctlgcd::varchar(6) as ctlgcd, 
+        rtrim(ctlgcd,' 　')::varchar(6) as ctlgcd, -- 右blank
         syamei::varchar(30) as syamei, 
         syameizen::varchar(120) as syameizen, 
         syameizenkana::varchar(120) as syameizenkana, 
