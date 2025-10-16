@@ -1,4 +1,4 @@
-with stg_ukeirejisseki_sc_mieruka as (
+with stg_ukeirejisseki_atop as (
     select
         syoritype::varchar(1) as syoritype,
         uketukeymd::varchar(8) as uketukeymd,
@@ -56,5 +56,5 @@ with stg_ukeirejisseki_sc_mieruka as (
         where ldts = (select max(ldts) from {{ ref('substr_ktrla01vzz0kvr00qe') }})
 )
 select * exclude(aggkey)
-from stg_ukeirejisseki_sc_mieruka
+from stg_ukeirejisseki_atop
 where aggkey = 1
