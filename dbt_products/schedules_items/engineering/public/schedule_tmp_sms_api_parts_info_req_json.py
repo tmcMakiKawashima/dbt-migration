@@ -7,9 +7,9 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 # SMS API(部品情報) REQUEST
 schedule_tmp_sms_api_parts_info_req_json = ScheduleDefinition(
     name="SMS_API_PARTS_INFO_REQUEST",
-    cron_schedule="00 05 * * *",
+    cron_schedule="00 03 * * *",
     execution_timezone="Asia/Tokyo",
     job=job_sms_api_parts_info_req[0],
-    tags={"ecs/cpu": "256", "ecs/memory": "1024",
+    tags={"ecs/cpu": "512", "ecs/memory": "2048",
           "job_name": "job_build_tmp_sms_api_parts_info_req_json"},
 )
