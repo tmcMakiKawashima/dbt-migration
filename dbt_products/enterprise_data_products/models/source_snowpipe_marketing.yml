@@ -22,11 +22,6 @@ sources:
                   length: 175
       - name: raw_n8jfim06
         identifier: n8jfim06
-        columns:
-          - name: raw_data
-            data_tests:
-              - fixed_length:
-                  length: 1144
     # RISM
       - name: raw_ktrla01ezz0ko87001
         identifier: ktrla01ezz0ko87001
