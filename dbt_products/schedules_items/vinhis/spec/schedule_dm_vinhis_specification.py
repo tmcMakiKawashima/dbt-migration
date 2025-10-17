@@ -18,6 +18,6 @@ schedule_dm_vinhis_specification = build_schedule_from_dbt_selection(
                                     source_test_list=["source:*,+dm_vinhis_specification_union"])
                           }
                      ),
-    tags={"ecs/cpu": "256", "ecs/memory": "1024",
+    tags={"ecs/cpu": "512", "ecs/memory": "2048",
           "job_name": "job_build_dm_vinhis_specification"},
 )
