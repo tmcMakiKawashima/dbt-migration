@@ -34,3 +34,10 @@ KUBERNETES:
   NAMESPACE: default
   USER_NAME: arn:aws:eks:ap-northeast-1:248810166614:cluster/dajp1-dxpf-edp-eks-kestra10
   MASTER_URL: https://C76D0B86432F90029B85622F084F1CA4.gr7.ap-northeast-1.eks.amazonaws.com
+EXPORT_AUDIT_LOGS:
+  MONTHLY:
+    BASE_PATH: Kestra
+    S3_BUCKET: dajp1-dxpf-edp-s3-kestra11
+  MANUALLY:
+    BASE_PATH: Kestra/manually
+    S3_BUCKET: dajp1-dxpf-edp-s3-kestra11

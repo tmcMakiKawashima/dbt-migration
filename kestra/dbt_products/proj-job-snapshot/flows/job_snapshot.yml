@@ -5,6 +5,16 @@ labels:
   error: default_failed
   dbt: build
 
+# 手動実行時に指定できるdbtオプション
+inputs:
+  - id: dbt_options
+    type: SELECT
+    displayName: Choose dbt options
+    values:
+      - --full-refresh
+    required: false
+    allowCustomValue: true
+
 tasks:
   - id: dbt
 
@@ -20,12 +30,13 @@ tasks:
             --select resource_type:snapshot
             --exclude scd_tbsmksk_noki
             --vars '{"DBT_JOB_NAME":""}'
+            {{ inputs.dbt_options ?? "" }}
             --project-dir "{{ namespace.DBT.PROJ_DIR }}"
 
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
-    cron: "00 21 * * *"
+    cron: "00 19 * * *"
     timezone: Asia/Tokyo
 
 # エラーログを出力
@@ -48,5 +59,6 @@ finally:
     type: io.kestra.plugin.core.log.Log
     message: 
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
+      - "dbt options -> {{ inputs.dbt_options }}"
       
 disabled: false

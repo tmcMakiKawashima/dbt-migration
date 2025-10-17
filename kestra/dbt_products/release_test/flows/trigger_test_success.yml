@@ -1,30 +1,18 @@
-id: job_build_stg_mashotoroku
-namespace: kestra_dbt_project.proj-job-rism-changeif
+id: trigger_test_success
+namespace: kestra_dbt_project.release_test
 
 labels:
   error: default_failed
-  dbt: build
 
 tasks:
-  - id: dbt
-
-    type: io.kestra.plugin.core.flow.WorkingDirectory
-    tasks:
-      - id: clone_repository
-        type: io.kestra.plugin.git.Clone
-
-      - id: dbt_build
-        type: io.kestra.plugin.dbt.cli.DbtCLI
-        commands:
-          - dbt build
-            --select +stg_mashotoroku
-            --vars '{"DBT_JOB_NAME":"_stg_mashotoroku"}'
-            --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+  - id: hello
+    type: io.kestra.plugin.core.log.Log
+    message: Hello World! 🚀
 
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
-    cron: "45 10 * * 1,2,3,4,5"
+    cron: "00 06 * * *"
     timezone: Asia/Tokyo
 
 # エラーログを出力
@@ -47,5 +35,5 @@ finally:
     type: io.kestra.plugin.core.log.Log
     message: 
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
-      
+
 disabled: false
