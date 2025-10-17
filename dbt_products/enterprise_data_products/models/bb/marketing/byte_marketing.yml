@@ -1,0 +1,10 @@
+version: 2
+
+models:
+    # ALADDIN
+      - name: byte_n8jfim06
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 1144
