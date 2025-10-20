@@ -51,7 +51,7 @@ errors:
     type: io.kestra.plugin.core.debug.Return
     format: "{{ errorLogs()[0]['message'] }}"
 
-outputs:
+outputs: 
   - id: output_error_log
     type: STRING
     value: "{{ outputs.error_log.value ?? 'No message found.' }}"
@@ -61,10 +61,10 @@ outputs:
 
 # ログ出力
 finally:
-  - id: finally_log
+  - id: finally_log 
     type: io.kestra.plugin.core.log.Log
-    message:
+    message: 
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
       - "dbt options -> {{ inputs.dbt_options ?? '' }}"
-
+      
 disabled: false
