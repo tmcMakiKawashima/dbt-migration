@@ -2261,7 +2261,7 @@ models:
           - not_null:
               config:
                 severity: error
-# 機能名細別台数集計
+# 機能明細別台数集計
   - name: stg_kinobetsu_noryoku_daisusyukei_syaryosys
     config:
       tags: ["syaryosys"]
