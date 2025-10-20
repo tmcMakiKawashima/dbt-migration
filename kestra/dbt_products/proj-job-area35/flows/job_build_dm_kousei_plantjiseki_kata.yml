@@ -5,6 +5,12 @@ labels:
   error: default_failed
   dbt: build
   
+retry:
+  maxAttempts: 3
+  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK 
+  type: constant
+  interval: PT1S
+
 # 手動実行時に指定できるdbtオプション
 inputs:
   - id: dbt_options
