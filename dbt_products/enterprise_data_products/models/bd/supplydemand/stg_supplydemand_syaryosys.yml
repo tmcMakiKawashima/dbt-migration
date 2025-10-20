@@ -1,23 +1,23 @@
 version: 2
 
 models:
-# ライン別稼働形態DB（N数）
+  # ライン別稼働形態DB（N数）
   - name: stg_line_kadokeitai
     config:
       tags: ["syaryosys"]
-# オーダー確定日ファイル（市販）
+  # オーダー確定日ファイル（市販）
   - name: stg_orderkakutei_shihan
     config:
       tags: ["syaryosys"]
-# 輸出オーダー確定日ファイル
+  # 輸出オーダー確定日ファイル
   - name: stg_orderkakutei_yusyutu
     config:
       tags: ["syaryosys"]
-# VLT送付対象日ファイル
+  # VLT送付対象日ファイル
   - name: stg_vltsohutaisho
     config:
       tags: ["syaryosys"]
-# 仕様マスタ(型式)
+  # 仕様マスタ(型式)
   - name: stg_siyoumst_katashiki
     config:
       tags: ["syaryosys"]
@@ -381,7 +381,7 @@ models:
           - not_null:
               config:
                 severity: error
-# 仕様マスタ(チェック)
+  # 仕様マスタ(チェック)
   - name: stg_siyoumst_check
     config:
       tags: ["syaryosys"]
@@ -589,7 +589,7 @@ models:
           - not_null:
               config:
                 severity: error
-# 仕様マスタ(ジェネレート)
+  # 仕様マスタ(ジェネレート)
   - name: stg_siyoumst_generate
     config:
       tags: ["syaryosys"]
@@ -1045,7 +1045,7 @@ models:
           - not_null:
               config:
                 severity: error
-# 車種コード・仕様書№対応DB
+  # 車種コード・仕様書№対応DB
   - name: stg_syasyu_siyousho
     config:
       tags: ["syaryosys"]
@@ -1128,7 +1128,7 @@ models:
           - not_null:
               config:
                 severity: error
-# 仕様変換
+  # 仕様変換
   - name: stg_siyouhenkan
     config:
       tags: ["syaryosys"]
