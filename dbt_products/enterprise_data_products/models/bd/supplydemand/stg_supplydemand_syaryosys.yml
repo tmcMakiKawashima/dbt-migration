@@ -17,7 +17,7 @@ models:
   - name: stg_vltsohutaisho
     config:
       tags: ["syaryosys"]
-# 仕様マスタ(型式)
+  # 仕様マスタ(型式)
   - name: stg_siyoumst_katashiki
     config:
       tags: ["syaryosys"]
@@ -381,7 +381,7 @@ models:
           - not_null:
               config:
                 severity: error
-# 仕様マスタ(チェック)
+  # 仕様マスタ(チェック)
   - name: stg_siyoumst_check
     config:
       tags: ["syaryosys"]
@@ -589,7 +589,7 @@ models:
           - not_null:
               config:
                 severity: error
-# 仕様マスタ(ジェネレート)
+  # 仕様マスタ(ジェネレート)
   - name: stg_siyoumst_generate
     config:
       tags: ["syaryosys"]
@@ -1045,7 +1045,7 @@ models:
           - not_null:
               config:
                 severity: error
-# 車種コード・仕様書№対応DB
+  # 車種コード・仕様書№対応DB
   - name: stg_syasyu_siyousho
     config:
       tags: ["syaryosys"]
@@ -1128,7 +1128,7 @@ models:
           - not_null:
               config:
                 severity: error
-# 仕様変換
+  # 仕様変換
   - name: stg_siyouhenkan
     config:
       tags: ["syaryosys"]
