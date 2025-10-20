@@ -52,3 +52,11 @@ sources:
         identifier: cep1004serno_r
       - name: raw_cep1002seisan_r
         identifier: cep1002seisan_r
+      - name: raw_cep3322disp_partnm05
+        identifier: cep3322disp_partnm05
+      - name: raw_cep3323disp_partnm10
+        identifier: cep3323disp_partnm10
+      - name: raw_cep0702bosu_sum_ym
+        identifier: cep0702bosu_sum_ym
+      - name: raw_cep3301disp_name_mst
+        identifier: cep3301disp_name_mst
