@@ -1,9 +1,0 @@
-version: 2
-
-sources:
-  - name: katashiki_db_spec
-    database: katashiki_db
-    schema: spec
-    tables:
-      - name: raw_dm_siyo_daisu
-        identifier: dm_siyo_daisu

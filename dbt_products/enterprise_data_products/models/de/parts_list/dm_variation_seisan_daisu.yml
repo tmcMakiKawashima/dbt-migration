@@ -1,6 +1,6 @@
 version: 2
 models:
-# バリエーション台数
+# バリエーション生産実績
   - name: dm_variation_seisan_daisu
     data_tests:
       - dbt_utils.unique_combination_of_columns:
