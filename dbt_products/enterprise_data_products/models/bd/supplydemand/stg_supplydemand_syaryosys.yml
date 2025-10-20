@@ -1,23 +1,23 @@
 version: 2
 
 models:
-  # ライン別稼働形態DB（N数）
+# ライン別稼働形態DB（N数）
   - name: stg_line_kadokeitai
     config:
       tags: ["syaryosys"]
-  # オーダー確定日ファイル（市販）
+# オーダー確定日ファイル（市販）
   - name: stg_orderkakutei_shihan
     config:
       tags: ["syaryosys"]
-  # 輸出オーダー確定日ファイル
+# 輸出オーダー確定日ファイル
   - name: stg_orderkakutei_yusyutu
     config:
       tags: ["syaryosys"]
-  # VLT送付対象日ファイル
+# VLT送付対象日ファイル
   - name: stg_vltsohutaisho
     config:
       tags: ["syaryosys"]
-  # 仕様マスタ(型式)
+# 仕様マスタ(型式)
   - name: stg_siyoumst_katashiki
     config:
       tags: ["syaryosys"]
@@ -381,7 +381,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 仕様マスタ(チェック)
+# 仕様マスタ(チェック)
   - name: stg_siyoumst_check
     config:
       tags: ["syaryosys"]
@@ -589,7 +589,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 仕様マスタ(ジェネレート)
+# 仕様マスタ(ジェネレート)
   - name: stg_siyoumst_generate
     config:
       tags: ["syaryosys"]
@@ -1045,7 +1045,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 車種コード・仕様書№対応DB
+# 車種コード・仕様書№対応DB
   - name: stg_syasyu_siyousho
     config:
       tags: ["syaryosys"]
@@ -1128,7 +1128,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 仕様変換
+# 仕様変換
   - name: stg_siyouhenkan
     config:
       tags: ["syaryosys"]
@@ -1174,7 +1174,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 車名マスタ
+# 車名マスタ
   - name: stg_shamei_master_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1192,7 +1192,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # オーダー台数サマリ
+# オーダー台数サマリ
   - name: stg_order_daisu_summary_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1266,7 +1266,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # DFSC・管理機能明細関連マスタ（生産枠）
+# DFSC・管理機能明細関連マスタ（生産枠）
   - name: stg_dfsc_kanrikino_meisai_kanren_master_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1293,7 +1293,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # DFSCオプションマスタ
+# DFSCオプションマスタ
   - name: stg_dfsc_option_master_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1320,7 +1320,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 仕様マスタ
+# 仕様マスタ
   - name: stg_siyoumaster_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1377,7 +1377,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 管理機能明細引当マスタ（生産枠）
+# 管理機能明細引当マスタ（生産枠）
   - name: stg_kanrikino_meisaihikiate_master_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1482,7 +1482,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 販売店制約マスタ
+# 販売店制約マスタ
   - name: stg_hanbaiseiyaku_master_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1509,7 +1509,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 地域標準装備マスタ
+# 地域標準装備マスタ
   - name: stg_chiikihyoujun_soubi_master_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1548,7 +1548,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 内張仕様マスタ
+# 内張仕様マスタ
   - name: stg_uchibarisiyou_master_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1581,7 +1581,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 外鈑色仕様マスタ
+# 外鈑色仕様マスタ
   - name: stg_gaihanshoku_master_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1614,7 +1614,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # オプション仕様マスタ
+# オプション仕様マスタ
   - name: stg_optionsiyo_master_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1647,7 +1647,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 生産枠（車両枠）TBL
+# 生産枠（車両枠）TBL
   - name: stg_seisanwaku_syaryowaku_tbl_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1680,7 +1680,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 生産枠(部品枠)TBL
+# 生産枠(部品枠)TBL
   - name: stg_seisanwaku_buhinwaku_tbl_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1719,7 +1719,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # ファーム枠
+# ファーム枠
   - name: stg_farmwaku_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1759,7 +1759,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 工場カレンダーTBL
+# 工場カレンダーTBL
   - name: stg_koujou_calendar_tbl_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1777,7 +1777,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # オーダー確定日TBL
+# オーダー確定日TBL
   - name: stg_order_kakuteibi_tbl_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1810,7 +1810,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 受注仕様管理
+# 受注仕様管理
   - name: stg_juchushiyo_kanri_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1883,7 +1883,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # ウォーニングリスト
+# ウォーニングリスト
   - name: stg_warning_list_syaryosys
     config:
       tags: ["syaryosys"]
@@ -1930,7 +1930,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # オーダーDB
+# オーダーDB
   - name: stg_order_db_syaryosys
     config:
       tags: ["syaryosys"]
@@ -2020,7 +2020,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 販売店取扱車種マスタ
+# 販売店取扱車種マスタ
   - name: stg_hanbaiten_toriatukai_syasyu_master_syaryosys
     config:
       tags: ["syaryosys"]
@@ -2048,7 +2048,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 車種マスタ
+# 車種マスタ
   - name: stg_syasyu_master_syaryosys
     config:
       tags: ["syaryosys"]
@@ -2070,7 +2070,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # グレード情報TBL
+# グレード情報TBL
   - name: stg_grade_info_tbl_syaryosys
     config:
       tags: ["syaryosys"]
@@ -2083,7 +2083,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # ボディーカラー情報TBL
+# ボディーカラー情報TBL
   - name: stg_bodycolor_info_tbl_syaryosys
     config:
       tags: ["syaryosys"]
@@ -2111,7 +2111,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # オプション情報TBL
+# オプション情報TBL
   - name: stg_option_info_tbl_syaryosys
     config:
       tags: ["syaryosys"]
@@ -2158,7 +2158,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # DFSC×機能明細
+# DFSC×機能明細
   - name: stg_dfsc_x_kinomeisai_syaryosys
     config:
       tags: ["syaryosys"]
@@ -2192,7 +2192,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 機能明細コード引当マスタ
+# 機能明細コード引当マスタ
   - name: stg_kinomeisai_code_hikiate_master_syaryosys
     config:
       tags: ["syaryosys"]
@@ -2225,7 +2225,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 機能明細マスタ
+# 機能明細マスタ
   - name: stg_kinomeisai_master_syaryosys
     config:
       tags: ["syaryosys"]
@@ -2243,7 +2243,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 機能明細コード名称マスタ
+# 機能明細コード名称マスタ
   - name: stg_kinomeisai_code_meisho_master_syaryosys
     config:
       tags: ["syaryosys"]
@@ -2261,7 +2261,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 機能名細別台数集計
+# 機能名細別台数集計
   - name: stg_kinobetsu_noryoku_daisusyukei_syaryosys
     config:
       tags: ["syaryosys"]
@@ -2307,7 +2307,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 機能明細別能力枠
+# 機能明細別能力枠
   - name: stg_kinobetsu_noryoku_waku_syaryosys
     config:
       tags: ["syaryosys"]
@@ -2502,7 +2502,7 @@ models:
           - not_null:
               config:
                 severity: error
-  # 機能明細の能力表示順
+# 機能明細の能力表示順
   - name: stg_knm_nrksortjun_syaryosys
     config:
       tags: ["syaryosys"]

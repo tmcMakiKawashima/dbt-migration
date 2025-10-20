@@ -6,7 +6,7 @@ with stg_warning_list_syaryosys as (
         hksa::number(4,1) as hksa,
         yrnisu::number(3,0) as yrnisu,
         yrdaisu::number(8,0) as yrdaisu,
-        tare::number(3,1) as tare,
+        tare::number(3,0) as tare,
         try_to_date(saisou, 'yyyymmdd') as saisou,
         try_to_date(saiti, 'yyyymmdd') as saiti,
         codai::number(5,0) as codai,
