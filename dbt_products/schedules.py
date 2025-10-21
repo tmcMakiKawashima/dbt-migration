@@ -10,6 +10,7 @@ from .schedules_items.administration.public.schedule_stg_mikado_jnet_0715 import
 from .schedules_items.administration.public.schedule_stg_mikado_judgev import schedule_stg_mikado_judgev
 """ customerservice """
 from .schedules_items.customerservice.public.schedule_d_sias import schedule_d_sias
+from .schedules_items.customerservice.public.schedule_stg_iqas_0000 import schedule_stg_iqas_0000
 from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
 """ engineering """
 from .schedules_items.engineering.public.schedule_stg_aisac import schedule_stg_aisac
@@ -37,6 +38,7 @@ from .schedules_items.supplydemand.public.schedule_stg_dly_rpt_mst import schedu
 from .schedules_items.supplydemand.public.schedule_stg_dly_rpt import schedule_stg_dly_rpt
 from .schedules_items.supplydemand.public.schedule_stg_galc_kpi import schedule_stg_galc_kpi
 from .schedules_items.supplydemand.public.schedule_stg_jpass import schedule_stg_jpass
+from .schedules_items.supplydemand.public.schedule_stg_jyukyujyoho_0730 import schedule_stg_jyukyujyoho_0730
 from .schedules_items.supplydemand.public.schedule_stg_kodomo import schedule_stg_kodomo
 from .schedules_items.supplydemand.public.schedule_stg_siyou_soubi_siyoumst import schedule_stg_siyou_soubi_siyoumst
 from .schedules_items.supplydemand.public.schedule_stg_siyou_soubi_syasyu_siyousyo import schedule_stg_siyou_soubi_syasyu_siyousyo
@@ -45,6 +47,8 @@ from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_s
 """ valuechain """
 from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
 from .schedules_items.valuechain.public.schedule_d_gsps import schedule_d_gsps
+from .schedules_items.valuechain.public.schedule_stg_pixy import schedule_stg_pixy
+from .schedules_items.valuechain.public.schedule_stg_smshokyu import schedule_stg_smshokyu
 from .schedules_items.valuechain.public.schedule_stg_yui_cpos import schedule_stg_yui_cpos
 """ E """
 """ employee """
@@ -53,6 +57,8 @@ from .schedules_items.employee.organization.schedule_dm_jugyoinjoho import sched
 from .schedules_items.model.repair.schedule_dm_cataloghinmei import schedule_dm_cataloghinmei
 from .schedules_items.model.repair.schedule_dm_figbunkaiinfo import schedule_dm_figbunkaiinfo
 from .schedules_items.model.repair.schedule_dm_vehicle_generation import schedule_dm_vehicle_generation
+""" parts_list """
+from .schedules_items.parts_list.public.schedule_dm_kousei_plantjiseki_kata import schedule_dm_kousei_plantjiseki_kata
 """ parts_list seppen """
 from .schedules_items.parts_list.seppen.schedule_dm_seppen_bunseki import schedule_dm_seppen_bunseki
 """ parts_list sms"""
@@ -95,6 +101,8 @@ schedules.append(schedule_stg_mikado_judgev)
 """ customerservice """
 # D層SIAS
 schedules.append(schedule_d_sias)
+# iQAS_0000
+schedules.append(schedule_stg_iqas_0000)
 # ワランティ
 schedules.append(schedule_stg_warranty)
 """ engineering """
@@ -144,6 +152,8 @@ schedules.append(schedule_stg_dly_rpt)
 schedules.append(schedule_stg_galc_kpi)
 # JPASS
 schedules.append(schedule_stg_jpass)
+# 需給情報基盤_0730
+schedules.append(schedule_stg_jyukyujyoho_0730)
 # コドモ
 schedules.append(schedule_stg_kodomo)
 # 仕様装備
@@ -158,6 +168,10 @@ schedules.append(schedule_stg_vlt_ord)
 schedules.append(schedule_d_epc)
 # D層GSPS
 schedules.append(schedule_d_gsps)
+# PIXY
+schedules.append(schedule_stg_pixy)
+# D層補給SMS_出荷先
+schedules.append(schedule_stg_smshokyu)
 # YUI_CPOS
 schedules.append(schedule_stg_yui_cpos)
 """ E層作成ジョブ """
@@ -171,6 +185,9 @@ schedules.append(schedule_dm_cataloghinmei)
 schedules.append(schedule_dm_figbunkaiinfo)
 # 車種世代
 schedules.append(schedule_dm_vehicle_generation)
+""" parts_list """
+# AREA35品番属性情報追加
+schedules.append(schedule_dm_kousei_plantjiseki_kata)
 """ parts_list seppen """
 # 認証不正防止対応(設変分析)
 schedules.append(schedule_dm_seppen_bunseki)
