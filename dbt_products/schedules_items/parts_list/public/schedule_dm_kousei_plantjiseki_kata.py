@@ -17,6 +17,6 @@ schedule_dm_kousei_plantjiseki_kata = build_schedule_from_dbt_selection(
                           DbtConfig(dbt_vars={"DBT_JOB_NAME": "_dm_kousei_plantjiseki_kata"})
                           }
                      ),
-    tags={"ecs/cpu": "256", "ecs/memory": "1024",
+    tags={"ecs/cpu": "512", "ecs/memory": "2048",
           "job_name": "job_build_dm_kousei_plantjiseki_kata"},
 )
