@@ -23,5 +23,3 @@ sources:
         identifier: tmp_sms_api_parts_info_res_json
       - name: raw_stg_hinban
         identifier: stg_hinban
-      - name: raw_stg_kouseicom
-        identifier: stg_kouseicom

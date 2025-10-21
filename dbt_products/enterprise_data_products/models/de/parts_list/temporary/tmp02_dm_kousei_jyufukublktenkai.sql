@@ -38,7 +38,7 @@ with recursive siyoubui_jyufuku as (
     and left(kj1.tyohuku, 4) = left(kj2.siyoubui, 4)
     and kj1.kohin = kj2.kohin
     )
-    inner join {{source('engineering_db_public', 'raw_stg_kouseicom')}} as ksc
+    inner join {{ref('stg_kouseicom')}} as ksc
     on (
         kj2.syasyu = ksc.syasyu
     and kj2.motosiyoubui = ksc.siyoubui
@@ -83,7 +83,7 @@ with recursive siyoubui_jyufuku as (
     and left(sj.tyohuku, 4) = left(kj2.siyoubui,4)
     and sj.add_hinban = kj2.kohin
     )
-    inner join {{source('engineering_db_public', 'raw_stg_kouseicom')}} as ksc
+    inner join {{ref('stg_kouseicom')}} as ksc
     on (
         kj2.syasyu = ksc.syasyu
     and kj2.motosiyoubui = ksc.siyoubui
@@ -107,7 +107,7 @@ with recursive siyoubui_jyufuku as (
         kj2.syasyu = kj3.syasyu
     and kj2.siyoubui = kj3.siyoubui
     )
-  where sj.jyufuku_kaisou < 100
+  where sj.jyufuku_kaisou < 99
 ),
 tmp01_dm_kousei_jyufukublktenkai as (
 select distinct 

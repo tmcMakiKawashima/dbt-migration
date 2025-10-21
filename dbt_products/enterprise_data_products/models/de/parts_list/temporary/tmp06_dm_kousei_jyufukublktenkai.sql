@@ -32,10 +32,10 @@ with recursive chain_start as (
     zt1.maxmttime, -- MAXMTTIME
     zt1.mttime, -- MTTIME
     1 as kaisou -- 階層
-  from {{ref('tmp05_dm_kousei_jyufukublktenkai')}} as zt1
+  from {{ref('tmp04_dm_kousei_jyufukublktenkai')}} as zt1
   where not exists (
     select 1
-    from {{ref('tmp05_dm_kousei_jyufukublktenkai')}} as zt2
+    from {{ref('tmp04_dm_kousei_jyufukublktenkai')}} as zt2
     where zt1.torokujunk = zt2.torokujunm
       and zt1.syasyu = zt2.syasyu
       and zt1.siyoubui = zt2.siyoubui
@@ -70,7 +70,7 @@ with recursive chain_start as (
     zt.maxmttime, -- MAXMTTIME
     zt.mttime, -- MTTIME
     ch.kaisou + 1 as kaisou -- 階層
-  from {{ref('tmp05_dm_kousei_jyufukublktenkai')}} as zt
+  from {{ref('tmp04_dm_kousei_jyufukublktenkai')}} as zt
   join chain_start ch
   on (
       zt.torokujunk = ch.torokujunm
@@ -80,7 +80,7 @@ with recursive chain_start as (
   and zt.oyahin = ch.oyahin
   and zt.kohin = ch.kohin
   )
-  where ch.kaisou < 100
+  where ch.kaisou < 99
 )
 select
   syasyu, -- 車種コード

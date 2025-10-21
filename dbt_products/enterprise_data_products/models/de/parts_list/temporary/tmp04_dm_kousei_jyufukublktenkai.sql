@@ -7,29 +7,29 @@
 -- 再帰処理の為、with句内で結合
 with recursive dm_kousei_oya as (
   select
-    tmp3.syasyu, -- 車種コード
-    tmp3.siyoubui, -- 使用部位
-    tmp3.shusiyoubui, -- 主側使用部位
-    tmp3.add_hinban, -- 重複の下の重複品番
-    tmp3.tyohuku, -- 重複記載
-    tmp3.oyahin, -- 親品番
-    tmp3.gc, -- GC
-    tmp3.kohin, -- 品番／BLKコード
-    tmp3.kosu, -- 使用個数
-    tmp3.sentaku, -- 選択符号
-    tmp3.torokujunk_15com, -- 登録／生認順カラ(15コメントとして)
-    tmp3.torokujunm_15com, -- 登録／生認順マデ(15コメントとして)
-    tmp3.torokujunk, -- 登録／生認順カラ
-    tmp3.torokujunm, -- 登録／生認順マデ
-    tmp3.target, -- ターゲット
-    tmp3.torokujun, -- 登録／生認順
-    tmp3.seppenno, -- 設変No.
-    tmp3.maxmttime, -- MAXMTTIME
-    tmp3.mttime, -- MTTIME
+    syasyu, -- 車種コード
+    siyoubui, -- 使用部位
+    shusiyoubui, -- 主側使用部位
+    add_hinban, -- 重複の下の重複品番
+    tyohuku, -- 重複記載
+    oyahin, -- 親品番
+    gc, -- GC
+    kohin, -- 品番／BLKコード
+    kosu, -- 使用個数
+    sentaku, -- 選択符号
+    torokujunk_15com, -- 登録／生認順カラ(15コメントとして)
+    torokujunm_15com, -- 登録／生認順マデ(15コメントとして)
+    torokujunk, -- 登録／生認順カラ
+    torokujunm, -- 登録／生認順マデ
+    target, -- ターゲット
+    torokujun, -- 登録／生認順
+    seppenno, -- 設変No.
+    maxmttime, -- MAXMTTIME
+    mttime, -- MTTIME
     to_decimal(1, 2, 0) as lv, -- レベル
-    tmp3.id -- ID
-    from {{ref('tmp03_dm_kousei_jyufukublktenkai')}} as tmp3
-  where tmp3.siyoubui = tmp3.oyahin
+    id -- ID
+    from {{ref('tmp03_dm_kousei_jyufukublktenkai')}}
+  where siyoubui = oyahin
   union all
   select 
     zt.syasyu,-- 車種コード
@@ -75,7 +75,7 @@ with recursive dm_kousei_oya as (
   )
   where (zt.shusiyoubui = ks.shusiyoubui
      or ks.kohin = ks.add_hinban)
-    and ks.lv < 100
+    and ks.lv < 99
   ) 
 select 
   ko.* exclude(add_hinban, torokujunk_15com, torokujunm_15com, id),

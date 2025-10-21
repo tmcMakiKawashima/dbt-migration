@@ -5,34 +5,34 @@
 }}
 -- 処理レスポンスを考慮しtable実装
 with tmp02_dm_kousei_jyufukublktenkai as (
-select
-  syasyu, -- 車種コード
-  siyoubui, -- 使用部位 
-  kohin as jyufku_kohin, -- 品番／BLKコード
-  jyufuku_kaisou, -- 重複階層
-  shusiyoubui, -- 主側使用部位
-  torokujunk as torokujunk_15com, -- 登録生認順カラ(15コメントとして)
-  torokujunm as torokujunm_15com, -- 登録生認順マデ(15コメントとして)
-  add_hinban, -- 重複の下の重複品番
-  tyohuku -- 重複記載
-  from {{ref('tmp02_dm_kousei_jyufukublktenkai')}}
+  select
+    syasyu, -- 車種コード
+    siyoubui, -- 使用部位 
+    kohin as jyufku_kohin, -- 品番／BLKコード
+    jyufuku_kaisou, -- 重複階層
+    shusiyoubui, -- 主側使用部位
+    torokujunk as torokujunk_15com, -- 登録生認順カラ(15コメントとして)
+    torokujunm as torokujunm_15com, -- 登録生認順マデ(15コメントとして)
+    add_hinban, -- 重複の下の重複品番
+    tyohuku -- 重複記載
+    from {{ref('tmp02_dm_kousei_jyufukublktenkai')}}
 ), tmp01_dm_kousei_jyufukublktenkai as (
-select
-  syasyu, -- 車種コード
-  siyoubui, -- 使用部位
-  oyahin, -- 親品番
-  gc, -- GC
-  kohin, -- 品番／BLKコード
-  kosu, -- 使用個数
-  sentaku, -- 選択符号
-  torokujunk, -- 登録／生認順カラ
-  torokujunm, -- 登録／生認順マデ
-  target, -- ターゲット
-  torokujun, -- 登録／生認順
-  seppenno, -- 設変No.
-  maxmttime, -- MAXMTTIME
-  mttime -- MTTIME
-  from {{ref('tmp01_dm_kousei_jyufukublktenkai')}}
+  select
+    syasyu, -- 車種コード
+    siyoubui, -- 使用部位
+    oyahin, -- 親品番
+    gc, -- GC
+    kohin, -- 品番／BLKコード
+    kosu, -- 使用個数
+    sentaku, -- 選択符号
+    torokujunk, -- 登録／生認順カラ
+    torokujunm, -- 登録／生認順マデ
+    target, -- ターゲット
+    torokujun, -- 登録／生認順
+    seppenno, -- 設変No.
+    maxmttime, -- MAXMTTIME
+    mttime -- MTTIME
+    from {{ref('tmp01_dm_kousei_jyufukublktenkai')}}
 )
 select
   tmp2.*,

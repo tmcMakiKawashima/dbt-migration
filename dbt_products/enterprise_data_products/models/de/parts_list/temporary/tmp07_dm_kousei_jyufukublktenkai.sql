@@ -4,6 +4,45 @@
   )
 }}
 -- 処理レスポンスを考慮しtable実装
+with tmp06_dm_kousei_jyufukublktenkai as (
+  select
+    syasyu, -- 車種コード
+    siyoubui, -- 使用部位
+    kumitate, -- 組立番号
+    bui, -- 部位
+    shusiyoubui, -- 主側使用部位
+    vari, -- バリエーション
+    oyahin, -- 親品番
+    lv, -- レベル
+    kouseijyun, -- 構成順
+    gc, -- GC
+    kohin, -- 品番／BLKコード
+    tyohuku, -- 重複記載
+    tyohuku_flg, -- 重複FLG
+    torokujunk, -- 登録／生認順カラ
+    torokujunm, -- 登録／生認順マデ
+    target, -- ターゲット
+    torokujun, -- 登録／生認順
+    seppenno, -- 設変No.
+    maxmttime, -- MAXMTTIME
+    mttime -- MTTIME
+  from {{ref('tmp06_dm_kousei_jyufukublktenkai')}}
+), dm_kousei_blktenkai as (
+  select
+    syasyu, -- 車種コード
+    siyoubui, -- 使用部位
+    oyahin, -- 親品番
+    kohin, -- 品番／BLKコード
+    motosiyoubui, -- 元使用部位
+    kohinmei, -- 品名／BLKコード名称
+    kosu, -- 使用個数
+    sentaku, -- 選択符号
+    seppennok, -- 設変No.カラ
+    seppennom, -- 設変No.マデ
+    torokutimek, -- LOAD TIMEカラ
+    torokutimem -- LOAD TIMEマデ
+  from {{ref('dm_kousei_blktenkai')}}
+)
 select
   zt.syasyu, -- 車種コード
   zt.siyoubui, -- 使用部位
@@ -33,8 +72,8 @@ select
   zt.seppenno, -- 設変No.
   zt.maxmttime, -- MAXMTTIME
   zt.mttime -- MTTIME
-from {{ref('tmp06_dm_kousei_jyufukublktenkai')}} as zt
-left join {{source('parts_list_db_sms', 'raw_dm_kousei_blktenkai')}} as ks
+from tmp06_dm_kousei_jyufukublktenkai as zt
+left join dm_kousei_blktenkai as ks
 on (
     zt.syasyu = ks.syasyu
 and zt.shusiyoubui = ks.siyoubui
