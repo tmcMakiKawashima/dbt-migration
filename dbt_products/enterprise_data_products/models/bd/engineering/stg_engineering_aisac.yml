@@ -15,7 +15,7 @@ models:
               config:
                 severity: error
 # イベント変更内容一覧
-  - name: stg_swevent_ebidensu
+  - name: stg_swevent_ebidensu_aisac
     config:
       tags: ["aisac"]
     data_tests:
