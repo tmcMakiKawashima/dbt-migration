@@ -31,43 +31,43 @@ sources:
         columns:
           - name: raw_data
             data_tests:
-              - fixed_length:
-                  length: 220
+            - fixed_length:
+                length: 220
       - name: raw_tsjfa490
         identifier: tsjfa490
         columns:
           - name: raw_data
             data_tests:
-              - fixed_length:
-                  length: 70
+            - fixed_length:
+                length: 70
       - name: raw_tsjfa396
         identifier: tsjfa396
         columns:
           - name: raw_data
             data_tests:
-              - fixed_length:
-                  length: 70
+            - fixed_length:
+                length: 70
       - name: raw_tsjfa38t
         identifier: tsjfa38t
         columns:
           - name: raw_data
             data_tests:
-              - fixed_length:
-                  length: 330
+            - fixed_length:
+                length: 330
       - name: raw_ktrla024zz0ka21901
         identifier: ktrla024zz0ka21901
         columns:
           - name: raw_data
             data_tests:
-              - fixed_length:
-                  length: 50
+            - fixed_length:
+                length: 50
       - name: raw_ktrla024zz0ka218
         identifier: ktrla024zz0ka21801
         columns:
           - name: raw_data
             data_tests:
-              - fixed_length:
-                  length: 110
+            - fixed_length:
+                length: 110
       - name: raw_tsjfa36c
         identifier: tsjfa36c
         columns:
