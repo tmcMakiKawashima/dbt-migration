@@ -2,8 +2,6 @@ version: 2
 models:
 # イベント変更内容一覧_車種
   - name: dm_swevent_ebidensu
-    config:
-      tags: ["aisac"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
