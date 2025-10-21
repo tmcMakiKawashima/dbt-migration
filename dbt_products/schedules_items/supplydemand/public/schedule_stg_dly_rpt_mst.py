@@ -15,6 +15,6 @@ schedule_stg_dly_rpt_mst = build_schedule_from_dbt_selection(
     dbt_select="+stg_chiiki +stg_jigyotai_line +stg_seisanpattern_syasyu +stg_katashiki_syasyuteigi +stg_kd_cbu_henkan +stg_kadonissu +stg_nippo_hyojijun +stg_kudo +stg_chokukado_tact +stg_linekado_calender +stg_shihan_yusyutu_henkan +stg_seisanpattern_syasyumei",
     # config=RunConfig(),
     # default_status=DefaultScheduleStatus.RUNNING,
-    tags={"ecs/cpu": "256", "ecs/memory": "1024",
+    tags={"ecs/cpu": "512", "ecs/memory": "2048",
             "job_name": "job_build_stg_dly_rpt_mst"},
 )
