@@ -12,7 +12,7 @@
 }}
 -- 洗い替えであるため、pre_hookで全件削除を行う。
 
-with stg_swevent_ebidensu as (
+with stg_swevent_ebidensu_aisac as (
     select
         eventno::varchar(9) as eventno,
         syasyu::varchar(4) as syasyu,
@@ -33,4 +33,4 @@ with stg_swevent_ebidensu as (
     from {{ source('fivetran_database_ogg_aisac_osqaeg0100db20', 'raw_cqa68jeventmtnaiyo') }}
     where _fivetran_deleted = 'false'
 )
-select * from stg_swevent_ebidensu
+select * from stg_swevent_ebidensu_aisac
