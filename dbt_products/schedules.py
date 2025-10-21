@@ -10,6 +10,7 @@ from .schedules_items.administration.public.schedule_stg_mikado_jnet_0715 import
 from .schedules_items.administration.public.schedule_stg_mikado_judgev import schedule_stg_mikado_judgev
 """ customerservice """
 from .schedules_items.customerservice.public.schedule_d_sias import schedule_d_sias
+from .schedules_items.customerservice.public.schedule_stg_iqas_0000 import schedule_stg_iqas_0000
 from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
 """ engineering """
 from .schedules_items.engineering.public.schedule_stg_aisac import schedule_stg_aisac
@@ -48,6 +49,7 @@ from .schedules_items.valuechain.public.schedule_d_gsps import schedule_d_gsps
 from .schedules_items.valuechain.public.schedule_d_gsps_0600 import schedule_d_gsps_0600
 from .schedules_items.valuechain.public.schedule_d_hokyusms_0600 import schedule_d_hokyusms_0600
 from .schedules_items.valuechain.public.schedule_d_topacs_0600 import schedule_d_topacs_0600
+from .schedules_items.valuechain.public.schedule_stg_pixy import schedule_stg_pixy
 from .schedules_items.valuechain.public.schedule_stg_smshokyu import schedule_stg_smshokyu
 from .schedules_items.valuechain.public.schedule_stg_yui_cpos import schedule_stg_yui_cpos
 """ E """
@@ -101,6 +103,8 @@ schedules.append(schedule_stg_mikado_judgev)
 """ customerservice """
 # D層SIAS
 schedules.append(schedule_d_sias)
+# iQAS_0000
+schedules.append(schedule_stg_iqas_0000)
 # ワランティ
 schedules.append(schedule_stg_warranty)
 """ engineering """
@@ -170,6 +174,8 @@ schedules.append(schedule_d_gsps_0600)
 schedules.append(schedule_d_hokyusms_0600)
 # D層TOPACS_0600
 schedules.append(schedule_d_topacs_0600)
+# PIXY
+schedules.append(schedule_stg_pixy)
 # D層補給SMS_出荷先
 schedules.append(schedule_stg_smshokyu)
 # YUI_CPOS
