@@ -20,3 +20,6 @@ sources:
         identifier: dm_latest_kouseikoutei_plant
       - name: raw_dm_latest_sekkei
         identifier: dm_latest_sekkei
+    # sms-kousei
+      - name: raw_tmp_junkanri_jyufukublktenkai
+        identifier: tmp_junkanri_jyufukublktenkai

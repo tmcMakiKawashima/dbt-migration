@@ -1,0 +1,86 @@
+{{
+  config(
+    materialized = 'table'
+  )
+}}
+-- 処理レスポンスを考慮しtable実装
+-- 再帰処理の為、with句内で結合
+with recursive dm_kousei_oya as (
+  select
+    syasyu, -- 車種コード
+    siyoubui, -- 使用部位
+    shusiyoubui, -- 主側使用部位
+    add_hinban, -- 重複の下の重複品番
+    tyohuku, -- 重複記載
+    oyahin, -- 親品番
+    gc, -- GC
+    kohin, -- 品番／BLKコード
+    kosu, -- 使用個数
+    sentaku, -- 選択符号
+    torokujunk_15com, -- 登録／生認順カラ(15コメントとして)
+    torokujunm_15com, -- 登録／生認順マデ(15コメントとして)
+    torokujunk, -- 登録／生認順カラ
+    torokujunm, -- 登録／生認順マデ
+    target, -- ターゲット
+    torokujun, -- 登録／生認順
+    seppenno, -- 設変No.
+    maxmttime, -- MAXMTTIME
+    mttime, -- MTTIME
+    to_decimal(1, 2, 0) as lv, -- レベル
+    id -- ID
+    from {{ref('tmp03_dm_kousei_jyufukublktenkai')}}
+  where siyoubui = oyahin
+  union all
+  select 
+    zt.syasyu,-- 車種コード
+    zt.siyoubui, -- 使用部位
+    zt.shusiyoubui, -- 主側使用部位
+    zt.add_hinban, -- 重複の下の重複品番
+    zt.tyohuku, -- 重複記載
+    zt.oyahin, -- 親品番
+    zt.gc, -- GC
+    zt.kohin, -- 品番／BLKコード
+    zt.kosu, -- 使用個数
+    zt.sentaku, -- 選択符号
+    zt.torokujunk_15com, -- 登録生認順カラ(15コメントとして)
+    zt.torokujunm_15com, -- 登録生認順マデ(15コメントとして)
+    case 
+      when ks.torokujunk > zt.torokujunk 
+      then ks.torokujunk
+      else zt.torokujunk
+    end as torokujunk, -- 登録／生認順カラ
+    case
+      when ks.torokujunm < zt.torokujunm
+      then ks.torokujunm
+      else zt.torokujunm
+    end as torokujunm, -- 登録／生認順マデ
+    zt.target, -- ターゲット
+    zt.torokujun, -- 登録／生認順
+    zt.seppenno, -- 設変No.
+    zt.maxmttime, -- MAXMTTIME
+    zt.mttime, -- MTTIME
+    to_decimal(ks.lv + 1, 2, 0) as lv, -- レベル
+    concat(ks.id, '.', zt.id) -- ID
+  from dm_kousei_oya as ks
+  inner join {{ref('tmp03_dm_kousei_jyufukublktenkai')}} as zt
+  on(
+      zt.oyahin   = ks.kohin
+  and zt.siyoubui = ks.siyoubui
+  and zt.syasyu   = ks.syasyu
+  and zt.torokujunm > ks.torokujunk 
+  and ks.torokujunm > zt.torokujunk
+  and (zt.torokujunk_15com != ''
+      and (ks.torokujunm_15com <= ks.torokujunk 
+        or ks.torokujunm <= ks.torokujunk_15com))
+  )
+  where (zt.shusiyoubui = ks.shusiyoubui
+     or ks.kohin = ks.add_hinban)
+    and ks.lv < 99
+  ) 
+select 
+  ko.* exclude(add_hinban, torokujunk_15com, torokujunm_15com, id),
+  row_number() over (partition by ko.syasyu,ko.siyoubui order by ko.id)::number(4,0) as kouseijyun,
+  left(siyoubui, 4)::varchar(4) as kumitate,
+  substr(siyoubui, 5, 2)::varchar(2) as bui,
+  substr(siyoubui, 7, 2)::varchar(2) as vari
+from dm_kousei_oya as ko

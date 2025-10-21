@@ -57,7 +57,9 @@ from .schedules_items.model.repair.schedule_dm_cataloghinmei import schedule_dm_
 from .schedules_items.model.repair.schedule_dm_figbunkaiinfo import schedule_dm_figbunkaiinfo
 from .schedules_items.model.repair.schedule_dm_vehicle_generation import schedule_dm_vehicle_generation
 """ parts_list """
+from .schedules_items.parts_list.public.schedule_dm_kousei_jyufukublktenkai import schedule_dm_kousei_jyufukublktenkai
 from .schedules_items.parts_list.public.schedule_dm_kousei_plantjiseki_kata import schedule_dm_kousei_plantjiseki_kata
+from .schedules_items.parts_list.public.schedule_tmp08_dm_kousei_jyufukublktenkai import schedule_tmp08_dm_kousei_jyufukublktenkai
 """ parts_list seppen """
 from .schedules_items.parts_list.seppen.schedule_dm_seppen_bunseki import schedule_dm_seppen_bunseki
 """ parts_list sms"""
@@ -183,8 +185,12 @@ schedules.append(schedule_dm_figbunkaiinfo)
 # 車種世代
 schedules.append(schedule_dm_vehicle_generation)
 """ parts_list """
+# 現導入国データ(Ci-SPEC)　公開
+schedules.append(schedule_dm_kousei_jyufukublktenkai)
 # AREA35品番属性情報追加
 schedules.append(schedule_dm_kousei_plantjiseki_kata)
+# 現導入国データ(Ci-SPEC)　公開(tmp)
+schedules.append(schedule_tmp08_dm_kousei_jyufukublktenkai)
 """ parts_list seppen """
 # 認証不正防止対応(設変分析)
 schedules.append(schedule_dm_seppen_bunseki)
