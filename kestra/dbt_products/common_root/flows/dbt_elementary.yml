@@ -6,11 +6,11 @@ labels:
   type: common_root
   error: default_failed
 
-# retry:
-#   maxAttempts: 3
-#   behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK 
-#   type: constant
-#   interval: PT1S
+retry:
+  maxAttempts: 3
+  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK 
+  type: constant
+  interval: PT1S
 
 concurrency:
   behavior: QUEUE
