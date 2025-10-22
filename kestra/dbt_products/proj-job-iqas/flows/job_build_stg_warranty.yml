@@ -16,21 +16,13 @@ inputs:
     allowCustomValue: true
 
 tasks:
-  - id: dbt
-
-    type: io.kestra.plugin.core.flow.WorkingDirectory
-    tasks:
-      - id: clone_repository
-        type: io.kestra.plugin.git.Clone
-
-      - id: dbt_build
-        type: io.kestra.plugin.dbt.cli.DbtCLI
-        commands:
-          - dbt build
-            --select +stg_warranty +stg_warranty_wcube +stg_warranty_comment +stg_warranty_chinesecomment +stg_warranty_goguchihinban +stg_warranty_koukanhinban +stg_warranty_kyusyo +stg_warranty_supplyer +stg_shijoho +stg_shijoho_syareki +stg_shijoho_tsuika +stg_shijoho_kanrentorokusheet +stg_shijoho_kokanbuhin +stg_shijoho_honbuntext +stg_shijoho_bugaihaihu
-            --vars '{"DBT_JOB_NAME":"_stg_warranty"}'
-            {{ inputs.dbt_options ?? "" }}
-            --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+  - id: clone_dbt_build
+    type: io.kestra.plugin.dbt.cli.DbtCLI
+    commands:
+      - dbt build
+        --select +stg_warranty +stg_warranty_wcube +stg_warranty_comment +stg_warranty_chinesecomment +stg_warranty_goguchihinban +stg_warranty_koukanhinban +stg_warranty_kyusyo +stg_warranty_supplyer +stg_shijoho +stg_shijoho_syareki +stg_shijoho_tsuika +stg_shijoho_kanrentorokusheet +stg_shijoho_kokanbuhin +stg_shijoho_honbuntext +stg_shijoho_bugaihaihu
+        --vars '{"DBT_JOB_NAME":"_stg_warranty"}'
+        {{ inputs.dbt_options ?? "" }}
 
 triggers:
   - id: schedule

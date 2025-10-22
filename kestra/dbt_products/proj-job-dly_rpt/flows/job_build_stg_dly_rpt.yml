@@ -16,21 +16,13 @@ inputs:
     allowCustomValue: true
 
 tasks:
-  - id: dbt
-
-    type: io.kestra.plugin.core.flow.WorkingDirectory
-    tasks:
-      - id: clone_repository
-        type: io.kestra.plugin.git.Clone
-
-      - id: dbt_build
-        type: io.kestra.plugin.dbt.cli.DbtCLI
-        commands:
-          - dbt build
-            --select +stg_chiiki +stg_jigyotai_line +stg_seisanpattern_syasyu +stg_katashiki_syasyuteigi +stg_kd_cbu_henkan +stg_kadonissu +stg_nippo_hyojijun +stg_kudo +stg_chokukado_tact +stg_linekado_calender +stg_shihan_yusyutu_henkan +stg_seisanpattern_syasyumei +stg_line_nippo +stg_syameigroup_nippo +stg_line_nippo_tokki +stg_kokunaikatashiki_nippo +stg_jikkokeikaku +stg_gekkan_kadojisseki
-            --vars '{"DBT_JOB_NAME":"_stg_dly_rpt"}'
-            {{ inputs.dbt_options ?? "" }}
-            --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+  - id: clone_dbt_build
+    type: io.kestra.plugin.dbt.cli.DbtCLI
+    commands:
+      - dbt build
+        --select +stg_chiiki +stg_jigyotai_line +stg_seisanpattern_syasyu +stg_katashiki_syasyuteigi +stg_kd_cbu_henkan +stg_kadonissu +stg_nippo_hyojijun +stg_kudo +stg_chokukado_tact +stg_linekado_calender +stg_shihan_yusyutu_henkan +stg_seisanpattern_syasyumei +stg_line_nippo +stg_syameigroup_nippo +stg_line_nippo_tokki +stg_kokunaikatashiki_nippo +stg_jikkokeikaku +stg_gekkan_kadojisseki
+        --vars '{"DBT_JOB_NAME":"_stg_dly_rpt"}'
+        {{ inputs.dbt_options ?? "" }}
 
 triggers:
   - id: schedule

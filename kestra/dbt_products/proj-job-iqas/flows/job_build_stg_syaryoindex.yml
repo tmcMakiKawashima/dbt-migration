@@ -16,21 +16,13 @@ inputs:
     allowCustomValue: true
 
 tasks:
-  - id: dbt
-
-    type: io.kestra.plugin.core.flow.WorkingDirectory
-    tasks:
-      - id: clone_repository
-        type: io.kestra.plugin.git.Clone
-
-      - id: dbt_build
-        type: io.kestra.plugin.dbt.cli.DbtCLI
-        commands:
-          - dbt build
-            --select +stg_syaryoindex +stg_seisanjisseki +stg_buhinserialno
-            --vars '{"DBT_JOB_NAME":"_stg_syaryoindex"}'
-            {{ inputs.dbt_options ?? "" }}
-            --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+  - id: clone_dbt_build
+    type: io.kestra.plugin.dbt.cli.DbtCLI
+    commands:
+      - dbt build
+        --select +stg_syaryoindex +stg_seisanjisseki +stg_buhinserialno
+        --vars '{"DBT_JOB_NAME":"_stg_syaryoindex"}'
+        {{ inputs.dbt_options ?? "" }}
 
 triggers:
   - id: schedule

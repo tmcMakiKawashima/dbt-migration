@@ -16,21 +16,13 @@ inputs:
     allowCustomValue: true
 
 tasks:
-  - id: dbt
-
-    type: io.kestra.plugin.core.flow.WorkingDirectory
-    tasks:
-      - id: clone_repository
-        type: io.kestra.plugin.git.Clone
-
-      - id: dbt_build
-        type: io.kestra.plugin.dbt.cli.DbtCLI
-        commands:
-          - dbt build
-            --select +stg_jyuchuzan_dec_syaryosys +stg_coorder_dec_syaryosys +stg_karikarifuri_syaryosys +stg_juchuzan_shiyoerr_syaryosys +stg_noryokuwaku_date_syaryosys +stg_noryokuwaku_month_syaryosys +stg_dfsc_kinomeisaicd_syaryosys +stg_daisu_month_syaryosys +stg_maker_line_syaryosys +stg_line_cal_syaryosys +stg_fwaku_syaryosys +stg_roketa_syaryosys +stg_jukyustatus_syaryosys
-            --vars '{"DBT_JOB_NAME":"_d_syaryosys_0200"}'
-            {{ inputs.dbt_options ?? "" }}
-            --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+  - id: clone_dbt_build
+    type: io.kestra.plugin.dbt.cli.DbtCLI
+    commands:
+      - dbt build
+        --select +stg_jyuchuzan_dec_syaryosys +stg_coorder_dec_syaryosys +stg_karikarifuri_syaryosys +stg_juchuzan_shiyoerr_syaryosys +stg_noryokuwaku_date_syaryosys +stg_noryokuwaku_month_syaryosys +stg_dfsc_kinomeisaicd_syaryosys +stg_daisu_month_syaryosys +stg_maker_line_syaryosys +stg_line_cal_syaryosys +stg_fwaku_syaryosys +stg_roketa_syaryosys +stg_jukyustatus_syaryosys
+        --vars '{"DBT_JOB_NAME":"_d_syaryosys_0200"}'
+        {{ inputs.dbt_options ?? "" }}
 
 triggers:
   - id: schedule

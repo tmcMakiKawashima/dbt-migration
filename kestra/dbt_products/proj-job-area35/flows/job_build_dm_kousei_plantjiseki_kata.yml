@@ -16,20 +16,12 @@ inputs:
     allowCustomValue: true
 
 tasks:
-  - id: dbt
-
-    type: io.kestra.plugin.core.flow.WorkingDirectory
-    tasks:
-      - id: clone_repository
-        type: io.kestra.plugin.git.Clone
-
-      - id: dbt_build
-        type: io.kestra.plugin.dbt.cli.DbtCLI
-        commands:
-          - dbt build
-            --select +dm_kousei_plantjiseki_kata
-            --vars '{"DBT_JOB_NAME":"_dm_kousei_plantjiseki_kata"}'
-            --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+  - id: clone_dbt_build
+    type: io.kestra.plugin.dbt.cli.DbtCLI
+    commands:
+      - dbt build
+        --select +dm_kousei_plantjiseki_kata
+        --vars '{"DBT_JOB_NAME":"_dm_kousei_plantjiseki_kata"}'
 
 triggers:
   - id: schedule
