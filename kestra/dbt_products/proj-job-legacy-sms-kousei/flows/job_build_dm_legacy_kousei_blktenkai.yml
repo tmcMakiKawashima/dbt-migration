@@ -44,7 +44,7 @@ outputs:
     value: "{{ outputs.error_log.value ?? 'No message found.' }}"
   - id: output_state
     type: STRING
-    value: "{{ tasks.dbt.state ?? 'No state' }}"
+    value: "{{ tasks.clone_dbt_build.state ?? 'No state' }}"
 
 # ログ出力
 finally:
