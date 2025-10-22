@@ -41,7 +41,11 @@
         oauthToken: "{{ secret('KUBERNETES_OAUTH_TOKEN') }}"
       pullPolicy: IF_NOT_PRESENT
     beforeCommands:
-      - dbt deps --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+      - apt-get install git
+      - git clone -b {{ namespace.GIT.BRANCH ?? inputs.branch }} http://{{ namespace.GIT.USER }}:{{ secret('GIT_PASS') }}@{{ namespace.GIT.URL_PATH }}
+      - cp --force profiles.yml {{ namespace.NAME }}/{{ namespace.DBT.PROJ_DIR }}/profiles.yml
+      - cd {{ namespace.NAME }}/{{ namespace.DBT.PROJ_DIR }}
+      - dbt deps
     containerImage: "{{ namespace.DOCKER.IMAGE_VERSION.DBT }}"
 - type: io.kestra.plugin.git
   forced: false

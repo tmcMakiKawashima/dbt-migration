@@ -10,6 +10,7 @@ GIT:
   URL: http://ip-100-80-0-121.ap-northeast-1.compute.internal/enterprise_orchestration_products/kestra_dbt_project.git
   USER: kestra.dbt
   BRANCH: stg_test
+  URL_PATH: ip-100-80-0-121.ap-northeast-1.compute.internal/enterprise_orchestration_products/kestra_dbt_project.git
 NAME: kestra_dbt_project
 ALERTS:
   TOPIC: arn:aws:sns:ap-northeast-1:085931761001:sajp1-dxpf-edp-sns-kestra10
