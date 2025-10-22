@@ -6,11 +6,11 @@ labels:
   type: common_root
   error: default_failed
 
-retry:
-  maxAttempts: 3
-  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK 
-  type: constant
-  interval: PT1S
+# retry:
+#   maxAttempts: 3
+#   behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK 
+#   type: constant
+#   interval: PT1S
   
 inputs:
   - id: branch
@@ -33,20 +33,17 @@ tasks:
 
       type: io.kestra.plugin.core.flow.WorkingDirectory
       tasks:
-        - id: clone_repository
-          type: io.kestra.plugin.git.Clone
-          branch: "{{ inputs.branch }}"
 
-        - id: dbt_docs_generate
+        - id: clone_dbt_docs_generate
           type: io.kestra.plugin.dbt.cli.DbtCLI
           commands:
-            - dbt docs generate --static --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+            - dbt docs generate --static
           outputFiles:
-            - enterprise_data_products/target/static_index.html
+            - kestra_dbt_project/enterprise_data_products/target/static_index.html
 
         - id: S3_upload
           type: io.kestra.plugin.aws.s3.Upload
-          from: "{{ outputs.dbt_docs_generate['outputFiles']['enterprise_data_products/target/static_index.html'] }}"
+          from: "{{ outputs.clone_dbt_docs_generate['outputFiles']['kestra_dbt_project/enterprise_data_products/target/static_index.html'] }}"
           bucket: "{{ namespace.DBT_DOCS.S3_BUCKET }}"
           key: "{{ namespace.DBT_DOCS.BASE_PATH }}{{ inputs.branch }}/static_index.html"
           contentType: text/html
@@ -88,8 +85,7 @@ finally:
   - id: finally_log 
     type: io.kestra.plugin.core.log.Log
     message: 
-      - "Git branch *dev -> {{ inputs.branch }}"
-      - "Git branch *stg or prod -> {{ namespace.GIT.BRANCH }}"
+      - "Git branch -> {{ namespace.GIT.BRANCH ?? inputs.branch }}"
       - "Path -> {{ namespace.DBT_DOCS.S3_BUCKET }}/{{ namespace.DBT_DOCS.BASE_PATH }}{{ inputs.branch }}/static_index.html"
 
 disabled: false
