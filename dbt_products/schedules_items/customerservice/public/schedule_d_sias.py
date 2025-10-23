@@ -12,11 +12,15 @@ schedule_d_sias = build_schedule_from_dbt_selection(
     schedule_name="D_SOU_SIAS",
     cron_schedule="00 05 * * *",
     execution_timezone="Asia/Tokyo",
-    dbt_select="+stg_riyosyasyusedai +stg_riyoframemaster",
+    dbt_select="+stg_riyosyasyusedai +stg_riyoframemaster +stg_riyosyasyutekiyonengetsusyameikatashiki +stg_riyosyasyusedaitekiyonengetsu +stg_riyopubmaster2 +stg_riyosyameimaster",
     config=RunConfig(ops={"dbt_products_assets":
                           DbtConfig(dbt_vars={"DBT_JOB_NAME": "_d_sias"},
                                     source_test_list=["source:*,+stg_riyosyasyusedai",
-                                                      "source:*,+stg_riyoframemaster"])
+                                                      "source:*,+stg_riyoframemaster",
+                                                      "source:*,+stg_riyosyasyutekiyonengetsusyameikatashiki",
+                                                      "source:*,+stg_riyosyasyusedaitekiyonengetsu",
+                                                      "source:*,+stg_riyopubmaster2",
+                                                      "source:*,+stg_riyosyameimaster"])
                           }
                      ),
     # default_status=DefaultScheduleStatus.RUNNING,
