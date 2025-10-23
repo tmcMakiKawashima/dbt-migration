@@ -123,7 +123,8 @@ with stg_cam2146_jyukyujyoho as (
         create_user::varchar(15) as create_user, -- 作成ユーザコード
         create_date::timestamp_ntz(9) as create_date, -- 作成日付
         update_user::varchar(15) as update_user, -- 更新ユーザコード
-        update_date::timestamp_ntz(9) as update_date -- 更新日付
+        update_date::timestamp_ntz(9) as update_date, -- 更新日付
+        _fivetran_synced::timestamp_ntz(9) as ldts
     from {{ source('fivetran_database_oracle_rds_osamsp01sam201', 'raw_cam2146') }}
     where _fivetran_deleted = 'false'
 )
