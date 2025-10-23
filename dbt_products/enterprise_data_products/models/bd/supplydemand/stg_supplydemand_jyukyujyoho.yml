@@ -754,6 +754,11 @@ models:
           - not_null:
               config:
                 severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
 # COSMOS_SFX確定：基本情報
   - name: stg_cam2146_jyukyujyoho
     config:
