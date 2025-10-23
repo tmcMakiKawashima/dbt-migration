@@ -56,10 +56,6 @@ from .schedules_items.valuechain.public.schedule_stg_yui_cpos import schedule_st
 """ E """
 """ employee """
 from .schedules_items.employee.organization.schedule_dm_jugyoinjoho import schedule_dm_jugyoinjoho
-""" model repair """
-from .schedules_items.model.repair.schedule_dm_cataloghinmei import schedule_dm_cataloghinmei
-from .schedules_items.model.repair.schedule_dm_figbunkaiinfo import schedule_dm_figbunkaiinfo
-from .schedules_items.model.repair.schedule_dm_vehicle_generation import schedule_dm_vehicle_generation
 """ parts_list """
 from .schedules_items.parts_list.public.schedule_dm_kousei_plantjiseki_kata import schedule_dm_kousei_plantjiseki_kata
 """ parts_list seppen """
@@ -71,9 +67,6 @@ from .schedules_items.parts_list.sms.schedule_tmp_kousei03_blktenkai import sche
 from .schedules_items.parts_list.sms.schedule_tmp_legacy_kousei03_blktenkai import schedule_tmp_legacy_kousei03_blktenkai
 """ vinhis maint """
 from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
-""" vinhis model """
-from .schedules_items.vinhis.model.schedule_dm_vin_model import schedule_dm_vin_model
-from .schedules_items.vinhis.model.schedule_dm_vin_model_nonesyasyu import schedule_dm_vin_model_nonesyasyu
 """ vinhis spec """
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification import schedule_dm_vinhis_specification
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kaigai import schedule_dm_vinhis_specification_kaigai
@@ -187,13 +180,6 @@ schedules.append(schedule_stg_yui_cpos)
 """ employee """
 # 従業員情報
 schedules.append(schedule_dm_jugyoinjoho)
-""" model repair """
-# EPCカタログ品名
-schedules.append(schedule_dm_cataloghinmei)
-# FIG分解情報
-schedules.append(schedule_dm_figbunkaiinfo)
-# 車種世代
-schedules.append(schedule_dm_vehicle_generation)
 """ parts_list """
 # AREA35品番属性情報追加
 schedules.append(schedule_dm_kousei_plantjiseki_kata)
@@ -212,11 +198,6 @@ schedules.append(schedule_tmp_legacy_kousei03_blktenkai)
 """ vinhis maint """
 # VIN整備
 schedules.append(schedule_dm_vinhis_maint)
-""" vinhis model """
-# VIN x 車両情報
-schedules.append(schedule_dm_vin_model)
-# VIN x 車両情報（車種コード指定なし）
-schedules.append(schedule_dm_vin_model_nonesyasyu)
 """ vinhis spec """
 # VIN装備
 schedules.append(schedule_dm_vinhis_specification)
