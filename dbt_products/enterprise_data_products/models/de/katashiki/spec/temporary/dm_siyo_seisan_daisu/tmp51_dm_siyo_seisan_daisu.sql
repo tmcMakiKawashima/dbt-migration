@@ -33,6 +33,6 @@ select
 	sk_y,
 	sk_m,
 	daisu,
-	in_jsk_flg
+	naiji_flg
 from rnk
 where rn = 1
