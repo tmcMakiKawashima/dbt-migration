@@ -26,7 +26,7 @@ tasks:
     type: io.kestra.plugin.dbt.cli.DbtCLI
     commands:
       - dbt build
-        --select +stg_riyosyasyusedai +stg_riyoframemaster
+        --select +stg_riyosyasyusedai +stg_riyoframemaster +stg_riyosyasyutekiyonengetsusyameikatashiki +stg_riyosyasyusedaitekiyonengetsu +stg_riyopubmaster2 +stg_riyosyameimaster
         --vars '{"DBT_JOB_NAME":"_d_sias"}'
         {{ inputs.dbt_options ?? "" }}
 
