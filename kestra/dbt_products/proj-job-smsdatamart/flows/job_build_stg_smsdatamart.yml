@@ -1,8 +1,16 @@
 id: job_build_stg_smsdatamart
 namespace: kestra_dbt_project.proj-job-smsdatamart
+
 labels:
   error: default_failed
   dbt: build
+
+retry:
+  maxAttempts: 3
+  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK 
+  type: constant
+  interval: PT1S
+
 # 手動実行時に指定できるdbtオプション
 inputs:
   - id: dbt_options
@@ -12,37 +20,36 @@ inputs:
       - --full-refresh
     required: false
     allowCustomValue: true
+
 tasks:
-  - id: dbt
-    type: io.kestra.plugin.core.flow.WorkingDirectory
-    tasks:
-      - id: clone_repository
-        type: io.kestra.plugin.git.Clone
-      - id: dbt_build
-        type: io.kestra.plugin.dbt.cli.DbtCLI
-        commands:
-          - dbt build
-            --select +stg_variationname +stg_kumitatename +stg_buiname +stg_mokuji +stg_kouteifugo_gijutsusms +stg_seisanbasyoseisiki_kouteisms +stg_mokujisitu_gijutsusms +stg_jtaizokusei_gijutsusms +stg_tiikizokusei_gijutsusms +stg_kunizokusei_gijutsusms +stg_honsisitu_gijutsusms +stg_mokujibuijun_gijutsusms +stg_syutudenpyotbl_kouteisms +stg_seppenst_gijutsusms +stg_glseppenst_kouteisms
-            --vars '{"DBT_JOB_NAME":"_stg_smsdatamart"}'
-            {{ inputs.dbt_options ?? "" }}
-            --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+  - id: clone_dbt_build
+    type: io.kestra.plugin.dbt.cli.DbtCLI
+    commands:
+      - dbt build
+        --select +stg_variationname +stg_kumitatename +stg_buiname +stg_mokuji +stg_kouteifugo_gijutsusms +stg_seisanbasyoseisiki_kouteisms +stg_mokujisitu_gijutsusms +stg_jtaizokusei_gijutsusms +stg_tiikizokusei_gijutsusms +stg_kunizokusei_gijutsusms +stg_honsisitu_gijutsusms +stg_mokujibuijun_gijutsusms +stg_syutudenpyotbl_kouteisms +stg_seppenst_gijutsusms +stg_glseppenst_kouteisms
+        --vars '{"DBT_JOB_NAME":"_stg_smsdatamart"}'
+        {{ inputs.dbt_options ?? "" }}
+
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
     cron: "00 04 * * *"
     timezone: Asia/Tokyo
+
 # エラーログを出力
 errors:
   - id: error_log
     type: io.kestra.plugin.core.debug.Return
     format: "{{ errorLogs()[0]['message'] }}"
+
 outputs: 
   - id: output_error_log
     type: STRING
     value: "{{ outputs.error_log.value ?? 'No message found.' }}"
   - id: output_state
     type: STRING
-    value: "{{ tasks.dbt.state ?? 'No state' }}"
+    value: "{{ tasks.clone_dbt_build.state ?? 'No state' }}"
+
 # ログ出力
 finally:
   - id: finally_log 
@@ -50,4 +57,5 @@ finally:
     message: 
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
       - "dbt options -> {{ inputs.dbt_options ?? '' }}"
+      
 disabled: false
