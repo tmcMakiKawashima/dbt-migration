@@ -193,21 +193,6 @@ models:
           dim:
             +access: public
             +materialized: table
-        model:
-          +group: vinhis_model
-          +schema: model
-          dim:
-            +access: public
-            +materialized: table
-      model:
-        +snowflake_warehouse: model_wh
-        +database: model_db
-        repair:
-          +group: model_repair
-          +schema: repair
-          dim:
-            +access: public
-            +materialized: table
       employee:
         +snowflake_warehouse: employee_wh
         +database: employee_db
