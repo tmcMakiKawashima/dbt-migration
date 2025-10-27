@@ -4,7 +4,7 @@ from dagster_dbt import build_dbt_asset_selection
 
 
 ops_item = "dbt_products_assets"
-tags_base = {"ecs/cpu": "256", "ecs/memory": "1024"}
+tags_base = {"ecs/cpu": "512", "ecs/memory": "2048"}
 job_name_base_build = "job_build_"
 job_name_base_scd = "job_snapshot_"
 job_name_base_call = "job_call_"
