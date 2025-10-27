@@ -50,6 +50,7 @@ from .schedules_items.valuechain.public.schedule_d_gsps import schedule_d_gsps
 from .schedules_items.valuechain.public.schedule_d_gsps_0600 import schedule_d_gsps_0600
 from .schedules_items.valuechain.public.schedule_d_hokyusms_0600 import schedule_d_hokyusms_0600
 from .schedules_items.valuechain.public.schedule_d_topacs_0600 import schedule_d_topacs_0600
+from .schedules_items.valuechain.public.schedule_stg_atop_0400 import schedule_stg_atop_0400
 from .schedules_items.valuechain.public.schedule_stg_pixy import schedule_stg_pixy
 from .schedules_items.valuechain.public.schedule_stg_smshokyu import schedule_stg_smshokyu
 from .schedules_items.valuechain.public.schedule_stg_yui_cpos import schedule_stg_yui_cpos
@@ -170,6 +171,8 @@ schedules.append(schedule_d_gsps_0600)
 schedules.append(schedule_d_hokyusms_0600)
 # D層TOPACS_0600
 schedules.append(schedule_d_topacs_0600)
+# ATOP
+schedules.append(schedule_stg_atop_0400)
 # PIXY
 schedules.append(schedule_stg_pixy)
 # D層補給SMS_出荷先
