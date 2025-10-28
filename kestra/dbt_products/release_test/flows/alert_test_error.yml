@@ -10,7 +10,7 @@ retry:
   behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK 
   type: exponential
   interval: PT5S
-  maxAttempts: 7
+  maxAttempts: 3
   maxInterval: PT720S
   delayFactor: 30
 
@@ -47,7 +47,7 @@ finally:
   - id: finally_log 
     type: io.kestra.plugin.core.log.Log
     message: 
-      - "Git branch -> {{ namespace.GIT.BRANCH }}"
+      - "Git branch -> {{ namespace.GIT.BRANCH ?? '' }}"
       - "dbt options -> {{ inputs.dbt_options ?? '' }}"
       
 disabled: false
