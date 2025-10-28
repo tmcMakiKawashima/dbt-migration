@@ -28,12 +28,6 @@ sources:
       - name: raw_stg_syasyu
         identifier: stg_syasyu
 
-  - name: engineering_db_ritm0252629_public
-    database: engineering_db_ritm0252629
-    schema: public
-    tables:
-    # gijutsu-sms
-      - name: raw_m_koujyomaster
-        identifier: m_koujyomaster
+
 
 
