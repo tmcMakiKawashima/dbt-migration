@@ -8,7 +8,7 @@ tasks:
       - id: clone_repository
         type: io.kestra.plugin.git.Clone
         url: "{{ namespace.GIT.URL }}"
-        branch: proj-job-kuboi
+        branch: "{{ namespace.GIT.BRANCH }}"
         username: "{{ namespace.GIT.USER }}"
         password: "{{ secret('GIT_PASS') }}"
         
