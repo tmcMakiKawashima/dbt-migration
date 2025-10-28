@@ -14,7 +14,7 @@ with tmp_get_union as (
         sketa_cd,
         skigo_cd,
         ldts as ldts_union
-    from {{ source('vinhis_db_vinspec','raw_dm_vinhis_specification_union_test') }}
+    from {{ source('vinhis_db_ritm0274879_spec','raw_dm_vinhis_specification_union') }}
     where
         coalesce( trim(sketa_cd), '' ) <> '' and
         coalesce( trim(skigo_cd), '' ) <> ''
@@ -37,7 +37,7 @@ tmp_get_siyouhenkan as (
             order by
                 tekikara desc
         ) as latest_rank
-    from {{ source('supplydemand_db_public','raw_da20943a') }}
+    from {{ source('supplydemand_db_ritm0274879_public','stg_siyouhenkan') }}
 ),
 
 -- 2-2. 仕様変換テーブルの最も適用日が最新のレコードのみを取得

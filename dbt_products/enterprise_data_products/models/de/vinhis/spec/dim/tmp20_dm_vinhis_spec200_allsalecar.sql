@@ -9,7 +9,7 @@ with tmp_get_union_2 as (
         trim(vin_vds_cd) as vin_vds_cd,
         trim(syasyu_cd) as syasyu,
         trim(haisya_kt) as haisya_kt
-    from {{ source('vinhis_db_vinspec','raw_dm_vinhis_specification_union_test') }}
+    from {{ source('vinhis_db_ritm0274879_spec','raw_dm_vinhis_specification_union') }}
 ),
 
 -- 2-1. 個車生産実績から全レコードを取得
@@ -27,7 +27,7 @@ tmp_get_seisan_jisseki as (
             order by
                 lok_y desc
         ) as latest_rank
-    from {{ source('vinhis_db_public','raw_dm_allsalecar_seisanjisseki') }}
+    from {{ source('vinhis_db_ritm0274879_public','raw_dm_allsalecar_seisanjisseki') }}
 ),
 
 -- 2-2. 個車生産実績から最新のラインオフ計画のレコードのみを取得

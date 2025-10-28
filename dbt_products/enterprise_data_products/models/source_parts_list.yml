@@ -15,3 +15,10 @@ sources:
     tables:
       - name: raw_dm_ktfgo_list
         identifier: dm_ktfgo_list
+
+  - name: parts_list_db_ritm0248551_public
+    database: parts_list_dbb_ritm0248551
+    schema: public
+    tables:
+      - name: raw_dm_ktfgo_list
+        identifier: dm_ktfgo_list

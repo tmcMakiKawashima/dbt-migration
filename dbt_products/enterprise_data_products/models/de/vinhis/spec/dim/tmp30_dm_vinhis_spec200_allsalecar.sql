@@ -26,11 +26,11 @@ with tmp_join_seisanbasyo as (
             )
         ) as ldts_katashiki
     from {{ ref('tmp20_dm_vinhis_spec200_allsalecar') }} as a
-    left join {{ source('common_tbl_db_iqas_name_convert','raw_mst_041veh_plnt_code_name') }} as b
+    left join {{ source('common_tbl_db_ritm0274879_iqas_name_convert','raw_mst_041veh_plnt_code_name') }} as b
         on trim(a.veh_plnt_code) = trim(b.table_data_id)
-    left join {{ source('engineering_db_ritm0221441_public','raw_m_koujyomaster') }} c
+    left join {{ source('engineering_db_ritm0252629_public','raw_m_koujyomaster') }} c
         on trim(a.veh_plnt_code) = trim(c.veh_plnt_code)
-    left join {{ source('katashiki_db_basespec','raw_dm_syasyu_katashiki_syaryokoujyo') }} d
+    left join {{ source('katashiki_db_ritm0252629_basespec','raw_dm_syasyu_katashiki_syaryokoujyo') }} d
         on trim(a.syasyu) = trim(d.syasyu) and
         trim(a.haisya_kt) = trim(d.kata)
 ),
@@ -184,7 +184,7 @@ tmp_join_rank1_seisanbasyo as (
         trim(a.ktfgo) = trim(b.ktfgo) and
         trim(a.loj_y) = trim(b.loj_y) and
         trim(a.loj_m) = trim(b.loj_m)
-    left join {{ source('parts_list_db_public','raw_dm_ktfgo_list') }} as c
+    left join {{ source('parts_list_db_ritm_0248551_public','raw_dm_ktfgo_list') }} as c
         on trim(b.seisanbasyo) = trim(c.ktfgo)
 )
 
