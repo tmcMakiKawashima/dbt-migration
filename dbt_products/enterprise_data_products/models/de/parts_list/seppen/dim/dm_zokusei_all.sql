@@ -1,7 +1,6 @@
 {{ 
   config(
     materialized='incremental',
-    unique_key = ['seppenno'],
     incremental_strategy = 'append',
     transient = false,
     pre_hook="
@@ -21,7 +20,10 @@ with zok as(
         hakkositu, -- 発行設計室
         hakkotanto, -- 発行担当者
         tel, -- 発行TEL
-        fax -- 発行FAX
+        fax, -- 発行FAX
+        sijino, -- 指示書No.
+        sijikbn, -- 指示書区分 
+        fukusuflg, -- 複数指示書FLG
     from {{source('engineering_db_public','raw_tmp_m_cyp16ecizokusei')}}
 ), ttl as(
     select
