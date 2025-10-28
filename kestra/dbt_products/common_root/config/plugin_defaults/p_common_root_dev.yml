@@ -96,7 +96,7 @@
   values:
     from:
       - data: |
-          The Kestra workflow execution {{ inputs.state == 'FAILED' ? 'FAILED' : 'RETRIED' }}. [{{ namespace.ENV }}]
+          The Kestra workflow execution {{ inputs.state == 'FAILED' or inputs.state == 'SUCCESS' or inputs.state == 'WARNING' ? inputs.state : 'RETRIED' }}. [{{ namespace.ENV }}]
 
           -----------------------------------------------------------------------------------------------------------------------------
           - Namespace: {{ trigger.namespace }}
@@ -114,7 +114,7 @@
           -
           -
           -
-        subject: "[{{ namespace.ENV }}] Kestra Workflow {{ inputs.state == 'FAILED' ? 'FAILED' : 'RETRIED' }}: {{ trigger.flowId }}"
+        subject: "[{{ namespace.ENV }}] Kestra Workflow {{ inputs.state == 'FAILED' or inputs.state == 'SUCCESS' or inputs.state == 'WARNING' ? inputs.state : 'RETRIED' }}: {{ trigger.flowId }}"
     region: "{{ namespace.ALERTS.REGION }}"
     topicArn: "{{ namespace.ALERTS.TOPIC }}"
 - type: io.kestra.plugin.scripts.python.Commands
