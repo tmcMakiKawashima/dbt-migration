@@ -90,4 +90,4 @@ finally:
       - "Git branch -> {{ namespace.GIT.BRANCH ?? inputs.branch }}"
       - "Path -> {{ namespace.DBT_DOCS.S3_BUCKET }}/{{ namespace.DBT_DOCS.BASE_PATH }}{{ inputs.branch }}/static_index.html"
 
-disabled: true
+disabled: false
