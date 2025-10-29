@@ -17,3 +17,10 @@ sources:
         identifier: ST_JPSALECAR_AQUA_JPSEISAN
       - name: raw_stg_siyouhenkan
         identifier: STG_SIYOUHENKAN
+
+  - name: supplydemand_db_ritm0274879_public
+    database: supplydemand_db_ritm0274879
+    schema: public
+    tables:
+       - name: raw_stg_siyouhenkan
+         identifier: stg_siyouhenkan

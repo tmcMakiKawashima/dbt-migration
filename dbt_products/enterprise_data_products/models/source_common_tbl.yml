@@ -13,3 +13,10 @@ sources:
     tables:
       - name: raw_mst_041veh_plnt_code_name
         identifier: mst_041veh_plnt_code_name
+
+  - name: common_tbl_db_ritm0274879_iqas_name_convert
+    database: common_tbl_db_ritm0274879
+    schema: iqas_name_convert
+    tables:
+      - name: raw_mst_041veh_plnt_code_name
+        identifier: mst_041veh_plnt_code_name
