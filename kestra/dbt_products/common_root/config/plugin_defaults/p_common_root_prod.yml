@@ -137,7 +137,17 @@
         username: "{{ namespace.KUBERNETES.USER_NAME }}"
         masterUrl: "{{ namespace.KUBERNETES.MASTER_URL }}"
         caCertData: "{{ secret('KUBERNETES_CA_CERT_DATA') }}"
-        oauthToken: "{{ secret('KUBERNETES_OAUTH_TOKEN') }}"
+        oauthTokenProvider:
+          task:
+            id: token-provider
+            type: io.kestra.plugin.aws.auth.EksToken
+            region: "{{ namespace.KUBERNETES.REGION }}"
+            clusterName: "{{ namespace.KUBERNETES.CLUSTER_NAME }}"
+          output: "{{ token.tokenValue }}"
+      resources:
+        request:
+          cpu: 500m
+          memory: 128Mi
       pullPolicy: IF_NOT_PRESENT
     beforeCommands:
       - pip install "{{ namespace.PYTHON.SNOWFLAKE_CONNECTOR_VERSION }}"
