@@ -21,7 +21,7 @@ with stg_optsobisaimoku as (
         eqp_dtl_chg::varchar(180) as eqp_dtl_chg,
         veh_eqp_cd::varchar(3) as shiyodai,
         veh_eqp_dtl_cd::varchar(4) as shiyosai,
-        dsp_odr::varchar(5) as dsp_odr,
+        to_decimal(dsp_odr)::number(5,0) as dsp_odr,
         ldts,
         row_number() over (
             partition by car_kind_cd, ctg_cd, chg_no, car_name_cd, cnl_cd, eqp_mgr_id, eqp_cd, eqp_dtl_cd
