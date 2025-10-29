@@ -19,6 +19,6 @@ schedule_stg_kodomo = build_schedule_from_dbt_selection(
                                     source_test_list=["source:*,+stg_seiyakuformat_kodomo"])
                           }
                      ),
-    tags={"ecs/cpu": "256", "ecs/memory": "1024",
+    tags={"ecs/cpu": "512", "ecs/memory": "2048",
           "job_name": "job_build_stg_kodomo"},
 )
