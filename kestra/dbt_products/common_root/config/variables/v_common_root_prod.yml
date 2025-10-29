@@ -32,9 +32,11 @@ SNOWFLAKE:
   DATABASE: DATAMART_DB
   WAREHOUSE: DATAMART_WH
 KUBERNETES:
+  REGION: ap-northeast-1
   NAMESPACE: default
   USER_NAME: arn:aws:eks:ap-northeast-1:433723560297:cluster/pajp1-dxpf-edp-eks-kestra01
   MASTER_URL: https://3D1F82E7D700743A0AA7C4066B2F3FA4.gr7.ap-northeast-1.eks.amazonaws.com
+  CLUSTER_NAME: sajp1-dxpf-edp-eks-kestra10
 EXPORT_AUDIT_LOGS:
   MONTHLY:
     BASE_PATH: Kestra
