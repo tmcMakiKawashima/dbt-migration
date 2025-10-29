@@ -1899,3 +1899,204 @@ models:
           - not_null:
               config:
                 severity: error
+# 納期統合情報(市販)(保管)
+  - name: stg_noukitougoujyoho_shihanho_vlc
+    config:
+      tags: ["vlc"]
+    columns:
+      - name: vhc_key
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 納期統合情報(市販)明細(保管)
+  - name: stg_noukitougoujyoho_shihandtlho_vlc
+    config:
+      tags: ["vlc"]
+    columns:
+      - name: vhc_key
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 納期統合情報(輸出)(保管)
+  - name: stg_noukitougoujyoho_yusyutuho_vlc
+    config:
+      tags: ["vlc"]
+    columns:
+      - name: urn
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 納期統合情報(輸出)明細(保管)
+  - name: stg_noukitougoujyoho_yusyutudtlho_vlc
+    config:
+      tags: ["vlc"]
+    columns:
+      - name: urn
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# 船積実績
+  - name: stg_funadumiresult_vlc
+    config:
+      tags: ["vlc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - vesselcode
+            - kitencd
+            - departuredate
+            - vhcuniqinfo
+          config:
+            severity: error
+    columns:
+      - name: vesselcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kitencd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: departuredate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vhcuniqinfo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 区分マスタ
+  - name: stg_kbnmst_vlc
+    config:
+      tags: ["vlc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - kbn
+            - cd
+            - lang_cd
+          config:
+            severity: error
+    columns:
+      - name: kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: lang_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 拠点マスタ付属情報
+  - name: stg_kyotenmstfuzoku_vlc
+    config:
+      tags: ["vlc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - kyoten_cd
+            - tkiy_k
+          config:
+            severity: error
+    columns:
+      - name: kyoten_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tkiy_k
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 船枠紐付情報
+  - name: stg_funahimoduke_vlc
+    config:
+      tags: ["vlc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - shiyuichita_kbn
+            - fune_cd
+            - tumikou_cd_g
+            - departure_datetime
+            - agekou_cd_g
+            - henkanmae_cd_g
+            - send_datetime
+          config:
+            severity: error
+    columns:
+      - name: shiyuichita_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: fune_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tumikou_cd_g
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: departure_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: agekou_cd_g
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: henkanmae_cd_g
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: send_datetime
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 船名マスタ
+  - name: stg_shipnamemst_vlc
+    config:
+      tags: ["vlc"]
+    columns:
+      - name: fune_cd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error

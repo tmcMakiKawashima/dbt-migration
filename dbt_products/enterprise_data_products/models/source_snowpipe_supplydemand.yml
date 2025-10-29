@@ -159,6 +159,246 @@ sources:
             data_tests:
               - fixed_length:
                   length: 60
+      - name: raw_tsjfa393
+        identifier: tsjfa393
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 90
+      - name: raw_tsjfa392
+        identifier: tsjfa392
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 800
+      - name: raw_tsjfa391
+        identifier: tsjfa391
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 580
+      - name: raw_tsjfa36c
+        identifier: tsjfa36c
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 160
+      - name: raw_tsjfa36b
+        identifier: tsjfa36b
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 80
+      - name: raw_ktrla038zz0kadcb86
+        identifier: ktrla038zz0kadcb86
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 40
+      - name: raw_ktrla038zz0kadcb87
+        identifier: ktrla038zz0kadcb87
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 40
+      - name: raw_ktrla038zz0kadcb88
+        identifier: ktrla038zz0kadcb88
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 80
+      - name: raw_ktrla038zz0kadcb89
+        identifier: ktrla038zz0kadcb89
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 80
+      - name: raw_ktrla038zz0kadcb8b
+        identifier: ktrla038zz0kadcb8b
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 40
+      - name: raw_ktrla038zz0kadcb8c
+        identifier: ktrla038zz0kadcb8c
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 50
+      - name: raw_ktrla038zz0kadcb8n
+        identifier: ktrla038zz0kadcb8n
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 40
+      - name: raw_ktrla038zz0kadcb8m
+        identifier: ktrla038zz0kadcb8m
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 40
+      - name: raw_ktrla038zz0kadcb8o
+        identifier: ktrla038zz0kadcb8o
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 40
+      - name: raw_ktrla038zz0kadcb8e
+        identifier: ktrla038zz0kadcb8e
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 50
+      - name: raw_ktrla038zz0kadcb8f
+        identifier: ktrla038zz0kadcb8f
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 50
+      - name: raw_ktrla038zz0kadcb8r
+        identifier: ktrla038zz0kadcb8r
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 50
+      - name: raw_ktrla038zz0kadcb8j
+        identifier: ktrla038zz0kadcb8j
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 40
+      - name: raw_ktrla038zz0kadcb8k
+        identifier: ktrla038zz0kadcb8k
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 40
+      - name: raw_tsjfa36e
+        identifier: tsjfa36e
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 400
+      - name: raw_tsjfa36h
+        identifier: tsjfa36h
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 80
+      - name: raw_tsjfa36a
+        identifier: tsjfa36a
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 250
+      - name: raw_ktrla038zz0kadcb80
+        identifier: ktrla038zz0kadcb80
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 40
+      - name: raw_ktrla038zz0kadcb81
+        identifier: ktrla038zz0kadcb81
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 40
+      - name: raw_ktrla038zz0kadcb82
+        identifier: ktrla038zz0kadcb82
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 60
+      - name: raw_ktrla038zz0kadcb83
+        identifier: ktrla038zz0kadcb83
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 50
+      - name: raw_ktrla038zz0kadcb84
+        identifier: ktrla038zz0kadcb84
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 50
+      - name: raw_ktrla038zz0kadcb85
+        identifier: ktrla038zz0kadcb85
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 60
+      - name: raw_tsjfa36g
+        identifier: tsjfa36g
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 20
+      - name: raw_ktrla01dzz0kalc016
+        identifier: ktrla01dzz0kalc016
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 178
+      - name: raw_tsjfa36i
+        identifier: tsjfa36i
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 190
+      - name: raw_ktrla01dzz0kalc015
+        identifier: ktrla01dzz0kalc015
+      - name: raw_ktrla01dzz0kalc017
+        identifier: ktrla01dzz0kalc017
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 386
+      - name: raw_tsjfa369
+        identifier: tsjfa369
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 300
+      - name: raw_tsjfa36f
+        identifier: tsjfa36f
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 20
     # AQUA
       - name: raw_nojfa560
         identifier: nojfa560
