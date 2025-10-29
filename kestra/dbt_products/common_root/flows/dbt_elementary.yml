@@ -25,6 +25,8 @@ inputs:
   - id: branch
     type: STRING
     required: false
+    dependsOn:
+      condition: "{{ namespace.ENV  == 'dev' }}"
 
 tasks:
   
