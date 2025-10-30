@@ -56,5 +56,6 @@ tasks:
         # commands:
         #   - dbt snapshot --select scd_cvn18nosiodrjyoho_initial scd_cvn18nosiodrjyoho_latest scd_cvn18nosiodrjyoho_previous --project-dir enterprise_data_products
         commands:
-          - dbt run --select substr_nojfa560
+          - dbt list --select +dm_vinhis_specification_kaigai
+        # - dbt run --select substr_nojfa560
         #   - dbt run --select substr_nojfa560 --project-dir enterprise_data_products
