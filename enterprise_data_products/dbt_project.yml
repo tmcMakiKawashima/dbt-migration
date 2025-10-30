@@ -222,6 +222,12 @@ models:
         dim:
           +access: public
           +materialized: table
+        aisac:
+          +group: parts_list_aisac
+          +schema: aisac
+          dim:
+            +access: public
+            +materialized: table
     ef:
       datamart:
         +snowflake_warehouse: datamart_wh
