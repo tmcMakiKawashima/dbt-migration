@@ -1,0 +1,53 @@
+id: job_build_stg_syaryosys_0945
+namespace: kestra_dbt_project.proj-job-syaryosys
+labels:
+  error: default_failed
+  dbt: build
+# 手動実行時に指定できるdbtオプション
+inputs:
+  - id: dbt_options
+    type: SELECT
+    displayName: Choose dbt options
+    values:
+      - --full-refresh
+    required: false
+    allowCustomValue: true
+tasks:
+  - id: dbt
+    type: io.kestra.plugin.core.flow.WorkingDirectory
+    tasks:
+      - id: clone_repository
+        type: io.kestra.plugin.git.Clone
+      - id: dbt_build
+        type: io.kestra.plugin.dbt.cli.DbtCLI
+        commands:
+          - dbt build
+            --select +stg_hanbaiten_toriatukai_syasyu_master_syaryosys +stg_syasyu_master_syaryosys +stg_grade_info_tbl_syaryosys +stg_bodycolor_info_tbl_syaryosys +stg_option_info_tbl_syaryosys +stg_dfsc_master_syaryosys +stg_dfsc_kanrikino_meisai_kanren_master_syaryosys +stg_dfsc_option_master_syaryosys +stg_siyoumaster_syaryosys +stg_kanrikino_meisaihikiate_master_syaryosys +stg_hanbaiseiyaku_master_syaryosys +stg_chiikihyoujun_soubi_master_syaryosys +stg_uchibarisiyou_master_syaryosys +stg_gaihanshoku_master_syaryosys +stg_optionsiyo_master_syaryosys +stg_seisanwaku_syaryowaku_tbl_syaryosys +stg_seisanwaku_buhinwaku_tbl_syaryosys +stg_farmwaku_syaryosys +stg_koujou_calendar_tbl_syaryosys +stg_order_kakuteibi_tbl_syaryosys
+            --vars '{"DBT_JOB_NAME":"_stg_syaryosys_0945"}'
+            {{ inputs.dbt_options ?? "" }}
+            --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+triggers:
+  - id: schedule
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "45 09 * * *"
+    timezone: Asia/Tokyo
+# エラーログを出力
+errors:
+  - id: error_log
+    type: io.kestra.plugin.core.debug.Return
+    format: "{{ errorLogs()[0]['message'] }}"
+outputs: 
+  - id: output_error_log
+    type: STRING
+    value: "{{ outputs.error_log.value ?? 'No message found.' }}"
+  - id: output_state
+    type: STRING
+    value: "{{ tasks.dbt.state ?? 'No state' }}"
+# ログ出力
+finally:
+  - id: finally_log 
+    type: io.kestra.plugin.core.log.Log
+    message: 
+      - "Git branch -> {{ namespace.GIT.BRANCH }}"
+      - "dbt options -> {{ inputs.dbt_options ?? '' }}"
+disabled: false
