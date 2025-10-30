@@ -80,7 +80,7 @@ with substr_hostalc_na_cka01t0990 as (
     substr(raw_data, 428, 14)::varchar(14) as updateymdel14dg,
     ldts,
     line_number
-  from {{ ref('tmp_hostalc_na_cka01t0990')}}
+  from {{ ref('union_all_na_cka01t0990')}}
 )
 
 select * from substr_hostalc_na_cka01t0990
