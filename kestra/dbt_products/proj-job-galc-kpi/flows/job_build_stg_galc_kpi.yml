@@ -22,6 +22,7 @@ inputs:
       - --full-refresh
     required: false
     allowCustomValue: true
+
 tasks:
   - id: clone_dbt_build
     type: io.kestra.plugin.dbt.cli.DbtCLI
