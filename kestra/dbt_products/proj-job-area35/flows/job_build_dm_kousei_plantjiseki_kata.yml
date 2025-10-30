@@ -30,6 +30,7 @@ tasks:
       - dbt build
         --select +dm_kousei_plantjiseki_kata
         --vars '{"DBT_JOB_NAME":"_dm_kousei_plantjiseki_kata"}'
+        {{ inputs.dbt_options ?? "" }}
 
 triggers:
   - id: schedule
