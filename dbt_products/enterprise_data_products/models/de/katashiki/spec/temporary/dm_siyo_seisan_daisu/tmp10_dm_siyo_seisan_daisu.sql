@@ -12,7 +12,7 @@ with kj as (
     r_prod_month,  -- 生産年月
     r_edno,  -- ｅｄ№
     r_spec_keta,  -- SPEC桁
-    r_spec_kigo  -- SPEC記号
+    trim(r_spec_kigo) as r_spec_kigo  -- SPEC記号
   from {{ref('stg_cam2148_jyukyujyoho')}}
 )
 select
@@ -30,3 +30,5 @@ on (
     kj.r_prod_month = sj.r_prod_month
 and kj.r_edno = sj.r_edno
 )
+where 
+  length(trim(r_spec_kigo)) = 1

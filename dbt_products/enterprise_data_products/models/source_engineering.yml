@@ -23,3 +23,7 @@ sources:
         identifier: tmp_sms_api_parts_info_res_json
       - name: raw_stg_hinban
         identifier: stg_hinban
+
+    # 133後半test用
+      - name: raw_stg_color_no
+        identifier: stg_color_no
