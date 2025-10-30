@@ -17,6 +17,7 @@ with substr_ktrla01vzz0kvs00m2 as (
     substr(raw_data, 43, 1)::varchar(1) as tkskbn,
     substr(raw_data, 44, 16)::varchar(16) as mtuserid,
     substr(raw_data, 60, 26)::varchar(26) as mttime,
+    substr(raw_data, 86, 15)::varchar(15) as filler,
     ldts,
     line_number
   from {{ source('snowpipe_db_valuechain', 'raw_ktrla01vzz0kvs00m2')}}
