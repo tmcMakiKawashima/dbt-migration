@@ -170,7 +170,7 @@ models:
           +access: public
           +materialized: table
         smshokyu:
-          +group: smshokyu
+          +group: parts_smshokyu
           +schema: public
           dim:
             +access: public
@@ -193,21 +193,6 @@ models:
         maint:
           +group: vinhis_maint
           +schema: maint
-          dim:
-            +access: public
-            +materialized: table
-        model:
-          +group: vinhis_model
-          +schema: model
-          dim:
-            +access: public
-            +materialized: table
-      model:
-        +snowflake_warehouse: model_wh
-        +database: model_db
-        repair:
-          +group: model_repair
-          +schema: repair
           dim:
             +access: public
             +materialized: table
