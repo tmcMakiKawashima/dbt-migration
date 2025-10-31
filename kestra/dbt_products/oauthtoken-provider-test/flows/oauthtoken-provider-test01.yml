@@ -25,8 +25,8 @@ tasks:
               task:
                 id: token-provider
                 type: io.kestra.plugin.aws.auth.EksToken
-                region: "{{ namespace.KUBERNETES.REGION }}"
-                clusterName: "{{ namespace.KUBERNETES.CLUSTER_NAME }}"
+                region: ap-northeast-1
+                clusterName: pajp1-dxpf-edp-eks-kestra01
               output: "{{ token.tokenValue }}"
           resources:
             request: # The resources the container is guaranteed to get
