@@ -8,7 +8,8 @@
                     kumitate,
                     bui,
                     kata,
-                    sepnok)",
+                    sepnok,
+                    hikisiyo)",
 
         strategy='timestamp',
         updated_at='ldts',
