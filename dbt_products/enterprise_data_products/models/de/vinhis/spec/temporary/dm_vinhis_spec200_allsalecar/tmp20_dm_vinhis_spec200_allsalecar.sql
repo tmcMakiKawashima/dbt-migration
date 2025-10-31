@@ -1,3 +1,7 @@
+{{ config(
+    materialized='table',
+    transient='true'
+) }}
 -- 1. 装備(VIN×MOP)情報から車種と敗者型式のデータのみ取得
 with tmp_get_union_2 as (
     select distinct
@@ -9,7 +13,7 @@ with tmp_get_union_2 as (
         trim(vin_vds_cd) as vin_vds_cd,
         trim(syasyu_cd) as syasyu,
         trim(haisya_kt) as haisya_kt
-    from {{ source('vinhis_db_ritm0274879_spec','raw_dm_vinhis_specification_union') }}
+    from {{ source('vinhis_db_vinspec','raw_dm_vinhis_specification_union_test') }}
 ),
 
 -- 2-1. 個車生産実績から全レコードを取得
@@ -27,7 +31,7 @@ tmp_get_seisan_jisseki as (
             order by
                 lok_y desc
         ) as latest_rank
-    from {{ source('vinhis_db_ritm0274879_public','raw_dm_allsalecar_seisanjisseki') }}
+    from {{ source('vinhis_db_public','raw_dm_allsalecar_seisanjisseki') }}
 ),
 
 -- 2-2. 個車生産実績から最新のラインオフ計画のレコードのみを取得
@@ -61,11 +65,7 @@ tmp_join_jisseki as (
         b.loj_y,
         b.loj_m,
         b.sk_y,
-        b.sk_m,
-        a.ldts_union,
-        a.ldts_siyouhenkan,
-        b.ldts_seisan,
-        b.ldts_hanbai
+        b.sk_m
     from {{ ref('tmp10_dm_vinhis_spec200_allsalecar') }} a
     inner join tmp_get_seisan_jisseki_latest b
         on trim(a.syadai_kt) = trim(b.syadai_kt) and
@@ -110,12 +110,7 @@ select distinct
     a.loj_y,
     a.loj_m,
     a.sk_y,
-    a.sk_m,
-    a.ldts_union,
-    a.ldts_siyouhenkan,
-    a.ldts_seisan as ldts_seisan_jisseki,
-    a.ldts_hanbai as ldts_hanbai_jisseki,
-    greatest( b.ldts, c.ldts ) as ldts_color
+    a.sk_m
 from tmp_join_jisseki a
 left join {{ ref('stg_color_no') }} b
     on trim(a.int_cd) = b.gclrno

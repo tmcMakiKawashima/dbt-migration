@@ -1,3 +1,7 @@
+{{ config(
+    materialized='table',
+    transient='true'
+) }}
 -- 1. 中間テーブルに工場名称、生産場所を設定する
 with tmp_join_seisanbasyo as (
     select distinct
@@ -5,32 +9,13 @@ with tmp_join_seisanbasyo as (
         b.value_ja as veh_plnt_code_name,
         b.value_en as veh_plnt_code_name_en,
         c.ktfgo,
-        d.seisanbasyo,
-        b.ldts as ldts_veh,
-        c.mttime as ldts_koujyomaster,
-        try_to_timestamp(
-            concat(
-                substr( trim(d.mttime), 1, 4 ),
-                '-',
-                substr( trim(d.mttime), 5, 2 ),
-                '-',
-                substr( trim(d.mttime), 7, 2 ),
-                ' ',
-                substr( trim(d.mttime), 9, 2 ),
-                ':',
-                substr( trim(d.mttime), 11, 2 ),
-                ':',
-                substr( trim(d.mttime), 13, 2 ),
-                '.',
-                substr( trim(d.mttime), 15, 2 )
-            )
-        ) as ldts_katashiki
+        d.seisanbasyo
     from {{ ref('tmp20_dm_vinhis_spec200_allsalecar') }} as a
-    left join {{ source('common_tbl_db_ritm0274879_iqas_name_convert','raw_mst_041veh_plnt_code_name') }} as b
+    left join {{ source('common_tbl_db_iqas_name_convert','raw_mst_041veh_plnt_code_name') }} as b
         on trim(a.veh_plnt_code) = trim(b.table_data_id)
-    left join {{ source('engineering_db_public','raw_m_koujyomaster') }} c
+    left join {{ source('engineering_db_ritm0221441_public','raw_m_koujyomaster') }} c
         on trim(a.veh_plnt_code) = trim(c.veh_plnt_code)
-    left join {{ source('katashiki_db_ritm0248551_basespec','raw_dm_syasyu_katashiki_syaryokoujyo') }} d
+    left join {{ source('katashiki_db_basespec','raw_dm_syasyu_katashiki_syaryokoujyo') }} d
         on trim(a.syasyu) = trim(d.syasyu) and
         trim(a.haisya_kt) = trim(d.kata)
 ),
@@ -167,15 +152,7 @@ tmp_join_rank1_seisanbasyo as (
         a.loj_y,
         a.loj_m,
         a.sk_y,
-        a.sk_m,
-        coalesce( a.ldts_union, to_timestamp('1900-01-01 00:00:00') ) as ldts_union,
-        coalesce( a.ldts_siyouhenkan, to_timestamp('1900-01-01 00:00:00') ) as ldts_siyouhenkan,
-        coalesce( a.ldts_seisan_jisseki, to_timestamp('1900-01-01 00:00:00') ) as ldts_seisan_jisseki,
-        coalesce( a.ldts_hanbai_jisseki, to_timestamp('1900-01-01 00:00:00') ) as ldts_hanbai_jisseki,
-        coalesce( a.ldts_color, to_timestamp('1900-01-01 00:00:00') ) as ldts_color,
-        coalesce( a.ldts_veh, to_timestamp('1900-01-01 00:00:00') ) as ldts_veh,
-        coalesce( a.ldts_koujyomaster, to_timestamp('1900-01-01 00:00:00') ) as ldts_koujyomaster,
-        coalesce( a.ldts_katashiki, to_timestamp('1900-01-01 00:00:00') ) as ldts_katashiki
+        a.sk_m
     from tmp_join_seisanbasyo a
     left join tmp_get_seisanbasyo_latest b
         on trim(a.syasyu) = trim(b.syasyu) and
@@ -184,11 +161,11 @@ tmp_join_rank1_seisanbasyo as (
         trim(a.ktfgo) = trim(b.ktfgo) and
         trim(a.loj_y) = trim(b.loj_y) and
         trim(a.loj_m) = trim(b.loj_m)
-    left join {{ source('parts_list_db_ritm_0248551_public','raw_dm_ktfgo_list') }} as c
+    left join {{ source('parts_list_db_public','raw_dm_ktfgo_list') }} as c
         on trim(b.seisanbasyo) = trim(c.ktfgo)
 )
 
--- 8. LDTSを最新のもののみ残す。
+-- 8. 重複削除
 select distinct
     syadai_kt,
     frmno,
@@ -220,15 +197,5 @@ select distinct
     loj_y,
     loj_m,
     sk_y,
-    sk_m,
-    greatest(
-        ldts_union,
-        ldts_siyouhenkan,
-        ldts_seisan_jisseki,
-        ldts_hanbai_jisseki,
-        ldts_color,
-        ldts_veh,
-        ldts_koujyomaster,
-        ldts_katashiki
-    ) as ldts
+    sk_m
 from tmp_join_rank1_seisanbasyo
