@@ -1,6 +1,5 @@
 -- 1. config設定(incremental merge設定と、post_hook実装)
--- 論理削除処理(論理削除するための比較処理を実装する都合上、updateに入れ込むことができないためpost_hookで実装)
-
+-- 1-1. 論理削除処理(論理削除するための比較処理を実装する都合上、updateに入れ込むことができないためpost_hookで実装)
 {{
     config (
         materialized = 'incremental',
