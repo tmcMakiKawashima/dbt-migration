@@ -1,23 +1,7 @@
 version: 2
-
 models:
-# 車種
-  - name: stg_syasyu
-    config:
-        tags: ["aisac"]
-    columns:
-      - name: syasyu
-        data_tests:
-          - unique:
-              config:
-                severity: error
-          - not_null:
-              config:
-                severity: error
-# イベント変更内容一覧
-  - name: stg_swevent_ebidensu_aisac
-    config:
-      tags: ["aisac"]
+# イベント変更内容一覧_車種
+  - name: dm_swevent_ebidensu
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:

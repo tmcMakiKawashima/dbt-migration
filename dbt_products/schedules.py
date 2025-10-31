@@ -63,6 +63,8 @@ from .schedules_items.valuechain.public.schedule_stg_yui_cpos import schedule_st
 from .schedules_items.employee.organization.schedule_dm_jugyoinjoho import schedule_dm_jugyoinjoho
 """ parts_list """
 from .schedules_items.parts_list.public.schedule_dm_kousei_plantjiseki_kata import schedule_dm_kousei_plantjiseki_kata
+""" parts_list aisac """
+from .schedules_items.parts_list.aisac.schedule_dm_swevent_ebidensu import schedule_dm_swevent_ebidensu
 """ parts_list seppen """
 from .schedules_items.parts_list.seppen.schedule_dm_seppen_bunseki import schedule_dm_seppen_bunseki
 """ parts_list sms"""
@@ -197,6 +199,9 @@ schedules.append(schedule_dm_jugyoinjoho)
 """ parts_list """
 # AREA35品番属性情報追加
 schedules.append(schedule_dm_kousei_plantjiseki_kata)
+""" parts_list aisac """
+# SWイベント情報追加　認証不正対応
+schedules.append(schedule_dm_swevent_ebidensu)
 """ parts_list seppen """
 # 認証不正防止対応(設変分析)
 schedules.append(schedule_dm_seppen_bunseki)
