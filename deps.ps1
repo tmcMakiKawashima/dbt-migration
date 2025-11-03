@@ -1,30 +1,21 @@
 # ==== const ======================================================================================
-# dagster env value
-$DAGSTER_DIR = "$HOME\dagster"
+# dev env value
+$DEV_DIR = "$HOME\dev"
 
 # dbt env value
-$DBT_PROJECT_DIR = "$HOME\dagster\dagster_cloud_deploy\dbt_products\enterprise_data_products"
-
-# my command path
-$CURRENT_DIR = $PSScriptRoot
+$DBT_PROJECT_DIR = "$HOME\dev\kestra_dbt_project\enterprise_data_products"
 
 
 
-# ==== dagster project deps install ===============================================================
-# dagster dir
-cd $DAGSTER_DIR\
+# ==== dev project deps install ===============================================================
+# dev dir
+cd $DEV_DIR
 
 # PowerShell executionPolicy setting
 Set-ExecutionPolicy RemoteSigned -Scope Process -force
 
-# Python venv activate for dagster
+# Python venv activate for dev
 venv\Scripts\activate
-
-# dagster project dir
-cd $CURRENT_DIR
-
-# dagster project deps install
-pip install -e ".[dev]"
 
 # dbt dir
 cd $DBT_PROJECT_DIR
@@ -32,5 +23,5 @@ cd $DBT_PROJECT_DIR
 # dbt deps install
 dbt deps
 
-# Python venv deactivate for dagster
+# Python venv deactivate for dev
 deactivate
