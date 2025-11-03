@@ -1,7 +1,7 @@
 with eth as (
   select 
     seppenno, -- 設変№
-    ecikbn as kubun, -- 区分
+    ecikbn, -- 区分
     syasyu, -- 車種コード
     tekiyo, -- 適用範囲
     substr(tekiyo,1,4)::varchar(4) as kumitate, -- 組立番号
@@ -22,7 +22,7 @@ from eth
 left join tsy
 on (
     eth.seppenno = tsy.seppenno
-and eth.kubun = tsy.ecikbn
+and eth.ecikbn = tsy.ecikbn
 and eth.syasyu = tsy.unitcd
 and eth.tekiyo = tsy.tekiyo
 )
