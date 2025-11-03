@@ -10,10 +10,12 @@ from .schedules_items.administration.public.schedule_stg_mikado_jnet_0715 import
 from .schedules_items.administration.public.schedule_stg_mikado_judgev import schedule_stg_mikado_judgev
 """ customerservice """
 from .schedules_items.customerservice.public.schedule_d_sias import schedule_d_sias
+from .schedules_items.customerservice.public.schedule_stg_iqas_0000 import schedule_stg_iqas_0000
 from .schedules_items.customerservice.public.schedule_stg_warranty import schedule_stg_warranty
 """ engineering """
 from .schedules_items.engineering.public.schedule_stg_aisac import schedule_stg_aisac
 from .schedules_items.engineering.public.schedule_stg_paint_iot import schedule_stg_paint_iot
+from .schedules_items.engineering.public.schedule_stg_smsdatamart import schedule_stg_smsdatamart
 from .schedules_items.engineering.public.schedule_tmp_sms_api_parts_info_req_json import schedule_tmp_sms_api_parts_info_req_json
 """ manufacturing """
 from .schedules_items.manufacturing.public.schedule_stg_kojoiotpf import schedule_stg_kojoiotpf
@@ -41,22 +43,29 @@ from .schedules_items.supplydemand.public.schedule_stg_kodomo import schedule_st
 from .schedules_items.supplydemand.public.schedule_stg_siyou_soubi_siyoumst import schedule_stg_siyou_soubi_siyoumst
 from .schedules_items.supplydemand.public.schedule_stg_siyou_soubi_syasyu_siyousyo import schedule_stg_siyou_soubi_syasyu_siyousyo
 from .schedules_items.supplydemand.public.schedule_stg_syaryoindex import schedule_stg_syaryoindex
+from .schedules_items.supplydemand.public.schedule_stg_syaryosys_0830 import schedule_stg_syaryosys_0830
+from .schedules_items.supplydemand.public.schedule_stg_syaryosys_0830_1130_1430 import schedule_stg_syaryosys_0830_1130_1430
+from .schedules_items.supplydemand.public.schedule_stg_syaryosys_0945 import schedule_stg_syaryosys_0945
 from .schedules_items.supplydemand.public.schedule_stg_vlt_ord import schedule_stg_vlt_ord
 """ valuechain """
 from .schedules_items.valuechain.public.schedule_d_epc import schedule_d_epc
 from .schedules_items.valuechain.public.schedule_d_gsps import schedule_d_gsps
+from .schedules_items.valuechain.public.schedule_d_gsps_0600 import schedule_d_gsps_0600
+from .schedules_items.valuechain.public.schedule_d_hokyusms_0600 import schedule_d_hokyusms_0600
+from .schedules_items.valuechain.public.schedule_d_topacs_0600 import schedule_d_topacs_0600
 from .schedules_items.valuechain.public.schedule_stg_atop import schedule_stg_atop
+from .schedules_items.valuechain.public.schedule_stg_atop_0400 import schedule_stg_atop_0400
+from .schedules_items.valuechain.public.schedule_stg_pixy import schedule_stg_pixy
 from .schedules_items.valuechain.public.schedule_stg_smshokyu import schedule_stg_smshokyu
+from .schedules_items.valuechain.public.schedule_stg_smshokyu_0630 import schedule_stg_smshokyu_0630
 from .schedules_items.valuechain.public.schedule_stg_yui_cpos import schedule_stg_yui_cpos
 """ E """
 """ employee """
 from .schedules_items.employee.organization.schedule_dm_jugyoinjoho import schedule_dm_jugyoinjoho
-""" model repair """
-from .schedules_items.model.repair.schedule_dm_cataloghinmei import schedule_dm_cataloghinmei
-from .schedules_items.model.repair.schedule_dm_figbunkaiinfo import schedule_dm_figbunkaiinfo
-from .schedules_items.model.repair.schedule_dm_vehicle_generation import schedule_dm_vehicle_generation
 """ parts_list """
 from .schedules_items.parts_list.public.schedule_dm_kousei_plantjiseki_kata import schedule_dm_kousei_plantjiseki_kata
+""" parts_list aisac """
+from .schedules_items.parts_list.aisac.schedule_dm_swevent_ebidensu import schedule_dm_swevent_ebidensu
 """ parts_list seppen """
 from .schedules_items.parts_list.seppen.schedule_dm_seppen_bunseki import schedule_dm_seppen_bunseki
 """ parts_list sms"""
@@ -66,9 +75,6 @@ from .schedules_items.parts_list.sms.schedule_tmp_kousei03_blktenkai import sche
 from .schedules_items.parts_list.sms.schedule_tmp_legacy_kousei03_blktenkai import schedule_tmp_legacy_kousei03_blktenkai
 """ vinhis maint """
 from .schedules_items.vinhis.maint.schedule_dm_vinhis_maint import schedule_dm_vinhis_maint
-""" vinhis model """
-from .schedules_items.vinhis.model.schedule_dm_vin_model import schedule_dm_vin_model
-from .schedules_items.vinhis.model.schedule_dm_vin_model_nonesyasyu import schedule_dm_vin_model_nonesyasyu
 """ vinhis spec """
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification import schedule_dm_vinhis_specification
 from .schedules_items.vinhis.spec.schedule_dm_vinhis_specification_kaigai import schedule_dm_vinhis_specification_kaigai
@@ -99,6 +105,8 @@ schedules.append(schedule_stg_mikado_judgev)
 """ customerservice """
 # D層SIAS
 schedules.append(schedule_d_sias)
+# iQAS_0000
+schedules.append(schedule_stg_iqas_0000)
 # ワランティ
 schedules.append(schedule_stg_warranty)
 """ engineering """
@@ -106,6 +114,8 @@ schedules.append(schedule_stg_warranty)
 schedules.append(schedule_stg_aisac)
 # TMK塗装IoT
 schedules.append(schedule_stg_paint_iot)
+# SMSデータマート
+schedules.append(schedule_stg_smsdatamart)
 # SMS API（品番情報） REQUEST
 schedules.append(schedule_tmp_sms_api_parts_info_req_json)
 """ manufacturing """
@@ -155,6 +165,10 @@ schedules.append(schedule_stg_siyou_soubi_siyoumst)
 schedules.append(schedule_stg_siyou_soubi_syasyu_siyousyo)
 # 車両INDEX
 schedules.append(schedule_stg_syaryoindex)
+#車両システム
+schedules.append(schedule_stg_syaryosys_0830)
+schedules.append(schedule_stg_syaryosys_0830_1130_1430)
+schedules.append(schedule_stg_syaryosys_0945)
 # VLTオーダー確定日チェックEUC
 schedules.append(schedule_stg_vlt_ord)
 """ valuechain """
@@ -162,26 +176,33 @@ schedules.append(schedule_stg_vlt_ord)
 schedules.append(schedule_d_epc)
 # D層GSPS
 schedules.append(schedule_d_gsps)
+# D層GSPS_0600
+schedules.append(schedule_d_gsps_0600)
+# D層補給SMS_0600
+schedules.append(schedule_d_hokyusms_0600)
+# D層TOPACS_0600
+schedules.append(schedule_d_topacs_0600)
 # ATOP
 schedules.append(schedule_stg_atop)
+schedules.append(schedule_stg_atop_0400)
+# PIXY
+schedules.append(schedule_stg_pixy)
 # D層補給SMS_出荷先
 schedules.append(schedule_stg_smshokyu)
+# D層補給SMS
+schedules.append(schedule_stg_smshokyu_0630)
 # YUI_CPOS
 schedules.append(schedule_stg_yui_cpos)
 """ E層作成ジョブ """
 """ employee """
 # 従業員情報
 schedules.append(schedule_dm_jugyoinjoho)
-""" model repair """
-# EPCカタログ品名
-schedules.append(schedule_dm_cataloghinmei)
-# FIG分解情報
-schedules.append(schedule_dm_figbunkaiinfo)
-# 車種世代
-schedules.append(schedule_dm_vehicle_generation)
 """ parts_list """
 # AREA35品番属性情報追加
 schedules.append(schedule_dm_kousei_plantjiseki_kata)
+""" parts_list aisac """
+# SWイベント情報追加　認証不正対応
+schedules.append(schedule_dm_swevent_ebidensu)
 """ parts_list seppen """
 # 認証不正防止対応(設変分析)
 schedules.append(schedule_dm_seppen_bunseki)
@@ -197,11 +218,6 @@ schedules.append(schedule_tmp_legacy_kousei03_blktenkai)
 """ vinhis maint """
 # VIN整備
 schedules.append(schedule_dm_vinhis_maint)
-""" vinhis model """
-# VIN x 車両情報
-schedules.append(schedule_dm_vin_model)
-# VIN x 車両情報（車種コード指定なし）
-schedules.append(schedule_dm_vin_model_nonesyasyu)
 """ vinhis spec """
 # VIN装備
 schedules.append(schedule_dm_vinhis_specification)

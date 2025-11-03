@@ -26,3 +26,9 @@ sources:
         identifier: cvh02taiohhinban
       - name: raw_cvh02tikihokyu
         identifier: cvh02tikihokyu
+      - name: raw_cvf21kyugata
+        identifier: cvf21kyugata
+      - name: raw_cvf03hosetugen
+        identifier: cvf03hosetugen
+      - name: raw_cvf03hosetuclrgen
+        identifier: cvf03hosetuclrgen
