@@ -1,0 +1,45 @@
+id: alert_test_warn
+namespace: kestra_dbt_project.release_test
+
+labels:
+  error: default_failed
+  dbt_docs: generate
+  dbt: build
+
+tasks:
+  - id: hello
+    type: io.kestra.plugin.core.log.Log
+    message: Hello World! 🚀
+    
+  - id: error
+    type: io.kestra.plugin.core.log.Log
+    level: ERROR
+    message: "This is an WARNING message"
+ 
+  - id: dbt
+    type: io.kestra.plugin.core.execution.Fail
+    allowFailure: true
+
+# エラーログを出力
+errors:
+  - id: error_log
+    type: io.kestra.plugin.core.debug.Return
+    format: "{{ errorLogs()[0]['message'] }}"
+
+outputs: 
+  - id: output_error_log
+    type: STRING
+    value: "{{ outputs.error_log.value ?? 'No message found.' }}"
+  - id: output_state
+    type: STRING
+    value: "{{ tasks.dbt.state ?? 'No state' }}"
+
+# ログ出力
+finally:
+  - id: finally_log 
+    type: io.kestra.plugin.core.log.Log
+    message: 
+      - "Git branch -> {{ namespace.GIT.BRANCH }}"
+      - "dbt options -> {{ inputs.dbt_options }}"
+      
+disabled: false
