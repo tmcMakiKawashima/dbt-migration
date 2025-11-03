@@ -13,7 +13,7 @@ with stg_kiken as (
         kosincompid::varchar(5) as kosincompid,
         kosinuserid::varchar(10) as kosinuserid,
         kosintime::varchar(16) as kosintime,
-        _fivetran_synced as ldts
+        _fivetran_synced::timestamp_ntz as ldts
     from {{source('fivetran_database_idr_gsps_dxpfy2d', 'raw_cvk09kiken')}}
     where _fivetran_deleted = 'false'
 )

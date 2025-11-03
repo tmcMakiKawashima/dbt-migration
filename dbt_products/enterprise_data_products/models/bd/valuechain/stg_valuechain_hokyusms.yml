@@ -1,0 +1,16 @@
+version: 2
+models:
+
+# 補給SMS_極
+  - name: stg_kyoku_hokyusms
+    config:
+      tags: ["hokyusms"]
+    columns:
+      - name: kyokucd
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
