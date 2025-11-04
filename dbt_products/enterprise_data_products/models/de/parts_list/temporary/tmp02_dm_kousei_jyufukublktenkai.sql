@@ -17,7 +17,15 @@ with recursive siyoubui_jyufuku as (
     ksc.torokujunm, -- 登録／生認順マデ
     kj3.kohin as add_hinban, -- 重複の下の重複品番
     kj3.tyohuku, -- 重複記載
-    ksc.com -- 構成コメント
+    ksc.com, -- 構成コメント
+    array_construct(
+      (
+        kj1.syasyu || '|' ||
+        kj1.siyoubui || '|' ||
+        kj1.kohin || '|' ||
+        left(kj2.siyoubui, 4)
+      )::variant
+    ) as node_key
   -- 重複コメントの使用部位を集める
   from 
     (
@@ -74,7 +82,18 @@ with recursive siyoubui_jyufuku as (
       ksc.torokujunm, -- 登録生認順マデ
       kj3.kohin, -- 重複の下の重複品番
       kj3.tyohuku, -- 重複記載
-      ksc.com -- 構成コメント
+      ksc.com, -- 構成コメント
+      array_cat(
+        sj.node_key,
+        array_construct(
+          (
+            sj.syasyu || '|' ||
+            sj.siyoubui || '|' ||
+            sj.kohin || '|' ||
+            left(kj2.siyoubui, 4)
+          )::variant
+        )
+      )
     from siyoubui_jyufuku as sj
     -- 対象のコメントの使用部位を集める
     inner join {{ref('tmp01_dm_kousei_jyufukublktenkai')}} as kj2
@@ -108,6 +127,15 @@ with recursive siyoubui_jyufuku as (
     and kj2.siyoubui = kj3.siyoubui
     )
   where sj.jyufuku_kaisou < 99
+    and not array_contains(
+      (
+        sj.syasyu || '|' ||
+        sj.siyoubui || '|' ||
+        sj.kohin || '|' ||
+        left(kj2.siyoubui, 4)
+      )::variant,
+      sj.node_key
+    )
 ),
 tmp01_dm_kousei_jyufukublktenkai as (
 select distinct 
@@ -124,7 +152,7 @@ select distinct
   from {{ref('tmp01_dm_kousei_jyufukublktenkai')}}
   where tyohuku != ''
 )
-select * from siyoubui_jyufuku
+select distinct * exclude(node_key) from siyoubui_jyufuku
 union all
 -- 最初の使用部位を足す
 select * from tmp01_dm_kousei_jyufukublktenkai
