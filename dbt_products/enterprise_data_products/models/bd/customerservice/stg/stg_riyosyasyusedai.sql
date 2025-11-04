@@ -1,19 +1,3 @@
-{{
-    config (
-        post_hook=
-            'create or replace hybrid table customerservice_db.public.stg_riyosyasyusedai (
-                cd_pubbnd varchar(6) not null,
-                mj_opt1_str varchar(100),
-                mj_opt2_str varchar(100),
-                mj_opt3_str varchar(100),
-                mj_opt4_str varchar(100),
-                mj_opt5_str varchar(100),
-                ldts timestamp_ntz(9),
-                constraint stg_riyosyasyusedai_cd_pubbnd_uk primary key (cd_pubbnd) rely
-            ) as select * from {{this}}'
-    )
-}}
-
 with
     stg_riyosyasyusedai as (
         select
