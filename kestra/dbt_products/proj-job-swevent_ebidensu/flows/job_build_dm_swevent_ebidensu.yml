@@ -29,6 +29,7 @@ tasks:
     commands:
       - dbt build
         --select +dm_swevent_ebidensu
+        --exclude stg_syasyu
         --vars '{"DBT_JOB_NAME":"_dm_swevent_ebidensu"}'
         {{ inputs.dbt_options ?? "" }}
 
