@@ -29,9 +29,7 @@ with ssua as (
     select
 		r_country_code,
 		r_country_name
-    from {{source('supplydemand_db_public','raw_m_cuad001')}}
-    --from {{ref('m_cuad001')}}
-)
+    from {{source('supplydemand_db_public','raw_m_cuad001')}})
 select
 	sksk.syasyu,
 	sksk.kata,
