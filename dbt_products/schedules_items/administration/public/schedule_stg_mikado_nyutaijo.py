@@ -16,6 +16,6 @@ schedule_stg_mikado_nyutaijo = build_schedule_from_dbt_selection(
                           }
                      ),
     # default_status=DefaultScheduleStatus.RUNNING,
-    tags={"ecs/cpu": "256", "ecs/memory": "1024",
+    tags={"ecs/cpu": "512", "ecs/memory": "2048",
           "job_name": "job_build_stg_mikado_nyutaijo"},
 )

@@ -1,0 +1,10 @@
+version: 2
+
+models:
+# 機能明細コード名称マスタ
+  - name: byte_ktrla01dzz0kalc015
+    columns:
+      - name: raw_data
+        data_tests:
+          - fixed_length:
+              length: 120

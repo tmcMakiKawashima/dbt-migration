@@ -8,3 +8,15 @@ sources:
     # sms-kousei
       - name: raw_tmp_junkanri_blktenkai
         identifier: tmp_junkanri_blktenkai
+      - name: raw_tmp_legacy_junkanri_blktenkai
+        identifier: tmp_legacy_junkanri_blktenkai
+        
+  - name: parts_list_db_public
+    database: parts_list_db
+    schema: public
+    tables:
+    # koumu-sms
+      - name: raw_dm_latest_kouseikoutei_plant
+        identifier: dm_latest_kouseikoutei_plant
+      - name: raw_dm_latest_sekkei
+        identifier: dm_latest_sekkei
