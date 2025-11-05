@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: katashiki_db_basespec
+    database: KATASHIKI_DB
+    schema: BASESPEC
+    tables:
+      - name: raw_dm_syasyu_kata_sijino_plant
+        identifier: DM_SYASYU_KATA_SIJINO_PLANT
+# 133後半test用
+  - name: katashiki_db_spec
+    database: KATASHIKI_DB
+    schema: SPEC
+    tables:
+      - name: raw_tmp20_dm_siyo_seisan_daisu_test
+        identifier: TMP20_DM_SIYO_SEISAN_DAISU_TEST

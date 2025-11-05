@@ -6,3 +6,7 @@ sources:
     tables:
       - name: raw_m_hostalc_psc_plantcode
         identifier: m_hostalc_psc_plantcode
+
+    # 動的union allを行うdbtモデル
+      - name: raw_dbt_union_all_tables
+        identifier: dbt_union_all_tables

@@ -15,3 +15,6 @@ sources:
         identifier: ST_JPSALECAR_AQUA_JPSEISAN_FRMKBN
       - name: raw_st_jpsalecar
         identifier: ST_JPSALECAR_AQUA_JPSEISAN
+
+      - name: raw_m_cuad001
+        identifier: M_CUAD001
