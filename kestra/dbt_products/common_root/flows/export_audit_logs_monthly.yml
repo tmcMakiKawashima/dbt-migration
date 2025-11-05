@@ -1,0 +1,47 @@
+id: export_audit_logs_monthly
+namespace: kestra_dbt_project
+description: Audit Logsを出力してS3に格納するFlow(月次)
+
+labels:
+  type: common_root
+  error: default_failed
+
+tasks:
+  - id: ship_audit_logs
+    type: io.kestra.plugin.ee.core.log.AuditLogShipper
+    lookbackPeriod: P31D # P1M -> error
+    offsetKey: AuditLogShipper-MonthlyOffset
+    logExporters:
+      - id: S3
+        type: io.kestra.plugin.ee.aws.s3.LogExporter
+        format: JSON
+        region: ap-northeast-1
+        bucket: "{{ namespace.EXPORT_AUDIT_LOGS.MONTHLY.S3_BUCKET }}"
+        logFilePrefix: "{{ namespace.EXPORT_AUDIT_LOGS.MONTHLY.BASE_PATH }}/kestra-auditlog-file" # kestra-auditlog-file-2025-09-01T08_09_39.092979436.json
+
+triggers:
+  - id: schedule
+    type: io.kestra.plugin.core.trigger.Schedule
+    timezone: Asia/Tokyo
+    cron: "00 00 1 * *"
+
+# エラーログを出力
+errors:
+  - id: error_log
+    type: io.kestra.plugin.core.debug.Return
+    format: "{{ errorLogs()[0]['message'] }}"
+
+outputs: 
+  - id: output_error_log
+    type: STRING
+    value: "{{ outputs.error_log.value ?? 'No message found.' }}"
+  - id: output_state
+    type: STRING
+    value: "{{ tasks.ship_audit_logs.state ?? 'No state' }}"
+
+# ログ出力
+finally:
+  - id: finally_log 
+    type: io.kestra.plugin.core.log.Log
+    message: |
+      logFilePath: s3://{{ namespace.EXPORT_AUDIT_LOGS.MONTHLY.S3_BUCKET }}/{{ namespace.EXPORT_AUDIT_LOGS.MONTHLY.BASE_PATH }}/kestra-auditlog-file-{{ execution.startDate | date("yyyy-MM-dd'T'HH:mm") }}:ss.SSSSSSSSS.json
