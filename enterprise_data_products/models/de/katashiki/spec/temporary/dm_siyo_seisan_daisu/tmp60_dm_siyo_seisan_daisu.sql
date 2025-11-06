@@ -24,7 +24,6 @@ with ssua as (
 		gclrno,
 		iromei
     from {{source('engineering_db_public','raw_stg_color_no')}}
-    --from {{ref('stg_color_no')}}
 ), km as (
     select
 		r_country_code,
