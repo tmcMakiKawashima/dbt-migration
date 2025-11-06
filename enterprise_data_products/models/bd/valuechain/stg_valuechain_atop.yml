@@ -177,7 +177,7 @@ models:
               config:
                 severity: error
 # 納期管理ファイル
-  - name: stg_noukikanri_file_atop
+  - name: stg_noukikanri_atop
     config:
       tags: ["atop"]
     columns:
