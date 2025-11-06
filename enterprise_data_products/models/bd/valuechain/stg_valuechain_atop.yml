@@ -167,7 +167,7 @@ models:
               config:
                 severity: error
 # 国内受注実績（日別）ファイル
-  - name: stg_kokunaijuchuujisseki_hibetsu_file_atop
+  - name: stg_kokunaijutyujisseki_daily_atop
     config:
       tags: ["atop"]
     columns:
@@ -177,7 +177,7 @@ models:
               config:
                 severity: error
 # 納期管理ファイル
-  - name: stg_noukikanri_file_atop
+  - name: stg_noukikanri_atop
     config:
       tags: ["atop"]
     columns:
