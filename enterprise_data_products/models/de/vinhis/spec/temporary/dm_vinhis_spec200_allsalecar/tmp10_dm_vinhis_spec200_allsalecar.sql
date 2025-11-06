@@ -16,7 +16,7 @@ with tmp_get_union as (
         trim(haisya_kt) as haisya_kt,
         sketa_cd,
         skigo_cd
-    from {{ source('vinhis_db_vinspec','raw_dm_vinhis_specification_union_test') }}
+    from {{ source('vinhis_db_spec','raw_dm_vinhis_specification_union') }}
     where
         coalesce( trim(sketa_cd), '' ) <> '' and
         coalesce( trim(skigo_cd), '' ) <> ''
@@ -38,7 +38,7 @@ tmp_get_siyouhenkan as (
             order by
                 tekikara desc
         ) as latest_rank
-    from {{ source('supplydemand_db_public','raw_da20943a') }}
+    from {{ source('supplydemand_db_public','raw_stg_siyouhenkan') }}
 ),
 
 -- 2-2. 仕様変換テーブルの最も適用日が最新のレコードのみを取得
@@ -51,8 +51,8 @@ tmp_get_siyouhenkan_latest as
 tmp_join_siyo4 as (
     select
         a.*,
-        b.siyoudai4,
-        b.siyousai4
+        coalesce(b.siyoudai4, '') as siyoudai4,
+        coalesce(b.siyousai4, '') as siyousai4
     from tmp_get_union a
     left join tmp_get_siyouhenkan_latest b
         on trim(a.syasyu) = trim(b.syasyu) and

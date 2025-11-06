@@ -2,22 +2,8 @@
     materialized='table',
     transient='true'
 ) }}
--- 1. 装備(VIN×MOP)情報から車種と敗者型式のデータのみ取得
-with tmp_get_union_2 as (
-    select distinct
-        trim(syadai_kt) as syadai_kt,
-        trim(frm_no) as frm_no,
-        trim(wmi) as wmi,
-        trim(vds) as vds,
-        trim(mdlyr) as mdlyr,
-        trim(vin_vds_cd) as vin_vds_cd,
-        trim(syasyu_cd) as syasyu,
-        trim(haisya_kt) as haisya_kt
-    from {{ source('vinhis_db_vinspec','raw_dm_vinhis_specification_union_test') }}
-),
-
--- 2-1. 個車生産実績から全レコードを取得
-tmp_get_seisan_jisseki as (
+-- 1-1. 個車生産実績から全レコードを取得
+with tmp_get_seisan_jisseki as (
     select
         *,
         row_number() over (
@@ -34,12 +20,12 @@ tmp_get_seisan_jisseki as (
     from {{ source('vinhis_db_public','raw_dm_allsalecar_seisanjisseki') }}
 ),
 
--- 2-2. 個車生産実績から最新のラインオフ計画のレコードのみを取得
+-- 1-2. 個車生産実績から最新のラインオフ計画のレコードのみを取得
 tmp_get_seisan_jisseki_latest as (
     select * from tmp_get_seisan_jisseki where latest_rank = 1
 ),
 
--- 3. 横持レコードに対して。個車生産実績から取得した各情報を結合
+-- 2. 横持レコードに対して。個車生産実績から取得した各情報を結合
 tmp_join_jisseki as (
     select
         a.syadai_kt,
@@ -48,8 +34,8 @@ tmp_join_jisseki as (
         a.vds,
         a.mdlyr,
         a.vin_vds_cd,
-        c.syasyu,
-        c.haisya_kt,
+        b.syasyu_cd as syasyu,
+        b.haisya_kt,
         a.spec200,
         a.daisai200,
         b.int_cd,
@@ -74,16 +60,9 @@ tmp_join_jisseki as (
         trim(a.vds) = trim(b.vds) and
         trim(a.mdlyr) = trim(b.mdlyr) and
         trim(a.vin_vds_cd) = trim(b.vin_vds_cd)
-    left join tmp_get_union_2 c
-        on trim(a.syadai_kt) = trim(c.syadai_kt) and
-        trim(a.frm_no) = trim(c.frm_no) and
-        trim(a.wmi) = trim(c.wmi) and
-        trim(a.vds) = trim(c.vds) and
-        trim(a.mdlyr) = trim(c.mdlyr) and
-        trim(a.vin_vds_cd) = trim(c.vin_vds_cd)
 )
 
--- 4. 項目の名称変換と、外張・内張の色名を結合し、中間テーブルとする
+-- 3. 項目の名称変換と、外張・内張の色名を結合し、中間テーブルとする
 select distinct
     a.syadai_kt,
     a.frm_no,
@@ -96,9 +75,9 @@ select distinct
     a.spec200,
     a.daisai200 as spec200_siyo,
     a.int_cd,
-    b.iromei as int_cd_iromei,
+    coalesce(b.iromei, '') as int_cd_iromei,
     a.ext_cd,
-    c.iromei as ext_cd_iromei,
+    coalesce(c.iromei, '') as ext_cd_iromei,
     a.dest_cd,
     a.dest,
     a.psc,
