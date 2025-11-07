@@ -129,6 +129,6 @@ select
     loj_m,
     sk_y,
     sk_m,
-    current_timestamp() as ldts,
-    false as delflg
+    current_timestamp()::timestamp_ntz(9) as ldts,
+    false::boolean as delflg
 from tmp_get_target

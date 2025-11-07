@@ -13,7 +13,7 @@ with tmp_join_seisanbasyo as (
     from {{ ref('tmp20_dm_vinhis_spec200_allsalecar') }} as a
     left join {{ source('common_tbl_db_iqas_name_convert','raw_mst_041veh_plnt_code_name') }} as b
         on trim(a.veh_plnt_code) = trim(b.table_data_id)
-    left join {{ source('engineering_db_ritm0221441_public','raw_m_koujyomaster') }} c
+    left join {{ source('engineering_db_public','raw_m_koujyomaster') }} c
         on trim(a.veh_plnt_code) = trim(c.veh_plnt_code)
     left join {{ source('katashiki_db_basespec','raw_dm_syasyu_katashiki_syaryokoujyo') }} d
         on trim(a.syasyu) = trim(d.syasyu) and
@@ -108,10 +108,10 @@ tmp_join_joken as (
         on trim(a.syasyu) = trim(b.syasyu) and
         trim(a.haisya_kt) = trim(b.haisya_kt) and
         trim(a.veh_plnt_code) = trim(b.veh_plnt_code) and
-        trim(a.ktfgo) = trim(b.ktfgo) and
+        equal_null( a.ktfgo, b.ktfgo ) and
         trim(a.loj_y) = trim(b.loj_y) and
         trim(a.loj_m) = trim(b.loj_m) and
-        trim(a.seisanbasyo) = trim(b.seisanbasyo)
+        equal_null( a.seisanbasyo, b.seisanbasyo )
 ),
 
 -- 6. 最優先となる生産場所の取得
@@ -119,7 +119,7 @@ tmp_get_seisanbasyo_latest as (
     select * from tmp_join_joken where rnk = 1
 ),
 
--- 7. 最優先となる生産場所を設定、また追加・更新日がNULLを最小日付へ変換
+-- 7. 最優先となる生産場所を設定
 tmp_join_rank1_seisanbasyo as (
     select
         a.syadai_kt,
@@ -158,7 +158,6 @@ tmp_join_rank1_seisanbasyo as (
         on trim(a.syasyu) = trim(b.syasyu) and
         trim(a.haisya_kt) = trim(b.haisya_kt) and
         trim(a.veh_plnt_code) = trim(b.veh_plnt_code) and
-        trim(a.ktfgo) = trim(b.ktfgo) and
         trim(a.loj_y) = trim(b.loj_y) and
         trim(a.loj_m) = trim(b.loj_m)
     left join {{ source('parts_list_db_public','raw_dm_ktfgo_list') }} as c
