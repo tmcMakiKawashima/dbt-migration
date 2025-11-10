@@ -11,16 +11,3 @@ sources:
     tables:
       - name: raw_cyp23colorno
         identifier: CYP23COLORNO
-
-  - name: fivetran_database_ritm0274879_oraclerds_lzdata01_sms_dxpfy2d
-    database: fivetran_database_ritm0274879
-    schema: oraclerds_lzdata01_sms_dxpfy2d
- 
-    freshness:
-      warn_after: { count: 1, period: hour }
-      error_after: { count: 24, period: hour }
-    loaded_at_field: _fivetran_synced
- 
-    tables:
-      - name: raw_cyp23colorno
-        identifier: CYP23COLORNO
