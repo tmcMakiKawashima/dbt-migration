@@ -5,8 +5,16 @@ labels:
   error: default_failed
   dbt: build
 
+retry:
+  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK 
+  type: exponential
+  interval: PT5S
+  maxAttempts: 3
+  maxInterval: PT720S
+  delayFactor: 30
+
 tasks:
-  - id: dbt
+  - id: clone_dbt_build
     type: io.kestra.plugin.core.log.Log
     message: Hello World! 🚀
     
@@ -23,13 +31,14 @@ outputs:
     value: "{{ outputs.error_log.value ?? 'No message found.' }}"
   - id: output_state
     type: STRING
-    value: "{{ tasks.dbt.state ?? 'No state' }}"
+    value: "{{ tasks.clone_dbt_build.state ?? 'No state' }}"
 
 # ログ出力
 finally:
   - id: finally_log 
     type: io.kestra.plugin.core.log.Log
     message: 
-      - "Git branch -> {{ namespace.GIT.BRANCH }}"
+      - "Git branch -> {{ namespace.GIT.BRANCH ?? '' }}"
+      - "dbt options -> {{ inputs.dbt_options ?? '' }}"
       
 disabled: false

@@ -1,6 +1,14 @@
 id: alert_test_no_label
 namespace: kestra_dbt_project.release_test
 
+retry:
+  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK 
+  type: exponential
+  interval: PT5S
+  maxAttempts: 3
+  maxInterval: PT720S
+  delayFactor: 30
+
 tasks:
   - id: hello
     type: io.kestra.plugin.core.log.Log
@@ -11,7 +19,7 @@ tasks:
     level: ERROR
     message: "This is an ERROR message"
  
-  - id: dbt
+  - id: clone_dbt_build
     type: io.kestra.plugin.core.execution.Fail
 
 # エラーログを出力
@@ -26,14 +34,14 @@ outputs:
     value: "{{ outputs.error_log.value ?? 'No message found.' }}"
   - id: output_state
     type: STRING
-    value: "{{ tasks.dbt.state ?? 'No state' }}"
+    value: "{{ tasks.clone_dbt_build.state ?? 'No state' }}"
 
 # ログ出力
 finally:
   - id: finally_log 
     type: io.kestra.plugin.core.log.Log
     message: 
-      - "Git branch -> {{ namespace.GIT.BRANCH }}"
-      - "dbt options -> {{ inputs.dbt_options }}"
+      - "Git branch -> {{ namespace.GIT.BRANCH ?? '' }}"
+      - "dbt options -> {{ inputs.dbt_options ?? '' }}"
       
 disabled: false

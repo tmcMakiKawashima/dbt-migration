@@ -4,6 +4,14 @@ namespace: kestra_dbt_project.release_test
 labels:
   error: default_failed
 
+retry:
+  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK 
+  type: exponential
+  interval: PT5S
+  maxAttempts: 3
+  maxInterval: PT720S
+  delayFactor: 30
+
 tasks:
   - id: python
     type: io.kestra.plugin.scripts.python.Commands
@@ -49,5 +57,11 @@ outputs:
   - id: output_state
     type: STRING
     value: "{{ tasks.python.state ?? 'No state' }}"
-      
-disabled: false
+
+# ログ出力
+finally:
+  - id: finally_log 
+    type: io.kestra.plugin.core.log.Log
+    message: 
+      - "Git branch -> {{ namespace.GIT.BRANCH ?? '' }}"
+      - "dbt options -> {{ inputs.dbt_options ?? '' }}"
