@@ -37,6 +37,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
 models:
+  +transient: false
   elementary:
     +database: common_tbl_db
     +schema: elementary
@@ -192,21 +193,6 @@ models:
           dim:
             +access: public
             +materialized: table
-        model:
-          +group: vinhis_model
-          +schema: model
-          dim:
-            +access: public
-            +materialized: table
-      model:
-        +snowflake_warehouse: model_wh
-        +database: model_db
-        repair:
-          +group: model_repair
-          +schema: repair
-          dim:
-            +access: public
-            +materialized: table
       employee:
         +snowflake_warehouse: employee_wh
         +database: employee_db
@@ -218,7 +204,9 @@ models:
             +materialized: table          
       parts_list:
         +snowflake_warehouse: parts_list_wh
+        +group: parts_list
         +database: parts_list_db
+        +schema: public
         seppen:
           +group: parts_list_seppen
           +schema: seppen
@@ -228,6 +216,15 @@ models:
         sms:
           +group: parts_list_sms
           +schema: sms
+          dim:
+            +access: public
+            +materialized: table
+        dim:
+          +access: public
+          +materialized: table
+        aisac:
+          +group: parts_list_aisac
+          +schema: aisac
           dim:
             +access: public
             +materialized: table
