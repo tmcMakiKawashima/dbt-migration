@@ -7,7 +7,7 @@ with rnk as (
                 base.haisya_kt,
                 base.sk_y,
                 base.sk_m,
-                base.SPEC200
+                base.spec200
             order by
                 base.dest_match_flag
         ) as rn
@@ -27,7 +27,6 @@ select
 	dest,
 	koujyou_cd,
 	eng_kt,
-	prodkuni_cd,
 	psc,
 	o_idline,
 	sk_y,

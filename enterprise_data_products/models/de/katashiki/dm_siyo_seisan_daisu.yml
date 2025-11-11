@@ -13,7 +13,6 @@ models:
             - dest_cd
             - koujyou_cd
             - eng_kt
-            - prodkuni_cd
             - psc
             - o_idline
             - sk_y
@@ -57,11 +56,6 @@ models:
               config:
                 severity: error
       - name: eng_kt
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: prodkuni_cd
         data_tests:
           - not_null:
               config:

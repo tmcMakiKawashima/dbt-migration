@@ -18,3 +18,12 @@ sources:
 
       - name: raw_m_cuad001
         identifier: M_CUAD001
+
+      - name: raw_stg_cam2148_jyukyujyoho
+        identifier: STG_CAM2148_JYUKYUJYOHO
+      - name: raw_stg_cam2146_jyukyujyoho
+        identifier: STG_CAM2146_JYUKYUJYOHO
+      - name: raw_stg_union_all_vehicle_specification_alc
+        identifier: STG_UNION_ALL_VEHICLE_SPECIFICATION_ALC_TEST
+      - name: raw_stg_siyouhenkan
+        identifier: STG_SIYOUHENKAN_TEST
