@@ -12,5 +12,23 @@ sources:
     database: KATASHIKI_DB
     schema: SPEC
     tables:
+      - name: raw_tmp10_dm_siyo_seisan_daisu_test
+        identifier: TMP10_DM_SIYO_SEISAN_DAISU_TEST
       - name: raw_tmp20_dm_siyo_seisan_daisu_test
         identifier: TMP20_DM_SIYO_SEISAN_DAISU_TEST
+      - name: raw_tmp30_dm_siyo_seisan_daisu_test
+        identifier: TMP30_DM_SIYO_SEISAN_DAISU_TEST
+      - name: raw_tmp40_dm_siyo_seisan_daisu_test
+        identifier: TMP40_DM_SIYO_SEISAN_DAISU_TEST
+      - name: raw_tmp50_dm_siyo_seisan_daisu_test
+        identifier: TMP50_DM_SIYO_SEISAN_DAISU_TEST
+      - name: raw_tmp51_dm_siyo_seisan_daisu_test
+        identifier: TMP51_DM_SIYO_SEISAN_DAISU_TEST
+      - name: raw_tmp52_dm_siyo_seisan_daisu_test
+        identifier: TMP52_DM_SIYO_SEISAN_DAISU_TEST
+      - name: raw_tmp60_dm_siyo_seisan_daisu_test
+        identifier: TMP60_DM_SIYO_SEISAN_DAISU_TEST
+      - name: raw_tmp70_dm_siyo_seisan_daisu_test
+        identifier: TMP70_DM_SIYO_SEISAN_DAISU_TEST
+      - name: raw_tmp71_dm_siyo_seisan_daisu_test
+        identifier: TMP71_DM_SIYO_SEISAN_DAISU_TEST

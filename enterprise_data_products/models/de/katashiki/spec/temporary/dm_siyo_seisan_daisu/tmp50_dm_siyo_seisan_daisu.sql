@@ -16,5 +16,6 @@ on (
 and t4.haisya_kt = t3.r_katashiki
 and t4.sk_y = t3.sk_y
 and t4.sk_m = t3.sk_m
-and t4.spec200 = t3.SPEC200
+and t4.spec200 regexp('^' || replace(t3.spec200, ' ', '.') || '$')
 )
+--tmp30.SPEC200のうち、仕様変換マスタに存在しなかった桁はワイルドカードに置換して正規表現で比較

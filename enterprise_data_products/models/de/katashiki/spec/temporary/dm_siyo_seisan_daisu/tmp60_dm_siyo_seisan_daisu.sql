@@ -11,7 +11,7 @@ with ssua as (
 		idline as idline, -- アイデントライン
 		carfamily as carfamily, -- 車種コード
 		ctlkata as ctlkata -- コントロール型式
-	from {{ref('union_all_vehicle_specification')}} 
+    from {{source('supplydemand_db_public','raw_stg_union_all_vehicle_specification_alc')}}
 ), sksk as (
     select
 		syasyu,
@@ -24,14 +24,13 @@ with ssua as (
 		gclrno,
 		iromei
     from {{source('engineering_db_public','raw_stg_color_no')}}
-    --from {{ref('stg_color_no')}}
 ), km as (
     select
 		r_country_code,
 		r_country_name
     from {{source('supplydemand_db_public','raw_m_cuad001')}})
 select
-	sksk.syasyu,
+	ssua.carfamily as syasyu,
 	sksk.kata,
 	sksk.enginekata,
 	ssua.sk_y,
@@ -45,7 +44,8 @@ select
 	km.r_country_name as dest,
 	ssua.plantcode,
 	ssua.pscexlk,
-	ssua.idline
+	ssua.idline,
+	count(*) as daisu
 from ssua
 left join sksk
 on (
@@ -64,3 +64,19 @@ left join km as km
 on (
 	ssua.destcode = km.r_country_code
 )
+group by
+	ssua.carfamily,
+	kata,
+	enginekata,
+	sk_y,
+	sk_m,
+	spec,
+	intcode,
+	int_cd_iromei,
+	extcode,
+	ext_cd_iromei,
+	dest_cd,
+	dest,
+	plantcode,
+	pscexlk,
+	idline
