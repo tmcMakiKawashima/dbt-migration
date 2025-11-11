@@ -1,10 +1,19 @@
 id: dbt_elementary
 namespace: kestra_dbt_project
+description: elementaryドキュメントを生成してS3に格納するFlow
 
 labels:
   type: common_root
   error: default_failed
 
+retry:
+  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK 
+  type: exponential
+  interval: PT5S
+  maxAttempts: 7
+  maxInterval: PT720S
+  delayFactor: 30
+  
 concurrency:
   behavior: QUEUE
   limit: 1
@@ -13,6 +22,11 @@ inputs:
   - id: build
     type: BOOLEAN
     defaults: false
+  - id: branch
+    type: STRING
+    required: false
+    dependsOn:
+      condition: "{{ namespace.ENV  == 'dev' }}"
 
 tasks:
   
@@ -22,32 +36,22 @@ tasks:
     # 初回実行の場合
     then:
 
-    - id: dbt
-      type: io.kestra.plugin.core.flow.WorkingDirectory
-      tasks:
-        - id: clone_repository_dbt
-          type: io.kestra.plugin.git.Clone
-
-        - id: dbt_run
-          type: io.kestra.plugin.dbt.cli.DbtCLI
-          commands:
-            - dbt run
-              --select elementary
-              --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+    - id: clone_dbt_run
+      type: io.kestra.plugin.dbt.cli.DbtCLI
+      commands:
+        - dbt run
+          --select elementary
 
   - id: elementary
 
     type: io.kestra.plugin.core.flow.WorkingDirectory
     tasks:
-      - id: clone_repository_elementary
-        type: io.kestra.plugin.git.Clone
-
-      - id: edr_report
+      - id: clone_edr_report
         type: io.kestra.plugin.dbt.cli.DbtCLI
         commands:
           - pip install 'elementary-data[snowflake]'
           - edr report
-            --profiles-dir "{{ namespace.DBT.PROJ_DIR }}"
+            --profiles-dir .
         env:
           DBT_SNOWFLAKE_ACCOUNT: "{{ namespace.DBT.SNOWFLAKE_ACCOUNT }}"
           DBT_SNOWFLAKE_USER: "{{ namespace.DBT.SNOWFLAKE_USER }}"
@@ -55,11 +59,11 @@ tasks:
           SNOWFLAKE_PRIVATE_KEY_PASSPHRASE_DBT: "{{ secret('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE_DBT') }}"
           DBT_SNOWFLAKE_ROLE: "{{ namespace.DBT.SNOWFLAKE_ROLE }}"
         outputFiles:
-          - edr_target/elementary_report.html
+          - kestra_dbt_project/enterprise_data_products/edr_target/elementary_report.html
 
       - id: S3_upload
         type: io.kestra.plugin.aws.s3.Upload
-        from: "{{ outputs.edr_report['outputFiles']['edr_target/elementary_report.html'] }}"
+        from: "{{ outputs.clone_edr_report['outputFiles']['kestra_dbt_project/enterprise_data_products/edr_target/elementary_report.html'] }}"
         bucket: "{{ namespace.DBT_DOCS.S3_BUCKET }}"
         key: "{{ namespace.DBT_DOCS.BASE_PATH }}edr_report/elementary_report.html"
         contentType: text/html
