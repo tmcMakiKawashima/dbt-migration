@@ -208,7 +208,7 @@ with t3 as (
           max(case r_spec_keta when '199' then r_spec_kigo else ' ' end) ||
           max(case r_spec_keta when '200' then r_spec_kigo else ' ' end)
     ) AS SPEC200
-    from {{ref('tmp20_dm_siyo_seisan_daisu')}}
+    from {{source('katashiki_db_spec','raw_tmp20_dm_siyo_seisan_daisu_test')}}
     group by
 	    shashu_cd,
 	    r_katashiki,

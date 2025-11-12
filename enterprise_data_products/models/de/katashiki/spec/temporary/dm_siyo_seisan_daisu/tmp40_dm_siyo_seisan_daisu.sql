@@ -12,7 +12,6 @@ with t4 as (
         max(dest) as dest, -- 仕向地
         coalesce(koujyou_cd, '') as koujyou_cd, -- 工場コード
         coalesce(eng_kt, '') as eng_kt, -- エンジン型式（生産管理）
-        coalesce(prodkuni_cd, '') as prodkuni_cd, -- 生産国コード
         coalesce(psc, '') as psc, -- PSC
         coalesce(o_idline, '') as o_idline, -- アイデントライン
         coalesce(sk_y, '') as sk_y, -- 終検日年

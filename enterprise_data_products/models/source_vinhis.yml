@@ -20,7 +20,7 @@ sources:
     schema: spec
     tables:
       - name: raw_dm_vinhis_spec200_allsalecar
-        identifier: dm_vinhis_spec200_allsalecar
+        identifier: dm_vinhis_spec200_allsalecar_test
 
   - name: vinhis_db_parts
     database: vinhis_db

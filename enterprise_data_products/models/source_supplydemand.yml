@@ -19,6 +19,7 @@ sources:
       - name: raw_m_cuad001
         identifier: M_CUAD001
 
+# 133 test用
       - name: raw_stg_cam2148_jyukyujyoho
         identifier: STG_CAM2148_JYUKYUJYOHO
       - name: raw_stg_cam2146_jyukyujyoho

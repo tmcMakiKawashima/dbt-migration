@@ -8,13 +8,13 @@ with t1 as (
     left(r_prod_month, 4) as sk_y,
     substr(r_prod_month, 5, 2) as sk_m,
     r_shashu
-  from {{ref('tmp10_dm_siyo_seisan_daisu')}}
+  from {{source('katashiki_db_spec','raw_tmp10_dm_siyo_seisan_daisu_test')}}
 ), sh as (
   select
     syasyu,
     s1keta,  -- SPEC桁
     s1kigo   -- SPEC記号
-  from {{ref('stg_siyouhenkan')}}
+  from {{source('supplydemand_db_public','raw_stg_siyouhenkan')}}
 )
 select
     sh.syasyu as shashu_cd,
