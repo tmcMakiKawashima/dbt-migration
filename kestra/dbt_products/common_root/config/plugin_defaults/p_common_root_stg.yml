@@ -38,10 +38,24 @@
         username: "{{ namespace.KUBERNETES.USER_NAME }}"
         masterUrl: "{{ namespace.KUBERNETES.MASTER_URL }}"
         caCertData: "{{ secret('KUBERNETES_CA_CERT_DATA') }}"
-        oauthToken: "{{ secret('KUBERNETES_OAUTH_TOKEN') }}"
+        oauthTokenProvider:
+          task:
+            id: token-provider
+            type: io.kestra.plugin.aws.auth.EksToken
+            region: "{{ namespace.KUBERNETES.REGION }}"
+            clusterName: "{{ namespace.KUBERNETES.CLUSTER_NAME }}"
+          output: "{{ token.tokenValue }}"
+      resources:
+        request:
+          cpu: 500m
+          memory: 128Mi
       pullPolicy: IF_NOT_PRESENT
     beforeCommands:
-      - dbt deps --project-dir "{{ namespace.DBT.PROJ_DIR }}"
+      - apt-get install git
+      - git clone -b {{ namespace.GIT.BRANCH ?? inputs.branch }} http://{{ namespace.GIT.USER }}:{{ secret('GIT_PASS') }}@{{ namespace.GIT.URL_PATH }}
+      - cp --force profiles.yml {{ namespace.NAME }}/{{ namespace.DBT.PROJ_DIR }}/profiles.yml
+      - cd {{ namespace.NAME }}/{{ namespace.DBT.PROJ_DIR }}
+      - dbt deps
     containerImage: "{{ namespace.DOCKER.IMAGE_VERSION.DBT }}"
 - type: io.kestra.plugin.git
   forced: false
@@ -92,7 +106,7 @@
   values:
     from:
       - data: |
-          The Kestra workflow execution {{ inputs.state }}. [{{ namespace.ENV }}]
+          The Kestra workflow execution {{ inputs.state == 'FAILED' or inputs.state == 'SUCCESS' or inputs.state == 'WARNING' ? inputs.state : 'RETRIED' }}. [{{ namespace.ENV }}]
 
           -----------------------------------------------------------------------------------------------------------------------------
           - Namespace: {{ trigger.namespace }}
@@ -110,7 +124,7 @@
           -
           -
           -
-        subject: "[{{ namespace.ENV }}] Kestra Workflow {{ inputs.state }}: {{ trigger.flowId }}"
+        subject: "[{{ namespace.ENV }}] Kestra Workflow {{ inputs.state == 'FAILED' or inputs.state == 'SUCCESS' or inputs.state == 'WARNING' ? inputs.state : 'RETRIED' }}: {{ trigger.flowId }}"
     region: "{{ namespace.ALERTS.REGION }}"
     topicArn: "{{ namespace.ALERTS.TOPIC }}"
 - type: io.kestra.plugin.scripts.python.Commands
@@ -123,7 +137,17 @@
         username: "{{ namespace.KUBERNETES.USER_NAME }}"
         masterUrl: "{{ namespace.KUBERNETES.MASTER_URL }}"
         caCertData: "{{ secret('KUBERNETES_CA_CERT_DATA') }}"
-        oauthToken: "{{ secret('KUBERNETES_OAUTH_TOKEN') }}"
+        oauthTokenProvider:
+          task:
+            id: token-provider
+            type: io.kestra.plugin.aws.auth.EksToken
+            region: "{{ namespace.KUBERNETES.REGION }}"
+            clusterName: "{{ namespace.KUBERNETES.CLUSTER_NAME }}"
+          output: "{{ token.tokenValue }}"
+      resources:
+        request:
+          cpu: 500m
+          memory: 128Mi
       pullPolicy: IF_NOT_PRESENT
     beforeCommands:
       - pip install "{{ namespace.PYTHON.SNOWFLAKE_CONNECTOR_VERSION }}"
