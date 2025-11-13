@@ -1,5 +1,5 @@
 id: job_build_stg_smshokyu_0630
-namespace: kestra_dbt_project.proj-job-smshokyu_0630
+namespace: kestra_dbt_project.proj-job-smshokyu
 
 labels:
   error: default_failed
@@ -28,7 +28,15 @@ tasks:
     type: io.kestra.plugin.dbt.cli.DbtCLI
     commands:
       - dbt build
-        --select +stg_hokyuhinbankouseikoute_smshokyu +stg_hokyusetteitiikigenntei_smshokyu +stg_hokyusetteicltiikigenntei_smshokyu
+        --select +dm_hokyusettei_smshokyu 
+        +dm_hokyusetteisyoku_smshokyu 
+        +stg_daitaijoho_smshokyu_view 
+        +stg_hokyuhinbanjoho_smshokyu_view 
+        +stg_hokyuhinbancomment_smshokyu_view 
+        +stg_hokyusyukkabasyo_smshokyu_view 
+        +stg_hokyuhinbankouseikoute_smshokyu_view 
+        +dm_hokyusetteitiikigenntei_smshokyu 
+        +dm_hokyusetteicltiikigenntei_smshokyu
         --vars '{"DBT_JOB_NAME":"_stg_smshokyu_0630"}'
         {{ inputs.dbt_options ?? "" }}
 
