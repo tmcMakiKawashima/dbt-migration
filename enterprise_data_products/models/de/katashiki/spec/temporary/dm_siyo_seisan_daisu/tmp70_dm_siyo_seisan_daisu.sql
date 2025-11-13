@@ -19,7 +19,7 @@ with spec_split as (
         seq.keta_no as keta_no,
         substr(t06.spec, seq.keta_no, 1) as kigo
     from 
-        {{source('katashiki_db_spec','raw_tmp60_dm_siyo_seisan_daisu_test')}} as t06,
+        {{source('katashiki_db_spec','raw_tmp61_dm_siyo_seisan_daisu_test')}} as t06,
         (select seq4() + 1 as keta_no from table(generator(rowcount => 200))) as seq
 )
 select * from spec_split

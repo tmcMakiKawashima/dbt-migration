@@ -28,6 +28,8 @@ sources:
         identifier: TMP52_DM_SIYO_SEISAN_DAISU_TEST
       - name: raw_tmp60_dm_siyo_seisan_daisu_test
         identifier: TMP60_DM_SIYO_SEISAN_DAISU_TEST
+      - name: raw_tmp61_dm_siyo_seisan_daisu_test
+        identifier: TMP61_DM_SIYO_SEISAN_DAISU_TEST
       - name: raw_tmp70_dm_siyo_seisan_daisu_test
         identifier: TMP70_DM_SIYO_SEISAN_DAISU_TEST
       - name: raw_tmp71_dm_siyo_seisan_daisu_test

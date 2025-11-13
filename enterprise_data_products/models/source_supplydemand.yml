@@ -28,3 +28,5 @@ sources:
         identifier: STG_UNION_ALL_VEHICLE_SPECIFICATION_ALC_TEST
       - name: raw_stg_siyouhenkan
         identifier: STG_SIYOUHENKAN_TEST
+      - name: raw_stg_syasyu_siyousho
+        identifier: STG_SYASYU_SIYOUSHO_TEST
