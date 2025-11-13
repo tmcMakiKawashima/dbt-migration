@@ -22,10 +22,3 @@ sources:
         identifier: dm_latest_kouseikoutei_plant
       - name: raw_dm_latest_sekkei
         identifier: dm_latest_sekkei
-
-  - name: parts_list_db_ritm0248551_public
-    database: parts_list_db_ritm0248551
-    schema: public
-    tables:
-      - name: raw_dm_ktfgo_list
-        identifier: dm_ktfgo_list
