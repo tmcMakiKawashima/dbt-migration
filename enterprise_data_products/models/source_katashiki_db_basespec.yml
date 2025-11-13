@@ -8,11 +8,4 @@ sources:
       - name: raw_dm_syasyu_katashiki_syaryokoujyo
         identifier: dm_syasyu_katashiki_syaryokoujyo
 
-  - name: katashiki_db_ritm0248551_basespec
-    database: katashiki_db_ritm0248551
-    schema: basespec
-    tables:
-      - name: raw_dm_syasyu_katashiki_syaryokoujyo
-        identifier: dm_syasyu_katashiki_syaryokoujyo
-
 

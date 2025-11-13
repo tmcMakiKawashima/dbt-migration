@@ -37,18 +37,4 @@ sources:
       - name: raw_dm_allsalecar_seisanjisseki
         identifier: dm_allsalecar_seisanjisseki
 
-  - name: vinhis_db_ritm0274879_spec
-    database: vinhis_db_ritm0274879
-    schema: spec
-    tables: 
-      - name: raw_dm_vinhis_specification_union
-        identifier: dm_vinhis_specification_union
-
-  - name: vinhis_db_ritm0274879_public
-    database: vinhis_db_ritm0274879
-    schema: public
-    tables:
-      - name: raw_dm_allsalecar_seisanjisseki
-        identifier: dm_allsalecar_seisanjisseki
-
 
