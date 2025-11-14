@@ -11,7 +11,7 @@ with rnk as (
             order by
                 base.dest_match_flag
         ) as rn
-	from {{ref('tmp50_dm_siyo_seisan_daisu')}} base
+	from {{source('katashiki_db_spec','raw_tmp50_dm_siyo_seisan_daisu_test')}} base
 )
 select
  	syasyu,

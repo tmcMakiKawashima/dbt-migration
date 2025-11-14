@@ -1,6 +1,6 @@
 with
-    t3 as (select * from {{ ref('tmp30_dm_siyo_seisan_daisu') }}),
-    t4 as (select * from {{ ref('tmp40_dm_siyo_seisan_daisu') }})
+    t3 as (select * from {{source('katashiki_db_spec','raw_tmp30_dm_siyo_seisan_daisu_test')}}),
+    t4 as (select * from {{source('katashiki_db_spec','raw_tmp40_dm_siyo_seisan_daisu_test') }})
 select
     t4.*,
     t3.r_sfx_code,
