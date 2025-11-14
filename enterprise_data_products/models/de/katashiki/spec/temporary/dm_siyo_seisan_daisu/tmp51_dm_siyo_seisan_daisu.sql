@@ -9,7 +9,7 @@ with rnk as (
                 base.sk_m,
                 base.spec200
             order by
-                base.dest_match_flag
+                base.dest_match_flag desc
         ) as rn
 	from {{source('katashiki_db_spec','raw_tmp50_dm_siyo_seisan_daisu_test')}} base
 )
