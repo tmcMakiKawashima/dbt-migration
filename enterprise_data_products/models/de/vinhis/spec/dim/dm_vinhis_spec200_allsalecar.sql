@@ -15,7 +15,8 @@
                     select distinct
                         syadai_kt, frmno, wmi, vds, mdlyr, vin_vds_cd
                     from {{ ref('tmp30_dm_vinhis_spec200_allsalecar') }}
-                )
+                ) and
+                delflg = false
             "
         ]
     )
