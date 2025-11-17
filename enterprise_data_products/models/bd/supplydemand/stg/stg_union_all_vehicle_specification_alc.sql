@@ -1,9 +1,9 @@
 {{ 
   config(
-    materialized='incremental',
+    materialized = 'incremental',
     incremental_strategy = 'append',
     transient = false,
-    pre_hook="
+    pre_hook = "
       {% if is_incremental() %}
       delete from {{this}}
       {% endif %}
@@ -43,4 +43,8 @@ with stg_union_all_vehicle_specification_alc as (
   from {{ ref('substr_union_all_vehicle_specification') }}
 )
 select * from stg_union_all_vehicle_specification_alc
-where to_varchar(ldts,'yyyymmdd') = (select to_varchar(max(ldts),'yyyymmdd') from stg_union_all_vehicle_specification_alc)
+where
+  to_varchar(ldts,'yyyymmdd') =
+  (select to_varchar(max(ldts),'yyyymmdd')
+    from stg_union_all_vehicle_specification_alc
+  )
