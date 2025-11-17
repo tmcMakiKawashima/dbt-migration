@@ -1,0 +1,31 @@
+version: 2
+
+models:
+# 車両仕様_UNION_ALL
+  - name: stg_union_all_vehicle_specification_alc
+    config:
+      tags: ["alc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - pscexlk
+            - plantcode
+            - urn
+          config:
+            severity: error
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
