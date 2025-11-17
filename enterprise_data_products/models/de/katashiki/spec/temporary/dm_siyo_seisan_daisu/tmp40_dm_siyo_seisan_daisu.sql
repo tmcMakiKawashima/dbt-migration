@@ -20,6 +20,9 @@ with t4 as (
         '0' as naiji_flg -- 内示実績FLG
     from
         {{source('vinhis_db_spec','raw_dm_vinhis_spec200_allsalecar')}}
+  {% raw %}
+     --from {{ref('dm_vinhis_spec200_allsalecar')}}
+  {% endraw %}
     group by
         syasyu,
         haisya_kt,

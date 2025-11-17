@@ -1,25 +1,34 @@
-with spec_split as (
+with t61 as (
     select
-        t06.syasyu,
-        t06.kata,
-        t06.enginekata,
-        t06.spec,
-        t06.intcode,
-        t06.int_cd_iromei,
-        t06.extcode,
-        t06.ext_cd_iromei,
-        t06.dest_cd,
-        t06.dest,
-        t06.plantcode,
-        t06.pscexlk,
-        t06.sk_y,
-        t06.sk_m,
-        t06.idline,
-        t06.daisu,
-        seq.keta_no as keta_no,
-        substr(t06.spec, seq.keta_no, 1) as kigo
+        syasyu,         -- 車種ｺｰﾄﾞ
+        kata,           -- 呼称型式
+        enginekata,     -- エンジン型式
+        spec,           -- SPEC200桁組合せ
+        intcode,        -- 内張コード
+        int_cd_iromei,  -- 内張色
+        extcode,        -- 外鈑色コード
+        ext_cd_iromei,  -- 外鈑色
+        dest_cd,        -- 仕向地コード
+        dest,           -- 仕向国
+        plantcode,      -- 工場コード
+        pscexlk,        -- PSC
+        sk_y,           -- 終検日年
+        sk_m,           -- 終検日月
+        idline,         -- アイデントライン
+        daisu           -- 台数
     from 
-        {{source('katashiki_db_spec','raw_tmp61_dm_siyo_seisan_daisu_test')}} as t06,
-        (select seq4() + 1 as keta_no from table(generator(rowcount => 200))) as seq
-)
-select * from spec_split
+        {{source('katashiki_db_spec','raw_tmp61_dm_siyo_seisan_daisu_test')}}
+  {% raw %}
+    --from {{ref('tmp61_dm_siyo_seisan_daisu')}}
+  {% endraw %}
+), seq as (
+  -- SPECを200分割するためのシーケンス
+    select
+        seq4() + 1 as keta_no -- 桁No
+    from table(generator(rowcount => 200))
+)  
+select
+  t61.*,
+  seq.keta_no,
+  substr(t61.spec, seq.keta_no, 1) as kigo  -- specを1文字づつ200分割した記号
+ from t61 cross join seq

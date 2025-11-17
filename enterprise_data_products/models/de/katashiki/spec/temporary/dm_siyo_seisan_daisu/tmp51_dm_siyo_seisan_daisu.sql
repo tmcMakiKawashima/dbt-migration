@@ -13,25 +13,6 @@ with rnk as (
         ) as rn
 	from {{source('katashiki_db_spec','raw_tmp50_dm_siyo_seisan_daisu_test')}} base
 )
-select
- 	syasyu,
-	haisya_kt,
-	r_sfx_code,
-	spec200,
-	spec200_siyo,
-	int_cd,
-	int_cd_iromei,
-	ext_cd,
-	ext_cd_iromei,
-	dest_cd,
-	dest,
-	koujyou_cd,
-	eng_kt,
-	psc,
-	o_idline,
-	sk_y,
-	sk_m,
-	daisu,
-	naiji_flg
+select * exclude(dest_match_flag)
 from rnk
 where rn = 1
