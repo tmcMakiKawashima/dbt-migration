@@ -1,4 +1,3 @@
-
 with stg_seisankokumeicheck_atop as (
     select
         rtrim(seisnkokumei, ' 　')::varchar(20) as seisnkokumei,
