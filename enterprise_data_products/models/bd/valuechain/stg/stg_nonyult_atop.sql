@@ -16,7 +16,7 @@ with stg_nonyult_atop as (
         line_number,
         row_number() over (
           partition by pno
-          order by line_number desc
+          order by ldts desc, line_number desc
         ) aggkey
     from {{ref('substr_ktrla01vzz0kvp00q1')}}
     {% if is_incremental() %}
