@@ -1,4 +1,3 @@
-
 with stg_syukkosagyohinban_atop as (
     select
         rtrim(shinban, ' 　')::varchar(20) as shinban,
