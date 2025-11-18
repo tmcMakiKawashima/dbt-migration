@@ -2,6 +2,7 @@
 -- 1-1. 論理削除処理(論理削除するための比較処理を実装する都合上、updateに入れ込むことができないためpost_hookで実装)
 {{
     config (
+        snowflake_warehouse='VINHIS_L_WH01',
         materialized = 'incremental',
         unique_key = [ 'syadai_kt', 'frmno', 'wmi', 'vds', 'mdlyr', 'vin_vds_cd' ],
         incremental_strategy = 'merge',
