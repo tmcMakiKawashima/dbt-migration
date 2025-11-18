@@ -1,7 +1,7 @@
 with mss as (
     select
-        sno,
-        syasyu,
+        sno,     -- 仕様書NO
+        syasyu,  -- 車種コード
         row_number() over(
             partition by sno
             order by mtdate desc
@@ -22,7 +22,7 @@ with mss as (
         pscexlk as pscexlk, -- PSC(外部連携用)
         idline as idline, -- アイデントライン
         ctlkata as ctlkata, -- コントロール型式
-        sno as sno --仕様書NO
+        sno as sno -- 仕様書NO
     from {{source('supplydemand_db_public','raw_stg_union_all_vehicle_specification_alc')}}
   {% raw %}
     --from {{ref('stg_union_all_vehicle_specification_alc')}}

@@ -1,11 +1,11 @@
 with t3 as (
   select
-	  r_shashu,
-	  r_katashiki,
-	  sk_y,
-	  sk_m,
-	  r_dist_code,
-	  r_sfx_code,
+	  r_shashu,                   -- 車種コード
+	  r_katashiki,                -- 呼称型式
+	  sk_y,                       -- 生産年
+	  sk_m,                       -- 生産月
+	  r_dist_code,                -- 受注先コード
+	  r_sfx_code,                 -- SFX№
       (
         max(case r_spec_keta when '001' then r_spec_kigo else ' ' end) ||
         max(case r_spec_keta when '002' then r_spec_kigo else ' ' end) ||
@@ -207,7 +207,7 @@ with t3 as (
         max(case r_spec_keta when '198' then r_spec_kigo else ' ' end) ||
         max(case r_spec_keta when '199' then r_spec_kigo else ' ' end) ||
         max(case r_spec_keta when '200' then r_spec_kigo else ' ' end)
-    ) as spec200
+    ) as spec200 -- SPEC200
     from {{source('katashiki_db_spec','raw_tmp20_dm_siyo_seisan_daisu_test')}}
   {% raw %}
      --from {{ref('tmp20_dm_siyo_seisan_daisu')}}

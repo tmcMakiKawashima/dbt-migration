@@ -12,12 +12,12 @@ t4 as (
 )
 select
     t4.*,
-    t3.r_sfx_code,
+    t3.r_sfx_code,                 -- SFX№
     case
         when t3.r_dist_code = t4.dest_cd
         then '1'
         else '0'
-    end as dest_match_flag
+    end as dest_match_flag         -- 仕向地・受注先一致フラグ
 from t4
 left outer join t3
 on (
