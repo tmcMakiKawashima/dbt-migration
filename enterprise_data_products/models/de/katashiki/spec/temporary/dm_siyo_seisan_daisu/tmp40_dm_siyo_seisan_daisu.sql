@@ -32,7 +32,6 @@ with t4 as (
         dest_cd,
         koujyou_cd,
         eng_kt,
-        prodkuni_cd,
         psc,
         o_idline,
         sk_y,
