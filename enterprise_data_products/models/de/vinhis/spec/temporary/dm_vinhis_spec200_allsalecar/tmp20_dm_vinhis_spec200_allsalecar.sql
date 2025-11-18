@@ -1,4 +1,5 @@
 {{ config(
+    snowflake_warehouse='VINHIS_L_WH01',
     materialized='table',
     transient='true'
 ) }}
