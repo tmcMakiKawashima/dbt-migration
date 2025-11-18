@@ -1,4 +1,3 @@
-
 with stg_jutyuu_atop as (
     select
         rtrim(jhinban, ' 　')::varchar(20) as jhinban,
