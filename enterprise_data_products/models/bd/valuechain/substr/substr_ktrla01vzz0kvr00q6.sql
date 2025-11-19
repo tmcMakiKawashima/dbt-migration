@@ -140,7 +140,8 @@ with substr_ktrla01vzz0kvr00q6 as (
     substr(raw_data, 845, 8)::varchar(8) as nijkakuteiymd,
     substr(raw_data, 853, 1)::varchar(1) as nagoyaopkbn,
     substr(raw_data, 854, 17)::varchar(17) as filler,
-    ldts
+    ldts,
+    line_number
   from {{ source('snowpipe_db_valuechain', 'raw_ktrla01vzz0kvr00q6')}}
 )
 select * from substr_ktrla01vzz0kvr00q6
