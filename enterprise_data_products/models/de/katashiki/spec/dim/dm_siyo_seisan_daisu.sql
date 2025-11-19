@@ -23,11 +23,11 @@ with t52 as (
   {% endraw %}
 )
 select
-    T52.*,
+    t52.*,
     current_timestamp::timestamp_ntz(9) as ldts -- 作成日時
 from t52
 union all
 select
-    T71.*,
+    t71.*,
     current_timestamp::timestamp_ntz(9) as ldts -- 作成日時
 from t71

@@ -28,6 +28,6 @@ from t1
 inner join sh
 on (
     t1.r_shashu = sh.syasyu
-and TO_NUMBER(t1.r_spec_keta) = TO_NUMBER(sh.s1keta)
+and to_number(t1.r_spec_keta) = to_number(sh.s1keta)
 and t1.r_spec_kigo = sh.s1kigo
 )
