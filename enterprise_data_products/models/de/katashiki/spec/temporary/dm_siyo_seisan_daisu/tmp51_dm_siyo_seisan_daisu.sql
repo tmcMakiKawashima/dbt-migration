@@ -16,6 +16,6 @@ with rnk as (
      --from {{ref('tmp50_dm_siyo_seisan_daisu')}}
   {% endraw %}
 )
-select * exclude(dest_match_flag)
+select * exclude(dest_match_flag, rn)
 from rnk
 where rn = 1

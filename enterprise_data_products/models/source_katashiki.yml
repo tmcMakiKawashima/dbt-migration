@@ -1,6 +1,7 @@
 version: 2
 
 sources:
+# SMS工程
   - name: katashiki_db_basespec
     database: KATASHIKI_DB
     schema: BASESPEC
