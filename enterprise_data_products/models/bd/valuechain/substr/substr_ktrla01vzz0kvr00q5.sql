@@ -176,7 +176,8 @@ with substr_ktrla01vzz0kvr00q5 as (
     substr(raw_data, 722, 6)::varchar(6) as nthenkhdsun6_31d,
     substr(raw_data, 728, 6)::varchar(6) as ntnnjisseksu_31d,
     substr(raw_data, 734, 37)::varchar(37) as filler,
-    ldts
+    ldts,
+    line_number
   from {{ source('snowpipe_db_valuechain', 'raw_ktrla01vzz0kvr00q5')}}
 )
 select * from substr_ktrla01vzz0kvr00q5
