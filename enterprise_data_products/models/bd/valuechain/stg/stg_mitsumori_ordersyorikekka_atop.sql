@@ -80,17 +80,17 @@ with stg_mitsumori_ordersyorikekka_atop as (
         iff(rtrim(sksjkyokucd, ' 　') = '', null, rtrim(sksjkyokucd, ' 　'))::varchar(7) as sksjkyokucd,
         iff(rtrim(kaiseisyaracd, ' 　') = '', null, rtrim(kaiseisyaracd, ' 　'))::varchar(2) as kaiseisyaracd,
         ldts::timestamp_ntz(9) as ldts,
-        iff(rtrim(juchuymd, ' 　') = '', 0, iff(try_to_date(juchuymd) is null, 1, 0)) as juchuymd_flg,
-        iff(rtrim(jurrsymd, ' 　') = '', 0, iff(try_to_date(jurrsymd) is null, 1, 0)) as jurrsymd_flg,
-        iff(rtrim(sagyokgnymd, ' 　') = '', 0, iff(try_to_date(sagyokgnymd) is null, 1, 0)) as sagyokgnymd_flg,
-        iff(rtrim(tansjymd, ' 　') = '', 0, iff(try_to_date(tansjymd) is null, 1, 0)) as tansjymd_flg,
-        iff(rtrim(juchusu, ' 　') = '', 0, iff(try_to_decimal(juchusu) is null, 1, 0)) as juchusu_flg,
-        iff(rtrim(tkytnkinvkgi1, ' 　') = '', 0, iff(try_to_decimal(tkytnkinvkgi1) is null, 1, 0)) as tkytnkinvkgi1_flg,
-        iff(rtrim(siteitnk11syo, ' 　') = '', 0, iff(try_to_decimal(siteitnk11syo) is null, 1, 0)) as siteitnk11syo_flg,
-        iff(rtrim(situryog8, ' 　') = '', 0, iff(try_to_decimal(situryog8) is null, 1, 0)) as situryog8_flg,
-        iff(rtrim(yoseki3, ' 　') = '', 0, iff(try_to_decimal(yoseki3) is null, 1, 0)) as yoseki3_flg,
-        iff(rtrim(syusisu6, ' 　') = '', 0, iff(try_to_decimal(syusisu6) is null, 1, 0)) as syusisu6_flg,
-        iff(rtrim(cansijsu, ' 　') = '', 0, iff(try_to_decimal(cansijsu) is null, 1, 0)) as cansijsu_flg
+        iff(rtrim(juchuymd, ' 　') = '', 0, iff(try_to_date(juchuymd) is null, 1, 0))::varchar(1) as juchuymd_flg,
+        iff(rtrim(jurrsymd, ' 　') = '', 0, iff(try_to_date(jurrsymd) is null, 1, 0))::varchar(1) as jurrsymd_flg,
+        iff(rtrim(sagyokgnymd, ' 　') = '', 0, iff(try_to_date(sagyokgnymd) is null, 1, 0))::varchar(1) as sagyokgnymd_flg,
+        iff(rtrim(tansjymd, ' 　') = '', 0, iff(try_to_date(tansjymd) is null, 1, 0))::varchar(1) as tansjymd_flg,
+        iff(rtrim(juchusu, ' 　') = '', 0, iff(try_to_decimal(juchusu) is null, 1, 0))::varchar(1) as juchusu_flg,
+        iff(rtrim(tkytnkinvkgi1, ' 　') = '', 0, iff(try_to_decimal(tkytnkinvkgi1) is null, 1, 0))::varchar(1) as tkytnkinvkgi1_flg,
+        iff(rtrim(siteitnk11syo, ' 　') = '', 0, iff(try_to_decimal(siteitnk11syo) is null, 1, 0))::varchar(1) as siteitnk11syo_flg,
+        iff(rtrim(situryog8, ' 　') = '', 0, iff(try_to_decimal(situryog8) is null, 1, 0))::varchar(1) as situryog8_flg,
+        iff(rtrim(yoseki3, ' 　') = '', 0, iff(try_to_decimal(yoseki3) is null, 1, 0))::varchar(1) as yoseki3_flg,
+        iff(rtrim(syusisu6, ' 　') = '', 0, iff(try_to_decimal(syusisu6) is null, 1, 0))::varchar(1) as syusisu6_flg,
+        iff(rtrim(cansijsu, ' 　') = '', 0, iff(try_to_decimal(cansijsu) is null, 1, 0))::varchar(1) as cansijsu_flg
     from {{ref('substr_ktrla01vzz0kvp00q5')}}
     {% if is_incremental() %}
         where ldts > (select max(ldts) from {{this}})
