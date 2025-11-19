@@ -254,7 +254,8 @@ with substr_ktrla01vzz0kvr00q4 as (
     substr(raw_data, 897, 16)::varchar(16) as mtuserid,
     substr(raw_data, 913, 26)::varchar(26) as mttime,
     substr(raw_data, 939, 62)::varchar(62) as filler,
-    ldts
+    ldts,
+    line_number
   from {{ source('snowpipe_db_valuechain', 'raw_ktrla01vzz0kvr00q4')}}
 )
 select * from substr_ktrla01vzz0kvr00q4
