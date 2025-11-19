@@ -174,7 +174,7 @@ models:
           +materialized: table
         smshokyu:
           +group: parts_smshokyu
-          +schema: public
+          +schema: smshokyu
           dim:
             +access: public
             +materialized: table
