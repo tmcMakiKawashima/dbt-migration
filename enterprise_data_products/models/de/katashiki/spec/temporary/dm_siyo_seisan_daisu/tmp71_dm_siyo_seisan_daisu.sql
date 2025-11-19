@@ -1,23 +1,23 @@
 with t70 as (
     select
-        syasyu,         -- 車種ｺｰﾄﾞ
-        kata,           -- 呼称型式
-        spec,           -- SPEC200桁組合せ
-        intcode,        -- 内張コード
-        int_cd_iromei,  -- 内張色
-        extcode,        -- 外鈑色コード
-        ext_cd_iromei,  -- 外鈑色
-        dest_cd,        -- 仕向地コード
-        dest,           -- 仕向国
-        plantcode,      -- 工場コード
-        enginekata,     -- エンジン型式
-        pscexlk,        -- PSC
-        sk_y,           -- 終検日年
-        sk_m,           -- 終検日月
-        idline,         -- アイデントライン
-        daisu,          -- 台数
-        keta_no,        -- 桁No
-        kigo            -- specを1文字づつ200分割した記号
+        syasyu,                           -- 車種ｺｰﾄﾞ
+        kata,                             -- 呼称型式
+        spec,                             -- SPEC200桁組合せ
+        intcode,                          -- 内張コード
+        int_cd_iromei,                    -- 内張色
+        extcode,                          -- 外鈑色コード
+        ext_cd_iromei,                    -- 外鈑色
+        destcode as dest_cd,              -- 仕向地コード
+        r_country_name as dest,           -- 仕向国
+        plantcode,                        -- 工場コード
+        enginekata,                       -- エンジン型式
+        pscexlk,                          -- PSC
+        sk_y,                             -- 終検日年
+        sk_m,                             -- 終検日月
+        idline,                           -- アイデントライン
+        daisu,                            -- 台数
+        keta_no,                          -- 桁No
+        kigo                              -- specを1文字づつ200分割した記号
     from {{ref('tmp70_dm_siyo_seisan_daisu')}}
 ), sh as (
     select
