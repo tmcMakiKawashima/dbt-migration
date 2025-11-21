@@ -17,7 +17,7 @@ sources:
         identifier: ST_JPSALECAR_AQUA_JPSEISAN
     # 需給情報基盤
       - name: raw_m_cuad001
-        identifier: M_CUAD001
+        identifier: M_CUAD001_TEST
 
 # 133 test用
       - name: raw_stg_cam2148_jyukyujyoho
