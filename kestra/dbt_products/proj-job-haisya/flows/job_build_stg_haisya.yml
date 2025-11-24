@@ -27,7 +27,10 @@ tasks:
   - id: clone_dbt_build
     type: io.kestra.plugin.dbt.cli.DbtCLI
     commands:
-      - dbt build --select +stg_touchakuyoteikekkavct_month_n_haisya +stg_touchakuyoteikekkavct_month_n1_haisya +stg_touchakuyoteikekkavct_month_n2_haisya --vars '{"DBT_JOB_NAME":"_stg_haisya"}' {{ inputs.dbt_options ?? "" }}
+      - dbt build 
+        --select +stg_touchakuyoteikekkavct_month_n_haisya +stg_touchakuyoteikekkavct_month_n1_haisya +stg_touchakuyoteikekkavct_month_n2_haisya 
+        --vars '{"DBT_JOB_NAME":"_stg_haisya"}' 
+        {{ inputs.dbt_options ?? "" }}
 
 triggers:
   - id: schedule
@@ -41,7 +44,7 @@ errors:
     type: io.kestra.plugin.core.debug.Return
     format: "{{ errorLogs()[0]['message'] }}"
 
-outputs:
+outputs: 
   - id: output_error_log
     type: STRING
     value: "{{ outputs.error_log.value ?? 'No message found.' }}"
@@ -51,9 +54,9 @@ outputs:
 
 # ログ出力
 finally:
-  - id: finally_log
+  - id: finally_log 
     type: io.kestra.plugin.core.log.Log
-    message:
+    message: 
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
       - "dbt options -> {{ inputs.dbt_options ?? '' }}"
 
