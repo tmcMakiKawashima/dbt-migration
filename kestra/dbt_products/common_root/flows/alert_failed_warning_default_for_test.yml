@@ -29,7 +29,9 @@ triggers:
       - type: io.kestra.plugin.core.condition.ExecutionStatus
         in:
           - FAILED
+          - RETRIED
           - SUCCESS
+
   - id: flow_trigger_failed_warning
     type: io.kestra.plugin.core.trigger.Flow
     inputs:
@@ -46,6 +48,7 @@ triggers:
         in:
           - FAILED
           - WARNING
+          - RETRIED
           - SUCCESS
           
 disabled: true

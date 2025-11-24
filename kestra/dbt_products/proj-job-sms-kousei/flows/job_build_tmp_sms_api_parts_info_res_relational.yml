@@ -1,0 +1,67 @@
+id: job_build_tmp_sms_api_parts_info_res_relational
+namespace: kestra_dbt_project.proj-job-sms-kousei
+
+labels:
+  error: default_failed
+  dbt: build
+
+retry:
+  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK 
+  type: exponential
+  interval: PT5S
+  maxAttempts: 7
+  maxInterval: PT720S
+  delayFactor: 30
+
+# 手動実行時に指定できるdbtオプション
+inputs:
+  - id: dbt_options
+    type: SELECT
+    displayName: Choose dbt options
+    values:
+      - --full-refresh
+    required: false
+    allowCustomValue: true
+
+tasks:
+  - id: clone_dbt_build
+    type: io.kestra.plugin.dbt.cli.DbtCLI
+    commands:
+      - dbt build
+        --select +tmp_sms_api_parts_info_res_relational
+        --vars '{"DBT_JOB_NAME":"_tmp_sms_api_parts_info_res_relational"}'
+        {{ inputs.dbt_options ?? "" }}
+
+triggers:
+  - id: flow_trigger
+    type: io.kestra.plugin.core.trigger.Flow
+    preconditions:
+      id: flows
+      flows:
+        - namespace: kestra_dbt_project.proj-job-api-call
+          flowId: job_call_sms_api_parts_info
+          states: [SUCCESS]
+
+# エラーログを出力
+errors:
+  - id: error_log
+    type: io.kestra.plugin.core.debug.Return
+    format: "{{ errorLogs()[0]['message'] }}"
+
+outputs: 
+  - id: output_error_log
+    type: STRING
+    value: "{{ outputs.error_log.value ?? 'No message found.' }}"
+  - id: output_state
+    type: STRING
+    value: "{{ tasks.clone_dbt_build.state ?? 'No state' }}"
+
+# ログ出力
+finally:
+  - id: finally_log 
+    type: io.kestra.plugin.core.log.Log
+    message: 
+      - "Git branch -> {{ namespace.GIT.BRANCH }}"
+      - "dbt options -> {{ inputs.dbt_options ?? '' }}"
+      
+disabled: false

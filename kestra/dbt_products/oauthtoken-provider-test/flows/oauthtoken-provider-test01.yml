@@ -1,0 +1,61 @@
+id: oauthtoken-provider-test01
+namespace: kestra_dbt_project.oauthtoken-provider-test
+
+tasks:
+  - id: git
+    type: io.kestra.plugin.core.flow.WorkingDirectory
+    tasks:
+      - id: clone_repository
+        type: io.kestra.plugin.git.Clone
+        url: "{{ namespace.GIT.URL }}"
+        branch: "{{ namespace.GIT.BRANCH }}"
+        username: "{{ namespace.GIT.USER }}"
+        password: "{{ secret('GIT_PASS') }}"
+        
+      - id: dbt
+        type: io.kestra.plugin.dbt.cli.DbtCLI
+        taskRunner:
+          type: io.kestra.plugin.ee.kubernetes.runner.Kubernetes
+          namespace: default      
+          config:
+            username: "{{ namespace.KUBERNETES.USER_NAME }}"
+            masterUrl: "{{ namespace.KUBERNETES.MASTER_URL }}"
+            caCertData: "{{ secret('KUBERNETES_CA_CERT_DATA') }}"
+            oauthTokenProvider:
+              task:
+                id: token-provider
+                type: io.kestra.plugin.aws.auth.EksToken
+                region: ap-northeast-1
+                clusterName: pajp1-dxpf-edp-eks-kestra01
+              output: "{{ token.tokenValue }}"
+          resources:
+            request: # The resources the container is guaranteed to get
+              cpu: "500m" # Request 1/2 of a CPU (500 milliCPU)
+              memory: "128Mi" # Request 128 MB of memory
+        containerImage: "{{ namespace.DOCKER.IMAGE_VERSION.DBT }}"
+        beforeCommands:
+          # - dbt deps --project-dir enterprise_data_products
+          - dbt deps
+        projectDir: "{{ namespace.DBT.PROJ_DIR }}"
+        profiles: |
+          enterprise_data_products:
+            target: dev
+            outputs:
+              dev:
+                account: "{{ namespace.DBT.SNOWFLAKE_ACCOUNT }}"
+                database: "{{ namespace.DBT.SNOWFLAKE_DATABASE }}"
+                private_key: "{{ secret('SNOWFLAKE_PRIVATE_KEY_DBT') }}"
+                private_key_passphrase: "{{ secret('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE_DBT') }}"
+                role: "{{ namespace.DBT.SNOWFLAKE_ROLE }}"
+                schema: "{{ namespace.DBT.SNOWFLAKE_SCHEMA }}"
+                threads: 16
+                type: snowflake
+                user: "{{ namespace.DBT.SNOWFLAKE_USER }}"
+                warehouse: "dbt_default_wh"
+        
+        # commands:
+        #   - dbt snapshot --select scd_cvn18nosiodrjyoho_initial scd_cvn18nosiodrjyoho_latest scd_cvn18nosiodrjyoho_previous --project-dir enterprise_data_products
+        commands:
+          - dbt list --select +dm_vinhis_specification_kaigai
+        # - dbt run --select substr_nojfa560
+        #   - dbt run --select substr_nojfa560 --project-dir enterprise_data_products
