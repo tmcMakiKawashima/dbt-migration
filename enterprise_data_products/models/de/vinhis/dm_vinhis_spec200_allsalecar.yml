@@ -1,7 +1,7 @@
 version: 2
 
 models:
-
+# VIN×SPEC200
   - name: dm_vinhis_spec200_allsalecar
     data_tests:
       - dbt_utils.unique_combination_of_columns:
