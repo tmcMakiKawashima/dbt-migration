@@ -1,8 +1,5 @@
 with t61 as (
-    select
-        *
-    from 
-        {{source('katashiki_db_spec','raw_tmp61_dm_siyo_seisan_daisu_test')}}
+    select * from {{source('katashiki_db_spec','raw_tmp61_dm_siyo_seisan_daisu_test')}}
   {% raw %}
     --from {{ref('tmp61_dm_siyo_seisan_daisu')}}
   {% endraw %}
@@ -14,6 +11,6 @@ with t61 as (
 )  
 select
   t61.*,
-  seq.keta_no,
+  seq.*,
   substr(t61.spec, seq.keta_no, 1) as kigo  -- specを1文字づつ200分割した記号
  from t61 cross join seq
