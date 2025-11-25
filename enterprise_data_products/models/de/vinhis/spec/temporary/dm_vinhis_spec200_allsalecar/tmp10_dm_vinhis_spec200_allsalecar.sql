@@ -16,7 +16,7 @@ with tmp_get_union as (
         trim(haisya_kt) as haisya_kt,
         sketa_cd,
         skigo_cd
-    from {{ source('vinhis_db_spec','raw_dm_vinhis_specification_union') }}
+    from {{ ref('dm_vinhis_specification_union') }}
     where
         coalesce( trim(sketa_cd), '' ) <> '' and
         coalesce( trim(skigo_cd), '' ) <> ''
@@ -38,7 +38,7 @@ tmp_get_siyouhenkan as (
             order by
                 tekikara desc
         ) as latest_rank
-    from {{ source('supplydemand_db_public','raw_stg_siyouhenkan') }}
+    from {{ ref('stg_siyouhenkan') }}
 ),
 
 -- 2-2. 仕様変換テーブルの最も適用日が最新のレコードのみを取得
