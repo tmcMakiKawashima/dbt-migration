@@ -511,7 +511,8 @@ with substr_tujfk003 as (
         substr(raw_data, 2853, 1)::varchar(1) as odersts,
         substr(raw_data, 2854, 1)::varchar(1) as odersyubetu,
         substr(raw_data, 2855, 6)::varchar(6) as dummy,
-        ldts
+        ldts,
+        line_number
     from {{ source('snowpipe_db_supplydemand', 'raw_tujfk003')}}
 )
 select * from substr_tujfk003
