@@ -19,8 +19,8 @@ with stg_color_no as (
         skaisya::varchar(5) as skaisya, --取得会社
         sbusyo::varchar(10) as sbusyo, --取得部署
         ssya::varchar(20) as ssya, --取得者
-        _fivetran_synced::timestamp as ldts
+        _fivetran_synced::timestamp_ntz as ldts
     from {{ source('fivetran_database_oraclerds_lzdata01_sms_dxpfy2d','raw_cyp23colorno') }}
-    where _fivetran_deleted = FALSE
+    where _fivetran_deleted = false
 )
 select * from stg_color_no

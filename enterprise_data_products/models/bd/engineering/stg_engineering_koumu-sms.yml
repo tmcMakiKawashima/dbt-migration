@@ -4,7 +4,7 @@ models:
 # カラーNo
   - name: stg_color_no
     config:
-      tags: ["koumu_sms"]
+      tags: ["koumu-sms"]
     columns:
       - name: gclrno
         data_tests:
