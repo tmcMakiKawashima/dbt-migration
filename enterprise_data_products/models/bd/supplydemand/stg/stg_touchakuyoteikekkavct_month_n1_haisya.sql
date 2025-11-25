@@ -513,6 +513,6 @@ with stg_touchakuyoteikekkavct_month_n1_haisya as (
         dummy::varchar(6) as dummy,
         ldts
     from {{ ref('substr_tujfk002') }}
+    where ldts = (select max(ldts) from {{ ref('substr_tujfk002') }})
 )
 select * from stg_touchakuyoteikekkavct_month_n1_haisya
-where ldts = (select max(ldts) from stg_touchakuyoteikekkavct_month_n1_haisya)
