@@ -1,3 +1,5 @@
+version: 2
+
 sources:
   - name: fivetran_database_oraclerds_lzdata01_sms_dxpfy2d
     database: fivetran_database
@@ -10,4 +12,4 @@ sources:
 
     tables:
       - name: raw_cyp23colorno
-        identifier: CYP23COLORNO
+        identifier: cyp23colorno
