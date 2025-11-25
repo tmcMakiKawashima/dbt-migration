@@ -28,7 +28,7 @@ tasks:
     type: io.kestra.plugin.dbt.cli.DbtCLI
     commands:
       - dbt build
-        --select +dm_vinhis_spec200_allsalecar
+        --select stg_color_no tmp10_dm_vinhis_spec200_allsalecar tmp20_dm_vinhis_spec200_allsalecar tmp30_dm_vinhis_spec200_allsalecar dm_vinhis_spec200_allsalecar
         --vars '{"DBT_JOB_NAME":"_dm_vinhis_spec200_allsalecar"}'
         {{ inputs.dbt_options ?? "" }}
 
