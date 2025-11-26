@@ -40,3 +40,31 @@ models:
   - name: stg_dvsf509a
     config:
       tags: ["atop"]
+# 受入実績ファイル
+  - name: stg_ukeirejisseki_atop
+    config:
+      tags: ["atop"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - kaknokyotnkbn
+            - tyotathb
+            - srsirskcd
+            - brsirskcd
+            - nnymd
+          config:
+            severity: error
+# 損益管理基本ファイル
+  - name: stg_sonekikanri_atop
+    config:
+      tags: ["atop"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - thyono
+            - jissekiym
+            - hinban
+            - distfd
+            - renban
+          config:
+            severity: error

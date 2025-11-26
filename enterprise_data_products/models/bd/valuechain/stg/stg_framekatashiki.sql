@@ -1,30 +1,3 @@
-{{
-    config (
-        post_hook=
-            'create or replace hybrid table valuechain_db.public.stg_framekatashiki (
-                 frmnokata varchar(7) not null,
-                 frmno varchar(7) not null,
-                 mdlyearkbn varchar(1) not null,
-                 vin varchar(17) not null,
-                 nen varchar(4),
-                 tuki varchar(2),
-                 clrcd varchar(3),
-                 trmcd varchar(4),
-                 syasyu_cd varchar(4),
-                 siyoptno varchar(4),
-                 tkstkbn varchar(1),
-                 syakata varchar(20),
-                 hanbai_kt varchar(20),
-                 eng_type varchar(7),
-                 transkata varchar(6),
-                 rdf_type varchar(3),
-                 ldts timestamp_ntz(9),
-                 constraint stg_framekatashiki_frmnokata_frmno_mdlyearkbn_vin_uk primary key (frmnokata, frmno, mdlyearkbn, vin) rely 
-             ) as select * from  {{this}}'
-    )
-}}
--- ハイブリッドテーブルに変更
-
 with stg_framekatashiki as (
     select
         mntkbn::varchar(1) as mntkbn, 

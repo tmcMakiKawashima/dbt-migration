@@ -102,6 +102,20 @@ sources:
             data_tests:
               - fixed_length:
                   length: 250
+      - name: raw_ktrla01vzz0kvq00m8
+        identifier: ktrla01vzz0kvq00m8
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 400
+      - name: raw_ktrla01vzz0kvr00qe
+        identifier: ktrla01vzz0kvr00qe
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 279
     # TAS
       - name: raw_tbdaihl
         identifier: dxdaih99
@@ -399,3 +413,118 @@ sources:
         identifier: ktrea04tzz0kel0908
       - name: raw_ktrea04tzz0kel0909
         identifier: ktrea04tzz0kel0909
+    # GSPS
+      - name: raw_tmjfvk04
+        identifier: tmjfvk04
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 100
+      - name: raw_tmjfvk09
+        identifier: tmjfvk09
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 120
+      - name: raw_tmjfvk03
+        identifier: tmjfvk03
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 80
+      - name: raw_tmjfvk08
+        identifier: tmjfvk08
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 80
+      - name: raw_tmjfvk02
+        identifier: tmjfvk02
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 88
+      - name: raw_tmjfvk01
+        identifier: tmjfvk01
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 70
+      - name: raw_tmjfvk05
+        identifier: tmjfvk05
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 170
+      - name: raw_tmjfvk07
+        identifier: tmjfvk07
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 90
+      - name: raw_tmjfvk06
+        identifier: tmjfvk06
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 110
+      - name: raw_tmjfvk10
+        identifier: tmjfvk10
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 210
+    # TOPACS
+      - name: raw_ktrla01xzz0kv200v6
+        identifier: ktrla01xzz0kv200v6
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 530
+      - name: raw_ktrla01xzz0kv200v9
+        identifier: ktrla01xzz0kv200v9
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 220
+      - name: raw_ktrla01xzz0kv200v7
+        identifier: ktrla01xzz0kv200v7
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 50
+      - name: raw_ktrla01xzz0kv200v8
+        identifier: ktrla01xzz0kv200v8
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 30
+      - name: raw_ktrla01xzz0kv200va
+        identifier: ktrla01xzz0kv200va
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 80
+    # HOKYUSMS
+      - name: raw_cvg01kyoku_manual
+        identifier: cvg01kyoku_manual
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  length: 80

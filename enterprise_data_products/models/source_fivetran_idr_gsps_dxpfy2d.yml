@@ -16,3 +16,7 @@ sources:
         identifier: cvk09hazmat
       - name: raw_cvk09ykiken
         identifier: cvk09ykiken
+      - name: raw_cvk02tksyasyu
+        identifier: cvk02tksyasyu
+      - name: raw_cvk02hinsyasyu
+        identifier: cvk02hinsyasyu

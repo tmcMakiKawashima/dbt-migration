@@ -1,0 +1,36 @@
+with substr_ktrla038zz0kadcb84 as (
+    select
+        substr(raw_data, 10, 5)::varchar(5) as dlrcd,
+        substr(raw_data, 131, 12)::varchar(12) as odno,
+        substr(raw_data, 143, 8)::varchar(8) as jrdate,
+        substr(raw_data, 151, 8)::varchar(8) as kndate,
+        substr(raw_data, 159, 8)::varchar(8) as kydate,
+        substr(raw_data, 167, 8)::varchar(8) as hydate,
+        substr(raw_data, 175, 8)::varchar(8) as tydate,
+        substr(raw_data, 183, 8)::varchar(8) as nsdate,
+        substr(raw_data, 191, 1)::varchar(1) as frsign,
+        substr(raw_data, 192, 1)::varchar(1) as nfuyo,
+        substr(raw_data, 193, 1)::varchar(1) as ukecd,
+        substr(raw_data, 194, 1)::varchar(1) as kfsign,
+        substr(raw_data, 195, 1)::varchar(1) as vltsofu,
+        substr(raw_data, 196, 1)::varchar(1) as wax,
+        substr(raw_data, 197, 5)::varchar(5) as zaikosk,
+        substr(raw_data, 202, 8)::varchar(8) as yusosk1,
+        substr(raw_data, 210, 1)::varchar(1) as bukbn,
+        substr(raw_data, 211, 1)::varchar(1) as nhsign,
+        substr(raw_data, 212, 2)::varchar(2) as shamei,
+        substr(raw_data, 214, 2)::varchar(2) as sno,
+        substr(raw_data, 216, 4)::varchar(4) as ojyy,
+        substr(raw_data, 220, 1)::varchar(1) as kubn,
+        substr(raw_data, 221, 8)::varchar(8) as yusosk2,
+        substr(raw_data, 229, 8)::varchar(8) as tonoki,
+        substr(raw_data, 237, 1)::varchar(1) as jifuri,
+        substr(raw_data, 238, 1)::varchar(1) as tokcd,
+        substr(raw_data, 239, 5)::varchar(5) as kmaker,
+        substr(raw_data, 244, 1)::varchar(1) as hassou,
+        substr(raw_data, 245, 5)::varchar(5) as seikyu,
+        ldts,
+        line_number
+    from {{source('snowpipe_db_supplydemand', 'raw_tsjfa36a')}}
+)
+select * from substr_ktrla038zz0kadcb84

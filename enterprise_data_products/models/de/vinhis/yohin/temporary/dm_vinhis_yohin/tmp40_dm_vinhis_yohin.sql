@@ -2,16 +2,16 @@ with
     tmp30 as (
         select * from {{ ref('tmp30_dm_vinhis_yohin') }}
     ),
-    stg_goguchisyasyucd as (
+    stg_katashikihenkanmaster_pixy as (
         select
-            syasyu_cd, -- 車種コード
-            yohinsyamei -- 用品車名No
-        from {{ ref('stg_goguchisyasyucd') }} -- 号口車種コード
+            syameino, -- 用品車名No
+            ctlkata, --CTL型式
+            hanbaicd --販売ｺｰﾄﾞ
+        from {{ ref('stg_katashikihenkanmaster_pixy') }} -- 型式変換マスター
     )
 select
     tmp30.*,
-    stg_goguchisyasyucd.yohinsyamei
-
+    stg_katashikihenkanmaster_pixy.syameino
 from tmp30
-left outer join stg_goguchisyasyucd
-on tmp30.syasyu_cd = stg_goguchisyasyucd.syasyu_cd
+left outer join stg_katashikihenkanmaster_pixy
+on replace(rtrim(tmp30.hkata),'-','') = replace(stg_katashikihenkanmaster_pixy.ctlkata || replace( stg_katashikihenkanmaster_pixy.hanbaicd,'-',''),' ','')

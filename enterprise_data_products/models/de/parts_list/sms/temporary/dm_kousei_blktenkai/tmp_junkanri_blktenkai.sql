@@ -64,7 +64,7 @@ select
   iff(tmp_kousei03_sub2.maxmttime < tmp_kousei03_sub3.maxmttime, tmp_kousei03_sub3.maxmttime, tmp_kousei03_sub2.maxmttime) as maxmttime,
   tmp_kousei03_main.mttime
 from tmp_kousei03_main
-left join tmp_kousei03_sub1
+inner join tmp_kousei03_sub1
   on tmp_kousei03_main.syasyu = tmp_kousei03_sub1.syasyu_cd
   and tmp_kousei03_main.torokujun = tmp_kousei03_sub1.torokujun
 left join tmp_kousei03_sub2
