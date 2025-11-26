@@ -26,10 +26,7 @@ with t70 as (
         s1kigo,    -- spec記号
         siyoudai4, -- 仕様コード(4桁)大分類
         siyousai4  -- 仕様コード(4桁)細目
-    from {{source('supplydemand_db_public','raw_stg_siyouhenkan')}}
-  {% raw %}
-     -- {{ref('stg_siyouhenkan')}}
-  {% endraw %}
+    from {{ref('stg_siyouhenkan')}}
 )
 select
     t70.syasyu,

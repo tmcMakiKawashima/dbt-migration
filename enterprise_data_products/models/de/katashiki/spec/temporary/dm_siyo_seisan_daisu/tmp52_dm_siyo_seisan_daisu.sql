@@ -19,10 +19,7 @@ with t52 as (
         t51.sk_m,                                           -- 終検日月
         max(t51.daisu) as daisu,                            -- 台数
         max(t51.naiji_flg) as naiji_flg                     -- 内示実績FLG
-	from {{source('katashiki_db_spec','raw_tmp51_dm_siyo_seisan_daisu_test')}} as t51
-  {% raw %}
-    --from {{ref('tmp51_dm_siyo_seisan_daisu')}}
-  {% endraw %}
+	  from {{ref('tmp51_dm_siyo_seisan_daisu')}} as t51
     group by
         syasyu,
         haisya_kt,

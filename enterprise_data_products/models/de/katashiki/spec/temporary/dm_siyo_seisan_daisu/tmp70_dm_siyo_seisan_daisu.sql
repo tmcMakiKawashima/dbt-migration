@@ -1,8 +1,5 @@
 with t61 as (
-    select * from {{source('katashiki_db_spec','raw_tmp61_dm_siyo_seisan_daisu_test')}}
-  {% raw %}
-    --from {{ref('tmp61_dm_siyo_seisan_daisu')}}
-  {% endraw %}
+    select * from {{ref('tmp61_dm_siyo_seisan_daisu')}}
 ), seq as (
   -- SPECを200分割するためのシーケンス
     select

@@ -11,10 +11,7 @@ with t60 as (
         idline,  -- アイデントライン
         syasyu,  -- 車種コード
         ctlkata -- コントロール型式
-	from {{source('katashiki_db_spec','raw_tmp60_dm_siyo_seisan_daisu_test')}} as t51
-  {% raw %}
-    --from {{ref('tmp60_dm_siyo_seisan_daisu')}}
-  {% endraw %}
+	from {{ref('tmp60_dm_siyo_seisan_daisu')}} as t51
 ), sksk as (
     select
         syasyu,    -- 車種コード

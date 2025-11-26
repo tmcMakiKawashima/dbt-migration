@@ -208,16 +208,13 @@ with t3 as (
         max(case r_spec_keta when '199' then r_spec_kigo else ' ' end) ||
         max(case r_spec_keta when '200' then r_spec_kigo else ' ' end)
     ) as spec200 -- SPEC200
-    from {{source('katashiki_db_spec','raw_tmp20_dm_siyo_seisan_daisu_test')}}
-  {% raw %}
-     --from {{ref('tmp20_dm_siyo_seisan_daisu')}}
-  {% endraw %}
-    group by
-	    r_shashu,
-	    r_katashiki,
-	    sk_y,
-	    sk_m,
-	    r_dist_code,
-	    r_sfx_code
+  from {{ref('tmp20_dm_siyo_seisan_daisu')}}
+  group by
+    r_shashu,
+    r_katashiki,
+    sk_y,
+    sk_m,
+    r_dist_code,
+    r_sfx_code
 )
 select * from t3

@@ -8,19 +8,13 @@ with t1 as (
     left(r_prod_month, 4) as sk_y,     -- 生産年
     substr(r_prod_month, 5, 2) as sk_m,-- 生産月
     r_shashu -- 車種コード
-  from {{source('katashiki_db_spec','raw_tmp10_dm_siyo_seisan_daisu_test')}}
-  {% raw %}
-     --from {{ref('tmp10_dm_siyo_seisan_daisu')}}
-  {% endraw %}
+  from {{ref('tmp10_dm_siyo_seisan_daisu')}}
 ), sh as (
   select
     syasyu,  -- 車種コード
     s1keta,  -- SPEC桁
     s1kigo   -- SPEC記号
-  from {{source('supplydemand_db_public','raw_stg_siyouhenkan')}}
-  {% raw %}
-     -- {{ref('stg_siyouhenkan')}}
-  {% endraw %}
+  from {{ref('stg_siyouhenkan')}}
 )
 select
     t1.*

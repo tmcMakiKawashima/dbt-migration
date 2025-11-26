@@ -12,15 +12,9 @@
  }}
  -- 洗い替えであるため、pre_hookで全件削除を行う。
 with t52 as (
-  select * from {{source('katashiki_db_spec','raw_tmp52_dm_siyo_seisan_daisu_test')}}
-  {% raw %}
-    --from {{ref('tmp52_dm_siyo_seisan_daisu')}}
-  {% endraw %}
+  select * from {{ref('tmp52_dm_siyo_seisan_daisu')}}
 ), t71 as (
-  select * from {{source('katashiki_db_spec','raw_tmp71_dm_siyo_seisan_daisu_test')}}
-  {% raw %}
-    --from {{ref('tmp71_dm_siyo_seisan_daisu')}}
-  {% endraw %}
+  select * from {{ref('tmp71_dm_siyo_seisan_daisu')}}
 )
 select
     t52.*,

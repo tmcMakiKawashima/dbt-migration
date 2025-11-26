@@ -6,10 +6,7 @@ with mss as (
             partition by sno
             order by mtdate desc
         ) as rnk
-    from {{source('supplydemand_db_public','raw_stg_syasyu_siyousho')}}
-  {% raw %}
-    --from {{ref('stg_syasyu_siyousho')}}
-  {% endraw %}
+    from {{ref('stg_syasyu_siyousho')}}
 ), ssua as (
     select
         carfamily,  -- 車種コード
@@ -23,10 +20,7 @@ with mss as (
         idline,  -- アイデントライン
         ctlkata,  -- コントロール型式
         sno -- 仕様書NO
-    from {{source('supplydemand_db_public','raw_stg_union_all_vehicle_specification_alc')}}
-  {% raw %}
-    --from {{ref('stg_union_all_vehicle_specification_alc')}}
-  {% endraw %}
+    from {{ref('stg_union_all_vehicle_specification_alc')}}
 )
 select
     coalesce(nullif(ssua.carfamily , ''), mss.syasyu) as syasyu,
