@@ -3,7 +3,7 @@ with t52 as (
         t51.syasyu,                                         -- 車種ｺｰﾄﾞ
         t51.haisya_kt,                                      -- 配車型式
         max(t51.r_sfx_code) as r_sfx_code,                  -- SFX№
-        max(t51.spec200) as spec200,                        -- SPEC200桁組合せ
+        max(t51.spec200)::varchar(200) as spec200,          -- SPEC200桁組合せ
         max(t51.spec200_siyo) as spec200_siyo,              -- SPEC対応4桁仕様
         max(t51.int_cd) as int_cd,                          -- 内張コード
         max(t51.int_cd_iromei) as int_cd_iromei,            -- 内張名

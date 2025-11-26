@@ -1,7 +1,7 @@
 with t60 as (
     select
-        left(lodate,4) as sk_y,      -- 終検日年
-        substr(lodate,5,2) as sk_m, -- 終検日月
+        left(lodate,4)::varchar(4) as sk_y,      -- 終検日年
+        substr(lodate,5,2)::varchar(2) as sk_m, -- 終検日月
         spec,  -- スペック
         intcode,  -- 内張コード
         extcode,  -- 外鈑色コード
@@ -42,7 +42,7 @@ select
     inc.iromei as int_cd_iromei,
     outc.iromei as ext_cd_iromei,
     km.r_country_name,
-    count(*) as daisu
+    count(*)::number(13,0) as daisu
 from t60
 left join sksk
 on (

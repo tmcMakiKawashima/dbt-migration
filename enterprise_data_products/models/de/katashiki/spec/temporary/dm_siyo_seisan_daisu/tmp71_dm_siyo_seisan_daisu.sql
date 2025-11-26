@@ -34,10 +34,10 @@ with t70 as (
 select
     t70.syasyu,
     t70.kata,
-    null as r_sfx_code,
+    null::varchar(2) as r_sfx_code,
     t70.spec,
     listagg(sh.siyoudai4 || sh.siyousai4, '')
-    within group (order by t70.keta_no) as spec200_siyo, -- SPEC対応4桁仕様,
+    within group (order by t70.keta_no)::varchar(800) as spec200_siyo, -- SPEC対応4桁仕様,
     t70.intcode,
     t70.int_cd_iromei,
     t70.extcode,
