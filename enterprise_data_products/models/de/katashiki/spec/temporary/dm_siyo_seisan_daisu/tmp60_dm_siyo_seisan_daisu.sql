@@ -1,82 +1,33 @@
-with ssua as (
+with mss as (
     select
-        left(lodate,4) as sk_y, -- 終検日年
-		substr(lodate,5,2) as  sk_m, -- 終検日月
-		spec as spec, -- スペック
-		intcode as intcode, -- 内張コード
-		extcode as extcode, -- 外鈑色コード
-		destcode as destcode, -- 仕向地コード
-		plantcode as plantcode, -- 工場コード
-		pscexlk as pscexlk, -- PSC(外部連携用)
-		idline as idline, -- アイデントライン
-		carfamily as carfamily, -- 車種コード
-		ctlkata as ctlkata -- コントロール型式
-    from {{source('supplydemand_db_public','raw_stg_union_all_vehicle_specification_alc')}}
-), sksk as (
+        sno,     -- 仕様書NO
+        syasyu,  -- 車種コード
+        row_number() over(
+            partition by sno
+            order by mtdate desc
+        ) as rnk
+    from {{ref('stg_syasyu_siyousho')}}
+), ssua as (
     select
-		syasyu,
-		kata,
-		ctlkata,
-		enginekata
-    from {{source('katashiki_db_basespec','raw_dm_syasyu_kata_sijino_plant')}}
-), col as (
-    select
-		gclrno,
-		iromei
-    from {{source('engineering_db_public','raw_stg_color_no')}}
-), km as (
-    select
-		r_country_code,
-		r_country_name
-    from {{source('supplydemand_db_public','raw_m_cuad001')}})
+        carfamily,  -- 車種コード
+        lodate,  -- ラインオフ計画日
+        spec,  -- スペック
+        intcode,  -- 内張コード
+        extcode,  -- 外鈑色コード
+        destcode,  -- 仕向地コード
+        plantcode,  -- 工場コード
+        pscexlk,  -- PSC(外部連携用)
+        idline,  -- アイデントライン
+        ctlkata,  -- コントロール型式
+        sno -- 仕様書NO
+    from {{ref('stg_union_all_vehicle_specification_alc')}}
+)
 select
-	ssua.carfamily as syasyu,
-	sksk.kata,
-	sksk.enginekata,
-	ssua.sk_y,
-	ssua.sk_m,
-	ssua.spec,
-	ssua.intcode,
-	inc.iromei as int_cd_iromei,
-	ssua.extcode,
-	outc.iromei as ext_cd_iromei,
-	ssua.destcode as dest_cd,
-	km.r_country_name as dest,
-	ssua.plantcode,
-	ssua.pscexlk,
-	ssua.idline,
-	count(*) as daisu
+    coalesce(nullif(ssua.carfamily , ''), mss.syasyu) as syasyu,
+    ssua.* exclude(carfamily)
 from ssua
-left join sksk
+left join mss
 on (
-	ssua.carfamily = sksk.syasyu
-and ssua.ctlkata = sksk.ctlkata
+    ssua.sno = mss.sno
+and mss.rnk = 1
 )
-left join col as inc
-on (
-	ssua.intcode = inc.gclrno
-)
-left join col as outc
-on (
-	ssua.extcode = outc.gclrno
-)
-left join km as km
-on (
-	ssua.destcode = km.r_country_code
-)
-group by
-	ssua.carfamily,
-	kata,
-	enginekata,
-	sk_y,
-	sk_m,
-	spec,
-	intcode,
-	int_cd_iromei,
-	extcode,
-	ext_cd_iromei,
-	dest_cd,
-	dest,
-	plantcode,
-	pscexlk,
-	idline

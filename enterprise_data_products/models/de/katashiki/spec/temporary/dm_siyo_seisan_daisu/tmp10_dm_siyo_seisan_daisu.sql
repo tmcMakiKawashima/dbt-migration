@@ -6,22 +6,17 @@ with kj as (
     r_shashu,  -- 車種コード
     r_dist_code,  -- 受注先コード
     r_katashiki  -- 呼称型式
-   from {{source('supplydemand_db_public','raw_stg_cam2146_jyukyujyoho')}}
+  from {{ref('stg_cam2146_jyukyujyoho')}}
 ), sj as (
   select
     r_prod_month,  -- 生産年月
     r_edno,  -- ｅｄ№
     r_spec_keta,  -- SPEC桁
     trim(r_spec_kigo) as r_spec_kigo  -- SPEC記号
-   from {{source('supplydemand_db_public','raw_stg_cam2148_jyukyujyoho')}}
+  from  {{ref('stg_cam2148_jyukyujyoho')}}
 )
 select
-    kj.r_prod_month,
-    kj.r_edno,
-    kj.r_sfx_code,
-    kj.r_shashu,
-    kj.r_dist_code,
-    kj.r_katashiki,
+    kj.*,
     sj.r_spec_keta,
     sj.r_spec_kigo
 from kj
