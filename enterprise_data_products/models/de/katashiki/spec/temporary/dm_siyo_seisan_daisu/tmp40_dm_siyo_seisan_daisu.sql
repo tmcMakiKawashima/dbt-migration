@@ -18,7 +18,11 @@ with t4 as (
         coalesce(sk_m, '') as sk_m, -- 終検日月
         count(*)::number(13,0) as daisu, -- 台数
         '0' as naiji_flg -- 内示実績FLG
-    from {{ref('dm_vinhis_spec200_allsalecar')}}
+    from
+        {{source('vinhis_db_spec','raw_dm_vinhis_spec200_allsalecar')}}
+  {% raw %}
+     --from {{ref('dm_vinhis_spec200_allsalecar')}}
+  {% endraw %}
     group by
         syasyu,
         haisya_kt,
