@@ -172,6 +172,12 @@ models:
         dim:
           +access: public
           +materialized: table
+        smshokyu:
+          +group: parts_smshokyu
+          +schema: smshokyu
+          dim:
+            +access: public
+            +materialized: table
       vinhis:
         +snowflake_warehouse: vinhis_wh
         +database: vinhis_db
