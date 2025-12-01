@@ -29,7 +29,7 @@
             threads: 16
             type: snowflake
             user: "{{ namespace.DBT.SNOWFLAKE_USER }}"
-            warehouse: dbt_default_wh
+            warehouse: common_tbl_wh
     projectDir: "{{ namespace.DBT.PROJ_DIR }}"
     taskRunner:
       type: io.kestra.plugin.ee.kubernetes.runner.Kubernetes
