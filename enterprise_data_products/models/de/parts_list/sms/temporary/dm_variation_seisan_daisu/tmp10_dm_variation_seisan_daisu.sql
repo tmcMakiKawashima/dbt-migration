@@ -1,7 +1,7 @@
 with vsas as (
   select 
     syadai_kt,  -- 車台型式
-    frm_no,  -- フレーム連番
+    frmno,  -- フレーム連番
     wmi,  -- WMI
     vds,  -- VDS
     mdlyr,  -- モデルレイヤー/製造年
@@ -30,7 +30,7 @@ with vsas as (
 )
 select
     vsas.syadai_kt,  -- 車台型式
-    vsas.frm_no,  -- フレーム連番
+    vsas.frmno,  -- フレーム連番
     vsas.wmi,  -- WMI
     vsas.vds,  -- VDS
     vsas.mdlyr,  -- モデルレイヤー/製造年
@@ -49,7 +49,7 @@ from vsas
 left join ascv
 on (
     vsas.syadai_kt = ascv.syadai_kt
-and vsas.frm_no = ascv.frm_no
+and vsas.frmno = ascv.frm_no
 and vsas.wmi = ascv.wmi
 and vsas.vds = ascv.vds
 and vsas.mdlyr = ascv.mdlyr
