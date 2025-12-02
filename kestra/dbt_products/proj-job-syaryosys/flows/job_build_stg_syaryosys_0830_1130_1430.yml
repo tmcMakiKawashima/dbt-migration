@@ -23,13 +23,16 @@ inputs:
     required: false
     allowCustomValue: true
 
+variables: 
+  dbt_command: 
+    --select +stg_order_daisu_summary_syaryosys +stg_kinobetsu_noryoku_waku_syaryosys +stg_dfsc_x_kinomeisai_syaryosys +stg_juchushiyo_kanri_syaryosys
+    --vars '{"DBT_JOB_NAME":"_stg_syaryosys_0830_1130_1430"}'
+
 tasks:
   - id: clone_dbt_build
     type: io.kestra.plugin.dbt.cli.DbtCLI
     commands:
-      - dbt build
-        --select +stg_order_daisu_summary_syaryosys +stg_kinobetsu_noryoku_waku_syaryosys +stg_dfsc_x_kinomeisai_syaryosys +stg_juchushiyo_kanri_syaryosys
-        --vars '{"DBT_JOB_NAME":"_stg_syaryosys_0830_1130_1430"}'
+      - dbt build {{ vars.dbt_command }}
         {{ inputs.dbt_options ?? "" }}
 
 triggers:
@@ -59,5 +62,6 @@ finally:
     message: 
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
       - "dbt options -> {{ inputs.dbt_options ?? '' }}"
+      - "dbt commands -> {{ vars.dbt_command }}"
       
 disabled: false

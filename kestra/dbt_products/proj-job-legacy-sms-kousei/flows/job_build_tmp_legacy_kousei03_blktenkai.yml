@@ -23,14 +23,17 @@ inputs:
     required: false
     allowCustomValue: true
 
+variables: 
+  dbt_command: 
+    --select
+    +tmp_legacy_kousei03_blktenkai
+    --vars '{"DBT_JOB_NAME":"_tmp_legacy_kousei03_blktenkai"}'
+
 tasks:
   - id: clone_dbt_build
     type: io.kestra.plugin.dbt.cli.DbtCLI
     commands:
-      - dbt build
-        --select
-        +tmp_legacy_kousei03_blktenkai
-        --vars '{"DBT_JOB_NAME":"_tmp_legacy_kousei03_blktenkai"}'
+      - dbt build {{ vars.dbt_command }}
         {{ inputs.dbt_options ?? "" }}
 
 triggers:
@@ -60,5 +63,6 @@ finally:
     message: 
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
       - "dbt options -> {{ inputs.dbt_options ?? '' }}"
+      - "dbt commands -> {{ vars.dbt_command }}"
       
 disabled: false

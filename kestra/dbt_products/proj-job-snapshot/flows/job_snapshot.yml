@@ -23,14 +23,17 @@ inputs:
     required: false
     allowCustomValue: true
 
+variables: 
+  dbt_command: 
+    --select resource_type:snapshot
+    --exclude scd_tbsmksk_noki
+    --vars '{"DBT_JOB_NAME":""}'
+
 tasks:
   - id: clone_dbt_build
     type: io.kestra.plugin.dbt.cli.DbtCLI
     commands:
-      - dbt build
-        --select resource_type:snapshot
-        --exclude scd_tbsmksk_noki
-        --vars '{"DBT_JOB_NAME":""}'
+      - dbt build {{ vars.dbt_command }}
         {{ inputs.dbt_options ?? "" }}
 
 triggers:
@@ -60,5 +63,6 @@ finally:
     message: 
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
       - "dbt options -> {{ inputs.dbt_options ?? '' }}"
+      - "dbt commands -> {{ vars.dbt_command }}"
       
 disabled: false
