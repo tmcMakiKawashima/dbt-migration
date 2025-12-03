@@ -19,14 +19,16 @@ inputs:
       - --full-refresh
     required: false
     allowCustomValue: true
+variables: 
+  dbt_command: 
+    --select +dm_variation_seisan_daisu
+    --exclude +dm_vinhis_spec200_allsalecar +stg_color_no +stg_siyouhenkan +stg_syasyu_siyousho
+    --vars '{"DBT_JOB_NAME":"_dm_variation_seisan_daisu"}'
 tasks:
   - id: clone_dbt_build
     type: io.kestra.plugin.dbt.cli.DbtCLI
     commands:
-      - dbt build
-        --select +dm_variation_seisan_daisu
-        --exclude +dm_vinhis_spec200_allsalecar +stg_color_no +stg_siyouhenkan +stg_syasyu_siyousho
-        --vars '{"DBT_JOB_NAME":"_dm_variation_seisan_daisu"}'
+      - dbt build {{ vars.dbt_command }}
         {{ inputs.dbt_options ?? "" }}
 triggers:
   - id: schedule
@@ -52,4 +54,5 @@ finally:
     message: 
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
       - "dbt options -> {{ inputs.dbt_options ?? '' }}"
+      - "dbt commands -> {{ vars.dbt_command }}"
 disabled: false
