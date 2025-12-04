@@ -18,8 +18,8 @@ with substr_hostalc_8s_dkae06047201 as (
     substr(raw_data, 44, 20)::varchar(20) as creauser,
     substr(raw_data, 64, 12)::varchar(12) as creadateeln12d,
     substr(raw_data, 76, 12)::varchar(12) as updateymdeln12d,
-    ldts
+    ldts,
+    line_number
   from {{source('snowpipe_db_supplydemand', 'raw_hostalc_8s_dkae06047201')}}
 )
-
 select * from substr_hostalc_8s_dkae06047201
