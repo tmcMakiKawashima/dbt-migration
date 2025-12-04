@@ -25,8 +25,8 @@ with substr_hostalc_qm_dkae02072402 as (
     substr(raw_data, 278, 1)::varchar(1) as odrtype,
     substr(raw_data, 279, 2)::varchar(2) as vehcategorycode,
     substr(raw_data, 281, 14)::varchar(14) as updateymdel14dg,
-    ldts
+    ldts,
+    line_number
   from {{source('snowpipe_db_supplydemand', 'raw_hostalc_qm_dkae02072402')}}
 )
-
 select * from substr_hostalc_qm_dkae02072402
