@@ -23,10 +23,7 @@ with t60 as (
     select
         gclrno, -- カラーNo
         iromei  -- 色名
-    from {{source('engineering_db_public','raw_stg_color_no')}}
-  {% raw %}
-    --from {{ref('stg_color_no')}}
-  {% endraw %}
+    from {{ref('stg_color_no')}}
 ), km as (
     select
         r_country_code, -- 国コード

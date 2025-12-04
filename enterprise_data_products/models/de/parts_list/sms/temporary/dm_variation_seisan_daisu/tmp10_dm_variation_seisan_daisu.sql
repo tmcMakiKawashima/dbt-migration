@@ -12,7 +12,7 @@ with vsas as (
     spec200_siyo,  -- SPEC対応4桁仕様
     sk_y,  -- 終検日年
     sk_m  -- 終検日月
-  from {{source('vinhis_db_spec','raw_dm_vinhis_spec200_allsalecar')}}
+  from {{ref('dm_vinhis_spec200_allsalecar')}}
 ),ascv as (
   select
     syadai_kt,  -- 車台型式
