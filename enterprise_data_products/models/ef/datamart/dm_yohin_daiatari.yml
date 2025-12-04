@@ -8,26 +8,28 @@ models:
   - name: tmp20_dm_yohin_daiatari
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - kyouhan
-            - usercd
-            - kaisya
-            - tchumon
-            - hinban
-            - jznjusin
+          arguments:
+            combination_of_columns:
+              - kyouhan
+              - usercd
+              - kaisya
+              - tchumon
+              - hinban
+              - jznjusin
 # データ結合４のチェック
   - name: tmp30_dm_yohin_daiatari
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - usercd
-            - tchumon
-            - juchuymd
-            - hinban
-            - chumon
-            - hachuymd
-            - m_ordesybt
+          arguments:
+            combination_of_columns:
+              - dlrcd
+              - usercd
+              - tchumon
+              - juchuymd
+              - hinban
+              - chumon
+              - hachuymd
+              - m_ordesybt
     columns:
       - name: m_ordesybt
         data_tests:

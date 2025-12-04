@@ -5,9 +5,10 @@ models:
   - name: tmp10_dm_tmc_ippan_jutyunokikaito
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ordrkey
-            - juchuymd
+          arguments:
+            combination_of_columns:
+              - ordrkey
+              - juchuymd
     columns:
       - name: check1_ordrkey
         data_tests:
@@ -22,10 +23,11 @@ models:
   - name: tmp20_dm_tmc_ippan_jutyunokikaito
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ordrkey
-            - juchuymd
-            - tanskkey
+          arguments:
+            combination_of_columns:
+              - ordrkey
+              - juchuymd
+              - tanskkey
     columns:
       - name: check1_ordrkey
         data_tests:
@@ -40,16 +42,18 @@ models:
   - name: tmp30_dm_tmc_ippan_jutyunokikaito
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - juchuymd
-            - tanskkey
+          arguments:
+            combination_of_columns:
+              - juchuymd
+              - tanskkey
 # データ結合６のチェック
   - name: tmp40_dm_tmc_ippan_jutyunokikaito
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - juchuymd
-            - tanskkey
+          arguments:
+            combination_of_columns:
+              - juchuymd
+              - tanskkey
     columns:
       - name: check_tyotathb
         data_tests:
@@ -61,15 +65,16 @@ models:
   - name: tmp45_dm_tmc_ippan_jutyunokikaito
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - ordesybt
-            - yusokbn
-            - ordeno
-            - jhinban
-            - juchuymd
-            - shinban
-            - denno
+          arguments:
+            combination_of_columns:
+              - dlrcd
+              - ordesybt
+              - yusokbn
+              - ordeno
+              - jhinban
+              - juchuymd
+              - shinban
+              - denno
     columns:
       - name: iff(kyoten is not null, kyoten, nyukkten)
         data_tests:
@@ -78,16 +83,17 @@ models:
   - name: tmp50_dm_tmc_ippan_jutyunokikaito
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - ordeno
-            - shinban
-            - syukkaymd
-            - denno
-            - ordesybt
-            - yusokbn
-            - juchuymd
-            - jhinban
+          arguments:
+            combination_of_columns:
+              - dlrcd
+              - ordeno
+              - shinban
+              - syukkaymd
+              - denno
+              - ordesybt
+              - yusokbn
+              - juchuymd
+              - jhinban
     columns:
       - name: nyukoymd
         data_tests:
@@ -96,13 +102,14 @@ models:
   - name: tmp60_dm_tmc_ippan_jutyunokikaito
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - yusokbn
-            - odrno
-            - juchuymd
-            - jhinban
-            - syubetsu
+          arguments:
+            combination_of_columns:
+              - dlrcd
+              - yusokbn
+              - odrno
+              - juchuymd
+              - jhinban
+              - syubetsu
     columns:
       - name: check_dlrcd
         data_tests:

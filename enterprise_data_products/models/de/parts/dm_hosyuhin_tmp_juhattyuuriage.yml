@@ -5,14 +5,15 @@ models:
   - name: tmp10_dm_hosyuhin_tmp_juhattyuuriage
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - kyouhan
-            - usercd
-            - hinban
-            - mkbn
-            - nyukkten
-            - chumon
-            - jchuymd
+          arguments:
+            combination_of_columns:
+              - kyouhan
+              - usercd
+              - hinban
+              - mkbn
+              - nyukkten
+              - chumon
+              - jchuymd
     columns:
       - name: check_kyouhan
         data_tests:
@@ -21,14 +22,15 @@ models:
   - name: tmp20_dm_hosyuhin_tmp_juhattyuuriage
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - kyouhan
-            - hinban
-            - mkbn
-            - nyukkten
-            - chumon
-            - jchuymd
-            - hchuymd
+          arguments:
+            combination_of_columns:
+              - kyouhan
+              - hinban
+              - mkbn
+              - nyukkten
+              - chumon
+              - jchuymd
+              - hchuymd
     columns:
       - name: check_kyouhan
         data_tests:
@@ -37,15 +39,16 @@ models:
   - name: tmp30_dm_hosyuhin_tmp_juhattyuuriage
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - kyouhan
-            - hinban
-            - mkbn
-            - nyukkten
-            - jdenno
-            - chumon
-            - usercd
-            - jchuymd
+          arguments:
+            combination_of_columns:
+              - kyouhan
+              - hinban
+              - mkbn
+              - nyukkten
+              - jdenno
+              - chumon
+              - usercd
+              - jchuymd
     columns:
       - name: check_kyouhan
         data_tests:
@@ -54,16 +57,17 @@ models:
   - name: tmp40_dm_hosyuhin_tmp_juhattyuuriage
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - kyouhan
-            - hinban
-            - mkbn
-            - nyukkten
-            - chumon
-            - jdenno
-            - jchuymd
-            - jchutime
-            - usercd
+          arguments:
+            combination_of_columns:
+              - kyouhan
+              - hinban
+              - mkbn
+              - nyukkten
+              - chumon
+              - jdenno
+              - jchuymd
+              - jchutime
+              - usercd
     columns:
       - name: check1_kyouhan
         data_tests:
@@ -81,14 +85,15 @@ models:
   - name: tmp50_dm_hosyuhin_tmp_juhattyuuriage
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - kyouhan
-            - hanbaiten
-            - usercd
-            - makercd
-            - jdenno
-            - jchuymd
-            - chumon
+          arguments:
+            combination_of_columns:
+              - kyouhan
+              - hanbaiten
+              - usercd
+              - makercd
+              - jdenno
+              - jchuymd
+              - chumon
     columns:
       - name: check_jhinban
         data_tests:

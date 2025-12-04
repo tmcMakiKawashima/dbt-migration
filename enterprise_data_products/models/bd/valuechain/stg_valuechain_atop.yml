@@ -46,25 +46,27 @@ models:
       tags: ["atop"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - kaknokyotnkbn
-            - tyotathb
-            - srsirskcd
-            - brsirskcd
-            - nnymd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - kaknokyotnkbn
+              - tyotathb
+              - srsirskcd
+              - brsirskcd
+              - nnymd
 # 損益管理基本ファイル
   - name: stg_sonekikanri_atop
     config:
       tags: ["atop"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - thyono
-            - jissekiym
-            - hinban
-            - distfd
-            - renban
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - thyono
+              - jissekiym
+              - hinban
+              - distfd
+              - renban

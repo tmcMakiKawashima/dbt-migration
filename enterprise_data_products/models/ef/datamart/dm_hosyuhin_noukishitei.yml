@@ -4,13 +4,14 @@ models:
   - name: tmp10_dm_hosyuhin_noukishitei
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - hinban
-            - chumon
-            - hchuymd
           config:
             where: "hchuymd is not null"
+          arguments:
+            combination_of_columns:
+              - dlrcd
+              - hinban
+              - chumon
+              - hchuymd
     columns:
       - name: m_juchuymd
         data_tests:

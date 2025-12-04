@@ -7,21 +7,22 @@ models:
       tags: ["topacs"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - catalg
-            - syasyu
-            - figno
-            - pnc1
-            - hkhin
-            - kosu
-            - jissijkara
-            - setpospnno
-            - bnrsiypnno
-            - trmgaihan
-            - katahyono
-            - hikiatetkgkbn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - catalg
+              - syasyu
+              - figno
+              - pnc1
+              - hkhin
+              - kosu
+              - jissijkara
+              - setpospnno
+              - bnrsiypnno
+              - trmgaihan
+              - katahyono
+              - hikiatetkgkbn
     columns:
       - name: catalg
         data_tests:
@@ -89,12 +90,13 @@ models:
       tags: ["topacs"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - catalg
-            - syasyu
-            - kosho
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - catalg
+              - syasyu
+              - kosho
     columns:
       - name: catalg
         data_tests:
@@ -117,11 +119,12 @@ models:
       tags: ["topacs"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - catalg
-            - katahyono
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - catalg
+              - katahyono
     columns:
       - name: catalg
         data_tests:
@@ -139,13 +142,14 @@ models:
       tags: ["topacs"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - catalg
-            - syasyu
-            - katapno
-            - katano
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - catalg
+              - syasyu
+              - katapno
+              - katano
     columns:
       - name: catalg
         data_tests:
@@ -173,11 +177,12 @@ models:
       tags: ["topacs"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pnc1
-            - langua
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pnc1
+              - langua
     columns:
       - name: pnc1
         data_tests:

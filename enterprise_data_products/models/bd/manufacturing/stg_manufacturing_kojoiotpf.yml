@@ -7,11 +7,12 @@ models:
       tags: ["kojoiotpf"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - traceability_id
-            - module_id
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - traceability_id
+              - module_id
     columns:
       - name: traceability_id
         data_tests:
@@ -39,11 +40,12 @@ models:
       tags: ["kojoiotpf"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - package_id
-            - traceability_id
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - package_id
+              - traceability_id
     columns:
       - name: package_id
         data_tests:
