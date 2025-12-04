@@ -21,6 +21,6 @@ with stg_hostalc_3c_production_progress as (
     rtrim(updateymdeln12d, ' 　')::varchar(12) as updateymdeln12d, -- 更新年月日(外部連携用)_N12桁
     ldts::timestamp as ldts -- B層取込日時
   from {{ ref('substr_hostalc_3c_dkae06047201') }}
+  where ldts = (select max(ldts) from {{ ref('substr_hostalc_3c_dkae06047201') }})
 )
 select * from stg_hostalc_3c_production_progress
-where ldts = (select max(ldts) from stg_hostalc_3c_production_progress)

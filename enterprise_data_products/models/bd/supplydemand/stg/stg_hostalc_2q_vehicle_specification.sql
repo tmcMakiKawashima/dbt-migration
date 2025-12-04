@@ -28,6 +28,6 @@ with stg_hostalc_2q_vehicle_specification as (
     rtrim(updateymdel14dg, ' 　')::varchar(14) as updateymdel14dg, -- 更新年月日(外部連携用)_14桁
     ldts::timestamp as ldts -- B層取込日時
   from {{ ref('substr_hostalc_2q_dkae02072402') }}
+  where ldts = (select max(ldts) from {{ ref('substr_hostalc_2q_dkae02072402') }})
 )
 select * from stg_hostalc_2q_vehicle_specification
-where ldts = (select max(ldts) from stg_hostalc_2q_vehicle_specification)

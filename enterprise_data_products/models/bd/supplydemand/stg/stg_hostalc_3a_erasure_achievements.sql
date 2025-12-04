@@ -9,6 +9,6 @@ with stg_hostalc_3a_erasure_achievements as (
     rtrim(updateymdel14dg, ' 　')::varchar(14) as updateymdel14dg, -- 更新年月日(外部連携用)_14桁
     ldts::timestamp as ldts -- B層取込日時
   from {{ ref('substr_hostalc_3a_dkae06046602') }}
+  where ldts = (select max(ldts) from {{ ref('substr_hostalc_3a_dkae06046602') }})
 )
 select * from stg_hostalc_3a_erasure_achievements
-where ldts = (select max(ldts) from stg_hostalc_3a_erasure_achievements)
