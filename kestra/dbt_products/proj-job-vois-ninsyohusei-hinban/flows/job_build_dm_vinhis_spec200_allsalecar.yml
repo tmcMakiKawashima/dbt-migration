@@ -1,12 +1,12 @@
-id: job_build_stg_smshokyu_0630
-namespace: kestra_dbt_project.proj-job-smshokyu_0630
+id: job_build_dm_vinhis_spec200_allsalecar
+namespace: kestra_dbt_project.proj-job-vois-ninsyohusei-hinban
 
 labels:
-  error: default_failed
-  dbt: build
+  error: default_failed                                      # ★　←デフォルトのエラー通知を適用する場合はラベルを付与
+  dbt: build                                                 # ★　←dbt build処理を実行する場合はラベルを付与（dbt elementaryを出力するため）
 
 retry:
-  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK 
+  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK        ★　←リトライの実装を入れる（テンプレートは標準仕様）
   type: exponential
   interval: PT5S
   maxAttempts: 7
@@ -19,7 +19,7 @@ inputs:
     type: SELECT
     displayName: Choose dbt options
     values:
-      - --full-refresh
+      - --full-refresh                                        # ★　←mergeでもテーブルを作り変えられるオプション
     required: false
     allowCustomValue: true
 
@@ -28,14 +28,14 @@ tasks:
     type: io.kestra.plugin.dbt.cli.DbtCLI
     commands:
       - dbt build
-        --select +stg_hokyuhinbankouseikoute_smshokyu +stg_hokyusetteitiikigenntei_smshokyu +stg_hokyusetteicltiikigenntei_smshokyu
-        --vars '{"DBT_JOB_NAME":"_stg_smshokyu_0630"}'
+        --select stg_color_no tmp10_dm_vinhis_spec200_allsalecar tmp20_dm_vinhis_spec200_allsalecar tmp30_dm_vinhis_spec200_allsalecar dm_vinhis_spec200_allsalecar
+        --vars '{"DBT_JOB_NAME":"_dm_vinhis_spec200_allsalecar"}'
         {{ inputs.dbt_options ?? "" }}
 
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
-    cron: "30 06 * * *"
+    cron: "00 10 * * *"
     timezone: Asia/Tokyo
 
 # エラーログを出力
