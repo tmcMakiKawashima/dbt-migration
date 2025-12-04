@@ -141,12 +141,12 @@ models:
       vinhis:
         +snowflake_warehouse: vinhis_wh
         vinspec:
-            +group: vinhis_vinspec
-            +database: vinhis_db
-            +schema: vinspec
-            stg:
-              +access: public
-              +materialized: table
+          +group: vinhis_vinspec
+          +database: vinhis_db
+          +schema: vinspec
+          stg:
+            +access: public
+            +materialized: table
       engineering:
         +snowflake_warehouse: engineering_wh
         +group: engineering
@@ -203,11 +203,11 @@ models:
         +snowflake_warehouse: employee_wh
         +database: employee_db
         organization:
-          +group: employee_organization        
+          +group: employee_organization
           +schema: organization
           dim:
             +access: public
-            +materialized: table          
+            +materialized: table
       parts_list:
         +snowflake_warehouse: parts_list_wh
         +group: parts_list
@@ -305,8 +305,9 @@ snapshots:
         +target_schema: dbt_snapshots
 
 flags:
-  require_explicit_package_overrides_for_builtin_materializations: False
+  require_explicit_package_overrides_for_builtin_materializations: false
   warn_error_options:
     silence:
-      - PackageMaterializationOverrideDeprecation 
-  source_freshness_run_project_hooks: True
+      - PackageMaterializationOverrideDeprecation
+  source_freshness_run_project_hooks: true
+  require_generic_test_arguments_property: true
