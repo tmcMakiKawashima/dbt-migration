@@ -89,11 +89,12 @@ models:
       tags: ["atop"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - shinban
-            - kaknoukbn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - shinban
+              - kaknoukbn
     columns:
       - name: shinban
         data_tests:
@@ -173,7 +174,7 @@ models:
     config:
       tags: ["atop"]
     columns:
-      - name: ldts 
+      - name: ldts
         data_tests:
           - not_null:
               config:
@@ -207,11 +208,12 @@ models:
       tags: ["atop"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - srihnymtkey
-            - srihanyomstkey
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - srihnymtkey
+              - srihanyomstkey
     columns:
       - name: srihnymtkey
         data_tests:
@@ -255,12 +257,13 @@ models:
       tags: ["atop"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            -  hinban
-            -  dist
-            -  fdcd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - hinban
+              - dist
+              - fdcd
     columns:
       - name: hinban
         data_tests:
@@ -283,11 +286,12 @@ models:
       tags: ["atop"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dist
-            - fdcd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - dist
+              - fdcd
     columns:
       - name: dist
         data_tests:
@@ -305,11 +309,12 @@ models:
       tags: ["atop"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - rgncd3
-            - oprccls
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - rgncd3
+              - oprccls
     columns:
       - name: rgncd3
         data_tests:
@@ -327,11 +332,12 @@ models:
       tags: ["atop"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - tiikigrpcd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - hinban
+              - tiikigrpcd
     columns:
       - name: hinban
         data_tests:
@@ -355,7 +361,7 @@ models:
                 severity: error
           - not_null:
               config:
-                  severity: error
+                severity: error
 # 補給部品品番情報マスター
   - name: stg_hokyubuhinhinbanjoho_atop
     config:
@@ -368,7 +374,7 @@ models:
                 severity: error
           - not_null:
               config:
-                  severity: error
+                severity: error
 # 書類外国産品マスター
   - name: stg_syoruigaikokusanhin_atop
     config:
@@ -381,7 +387,7 @@ models:
                 severity: error
           - not_null:
               config:
-                  severity: error
+                severity: error
 # 書類品番基本マスター
   - name: stg_syoruihinbankihon_atop
     config:
@@ -394,4 +400,4 @@ models:
                 severity: error
           - not_null:
               config:
-                  severity: error
+                severity: error
