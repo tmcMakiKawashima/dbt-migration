@@ -22,6 +22,8 @@ sources:
               - fixed_length:
                   arguments:
                     length: 175
+      - name: raw_n8jfim06
+        identifier: n8jfim06
     # RISM
       - name: raw_ktrla01ezz0ko87001
         identifier: ktrla01ezz0ko87001
