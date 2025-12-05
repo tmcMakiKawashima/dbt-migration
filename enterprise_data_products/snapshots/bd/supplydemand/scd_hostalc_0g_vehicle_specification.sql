@@ -1,18 +1,17 @@
 {% snapshot scd_hostalc_0g_vehicle_specification %}
 
 {{
-  config(
-    unique_key="concat_ws('-',
-          pscexlk,
-          plantcode,
-          urn)",
+    config(
+        unique_key="concat_ws('-',
+                    pscexlk,
+                    plantcode,
+                    urn)",
 
-    strategy='timestamp',
-    updated_at='ldts',
-    invalidate_hard_deletes=true,
-  )
+        strategy='timestamp',
+        updated_at='ldts',
+        invalidate_hard_deletes=true,
+    )
 }}
-
 select * from {{ ref('stg_hostalc_0g_vehicle_specification') }}
 
 {% endsnapshot %}
