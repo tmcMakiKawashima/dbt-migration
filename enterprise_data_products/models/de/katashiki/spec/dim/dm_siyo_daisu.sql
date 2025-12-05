@@ -25,6 +25,8 @@ with dm_siyo_daisu as (
         current_timestamp::timestamp_ntz(9) as ldts -- 作成日時
     from
         {{ref('dm_siyo_seisan_daisu')}}
+    where
+        naiji_flg != 1
     group by
         syasyu,
         haisya_kt,

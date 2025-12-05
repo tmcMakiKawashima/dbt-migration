@@ -12,15 +12,13 @@ with t4 as (
         max(dest) as dest, -- 仕向地
         coalesce(koujyou_cd, '') as koujyou_cd, -- 工場コード
         coalesce(eng_kt, '') as eng_kt, -- エンジン型式（生産管理）
-        coalesce(prodkuni_cd, '') as prodkuni_cd, -- 生産国コード
         coalesce(psc, '') as psc, -- PSC
         coalesce(o_idline, '') as o_idline, -- アイデントライン
         coalesce(sk_y, '') as sk_y, -- 終検日年
         coalesce(sk_m, '') as sk_m, -- 終検日月
         count(*)::number(13,0) as daisu, -- 台数
         '0' as naiji_flg -- 内示実績FLG
-    from
-        {{source('vinhis_db_spec','raw_dm_vinhis_spec200_allsalecar')}}
+    from {{ref('dm_vinhis_spec200_allsalecar')}}
     group by
         syasyu,
         haisya_kt,
@@ -30,7 +28,6 @@ with t4 as (
         dest_cd,
         koujyou_cd,
         eng_kt,
-        prodkuni_cd,
         psc,
         o_idline,
         sk_y,
