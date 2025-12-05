@@ -1,21 +1,19 @@
-{% snapshot scd_hostalc_3a_production_progress %}
+{% snapshot scd_hostalc_mb_virtual_line %}
 
 {{
     config(
         unique_key="concat_ws('-',
                     pscexlk,
                     plantcode,
-                    line,
                     tp,
-                    idline,
-                    ndate,
-                    shift)",
+                    urn,
+                    line)",
 
         strategy='timestamp',
         updated_at='ldts',
         invalidate_hard_deletes=true,
     )
 }}
-select * from {{ ref('stg_hostalc_3a_production_progress') }}
+select * from {{ ref('stg_hostalc_mb_virtual_line') }}
 
 {% endsnapshot %}
