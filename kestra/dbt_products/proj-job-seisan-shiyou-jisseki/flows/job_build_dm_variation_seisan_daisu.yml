@@ -3,6 +3,7 @@ namespace: kestra_dbt_project.proj-job-seisan-shiyou-jisseki
 labels:
   error: default_failed
   dbt: build
+
 retry:
   behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK
   type: exponential
@@ -10,6 +11,7 @@ retry:
   maxAttempts: 7
   maxInterval: PT720S
   delayFactor: 30
+
 # 手動実行時に指定できるdbtオプション
 inputs:
   - id: dbt_options
@@ -19,27 +21,32 @@ inputs:
       - --full-refresh
     required: false
     allowCustomValue: true
+
 variables: 
   dbt_command: 
     --select +dm_variation_seisan_daisu
     --exclude +dm_vinhis_spec200_allsalecar +stg_color_no +stg_siyouhenkan +stg_syasyu_siyousho
     --vars '{"DBT_JOB_NAME":"_dm_variation_seisan_daisu"}'
+
 tasks:
   - id: clone_dbt_build
     type: io.kestra.plugin.dbt.cli.DbtCLI
     commands:
       - dbt build {{ vars.dbt_command }}
         {{ inputs.dbt_options ?? "" }}
+
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
     cron: "00 09 05 * *"
     timezone: Asia/Tokyo
+
 # エラーログを出力
 errors:
   - id: error_log
     type: io.kestra.plugin.core.debug.Return
     format: "{{ errorLogs()[0]['message'] }}"
+
 outputs: 
   - id: output_error_log
     type: STRING
@@ -47,6 +54,7 @@ outputs:
   - id: output_state
     type: STRING
     value: "{{ tasks.clone_dbt_build.state ?? 'No state' }}"
+
 # ログ出力
 finally:
   - id: finally_log 
@@ -55,4 +63,5 @@ finally:
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
       - "dbt options -> {{ inputs.dbt_options ?? '' }}"
       - "dbt commands -> {{ vars.dbt_command }}"
+      
 disabled: false
