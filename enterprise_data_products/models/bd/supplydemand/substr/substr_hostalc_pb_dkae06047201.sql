@@ -1,4 +1,4 @@
-with substr_hostalc_2u_dkae06047201 as (
+with substr_hostalc_pb_dkae06047201 as (
     select
         substr(raw_data, 1, 1)::varchar(1) as pscexlk,
         substr(raw_data, 2, 1)::varchar(1) as plantcode,
@@ -20,6 +20,6 @@ with substr_hostalc_2u_dkae06047201 as (
         substr(raw_data, 76, 12)::varchar(12) as updateymdeln12d,
         ldts,
         line_number
-    from {{source('snowpipe_db_supplydemand', 'raw_hostalc_2u_dkae06047201')}}
+    from {{source('snowpipe_db_supplydemand', 'raw_hostalc_pb_dkae06047201')}}
 )
-select * from substr_hostalc_2u_dkae06047201
+select * from substr_hostalc_pb_dkae06047201
