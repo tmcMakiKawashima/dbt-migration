@@ -3,7 +3,7 @@ models:
 # スバル矢島 G4 制御ファイル
   - name: stg_jfy1_ctrl_file_iotpf_kojoiot_subaru
     config:
-      tags: ["kojoiot_subaru"]
+      tags: ["kojoiotpf"]
     columns:
       - name: sfkey
         data_tests:
@@ -16,7 +16,7 @@ models:
 # スバル矢島 G4 SF基本データ
   - name: stg_jfy1_sfbase_history_iotpf_kojoiot_subaru
     config:
-      tags: ["kojoiot_subaru"]
+      tags: ["kojoiotpf"]
     columns:
       - name: sfkey
         data_tests:
@@ -29,7 +29,7 @@ models:
 # スバル矢島 G4 SFキーデータ
   - name: stg_jfy1_sfkey_history_iotpf_kojoiot_subaru
     config:
-      tags: ["kojoiot_subaru"]
+      tags: ["kojoiotpf"]
     columns:
       - name: sfkey
         data_tests:
@@ -47,7 +47,7 @@ models:
 # スバル矢島 G4 SF生産ステータスデータ
   - name: stg_jfy1_sft_history_iotpf_kojoiot_subaru
     config:
-      tags: ["kojoiot_subaru"]
+      tags: ["kojoiotpf"]
     columns:
       - name: sfkey
         data_tests:
@@ -60,7 +60,7 @@ models:
 # スバル矢島 G4 SFトラッキング履歴データ
   - name: stg_jfy1_sfh_history_iotpf_kojoiot_subaru
     config:
-      tags: ["kojoiot_subaru"]
+      tags: ["kojoiotpf"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           arguments:
@@ -95,7 +95,7 @@ models:
 # スバル矢島 G4 トレーサビリティデータ
   - name: stg_jfy1_tracedata_iotpf_kojoiot_subaru
     config:
-      tags: ["kojoiot_subaru"]
+      tags: ["kojoiotpf"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           arguments:
