@@ -18,7 +18,7 @@ with stg_hostalc_tx_production_progress as (
         rtrim(creauser, ' 　')::varchar(20) as creauser, -- 作成者
         rtrim(creadateeln12d, ' 　')::varchar(12) as creadateeln12d, -- 作成年月日(外部連携用)_N12桁
         rtrim(updateymdeln12d, ' 　')::varchar(12) as updateymdeln12d, -- 更新年月日(外部連携用)_N12桁
-        ldts::timestamp as ldts -- B層取込日時
+        ldts -- b層のldts
     from {{ ref('substr_hostalc_tx_dkae06047201') }}
     where ldts = (select max(ldts) from {{ ref('substr_hostalc_tx_dkae06047201') }})
 )
