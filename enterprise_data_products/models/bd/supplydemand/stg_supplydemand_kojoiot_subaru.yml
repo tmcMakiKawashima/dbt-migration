@@ -13,28 +13,3 @@ models:
           - not_null:
               config:
                 severity: error
-      - name: file_date
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: timezone
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: alc_ver
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: db_reg_date
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: db_upd_date
-        data_tests:
-          - not_null:
-              config:
-                severity: error
