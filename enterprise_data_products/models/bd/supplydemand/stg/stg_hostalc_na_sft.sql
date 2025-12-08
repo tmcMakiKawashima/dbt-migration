@@ -86,7 +86,7 @@ with stg_hostalc_na_sft as (
         rtrim(combinosub, ' 　')::varchar(20) as combinosub, -- 仕様評価 組合せNOサブ
         rtrim(dockingstatus, ' 　')::varchar(1) as dockingstatus, -- ドッキングステータス
         rtrim(updateymdel14dg, ' 　')::varchar(14) as updateymdel14dg, -- 更新年月日(外部連携用)_14桁
-        ldts, -- B層取込日時
+        ldts, -- b層のldts
         row_number() over (partition by psc, plantcode, lodate, idno order by ldts desc, line_number desc) aggkey
     from {{ ref('substr_hostalc_na_cka01t0990') }}
     {% if is_incremental() %}

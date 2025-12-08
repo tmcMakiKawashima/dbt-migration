@@ -15,7 +15,7 @@ with stg_hostalc_na_sfl as (
         rtrim(msgno, ' 　')::varchar(4) as msgno, -- MSGNO
         labelinfo::varchar(50) as labelinfo, -- ラベル情報
         rtrim(updateymdel14dg, ' 　')::varchar(14) as updateymdel14dg, -- 更新年月日(外部連携用)_14桁
-        ldts, -- B層取込日時
+        ldts, -- b層のldts
         row_number() over (partition by psc, plantcode, lodate, idno, msgno order by ldts desc, line_number desc) aggkey
     from {{ ref('substr_hostalc_na_cka01t0020') }}
     {% if is_incremental() %}
