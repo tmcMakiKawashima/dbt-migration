@@ -18,10 +18,7 @@ with t70 as (
         daisu,                            -- 台数
         keta_no,                          -- 桁No
         kigo                              -- specを1文字づつ200分割した記号
-    from {{source('katashiki_db_spec','raw_tmp70_dm_siyo_seisan_daisu')}}
-    {% raw %}
-    -- from {{ref('tmp70_dm_siyo_seisan_daisu')}}
-    {% endraw %}
+    from {{ref('tmp70_dm_siyo_seisan_daisu')}}
 ), sh as (
     select
         syasyu,    -- 車種ｺｰﾄﾞ
@@ -29,10 +26,7 @@ with t70 as (
         s1kigo,    -- spec記号
         siyoudai4, -- 仕様コード(4桁)大分類
         siyousai4  -- 仕様コード(4桁)細目
-    from {{source('supplydemand_db_public','raw_stg_siyouhenkan')}}
-    {% raw %}
-    -- from {{ref('stg_siyouhenkan')}}
-    {% endraw %}
+    from {{ref('stg_siyouhenkan')}}
 )
 select
     coalesce(t70.syasyu, '') as syasyu,
