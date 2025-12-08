@@ -61,7 +61,7 @@ with stg_hostalc_na_sfp as (
         rtrim(planlt, ' 　')::varchar(7) as planlt, -- 予定リードタイム
         rtrim(ldplanbs, ' 　')::varchar(7) as ldplanbs, -- 累積予定リードタイム
         rtrim(updateymdel14dg, ' 　')::varchar(14) as updateymdel14dg, -- 更新年月日(外部連携用)_14桁
-        ldts::timestamp as ldts, -- B層取込日時
+        ldts, -- B層取込日時
         row_number() over (partition by psc, plantcode, lodate, idno, line, tp order by ldts desc, line_number desc) aggkey
     from {{ ref('substr_hostalc_na_cka01t0060') }}
     {% if is_incremental() %}

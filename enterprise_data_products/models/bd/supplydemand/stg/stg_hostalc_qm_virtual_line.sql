@@ -17,7 +17,7 @@ with stg_hostalc_qm_virtual_line as (
         rtrim(odrtype, ' 　')::varchar(1) as odrtype, -- オーダータイプ
         rtrim(vehcategorycode, ' 　')::varchar(2) as vehcategorycode, -- 車両識別コード
         rtrim(updateymdel14dg, ' 　')::varchar(14) as updateymdel14dg, -- 更新年月日(外部連携用)_14桁
-        ldts::timestamp as ldts -- B層取込日時
+        ldts -- B層取込日時
     from {{ ref('substr_hostalc_qm_dkae02072301') }}
     where ldts = (select max(ldts) from {{ ref('substr_hostalc_qm_dkae02072301') }})
 )
