@@ -163,7 +163,7 @@ with stg_hostalc_na_sfvam as (
         rtrim(comm3, ' 　')::varchar(50) as comm3, -- コメント3
         rtrim(comm4, ' 　')::varchar(50) as comm4, -- コメント4
         rtrim(updateymdel14dg, ' 　')::varchar(14) as updateymdel14dg, -- 更新年月日(外部連携用)_14桁
-        ldts, -- B層取込日時
+        ldts, -- b層のldts
         row_number() over (partition by psc, plantcode, idno, lodate order by ldts desc, line_number desc) aggkey
     from {{ ref('substr_hostalc_na_cka01t0010') }}
     {% if is_incremental() %}
