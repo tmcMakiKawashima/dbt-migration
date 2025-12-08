@@ -1,21 +1,20 @@
 {% snapshot scd_hostalc_na_sfp %}
 
 {{
-  config(
-    unique_key="concat_ws('-',
-          psc,
-          plantcode,
-          lodate,
-          idno,
-          line,
-          tp)",
+    config(
+        unique_key="concat_ws('-',
+                    psc,
+                    plantcode,
+                    lodate,
+                    idno,
+                    line,
+                    tp)",
 
-    strategy='timestamp',
-    updated_at='ldts',
-    invalidate_hard_deletes=true,
-  )
+        strategy='timestamp',
+        updated_at='ldts',
+        invalidate_hard_deletes=true,
+    )
 }}
-
 select * from {{ ref('stg_hostalc_na_sfp') }}
 
 {% endsnapshot %}
