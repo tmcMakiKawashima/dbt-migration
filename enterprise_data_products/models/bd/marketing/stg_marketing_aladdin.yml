@@ -61,3 +61,62 @@ models:
           - not_null:
               config:
                 severity: error 
+# OPT装備細目情報
+  - name: stg_optsobisaimoku
+    config:
+      tags: ["aladdin"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu_cd
+            - ctg_cd
+            - chg_no
+            - shamei
+            - cnl_cd
+            - eqp_mgr_id
+            - eqp_cd
+            - eqp_dtl_cd
+          config:
+            severity: error
+
+    columns:
+      - name: syasyu_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ctg_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: chg_no
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shamei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cnl_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_mgr_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: eqp_dtl_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
