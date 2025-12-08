@@ -31,7 +31,7 @@ with stg_hostalc_na_sfh as (
         rtrim(cancelflg, ' 　')::varchar(1) as cancelflg, -- 取消フラグ
         rtrim(histsign, ' 　')::varchar(1) as histsign, -- 履歴サイン
         rtrim(updateymdel14dg, ' 　')::varchar(14) as updateymdel14dg, -- 更新年月日(外部連携用)_14桁
-        ldts::timestamp as ldts, -- B層取込日時
+        ldts, -- b層のldts
         row_number() over (partition by psc, plantcode, lodate, idno, line, tp, prsnttptype, times order by ldts desc, line_number desc) aggkey
     from {{ ref('substr_hostalc_na_cka01t0050') }}
     {% if is_incremental() %}
