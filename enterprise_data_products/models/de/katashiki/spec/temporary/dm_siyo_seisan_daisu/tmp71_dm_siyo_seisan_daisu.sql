@@ -29,24 +29,24 @@ with t70 as (
     from {{ref('stg_siyouhenkan')}}
 )
 select
-    t70.syasyu,
-    t70.kata,
+    coalesce(t70.syasyu, '') as syasyu,
+    coalesce(t70.kata, '') as kata,
     null::varchar(2) as r_sfx_code,
-    t70.spec,
+    coalesce(t70.spec, '') as spec,
     listagg(sh.siyoudai4 || sh.siyousai4, '')
     within group (order by t70.keta_no)::varchar(800) as spec200_siyo, -- SPEC対応4桁仕様,
-    t70.intcode,
+    coalesce(t70.intcode, '') as intcode,
     t70.int_cd_iromei,
-    t70.extcode,
+    coalesce(t70.extcode, '') as extcode,
     t70.ext_cd_iromei,
-    t70.dest_cd,
+    coalesce(t70.dest_cd, '') as dest_cd,
     t70.dest,
-    t70.plantcode,
-    t70.enginekata,
-    t70.pscexlk,
-    t70.idline,
-    t70.sk_y,
-    t70.sk_m,
+    coalesce(t70.plantcode, '') as plantcode,
+    coalesce(t70.enginekata, '') as enginekata,
+    coalesce(t70.pscexlk, '') as pscexlk,
+    coalesce(t70.idline, '') as idline,
+    coalesce(t70.sk_y, '') as sk_y,
+    coalesce(t70.sk_m, '') as sk_m,
     t70.daisu,
     '1' as naiji_flg -- 内示実績FLG
 from t70
