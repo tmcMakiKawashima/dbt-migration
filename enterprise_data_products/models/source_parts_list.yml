@@ -20,3 +20,5 @@ sources:
         identifier: dm_latest_kouseikoutei_plant
       - name: raw_dm_latest_sekkei
         identifier: dm_latest_sekkei
+      - name: raw_dm_ktfgo_list
+        identifier: dm_ktfgo_list
