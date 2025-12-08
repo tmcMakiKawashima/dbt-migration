@@ -1,0 +1,15 @@
+version: 2
+models:
+# スバル矢島 G4 SF基本データ
+  - name: stg_jfy1_sfbase_history_iotpf_kojoiot_subaru
+    config:
+      tags: ["kojoiot_subaru"]
+    columns:
+      - name: sfkey
+        data_tests:
+          - unique: 
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
