@@ -6,7 +6,8 @@ with
             edano, -- 枝番
             ym, -- 年月
             syadai_kt, -- 車台型式
-            frmno -- フレームNO
+            frmno, -- フレームNO
+            hkata -- 販売型式
         from {{ ref('stg_shinsyameisai') }} -- 新車明細
     ),
     stg_yohinmeisai as ( 

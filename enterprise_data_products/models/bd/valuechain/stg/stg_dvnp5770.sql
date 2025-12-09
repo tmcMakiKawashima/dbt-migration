@@ -1,4 +1,4 @@
-{{ config(materialized='incremental', snowflake_warehouse='DBT_WH') }}
+{{ config(materialized='incremental') }}
 
 with stg_dvnp5770 as (
     select
@@ -94,11 +94,8 @@ with stg_dvnp5770 as (
         rtrim(FILLER2,' 　')::VARCHAR(49) as FILLER2,  -- 英数字
         LDTS 
     from {{ ref('substr_dvnp5770') }}
+    {% if is_incremental() %}
+        where LDTS > (select max(LDTS) from {{this}})
+    {% endif %}
 )
 select * from stg_dvnp5770
-
-{% if is_incremental() %}
-
-  where LDTS > (select max(LDTS) from {{this}})
-
-{% endif %}

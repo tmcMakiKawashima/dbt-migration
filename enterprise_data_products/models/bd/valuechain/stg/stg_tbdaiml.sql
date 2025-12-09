@@ -1,5 +1,10 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
-
+{{
+    config (
+        materialized = 'incremental',
+        unique_key = ['kyouhan', 'hassin', 'usercd', 'kaisya', 'tchumon', 'hinban', 'mekakb', 'jznjusin'],
+        incremental_strategy = 'merge',
+    )
+}}
 with stg_tbdaiml as (
     select
         rtrim(kyouhan, ' 　')::varchar(5) as kyouhan, -- 英数字
@@ -128,6 +133,9 @@ with stg_tbdaiml as (
         ldts, -- B層のLDTS
         rank() over (partition by kyouhan, hassin, usercd, kaisya, tchumon, hinban, mekakb, jznjusin order by ldts desc) aggkey
     from {{ ref('substr_tbdaiml') }}
+    {% if is_incremental() %}
+        where ldts > (select max(ldts) from {{this}})
+    {% endif %}
 )
 select * from stg_tbdaiml
 where aggkey = 1

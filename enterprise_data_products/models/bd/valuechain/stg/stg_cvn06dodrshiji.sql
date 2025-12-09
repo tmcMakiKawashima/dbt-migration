@@ -1,4 +1,10 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
+{{
+    config (
+        materialized = 'incremental',
+        unique_key = ['ordrkey','tanskkey','juchuymd'],
+        incremental_strategy = 'merge'
+    )
+}}
 
 with stg_cvn06dodrshiji as (
     select
@@ -115,6 +121,10 @@ with stg_cvn06dodrshiji as (
                 order by mttime desc, ldts desc
             ) aggkey
         from {{ ref('substr_cvn06dodrshiji') }}
+
+        {% if is_incremental() %}
+            where ldts > (select max(ldts) from {{ this }})
+        {% endif %}
     )
 select *
 from stg_cvn06dodrshiji

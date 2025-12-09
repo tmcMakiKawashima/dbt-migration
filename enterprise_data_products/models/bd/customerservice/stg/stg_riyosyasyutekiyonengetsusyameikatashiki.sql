@@ -1,19 +1,3 @@
-{{
-    config (
-        post_hook=
-            'create or replace hybrid table customerservice_db.public.stg_riyosyasyutekiyonengetsusyameikatashiki (
-                cd_pubbnd varchar(6) not null,
-                syamei varchar(5) not null,
-                cd_vtype varchar(6) not null,
-                dd_pubbnd_trmfrym varchar(6) not null,
-                kosyo_kt varchar(20) not null,
-                ldts timestamp_ntz(9),
-                constraint stg_riyosyasyutekiyonengetsusyameikatashiki_cd_pubbnd_syamei_cd_vtype_dd_pubbnd_trmfrym_kosyo_kt_uk primary key (cd_pubbnd, syamei, cd_vtype, dd_pubbnd_trmfrym, kosyo_kt) rely
-            ) as select * from {{this}}'
-    )
-}}
---ハイブリッドテーブルに変更
-
 with
     stg_riyosyasyutekiyonengetsusyameikatashiki as (
         select

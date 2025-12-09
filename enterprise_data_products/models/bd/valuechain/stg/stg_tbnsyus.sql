@@ -1,4 +1,4 @@
-{{ config(materialized='incremental', snowflake_warehouse='DBT_WH') }}
+{{ config(materialized='incremental') }}
 
 with stg_tbnsyus as (
     select
@@ -141,9 +141,8 @@ with stg_tbnsyus as (
         rtrim(KAKAKUSKB, ' 　')::VARCHAR(1) as KAKAKUSKB, -- 英数字
         LDTS -- B層のLDTS
     from {{ ref('substr_tbnsyus') }}
+    {% if is_incremental() %}
+        where LDTS > (select max(LDTS) from {{this}})
+    {% endif %}
 )
 select * from stg_tbnsyus
-
-{% if is_incremental() %}
-    where LDTS > (select max(LDTS) from {{this}})
-{% endif %}

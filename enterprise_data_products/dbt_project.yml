@@ -10,6 +10,7 @@ vars:
   use_common_masking_policy_db: true
   common_masking_policy_db: common_tbl_db
   common_masking_policy_schema: masking_policy
+  mute_ensure_materialization_override: true
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'enterprise_data_products'
@@ -37,6 +38,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
 models:
+  +transient: false
   elementary:
     +database: common_tbl_db
     +schema: elementary
@@ -55,6 +57,11 @@ models:
         supplydemand:
           +group: snowpipe_supplydemand
           +schema: supplydemand
+      marketing:
+        +snowflake_warehouse: marketing_wh
+        +group: marketing
+        +database: marketing_db
+        +schema: public
     bd:
       valuechain:
         +snowflake_warehouse: valuechain_wh
@@ -167,10 +174,12 @@ models:
         +snowflake_warehouse: parts_wh
         +group: parts
         +database: parts_db
-        +schema: logistics
-        dim:
-          +access: public
-          +materialized: table
+        smshokyu:
+          +group: parts_smshokyu
+          +schema: smshokyu
+          dim:
+            +access: public
+            +materialized: table
       vinhis:
         +snowflake_warehouse: vinhis_wh
         +database: vinhis_db
@@ -192,21 +201,6 @@ models:
           dim:
             +access: public
             +materialized: table
-        model:
-          +group: vinhis_model
-          +schema: model
-          dim:
-            +access: public
-            +materialized: table
-      model:
-        +snowflake_warehouse: model_wh
-        +database: model_db
-        repair:
-          +group: model_repair
-          +schema: repair
-          dim:
-            +access: public
-            +materialized: table
       employee:
         +snowflake_warehouse: employee_wh
         +database: employee_db
@@ -218,7 +212,9 @@ models:
             +materialized: table          
       parts_list:
         +snowflake_warehouse: parts_list_wh
+        +group: parts_list
         +database: parts_list_db
+        +schema: public
         seppen:
           +group: parts_list_seppen
           +schema: seppen
@@ -231,15 +227,15 @@ models:
           dim:
             +access: public
             +materialized: table
-    ef:
-      datamart:
-        +snowflake_warehouse: datamart_wh
-        +group: datamart
-        +database: datamart_db
-        +schema: public
         dim:
           +access: public
           +materialized: table
+        aisac:
+          +group: parts_list_aisac
+          +schema: aisac
+          dim:
+            +access: public
+            +materialized: table
 
 data_tests:
   enterprise_data_products:
@@ -253,13 +249,6 @@ data_tests:
       # dbt Cloud: Run history / job_xxx: Run #326668
       # >> dbt_test__audit_20231113_326668
       # >> dbt_test__audit_<yyyymmdd>_<run_id>
-    singular:
-      de:
-        parts:
-          +group: parts
-      ef:
-        datamart:
-          +group: datamart
 
 snapshots:
   enterprise_data_products:
@@ -302,7 +291,6 @@ snapshots:
         +target_schema: dbt_snapshots
 
 flags:
-  require_explicit_package_overrides_for_builtin_materializations: False
   warn_error_options:
     silence:
       - PackageMaterializationOverrideDeprecation 

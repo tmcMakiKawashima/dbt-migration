@@ -1,0 +1,36 @@
+with substr_ktrla01xzz0kv200v6 as (
+    select
+        substr(raw_data, 5, 1)::varchar(1) as mtkbn,
+        substr(raw_data, 6, 6)::varchar(6) as catalg,
+        substr(raw_data, 12, 4)::varchar(4) as syasyu,
+        substr(raw_data, 16, 4)::varchar(4) as figno,
+        substr(raw_data, 20, 6)::varchar(6) as pnc1,
+        substr(raw_data, 26, 12)::varchar(12) as hkhin,
+        substr(raw_data, 38, 3)::varchar(3) as kosu,
+        substr(raw_data, 41, 6)::varchar(6) as jissijkara,
+        substr(raw_data, 47, 4)::varchar(4) as setpospnno,
+        substr(raw_data, 51, 6)::varchar(6) as bnrsiypnno,
+        substr(raw_data, 57, 100)::varchar(100) as trmgaihan,
+        substr(raw_data, 157, 5)::varchar(5) as katahyono,
+        substr(raw_data, 322, 1)::varchar(1) as hikiatetkgkbn,
+        substr(raw_data, 162, 25)::varchar(25) as iromei,
+        substr(raw_data, 187, 1)::varchar(1) as servsetkbn,
+        substr(raw_data, 188, 1)::varchar(1) as hosekbn,
+        substr(raw_data, 189, 12)::varchar(12) as hosehin,
+        substr(raw_data, 201, 100)::varchar(100) as hkcom,
+        substr(raw_data, 301, 6)::varchar(6) as jissijmade,
+        substr(raw_data, 307, 4)::varchar(4) as kiricdkara,
+        substr(raw_data, 311, 4)::varchar(4) as kiricdmade,
+        substr(raw_data, 315, 1)::varchar(1) as genteisetkbn,
+        substr(raw_data, 316, 1)::varchar(1) as enginek,
+        substr(raw_data, 317, 4)::varchar(4) as refffig,
+        substr(raw_data, 321, 1)::varchar(1) as tspnkbn,
+        substr(raw_data, 323, 4)::varchar(4) as fignor1,
+        substr(raw_data, 327, 4)::varchar(4) as fignor2,
+        substr(raw_data, 331, 4)::varchar(4) as fignor3,
+        substr(raw_data, 335, 1)::varchar(1) as kikgenkbn,
+        ldts,
+        line_number
+    from {{ source('snowpipe_db_valuechain', 'raw_ktrla01xzz0kv200v6') }}
+)
+select * from substr_ktrla01xzz0kv200v6

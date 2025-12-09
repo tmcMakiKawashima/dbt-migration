@@ -1,26 +1,3 @@
-{{
-    config (
-        post_hook=
-            'create or replace hybrid table customerservice_db.public.stg_riyoframemaster (
-                no_vin_frameno varchar(17) not null,
-                kb_frameno varchar(1),
-                kosyo_kt varchar(20),
-                cd_pubbnd varchar(6),
-                syamei varchar(5),
-                cd_vtype varchar(6),
-                dd_pubbnd_trmfrym varchar(6),
-                my varchar(4),
-                dd_sectest varchar(8),
-                sms_syasyu_cd varchar(4),
-                haisya_kt varchar(20),
-                hanbai_kt varchar(20),
-                dt_frameno_capture varchar(8),
-                ldts timestamp_ntz(9),
-                constraint stg_riyoframemaster_no_vin_frameno_uk primary key (no_vin_frameno) rely
-            ) as select * from {{this}}'
-    )
-}}
-
 with
     stg_riyoframemaster as (
         select

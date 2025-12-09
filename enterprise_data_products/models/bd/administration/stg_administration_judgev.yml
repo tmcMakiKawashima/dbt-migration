@@ -1,0 +1,91 @@
+version: 2
+
+models:
+# 少量債権伝票情報
+   - name: stg_saikendenpyo_joho_judgev
+     config:
+      tags: ["judgev"]
+# 少量債権前受NO明細
+   - name: stg_saikenmaeuke_meisai_judgev
+     config:
+       tags: ["judgev"]
+# 少量債権取引先明細
+   - name: stg_saikentorihikisaki_meisai_judgev
+     config:
+       tags: ["judgev"]
+# 少量債務伝票情報
+   - name: stg_saimudenpyo_meisai_judgev
+     config:
+       tags: ["judgev"]
+# 少量品目明細
+   - name: stg_hinmoku_meisai_judgev
+     config:
+       tags: ["judgev"]
+# 取引先マスタ
+   - name: stg_torihikisaki_masta_judgev
+     config:
+       tags: ["judgev"]
+# 振込口座マスタ
+   - name: stg_furikomikoza_masta_judgev
+     config:
+       tags: ["judgev"]
+# 取引先担当者海外マスタ
+   - name: stg_torihikitanto_kaigai_masta_judgev
+     config:
+       tags: ["judgev"]
+# 請求書送付先国内マスタ
+   - name: stg_seikyusofu_kokunai_masta_judgev
+     config:
+       tags: ["judgev"]
+# 申請ヘッダ
+   - name: stg_shinsei_header_judgev
+     config:
+       tags: ["judgev"]
+# 取引摘要
+   - name: stg_torihiki_tekiyo_judgev
+     config:
+       tags: ["judgev"]
+# 取引明細
+   - name: stg_torihiki_meisai_judgev
+     config:
+       tags: ["judgev"]
+# 交際費会議費事前申請明細
+   - name: stg_kosaihijizen_meisai_judgev
+     config:
+       tags: ["judgev"]
+# 部署明細
+   - name: stg_busyo_meisai_judgev
+     config:
+       tags: ["judgev"]
+# 税務紐付
+   - name: stg_zeimu_himoduke_judgev
+     config:
+       tags: ["judgev"]
+# 税務明細
+   - name: stg_zeimu_meisai_judgev
+     config:
+       tags: ["judgev"]
+# 従業員マスタ
+   - name: stg_jugyoin_masta_judgev
+     config:
+       tags: ["judgev"]
+# J-カード利用明細
+   - name: stg_jcard_meisai_judgev
+     config:
+       tags: ["judgev"]
+# 部門コントロールマスタ
+   - name: stg_bumonctl_masta_judgev
+     config:
+       tags: ["judgev"]
+# 予算区分マスタ
+   - name: stg_yosankbn_masta_judgev
+     config:
+       tags: ["judgev"]
+# 予算項目マスタ
+   - name: stg_yosankmk_masta_judgev
+     config:
+       tags: ["judgev"]
+# 予算費目マスタ
+   - name: stg_yosanhmk_masta_judgev
+     config:
+       tags: ["judgev"]
