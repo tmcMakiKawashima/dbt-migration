@@ -1,5 +1,3 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
-
 with stg_tbuserm as (
     select
         rtrim(KYOUHAN,' 　')::VARCHAR(5) as KYOUHAN,  -- 英数字
