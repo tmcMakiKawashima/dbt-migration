@@ -12,7 +12,7 @@
         "
     )
 }}
---現行で主キー(SFKEY) が一致のものを削除しているため
+--主キーとは異なるSFKEY単位で洗い替えをしたいためhookで実装
 
 with stg_jfy1_sfh_history_iotpf_kojoiot_subaru as (
     select
