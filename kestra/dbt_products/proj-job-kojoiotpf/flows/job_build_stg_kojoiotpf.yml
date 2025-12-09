@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_denchijoho_trm_kojoiotpf +stg_denchijoho_ptr_kojoiotpf
     --vars '{"DBT_JOB_NAME":"_stg_kojoiotpf"}'
 

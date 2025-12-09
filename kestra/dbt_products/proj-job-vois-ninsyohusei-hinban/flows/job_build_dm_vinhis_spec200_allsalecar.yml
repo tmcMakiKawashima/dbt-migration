@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select stg_color_no tmp10_dm_vinhis_spec200_allsalecar tmp20_dm_vinhis_spec200_allsalecar tmp30_dm_vinhis_spec200_allsalecar dm_vinhis_spec200_allsalecar
     --vars '{"DBT_JOB_NAME":"_dm_vinhis_spec200_allsalecar"}'
 

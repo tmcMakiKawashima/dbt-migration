@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +dm_yohin_daiatari +dm_hosyuhin_noukishitei
     --vars '{"DBT_JOB_NAME":""}'
 

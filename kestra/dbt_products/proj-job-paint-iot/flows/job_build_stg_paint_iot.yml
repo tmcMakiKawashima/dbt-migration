@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_paint_maker_result +stg_paint_hinpo_result +stg_paint_material_criteria +stg_paint_material_controlband +stg_material_permission
     --vars '{"DBT_JOB_NAME":"_stg_paint_iot"}'
 

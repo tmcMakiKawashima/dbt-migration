@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_kyoku_hokyusms
     --vars '{"DBT_JOB_NAME":"_d_hokyusms_0600"}'
 

@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_siyoumst_katashiki +stg_siyoumst_check +stg_siyoumst_generate
     --vars '{"DBT_JOB_NAME":"_stg_siyou_soubi_siyoumst"}'
 

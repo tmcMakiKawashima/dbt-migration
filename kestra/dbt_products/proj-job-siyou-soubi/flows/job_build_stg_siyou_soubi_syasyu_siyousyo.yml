@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_siyouhenkan +stg_syasyu_siyousho
     --vars '{"DBT_JOB_NAME":"_stg_siyou_soubi_syasyu_siyousyo"}'
 

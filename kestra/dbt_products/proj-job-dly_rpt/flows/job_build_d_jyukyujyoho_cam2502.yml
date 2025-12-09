@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_tiikimst_jyukyujyoho
     --vars '{"DBT_JOB_NAME":"_d_jyukyujyoho_cam2502"}'
 

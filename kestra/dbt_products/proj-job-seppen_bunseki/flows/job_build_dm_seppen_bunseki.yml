@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +dm_hinban_all +dm_yousi_all +dm_zokusei_all +dm_tekiyohani_all
     --exclude stg_syasyu
     --vars '{"DBT_JOB_NAME":"_dm_seppen_bunseki"}'

@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select resource_type:snapshot
     --exclude scd_tbsmksk_noki
     --vars '{"DBT_JOB_NAME":""}'

@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +tmp_sms_api_parts_info_res_relational
     --vars '{"DBT_JOB_NAME":"_tmp_sms_api_parts_info_res_relational"}'
 

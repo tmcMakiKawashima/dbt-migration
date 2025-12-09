@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_disp_partnm05_iqas +stg_disp_partnm10_iqas +stg_bosu_sum_ym_iqas +stg_disp_name_mst_iqas
     --vars '{"DBT_JOB_NAME":"_stg_iqas_0000"}'
 

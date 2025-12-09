@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select
     dm_legacy_kousei_blktenkai
     tmp_legacy_junkanri_blktenkai

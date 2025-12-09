@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +dm_empmasterknm_view +dm_empmastershm_view
     --vars '{"DBT_JOB_NAME":"_dm_jugyoinjoho"}'
 

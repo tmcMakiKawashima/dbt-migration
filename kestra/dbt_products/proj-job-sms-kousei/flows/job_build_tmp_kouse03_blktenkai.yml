@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +tmp_kousei03_blktenkai
     --vars '{"DBT_JOB_NAME":"_tmp_kousei03_blktenkai"}'
 

@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_seiyakuformat_kodomo
     --vars '{"DBT_JOB_NAME":"_stg_kodomo"}'
 

@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_kanseisyabuturyukey_vlc +stg_syaryoplseisaneplan_vlc +stg_syaryoplseisanresult_vlc +stg_syaryoplbuturyukyotenplan_vlc +stg_syaryoplbuturyukyotenresult_vlc +stg_syaryoplbuturyuopeplan_vlc +stg_syaryoplbuturyuoperesult_vlc +stg_noukitougoujyoho_shihan_vlc +stg_noukitougoujyoho_shihandtl_vlc +stg_kyotenmst_vlc
     --vars '{"DBT_JOB_NAME":"_d_vlc_0130"}'
 

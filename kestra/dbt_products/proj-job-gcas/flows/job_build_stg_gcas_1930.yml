@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_syasyufuzoku_gcas +stg_irofuzoku_gcas +stg_yohinfuzoku_gcas
     --vars '{"DBT_JOB_NAME":"_stg_gcas_1930"}'
 

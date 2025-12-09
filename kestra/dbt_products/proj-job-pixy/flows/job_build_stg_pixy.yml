@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_yohinmaster_pixy_view +stg_katashikihenkanmaster_pixy_view +stg_tuikouoyakokanren_pixy_view +stg_battingjoho_pixy_view +stg_yohinsyameino_pixy_view +stg_katashikibit_pixy +stg_tuikouzenkakumeisyou_pixy +stg_oyakotuikoukanrenzenkakumeisyou_pixy
     --vars '{"DBT_JOB_NAME":"_stg_pixy"}'
 

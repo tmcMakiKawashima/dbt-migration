@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_syaryoindex +stg_seisanjisseki +stg_buhinserialno
     --vars '{"DBT_JOB_NAME":"_stg_syaryoindex"}'
 

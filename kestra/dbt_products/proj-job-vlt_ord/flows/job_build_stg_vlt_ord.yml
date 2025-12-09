@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_line_kadokeitai +stg_orderkakutei_shihan +stg_orderkakutei_yusyutu +stg_vltsohutaisho
     --vars '{"DBT_JOB_NAME":"_stg_vlt_ord"}'
 

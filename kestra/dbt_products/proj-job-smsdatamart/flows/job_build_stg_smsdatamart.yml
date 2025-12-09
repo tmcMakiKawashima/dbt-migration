@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_variationname +stg_kumitatename +stg_buiname +stg_mokuji +stg_kouteifugo_gijutsusms +stg_seisanbasyoseisiki_kouteisms +stg_mokujisitu_gijutsusms +stg_jtaizokusei_gijutsusms +stg_tiikizokusei_gijutsusms +stg_kunizokusei_gijutsusms +stg_honsisitu_gijutsusms +stg_mokujibuijun_gijutsusms +stg_syutudenpyotbl_kouteisms +stg_seppenst_gijutsusms +stg_glseppenst_kouteisms
     --vars '{"DBT_JOB_NAME":"_stg_smsdatamart"}'
 

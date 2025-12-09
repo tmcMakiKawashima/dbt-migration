@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select
     +stg_nyusyukkokensaku_maps_view
     +stg_syukko_keirihokan_maps_view

@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_vlt_syaryosys +stg_oem_syaryosys +stg_cmf_syaryosys
     --vars '{"DBT_JOB_NAME":"_d_syaryosys_0500"}'
 

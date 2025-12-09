@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +dm_hokyusettei_smshokyu 
     +dm_hokyusetteisyoku_smshokyu 
     +stg_daitaijoho_smshokyu_view 

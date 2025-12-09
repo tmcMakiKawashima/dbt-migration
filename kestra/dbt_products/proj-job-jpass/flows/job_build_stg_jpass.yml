@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_jyuchu_shosai_seiyakukakunin_jpass +stg_jyuchu_seiyakukinosyukei_seiyakukakunin_jpass +stg_haishayoubo_jpass +stg_jyuchu_kinosyukei_seiyakukakunin_jpass
     --vars '{"DBT_JOB_NAME":"_stg_jpass"}'
 

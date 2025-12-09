@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_anken +stg_dairitenkey +stg_cpos_chiiki +stg_shochihinban +stg_kuni +stg_monitorjokyo +stg_shochihinbantaishodaisuu +stg_kunimaster +stg_chiikimaster
     --vars '{"DBT_JOB_NAME":"_stg_yui_cpos"}'
 

@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_shamei_master_syaryosys +stg_order_db_syaryosys +stg_warning_list_syaryosys +stg_knm_nrksortjun_syaryosys +stg_kinomeisai_master_syaryosys +stg_kinobetsu_noryoku_daisusyukei_syaryosys +stg_kinomeisai_code_meisho_master_syaryosys +stg_kinomeisai_code_hikiate_master_syaryosys
     --vars '{"DBT_JOB_NAME":"_stg_syaryosys_0830"}'
 

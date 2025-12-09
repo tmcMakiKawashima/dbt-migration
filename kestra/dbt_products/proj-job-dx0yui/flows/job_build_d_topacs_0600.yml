@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_catalog_topacs +stg_hakkokatasiki_topacs +stg_katasikihyogenjiki_topacs +stg_katasikipattern_topacs +stg_hinmeicodemeisyo_topacs
     --vars '{"DBT_JOB_NAME":"_d_topacs_0600"}'
 

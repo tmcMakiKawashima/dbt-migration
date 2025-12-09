@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_getsudo_vct_n1_jyukyujyoho +stg_sfx_kihonjyoho_tbl_jyukyujyoho
     --vars '{"DBT_JOB_NAME":"_stg_jyukyujyoho_0730"}'
 

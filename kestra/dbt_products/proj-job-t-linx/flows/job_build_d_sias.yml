@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_riyosyasyusedai +stg_riyoframemaster +stg_riyosyasyutekiyonengetsusyameikatashiki +stg_riyosyasyusedaitekiyonengetsu +stg_riyopubmaster2 +stg_riyosyameimaster
     --vars '{"DBT_JOB_NAME":"_d_sias"}'
 

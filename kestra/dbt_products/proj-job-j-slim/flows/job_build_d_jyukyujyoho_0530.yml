@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_orderdb_order_jyukyujyoho +stg_orderdb_buturyu_jyukyujyoho
     --vars '{"DBT_JOB_NAME":"_d_jyukyujyoho_0530"}'
 

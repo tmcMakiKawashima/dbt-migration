@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_hinbantikibetsutaiouhinban_smshokyu 
     +stg_tikibetsuhokyutyotatsujoho_smshokyu
     --vars '{"DBT_JOB_NAME":"_stg_smshokyu"}'

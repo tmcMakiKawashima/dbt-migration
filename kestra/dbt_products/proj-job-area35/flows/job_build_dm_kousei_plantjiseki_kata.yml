@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +dm_kousei_plantjiseki_kata
     --vars '{"DBT_JOB_NAME":"_dm_kousei_plantjiseki_kata"}'
 

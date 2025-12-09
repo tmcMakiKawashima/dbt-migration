@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_hinbanjyohohinmei_gsps +stg_hokyujyoho_gsps +stg_hinbanjyoho_gsps +stg_hinbanseppenjyohosiki_gsps +stg_hanbaitiiki_gsps +stg_jigyotai_gsps +stg_ordersakisyoninzumi_ordersaki_gsps +stg_daitaikirikaebi_gsps +stg_daitaiordersakiroot_gsps +stg_daitai_gsps
     --vars '{"DBT_JOB_NAME":"_d_gsps_0600"}'
 

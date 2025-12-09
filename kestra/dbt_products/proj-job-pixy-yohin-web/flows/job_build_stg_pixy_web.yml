@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_lineupmaster_pixy_view +stg_categorymaster_pixy_view +stg_tagmaster_pixy_view +stg_sethinlineupmaster_pixy_view +stg_tagjoho_pixy_view
     --vars '{"DBT_JOB_NAME":"_stg_pixy_web"}'
 

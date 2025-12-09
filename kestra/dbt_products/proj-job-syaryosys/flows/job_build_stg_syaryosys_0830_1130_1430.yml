@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +stg_order_daisu_summary_syaryosys +stg_kinobetsu_noryoku_waku_syaryosys +stg_dfsc_x_kinomeisai_syaryosys +stg_juchushiyo_kanri_syaryosys
     --vars '{"DBT_JOB_NAME":"_stg_syaryosys_0830_1130_1430"}'
 

@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select
     +file:stg_hostalc_1?_erasure_achievements
     +file:stg_hostalc_1?_production_progress

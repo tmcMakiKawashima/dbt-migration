@@ -23,8 +23,8 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables: 
-  dbt_command: 
+variables:
+  dbt_command:
     --select +dm_vinhis_nyukodetail +dm_vinhis_buhinreki +dm_vinhis_seibireki +dm_vinhis_goyomei
     --vars '{"DBT_JOB_NAME":"_dm_vinhis_maint"}'
 
