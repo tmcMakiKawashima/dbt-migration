@@ -12,6 +12,6 @@ with stg_tbsmksk_noki as (
         iff(rtrim(deletedate) = '','',lpad(rtrim(deletedate),length(deletedate),'0'))::varchar(8) as deletedate,  -- 日付
         ldts -- B層のLDTS
     from {{ ref('substr_tbsmksk_noki') }}
+    where ldts = (select max(ldts) from {{ ref('substr_tbsmksk_noki') }})
 )
 select * from stg_tbsmksk_noki
-where ldts = (select max(ldts) from stg_tbsmksk_noki)
