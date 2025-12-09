@@ -1,5 +1,3 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
-
 with stg_cvn35dsyukabin as (
     select
         rtrim(dlrcd, ' 　') as dlrcd, --英数字
