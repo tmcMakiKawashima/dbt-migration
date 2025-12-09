@@ -10,7 +10,7 @@ vars:
   use_common_masking_policy_db: true
   common_masking_policy_db: common_tbl_db
   common_masking_policy_schema: masking_policy
-  mute_ensure_materialization_override: true
+
 # This setting configures which "profile" dbt uses for this project.
 profile: 'enterprise_data_products'
 
@@ -299,6 +299,7 @@ snapshots:
         +target_schema: dbt_snapshots
 
 flags:
+  require_explicit_package_overrides_for_builtin_materializations: False
   warn_error_options:
     silence:
       - PackageMaterializationOverrideDeprecation 

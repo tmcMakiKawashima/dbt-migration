@@ -29,7 +29,7 @@
         "
     )
 }}
--- キー項目+valueを比較してd層onlyのものをtrueに変える処理を入れる
+-- 更新前のデータを論理削除するためhookの実装
 
 with stg_jfy1_tracedata_iotpf_kojoiot_subaru as (
     select

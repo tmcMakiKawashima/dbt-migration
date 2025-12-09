@@ -51,6 +51,7 @@
           memory: 128Mi
       pullPolicy: IF_NOT_PRESENT
     beforeCommands:
+      - apt-get install git
       - git clone -b {{ namespace.GIT.BRANCH ?? inputs.branch }} http://{{ namespace.GIT.USER }}:{{ secret('GIT_PASS') }}@{{ namespace.GIT.URL_PATH }}
       - cp --force profiles.yml {{ namespace.NAME }}/{{ namespace.DBT.PROJ_DIR }}/profiles.yml
       - cd {{ namespace.NAME }}/{{ namespace.DBT.PROJ_DIR }}
