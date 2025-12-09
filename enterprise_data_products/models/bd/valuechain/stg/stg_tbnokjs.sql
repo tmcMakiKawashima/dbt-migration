@@ -1,11 +1,3 @@
-{{
-    config (
-        materialized = 'incremental',
-        unique_key = ['kyouhan','usercd','hinban','mkbn','nyukkten','chumon','jchuymd'],
-        incremental_strategy = 'merge'
-    )
-}}
-
 with stg_tbnokjs as (
     select
         rtrim(kyouhan,' 　')::varchar(5) as kyouhan,  -- 英数字
@@ -111,10 +103,6 @@ with stg_tbnokjs as (
                 order by substr(chumon, 2, 1) desc, ldts desc
             ) aggkey
         from {{ ref('substr_tbnokjs') }}
-        
-        {% if is_incremental() %}
-            where ldts > (select max(ldts) from {{ this }})
-        {% endif %}
     )
 select *
 from stg_tbnokjs
