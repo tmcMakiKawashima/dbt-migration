@@ -1,4 +1,10 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
+{{
+    config (
+        materialized = 'incremental',
+        unique_key = ['kyouhan','hinban','mkbn','jchuymd','jchutime','jdenno','jdennoeda','kensu'],
+        incremental_strategy = 'merge'
+    )
+}}
 
 with stg_tbnoukifl as (
     select
@@ -60,6 +66,10 @@ with stg_tbnoukifl as (
                 order by ldts desc
             ) aggkey
         from {{ ref('substr_tbnoukifl') }}
+
+        {% if is_incremental() %}
+            where ldts > (select max(ldts) from {{ this }})
+        {% endif %}
     )
 select *
 from stg_tbnoukifl
