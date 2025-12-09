@@ -1,5 +1,3 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
-
 with stg_tbsmksk as (
     select
         rtrim(ID, ' 　')::VARCHAR(3) as ID, -- 英数字
