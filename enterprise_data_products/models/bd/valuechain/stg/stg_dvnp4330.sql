@@ -1,4 +1,4 @@
-{{ config(materialized='incremental', snowflake_warehouse='DBT_WH') }}
+{{ config(materialized='incremental') }}
 
 with stg_dvnp4330 as (
     select
@@ -53,9 +53,8 @@ with stg_dvnp4330 as (
         rtrim(FILLER,' 　')::VARCHAR(24) as FILLER,  --英数字
         LDTS
     from {{ ref('substr_dvnp4330') }}
+    {% if is_incremental() %}
+        where LDTS > (select max(LDTS) from {{this}})
+    {% endif %}
 )
 select * from stg_dvnp4330
-
-{% if is_incremental() %}
-    where LDTS > (select max(LDTS) from {{this}})
-{% endif %}
