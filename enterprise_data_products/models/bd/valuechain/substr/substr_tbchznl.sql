@@ -1,5 +1,3 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
-
 with substr_tbchznl as (
     select
         substr(raw_data, 1, 5)::varchar(5) as kyouhan,
