@@ -127,6 +127,6 @@ with stg_tbuserm as (
         IFF(rtrim(HDKBN) = '','',LPAD(rtrim(HDKBN),length(HDKBN),'0'))::VARCHAR(1) as HDKBN,  -- コード/区分
         LDTS -- B層のLDTS
     from {{ ref('substr_tbuserm') }}
+    where LDTS = (select max(LDTS) from {{ ref('substr_tbuserm') }})
 )
 select * from stg_tbuserm
-where LDTS = (select max(LDTS) from stg_tbuserm)
