@@ -45,11 +45,11 @@ and t60.ctlkata = sksk.ctlkata
 )
 left join col as inc
 on (
-    t60.intcode = inc.gclrno
+    trim(t60.intcode) = trim(inc.gclrno)
 )
 left join col as outc
 on (
-    t60.extcode = outc.gclrno
+    trim(t60.extcode) = trim(outc.gclrno)
 )
 left join km as km
 on (
