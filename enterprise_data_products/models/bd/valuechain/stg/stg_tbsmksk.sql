@@ -10,6 +10,6 @@ with stg_tbsmksk as (
         rtrim(FILLER, ' 　')::VARCHAR(369) as FILLER, -- 英数字
         LDTS -- B層のLDTS
     from {{ ref('substr_tbsmksk') }}
+    where LDTS = (select max(LDTS) from {{ ref('substr_tbsmksk') }})
 )
 select * from stg_tbsmksk
-where LDTS = (select max(LDTS) from stg_tbsmksk)
