@@ -2,16 +2,16 @@ version: 2
 
 sources:
   - name: supplydemand_db_public
-    database: SUPPLYDEMAND_DB
-    schema: PUBLIC
+    database: supplydemand_db
+    schema: public
     tables:
       - name: raw_h_hanbaikt_frmkbn
-        identifier: H_HANBAIKT_FRMKBN
+        identifier: h_hanbaikt_frmkbn
       - name: raw_lk_hanbaikt_frmkbn
-        identifier: LK_HANBAIKT_HAIGEN_FRMKBN
+        identifier: lk_hanbaikt_haigen_frmkbn
       - name: raw_st_hanbaikt_frmkbn
-        identifier: ST_HANBAIKT_SYARYO_HAIGEN_FRMKBN
+        identifier: st_hanbaikt_syaryo_haigen_frmkbn
       - name: raw_st_jpsalecar_frmkbn
-        identifier: ST_JPSALECAR_AQUA_JPSEISAN_FRMKBN
+        identifier: st_jpsalecar_aqua_jpseisan_frmkbn
       - name: raw_st_jpsalecar
-        identifier: ST_JPSALECAR_AQUA_JPSEISAN
+        identifier: st_jpsalecar_aqua_jpseisan

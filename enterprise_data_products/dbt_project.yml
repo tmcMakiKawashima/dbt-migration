@@ -10,6 +10,7 @@ vars:
   use_common_masking_policy_db: true
   common_masking_policy_db: common_tbl_db
   common_masking_policy_schema: masking_policy
+  mute_ensure_materialization_override: true
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'enterprise_data_products'
@@ -56,6 +57,11 @@ models:
         supplydemand:
           +group: snowpipe_supplydemand
           +schema: supplydemand
+      marketing:
+        +snowflake_warehouse: marketing_wh
+        +group: marketing
+        +database: marketing_db
+        +schema: public
     bd:
       valuechain:
         +snowflake_warehouse: valuechain_wh
@@ -172,6 +178,12 @@ models:
         dim:
           +access: public
           +materialized: table
+        smshokyu:
+          +group: parts_smshokyu
+          +schema: smshokyu
+          dim:
+            +access: public
+            +materialized: table
       vinhis:
         +snowflake_warehouse: vinhis_wh
         +database: vinhis_db
@@ -299,7 +311,6 @@ snapshots:
         +target_schema: dbt_snapshots
 
 flags:
-  require_explicit_package_overrides_for_builtin_materializations: False
   warn_error_options:
     silence:
       - PackageMaterializationOverrideDeprecation 
