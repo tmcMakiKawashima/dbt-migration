@@ -1,0 +1,67 @@
+id: job_build_stg_galc_kpi_kaigai_na
+namespace: kestra_dbt_project.proj-job-galc-kpi
+
+labels:
+  error: default_failed
+  dbt: build
+
+retry:
+  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK
+  type: exponential
+  interval: PT5S
+  maxAttempts: 7
+  maxInterval: PT720S
+  delayFactor: 30
+
+# 手動実行時に指定できるdbtオプション
+inputs:
+  - id: dbt_options
+    type: SELECT
+    displayName: Choose dbt options
+    values:
+      - --full-refresh
+    required: false
+    allowCustomValue: true
+
+variables:
+  dbt_command:
+    --select +stg_hostalc_na_sfvam +stg_hostalc_na_sfl +stg_hostalc_na_sfh +stg_hostalc_na_sfp +stg_hostalc_na_sft +stg_hostalc_2u_virtual_line +stg_hostalc_2q_virtual_line +stg_hostalc_tx_virtual_line +stg_hostalc_3c_virtual_line +stg_hostalc_3a_virtual_line +stg_hostalc_3w_virtual_line +stg_hostalc_vm_virtual_line +stg_hostalc_8s_virtual_line +stg_hostalc_qm_virtual_line +stg_hostalc_0g_virtual_line +stg_hostalc_7c_virtual_line +stg_hostalc_pb_virtual_line +stg_hostalc_pd_virtual_line +stg_hostalc_mb_virtual_line +stg_hostalc_2u_reject_vehicle +stg_hostalc_2q_reject_vehicle +stg_hostalc_tx_reject_vehicle +stg_hostalc_3c_reject_vehicle +stg_hostalc_3a_reject_vehicle +stg_hostalc_3w_reject_vehicle +stg_hostalc_vm_reject_vehicle +stg_hostalc_8s_reject_vehicle +stg_hostalc_qm_reject_vehicle +stg_hostalc_0g_reject_vehicle +stg_hostalc_7c_reject_vehicle +stg_hostalc_pb_reject_vehicle +stg_hostalc_pd_reject_vehicle +stg_hostalc_mb_reject_vehicle +stg_hostalc_2u_vehicle_specification +stg_hostalc_2q_vehicle_specification +stg_hostalc_tx_vehicle_specification +stg_hostalc_3c_vehicle_specification +stg_hostalc_3a_vehicle_specification +stg_hostalc_3w_vehicle_specification +stg_hostalc_vm_vehicle_specification +stg_hostalc_8s_vehicle_specification +stg_hostalc_qm_vehicle_specification +stg_hostalc_0g_vehicle_specification +stg_hostalc_7c_vehicle_specification +stg_hostalc_pb_vehicle_specification +stg_hostalc_pd_vehicle_specification +stg_hostalc_mb_vehicle_specification +stg_hostalc_2u_erasure_achievements +stg_hostalc_2q_erasure_achievements +stg_hostalc_tx_erasure_achievements +stg_hostalc_3c_erasure_achievements +stg_hostalc_3a_erasure_achievements +stg_hostalc_3w_erasure_achievements +stg_hostalc_vm_erasure_achievements +stg_hostalc_8s_erasure_achievements +stg_hostalc_qm_erasure_achievements +stg_hostalc_0g_erasure_achievements +stg_hostalc_7c_erasure_achievements +stg_hostalc_pb_erasure_achievements +stg_hostalc_pd_erasure_achievements +stg_hostalc_mb_erasure_achievements +stg_hostalc_2u_production_progress +stg_hostalc_2q_production_progress +stg_hostalc_tx_production_progress +stg_hostalc_3c_production_progress +stg_hostalc_3a_production_progress +stg_hostalc_3w_production_progress +stg_hostalc_vm_production_progress +stg_hostalc_8s_production_progress +stg_hostalc_qm_production_progress +stg_hostalc_0g_production_progress +stg_hostalc_7c_production_progress +stg_hostalc_pb_production_progress +stg_hostalc_pd_production_progress +stg_hostalc_mb_production_progress
+    --vars '{"DBT_JOB_NAME":"_stg_galc_kpi_kaigai_na"}'
+
+tasks:
+  - id: clone_dbt_build
+    type: io.kestra.plugin.dbt.cli.DbtCLI
+    commands:
+      - dbt build {{ vars.dbt_command }}
+        {{ inputs.dbt_options ?? "" }}
+
+triggers:
+  - id: schedule
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "00 17 * * *"
+    timezone: Asia/Tokyo
+
+# エラーログを出力
+errors:
+  - id: error_log
+    type: io.kestra.plugin.core.debug.Return
+    format: "{{ errorLogs()[0]['message'] }}"
+
+outputs: 
+  - id: output_error_log
+    type: STRING
+    value: "{{ outputs.error_log.value ?? 'No message found.' }}"
+  - id: output_state
+    type: STRING
+    value: "{{ tasks.clone_dbt_build.state ?? 'No state' }}"
+
+# ログ出力
+finally:
+  - id: finally_log 
+    type: io.kestra.plugin.core.log.Log
+    message: 
+      - "Git branch -> {{ namespace.GIT.BRANCH }}"
+      - "dbt options -> {{ inputs.dbt_options ?? '' }}"
+      - "dbt commands -> {{ vars.dbt_command }}"
+
+disabled: false
