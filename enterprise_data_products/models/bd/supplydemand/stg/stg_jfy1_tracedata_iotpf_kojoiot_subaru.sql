@@ -1,8 +1,8 @@
 {{
     config (
         materialized = 'incremental',
+        unique_key = ['data_id', 'pro_key_cd', 'trace_tag_cd','value'],        
         incremental_strategy = 'merge',
-        unique_key = ['data_id', 'pro_key_cd', 'trace_tag_cd','value'],
         post_hook ="
             {% if is_incremental() %}
               update {{ this }} as t
