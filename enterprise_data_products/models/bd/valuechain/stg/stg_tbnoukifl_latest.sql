@@ -1,3 +1,5 @@
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with stg_tbnoukifl_latest as (
     select
         rtrim(kyouhan,' 　')::varchar(5) as kyouhan,  -- 英数字
