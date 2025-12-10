@@ -1,8 +1,8 @@
 {{
     config (
         materialized = 'incremental',
-        incremental_strategy = 'append',
         unique_key = ['sfkey', 'line', 'tp','keycount'],
+        incremental_strategy = 'append',
         pre_hook = "
             {% if is_incremental() %}
               DELETE FROM {{ this }} as t
