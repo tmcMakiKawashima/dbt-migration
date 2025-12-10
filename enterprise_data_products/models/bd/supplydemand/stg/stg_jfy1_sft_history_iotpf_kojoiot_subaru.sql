@@ -1,9 +1,8 @@
 {{
     config (
         materialized = 'incremental',
-        incremental_strategy = 'merge',
-        unique_key = ['sfkey']
-        
+        unique_key = ['sfkey'],
+        incremental_strategy = 'merge'
     )
 }}
 
