@@ -1,4 +1,6 @@
 -- オーダー指示ステータスファイルに注文№、受注品番、仕向先CDを付与
+{{ config(snowflake_warehouse='DBT_WH') }}
+
 with
     oder_status as (select * from {{ ref("stg_dvnp0700") }}), -- オーダー指示ステータスファイル
     order_joho as (select * from {{ ref("stg_dvnp0680") }}) -- オーダー情報ファイル
