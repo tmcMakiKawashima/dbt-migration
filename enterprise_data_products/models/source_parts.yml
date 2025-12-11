@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: parts_db_public
+    database: parts_db
+    schema: public
+    tables:
+    # デジタル家系図支援(AREA35技術部品削減_TYPE3)
+      - name: raw_dm_hinban_siresaki
+        identifier: dm_hinban_siresaki
