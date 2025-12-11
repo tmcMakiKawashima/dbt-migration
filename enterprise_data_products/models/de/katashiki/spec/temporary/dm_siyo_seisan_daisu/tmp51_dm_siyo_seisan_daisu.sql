@@ -5,9 +5,16 @@ with rnk as (
             partition by
                 base.syasyu,
                 base.haisya_kt,
+                base.spec200,
+                base.int_cd,
+                base.ext_cd,
+                base.dest_cd,
+                base.koujyou_cd,
+                base.eng_kt,
+                base.psc,
+                base.o_idline,
                 base.sk_y,
-                base.sk_m,
-                base.spec200
+                base.sk_m
             order by
                 base.dest_match_flag desc
         ) as rn
