@@ -1,4 +1,9 @@
-{{ config(materialized='incremental') }}
+{{
+    config(
+        materialized='incremental',
+        incremental_strategy = 'append'
+    )
+}}
 
 with stg_tbnsyus as (
     select
