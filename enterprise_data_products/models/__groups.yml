@@ -68,3 +68,6 @@ groups:
   - name: parts_sms
     owner:
       email: yasunori-okada@mail.toyota.co.jp
+  - name: katashiki_spec
+    owner:
+      email: yasunori-okada@mail.toyota.co.jp      
