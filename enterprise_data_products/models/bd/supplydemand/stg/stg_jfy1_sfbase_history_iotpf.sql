@@ -7,7 +7,7 @@
     )
 }}
 
-with stg_jfy1_sfbase_history_iotpf_kojoiot_subaru as (
+with stg_jfy1_sfbase_history_iotpf as (
     select
         trim(sfkey, ' 　')::varchar(16) as sfkey,  -- 右左ブランク
         trim(vin_type2, ' 　')::varchar(2) as vin_type2,  -- 右左ブランク
@@ -220,5 +220,5 @@ with stg_jfy1_sfbase_history_iotpf_kojoiot_subaru as (
 
 )
 select * exclude(aggkey)
-from stg_jfy1_sfbase_history_iotpf_kojoiot_subaru
+from stg_jfy1_sfbase_history_iotpf
 where aggkey = 1
