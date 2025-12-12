@@ -31,7 +31,7 @@
 }}
 -- 更新前のデータを論理削除するためhookの実装
 
-with stg_jfy1_tracedata_iotpf_kojoiot_subaru as (
+with stg_jfy1_tracedata_iotpf as (
     select
         trim(data_id, ' 　')::varchar(19) as data_id,
         trim(line, ' 　')::varchar(1) as line,
@@ -71,6 +71,6 @@ with stg_jfy1_tracedata_iotpf_kojoiot_subaru as (
 
 )
 select * exclude(aggkey)
-from stg_jfy1_tracedata_iotpf_kojoiot_subaru
+from stg_jfy1_tracedata_iotpf
 where aggkey = 1
 
