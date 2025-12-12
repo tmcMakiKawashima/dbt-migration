@@ -680,7 +680,7 @@ sources:
             data_tests:
               - fixed_length:
                   length: 80
-    # 工場IoTPF
+    # IoTPF
       - name: raw_iotalcjfy1g4ctr
         identifier: iotalcjfy1g4ctr
       - name: raw_iotalcjfy1g4sf0
