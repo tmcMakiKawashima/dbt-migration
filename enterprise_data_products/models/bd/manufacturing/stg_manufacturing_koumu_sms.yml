@@ -5,7 +5,7 @@ models:
 # 品番引当
   - name: stg_hinban_hikiate_koumusms
     config:
-      tags: ["koumu_sms"]
+      tags: ["koumu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
