@@ -6,7 +6,7 @@
     )
 }}
 
-with stg_jfy1_sfkey_history_iotpf_kojoiot_subaru as (
+with stg_jfy1_sfkey_history_iotpf as (
     select
         trim(sf_kind, ' 　')::numeric(1) as sf_kind,  -- 右左ブランク
         trim(sfkey, ' 　')::varchar(16) as sfkey,  -- 右左ブランク
@@ -41,5 +41,5 @@ with stg_jfy1_sfkey_history_iotpf_kojoiot_subaru as (
 
 )
 select * exclude(aggkey)
-from stg_jfy1_sfkey_history_iotpf_kojoiot_subaru
+from stg_jfy1_sfkey_history_iotpf
 where aggkey = 1
