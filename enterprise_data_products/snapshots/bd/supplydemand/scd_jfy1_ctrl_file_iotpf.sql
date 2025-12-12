@@ -1,4 +1,4 @@
-{% snapshot scd_jfy1_ctrl_file_iotpf_kojoiot_subaru%}
+{% snapshot scd_jfy1_ctrl_file_iotpf%}
 
 {{
     config( 
@@ -11,6 +11,6 @@
     )
 }}
 
-select * from {{ ref('stg_jfy1_ctrl_file_iotpf_kojoiot_subaru') }} 
+select * from {{ ref('stg_jfy1_ctrl_file_iotpf') }} 
 
  {% endsnapshot %}
