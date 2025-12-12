@@ -14,7 +14,7 @@
 }}
 --主キーとは異なるSFKEY単位で洗い替えをしたいためhookで実装
 
-with stg_jfy1_sfh_history_iotpf_kojoiot_subaru as (
+with stg_jfy1_sfh_history_iotpf as (
     select
         trim(sfkey, ' 　')::varchar(16) as sfkey,  -- 右左ブランク
         trim(line, ' 　')::varchar(1) as line,  -- 右左ブランク
@@ -53,5 +53,5 @@ with stg_jfy1_sfh_history_iotpf_kojoiot_subaru as (
 
 )
 select * exclude(aggkey)
-from stg_jfy1_sfh_history_iotpf_kojoiot_subaru
+from stg_jfy1_sfh_history_iotpf
 where aggkey = 1
