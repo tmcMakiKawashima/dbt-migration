@@ -1,0 +1,30 @@
+version: 2
+
+models:
+# 車種型式スペックマスター(TMC車種限定)
+  - name: dm_syasyu_katashiki_specmaster_tmc
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu
+            - s1keta
+            - s1kigo
+          config:
+            severity: error
+
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: s1keta
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: s1kigo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
