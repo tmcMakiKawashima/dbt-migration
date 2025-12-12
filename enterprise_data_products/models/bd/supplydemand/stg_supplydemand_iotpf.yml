@@ -1,9 +1,9 @@
 version: 2
 models:
-# スバル矢島 G4 制御ファイル
-  - name: stg_jfy1_ctrl_file_iotpf_kojoiot_subaru
+# JFY1 制御ファイル
+  - name: stg_jfy1_ctrl_file_iotpf
     config:
-      tags: ["kojoiotpf"]
+      tags: ["iotpf"]
     columns:
       - name: sfkey
         data_tests:
@@ -13,10 +13,10 @@ models:
           - not_null:
               config:
                 severity: error
-# スバル矢島 G4 SF基本データ
-  - name: stg_jfy1_sfbase_history_iotpf_kojoiot_subaru
+# JFY1 SF基本データ
+  - name: stg_jfy1_sfbase_history_iotpf
     config:
-      tags: ["kojoiotpf"]
+      tags: ["iotpf"]
     columns:
       - name: sfkey
         data_tests:
@@ -26,10 +26,10 @@ models:
           - not_null:
               config:
                 severity: error
-# スバル矢島 G4 SFキーデータ
-  - name: stg_jfy1_sfkey_history_iotpf_kojoiot_subaru
+# JFY1 SFキーデータ
+  - name: stg_jfy1_sfkey_history_iotpf
     config:
-      tags: ["kojoiotpf"]
+      tags: ["iotpf"]
     columns:
       - name: sfkey
         data_tests:
@@ -44,10 +44,10 @@ models:
           - not_null:
               config:
                 severity: error        
-# スバル矢島 G4 SF生産ステータスデータ
-  - name: stg_jfy1_sft_history_iotpf_kojoiot_subaru
+# JFY1 SF生産ステータスデータ
+  - name: stg_jfy1_sft_history_iotpf
     config:
-      tags: ["kojoiotpf"]
+      tags: ["iotpf"]
     columns:
       - name: sfkey
         data_tests:
@@ -57,10 +57,10 @@ models:
           - not_null:
               config:
                 severity: error
-# スバル矢島 G4 SFトラッキング履歴データ
-  - name: stg_jfy1_sfh_history_iotpf_kojoiot_subaru
+# JFY1 SFトラッキング履歴データ
+  - name: stg_jfy1_sfh_history_iotpf
     config:
-      tags: ["kojoiotpf"]
+      tags: ["iotpf"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           arguments:
@@ -92,10 +92,10 @@ models:
           - not_null:
               config:
                 severity: error
-# スバル矢島 G4 トレーサビリティデータ
-  - name: stg_jfy1_tracedata_iotpf_kojoiot_subaru
+# JFY1 トレーサビリティデータ
+  - name: stg_jfy1_tracedata_iotpf
     config:
-      tags: ["kojoiotpf"]
+      tags: ["iotpf"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           arguments:

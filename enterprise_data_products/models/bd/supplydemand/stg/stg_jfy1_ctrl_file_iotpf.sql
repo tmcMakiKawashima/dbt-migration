@@ -6,7 +6,7 @@
     )
 }}
 
-with stg_jfy1_ctrl_file_iotpf_kojoiot_subaru as (
+with stg_jfy1_ctrl_file_iotpf as (
     select
         trim(sfkey, ' 　')::varchar(16) as sfkey,  -- 右左ブランク
         to_timestamp_ntz(trim(file_date, ' 　')) as file_date,  -- 右左ブランク
@@ -32,5 +32,5 @@ with stg_jfy1_ctrl_file_iotpf_kojoiot_subaru as (
 
 )
 select * exclude(aggkey)
-from stg_jfy1_ctrl_file_iotpf_kojoiot_subaru
+from stg_jfy1_ctrl_file_iotpf
 where aggkey = 1
