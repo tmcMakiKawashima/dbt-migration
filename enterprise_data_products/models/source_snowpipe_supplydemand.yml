@@ -647,6 +647,7 @@ sources:
         identifier: hostalc_1g_dkae06047201
       - name: raw_hostalc_1p_dkae06047201
         identifier: hostalc_1p_dkae06047201
+    # hostalc
       - name: raw_hostalc_2u_dkae02072301
         identifier: hostalc_2u_dkae02072301
         columns:
