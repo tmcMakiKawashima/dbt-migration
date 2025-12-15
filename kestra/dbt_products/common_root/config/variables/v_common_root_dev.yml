@@ -9,14 +9,14 @@ ENV: dev
 GIT:
   URL: http://ip-100-80-0-103.ap-northeast-1.compute.internal/enterprise_orchestration_products/kestra_dbt_project.git
   USER: kestra.dbt
-  BRANCH: xxx
+  URL_PATH: ip-100-80-0-103.ap-northeast-1.compute.internal/enterprise_orchestration_products/kestra_dbt_project.git
 NAME: kestra_dbt_project
 ALERTS:
   TOPIC: arn:aws:sns:ap-northeast-1:248810166614:dajp1-dxpf-edp-sns-kestra10
   REGION: ap-northeast-1
 DOCKER:
   IMAGE_VERSION:
-    DBT: ghcr.io/dbt-labs/dbt-snowflake:1.9.0
+    DBT: 248810166614.dkr.ecr.ap-northeast-1.amazonaws.com/dajp1-dxpf-edp-ecr-kestra-dbt-snowflake@sha256:f49fca3c006ec02eb96c080b818883da597b4822dd290cb548dc9a83f91b781d
     PYTHON: ghcr.io/jumpserver/python:3.11-slim
 PYTHON:
   SNOWFLAKE_CONNECTOR_VERSION: snowflake-connector-python[pandas]==3.15.0
@@ -31,9 +31,11 @@ SNOWFLAKE:
   DATABASE: DATAMART_DB
   WAREHOUSE: DATAMART_WH
 KUBERNETES:
+  REGION: ap-northeast-1
   NAMESPACE: default
   USER_NAME: arn:aws:eks:ap-northeast-1:248810166614:cluster/dajp1-dxpf-edp-eks-kestra10
   MASTER_URL: https://C76D0B86432F90029B85622F084F1CA4.gr7.ap-northeast-1.eks.amazonaws.com
+  CLUSTER_NAME: dajp1-dxpf-edp-eks-kestra10
 EXPORT_AUDIT_LOGS:
   MONTHLY:
     BASE_PATH: Kestra
