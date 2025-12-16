@@ -1651,7 +1651,7 @@ models:
           - not_null:
               config:
                 severity: error
-#2u_抹消実績
+# 2u_抹消実績
   - name: stg_2u_erasure_achievements_hostalc
     config:
       tags: ["hostalc"]
