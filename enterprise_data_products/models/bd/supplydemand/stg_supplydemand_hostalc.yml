@@ -1,19 +1,21 @@
 version: 2
 
 models:
-# SF(V,A,M)
-  - name: stg_hostalc_allsfvam
+# 北米_SF(V,A,M)
+  - name: stg_na_sfvam_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - psc
-            - plantcode
-            - idno
-            - lodate
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - psc
+              - plantcode
+              - idno
+              - lodate
+
     columns:
       - name: psc
         data_tests:
@@ -35,20 +37,22 @@ models:
           - not_null:
               config:
                 severity: error
-# SF(L)
-  - name: stg_hostalc_allsfl
+# 北米_SF(L)
+  - name: stg_na_sfl_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - psc
-            - plantcode
-            - lodate
-            - idno
-            - msgno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - psc
+              - plantcode
+              - lodate
+              - idno
+              - msgno
+
     columns:
       - name: psc
         data_tests:
@@ -75,23 +79,25 @@ models:
           - not_null:
               config:
                 severity: error
-# SF(H)
-  - name: stg_hostalc_allsfh
+# 北米_SF(H)
+  - name: stg_na_sfh_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - psc
-            - plantcode
-            - lodate
-            - idno
-            - line
-            - tp
-            - prsnttptype
-            - times
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - psc
+              - plantcode
+              - lodate
+              - idno
+              - line
+              - tp
+              - prsnttptype
+              - times
+
     columns:
       - name: psc
         data_tests:
@@ -133,21 +139,23 @@ models:
           - not_null:
               config:
                 severity: error
-# SF(P)
-  - name: stg_hostalc_allsfp
+# 北米_SF(P)
+  - name: stg_na_sfp_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - psc
-            - plantcode
-            - lodate
-            - idno
-            - line
-            - tp
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - psc
+              - plantcode
+              - lodate
+              - idno
+              - line
+              - tp
+
     columns:
       - name: psc
         data_tests:
@@ -179,19 +187,21 @@ models:
           - not_null:
               config:
                 severity: error
-# SF(T)
-  - name: stg_hostalc_allsft
+# 北米_SF(T)
+  - name: stg_na_sft_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - psc
-            - plantcode
-            - lodate
-            - idno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - psc
+              - plantcode
+              - lodate
+              - idno
+
     columns:
       - name: psc
         data_tests:
@@ -213,20 +223,22 @@ models:
           - not_null:
               config:
                 severity: error
-# 車両バーチャルライン情報_元町
-  - name: stg_hostalc_1h_virtual_line
+# 2u_車両バーチャルライン情報
+  - name: stg_2u_virtual_line_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
+
     columns:
       - name: pscexlk
         data_tests:
@@ -253,20 +265,22 @@ models:
           - not_null:
               config:
                 severity: error
-# 車両バーチャルライン情報_堤
-  - name: stg_hostalc_1r_virtual_line
+# 2q_車両バーチャルライン情報
+  - name: stg_2q_virtual_line_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
+
     columns:
       - name: pscexlk
         data_tests:
@@ -293,20 +307,22 @@ models:
           - not_null:
               config:
                 severity: error
-# 車両バーチャルライン情報_田原
-  - name: stg_hostalc_1n_virtual_line
+# tx_車両バーチャルライン情報
+  - name: stg_tx_virtual_line_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
+
     columns:
       - name: pscexlk
         data_tests:
@@ -333,20 +349,22 @@ models:
           - not_null:
               config:
                 severity: error
-# 車両バーチャルライン情報_高岡
-  - name: stg_hostalc_1k_virtual_line
+# 3c_車両バーチャルライン情報
+  - name: stg_3c_virtual_line_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
+
     columns:
       - name: pscexlk
         data_tests:
@@ -373,20 +391,22 @@ models:
           - not_null:
               config:
                 severity: error
-# 車両バーチャルライン情報_織機
-  - name: stg_hostalc_1o_virtual_line
+# 3a_車両バーチャルライン情報
+  - name: stg_3a_virtual_line_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
+
     columns:
       - name: pscexlk
         data_tests:
@@ -413,20 +433,22 @@ models:
           - not_null:
               config:
                 severity: error
-# 車両バーチャルライン情報_TMK
-  - name: stg_hostalc_1w_virtual_line
+# 3w_車両バーチャルライン情報
+  - name: stg_3w_virtual_line_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
+
     columns:
       - name: pscexlk
         data_tests:
@@ -453,20 +475,22 @@ models:
           - not_null:
               config:
                 severity: error
-# 車両バーチャルライン情報_トヨタ車体富士松
-  - name: stg_hostalc_1f_virtual_line
+# vm_車両バーチャルライン情報
+  - name: stg_vm_virtual_line_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
+
     columns:
       - name: pscexlk
         data_tests:
@@ -493,20 +517,22 @@ models:
           - not_null:
               config:
                 severity: error
-# 車両バーチャルライン情報_トヨタ車体吉原
-  - name: stg_hostalc_1a_virtual_line
+# 8s_車両バーチャルライン情報
+  - name: stg_8s_virtual_line_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
+
     columns:
       - name: pscexlk
         data_tests:
@@ -533,20 +559,22 @@ models:
           - not_null:
               config:
                 severity: error
-# 車両バーチャルライン情報_トヨタ車体いなべ
-  - name: stg_hostalc_1i_virtual_line
+# qm_車両バーチャルライン情報
+  - name: stg_qm_virtual_line_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
+
     columns:
       - name: pscexlk
         data_tests:
@@ -573,20 +601,22 @@ models:
           - not_null:
               config:
                 severity: error
-# 車両バーチャルライン情報_岐阜車体各務原
-  - name: stg_hostalc_1j_virtual_line
+# 0g_車両バーチャルライン情報
+  - name: stg_0g_virtual_line_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
+
     columns:
       - name: pscexlk
         data_tests:
@@ -613,20 +643,22 @@ models:
           - not_null:
               config:
                 severity: error
-# 車両バーチャルライン情報_TMEJ岩手
-  - name: stg_hostalc_1v_virtual_line
+# 7c_車両バーチャルライン情報
+  - name: stg_7c_virtual_line_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
+
     columns:
       - name: pscexlk
         data_tests:
@@ -653,20 +685,22 @@ models:
           - not_null:
               config:
                 severity: error
-# 車両バーチャルライン情報_TMEJ宮城大衡
-  - name: stg_hostalc_1g_virtual_line
+# pb_車両バーチャルライン情報
+  - name: stg_pb_virtual_line_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
+
     columns:
       - name: pscexlk
         data_tests:
@@ -693,20 +727,22 @@ models:
           - not_null:
               config:
                 severity: error
-# 車両バーチャルライン情報_日野羽村
-  - name: stg_hostalc_1p_virtual_line
+# pd_車両バーチャルライン情報
+  - name: stg_pd_virtual_line_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
+
     columns:
       - name: pscexlk
         data_tests:
@@ -733,18 +769,22 @@ models:
           - not_null:
               config:
                 severity: error
-# リジェクト車両_堤
-  - name: stg_hostalc_1r_reject_vehicle
+# mb_車両バーチャルライン情報
+  - name: stg_mb_virtual_line_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
+
     columns:
       - name: pscexlk
         data_tests:
@@ -752,1107 +792,6 @@ models:
               config:
                 severity: error
       - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# リジェクト車両_田原
-  - name: stg_hostalc_1n_reject_vehicle
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# リジェクト車両_元町
-  - name: stg_hostalc_1h_reject_vehicle
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# リジェクト車両_高岡
-  - name: stg_hostalc_1k_reject_vehicle
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# リジェクト車両_織機
-  - name: stg_hostalc_1o_reject_vehicle
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# リジェクト車両_TMK
-  - name: stg_hostalc_1w_reject_vehicle
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# リジェクト車両_トヨタ車体富士松
-  - name: stg_hostalc_1f_reject_vehicle
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# リジェクト車両_トヨタ車体吉原
-  - name: stg_hostalc_1a_reject_vehicle
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# リジェクト車両_トヨタ車体いなべ
-  - name: stg_hostalc_1i_reject_vehicle
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# リジェクト車両_岐阜車体各務原
-  - name: stg_hostalc_1j_reject_vehicle
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# リジェクト車両_TMEJ岩手
-  - name: stg_hostalc_1v_reject_vehicle
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# リジェクト車両_TMEJ宮城大衡
-  - name: stg_hostalc_1g_reject_vehicle
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# リジェクト車両_日野羽村
-  - name: stg_hostalc_1p_reject_vehicle
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 抹消実績_堤
-  - name: stg_hostalc_1r_erasure_achievements
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 抹消実績_田原
-  - name: stg_hostalc_1n_erasure_achievements
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 抹消実績_元町
-  - name: stg_hostalc_1h_erasure_achievements
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 抹消実績_高岡
-  - name: stg_hostalc_1k_erasure_achievements
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 抹消実績_織機
-  - name: stg_hostalc_1o_erasure_achievements
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 抹消実績_TMK
-  - name: stg_hostalc_1w_erasure_achievements
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 抹消実績_トヨタ車体富士松
-  - name: stg_hostalc_1f_erasure_achievements
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 抹消実績_トヨタ車体吉原
-  - name: stg_hostalc_1a_erasure_achievements
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 抹消実績_トヨタ車体いなべ
-  - name: stg_hostalc_1i_erasure_achievements
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 抹消実績_岐阜車体各務原
-  - name: stg_hostalc_1j_erasure_achievements
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 抹消実績_TMEJ岩手
-  - name: stg_hostalc_1v_erasure_achievements
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 抹消実績_TMEJ宮城大衡
-  - name: stg_hostalc_1g_erasure_achievements
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 抹消実績_日野羽村
-  - name: stg_hostalc_1p_erasure_achievements
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 車両仕様_堤
-  - name: stg_hostalc_1r_vehicle_specification
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 車両仕様_田原
-  - name: stg_hostalc_1n_vehicle_specification
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 車両仕様_元町
-  - name: stg_hostalc_1h_vehicle_specification
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 車両仕様_高岡
-  - name: stg_hostalc_1k_vehicle_specification
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 車両仕様_織機
-  - name: stg_hostalc_1o_vehicle_specification
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 車両仕様_TMK
-  - name: stg_hostalc_1w_vehicle_specification
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 車両仕様_トヨタ車体富士松
-  - name: stg_hostalc_1f_vehicle_specification
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 車両仕様_トヨタ車体吉原
-  - name: stg_hostalc_1a_vehicle_specification
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 車両仕様_トヨタ車体いなべ
-  - name: stg_hostalc_1i_vehicle_specification
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 車両仕様_岐阜車体各務原
-  - name: stg_hostalc_1j_vehicle_specification
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 車両仕様_TMEJ岩手
-  - name: stg_hostalc_1v_vehicle_specification
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 車両仕様_TMEJ宮城大衡
-  - name: stg_hostalc_1g_vehicle_specification
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 車両仕様_日野羽村
-  - name: stg_hostalc_1p_vehicle_specification
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: urn
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 生産進度_トヨタ車体吉原
-  - name: stg_hostalc_1a_production_progress
-    config:
-      tags: ["galc-kpi"]
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
-          config:
-            severity: error
-    columns:
-      - name: pscexlk
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: plantcode
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: line
         data_tests:
           - not_null:
               config:
@@ -1862,37 +801,30 @@ models:
           - not_null:
               config:
                 severity: error
-      - name: idline
+      - name: urn
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: ndate
+      - name: line
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: shift
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 生産進度_堤
-  - name: stg_hostalc_1r_production_progress
+# 2u_リジェクト車両
+  - name: stg_2u_reject_vehicle_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
     columns:
       - name: pscexlk
         data_tests:
@@ -1904,47 +836,25 @@ models:
           - not_null:
               config:
                 severity: error
-      - name: line
+      - name: urn
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: tp
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: idline
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: ndate
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: shift
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 生産進度_田原
-  - name: stg_hostalc_1n_production_progress
+# 2q_リジェクト車両
+  - name: stg_2q_reject_vehicle_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
     columns:
       - name: pscexlk
         data_tests:
@@ -1956,47 +866,25 @@ models:
           - not_null:
               config:
                 severity: error
-      - name: line
+      - name: urn
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: tp
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: idline
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: ndate
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: shift
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 生産進度_元町
-  - name: stg_hostalc_1h_production_progress
+# tx_リジェクト車両
+  - name: stg_tx_reject_vehicle_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
     columns:
       - name: pscexlk
         data_tests:
@@ -2008,47 +896,25 @@ models:
           - not_null:
               config:
                 severity: error
-      - name: line
+      - name: urn
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: tp
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: idline
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: ndate
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: shift
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 生産進度_高岡
-  - name: stg_hostalc_1k_production_progress
+# 3c_リジェクト車両
+  - name: stg_3c_reject_vehicle_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
     columns:
       - name: pscexlk
         data_tests:
@@ -2060,47 +926,1169 @@ models:
           - not_null:
               config:
                 severity: error
-      - name: line
+      - name: urn
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: tp
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: idline
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: ndate
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-      - name: shift
-        data_tests:
-          - not_null:
-              config:
-                severity: error
-# 生産進度_織機
-  - name: stg_hostalc_1o_production_progress
+# 3a_リジェクト車両
+  - name: stg_3a_reject_vehicle_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 3w_リジェクト車両
+  - name: stg_3w_reject_vehicle_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# vm_リジェクト車両
+  - name: stg_vm_reject_vehicle_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 8s_リジェクト車両
+  - name: stg_8s_reject_vehicle_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# qm_リジェクト車両
+  - name: stg_qm_reject_vehicle_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 0g_リジェクト車両
+  - name: stg_0g_reject_vehicle_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 7c_リジェクト車両
+  - name: stg_7c_reject_vehicle_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# pb_リジェクト車両
+  - name: stg_pb_reject_vehicle_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# pd_リジェクト車両
+  - name: stg_pd_reject_vehicle_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# mb_リジェクト車両
+  - name: stg_mb_reject_vehicle_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 2u_車両仕様
+  - name: stg_2u_vehicle_specification_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 2q_車両仕様
+  - name: stg_2q_vehicle_specification_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# tx_車両仕様
+  - name: stg_tx_vehicle_specification_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 3c_車両仕様
+  - name: stg_3c_vehicle_specification_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 3a_車両仕様
+  - name: stg_3a_vehicle_specification_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 3w_車両仕様
+  - name: stg_3w_vehicle_specification_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# vm_車両仕様
+  - name: stg_vm_vehicle_specification_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 8s_車両仕様
+  - name: stg_8s_vehicle_specification_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# qm_車両仕様
+  - name: stg_qm_vehicle_specification_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 0g_車両仕様
+  - name: stg_0g_vehicle_specification_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 7c_車両仕様
+  - name: stg_7c_vehicle_specification_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# pb_車両仕様
+  - name: stg_pb_vehicle_specification_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# pd_車両仕様
+  - name: stg_pd_vehicle_specification_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# mb_車両仕様
+  - name: stg_mb_vehicle_specification_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 2u_抹消実績
+  - name: stg_2u_erasure_achievements_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 2q_抹消実績
+  - name: stg_2q_erasure_achievements_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# tx_抹消実績
+  - name: stg_tx_erasure_achievements_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 3c_抹消実績
+  - name: stg_3c_erasure_achievements_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 3a_抹消実績
+  - name: stg_3a_erasure_achievements_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 3w_抹消実績
+  - name: stg_3w_erasure_achievements_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# vm_抹消実績
+  - name: stg_vm_erasure_achievements_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 8s_抹消実績
+  - name: stg_8s_erasure_achievements_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# qm_抹消実績
+  - name: stg_qm_erasure_achievements_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 0g_抹消実績
+  - name: stg_0g_erasure_achievements_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 7c_抹消実績
+  - name: stg_7c_erasure_achievements_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# pb_抹消実績
+  - name: stg_pb_erasure_achievements_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# pd_抹消実績
+  - name: stg_pd_erasure_achievements_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# mb_抹消実績
+  - name: stg_mb_erasure_achievements_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 2u_生産進度
+  - name: stg_2u_production_progress_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
+
     columns:
       - name: pscexlk
         data_tests:
@@ -2137,22 +2125,24 @@ models:
           - not_null:
               config:
                 severity: error
-# 生産進度_TMK
-  - name: stg_hostalc_1w_production_progress
+# 2q_生産進度
+  - name: stg_2q_production_progress_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
+
     columns:
       - name: pscexlk
         data_tests:
@@ -2189,22 +2179,24 @@ models:
           - not_null:
               config:
                 severity: error
-# 生産進度_トヨタ車体富士松
-  - name: stg_hostalc_1f_production_progress
+# tx_生産進度
+  - name: stg_tx_production_progress_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
+
     columns:
       - name: pscexlk
         data_tests:
@@ -2241,22 +2233,24 @@ models:
           - not_null:
               config:
                 severity: error
-# 生産進度_トヨタ車体いなべ
-  - name: stg_hostalc_1i_production_progress
+# 3c_生産進度
+  - name: stg_3c_production_progress_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
+
     columns:
       - name: pscexlk
         data_tests:
@@ -2293,22 +2287,24 @@ models:
           - not_null:
               config:
                 severity: error
-# 生産進度_岐阜車体各務原
-  - name: stg_hostalc_1j_production_progress
+# 3a_生産進度
+  - name: stg_3a_production_progress_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
+
     columns:
       - name: pscexlk
         data_tests:
@@ -2345,22 +2341,24 @@ models:
           - not_null:
               config:
                 severity: error
-# 生産進度_TMEJ岩手
-  - name: stg_hostalc_1v_production_progress
+# 3w_生産進度
+  - name: stg_3w_production_progress_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
+
     columns:
       - name: pscexlk
         data_tests:
@@ -2397,22 +2395,24 @@ models:
           - not_null:
               config:
                 severity: error
-# 生産進度_TMEJ宮城大衡
-  - name: stg_hostalc_1g_production_progress
+# vm_生産進度
+  - name: stg_vm_production_progress_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
+
     columns:
       - name: pscexlk
         data_tests:
@@ -2449,22 +2449,348 @@ models:
           - not_null:
               config:
                 severity: error
-# 生産進度_日野羽村
-  - name: stg_hostalc_1p_production_progress
+# 8s_生産進度
+  - name: stg_8s_production_progress_hostalc
     config:
-      tags: ["galc-kpi"]
+      tags: ["hostalc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: line
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: idline
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ndate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shift
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# qm_生産進度
+  - name: stg_qm_production_progress_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: line
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: idline
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ndate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shift
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 0g_生産進度
+  - name: stg_0g_production_progress_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: line
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: idline
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ndate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shift
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 7c_生産進度
+  - name: stg_7c_production_progress_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: line
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: idline
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ndate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shift
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# pb_生産進度
+  - name: stg_pb_production_progress_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: line
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: idline
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ndate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shift
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# pd_生産進度
+  - name: stg_pd_production_progress_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
+
+    columns:
+      - name: pscexlk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: plantcode
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: line
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: idline
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ndate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shift
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# mb_生産進度
+  - name: stg_mb_production_progress_hostalc
+    config:
+      tags: ["hostalc"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
+
     columns:
       - name: pscexlk
         data_tests:
