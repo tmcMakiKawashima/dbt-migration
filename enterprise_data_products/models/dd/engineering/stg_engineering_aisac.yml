@@ -2,7 +2,7 @@ version: 2
 
 models:
 # 車種(トヨタ車種限定)
-  - name: stg_syasyu_aisac_tmc
+  - name: stg_syasyu_tmc_aisac
     config:
         tags: ["aisac"]
     columns:

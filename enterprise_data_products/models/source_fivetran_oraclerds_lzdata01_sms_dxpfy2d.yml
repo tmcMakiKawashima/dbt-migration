@@ -13,5 +13,3 @@ sources:
     tables:
       - name: raw_cyp23colorno
         identifier: cyp23colorno
-      - name: raw_cb403hikiate
-        identifier: cb403hikiate

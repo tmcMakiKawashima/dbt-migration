@@ -15,7 +15,7 @@ models:
               config:
                 severity: error
 # 品番情報(トヨタ車種限定)
-  - name: stg_hinban_smskousei_tmc
+  - name: stg_hinban_tmc_smskousei
     config:
       tags: ["sms-kousei"]
     columns:
@@ -26,4 +26,4 @@ models:
                 severity: error
           - not_null:
               config:
-                severity: error                
+                severity: error
