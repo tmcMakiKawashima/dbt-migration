@@ -1,6 +1,6 @@
 with
     dm_syasyu_katashiki_specmaster as (select * from {{ source('katashiki_db_spec', 'raw_dm_syasyu_katashiki_specmaster') }}), --車種型式スペックマスター
-    stg_syasyu_aisac_tmc as (select distinct syasyu from {{ ref('stg_syasyu_aisac_tmc') }}) --車種(トヨタ車種限定)
+    stg_syasyu_tmc_aisac as (select distinct syasyu from {{ ref('stg_syasyu_tmc_aisac') }}) --車種(トヨタ車種限定)
 
 select
     a.syasyu::varchar(4) as syasyu,  --車種ｺｰﾄﾞ
@@ -16,5 +16,5 @@ select
     a.saikanamei::varchar(25) as saikanamei,  --仕様細目カナ名称
     a.saienmei::varchar(35) as saienmei,  --仕様細目英字名称
 from dm_syasyu_katashiki_specmaster a
-inner join stg_syasyu_aisac_tmc b
+inner join stg_syasyu_tmc_aisac b
     on trim(a.syasyu) = trim(b.syasyu)

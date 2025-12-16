@@ -189,7 +189,7 @@ models:
           +schema: sms
           dim:
             +access: public
-            +materialized: table            
+            +materialized: table
       vinhis:
         +snowflake_warehouse: vinhis_wh
         +database: vinhis_db
@@ -254,7 +254,7 @@ models:
           +schema: spec
           dim:
             +access: public
-            +materialized: table            
+            +materialized: table
     ef:
       datamart:
         +snowflake_warehouse: datamart_wh
