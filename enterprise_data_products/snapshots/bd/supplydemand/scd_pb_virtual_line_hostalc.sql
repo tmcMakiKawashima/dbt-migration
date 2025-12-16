@@ -1,4 +1,4 @@
-{% snapshot scd_hostalc_mb_virtual_line %}
+{% snapshot scd_pb_virtual_line_hostalc %}
 
 {{
     config(
@@ -14,6 +14,6 @@
         invalidate_hard_deletes=true,
     )
 }}
-select * from {{ ref('stg_hostalc_mb_virtual_line') }}
+select * from {{ ref('stg_pb_virtual_line_hostalc') }}
 
 {% endsnapshot %}
