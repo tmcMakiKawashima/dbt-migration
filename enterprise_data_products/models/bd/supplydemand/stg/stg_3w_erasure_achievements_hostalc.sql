@@ -10,4 +10,4 @@ with stg_3w_erasure_achievements_hostalc as (
     from {{ ref('substr_hostalc_3w_dkae06046602') }}
     where ldts = (select max(ldts) from {{ ref('substr_hostalc_3w_dkae06046602') }})
 )
-select * from stg_3w_erasure_achievementsv_hostalc
+select * from stg_3w_erasure_achievements_hostalc
