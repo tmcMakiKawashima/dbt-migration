@@ -1,4 +1,4 @@
-{% snapshot scd_hostalc_mb_erasure_achievements %}
+{% snapshot scd_tx_erasure_achievements_hostalc %}
 
 {{
     config(
@@ -12,6 +12,6 @@
         invalidate_hard_deletes=true,
     )
 }}
-select * from {{ ref('stg_hostalc_mb_erasure_achievements') }}
+select * from {{ ref('stg_tx_erasure_achievements_hostalc') }}
 
 {% endsnapshot %}
