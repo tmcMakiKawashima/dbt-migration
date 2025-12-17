@@ -1,4 +1,4 @@
-{% snapshot scd_hostalc_0g_reject_vehicle %}
+{% snapshot scd_3w_reject_vehicle_hostalc %}
 
 {{
     config(
@@ -12,6 +12,6 @@
         invalidate_hard_deletes=true,
     )
 }}
-select * from {{ ref('stg_hostalc_0g_reject_vehicle') }}
+select * from {{ ref('stg_3w_reject_vehicle_hostalc') }}
 
 {% endsnapshot %}
