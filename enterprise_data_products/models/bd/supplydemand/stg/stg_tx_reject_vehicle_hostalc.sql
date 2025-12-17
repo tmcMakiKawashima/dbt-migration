@@ -1,4 +1,4 @@
-with stg_hostalc_0g_reject_vehicle as (
+with stg_tx_reject_vehicle_hostalc as (
     select
         rtrim(pscexlk, ' 　')::varchar(1) as pscexlk, -- PSC(外部連携用)
         rtrim(plantcode, ' 　')::varchar(1) as plantcode, -- 工場コード
@@ -9,7 +9,7 @@ with stg_hostalc_0g_reject_vehicle as (
         rtrim(vehcategorycode, ' 　')::varchar(2) as vehcategorycode, -- 車両識別コード
         rtrim(updateymdel14dg, ' 　')::varchar(14) as updateymdel14dg, -- 更新年月日(外部連携用)_14桁
         ldts -- b層のldts
-    from {{ ref('substr_hostalc_0g_dkae02072401') }}
-    where ldts = (select max(ldts) from {{ ref('substr_hostalc_0g_dkae02072401') }})
+    from {{ ref('substr_hostalc_tx_dkae02072401') }}
+    where ldts = (select max(ldts) from {{ ref('substr_hostalc_tx_dkae02072401') }})
 )
-select * from stg_hostalc_0g_reject_vehicle
+select * from stg_tx_reject_vehicle_hostalc
