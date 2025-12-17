@@ -1,4 +1,4 @@
-{% snapshot scd_hostalc_7c_production_progress %}
+{% snapshot scd_3a_production_progress_hostalc %}
 
 {{
     config(
@@ -16,6 +16,6 @@
         invalidate_hard_deletes=true,
     )
 }}
-select * from {{ ref('stg_hostalc_7c_production_progress') }}
+select * from {{ ref('stg_3a_production_progress_hostalc') }}
 
 {% endsnapshot %}

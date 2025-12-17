@@ -1,4 +1,4 @@
-with stg_hostalc_pd_production_progress as (
+with stg_mb_production_progress_hostalc as (
     select
         rtrim(pscexlk, ' 　')::varchar(1) as pscexlk, -- PSC(外部連携用)
         rtrim(plantcode, ' 　')::varchar(1) as plantcode, -- 工場コード
@@ -19,7 +19,7 @@ with stg_hostalc_pd_production_progress as (
         rtrim(creadateeln12d, ' 　')::varchar(12) as creadateeln12d, -- 作成年月日(外部連携用)_N12桁
         rtrim(updateymdeln12d, ' 　')::varchar(12) as updateymdeln12d, -- 更新年月日(外部連携用)_N12桁
         ldts -- b層のldts
-    from {{ ref('substr_hostalc_pd_dkae06047201') }}
-    where ldts = (select max(ldts) from {{ ref('substr_hostalc_pd_dkae06047201') }})
+    from {{ ref('substr_hostalc_mb_dkae06047201') }}
+    where ldts = (select max(ldts) from {{ ref('substr_hostalc_mb_dkae06047201') }})
 )
-select * from stg_hostalc_pd_production_progress
+select * from stg_mb_production_progress_hostalc
