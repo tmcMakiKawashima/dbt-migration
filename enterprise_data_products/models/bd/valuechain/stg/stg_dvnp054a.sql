@@ -1,5 +1,3 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
-
 with stg_dvnp054a as (
   select
     rtrim(dlrcd, ' 　')::varchar(7) as dlrcd,  -- 英数字
@@ -16,6 +14,6 @@ with stg_dvnp054a as (
     rtrim(dummy, ' 　')::varchar(9) as dummy,  -- 英数字
     ldts -- B層のLDTS
   from {{ ref('substr_dvnp054a') }}
+  where ldts = (select max(ldts) from {{ ref('substr_dvnp054a') }})
 )
 select * from stg_dvnp054a
-where ldts = (select max(ldts) from stg_dvnp054a)
