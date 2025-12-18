@@ -26,7 +26,7 @@ inputs:
 variables:
   dbt_command:
     --select +dm_hinban_siiresaki_tmc
-    --exclude dm_hinban_siresaki stg_hinban stg_syasyu stg_syasyu_tmc_aisac tmp_sms_api_parts_info_res_relational
+    --exclude stg_hinban stg_syasyu stg_syasyu_tmc_aisac tmp_sms_api_parts_info_res_relational
     --vars '{"DBT_JOB_NAME":"_dm_hinban_siiresaki_tmc"}'
 
 tasks:
