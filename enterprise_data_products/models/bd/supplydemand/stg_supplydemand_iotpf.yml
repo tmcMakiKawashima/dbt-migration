@@ -1,4 +1,5 @@
 version: 2
+
 models:
 # JFY1 制御ファイル
   - name: stg_jfy1_ctrl_file_iotpf
@@ -63,14 +64,14 @@ models:
       tags: ["iotpf"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
           arguments:
             combination_of_columns:
               - sfkey
               - line
               - tp
               - keycount
-            config:
-              severity: error
     columns:
       - name: sfkey
         data_tests:
@@ -98,15 +99,14 @@ models:
       tags: ["iotpf"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
           arguments:
             combination_of_columns:
               - data_id
               - pro_key_cd
               - trace_tag_cd
-              - value
-            config:
-              severity: error
-              
+              - value  
     columns:
       - name: data_id
         data_tests:
