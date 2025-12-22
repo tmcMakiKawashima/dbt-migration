@@ -1,6 +1,6 @@
 with
     dm_hinban_siresaki as (select * from {{ source('parts_db_public', 'raw_dm_hinban_siresaki') }}), --品番仕入先
-    stg_hinban_tmc_smskousei as (select distinct hinban from {{ ref('stg_hinban_tmc_smskousei') }}) --品番情報(トヨタ車種限定)
+    stg_hinban_tmc_sms as (select distinct hinban from {{ ref('stg_hinban_tmc_sms') }}) --品番情報(トヨタ車種限定)
 
 select
     a.hinban::varchar(10) as hinban,  --品番
@@ -17,5 +17,5 @@ select
     a.srmeir::varchar(15) as srmeir,  --仕入先略名ローマ字
     a.hinmei::varchar(120) as hinmei  --品名
 from dm_hinban_siresaki a
-inner join stg_hinban_tmc_smskousei b
+inner join stg_hinban_tmc_sms b
     on trim(a.hinban) = trim(b.hinban)

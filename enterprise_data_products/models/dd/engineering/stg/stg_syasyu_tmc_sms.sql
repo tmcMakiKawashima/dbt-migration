@@ -1,4 +1,4 @@
-with stg_syasyu_tmc_aisac as (
+with stg_syasyu_tmc_sms as (
     select
         syasyu::varchar(4) as syasyu, --車種ユニットコード
         sigokbn::varchar(2) as sigokbn, --試作号口区分
@@ -9,4 +9,4 @@ with stg_syasyu_tmc_aisac as (
     from {{ ref('stg_syasyu') }}
     where tantogaisya = '01'
 )
-select * from stg_syasyu_tmc_aisac
+select * from stg_syasyu_tmc_sms

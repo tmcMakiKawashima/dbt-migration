@@ -1,6 +1,6 @@
 with
     dm_legacy_kousei_blktenkai as (select * from {{ ref('dm_legacy_kousei_blktenkai') }}), --旧型構成BLK展開
-    stg_syasyu_tmc_aisac as (select distinct syasyu from {{ ref('stg_syasyu_tmc_aisac') }}) --車種(トヨタ車種限定)
+    stg_syasyu_tmc_sms as (select distinct syasyu from {{ ref('stg_syasyu_tmc_sms') }}) --車種(トヨタ車種限定)
 
 select
     a.syasyu::varchar(4) as syasyu,  --車種コード
@@ -26,5 +26,5 @@ select
     a.torokutimem::timestamp_ntz(9) as torokutimem,  --LOAD TIMEマデ
     a.ldts::timestamp_ntz(9) as ldts  --B層処理日時
 from dm_legacy_kousei_blktenkai a
-inner join stg_syasyu_tmc_aisac b
+inner join stg_syasyu_tmc_sms b
     on trim(a.syasyu) = trim(b.syasyu)
