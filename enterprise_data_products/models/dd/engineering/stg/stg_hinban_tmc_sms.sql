@@ -1,6 +1,6 @@
 with
     stg_hinban as (select * from {{ ref('stg_hinban') }}), --品番情報
-    stg_syasyu_tmc_aisac as (select distinct syasyu from {{ ref('stg_syasyu_tmc_aisac') }}) --車種(トヨタ車種限定)
+    stg_syasyu_tmc_sms as (select distinct syasyu from {{ ref('stg_syasyu_tmc_sms') }}) --車種(トヨタ車種限定)
 
 select
     a.hinban::varchar(10) as hinban, --品番
@@ -22,5 +22,5 @@ select
     a.seppen::varchar(10) as seppen, --設変No.
     a.torokutime::timestamp_ntz(6) as torokutime --登録日時
 from stg_hinban a
-inner join stg_syasyu_tmc_aisac b
+inner join stg_syasyu_tmc_sms b
     on trim(a.syasyu) = trim(b.syasyu)
