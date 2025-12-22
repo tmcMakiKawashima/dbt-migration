@@ -1,18 +1,17 @@
 {{
     config (
         materialized = 'incremental',
-        unique_key = ['sfkey', 'line', 'tp','keycount'],
         incremental_strategy = 'append',
         pre_hook = "
             {% if is_incremental() %}
-              DELETE FROM {{ this }} as t
-              USING {{ ref('extract_iotalcjfy1g4sfh') }} as s
-              WHERE t.SFKEY = s.SFKEY
+              delete from {{ this }} as t
+              using {{ ref('extract_iotalcjfy1g4sfh') }} as s
+              where t.sfkey = s.sfkey
             {% endif %}    
         "
     )
 }}
---主キーとは異なるSFKEY単位で洗い替えをしたいためhookで実装
+--主キーとは異なるsfkey単位で洗い替えをしたいためhookで実装
 
 with stg_jfy1_sfh_history_iotpf as (
     select
@@ -34,7 +33,7 @@ with stg_jfy1_sfh_history_iotpf as (
         trim(result_seq, ' 　')::varchar(8) as result_seq,  -- 右左ブランク
         to_timestamp_ntz(trim(__created_at, ' 　'))::timestamp_ntz(6) as __created_at,  -- 右左ブランク
         to_timestamp_ntz(trim(__updated_at, ' 　'))::timestamp_ntz(6) as __updated_at,  -- 右左ブランク
-        ldts,  -- B層のldts
+        ldts,  -- b層のldts
         row_number() over (
             partition by
                 sfkey,
