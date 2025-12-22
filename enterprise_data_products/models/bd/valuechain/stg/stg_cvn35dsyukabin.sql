@@ -1,5 +1,3 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
-
 with stg_cvn35dsyukabin as (
     select
         rtrim(dlrcd, ' 　') as dlrcd, --英数字
@@ -18,11 +16,6 @@ with stg_cvn35dsyukabin as (
         try_to_timestamp_ntz(mttime,'yyyy-mm-dd-hh24.mi.ss.ff9') as mttime, --timestamp型
         ldts
     from {{ ref('substr_cvn35dsyukabin') }}
-),
-max_ldts as (
-    select
-        max(ldts) as ldts
-    from {{ ref('substr_cvn35dsyukabin') }}
+    where ldts = (select max(ldts) from {{ ref('substr_cvn35dsyukabin') }})
 )
-select stg_cvn35dsyukabin.* from stg_cvn35dsyukabin
-inner join max_ldts on stg_cvn35dsyukabin.ldts = max_ldts.ldts
+select * from stg_cvn35dsyukabin

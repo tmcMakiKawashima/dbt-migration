@@ -1,5 +1,3 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
-
 with stg_tbsmksk_noki as (
     select
         rtrim(id,' 　')::varchar(3) as id,  -- 英数字
@@ -14,6 +12,6 @@ with stg_tbsmksk_noki as (
         iff(rtrim(deletedate) = '','',lpad(rtrim(deletedate),length(deletedate),'0'))::varchar(8) as deletedate,  -- 日付
         ldts -- B層のLDTS
     from {{ ref('substr_tbsmksk_noki') }}
+    where ldts = (select max(ldts) from {{ ref('substr_tbsmksk_noki') }})
 )
 select * from stg_tbsmksk_noki
-where ldts = (select max(ldts) from stg_tbsmksk_noki)

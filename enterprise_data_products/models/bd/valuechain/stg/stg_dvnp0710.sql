@@ -1,5 +1,10 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
-
+{{
+    config (
+        materialized = 'incremental',
+        unique_key = ['ordrkey', 'jurrsymd', 'tanskkey'],
+        incremental_strategy = 'merge',
+    )
+}}
 with stg_dvnp0710 as (
     select
         rtrim(mntkbn,' 　')::varchar(1) as mntkbn,  -- 英数字
@@ -62,6 +67,9 @@ with stg_dvnp0710 as (
         ldts, -- B層のLDTS
         rank() over (partition by ordrkey, jurrsymd, tanskkey order by mttime desc, ldts desc) aggkey
     from {{ ref('substr_dvnp0710') }}
+    {% if is_incremental() %}
+        where ldts > (select max(ldts) from {{this}})
+    {% endif %}
 )
 select * from stg_dvnp0710
 where aggkey = 1
