@@ -171,10 +171,6 @@ models:
         +snowflake_warehouse: parts_wh
         +group: parts
         +database: parts_db
-        +schema: logistics
-        dim:
-          +access: public
-          +materialized: table
         smshokyu:
           +group: parts_smshokyu
           +schema: smshokyu
@@ -237,15 +233,15 @@ models:
           dim:
             +access: public
             +materialized: table
-    ef:
-      datamart:
-        +snowflake_warehouse: datamart_wh
-        +group: datamart
-        +database: datamart_db
-        +schema: public
-        dim:
-          +access: public
-          +materialized: table
+      katashiki:
+        +snowflake_warehouse: katashiki_wh
+        +database: katashiki_db
+        spec:
+          +group: katashiki_spec
+          +schema: spec
+          dim:
+            +access: public
+            +materialized: table
 
 data_tests:
   enterprise_data_products:
@@ -259,13 +255,6 @@ data_tests:
       # dbt Cloud: Run history / job_xxx: Run #326668
       # >> dbt_test__audit_20231113_326668
       # >> dbt_test__audit_<yyyymmdd>_<run_id>
-    singular:
-      de:
-        parts:
-          +group: parts
-      ef:
-        datamart:
-          +group: datamart
 
 snapshots:
   enterprise_data_products:

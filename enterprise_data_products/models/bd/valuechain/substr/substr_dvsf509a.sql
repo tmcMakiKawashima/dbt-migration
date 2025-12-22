@@ -1,5 +1,3 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
-
 with substr_dvsf509a as (
     select
         substr(raw_data, 1, 20)::VARCHAR(20) as TYOTATHB,

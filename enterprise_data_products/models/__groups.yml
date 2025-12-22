@@ -65,3 +65,6 @@ groups:
   - name: parts_smshokyu
     owner:
       email: yasuhiro_takano@mail.toyota.co.jp
+  - name: katashiki_spec
+    owner:
+      email: yasunori-okada@mail.toyota.co.jp

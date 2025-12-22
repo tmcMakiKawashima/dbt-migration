@@ -1,0 +1,40 @@
+version: 2
+models:
+# 仕様実績  
+  - name: dm_siyo_daisu
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - syasyu
+            - haisya_kt
+            - spec200
+            - sk_y
+            - sk_m
+          config:
+            severity: error
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: haisya_kt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: spec200
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sk_y
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sk_m
+        data_tests:
+          - not_null:
+              config:
+                severity: error

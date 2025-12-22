@@ -1,5 +1,3 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
-
 with stg_dvsf509a as (
     select
         rtrim(tyotathb,' 　')::varchar(20) as tyotathb,  -- 英数字
@@ -56,6 +54,6 @@ with stg_dvsf509a as (
         try_to_timestamp_ntz(mttime, 'yyyy-mm-dd-hh24.mi.ss.ff9') mttime, -- timestamp型
         ldts -- B層のLDTS
     from {{ ref('substr_dvsf509a') }}
+    where ldts = (select max(ldts) from {{ ref('substr_dvsf509a') }})
 )
 select * from stg_dvsf509a
-where ldts = (select max(ldts) from stg_dvsf509a)
