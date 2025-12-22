@@ -1,4 +1,4 @@
-id: job_build_stg_syasyu_tmc_aisac
+id: job_build_stg_syasyu_tmc_sms
 namespace: kestra_dbt_project.proj-job-udc-kokai-kaisyu
 
 labels:
@@ -25,8 +25,8 @@ inputs:
 
 variables:
   dbt_command:
-    --select stg_syasyu_tmc_aisac
-    --vars '{"DBT_JOB_NAME":"_stg_syasyu_tmc_aisac"}'
+    --select stg_syasyu_tmc_sms
+    --vars '{"DBT_JOB_NAME":"_stg_syasyu_tmc_sms"}'
 
 tasks:
   - id: clone_dbt_build
