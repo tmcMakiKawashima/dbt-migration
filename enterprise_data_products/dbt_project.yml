@@ -236,6 +236,15 @@ models:
           dim:
             +access: public
             +materialized: table
+      katashiki:
+        +snowflake_warehouse: katashiki_wh
+        +database: katashiki_db
+        spec:
+          +group: katashiki_spec
+          +schema: spec
+          dim:
+            +access: public
+            +materialized: table
 
 data_tests:
   enterprise_data_products:
