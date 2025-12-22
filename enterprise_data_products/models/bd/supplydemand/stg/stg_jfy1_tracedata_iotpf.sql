@@ -15,7 +15,7 @@
                       pro_key_cd,
                       trace_tag_cd
                   order by
-                      __UPDATED_AT
+                      __updated_at
               ) aggkey 
               from {{ this }}
               ) as s
@@ -24,7 +24,7 @@
                 and t.data_id = s.data_id
                 and t.value != s.value
                 and aggkey = 2
-                and t.delflg = FALSE;
+                and t.delflg = false;
             {% endif %}  
         "
     )
@@ -58,7 +58,8 @@ with stg_jfy1_tracedata_iotpf as (
             partition by
                 data_id,
                 pro_key_cd,
-                trace_tag_cd
+                trace_tag_cd,
+                value
             order by
                 ldts desc,
                 line_number desc

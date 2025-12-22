@@ -1,4 +1,4 @@
-with extract_jfy1_tracedata_iotpf as (
+with extract_iotalcjfy1g4tra as (
     select
         raw_data:data_id::varchar(19) as data_id, 
         raw_data:line::varchar(1) as line, 
@@ -24,4 +24,4 @@ with extract_jfy1_tracedata_iotpf as (
         from
             {{ source('snowpipe_db_supplydemand', 'raw_iotalcjfy1g4tra') }}
     )
-select * from extract_jfy1_tracedata_iotpf
+select * from extract_iotalcjfy1g4tra
