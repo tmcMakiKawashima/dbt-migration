@@ -1632,12 +1632,13 @@ models:
       tags: ["jyukyujyoho"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - r_prod_month
-            - r_edno
-            - r_spec_keta
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - r_prod_month
+              - r_edno
+              - r_spec_keta
     columns:
       - name: r_prod_month
         data_tests:
@@ -1699,18 +1700,19 @@ models:
           - not_null:
               config:
                 severity: error
-                
+
 # COSMOS_SFX確定：基本情報
   - name: stg_cam2146_jyukyujyoho
     config:
       tags: ["jyukyujyoho"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - r_prod_month
-            - r_edno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - r_prod_month
+              - r_edno
     columns:
       - name: r_prod_month
         data_tests:
