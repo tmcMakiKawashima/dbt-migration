@@ -11,7 +11,7 @@
         "
     )
 }}
---主キーとは異なるsfkey単位で洗い替えをしたいためhookで実装
+--主キーとは異なるsfkey単位で削除したいためhookで実装
 
 with stg_jfy1_sfh_history_iotpf as (
     select
