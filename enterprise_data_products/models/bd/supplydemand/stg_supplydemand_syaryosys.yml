@@ -3083,3 +3083,50 @@ models:
           - not_null:
               config:
                 severity: error
+# SUBARU月度生計
+  - name: stg_subarugetsudoseikei_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - ktsk
+              - sp
+              - op
+              - onkn_kbn
+              - gsclr
+              - nsclr
+    columns:
+      - name: ktsk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: op
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: onkn_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: gsclr
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nsclr
+        data_tests:
+          - not_null:
+              config:
+                severity: error
