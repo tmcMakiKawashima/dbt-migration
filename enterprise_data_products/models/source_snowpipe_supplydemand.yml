@@ -4,10 +4,11 @@ sources:
   - name: snowpipe_db_supplydemand
     database: snowpipe_db
     schema: supplydemand
-    freshness:
-      warn_after: { count: 1, period: hour }
-      error_after: { count: 24, period: hour }
-    loaded_at_field: ldts
+    config:
+      freshness:
+        warn_after: { count: 1, period: hour }
+        error_after: { count: 24, period: hour }
+      loaded_at_field: ldts
 
     tables:
     # SYARYO
