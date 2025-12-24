@@ -180,6 +180,12 @@ models:
           dim:
             +access: public
             +materialized: table
+        sms:
+          +group: parts_sms
+          +schema: sms
+          dim:
+            +access: public
+            +materialized: table
       vinhis:
         +snowflake_warehouse: vinhis_wh
         +database: vinhis_db
