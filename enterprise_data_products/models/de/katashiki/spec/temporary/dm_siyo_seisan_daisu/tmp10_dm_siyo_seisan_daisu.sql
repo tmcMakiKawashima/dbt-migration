@@ -6,7 +6,7 @@ with kj as (
     r_shashu,  -- 車種コード
     r_dist_code,  -- 受注先コード
     r_katashiki  -- 呼称型式
-  from {{ref('stg_cam2146_jyukyujyoho')}}
+  from {{ref('stg_sfxkakuteikihonjyoho_cosmos')}}
 ), sj as (
   select
     r_prod_month,  -- 生産年月

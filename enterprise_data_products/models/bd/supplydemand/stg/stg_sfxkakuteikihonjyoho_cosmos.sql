@@ -11,7 +11,7 @@
   )
  }}
 -- 洗い替えであるため、pre_hookで全件削除を行う。
-with stg_cam2146_jyukyujyoho as (
+with stg_sfxkakuteikihonjyoho_cosmos as (
     select
         r_prod_month::varchar(6) as r_prod_month, -- 生産年月
         r_edno::varchar(6) as r_edno, -- ＥＤ№
@@ -127,4 +127,4 @@ with stg_cam2146_jyukyujyoho as (
     from {{ source('fivetran_database_oracle_rds_osamsp01sam201', 'raw_cam2146') }}
     where _fivetran_deleted = 'false'
 )
-select * from stg_cam2146_jyukyujyoho
+select * from stg_sfxkakuteikihonjyoho_cosmos
