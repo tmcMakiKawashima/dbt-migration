@@ -38,7 +38,7 @@ with stg_union_all_vehicle_specification_alc as (
   where
     to_varchar(ldts,'yyyymmdd') =
     (select to_varchar(max(ldts),'yyyymmdd')
-      from stg_union_all_vehicle_specification_alc
+      from {{ ref('substr_union_all_vehicle_specification') }}
     )
   -- 複数ファイルでその日に着弾したものを抽出するために文字列変換処理を実装
 )
