@@ -1,5 +1,3 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
-
 with substr_dvnp0710 as (
     select
         substr(raw_data, 1, 1)::VARCHAR(1) as MNTKBN,
@@ -63,4 +61,3 @@ with substr_dvnp0710 as (
     from {{ source('snowpipe_db_valuechain', 'raw_dvnp0710') }}
 )
 select * from substr_dvnp0710
-        

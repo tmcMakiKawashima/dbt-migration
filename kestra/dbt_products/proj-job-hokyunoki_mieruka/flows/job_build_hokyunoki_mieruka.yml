@@ -6,7 +6,7 @@ labels:
   dbt: build
 
 retry:
-  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK 
+  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK
   type: exponential
   interval: PT5S
   maxAttempts: 7
@@ -23,13 +23,16 @@ inputs:
     required: false
     allowCustomValue: true
 
+variables:
+  dbt_command:
+    --select +stg_cvn06dodrshiji +stg_cvn18nosiodrjyoho_initial +stg_cvn18nosiodrjyoho_latest +stg_cvn18nosiodrjyoho_previous +stg_cvn35dsyukabin +stg_dvnp054a +stg_dvnp0700_odrno +stg_dvnp0710 +stg_dvnp4330 +stg_dvnp4520 +stg_dvnp5770 +stg_dvnp6490 +stg_dvsf509a +stg_shkjissekiruikei +stg_tbbofll +stg_tbchznl +stg_tbdaihl +stg_tbdaikl +stg_tbdaiml +stg_tbnokjs +stg_tbnoukifl +stg_tbnoukifl_initial +stg_tbnoukifl_latest +stg_tbnoukifl_previous +stg_tbnsyus +stg_tbsmksk +stg_tbuserm +scd_tbsmksk_noki +stg_dm_pno +stg_h_hanbaikt_frmkbn +stg_h_sinsyaodno +stg_lk_hanbaikt_frmkbn +stg_lk_sinsyaodno +stg_o_cvs11jyuchuu +stg_st_hanbaikt_frmkbn +stg_st_jpsalecar +stg_st_jpsalecar_frmkbn +stg_st_sinsyaodno +stg_yohinhinban
+    --vars '{"DBT_JOB_NAME":"_hokyunoki_mieruka"}'
+
 tasks:
   - id: clone_dbt_build
     type: io.kestra.plugin.dbt.cli.DbtCLI
     commands:
-      - dbt build
-        --select +dm_yohin_daiatari +dm_hosyuhin_noukishitei
-        --vars '{"DBT_JOB_NAME":""}'
+      - dbt build {{ vars.dbt_command }}
         {{ inputs.dbt_options ?? "" }}
 
 triggers:
@@ -59,5 +62,6 @@ finally:
     message: 
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
       - "dbt options -> {{ inputs.dbt_options ?? '' }}"
+      - "dbt commands -> {{ vars.dbt_command }}"
       
 disabled: false
