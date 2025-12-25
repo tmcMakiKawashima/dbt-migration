@@ -35,11 +35,11 @@ with stg_union_all_vehicle_specification_alc as (
     rtrim(updateymdel14dg, ' 　')::varchar(14) as updateymdel14dg, -- 更新年月日(外部連携用)_14桁
     ldts::timestamp_ntz as ldts -- B層取込日時
   from {{ ref('substr_union_all_vehicle_specification') }}
+  where
+    to_varchar(ldts,'yyyymmdd') =
+    (select to_varchar(max(ldts),'yyyymmdd')
+      from stg_union_all_vehicle_specification_alc
+    )
+  -- 複数ファイルでその日に着弾したものを抽出するために文字列変換処理を実装
 )
 select * from stg_union_all_vehicle_specification_alc
-where
-  to_varchar(ldts,'yyyymmdd') =
-  (select to_varchar(max(ldts),'yyyymmdd')
-    from stg_union_all_vehicle_specification_alc
-  )
--- 複数ファイルでその日に着弾したものを抽出するために文字列変換処理を実装
