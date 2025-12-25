@@ -1,12 +1,21 @@
 {{ 
   config(
     materialized = 'incremental',
-    incremental_strategy = 'append',
-    pre_hook = "
-      {% if is_incremental() %}
-      delete from {{this}}
-      {% endif %}
-    "
+    incremental_strategy = 'merge',
+    unique_key = [
+                    'syasyu',
+                    'haisya_kt',
+                    'spec200',
+                    'int_cd',
+                    'ext_cd',
+                    'dest_cd',
+                    'koujyou_cd',
+                    'eng_kt',
+                    'psc',
+                    'o_idline',
+                    'sk_y',
+                    'sk_m'
+                  ]
   )
  }}
  -- 洗い替えであるため、pre_hookで全件削除を行う。
