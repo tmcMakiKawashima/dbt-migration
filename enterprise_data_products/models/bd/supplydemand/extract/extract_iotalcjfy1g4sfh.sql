@@ -1,4 +1,4 @@
-with extract_jfy1g4_t_sfh_history as (
+with extract_iotalcjfy1g4sfh as (
     select
         raw_data:sfkey::varchar(4) as sfkey,
         raw_data:line::varchar(4) as line,
@@ -23,4 +23,4 @@ with extract_jfy1g4_t_sfh_history as (
     from
         {{ source('snowpipe_db_supplydemand', 'raw_iotalcjfy1g4sfh') }}
     )
-select * from extract_jfy1g4_t_sfh_history
+select * from extract_iotalcjfy1g4sfh
