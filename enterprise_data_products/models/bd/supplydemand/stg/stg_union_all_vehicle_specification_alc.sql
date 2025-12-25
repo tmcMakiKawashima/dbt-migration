@@ -1,15 +1,10 @@
 {{ 
   config(
     materialized = 'incremental',
-    incremental_strategy = 'append',
-    pre_hook = "
-      {% if is_incremental() %}
-      delete from {{this}}
-      {% endif %}
-    "
+    incremental_strategy = 'merge',
+    unique_key = ['pscexlk', 'plantcode', 'urn']
   )
  }}
--- 洗い替えであるため、pre_hookで全件削除を行う。
 
 with stg_union_all_vehicle_specification_alc as (
   select
