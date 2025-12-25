@@ -1,15 +1,11 @@
 {{ 
   config(
     materialized='incremental',
-    incremental_strategy = 'append',
-    pre_hook = "
-      {% if is_incremental() %}
-      delete from {{this}}
-      {% endif %}
-    "
+    incremental_strategy = 'merge',
+    unique_key = ['r_prod_month', 'r_edno']
   )
  }}
--- 洗い替えであるため、pre_hookで全件削除を行う。
+
 with stg_sfxkakuteikihonjyoho_cosmos as (
     select
         r_prod_month::varchar(6) as r_prod_month, -- 生産年月
