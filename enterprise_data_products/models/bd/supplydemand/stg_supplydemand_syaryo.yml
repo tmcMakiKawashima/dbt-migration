@@ -7,14 +7,15 @@ models:
       tags: ["syaryo"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - frmno
-            - hkata
-            - frmkbn
-            - shamei
-            - sno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - frmno
+              - hkata
+              - frmkbn
+              - shamei
+              - sno
     columns:
       - name: frmno
         data_tests:

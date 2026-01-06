@@ -7,13 +7,14 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - psc
-            - plantcode
-            - idno
-            - lodate
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - psc
+              - plantcode
+              - idno
+              - lodate
     columns:
       - name: psc
         data_tests:
@@ -41,14 +42,15 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - psc
-            - plantcode
-            - lodate
-            - idno
-            - msgno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - psc
+              - plantcode
+              - lodate
+              - idno
+              - msgno
     columns:
       - name: psc
         data_tests:
@@ -81,17 +83,18 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - psc
-            - plantcode
-            - lodate
-            - idno
-            - line
-            - tp
-            - prsnttptype
-            - times
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - psc
+              - plantcode
+              - lodate
+              - idno
+              - line
+              - tp
+              - prsnttptype
+              - times
     columns:
       - name: psc
         data_tests:
@@ -139,15 +142,16 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - psc
-            - plantcode
-            - lodate
-            - idno
-            - line
-            - tp
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - psc
+              - plantcode
+              - lodate
+              - idno
+              - line
+              - tp
     columns:
       - name: psc
         data_tests:
@@ -185,13 +189,14 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - psc
-            - plantcode
-            - lodate
-            - idno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - psc
+              - plantcode
+              - lodate
+              - idno
     columns:
       - name: psc
         data_tests:
@@ -219,14 +224,15 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
     columns:
       - name: pscexlk
         data_tests:
@@ -259,14 +265,15 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
     columns:
       - name: pscexlk
         data_tests:
@@ -299,14 +306,15 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
     columns:
       - name: pscexlk
         data_tests:
@@ -339,14 +347,15 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
     columns:
       - name: pscexlk
         data_tests:
@@ -379,14 +388,15 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
     columns:
       - name: pscexlk
         data_tests:
@@ -419,14 +429,15 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
     columns:
       - name: pscexlk
         data_tests:
@@ -459,14 +470,15 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
     columns:
       - name: pscexlk
         data_tests:
@@ -499,14 +511,15 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
     columns:
       - name: pscexlk
         data_tests:
@@ -539,14 +552,15 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
     columns:
       - name: pscexlk
         data_tests:
@@ -579,14 +593,15 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
     columns:
       - name: pscexlk
         data_tests:
@@ -619,14 +634,15 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
     columns:
       - name: pscexlk
         data_tests:
@@ -659,14 +675,15 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
     columns:
       - name: pscexlk
         data_tests:
@@ -699,14 +716,15 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - tp
-            - urn
-            - line
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - tp
+              - urn
+              - line
     columns:
       - name: pscexlk
         data_tests:
@@ -739,12 +757,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -767,12 +786,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -795,12 +815,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -823,12 +844,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -851,12 +873,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -879,12 +902,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -907,12 +931,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -935,12 +960,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -963,12 +989,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -991,12 +1018,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1019,12 +1047,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1047,12 +1076,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1075,12 +1105,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1103,12 +1134,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1131,12 +1163,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1159,12 +1192,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1187,12 +1221,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1215,12 +1250,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1243,12 +1279,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1271,12 +1308,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1299,12 +1337,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1327,12 +1366,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1355,12 +1395,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1383,12 +1424,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1411,12 +1453,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1439,12 +1482,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1467,12 +1511,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1495,12 +1540,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1523,12 +1569,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1551,12 +1598,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1579,12 +1627,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1607,12 +1656,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1635,12 +1685,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1663,12 +1714,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1691,12 +1743,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1719,12 +1772,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1747,12 +1801,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1775,12 +1830,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1803,12 +1859,13 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
@@ -1831,16 +1888,17 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
     columns:
       - name: pscexlk
         data_tests:
@@ -1883,16 +1941,17 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
     columns:
       - name: pscexlk
         data_tests:
@@ -1935,16 +1994,17 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
     columns:
       - name: pscexlk
         data_tests:
@@ -1987,16 +2047,17 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
     columns:
       - name: pscexlk
         data_tests:
@@ -2039,16 +2100,17 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
     columns:
       - name: pscexlk
         data_tests:
@@ -2091,16 +2153,17 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
     columns:
       - name: pscexlk
         data_tests:
@@ -2143,16 +2206,17 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
     columns:
       - name: pscexlk
         data_tests:
@@ -2195,16 +2259,17 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
     columns:
       - name: pscexlk
         data_tests:
@@ -2247,16 +2312,17 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
     columns:
       - name: pscexlk
         data_tests:
@@ -2299,16 +2365,17 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
     columns:
       - name: pscexlk
         data_tests:
@@ -2351,16 +2418,17 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
     columns:
       - name: pscexlk
         data_tests:
@@ -2403,16 +2471,17 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
     columns:
       - name: pscexlk
         data_tests:
@@ -2455,16 +2524,17 @@ models:
       tags: ["galc-kpi"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - line
-            - tp
-            - idline
-            - ndate
-            - shift
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - line
+              - tp
+              - idline
+              - ndate
+              - shift
     columns:
       - name: pscexlk
         data_tests:

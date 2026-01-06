@@ -7,18 +7,18 @@ models:
       tags: ["sms-kousei"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - jigyoutai
-            - syasyu
-            - siyoubui
-            - oyahin
-            - gc
-            - kohin
-            - comkbn
-            - torokujunk
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - jigyoutai
+              - syasyu
+              - siyoubui
+              - oyahin
+              - gc
+              - kohin
+              - comkbn
+              - torokujunk
     columns:
       - name: jigyoutai
         data_tests:
@@ -49,64 +49,64 @@ models:
         data_tests:
           - not_null:
               config:
-                severity: error 
+                severity: error
       - name: comkbn
         data_tests:
           - not_null:
               config:
-                severity: error 
+                severity: error
       - name: torokujunk
         data_tests:
           - not_null:
               config:
-                severity: error 
+                severity: error
 # 構成工程
   - name: stg_kousei
     config:
       tags: ["sms-kousei"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - jigyoutai
-            - syasyu32
-            - syasyu
-            - siyoubui
-            - oyahin
-            - gc
-            - kohin
-            - kosu
-            - sentaku
-            - sakuseikbn
-            - ktkbn
-            - ktchk
-            - ktkosu
-            - jikt01
-            - jikt02
-            - jikt03
-            - jikt04
-            - jikt05
-            - jikt06
-            - jikt07
-            - jikt08
-            - jikt09
-            - jikt10
-            - jikt11
-            - jikt12
-            - jikt13
-            - jikt14
-            - oyakt
-            - comno
-            - zyoho1
-            - zyoho2
-            - zyoho3
-            - torokujunk
-            - torokujunm
-            - zisikyuflg
-            - tck
-            - tcm
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - jigyoutai
+              - syasyu32
+              - syasyu
+              - siyoubui
+              - oyahin
+              - gc
+              - kohin
+              - kosu
+              - sentaku
+              - sakuseikbn
+              - ktkbn
+              - ktchk
+              - ktkosu
+              - jikt01
+              - jikt02
+              - jikt03
+              - jikt04
+              - jikt05
+              - jikt06
+              - jikt07
+              - jikt08
+              - jikt09
+              - jikt10
+              - jikt11
+              - jikt12
+              - jikt13
+              - jikt14
+              - oyakt
+              - comno
+              - zyoho1
+              - zyoho2
+              - zyoho3
+              - torokujunk
+              - torokujunm
+              - zisikyuflg
+              - tck
+              - tcm
     columns:
       - name: jigyoutai
         data_tests:
@@ -299,12 +299,13 @@ models:
       tags: ["sms-kousei"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - jigyoutai
-            - syasyu_cd
-            - torokujun
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - jigyoutai
+              - syasyu_cd
+              - torokujun
     columns:
       - name: jigyoutai
         data_tests:
@@ -327,11 +328,12 @@ models:
       tags: ["sms-kousei"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu
-            - blkcode
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - blkcode
     columns:
       - name: syasyu
         data_tests:
@@ -350,18 +352,18 @@ models:
       tags: ["sms-kousei"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - jigyoutai
-            - syasyu
-            - siyoubui
-            - oyahin
-            - gc
-            - kohin
-            - comkbn
-            - torokujunk
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - jigyoutai
+              - syasyu
+              - siyoubui
+              - oyahin
+              - gc
+              - kohin
+              - comkbn
+              - torokujunk
     columns:
       - name: jigyoutai
         data_tests:
@@ -392,17 +394,17 @@ models:
         data_tests:
           - not_null:
               config:
-                severity: error 
+                severity: error
       - name: comkbn
         data_tests:
           - not_null:
               config:
-                severity: error 
+                severity: error
       - name: torokujunk
         data_tests:
           - not_null:
               config:
-                severity: error 
+                severity: error
 
 # 旧型構成工程
   - name: stg_legacy_kousei
@@ -410,47 +412,47 @@ models:
       tags: ["sms-kousei"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - jigyoutai
-            - syasyu32
-            - syasyu
-            - siyoubui
-            - oyahin
-            - gc
-            - kohin
-            - kosu
-            - sentaku
-            - sakuseikbn
-            - ktkbn
-            - ktchk
-            - ktkosu
-            - jikt01
-            - jikt02
-            - jikt03
-            - jikt04
-            - jikt05
-            - jikt06
-            - jikt07
-            - jikt08
-            - jikt09
-            - jikt10
-            - jikt11
-            - jikt12
-            - jikt13
-            - jikt14
-            - oyakt
-            - comno
-            - zyoho1
-            - zyoho2
-            - zyoho3
-            - torokujunk
-            - torokujunm
-            - zisikyuflg
-            - tck
-            - tcm
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - jigyoutai
+              - syasyu32
+              - syasyu
+              - siyoubui
+              - oyahin
+              - gc
+              - kohin
+              - kosu
+              - sentaku
+              - sakuseikbn
+              - ktkbn
+              - ktchk
+              - ktkosu
+              - jikt01
+              - jikt02
+              - jikt03
+              - jikt04
+              - jikt05
+              - jikt06
+              - jikt07
+              - jikt08
+              - jikt09
+              - jikt10
+              - jikt11
+              - jikt12
+              - jikt13
+              - jikt14
+              - oyakt
+              - comno
+              - zyoho1
+              - zyoho2
+              - zyoho3
+              - torokujunk
+              - torokujunm
+              - zisikyuflg
+              - tck
+              - tcm
     columns:
       - name: jigyoutai
         data_tests:
@@ -644,12 +646,13 @@ models:
       tags: ["sms-kousei"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - jigyoutai
-            - syasyu_cd
-            - torokujun
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - jigyoutai
+              - syasyu_cd
+              - torokujun
     columns:
       - name: jigyoutai
         data_tests:
@@ -673,11 +676,12 @@ models:
       tags: ["sms-kousei"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu
-            - blkcode
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - blkcode
     columns:
       - name: syasyu
         data_tests:
