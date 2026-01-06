@@ -7,16 +7,16 @@ models:
       tags: ["syaryojohodb"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - cuno
-            - edano
-            - ym
-            - nykt
-            - tkcd
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - dlrcd
+              - cuno
+              - edano
+              - ym
+              - nykt
+              - tkcd
     columns:
       - name: dlrcd
         data_tests:
@@ -54,12 +54,12 @@ models:
       tags: ["syaryojohodb"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - cuno
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - dlrcd
+              - cuno
     columns:
       - name: dlrcd
         data_tests:
@@ -87,11 +87,12 @@ models:
       tags: ["syaryojohodb"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - chumon
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - dlrcd
+              - chumon
     columns:
       - name: dlrcd
         data_tests:

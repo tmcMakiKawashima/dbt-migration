@@ -7,12 +7,13 @@ models:
       tags: ["gsps"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban10
-            - syusbetu
-            - seppenjun
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - hinban10
+              - syusbetu
+              - seppenjun
     columns:
       - name: hinban10
         data_tests:
@@ -41,19 +42,20 @@ models:
                 severity: error
           - not_null:
               config:
-                  severity: error
+                severity: error
 # 用品.危険品情報
   - name: stg_ykiken
     config:
       tags: ["gsps"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - syusbetu
-            - seppenjun
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - hinban
+              - syusbetu
+              - seppenjun
     columns:
       - name: hinban
         data_tests:
@@ -76,11 +78,12 @@ models:
       tags: ["gsps"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - donyutiiki
-            - syasyu
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - donyutiiki
+              - syasyu
     columns:
       - name: donyutiiki
         data_tests:
@@ -98,12 +101,13 @@ models:
       tags: ["gsps"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - syasyu
-            - syusbetu
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - hinban
+              - syasyu
+              - syusbetu
     columns:
       - name: hinban
         data_tests:
@@ -126,12 +130,13 @@ models:
       tags: ["gsps"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - hinbansbetu
-            - syusbetu
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - hinban
+              - hinbansbetu
+              - syusbetu
     columns:
       - name: hinban
         data_tests:
@@ -154,12 +159,13 @@ models:
       tags: ["gsps"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - syusbetu
-            - seppenjun
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - hinban
+              - syusbetu
+              - seppenjun
     columns:
       - name: hinban
         data_tests:
@@ -182,11 +188,12 @@ models:
       tags: ["gsps"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - syusbetu
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - hinban
+              - syusbetu
     columns:
       - name: hinban
         data_tests:
@@ -204,11 +211,12 @@ models:
       tags: ["gsps"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - syusbetu
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - hinban
+              - syusbetu
     columns:
       - name: hinban
         data_tests:
@@ -252,15 +260,16 @@ models:
       tags: ["gsps"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - seisankyoku
-            - hosyubas
-            - hantiiki
-            - syusbetu
-            - seppenjun
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - hinban
+              - seisankyoku
+              - hosyubas
+              - hantiiki
+              - syusbetu
+              - seppenjun
     columns:
       - name: hinban
         data_tests:
@@ -298,13 +307,14 @@ models:
       tags: ["gsps"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - daiohin
-            - orderjtai
-            - hantiiki
-            - syusbetu
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - daiohin
+              - orderjtai
+              - hantiiki
+              - syusbetu
     columns:
       - name: daiohin
         data_tests:
@@ -332,18 +342,19 @@ models:
       tags: ["gsps"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - daiohin
-            - daiohinsbetu
-            - hantiiki
-            - syusbetu
-            - orderjtai1
-            - orderjtai2
-            - orderjtai3
-            - orderjtai4
-            - orderjtai5
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - daiohin
+              - daiohinsbetu
+              - hantiiki
+              - syusbetu
+              - orderjtai1
+              - orderjtai2
+              - orderjtai3
+              - orderjtai4
+              - orderjtai5
     columns:
       - name: daiohin
         data_tests:
@@ -396,13 +407,14 @@ models:
       tags: ["gsps"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - daiohin
-            - syusbetu
-            - seppenjun
-            - dainhin
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - daiohin
+              - syusbetu
+              - seppenjun
+              - dainhin
     columns:
       - name: daiohin
         data_tests:
