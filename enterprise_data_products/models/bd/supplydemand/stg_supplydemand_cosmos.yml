@@ -7,11 +7,12 @@ models:
       tags: ["cosmos"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - r_prod_month
-            - r_edno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - r_prod_month
+              - r_edno
     columns:
       - name: r_prod_month
         data_tests:
