@@ -11,3 +11,11 @@ sources:
     # SMS工程
       - name: raw_dm_syasyu_kata_sijino_plant
         identifier: dm_syasyu_kata_sijino_plant
+
+  - name: katashiki_db_spec
+    database: katashiki_db
+    schema: spec
+    tables:
+    # 生産仕様実績見える化
+      - name: raw_dm_syasyu_katashiki_specmaster
+        identifier: dm_syasyu_katashiki_specmaster
