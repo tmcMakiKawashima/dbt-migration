@@ -7,15 +7,16 @@ models:
       tags: ["jpass"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ym
-            - caltimingkbn
-            - shamei
-            - sno
-            - shinq
-            - datarbn_7keta
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - ym
+              - caltimingkbn
+              - shamei
+              - sno
+              - shinq
+              - datarbn_7keta
     columns:
       - name: ym
         data_tests:
@@ -198,15 +199,16 @@ models:
       tags: ["jpass"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ym
-            - caltimingkbn
-            - shamei
-            - sno
-            - shinq
-            - datarbn_7keta
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - ym
+              - caltimingkbn
+              - shamei
+              - sno
+              - shinq
+              - datarbn_7keta
     columns:
       - name: ym
         data_tests:
@@ -279,15 +281,16 @@ models:
       tags: ["jpass"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ym
-            - caltimingkbn
-            - shamei
-            - sno
-            - yosokbn
-            - yosoren
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - ym
+              - caltimingkbn
+              - shamei
+              - sno
+              - yosokbn
+              - yosoren
     columns:
       - name: ym
         data_tests:
@@ -515,16 +518,17 @@ models:
       tags: ["jpass"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ym
-            - caltimingkbn
-            - shamei
-            - sno
-            - shinq
-            - nijsym
-            - kncode
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - ym
+              - caltimingkbn
+              - shamei
+              - sno
+              - shinq
+              - nijsym
+              - kncode
     columns:
       - name: ym
         data_tests:

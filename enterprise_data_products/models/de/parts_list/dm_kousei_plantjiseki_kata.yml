@@ -6,14 +6,15 @@ models:
       tags: ["koumu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu
-            - kata
-            - kohin
-            - oyakt
-            - taisho_month
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - kata
+              - kohin
+              - oyakt
+              - taisho_month
     columns:
       - name: syasyu
         data_tests:
