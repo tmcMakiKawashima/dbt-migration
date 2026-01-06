@@ -4,15 +4,16 @@ models:
 # 設変書出図情報
   - name: stg_eci_syutuzu
     config:
-        tags: ["gijutsu-sms"]
+      tags: ["gijutsu-sms"]
 
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - seppenno
-            - jun
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - seppenno
+              - jun
     columns:
       - name: seppenno
         data_tests:
@@ -27,15 +28,16 @@ models:
 # 設変書品番欄情報
   - name: stg_eci_hinban
     config:
-        tags: ["gijutsu-sms"]
+      tags: ["gijutsu-sms"]
 
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - seppenno
-            - jun
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - seppenno
+              - jun
     columns:
       - name: seppenno
         data_tests:
@@ -53,11 +55,12 @@ models:
       tags: ["gijutsu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - seppenno
-            - jun
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - seppenno
+              - jun
     columns:
       - name: seppenno
         data_tests:
@@ -75,11 +78,12 @@ models:
       tags: ["gijutsu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - seppenno
-            - jigyoutai
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - seppenno
+              - jigyoutai
     columns:
       - name: seppenno
         data_tests:
@@ -110,11 +114,12 @@ models:
       tags: ["gijutsu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - seppenno
-            - ecikbn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - seppenno
+              - ecikbn
     columns:
       - name: seppenno
         data_tests:
@@ -132,14 +137,15 @@ models:
       tags: ["gijutsu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - seppenno
-            - ecikbn
-            - unitcd
-            - tekiyo
-            - tousai
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - seppenno
+              - ecikbn
+              - unitcd
+              - tekiyo
+              - tousai
     columns:
       - name: seppenno
         data_tests:
@@ -172,13 +178,14 @@ models:
       tags: ["gijutsu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - seppenno
-            - ecikbn
-            - syasyu
-            - tekiyo
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - seppenno
+              - ecikbn
+              - syasyu
+              - tekiyo
     columns:
       - name: seppenno
         data_tests:
@@ -206,31 +213,33 @@ models:
       tags: ["gijutsu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu32
-            - syasyu_cd
-            - kumitate
-            - bui
-            - kosyokt
-            - vari
-            - hikikey
-            - torokujunk
-            - spkbn
-            - hikisiyo
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu32
+              - syasyu_cd
+              - kumitate
+              - bui
+              - kosyokt
+              - vari
+              - hikikey
+              - torokujunk
+              - spkbn
+              - hikisiyo
 # 部位名称
   - name: stg_buiname
     config:
       tags: ["gijutsu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu_cd
-            - kumitate
-            - bui
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu_cd
+              - kumitate
+              - bui
     columns:
       - name: syasyu_cd
         data_tests:
@@ -253,11 +262,12 @@ models:
       tags: ["gijutsu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu_cd
-            - kumitate
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu_cd
+              - kumitate
     columns:
       - name: syasyu_cd
         data_tests:
@@ -275,13 +285,14 @@ models:
       tags: ["gijutsu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu_cd
-            - kumitate
-            - bui
-            - vari
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu_cd
+              - kumitate
+              - bui
+              - vari
     columns:
       - name: syasyu_cd
         data_tests:
@@ -309,12 +320,13 @@ models:
       tags: ["gijutsu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - seppenno
-            - siryono
-            - tantoseikan
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - seppenno
+              - siryono
+              - tantoseikan
     columns:
       - name: seppenno
         data_tests:
@@ -337,14 +349,15 @@ models:
       tags: ["gijutsu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - jigyoutai
-            - syasyu
-            - kumitate
-            - bui
-            - torokujun
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - jigyoutai
+              - syasyu
+              - kumitate
+              - bui
+              - torokujun
     columns:
       - name: jigyoutai
         data_tests:
@@ -377,16 +390,17 @@ models:
       tags: ["gijutsu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - jigyoutai
-            - syasyu32
-            - syasyu
-            - kumitate
-            - bui
-            - kata
-            - torokujunk
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - jigyoutai
+              - syasyu32
+              - syasyu
+              - kumitate
+              - bui
+              - kata
+              - torokujunk
     columns:
       - name: jigyoutai
         data_tests:
@@ -444,13 +458,14 @@ models:
       tags: ["gijutsu-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - jigyoutai
-            - syasyu
-            - siyoubui
-            - torokujunk
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - jigyoutai
+              - syasyu
+              - siyoubui
+              - torokujunk
     columns:
       - name: jigyoutai
         data_tests:

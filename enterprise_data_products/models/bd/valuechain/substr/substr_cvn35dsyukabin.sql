@@ -1,5 +1,3 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
-
 with substr_cvn35dsyukabin as (
     select
         substr(raw_data, 1 ,7)::varchar(7) as dlrcd,
