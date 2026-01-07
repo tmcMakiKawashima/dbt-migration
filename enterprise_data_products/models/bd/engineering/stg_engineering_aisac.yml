@@ -4,7 +4,7 @@ models:
 # 車種
   - name: stg_syasyu
     config:
-        tags: ["aisac"]
+      tags: ["aisac"]
     columns:
       - name: syasyu
         data_tests:
@@ -20,11 +20,12 @@ models:
       tags: ["aisac"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - eventno
-            - syasyu
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - eventno
+              - syasyu
     columns:
       - name: eventno
         data_tests:
