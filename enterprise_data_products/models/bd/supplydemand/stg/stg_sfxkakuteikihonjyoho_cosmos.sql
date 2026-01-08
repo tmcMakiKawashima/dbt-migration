@@ -2,9 +2,19 @@
   config(
     materialized='incremental',
     incremental_strategy = 'merge',
-    unique_key = ['r_prod_month', 'r_edno']
+    unique_key = ['r_prod_month', 'r_edno'],
+        post_hook="
+            {% if is_incremental() %}
+                delete from {{this}}
+                where (r_prod_month, r_edno) in (select r_prod_month, r_edno
+                from {{ source('fivetran_database_oracle_rds_osamsp01sam201', 'raw_cam2146') }}
+                where _fivetran_deleted = 'true'
+                and _fivetran_synced >= (select max(ldts) from {{ this }}))
+            {% endif %}
+        "
   )
  }}
+-- 削除フラグがtrueに更新されたレコードを削除
 
 with stg_sfxkakuteikihonjyoho_cosmos as (
     select
@@ -121,5 +131,9 @@ with stg_sfxkakuteikihonjyoho_cosmos as (
         _fivetran_synced::timestamp_ntz(9) as ldts
     from {{ source('fivetran_database_oracle_rds_osamsp01sam201', 'raw_cam2146') }}
     where _fivetran_deleted = 'false'
+    {% if is_incremental() %}
+        and _fivetran_synced > (select max(ldts) from {{this}})
+    {% endif %}
+
 )
 select * from stg_sfxkakuteikihonjyoho_cosmos
