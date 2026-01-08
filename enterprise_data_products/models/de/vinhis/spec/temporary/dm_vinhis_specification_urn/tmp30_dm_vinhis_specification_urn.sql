@@ -15,20 +15,19 @@ with t20 as (   -- 中間20_URN装備(ALL)
         ordcycl,            -- オーダーサイクル
         odrtype,            -- オーダータイプ
         vehcategorycode,    -- 車両識別コード
-        syasyu,             -- 車種
+        syasyu,             -- 車種コード
         spec,               -- SPEC200桁組合せ
         intcode,            -- 内張コード
         extcode,            -- 外鈑色コード
         destcode,           -- 仕向地コード
         pscexlk,            -- PSC
         plantcode,          -- 工場コード
-                            -- エンジン型式(生産管理)
-                            -- 車両工場名(日本語)
         idline,             -- アイデントライン
         sk_y,               -- 終検日年
         sk_m,               -- 終検日月
         loj_y,              -- ラインオフ実績日年
         loj_m,              -- ラインオフ実績日月
+        ktfgo,              -- 生産場所(工程符号)
         kata,               -- 呼称型式
         enginekata,         -- エンジン型式
         veh_plnt_code       -- 車両工場コード
@@ -37,14 +36,12 @@ with t20 as (   -- 中間20_URN装備(ALL)
     select
         psc_alccode,        -- PSC1桁＆工場コード
         psc_alcname         -- PSC1桁＆工場名
-    from {{source('common_tbl_public','raw_m_hostalc_pasc_plantcode')}}
+    from {{source('common_tbl_public','raw_m_hostalc_psc_plantcode')}}
 ), skm as (     -- 車両工場名称
     select
-        table_data_id,      -- テーブルデータID
-        value_ja,           -- 表示名(日)
-        --right(value_ja,(len(value_ja) - charindex(':',value_ja))),
-        value_en            -- 表示名(英)
-        --right(value_en,(len(value_en) - charindex(':',value_en)))
+        table_data_id,                                              -- テーブルデータID
+        right(value_ja,(len(value_ja) - charindex(':',value_ja))) as veh_plnt_code_name,  -- 表示名(日)
+        right(value_en,(len(value_en) - charindex(':',value_en))) as veh_plnt_code_name_en   -- 表示名(英)
     from {{source('common_tbl_db_iqas_name_convert','raw_mst_041veh_plnt_code_name')}}
 ), col as (     -- カラーNO
     select
@@ -60,11 +57,11 @@ with t20 as (   -- 中間20_URN装備(ALL)
 select
     t20.*,                              -- t20の全項目
     alc.psc_alcname,                    -- PSC1桁＆工場名
-    skm.value_ja,                       -- 表示名(日)
-    skm.value_en,                       -- 表示名(英)
-    inc.iromei as int_cd_iromei,        -- 内張色名
-    outc.iromei as ext_cd_iromei,       -- 外鈑色名
-    km.r_country_name as dest           -- 国名
+    skm.veh_plnt_code_name,             -- 車両工場名(日本語)
+    skm.veh_plnt_code_name_en,          -- 車両工場名(英語)
+    inc.iromei as int_cd_iromei,        -- 内張色
+    outc.iromei as ext_cd_iromei,       -- 外鈑色
+    km.r_country_name as dest           -- 仕向国
 from t20                -- 中間20_URN装備(ALL)
 left join alc           -- ALC工場コード
 on (

@@ -8,60 +8,53 @@
     "
   )
  }}
-with tmp20 as (
+with t42 as (   -- 中間42_URN装備(ALL)
     select
-        coalesce(syasyu,'') as syasyu,              -- 車種コード
-        coalesce(kata,'') as kata,                  -- 配車型式
-        coalesce(spec,'') as spec,                  -- スペック
-        coalesce(intcode,'') as intcode,            -- 内張コード
-        int_cd_iromei,                              -- 内張色名
-        coalesce(extcode,'') as extcode,            -- 外鈑色コード
-        ext_cd_iromei,                              -- 外版色名
-        coalesce(destcode,'') as dest_cd,           -- 仕向地コード
-        r_country_name,                             -- 国名
-        coalesce(plantcode,'') as plantcode,        -- 工場コード
-        coalesce(enginekata,'') as enginekata,      -- エンジン型式
-        coalesce(pscexlk,'') as pscexlk,            -- PSC(外部連携用)
-        coalesce(idline,'') as idline,              -- アイデントライン
-        coalesce(sk_y,'') as sk_y,                  -- 終検日年
-        coalesce(sk_m,'') as sk_m                   -- 終検日月
-    from {{ref('tmp20_dm_vinhis_specification_urn')}}
-), tmpx1 as (
-    select
-        syasyu,                                     -- 車種コード
-        kata,                                       -- 配車型式
-        spec,                                       -- スペック
-        spec200_siyou,                              -- SPEC対応4桁仕様
-        intcode,                                    -- 内張コード
-        int_cd_iromei,                              -- 内張色名
-        extcode,                                    -- 外鈑色コード
-        ext_cd_iromei,                              -- 外版色名
-        dest_cd,                                    -- 仕向地コード
-        r_country_name,                             -- 国名
-        plantcode,                                  -- 工場コード
-        enginekata,                                 -- エンジン型式
-        pscexlk,                                    -- PSC(外部連携用)
-        idline,                                     -- アイデントライン
-        sk_y,                                       -- 終検日年
-        sk_m                                        -- 終検日月
-    from {{ref('tmpX1_dm_vinhis_specification_urn')}}
+        urn,                                    -- URN
+        dfsc,                                   -- DFSC/EDNO
+        sno,                                    -- 仕様書NO
+        ctlkata,                                -- コントロール型式
+        carname,                                -- 車名
+        figure,                                 -- 荷姿
+        unittype,                               -- ユニット区分
+        equipmentline,                          -- 架装ライン
+        scndasmvtp,                             -- 架装車両区分
+        null as lodate,                         -- ラインオフ計画日
+        offopttype,                             -- オフOPT区分
+        importduty,                             -- 再輸出区分
+        discsign,                               -- 識別記号
+        ordcycl,                                -- オーダーサイクル
+        odrtype,                                -- オーダータイプ
+        vehcategorycode,                        -- 車両識別コード
+        syasyu,                                 -- 車種コード
+        kata as haisya_kt,                      -- 配車型式→取得元不明、QA待ち
+        spec as spec200,                        -- SPEC200桁組合せ
+        spec200_siyou,                          -- SPEC対応4桁仕様
+        intcode as int_cd,                      -- 内張コード
+        int_cd_iromei,                          -- 内張名
+        extcode as ext_cd,                      -- 外鈑色コード
+        ext_cd_iromei,                          -- 外鈑色名
+        destcode as dest_cd,                    -- 仕向地コード
+        dest,                                   -- 仕向国
+        pscexlk as psc,                         -- PSC
+        plantcode as koujyou_cd,                -- 工場コード
+        psc_alcname as psc_koujyou_meisho,      -- PSC1桁＆工場名
+        enginekata as eng_kt,                   -- エンジン型式(生産管理)
+        veh_plnt_code,                          -- 車両工場コード
+        veh_plnt_code_name,                     -- 車両工場名(日本語)
+        veh_plnt_code_name_en,                  -- 車両工場名(英語)
+        ktfgo as seisanbasyo,                   -- 生産場所(工程符号)
+        null as ktfgomeijp,                     -- 工程符号名称(和)→取得元不明、QA待ち
+        null as ktfgomeien,                     -- 工程符号名称(英)→取得元不明、QA待ち
+        null as prodkuni_cd,                    -- 生産国コード
+        idline as o_idline,                     -- アイデントライン
+        loj_y,                                  -- ラインオフ実績日年
+        loj_m,                                  -- ラインオフ実績日月
+        sk_y,                                   -- 終検日年
+        sk_m                                    -- 終検日月
+    from {{ref('tmp42_dm_vinhis_specification_urn')}}
 )
 select
-    tmp20.*,                                        -- tmp20の項目すべて
-    tmpx1.spec200_siyou                             -- SPEC対応4桁仕様
-from tmp20
-left join tmpx1
-on (
-    tmp20.syasyu = tmpx1.syasyu
-    and tmp20.kata = tmpx1.kata
-    and tmp20.spec = tmpx1.spec
-    and tmp20.intcode = tmpx1.intcode
-    and tmp20.extcode = tmpx1.extcode
-    and tmp20.dest_cd = tmpx1.dest_cd
-    and tmp20.plantcode = tmpx1.plantcode
-    and tmp20.enginekata = tmpx1.enginekata
-    and tmp20.pscexlk = tmpx1.pscexlk
-    and tmp20.idline = tmpx1.idline
-    and tmp20.sk_y = tmpx1.sk_y
-    and tmp20.sk_m = tmpx1.sk_m
-)
+    t42.*,                                      -- tmp42の全項目
+    current_timestamp::timestamp_ntz(9) as ldts -- 現在日時
+from t42-- 中間42_URN装備(ALL)

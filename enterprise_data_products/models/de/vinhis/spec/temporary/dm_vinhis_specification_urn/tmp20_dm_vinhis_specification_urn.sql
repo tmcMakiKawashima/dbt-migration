@@ -15,16 +15,13 @@ with t10 as (   -- 中間10_URN装備(ALL)
         ordcycl,                                    -- オーダーサイクル
         odrtype,                                    -- オーダータイプ
         vehcategorycode,                            -- 車両識別コード
-        syasyu,                                     -- 車種
+        syasyu,                                     -- 車種コード
         spec,                                       -- SPEC200桁組合せ
         intcode,                                    -- 内張コード
         extcode,                                    -- 外鈑色コード
         destcode,                                   -- 仕向地コード
         pscexlk,                                    -- PSC
         plantcode,                                  -- 工場コード
-                                                    -- エンジン型式(生産管理)
-                                                    -- 車両工場コード
-                                                    -- 車両工場名(日本語)
         idline,                                     -- アイデントライン
         left(lodate,4)::varchar(4) as sk_y,         -- 終検日年
         substr(lodate,5,2)::varchar(2) as sk_m,     -- 終検日月
@@ -35,10 +32,10 @@ with t10 as (   -- 中間10_URN装備(ALL)
     select
         syasyu,                                     -- 車種コード
         kata,                                       -- 呼称型式
-        seisanbasyo,                                -- 生産場所(工程符号)
+        ktfgo,                                -- 生産場所(工程符号)
         ctlkata,                                    -- コントロール型式
         enginekata                                  -- エンジン型式
-    from {{source('katashiki_db_basespec','raw_dm_syasyu_katashiki_syaryokoujyo')}}
+    from {{source('katashiki_db_basespec','raw_dm_syasyu_kata_sijino_plant')}}
 ), kh2 as (     -- 工場変換2桁
     select
         veh_plnt_code,                              -- 車両工場コード
@@ -54,6 +51,7 @@ with t10 as (   -- 中間10_URN装備(ALL)
 )
 select
     t10.*,                                                              -- t10の全項目
+    sksk.ktfgo,                                                         -- 生産場所(工程符号)
     sksk.kata,                                                          -- 呼称型式
     sksk.enginekata,                                                    -- エンジン型式
     coalesce(kh3.veh_plnt_code, kh2.veh_plnt_code) as veh_plnt_code     -- 車両工場コード
@@ -65,10 +63,10 @@ on (
 )
 left join kh3   -- 工場変換3桁
 on(
-    substr(sksk.seisanbasyo,1,3) = kh3.ktfgo
+    substr(sksk.ktfgo,1,3) = kh3.ktfgo
 )
 left join kh2   -- 工場変換2桁
 on(
-    substr(sksk.seisanbasyo,1,2) = kh2.ktfgo
+    substr(sksk.ktfgo,1,2) = kh2.ktfgo
     and kh3.ktfgo is null
 )

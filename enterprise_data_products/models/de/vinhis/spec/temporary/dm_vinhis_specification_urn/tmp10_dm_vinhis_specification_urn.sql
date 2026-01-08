@@ -18,7 +18,7 @@ with mss as (   -- 最大MT日時車種
         unittype,               -- ユニット区分
         equipmentline,          -- 架装ライン
         scndasmvtp,             -- 架装車両区分
-        lodate,                 -- ラインオフ計画日　下にもある、どちらかいらない？
+        lodate,                 -- ラインオフ計画日
         offopttype,             -- オフOPT区分
         importduty,             -- 再輸出区分
         discsign,               -- 識別記号
@@ -32,15 +32,11 @@ with mss as (   -- 最大MT日時車種
         destcode,               -- 仕向地コード
         pscexlk,                -- PSC
         plantcode,              -- 工場コード
-                                -- エンジン型式(生産管理)→→tmp20で取得するからここでは不要？
-                                -- 車両工場コード→tmp20で取得するからここでは不要？
-                                -- 車両工場名(日本語)→tmp30で取得するからここでは不要？
-        idline,                 -- アイデントライン
-        lodate                  -- ラインオフ計画日　上にもある、どちらかいらない？
+        idline                  -- アイデントライン
     from {{ref('stg_union_all_vehicle_specification_alc')}}
 )
 select
-    coalesce(nullif(ssua.carfamily , ''), mss.syasyu) as syasyu,    -- 車種
+    coalesce(nullif(ssua.carfamily , ''), mss.syasyu) as syasyu,    -- 車種コード
     ssua.* exclude(carfamily)                                       -- 車種を除いたssuaの項目
 from ssua       -- 車両仕様UNION_ALL結果
 left join mss   -- 最大MT日時車種
