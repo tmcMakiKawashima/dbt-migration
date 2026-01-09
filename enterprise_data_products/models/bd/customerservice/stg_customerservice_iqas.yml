@@ -7,19 +7,19 @@ models:
       tags: ["iqas"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - settle_date_y
-            - settle_date_m
-            - dealer_code
-            - twc_no
-            - frmkbn
-            - frmno
-            - wmi
-            - vds
-            - vis
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - settle_date_y
+              - settle_date_m
+              - dealer_code
+              - twc_no
+              - frmkbn
+              - frmno
+              - wmi
+              - vds
+              - vis
     columns:
       - name: settle_date_y
         data_tests:
@@ -73,19 +73,19 @@ models:
       tags: ["iqas"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - settle_date_y
-            - settle_date_m
-            - dealer_code
-            - twc_no
-            - frmkbn
-            - frmno
-            - wmi
-            - vds
-            - vis
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - settle_date_y
+              - settle_date_m
+              - dealer_code
+              - twc_no
+              - frmkbn
+              - frmno
+              - wmi
+              - vds
+              - vis
     columns:
       - name: settle_date_y
         data_tests:
@@ -139,19 +139,19 @@ models:
       tags: ["iqas"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - settle_date_y
-            - settle_date_m
-            - dealer_code
-            - twc_no
-            - frmkbn
-            - frmno
-            - wmi
-            - vds
-            - vis
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - settle_date_y
+              - settle_date_m
+              - dealer_code
+              - twc_no
+              - frmkbn
+              - frmno
+              - wmi
+              - vds
+              - vis
     columns:
       - name: settle_date_y
         data_tests:
@@ -205,22 +205,22 @@ models:
       tags: ["iqas"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - settle_date_y
-            - settle_date_m
-            - dealer_code
-            - twc_no
-            - frmkbn
-            - frmno
-            - wmi
-            - vds
-            - vis
-            - cmp_suppli_code
-            - cmp_settle_date_y
-            - cmp_settle_date_m
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - settle_date_y
+              - settle_date_m
+              - dealer_code
+              - twc_no
+              - frmkbn
+              - frmno
+              - wmi
+              - vds
+              - vis
+              - cmp_suppli_code
+              - cmp_settle_date_y
+              - cmp_settle_date_m
     columns:
       - name: settle_date_y
         data_tests:
@@ -303,12 +303,12 @@ models:
       tags: ["iqas"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ftr_no
-            - seq_ftr_rep
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - ftr_no
+              - seq_ftr_rep
     columns:
       - name: ftr_no
         data_tests:
@@ -327,18 +327,19 @@ models:
       tags: ["iqas"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - settle_date_y
-            - settle_date_m
-            - dealer_code
-            - twc_no
-            - frmkbn
-            - frmno
-            - wmi
-            - vds
-            - vis
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - settle_date_y
+              - settle_date_m
+              - dealer_code
+              - twc_no
+              - frmkbn
+              - frmno
+              - wmi
+              - vds
+              - vis
     columns:
       - name: settle_date_y
         data_tests:
@@ -392,19 +393,20 @@ models:
       tags: ["iqas"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - settle_date_y
-            - settle_date_m
-            - dealer_code
-            - twc_no
-            - frmkbn
-            - frmno
-            - wmi
-            - vds
-            - vis
-            - seq_no_parts
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - settle_date_y
+              - settle_date_m
+              - dealer_code
+              - twc_no
+              - frmkbn
+              - frmno
+              - wmi
+              - vds
+              - vis
+              - seq_no_parts
     columns:
       - name: settle_date_y
         data_tests:
@@ -477,11 +479,12 @@ models:
       tags: ["iqas"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ftr_no
-            - reg_sheet_no
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - ftr_no
+              - reg_sheet_no
     columns:
       - name: ftr_no
         data_tests:
@@ -500,12 +503,13 @@ models:
       tags: ["iqas"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ftr_no
-            - outside_cmpny_code
-            - outside_div_code
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - ftr_no
+              - outside_cmpny_code
+              - outside_div_code
     columns:
       - name: ftr_no
         data_tests:
@@ -528,19 +532,19 @@ models:
       tags: ["iqas"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - settle_date_y
-            - settle_date_m
-            - dealer_code
-            - twc_no
-            - frmkbn
-            - frmno
-            - wmi
-            - vds
-            - vis
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - settle_date_y
+              - settle_date_m
+              - dealer_code
+              - twc_no
+              - frmkbn
+              - frmno
+              - wmi
+              - vds
+              - vis
     columns:
       - name: settle_date_y
         data_tests:
@@ -593,20 +597,20 @@ models:
       tags: ["iqas"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - settle_date_y
-            - settle_date_m
-            - dealer_code
-            - twc_no
-            - frmkbn
-            - frmno
-            - wmi
-            - vds
-            - vis
-            - suppli_code_ovs
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - settle_date_y
+              - settle_date_m
+              - dealer_code
+              - twc_no
+              - frmkbn
+              - frmno
+              - wmi
+              - vds
+              - vis
+              - suppli_code_ovs
     columns:
       - name: settle_date_y
         data_tests:
@@ -664,12 +668,12 @@ models:
       tags: ["iqas"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ftr_no
-            - seq_ftr_body
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - ftr_no
+              - seq_ftr_body
     columns:
       - name: ftr_no
         data_tests:
@@ -697,12 +701,12 @@ models:
       tags: ["iqas"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - table_data_id
-            - table_data_seq
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - table_data_id
+              - table_data_seq
     columns:
       - name: table_data_id
         data_tests:
@@ -720,12 +724,12 @@ models:
       tags: ["iqas"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - table_data_id
-            - table_data_seq
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - table_data_id
+              - table_data_seq
     columns:
       - name: table_data_id
         data_tests:
@@ -743,36 +747,36 @@ models:
       tags: ["iqas"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - lo_year_month
-            - lo_year_month_date
-            - model_major_cls_code
-            - model_veh_code
-            - sms_veh_code
-            - katashiki_20
-            - eng_type
-            - tm_type
-            - dest_code
-            - reg_state_code
-            - region_cls
-            - export_cls
-            - endc_line_code
-            - eng_plnt_code
-            - production_area_cls
-            - vin_my
-            - pack_line_code
-            - pack_form
-            - brand_cls
-            - veh_plnt_code
-            - production_country_code
-            - lo_date
-            - frame_cls
-            - reg_country_code
-            - cmpnycode
-            - region_cls_new
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - lo_year_month
+              - lo_year_month_date
+              - model_major_cls_code
+              - model_veh_code
+              - sms_veh_code
+              - katashiki_20
+              - eng_type
+              - tm_type
+              - dest_code
+              - reg_state_code
+              - region_cls
+              - export_cls
+              - endc_line_code
+              - eng_plnt_code
+              - production_area_cls
+              - vin_my
+              - pack_line_code
+              - pack_form
+              - brand_cls
+              - veh_plnt_code
+              - production_country_code
+              - lo_date
+              - frame_cls
+              - reg_country_code
+              - cmpnycode
+              - region_cls_new
     columns:
       - name: lo_year_month
         data_tests:
@@ -915,13 +919,13 @@ models:
       tags: ["iqas"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - table_id
-            - table_data_id
-            - table_data_seq
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - table_id
+              - table_data_id
+              - table_data_seq
     columns:
       - name: table_id
         data_tests:

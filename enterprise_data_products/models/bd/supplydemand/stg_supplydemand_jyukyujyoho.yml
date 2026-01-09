@@ -7,13 +7,14 @@ models:
       tags: ["jyukyujyoho"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - segmei
-            - dlrcd
-            - odno
-            - ojyy
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - segmei
+              - dlrcd
+              - odno
+              - ojyy
     columns:
       - name: dum1
         data_tests:
@@ -161,14 +162,15 @@ models:
       tags: ["jyukyujyoho"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ojyy
-            - segmei
-            - dlrcd
-            - odno
-            - kubn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - ojyy
+              - segmei
+              - dlrcd
+              - odno
+              - kubn
     columns:
       - name: ojyy
         data_tests:
@@ -266,11 +268,12 @@ models:
       tags: ["jyukyujyoho"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - carnm_cd
-            - aply_dt_kara
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - carnm_cd
+              - aply_dt_kara
     columns:
       - name: carnm_cd
         data_tests:
@@ -313,13 +316,14 @@ models:
       tags: ["jyukyujyoho"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - segmei
-            - renkey_hkata
-            - renkry_sedai
-            - aply_dt_kara
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - segmei
+              - renkey_hkata
+              - renkry_sedai
+              - aply_dt_kara
     columns:
       - name: segmei
         data_tests:
@@ -692,11 +696,12 @@ models:
       tags: ["jyukyujyoho"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - r_area_code
-            - load_date
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - r_area_code
+              - load_date
     columns:
       - name: r_area_code
         data_tests:
@@ -739,24 +744,25 @@ models:
       tags: ["jyukyujyoho"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - rmth
-            - line
-            - sno
-            - hktcd
-            - odno
-            - nisgt
-            - gaicd
-            - ucd
-            - smkcd
-            - spec
-            - symei
-            - wmi
-            - vds
-            - my
-            - load_date
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - rmth
+              - line
+              - sno
+              - hktcd
+              - odno
+              - nisgt
+              - gaicd
+              - ucd
+              - smkcd
+              - spec
+              - symei
+              - wmi
+              - vds
+              - my
+              - load_date
     columns:
       - name: rmth
         data_tests:
@@ -944,11 +950,12 @@ models:
       tags: ["jyukyujyoho"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - r_country_code
-            - load_date
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - r_country_code
+              - load_date
     columns:
       - name: r_country_code
         data_tests:
@@ -1041,15 +1048,16 @@ models:
       tags: ["jyukyujyoho"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - r_prod_month
-            - r_dist_code
-            - r_shiyos
-            - r_katashiki
-            - r_pkg_code
-            - r_sfx_code
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - r_prod_month
+              - r_dist_code
+              - r_shiyos
+              - r_katashiki
+              - r_pkg_code
+              - r_sfx_code
     columns:
       - name: r_prod_month
         data_tests:
@@ -1407,25 +1415,26 @@ models:
       tags: ["jyukyujyoho"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - plan_month
-            - id_line_cd
-            - sno
-            - alloc_kata_cd
-            - order_no
-            - ske_date
-            - pkg
-            - ext_cd
-            - trim_cd
-            - int_cd
-            - dest_cd
-            - prod_spec
-            - pcd_model_cd
-            - wmi
-            - vds
-            - model_year
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - plan_month
+              - id_line_cd
+              - sno
+              - alloc_kata_cd
+              - order_no
+              - ske_date
+              - pkg
+              - ext_cd
+              - trim_cd
+              - int_cd
+              - dest_cd
+              - prod_spec
+              - pcd_model_cd
+              - wmi
+              - vds
+              - model_year
     columns:
       - name: plan_month
         data_tests:
@@ -1623,12 +1632,13 @@ models:
       tags: ["jyukyujyoho"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - r_prod_month
-            - r_edno
-            - r_spec_keta
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - r_prod_month
+              - r_edno
+              - r_spec_keta
     columns:
       - name: r_prod_month
         data_tests:
@@ -1690,4 +1700,3 @@ models:
           - not_null:
               config:
                 severity: error
- 
