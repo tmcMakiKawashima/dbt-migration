@@ -2,9 +2,16 @@
   config(
     materialized = 'incremental',
     incremental_strategy = 'merge',
-    unique_key = ['syasyu' ,'haisya_kt' ,'spec200' ,'sk_y' ,'sk_m']
+    unique_key = ['syasyu' ,'haisya_kt' ,'spec200' ,'sk_y' ,'sk_m'],
+    post_hook = "
+      {% if is_incremental() %}
+        delete from {{this}}
+        where ldts < (select max(ldts) from {{this}})
+      {% endif %}
+    "
   )
  }}
+ -- 更新されなかったレコードを削除
 
 with dm_siyo_daisu as (
     select
