@@ -34,15 +34,17 @@ with t10 as (   -- 中間10_URN装備(ALL)
         kata,                                       -- 呼称型式
         ktfgo,                                      -- 生産場所(工程符号)
         ctlkata,                                    -- コントロール型式
-        enginekata                                  -- エンジン型式
+        enginekata,                                 -- エンジン型式
+        ktfgomeijp,                                 -- 工程符号名称(和)
+        ktfgomeien                                  -- 工程符号名称(英)
     from {{source('katashiki_db_basespec','raw_dm_syasyu_kata_sijino_plant')}}
-), kh2 as (     -- 工場変換2桁
+), kh2 as (     -- 抽出結果_工場変換2桁
     select
         veh_plnt_code,                              -- 車両工場コード
         ktfgo                                       -- 工程符号
     from {{source('engineering_db_public','raw_m_koujyomaster')}}
     where length(ktfgo) = 2
-), kh3 as (     -- 工場変換3桁
+), kh3 as (     -- 抽出結果_工場変換3桁
     select
         veh_plnt_code,                              -- 車両工場コード
         ktfgo                                       -- 工程符号
@@ -54,6 +56,8 @@ select
     sksk.ktfgo,                                                         -- 生産場所(工程符号)
     sksk.kata,                                                          -- 呼称型式
     sksk.enginekata,                                                    -- エンジン型式
+    sksk.ktfgomeijp,                                                    -- 工程符号名称(和)
+    sksk.ktfgomeien,                                                    -- 工程符号名称(英)
     coalesce(kh3.veh_plnt_code, kh2.veh_plnt_code) as veh_plnt_code     -- 車両工場コード
 from t10        -- 中間10_URN装備(ALL)
 left join sksk  -- 車種型式車両工場
@@ -61,11 +65,11 @@ on (
     t10.syasyu = sksk.syasyu
     and t10.ctlkata = sksk.ctlkata
 )
-left join kh3   -- 工場変換3桁
+left join kh3   -- 抽出結果_工場変換3桁
 on(
     substr(sksk.ktfgo,1,3) = kh3.ktfgo
 )
-left join kh2   -- 工場変換2桁
+left join kh2   -- 抽出結果_工場変換2桁
 on(
     substr(sksk.ktfgo,1,2) = kh2.ktfgo
     and kh3.ktfgo is null

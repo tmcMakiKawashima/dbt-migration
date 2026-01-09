@@ -30,6 +30,8 @@ with t20 as (   -- 中間20_URN装備(ALL)
         ktfgo,              -- 生産場所(工程符号)
         kata,               -- 呼称型式
         enginekata,         -- エンジン型式
+        ktfgomeijp,         -- 工程符号名称(和)
+        ktfgomeien,         -- 工程符号名称(英)
         veh_plnt_code       -- 車両工場コード
 	from {{ref('tmp20_dm_vinhis_specification_urn')}}
 ), alc as (     -- ALC工場コード

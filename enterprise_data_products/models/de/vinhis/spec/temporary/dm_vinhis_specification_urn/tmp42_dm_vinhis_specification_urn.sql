@@ -30,6 +30,8 @@ with t30 as (   -- 中間30_URN装備(ALL)
         ktfgo,                  -- 生産場所(工程符号)
         kata,                   -- 呼称型式
         enginekata,             -- エンジン型式
+        ktfgomeijp,             -- 工程符号名称(和)
+        ktfgomeien,             -- 工程符号名称(英)
         veh_plnt_code,          -- 車両工場コード
         psc_alcname,            -- PSC1桁＆工場名
         veh_plnt_code_name,     -- 車両工場名(日本語)

@@ -1,4 +1,4 @@
-with mss as (   -- 最大MT日時車種
+with mss as (   -- 抽出結果_最大MT日時車種
     select
         sno,                    -- 仕様書NO
         syasyu,                 -- 車種コード
@@ -39,7 +39,7 @@ select
     coalesce(nullif(ssua.carfamily , ''), mss.syasyu) as syasyu,    -- 車種コード
     ssua.* exclude(carfamily)                                       -- 車種を除いたssuaの項目
 from ssua       -- 車両仕様UNION_ALL結果
-left join mss   -- 最大MT日時車種
+left join mss   -- 抽出結果_最大MT日時車種
 on (
     ssua.sno = mss.sno
     and mss.rnk = 1

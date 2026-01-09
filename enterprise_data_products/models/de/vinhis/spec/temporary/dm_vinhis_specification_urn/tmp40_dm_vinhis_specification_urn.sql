@@ -1,4 +1,4 @@
-with t30 as (   -- 中間30_URN装備(ALL)
+with t30 as (   -- 抽出結果_中間30_重複排除
     select distinct
         syasyu,                                 -- 車種コード
         kata,                                   -- 呼称型式
@@ -22,5 +22,5 @@ select
     t30.*,                                      -- t30の全項目
     seq.*,                                      -- 桁番号
     substr(t30.spec,seq.keta_no,1) as kigo      -- 記号
-from t30        -- 中間30_URN装備(ALL)
+from t30        -- 抽出結果_中間30_重複排除
 cross join seq  -- SPECを200分割するためのシーケンス

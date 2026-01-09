@@ -28,7 +28,7 @@ with t42 as (   -- 中間42_URN装備(ALL)
         odrtype,                                -- オーダータイプ
         vehcategorycode,                        -- 車両識別コード
         syasyu,                                 -- 車種コード
-        kata as haisya_kt,                      -- 配車型式→QA待ち
+        kata as haisya_kt,                      -- 配車型式
         spec as spec200,                        -- SPEC200桁組合せ
         spec200_siyou,                          -- SPEC対応4桁仕様
         intcode as int_cd,                      -- 内張コード
@@ -45,8 +45,8 @@ with t42 as (   -- 中間42_URN装備(ALL)
         veh_plnt_code_name,                     -- 車両工場名(日本語)
         veh_plnt_code_name_en,                  -- 車両工場名(英語)
         ktfgo as seisanbasyo,                   -- 生産場所(工程符号)
-        null::varchar(40) as ktfgomeijp,       -- 工程符号名称(和)→取得元不明、QA待ち
-        null::varchar(40) as ktfgomeien,       -- 工程符号名称(英)→取得元不明、QA待ち
+        ktfgomeijp,                             -- 工程符号名称(和)
+        ktfgomeien,                             -- 工程符号名称(英)
         ''::varchar(3) as prodkuni_cd,          -- 生産国コード
         idline as o_idline,                     -- アイデントライン
         loj_y,                                  -- ラインオフ実績日年
