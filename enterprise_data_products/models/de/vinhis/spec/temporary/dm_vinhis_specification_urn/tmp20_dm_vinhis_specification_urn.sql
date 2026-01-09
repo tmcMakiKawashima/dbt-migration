@@ -32,7 +32,7 @@ with t10 as (   -- 中間10_URN装備(ALL)
     select
         syasyu,                                     -- 車種コード
         kata,                                       -- 呼称型式
-        ktfgo,                                -- 生産場所(工程符号)
+        ktfgo,                                      -- 生産場所(工程符号)
         ctlkata,                                    -- コントロール型式
         enginekata                                  -- エンジン型式
     from {{source('katashiki_db_basespec','raw_dm_syasyu_kata_sijino_plant')}}

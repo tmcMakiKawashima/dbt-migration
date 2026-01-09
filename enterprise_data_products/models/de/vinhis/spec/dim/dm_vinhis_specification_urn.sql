@@ -4,13 +4,14 @@
     incremental_strategy = 'append',
     pre_hook = "
       {% if is_incremental() %}
+      delete from {{this}}
       {% endif %}
     "
   )
  }}
 with t42 as (   -- 中間42_URN装備(ALL)
     select
-        urn,                                    -- URN
+        coalesce(urn,'') as urn,                -- URN
         dfsc,                                   -- DFSC/EDNO
         sno,                                    -- 仕様書NO
         ctlkata,                                -- コントロール型式
@@ -19,7 +20,7 @@ with t42 as (   -- 中間42_URN装備(ALL)
         unittype,                               -- ユニット区分
         equipmentline,                          -- 架装ライン
         scndasmvtp,                             -- 架装車両区分
-        null as lodate,                         -- ラインオフ計画日
+        ''::varchar(8) as lodate,               -- ラインオフ計画日
         offopttype,                             -- オフOPT区分
         importduty,                             -- 再輸出区分
         discsign,                               -- 識別記号
@@ -27,7 +28,7 @@ with t42 as (   -- 中間42_URN装備(ALL)
         odrtype,                                -- オーダータイプ
         vehcategorycode,                        -- 車両識別コード
         syasyu,                                 -- 車種コード
-        kata as haisya_kt,                      -- 配車型式→取得元不明、QA待ち
+        kata as haisya_kt,                      -- 配車型式→QA待ち
         spec as spec200,                        -- SPEC200桁組合せ
         spec200_siyou,                          -- SPEC対応4桁仕様
         intcode as int_cd,                      -- 内張コード
@@ -36,17 +37,17 @@ with t42 as (   -- 中間42_URN装備(ALL)
         ext_cd_iromei,                          -- 外鈑色名
         destcode as dest_cd,                    -- 仕向地コード
         dest,                                   -- 仕向国
-        pscexlk as psc,                         -- PSC
-        plantcode as koujyou_cd,                -- 工場コード
+        coalesce(pscexlk,'') as psc,            -- PSC
+        coalesce(plantcode,'') as koujyou_cd,   -- 工場コード
         psc_alcname as psc_koujyou_meisho,      -- PSC1桁＆工場名
         enginekata as eng_kt,                   -- エンジン型式(生産管理)
         veh_plnt_code,                          -- 車両工場コード
         veh_plnt_code_name,                     -- 車両工場名(日本語)
         veh_plnt_code_name_en,                  -- 車両工場名(英語)
         ktfgo as seisanbasyo,                   -- 生産場所(工程符号)
-        null as ktfgomeijp,                     -- 工程符号名称(和)→取得元不明、QA待ち
-        null as ktfgomeien,                     -- 工程符号名称(英)→取得元不明、QA待ち
-        null as prodkuni_cd,                    -- 生産国コード
+        null::varchar(40) as ktfgomeijp,       -- 工程符号名称(和)→取得元不明、QA待ち
+        null::varchar(40) as ktfgomeien,       -- 工程符号名称(英)→取得元不明、QA待ち
+        ''::varchar(3) as prodkuni_cd,          -- 生産国コード
         idline as o_idline,                     -- アイデントライン
         loj_y,                                  -- ラインオフ実績日年
         loj_m,                                  -- ラインオフ実績日月

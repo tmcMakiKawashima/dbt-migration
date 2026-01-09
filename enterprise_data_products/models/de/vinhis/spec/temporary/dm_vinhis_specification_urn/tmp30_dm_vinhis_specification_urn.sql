@@ -36,12 +36,12 @@ with t20 as (   -- 中間20_URN装備(ALL)
     select
         psc_alccode,        -- PSC1桁＆工場コード
         psc_alcname         -- PSC1桁＆工場名
-    from {{source('common_tbl_public','raw_m_hostalc_psc_plantcode')}}
+    from {{source('common_tbl_db_public','raw_m_hostalc_psc_plantcode')}}
 ), skm as (     -- 車両工場名称
     select
-        table_data_id,                                              -- テーブルデータID
-        right(value_ja,(len(value_ja) - charindex(':',value_ja))) as veh_plnt_code_name,  -- 表示名(日)
-        right(value_en,(len(value_en) - charindex(':',value_en))) as veh_plnt_code_name_en   -- 表示名(英)
+        table_data_id,                                                                      -- テーブルデータID
+        right(value_ja,(len(value_ja) - charindex(':',value_ja))) as veh_plnt_code_name,    -- 表示名(日)
+        right(value_en,(len(value_en) - charindex(':',value_en))) as veh_plnt_code_name_en  -- 表示名(英)
     from {{source('common_tbl_db_iqas_name_convert','raw_mst_041veh_plnt_code_name')}}
 ), col as (     -- カラーNO
     select

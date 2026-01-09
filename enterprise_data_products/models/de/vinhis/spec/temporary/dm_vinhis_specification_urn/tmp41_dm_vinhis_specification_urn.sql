@@ -32,11 +32,8 @@ select
     t40.sk_m,                                                               -- 終検日月
     t40.spec,                                                               -- SPEC200桁組合せ
     t40.intcode,                                                            -- 内張コード
-    t40.int_cd_iromei,                                                      -- 内張色
     t40.extcode,                                                            -- 外鈑色コード
-    t40.ext_cd_iromei,                                                      -- 外鈑色
     t40.destcode,                                                           -- 仕向地コード
-    t40.dest,                                                               -- 仕向国
     t40.plantcode,                                                          -- 工場コード
     t40.pscexlk,                                                            -- PSC
     t40.idline,                                                             -- アイデントライン
