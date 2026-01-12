@@ -4,14 +4,15 @@ models:
   - name: dm_siyo_daisu
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu
-            - haisya_kt
-            - spec200
-            - sk_y
-            - sk_m
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - haisya_kt
+              - spec200
+              - sk_y
+              - sk_m
     columns:
       - name: syasyu
         data_tests:

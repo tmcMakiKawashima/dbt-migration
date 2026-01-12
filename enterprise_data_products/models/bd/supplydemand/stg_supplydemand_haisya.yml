@@ -7,12 +7,13 @@ models:
       tags: ["haisya"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - idno
-            - kaisu
-            - syear
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - idno
+              - kaisu
+              - syear
     columns:
       - name: idno
         data_tests:
@@ -35,12 +36,13 @@ models:
       tags: ["haisya"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - idno
-            - kaisu
-            - syear
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - idno
+              - kaisu
+              - syear
     columns:
       - name: idno
         data_tests:
@@ -63,12 +65,13 @@ models:
       tags: ["haisya"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - idno
-            - kaisu
-            - syear
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - idno
+              - kaisu
+              - syear
     columns:
       - name: idno
         data_tests:
