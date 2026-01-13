@@ -1,4 +1,4 @@
-id: job_build_dm_kousei_jyufukublktenkai
+id: job_build_dm_kousei_jyufukublktenkai_tmc
 namespace: kestra_dbt_project.proj-job-ci-spec
 labels:
   error: default_failed
@@ -24,9 +24,9 @@ tasks:
     type: io.kestra.plugin.dbt.cli.DbtCLI
     commands:
       - dbt build
-        --select +dm_kousei_jyufukublktenkai +tmp_junkanri_jyufukublktenkai
-        --exclude +tmp08_dm_kousei_jyufukublktenkai
-        --vars '{"DBT_JOB_NAME":"_dm_kousei_jyufukublktenkai"}'
+        --select +dm_kousei_jyufukublktenkai_tmc +tmp_junkanri_jyufukublktenkai
+        --exclude +tmp08_dm_kousei_jyufukublktenkai +stg_syasyu_tmc_sms
+        --vars '{"DBT_JOB_NAME":"_dm_kousei_jyufukublktenkai_tmc"}'
         {{ inputs.dbt_options ?? "" }}
 triggers:
   - id: schedule

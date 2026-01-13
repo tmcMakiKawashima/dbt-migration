@@ -2,7 +2,6 @@
     config(
         materialized = 'incremental',
         incremental_strategy = 'append',
-        transient = false,
         pre_hook = "
             {% if is_incremental() %}
                 delete from {{this}} th

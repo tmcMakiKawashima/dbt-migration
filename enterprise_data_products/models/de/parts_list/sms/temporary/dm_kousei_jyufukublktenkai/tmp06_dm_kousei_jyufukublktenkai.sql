@@ -12,7 +12,7 @@ with recursive chain_start as (
     zt1.shusiyoubui, -- 主側使用部位
     zt1.oyahin, -- 親品番
     zt1.lv, -- レベル
-    zt1.kouseijyun, -- 構成順
+    zt1.id, -- ID
     zt1.GC, -- GC
     zt1.kohin, -- 品番／BLKコード
     zt1.tyohuku, -- 重複記載
@@ -50,7 +50,7 @@ with recursive chain_start as (
     zt.shusiyoubui, -- 主側使用部位
     zt.oyahin, -- 親品番
     zt.lv, -- レベル
-    zt.kouseijyun, -- 構成順
+    zt.id, -- ID
     zt.GC, -- GC
     zt.kohin, -- 品番／BLKコード
     zt.tyohuku, -- 重複記載
@@ -88,7 +88,7 @@ select
   shusiyoubui, -- 主側使用部位
   oyahin, -- 親品番
   lv, -- レベル
-  kouseijyun, -- 構成順
+  id, -- ID
   GC, -- GC
   kohin, -- 品番／BLKコード
   tyohuku, -- 重複記載
@@ -109,7 +109,7 @@ group by
   siyoubui,
   shusiyoubui,
   lv,
-  kouseijyun,
+  id,
   GC,
   oyahin,
   kohin,
