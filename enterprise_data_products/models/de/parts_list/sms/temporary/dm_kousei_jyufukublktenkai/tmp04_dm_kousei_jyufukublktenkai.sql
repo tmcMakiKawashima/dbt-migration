@@ -62,24 +62,34 @@ with recursive dm_kousei_oya as (
     to_decimal(ks.lv + 1, 2, 0) as lv, -- レベル
     concat(ks.id, '.', zt.id) -- ID
   from dm_kousei_oya as ks
-  inner join {{ref('tmp03_dm_kousei_jyufukublktenkai')}} as zt
+  inner join (
+    select * 
+      from (
+        select distinct *,
+          row_number() over (
+            partition by syasyu, siyoubui, oyahin, kohin
+            order by torokujunm desc
+          ) as rn
+        from {{ref('tmp03_dm_kousei_jyufukublktenkai')}}
+        where torokujunk_15com != ''
+      )
+    where rn = 1
+  ) as zt
   on(
       zt.oyahin   = ks.kohin
   and zt.siyoubui = ks.siyoubui
   and zt.syasyu   = ks.syasyu
   and zt.torokujunm > ks.torokujunk 
   and ks.torokujunm > zt.torokujunk
-  and (zt.torokujunk_15com != ''
-      and (ks.torokujunm_15com <= ks.torokujunk 
-        or ks.torokujunm <= ks.torokujunk_15com))
+  and (ks.torokujunm_15com <= ks.torokujunk 
+    or ks.torokujunm <= ks.torokujunk_15com)
   )
   where (zt.shusiyoubui = ks.shusiyoubui
      or ks.kohin = ks.add_hinban)
     and ks.lv < 99
   ) 
 select 
-  ko.* exclude(add_hinban, torokujunk_15com, torokujunm_15com, id),
-  row_number() over (partition by ko.syasyu,ko.siyoubui order by ko.id)::number(4,0) as kouseijyun,
+  ko.* exclude(add_hinban, torokujunk_15com, torokujunm_15com),
   left(siyoubui, 4)::varchar(4) as kumitate,
   substr(siyoubui, 5, 2)::varchar(2) as bui,
   substr(siyoubui, 7, 2)::varchar(2) as vari

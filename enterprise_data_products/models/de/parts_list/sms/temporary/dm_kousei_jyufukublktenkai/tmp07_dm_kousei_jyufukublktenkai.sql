@@ -4,7 +4,7 @@
   )
 }}
 -- 処理レスポンスを考慮しtable実装
-with tmp04_dm_kousei_jyufukublktenkai as (
+with tmp06_dm_kousei_jyufukublktenkai as (
   select
     syasyu, -- 車種コード
     siyoubui, -- 使用部位
@@ -14,10 +14,11 @@ with tmp04_dm_kousei_jyufukublktenkai as (
     vari, -- バリエーション
     oyahin, -- 親品番
     lv, -- レベル
-    kouseijyun, -- 構成順
+    id, -- ID
     gc, -- GC
     kohin, -- 品番／BLKコード
     tyohuku, -- 重複記載
+    tyohuku_flg, -- 重複FLG
     torokujunk, -- 登録／生認順カラ
     torokujunm, -- 登録／生認順マデ
     target, -- ターゲット
@@ -25,7 +26,7 @@ with tmp04_dm_kousei_jyufukublktenkai as (
     seppenno, -- 設変No.
     maxmttime, -- MAXMTTIME
     mttime -- MTTIME
-  from {{ref('tmp04_dm_kousei_jyufukublktenkai')}}
+  from {{ref('tmp06_dm_kousei_jyufukublktenkai')}}
 ), dm_kousei_blktenkai as (
   select
     syasyu, -- 車種コード
@@ -52,14 +53,14 @@ select
   zt.vari, -- バリエーション
   zt.oyahin, -- 親品番
   zt.lv, -- レベル
-  zt.kouseijyun, -- 構成順
+  zt.id, -- ID
   zt.gc, -- GC
   zt.kohin, -- 品番／BLKコード
   ks.kohinmei, -- 品名／BLKコード名称
   ks.kosu, -- 使用個数
   ks.sentaku, -- 選択符号
   zt.tyohuku, -- 重複記載
-  '1' as tyohuku_flg, -- 重複FLG
+  zt.tyohuku_flg, -- 重複FLG
   zt.torokujunk, -- 登録／生認順カラ
   zt.torokujunm, -- 登録／生認順マデ
   ks.seppennok, -- 設変No.カラ
@@ -71,7 +72,7 @@ select
   zt.seppenno, -- 設変No.
   zt.maxmttime, -- MAXMTTIME
   zt.mttime -- MTTIME
-from tmp04_dm_kousei_jyufukublktenkai as zt
+from tmp06_dm_kousei_jyufukublktenkai as zt
 left join dm_kousei_blktenkai as ks
 on (
     zt.syasyu = ks.syasyu

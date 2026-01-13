@@ -25,7 +25,7 @@ tasks:
     commands:
       - dbt build
         --select +tmp08_dm_kousei_jyufukublktenkai
-        --exclude +dm_kousei_blktenkai +tmp_junkanri_blktenkai stg_kouseicom
+        --exclude +dm_kousei_blktenkai +tmp_junkanri_blktenkai +stg_kouseicom
         --vars '{"DBT_JOB_NAME":"_tmp08_dm_kousei_jyufukublktenkai"}'
         {{ inputs.dbt_options ?? "" }}
 triggers:
