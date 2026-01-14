@@ -1,14 +1,3 @@
-{{ 
-  config(
-    materialized = 'incremental',
-    incremental_strategy = 'append',
-    pre_hook = "
-      {% if is_incremental() %}
-      delete from {{this}}
-      {% endif %}
-    "
-  )
- }}
 with t42 as (   -- 中間42_URN装備(ALL)
     select
         coalesce(urn,'') as urn,                -- URN
