@@ -1,4 +1,10 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
+{{
+    config (
+        materialized = 'incremental',
+        unique_key = ['kyouhan','hinban','mkbn','nyukkten','chumon','usercd','urisflg','jchuymd'],
+        incremental_strategy = 'merge'
+    )
+}}
 
 with stg_tbbofll as (
     select
@@ -79,6 +85,10 @@ with stg_tbbofll as (
       ldts, --b層のldts
       rank() over(partition by kyouhan, hinban, mkbn, nyukkten, chumon, usercd, urisflg, jchuymd order by ldts desc) aggkey
     from {{ ref('substr_tbbofll') }}
+
+      {% if is_incremental() %}
+          where ldts > (select max(ldts) from {{ this }})
+      {% endif %}
 )
 select * from stg_tbbofll
 where aggkey = 1

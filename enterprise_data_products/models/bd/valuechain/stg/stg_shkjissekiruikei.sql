@@ -1,4 +1,10 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
+{{
+    config (
+        materialized = 'incremental',
+        unique_key = ['lpcl','cyc_sno','tkod_dt'],
+        incremental_strategy = 'merge'
+    )
+}}
 
 with stg_shkjissekiruikei as (
     select
@@ -217,6 +223,10 @@ with stg_shkjissekiruikei as (
         row_number() over (partition by lpcl, cyc_sno, tkod_dt 
                            order by ldts desc, pik_cp_dttm desc, pak_dttm desc) aggkey
     from {{ ref('substr_shkjissekiruikei') }}
+
+    {% if is_incremental() %}
+        where ldts > (select max(ldts) from {{ this }})
+    {% endif %}
 )
 select * from stg_shkjissekiruikei
 where aggkey = 1
