@@ -1,24 +1,3 @@
-{{ 
-  config(
-    materialized = 'incremental',
-    incremental_strategy = 'merge',
-    unique_key = [
-                    'syasyu',
-                    'haisya_kt',
-                    'spec200',
-                    'int_cd',
-                    'ext_cd',
-                    'dest_cd',
-                    'koujyou_cd',
-                    'eng_kt',
-                    'psc',
-                    'o_idline',
-                    'sk_y',
-                    'sk_m'
-                  ]
-  )
- }}
- 
 with t52 as (
   select * from {{ref('tmp52_dm_siyo_seisan_daisu')}}
 ), t71 as (
