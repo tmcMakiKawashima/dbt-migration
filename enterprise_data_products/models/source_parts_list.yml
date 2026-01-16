@@ -10,7 +10,10 @@ sources:
         identifier: tmp_junkanri_blktenkai
       - name: raw_tmp_legacy_junkanri_blktenkai
         identifier: tmp_legacy_junkanri_blktenkai
-        
+    # 現導入国データ(Ci-SPEC)公開
+      - name: raw_tmp_junkanri_jyufukublktenkai
+        identifier: tmp_junkanri_jyufukublktenkai
+
   - name: parts_list_db_public
     database: parts_list_db
     schema: public
@@ -22,6 +25,3 @@ sources:
         identifier: dm_latest_sekkei
       - name: raw_dm_ktfgo_list
         identifier: dm_ktfgo_list
-    # sms-kousei
-      - name: raw_tmp_junkanri_jyufukublktenkai
-        identifier: tmp_junkanri_jyufukublktenkai

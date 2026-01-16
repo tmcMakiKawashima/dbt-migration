@@ -1,7 +1,3 @@
-{{ config(
-    materialized='table'
-) }}
-
 with dm_kousei_jyufukublktenkai as (
     select * from {{ref('dm_kousei_jyufukublktenkai')}}
 ), stg_syasyu_tmc_sms as (
