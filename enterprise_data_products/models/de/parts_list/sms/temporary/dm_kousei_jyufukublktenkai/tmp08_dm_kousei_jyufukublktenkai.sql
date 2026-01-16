@@ -14,7 +14,7 @@ select
   row_number() over (
     partition by tmp.syasyu,tmp.siyoubui 
     order by tmp.id
-  )::varchar(6) as kouseijyun -- 構成順
+  )::number(6,0) as kouseijyun -- 構成順
 from (
   select * from tmp05_dm_kousei_jyufukublktenkai
   union
