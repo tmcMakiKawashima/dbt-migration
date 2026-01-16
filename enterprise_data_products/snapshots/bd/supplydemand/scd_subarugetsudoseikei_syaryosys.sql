@@ -8,7 +8,8 @@
                     op,
                     onkn_kbn,
                     gsclr,
-                    nsclr)",
+                    nsclr,
+                    dfsc)",
 
         strategy='timestamp',
         updated_at='ldts',

@@ -3099,6 +3099,7 @@ models:
               - onkn_kbn
               - gsclr
               - nsclr
+              - dfsc
     columns:
       - name: ktsk
         data_tests:
@@ -3126,6 +3127,11 @@ models:
               config:
                 severity: error
       - name: nsclr
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dfsc
         data_tests:
           - not_null:
               config:
