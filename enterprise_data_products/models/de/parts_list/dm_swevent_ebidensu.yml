@@ -4,11 +4,12 @@ models:
   - name: dm_swevent_ebidensu
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - eventno
-            - syasyu
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - eventno
+              - syasyu
     columns:
       - name: eventno
         data_tests:

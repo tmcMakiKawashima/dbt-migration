@@ -7,12 +7,12 @@ models:
       tags: ["rism"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - tsinseiymd
-            - shataino
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - tsinseiymd
+              - shataino
     columns:
       - name: tsinseiymd
         data_tests:

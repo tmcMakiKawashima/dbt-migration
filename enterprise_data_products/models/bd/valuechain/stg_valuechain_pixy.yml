@@ -6,11 +6,12 @@ models:
       tags: ["pixy"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu_cd
-            - yohinsyamei
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu_cd
+              - yohinsyamei
     columns:
       - name: syasyu_cd
         data_tests:
@@ -28,14 +29,14 @@ models:
       tags: ["pixy"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:        # パッケージで提供されているテストを使用
-          combination_of_columns:
-            - yohinsyamei
-            - tuikou
-            - seg
-            - seq
           config:
             severity: error
-      
+          arguments:
+            combination_of_columns:
+              - yohinsyamei
+              - tuikou
+              - seg
+              - seq
     columns:
       - name: yohinsyamei
         data_tests:
@@ -63,13 +64,14 @@ models:
       tags: ["pixy"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syameino
-            - tuikou
-            - seg
-            - seq
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syameino
+              - tuikou
+              - seg
+              - seq
     columns:
       - name: syameino
         data_tests:
@@ -362,14 +364,15 @@ models:
       tags: ["pixy"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syameino
-            - tuikou
-            - seg
-            - seq
-            - bitno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syameino
+              - tuikou
+              - seg
+              - seq
+              - bitno
     columns:
       - name: syameino
         data_tests:
@@ -407,12 +410,13 @@ models:
       tags: ["pixy"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syameino
-            - ctlkata
-            - hanbaicd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syameino
+              - ctlkata
+              - hanbaicd
     columns:
       - name: syameino
         data_tests:
@@ -470,12 +474,13 @@ models:
       tags: ["pixy"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syameino
-            - oyatui
-            - setcd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syameino
+              - oyatui
+              - setcd
     columns:
       - name: syameino
         data_tests:
@@ -678,14 +683,15 @@ models:
       tags: ["pixy"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syameino
-            - tuikocd
-            - seg
-            - seq
-            - renban
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syameino
+              - tuikocd
+              - seg
+              - seq
+              - renban
     columns:
       - name: syameino
         data_tests:
@@ -933,11 +939,12 @@ models:
       tags: ["pixy"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syameino
-            - tuikou
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syameino
+              - tuikou
     columns:
       - name: syameino
         data_tests:
@@ -965,11 +972,12 @@ models:
       tags: ["pixy"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syameino
-            - stcd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syameino
+              - stcd
     columns:
       - name: syameino
         data_tests:
@@ -1055,11 +1063,12 @@ models:
       tags: ["pixy"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hincd
-            - syucd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - hincd
+              - syucd
     columns:
       - name: hincd
         data_tests:
@@ -1198,11 +1207,12 @@ models:
       tags: ["pixy"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - tuikocd
-            - tagcd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - tuikocd
+              - tagcd
     columns:
       - name: tuikocd
         data_tests:
@@ -1283,11 +1293,12 @@ models:
       tags: ["pixy"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syameino
-            - tuikocd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syameino
+              - tuikocd
     columns:
       - name: syameino
         data_tests:
@@ -1355,19 +1366,20 @@ models:
       tags: ["pixy"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyug
-            - tuikocd
-            - siyousyono
-            - hankata
-            - vari
-            - lv1hinban
-            - htyhkykbn
-            - hinban
-            - iroruibetu
-            - syaryouclr
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyug
+              - tuikocd
+              - siyousyono
+              - hankata
+              - vari
+              - lv1hinban
+              - htyhkykbn
+              - hinban
+              - iroruibetu
+              - syaryouclr
     columns:
       - name: syasyug
         data_tests:
@@ -1460,16 +1472,17 @@ models:
       tags: ["pixy"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyug
-            - tuikocd
-            - siyousyono
-            - hankata
-            - kotuikocd
-            - vari
-            - varix
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyug
+              - tuikocd
+              - siyousyono
+              - hankata
+              - kotuikocd
+              - vari
+              - varix
     columns:
       - name: syasyug
         data_tests:
@@ -1587,12 +1600,13 @@ models:
       tags: ["pixy"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - kinouid
-            - syasyug
-            - syoristatime
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - kinouid
+              - syasyug
+              - syoristatime
     columns:
       - name: kinouid
         data_tests:
@@ -1635,12 +1649,13 @@ models:
       tags: ["pixy"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyug
-            - siyousyono
-            - hankata
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyug
+              - siyousyono
+              - hankata
     columns:
       - name: syasyug
         data_tests:
@@ -1713,14 +1728,15 @@ models:
       tags: ["pixy"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyug
-            - dbase
-            - avnmodely
-            - oiban
-            - syouhinno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyug
+              - dbase
+              - avnmodely
+              - oiban
+              - syouhinno
     columns:
       - name: syasyug
         data_tests:

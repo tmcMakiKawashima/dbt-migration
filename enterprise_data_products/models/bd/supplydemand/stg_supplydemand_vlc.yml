@@ -105,14 +105,15 @@ models:
       tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - vhc_key
-            - plan_section
-            - kyoten_cd
-            - kyoten_kaisu
-            - tp_kbn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - vhc_key
+              - plan_section
+              - kyoten_cd
+              - kyoten_kaisu
+              - tp_kbn
     columns:
       - name: vhc_key
         data_tests:
@@ -235,13 +236,14 @@ models:
       tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - vhc_key
-            - kyoten_cd
-            - kyoten_kaisu
-            - tp_kbn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - vhc_key
+              - kyoten_cd
+              - kyoten_kaisu
+              - tp_kbn
     columns:
       - name: vhc_key
         data_tests:
@@ -339,13 +341,14 @@ models:
       tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - vhc_key
-            - plan_section
-            - kyoten_cd
-            - kyoten_kaisu
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - vhc_key
+              - plan_section
+              - kyoten_cd
+              - kyoten_kaisu
     columns:
       - name: vhc_key
         data_tests:
@@ -468,13 +471,14 @@ models:
       tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - vhc_key
-            - kyoten_cd
-            - kyoten_kaisu
-            - tp_kbn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - vhc_key
+              - kyoten_cd
+              - kyoten_kaisu
+              - tp_kbn
     columns:
       - name: vhc_key
         data_tests:
@@ -572,14 +576,15 @@ models:
       tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - vhc_key
-            - plan_section
-            - kyoten_cd
-            - kyoten_kaisu
-            - tp_kbn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - vhc_key
+              - plan_section
+              - kyoten_cd
+              - kyoten_kaisu
+              - tp_kbn
     columns:
       - name: vhc_key
         data_tests:
@@ -702,11 +707,12 @@ models:
       tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - kyoten_cd
-            - tkiy_k
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - kyoten_cd
+              - tkiy_k
     columns:
       - name: kyoten_cd
         data_tests:
@@ -809,13 +815,14 @@ models:
       tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - vhc_key
-            - kyoten_cd
-            - kyoten_kaisu
-            - tp_kbn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - vhc_key
+              - kyoten_cd
+              - kyoten_kaisu
+              - tp_kbn
     columns:
       - name: vhc_key
         data_tests:
@@ -1329,12 +1336,13 @@ models:
       tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - vhc_key
-            - kyoten_cd
-            - kyoten_kaisu
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - vhc_key
+              - kyoten_cd
+              - kyoten_kaisu
     columns:
       - name: vhc_key
         data_tests:
@@ -1617,12 +1625,13 @@ models:
       tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - vhc_key
-            - kyoten_cd
-            - kyoten_kaisu
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - vhc_key
+              - kyoten_cd
+              - kyoten_kaisu
     columns:
       - name: vhc_key
         data_tests:
@@ -1957,13 +1966,14 @@ models:
       tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - vesselcode
-            - kitencd
-            - departuredate
-            - vhcuniqinfo
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - vesselcode
+              - kitencd
+              - departuredate
+              - vhcuniqinfo
     columns:
       - name: vesselcode
         data_tests:
@@ -1991,12 +2001,13 @@ models:
       tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - kbn
-            - cd
-            - lang_cd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - kbn
+              - cd
+              - lang_cd
     columns:
       - name: kbn
         data_tests:
@@ -2019,11 +2030,12 @@ models:
       tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - kyoten_cd
-            - tkiy_k
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - kyoten_cd
+              - tkiy_k
     columns:
       - name: kyoten_cd
         data_tests:
@@ -2041,16 +2053,17 @@ models:
       tags: ["vlc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - shiyuichita_kbn
-            - fune_cd
-            - tumikou_cd_g
-            - departure_datetime
-            - agekou_cd_g
-            - henkanmae_cd_g
-            - send_datetime
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - shiyuichita_kbn
+              - fune_cd
+              - tumikou_cd_g
+              - departure_datetime
+              - agekou_cd_g
+              - henkanmae_cd_g
+              - send_datetime
     columns:
       - name: shiyuichita_kbn
         data_tests:
