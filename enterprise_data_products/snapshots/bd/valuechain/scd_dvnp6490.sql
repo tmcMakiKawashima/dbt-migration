@@ -2,12 +2,14 @@
 
 {{
     config(
-        unique_key="ORDRKEY ||'-'|| JURRSYMD ||'-'|| TANSKKEY",
+        unique_key="concat_ws('-',
+                    ORDRKEY,
+                    JURRSYMD,
+                    TANSKKEY)",
 
         strategy='timestamp',
         updated_at='LDTS',
         invalidate_hard_deletes=True,
-        snowflake_warehouse='DBT_WH',
     )
 }}
 

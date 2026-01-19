@@ -5,6 +5,7 @@ sources:
     database: supplydemand_db
     schema: public
     tables:
+    # 需給情報基盤
       - name: raw_h_hanbaikt_frmkbn
         identifier: h_hanbaikt_frmkbn
       - name: raw_lk_hanbaikt_frmkbn
@@ -15,3 +16,5 @@ sources:
         identifier: st_jpsalecar_aqua_jpseisan_frmkbn
       - name: raw_st_jpsalecar
         identifier: st_jpsalecar_aqua_jpseisan
+      - name: raw_m_cuad001
+        identifier: m_cuad001

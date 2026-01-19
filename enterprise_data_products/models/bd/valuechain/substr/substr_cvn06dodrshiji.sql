@@ -1,5 +1,3 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
-
 with substr_cvn06dodrshiji as (
     select
         substr(raw_data, 1, 11)::varchar(11) as ordrkey,
