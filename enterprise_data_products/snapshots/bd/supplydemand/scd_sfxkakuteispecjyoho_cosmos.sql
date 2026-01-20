@@ -1,4 +1,4 @@
-{% snapshot scd_cam2148_jyukyujyoho %}
+{% snapshot scd_sfxkakuteispecjyoho_cosmos %}
 
 {{
   config(
@@ -13,6 +13,6 @@
   )
 }}
 
-select * from {{ ref('stg_cam2148_jyukyujyoho') }}
+select * from {{ ref('stg_sfxkakuteispecjyoho_cosmos') }}
 
 {% endsnapshot %}

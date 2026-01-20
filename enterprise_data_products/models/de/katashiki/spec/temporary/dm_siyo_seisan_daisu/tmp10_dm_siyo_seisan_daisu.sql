@@ -13,7 +13,7 @@ with kj as (
     r_edno,  -- ｅｄ№
     r_spec_keta,  -- SPEC桁
     trim(r_spec_kigo) as r_spec_kigo  -- SPEC記号
-  from  {{ref('stg_cam2148_jyukyujyoho')}}
+  from  {{ref('stg_sfxkakuteispecjyoho_cosmos')}}
 )
 select
     kj.*,
