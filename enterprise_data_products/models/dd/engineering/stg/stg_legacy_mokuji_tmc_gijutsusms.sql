@@ -1,7 +1,7 @@
 with legacy_mokuji  as (
-        select
-            *
-        from {{ ref('stg_legacy_mokuji_gijutsusms') }}
+    select
+        *
+    from {{ ref('stg_legacy_mokuji_gijutsusms') }}
 ),
 syasyu_tmc as (
     select
