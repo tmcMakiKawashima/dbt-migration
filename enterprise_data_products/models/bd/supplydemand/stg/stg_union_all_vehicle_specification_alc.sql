@@ -1,16 +1,10 @@
 {{ 
   config(
     materialized = 'incremental',
-    incremental_strategy = 'append',
-    transient = false,
-    pre_hook = "
-      {% if is_incremental() %}
-      delete from {{this}}
-      {% endif %}
-    "
+    incremental_strategy = 'merge',
+    unique_key = ['pscexlk', 'plantcode', 'urn']
   )
  }}
--- 洗い替えであるため、pre_hookで全件削除を行う。
 
 with stg_union_all_vehicle_specification_alc as (
   select
@@ -39,13 +33,16 @@ with stg_union_all_vehicle_specification_alc as (
     rtrim(odrtype, ' 　')::varchar(1) as odrtype, -- オーダータイプ
     rtrim(vehcategorycode, ' 　')::varchar(2) as vehcategorycode, -- 車両識別コード
     rtrim(updateymdel14dg, ' 　')::varchar(14) as updateymdel14dg, -- 更新年月日(外部連携用)_14桁
-    ldts::timestamp_ntz as ldts -- B層取込日時
+    ldts::timestamp_ntz as ldts, -- B層取込日時
+    row_number() over(partition by pscexlk, plantcode, urn
+                       order by ldts desc, line_number desc) as aggkey
   from {{ ref('substr_union_all_vehicle_specification') }}
+  where
+    to_varchar(ldts,'yyyymmdd') =
+    (select to_varchar(max(ldts),'yyyymmdd')
+      from {{ ref('substr_union_all_vehicle_specification') }}
+    )
+  -- 複数ファイルでその日に着弾したものを抽出するために文字列変換処理を実装
 )
-select * from stg_union_all_vehicle_specification_alc
-where
-  to_varchar(ldts,'yyyymmdd') =
-  (select to_varchar(max(ldts),'yyyymmdd')
-    from stg_union_all_vehicle_specification_alc
-  )
--- 複数ファイルでその日に着弾したものを抽出するために文字列変換処理を実装
+select * exclude(aggkey) from stg_union_all_vehicle_specification_alc
+where aggkey = 1
