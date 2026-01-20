@@ -23,14 +23,17 @@ inputs:
     required: false
     allowCustomValue: true
 
+variables:
+  dbt_command:
+    --select +dm_hinban_all +dm_yousi_all +dm_zokusei_all +dm_tekiyohani_all
+    --exclude stg_syasyu
+    --vars '{"DBT_JOB_NAME":"_dm_seppen_bunseki"}'
+
 tasks:
   - id: clone_dbt_build
     type: io.kestra.plugin.dbt.cli.DbtCLI
     commands:
-      - dbt build
-        --select +dm_hinban_all +dm_yousi_all +dm_zokusei_all +dm_tekiyohani_all
-        --exclude stg_syasyu
-        --vars '{"DBT_JOB_NAME":"_dm_seppen_bunseki"}'
+      - dbt build {{ vars.dbt_command }}
         {{ inputs.dbt_options ?? "" }}
 
 triggers:
@@ -60,5 +63,6 @@ finally:
     message: 
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
       - "dbt options -> {{ inputs.dbt_options ?? '' }}"
+      - "dbt commands -> {{ vars.dbt_command }}"
       
 disabled: false
