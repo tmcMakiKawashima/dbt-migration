@@ -39,7 +39,7 @@ tasks:
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
-    cron: "08 17 * * *"
+    cron: "00 07 * * *"
     timezone: Asia/Tokyo
 
 # エラーログを出力
