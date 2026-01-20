@@ -8,11 +8,12 @@ with tmp_junkanri_blktenkai as (
   select
     syasyu, -- 車種コード
     target, -- ターゲット
-    torokujun, -- 登録／生認順
+    torokujun::varchar(9) as torokujun, -- 登録／生認順 参照元の桁数定義に不備があるため
     seppenno, -- 設変No.
     maxmttime, -- MAXMTTIME
-    mttime -- MTTIME
+    mttime::varchar(16) as mttime -- MTTIME 参照元の桁数定義に不備があるため
   from {{ref('tmp_junkanri_blktenkai')}}
+  where target = 'KOUSEI'
 ), tmp_junkanri_jyufukublktenkai_eph as (
   select
     syasyu, -- 車種コード
@@ -57,4 +58,3 @@ inner join dm_kousei_blktenkai as ks
 on (
     tmp.syasyu = ks.syasyu
 )
-where tmp.target = 'KOUSEI'

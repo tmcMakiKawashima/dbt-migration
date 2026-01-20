@@ -5,14 +5,13 @@ sources:
     database: parts_list_db
     schema: sms
     tables:
-    # sms-kousei
+    # smskousei
       - name: raw_tmp_junkanri_blktenkai
         identifier: tmp_junkanri_blktenkai
       - name: raw_tmp_legacy_junkanri_blktenkai
         identifier: tmp_legacy_junkanri_blktenkai
-    # 現導入国データ(Ci-SPEC)公開
-      - name: raw_tmp_junkanri_jyufukublktenkai
-        identifier: tmp_junkanri_jyufukublktenkai
+      - name: raw_tmp00_junkanri_jyufukublktenkai
+        identifier: tmp00_junkanri_jyufukublktenkai
 
   - name: parts_list_db_public
     database: parts_list_db

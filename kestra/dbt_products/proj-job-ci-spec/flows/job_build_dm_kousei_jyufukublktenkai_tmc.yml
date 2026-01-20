@@ -24,7 +24,7 @@ tasks:
     type: io.kestra.plugin.dbt.cli.DbtCLI
     commands:
       - dbt build
-        --select +dm_kousei_jyufukublktenkai_tmc +tmp_junkanri_jyufukublktenkai
+        --select +dm_kousei_jyufukublktenkai_tmc +tmp00_junkanri_jyufukublktenkai
         --exclude +tmp08_dm_kousei_jyufukublktenkai +stg_syasyu_tmc_sms
         --vars '{"DBT_JOB_NAME":"_dm_kousei_jyufukublktenkai_tmc"}'
         {{ inputs.dbt_options ?? "" }}
