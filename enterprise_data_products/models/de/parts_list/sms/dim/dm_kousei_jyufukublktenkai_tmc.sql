@@ -6,4 +6,6 @@ with dm_kousei_jyufukublktenkai as (
 select ks.*
 from dm_kousei_jyufukublktenkai as ks
 inner join stg_syasyu_tmc_sms as sy
-on ks.syasyu = sy.syasyu
+on (
+    ks.syasyu = sy.syasyu
+)

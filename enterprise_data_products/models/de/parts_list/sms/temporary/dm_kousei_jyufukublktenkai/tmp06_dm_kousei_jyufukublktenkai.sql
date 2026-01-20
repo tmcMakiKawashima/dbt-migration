@@ -13,7 +13,7 @@ with recursive chain_start as (
     zt1.oyahin, -- 親品番
     zt1.lv, -- レベル
     zt1.id, -- ID
-    zt1.GC, -- GC
+    zt1.gc, -- GC
     zt1.kohin, -- 品番／BLKコード
     zt1.tyohuku, -- 重複記載
     case
@@ -51,7 +51,7 @@ with recursive chain_start as (
     zt.oyahin, -- 親品番
     zt.lv, -- レベル
     zt.id, -- ID
-    zt.GC, -- GC
+    zt.gc, -- GC
     zt.kohin, -- 品番／BLKコード
     zt.tyohuku, -- 重複記載
     case 
@@ -89,7 +89,7 @@ select
   oyahin, -- 親品番
   lv, -- レベル
   id, -- ID
-  GC, -- GC
+  gc, -- GC
   kohin, -- 品番／BLKコード
   tyohuku, -- 重複記載
   tyohuku_flg, -- 重複FLG

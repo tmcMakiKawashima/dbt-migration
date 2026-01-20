@@ -44,10 +44,8 @@ with tmp08_dm_kousei_jyufukublktenkai as (
         seppennok, -- 設変No.カラ
         seppennom, -- 設変No.マデ
         torokutimek, -- LOAD TIMEカラ
-        torokutimem -- LOAD TIMEマデ
+        torokutimem, -- LOAD TIMEマデ
+        current_timestamp()::timestamp_ntz(9) as ldts
     from {{ref('tmp08_dm_kousei_jyufukublktenkai')}}
 )
-select
-    tmp8.*,
-    current_timestamp()::timestamp_ntz(9) as ldts
-from tmp08_dm_kousei_jyufukublktenkai as tmp8
+select * from tmp08_dm_kousei_jyufukublktenkai
