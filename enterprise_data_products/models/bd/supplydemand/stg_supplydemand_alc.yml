@@ -7,12 +7,13 @@ models:
       tags: ["alc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - pscexlk
-            - plantcode
-            - urn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - pscexlk
+              - plantcode
+              - urn
     columns:
       - name: pscexlk
         data_tests:
