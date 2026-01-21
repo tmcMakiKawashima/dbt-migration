@@ -84,7 +84,7 @@ with stg_hinban_hikiate_koumusms as (
         kousintime::varchar(16) as kousintime, --更新日時
         userid::varchar(10) as userid, --更新者ＩＤ
         _fivetran_synced::timestamp_ntz as ldts, --B層取込日時
-        row_number() over(partition by 
+        row_number() over (partition by
             jigyoutaicd,
             kouku,
             renban,
@@ -122,12 +122,13 @@ with stg_hinban_hikiate_koumusms as (
             shimukekouku,
             multisspkbn,
             blkcd
-        order by kousintime desc, ldts desc, _fivetran_id desc) aggkey
+        order by kousintime desc, ldts desc, _fivetran_id desc) as aggkey
     from {{ source('fivetran_database_oraclerds_lzdata01_sms_dxpfy2d','raw_cb403hikiate') }}
-    where _fivetran_deleted = false
-    {% if is_incremental() %}
-        and ldts > (select max(ldts) from {{this}})
-    {% endif %}
+    where
+        _fivetran_deleted = false
+        {% if is_incremental() %}
+            and ldts > (select max(ldts) from {{ this }})
+        {% endif %}
 )
-select * exclude(aggkey) from stg_hinban_hikiate_koumusms
+select * exclude (aggkey) from stg_hinban_hikiate_koumusms
 where aggkey = 1
