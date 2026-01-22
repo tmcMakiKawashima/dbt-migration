@@ -13,6 +13,14 @@ retry:
   maxInterval: PT720S
   delayFactor: 30
 
+sla:
+  - id: maxDuration
+    type: MAX_DURATION
+    duration: PT3600S
+    behavior: NONE
+    labels:
+      sla: miss
+
 # 手動実行時に指定できるdbtオプション
 inputs:
   - id: dbt_options
@@ -36,6 +44,14 @@ tasks:
       - dbt build {{ vars.dbt_command }}
         {{ inputs.dbt_options ?? "" }}
 
+  - id: fetch_warning_logs
+    type: io.kestra.plugin.core.log.Fetch
+    level: WARN
+
+  - id: get_warning_message
+    type: io.kestra.plugin.transform.jsonata.TransformItems
+    from: "{{ outputs.fetch_warning_logs.uri }}"
+
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
@@ -44,14 +60,16 @@ triggers:
 
 # エラーログを出力
 errors:
-  - id: error_log
-    type: io.kestra.plugin.core.debug.Return
-    format: "{{ errorLogs()[0]['message'] }}"
+  - id: fetch_error_logs
+    type: io.kestra.plugin.core.log.Fetch
+
+  - id: get_error_message
+    type: io.kestra.plugin.transform.jsonata.TransformItems
 
 outputs: 
   - id: output_error_log
     type: STRING
-    value: "{{ outputs.error_log.value ?? 'No message found.' }}"
+    value: "{{ read(outputs.get_error_message.uri) ?? read(outputs.get_warning_message.uri) | default('No message found.') }}"
   - id: output_state
     type: STRING
     value: "{{ tasks.clone_dbt_build.state ?? 'No state' }}"
