@@ -5,7 +5,7 @@ sources:
     database: parts_list_db
     schema: sms
     tables:
-    # smskousei
+    # SMS
       - name: raw_tmp_junkanri_blktenkai
         identifier: tmp_junkanri_blktenkai
       - name: raw_tmp_legacy_junkanri_blktenkai
