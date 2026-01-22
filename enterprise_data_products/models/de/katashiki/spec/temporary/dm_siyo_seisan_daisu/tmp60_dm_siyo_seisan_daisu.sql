@@ -19,7 +19,7 @@ with urn as (
         o_idline,                         --アイデントライン
         count(*)::number(13,0) as daisu,  --台数
         '1'::varchar(1) as naiji_flg      --内示実績FLG
-    from vinhis_db.spec.dm_vinhis_specification_urn_test
+    from {{ref('dm_vinhis_specification_urn')}}
     where concat(sk_y, sk_m) >= to_varchar(current_date(), 'yyyymm')
     group by
         syasyu,
