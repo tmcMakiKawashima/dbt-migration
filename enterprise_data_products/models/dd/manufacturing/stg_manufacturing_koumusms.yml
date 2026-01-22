@@ -1,10 +1,10 @@
 version: 2
 
 models:
-# 品番引当
-  - name: stg_hinban_hikiate_koumusms
+# 品番引当(TMC車種限定)
+  - name: stg_hinban_hikiate_tmc_koumusms
     config:
-      tags: ["koumu-sms"]
+      tags: ["koumusms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           config:
