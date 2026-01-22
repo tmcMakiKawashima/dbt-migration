@@ -26,3 +26,9 @@ sources:
     # i-QAS
       - name: raw_m_koujyomaster
         identifier: m_koujyomaster
+  #2026/01/21～ 342 テスト用
+      - name: raw_m_koujyomaster_test
+        identifier: m_koujyomaster_test
+      - name: raw_stg_color_no
+        identifier: stg_color_no_test
+  #2026/01/21～ 342 テスト用

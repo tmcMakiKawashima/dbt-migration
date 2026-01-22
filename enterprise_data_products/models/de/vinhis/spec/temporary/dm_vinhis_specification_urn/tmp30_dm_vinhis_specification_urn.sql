@@ -33,28 +33,37 @@ with t20 as (   -- 中間20_URN装備(ALL)
         ktfgomeijp,         -- 工程符号名称(和)
         ktfgomeien,         -- 工程符号名称(英)
         veh_plnt_code       -- 車両工場コード
-	from {{ref('tmp20_dm_vinhis_specification_urn')}}
+    from {{source('vinhis_db_spec','raw_tmp20_dm_vinhis_specification_urn')}}
+{% raw %}
+	--from {{ref('tmp20_dm_vinhis_specification_urn')}}
+{% endraw %}
 ), alc as (     -- ALC工場コード
     select
         psc_alccode,        -- PSC1桁＆工場コード
         psc_alcname         -- PSC1桁＆工場名
-    from {{source('common_tbl_db_public','raw_m_hostalc_psc_plantcode')}}
+    --from {{source('common_tbl_db_public','raw_m_hostalc_psc_plantcode')}}
+    from {{source('common_tbl_db_public','raw_m_hostalc_psc_plantcode_test')}}
 ), skm as (     -- 車両工場名称
     select
         table_data_id,                                                                      -- テーブルデータID
         right(value_ja,(len(value_ja) - charindex(':',value_ja))) as veh_plnt_code_name,    -- 表示名(日)
         right(value_en,(len(value_en) - charindex(':',value_en))) as veh_plnt_code_name_en  -- 表示名(英)
-    from {{source('common_tbl_db_iqas_name_convert','raw_mst_041veh_plnt_code_name')}}
+    --from {{source('common_tbl_db_iqas_name_convert','raw_mst_041veh_plnt_code_name')}}
+    from {{source('common_tbl_db_iqas_name_convert','raw_mst_041veh_plnt_code_name_test')}}
 ), col as (     -- カラーNO
     select
         gclrno,             -- カラーNo
         iromei              -- 色名
-    from {{ref('stg_color_no')}}
+    from {{source('engineering_db_public','raw_stg_color_no')}}
+{% raw %}
+	--from {{ref('stg_color_no')}}
+{% endraw %}
 ), km as (      -- 国マスター
     select 
         r_country_code,     -- 国コード
         r_country_name      -- 国名
-    from {{source('supplydemand_db_public','raw_m_cuad001')}}
+    --from {{source('supplydemand_db_public','raw_m_cuad001')}}
+    from {{source('supplydemand_db_public','raw_m_cuad001_test')}}
 )
 select
     t20.*,                              -- t20の全項目

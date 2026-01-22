@@ -14,7 +14,10 @@ with t40 as (   -- 中間40_URN装備(ALL)
         idline,                                 -- アイデントライン
         keta_no,                                -- 桁番号
         kigo                                    -- 記号
-    from {{ref('tmp40_dm_vinhis_specification_urn')}}
+    from {{source('vinhis_db_spec','raw_tmp40_dm_vinhis_specification_urn')}}
+{% raw %}
+	--from {{ref('tmp40_dm_vinhis_specification_urn')}}
+{% endraw %}
 ), sh as (      -- 仕様変換マスタ
     select
         syasyu,                                 -- 車種コード
@@ -22,7 +25,10 @@ with t40 as (   -- 中間40_URN装備(ALL)
         s1kigo,                                 -- spec記号
         siyoudai4,                              -- 仕様コード(4桁)大分類
         siyousai4                               -- 仕様コード(4桁)細目
-    from {{ref('stg_siyouhenkan')}}
+    from {{source('supplydemand_db_public','raw_stg_siyouhenkan')}}
+{% raw %}
+    --from {{ref('stg_siyouhenkan')}}
+{% endraw %}
 )
 select
     t40.syasyu,                                                             -- 車種コード
