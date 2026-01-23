@@ -16,7 +16,7 @@ retry:
 sla:
   - id: maxDuration
     type: MAX_DURATION
-    duration: PT3600S
+    duration: PT1H
     behavior: NONE
     labels:
       sla: miss
