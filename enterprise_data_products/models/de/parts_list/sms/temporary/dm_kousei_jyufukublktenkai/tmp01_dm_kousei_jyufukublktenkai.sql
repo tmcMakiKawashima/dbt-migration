@@ -14,11 +14,11 @@ with tmp_junkanri_blktenkai as (
     mttime::varchar(16) as mttime -- MTTIME 参照元の桁数定義に不備があるため
   from {{ref('tmp_junkanri_blktenkai')}}
   where target = 'KOUSEI'
-), tmp_junkanri_jyufukublktenkai_eph as (
+), tmp00_junkanri_jyufukublktenkai_eph as (
   select
     syasyu, -- 車種コード
     maxmttime -- MAXMTTIME
-  from {{ref('tmp_junkanri_jyufukublktenkai_eph')}}
+  from {{ref('tmp00_junkanri_jyufukublktenkai_eph')}}
 ), dm_kousei_blktenkai as (
   select
     syasyu, -- 車種コード
@@ -49,7 +49,7 @@ select
   ks.*,
   tmp.* exclude(syasyu)
 from tmp_junkanri_blktenkai as tmp
-left join tmp_junkanri_jyufukublktenkai_eph as zt
+left join tmp00_junkanri_jyufukublktenkai_eph as zt
 on (
     tmp.syasyu = zt.syasyu
 and tmp.maxmttime > zt.maxmttime
