@@ -532,7 +532,7 @@ models:
 # COSMOS_SFX確定：SPEC情報
   - name: stg_sfxkakuteispecjyoho_cosmos
     config:
-      tags: ["jyukyujyoho"]
+      tags: ["cosmos"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           config:
