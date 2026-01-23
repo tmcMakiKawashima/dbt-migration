@@ -2,9 +2,20 @@
   config(
     materialized = 'incremental',
     incremental_strategy = 'merge',
-    unique_key = ['pscexlk', 'plantcode', 'urn']
+    unique_key = ['pscexlk', 'plantcode', 'urn'],
+    post_hook = "
+            {% if is_incremental() %}
+                delete from {{this}}
+                where
+                  to_varchar(ldts,'yyyymmdd') <
+                  (select to_varchar(max(ldts),'yyyymmdd')
+                    from {{ ref('substr_union_all_vehicle_specification') }}
+                  )
+            {% endif %}
+        "
   )
  }}
+ -- 最新日付以外のレコードを削除
 
 with stg_union_all_vehicle_specification_alc as (
   select
