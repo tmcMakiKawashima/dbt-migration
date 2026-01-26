@@ -39,8 +39,10 @@ with t30 as (   -- 中間30_URN装備(ALL)
         int_cd_iromei,          -- 内張色
         ext_cd_iromei,          -- 外鈑色
         dest                    -- 仕向国
-
-    from {{ref('tmp30_dm_vinhis_specification_urn')}}
+    from {{source('vinhis_db_spec','raw_tmp30_dm_vinhis_specification_urn')}}
+{% raw %}
+	--from {{ref('tmp30_dm_vinhis_specification_urn')}}
+{% endraw %}
 ), t41 as ( -- 中間41_URN装備(ALL)
     select
         syasyu,                 -- 車種コード
@@ -55,12 +57,15 @@ with t30 as (   -- 中間30_URN装備(ALL)
         plantcode,              -- 工場コード
         pscexlk,                -- PSC
         idline,                 -- アイデントライン
-        spec200_siyou           -- SPEC対応4桁仕様
-    from {{ref('tmp41_dm_vinhis_specification_urn')}}
+        spec200_siyo            -- SPEC対応4桁仕様
+    from {{source('vinhis_db_spec','raw_tmp41_dm_vinhis_specification_urn')}}
+{% raw %}
+	--from {{ref('tmp41_dm_vinhis_specification_urn')}}
+{% endraw %}
 )
 select
     t30.*,                      -- t30の全項目
-    t41.spec200_siyou           -- SPEC対応4桁仕様
+    t41.spec200_siyo            -- SPEC対応4桁仕様
 from t30        -- 中間30_URN装備(ALL)
 left join t41   -- 中間41_URN装備(ALL)
 on (

@@ -21,7 +21,6 @@ sources:
       #2026/01/21～ 342 テスト用
       - name: raw_m_cuad001_test
         identifier: m_cuad001_test
-      #2026/01/21～ 342 テスト用
       - name: raw_stg_union_all_vehicle_specification_alc
         identifier: stg_union_all_vehicle_specification_alc_test
       - name: raw_stg_syasyu_siyousho

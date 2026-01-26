@@ -19,7 +19,7 @@ with t42 as (   -- 中間42_URN装備(ALL)
         syasyu,                                     -- 車種コード
         kata as haisya_kt,                          -- 配車型式
         spec as spec200,                            -- SPEC200桁組合せ
-        spec200_siyou,                              -- SPEC対応4桁仕様
+        spec200_siyo,                              -- SPEC対応4桁仕様
         intcode as int_cd,                          -- 内張コード
         int_cd_iromei,                              -- 内張名
         extcode as ext_cd,                          -- 外鈑色コード
@@ -43,7 +43,10 @@ with t42 as (   -- 中間42_URN装備(ALL)
         sk_y,                                       -- 終検日年
         sk_m,                                       -- 終検日月
         current_timestamp::timestamp_ntz(9) as ldts -- 現在日時
-    from {{ref('tmp42_dm_vinhis_specification_urn')}}
+    from {{source('vinhis_db_spec','raw_tmp42_dm_vinhis_specification_urn')}}
+{% raw %}
+	--from {{ref('tmp42_dm_vinhis_specification_urn')}}
+{% endraw %}
 )
 select
     t42.*                                           -- tmp42の全項目

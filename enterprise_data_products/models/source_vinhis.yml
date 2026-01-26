@@ -47,4 +47,10 @@ sources:
     # tmp40
       - name: raw_tmp40_dm_vinhis_specification_urn
         identifier: tmp40_dm_vinhis_specification_urn_test
+    # tmp41
+      - name: raw_tmp41_dm_vinhis_specification_urn
+        identifier: tmp41_dm_vinhis_specification_urn_test
+    # tmp42
+      - name: raw_tmp42_dm_vinhis_specification_urn
+        identifier: tmp42_dm_vinhis_specification_urn_test
   #2026/01/21～ 342 テスト用

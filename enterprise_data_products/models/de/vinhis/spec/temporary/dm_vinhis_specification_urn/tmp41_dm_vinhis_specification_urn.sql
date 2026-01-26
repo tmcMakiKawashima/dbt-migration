@@ -44,7 +44,7 @@ select
     t40.pscexlk,                                                            -- PSC
     t40.idline,                                                             -- アイデントライン
     listagg(sh.siyoudai4 || sh.siyousai4,'')
-        within group(order by t40.keta_no)::varchar(800) as spec200_siyou   -- SPEC対応4桁仕様
+        within group(order by t40.keta_no)::varchar(800) as spec200_siyo    -- SPEC対応4桁仕様
 from t40        -- 中間40_URN装備(ALL)
 left join sh    -- 仕様変換マスタ
 on (
