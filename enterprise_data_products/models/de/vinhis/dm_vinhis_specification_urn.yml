@@ -1,0 +1,29 @@
+version: 2
+models:
+# URN装備（ALL）
+  - name: dm_vinhis_specification_urn
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - urn
+            - lodate
+            - psc
+            - koujyou_cd
+          config:
+            severity: error
+    columns:
+      - name: urn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: psc
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: koujyou_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
