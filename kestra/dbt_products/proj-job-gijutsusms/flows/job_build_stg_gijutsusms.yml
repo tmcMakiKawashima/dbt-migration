@@ -26,7 +26,7 @@ inputs:
 variables:
   dbt_command:
     --select +stg_legacy_mokuji_tmc_gijutsusms
-    --vars '{"DBT_JOB_NAME":"_stg_legacy_mokuji_tmc_gijutsusms"}'
+    --vars '{"DBT_JOB_NAME":"_stg_gijutsusms"}'
 
 tasks:
   - id: clone_dbt_build
