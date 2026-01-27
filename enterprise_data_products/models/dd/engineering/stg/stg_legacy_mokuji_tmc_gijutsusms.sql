@@ -1,15 +1,15 @@
-with legacy_mokuji  as (
+with stg_legacy_mokuji_gijutsusms  as (
     select
         *
     from {{ ref('stg_legacy_mokuji_gijutsusms') }}
 ),
-syasyu_tmc as (
+stg_syasyu_tmc_sms as (
     select
         syasyu
     from {{ ref('stg_syasyu_tmc_sms') }}
 )
 select
-    legacy_mokuji.*
-from legacy_mokuji
-inner join syasyu_tmc
-    on legacy_mokuji.syasyu = syasyu_tmc.syasyu
+    stg_legacy_mokuji_gijutsusms.*
+from stg_legacy_mokuji_gijutsusms
+inner join stg_syasyu_tmc_sms
+    on stg_legacy_mokuji_gijutsusms.syasyu = stg_syasyu_tmc_sms.syasyu
