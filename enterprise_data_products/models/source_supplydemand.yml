@@ -18,3 +18,13 @@ sources:
         identifier: st_jpsalecar_aqua_jpseisan
       - name: raw_m_cuad001
         identifier: m_cuad001
+      #2026/01/21～ 342 テスト用
+      - name: raw_m_cuad001_test
+        identifier: m_cuad001_test
+      - name: raw_stg_union_all_vehicle_specification_alc
+        identifier: stg_union_all_vehicle_specification_alc_test
+      - name: raw_stg_syasyu_siyousho
+        identifier: stg_syasyu_siyousho_test
+      - name: raw_stg_siyouhenkan
+        identifier: stg_siyouhenkan_test
+      #2026/01/21～ 342 テスト用

@@ -30,3 +30,27 @@ sources:
     # 盗難抑止
       - name: raw_dm_allsalecar_seisanjisseki
         identifier: dm_allsalecar_seisanjisseki
+  #2026/01/21～ 342 テスト用
+  - name: vinhis_db_spec
+    database: vinhis_db
+    schema: spec
+    tables:
+    # tmp10
+      - name: raw_tmp10_dm_vinhis_specification_urn
+        identifier: tmp10_dm_vinhis_specification_urn_test
+    # tmp20
+      - name: raw_tmp20_dm_vinhis_specification_urn
+        identifier: tmp20_dm_vinhis_specification_urn_test
+    # tmp30
+      - name: raw_tmp30_dm_vinhis_specification_urn
+        identifier: tmp30_dm_vinhis_specification_urn_test
+    # tmp40
+      - name: raw_tmp40_dm_vinhis_specification_urn
+        identifier: tmp40_dm_vinhis_specification_urn_test
+    # tmp41
+      - name: raw_tmp41_dm_vinhis_specification_urn
+        identifier: tmp41_dm_vinhis_specification_urn_test
+    # tmp42
+      - name: raw_tmp42_dm_vinhis_specification_urn
+        identifier: tmp42_dm_vinhis_specification_urn_test
+  #2026/01/21～ 342 テスト用

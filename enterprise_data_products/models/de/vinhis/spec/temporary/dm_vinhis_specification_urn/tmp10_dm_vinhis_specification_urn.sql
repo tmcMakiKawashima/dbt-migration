@@ -1,4 +1,5 @@
-with mss as (   -- 抽出結果_最大MT日時車種
+with mss as (
+-- 抽出結果_最大MT日時車種
     select
         sno,                    -- 仕様書NO
         syasyu,                 -- 車種コード
@@ -6,8 +7,12 @@ with mss as (   -- 抽出結果_最大MT日時車種
             partition by sno
             order by mtdate desc
         ) as rnk                -- ランク
-    from {{ref('stg_syasyu_siyousho')}}
-), ssua as (    -- 車両仕様UNION_ALL結果
+    from {{source('supplydemand_db_public','raw_stg_syasyu_siyousho')}}
+{% raw %}
+    --from {{ref('stg_syasyu_siyousho')}}
+{% endraw %}
+), ssua as (
+-- 車両仕様UNION_ALL結果
     select
         urn,                    -- URN
         dfsc,                   -- DFSC/EDNO
@@ -33,7 +38,10 @@ with mss as (   -- 抽出結果_最大MT日時車種
         pscexlk,                -- PSC
         plantcode,              -- 工場コード
         idline                  -- アイデントライン
-    from {{ref('stg_union_all_vehicle_specification_alc')}}
+    from {{source('supplydemand_db_public','raw_stg_union_all_vehicle_specification_alc')}}
+{% raw %}
+    --from {{ref('stg_union_all_vehicle_specification_alc')}}
+{% endraw %}
 )
 select
     coalesce(nullif(ssua.carfamily , ''), mss.syasyu) as syasyu,    -- 車種コード
