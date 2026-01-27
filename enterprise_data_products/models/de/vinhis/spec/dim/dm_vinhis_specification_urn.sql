@@ -1,4 +1,5 @@
-with t42 as (   -- 中間42_URN装備(ALL)
+with t42 as (
+-- 中間42_URN装備(ALL)
     select
         coalesce(urn,'') as urn,                    -- URN
         dfsc,                                       -- DFSC/EDNO
@@ -25,7 +26,7 @@ with t42 as (   -- 中間42_URN装備(ALL)
         extcode as ext_cd,                          -- 外鈑色コード
         ext_cd_iromei,                              -- 外鈑色名
         destcode as dest_cd,                        -- 仕向地コード
-        dest,                                       -- 仕向国
+        r_country_name as dest,                     -- 仕向国
         coalesce(pscexlk,'') as psc,                -- PSC
         coalesce(plantcode,'') as koujyou_cd,       -- 工場コード
         psc_alcname as psc_koujyou_meisho,          -- PSC1桁＆工場名
@@ -48,6 +49,4 @@ with t42 as (   -- 中間42_URN装備(ALL)
 	--from {{ref('tmp42_dm_vinhis_specification_urn')}}
 {% endraw %}
 )
-select
-    t42.*                                           -- tmp42の全項目
-from t42-- 中間42_URN装備(ALL)
+select * from t42   -- 中間42_URN装備(ALL)

@@ -1,4 +1,5 @@
-with t40 as (   -- 中間40_URN装備(ALL)
+with t40 as (
+-- 中間40_URN装備(ALL)
     select
         syasyu,                                 -- 車種コード
         kata,                                   -- 呼称型式
@@ -18,7 +19,8 @@ with t40 as (   -- 中間40_URN装備(ALL)
 {% raw %}
 	--from {{ref('tmp40_dm_vinhis_specification_urn')}}
 {% endraw %}
-), sh as (      -- 仕様変換マスタ
+), sh as (
+-- 仕様変換マスタ
     select
         syasyu,                                 -- 車種コード
         s1keta,                                 -- spec桁
@@ -31,18 +33,7 @@ with t40 as (   -- 中間40_URN装備(ALL)
 {% endraw %}
 )
 select
-    t40.syasyu,                                                             -- 車種コード
-    t40.kata,                                                               -- 呼称型式
-    t40.enginekata,                                                         -- エンジン型式
-    t40.sk_y,                                                               -- 終検日年
-    t40.sk_m,                                                               -- 終検日月
-    t40.spec,                                                               -- SPEC200桁組合せ
-    t40.intcode,                                                            -- 内張コード
-    t40.extcode,                                                            -- 外鈑色コード
-    t40.destcode,                                                           -- 仕向地コード
-    t40.plantcode,                                                          -- 工場コード
-    t40.pscexlk,                                                            -- PSC
-    t40.idline,                                                             -- アイデントライン
+    t40.* exclude(keta_no,kigo),                                            -- t40の桁番号、記号を除外した項目
     listagg(sh.siyoudai4 || sh.siyousai4,'')
         within group(order by t40.keta_no)::varchar(800) as spec200_siyo    -- SPEC対応4桁仕様
 from t40        -- 中間40_URN装備(ALL)

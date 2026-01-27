@@ -1,4 +1,5 @@
-with t30 as (   -- 抽出結果_中間30_重複排除
+with t30 as (
+-- 抽出結果_中間30_重複排除
     select distinct
         syasyu,                                 -- 車種コード
         kata,                                   -- 呼称型式
@@ -16,7 +17,8 @@ with t30 as (   -- 抽出結果_中間30_重複排除
 {% raw %}
 	--from {{ref('tmp30_dm_vinhis_specification_urn')}}
 {% endraw %}
-), seq as(      -- SPECを200分割するためのシーケンス
+), seq as(
+-- SPECを200分割するためのシーケンス
     select
         seq4() + 1 as keta_no                   -- 桁番号
     from table(generator(rowcount => 200))
