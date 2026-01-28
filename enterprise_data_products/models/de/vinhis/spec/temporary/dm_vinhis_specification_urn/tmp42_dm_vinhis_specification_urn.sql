@@ -67,20 +67,7 @@ with t30 as (
 )
 select
     t30.*,                      -- t30の全項目
-    t41.* exclude(              -- t41からSPEC対応4桁仕様以外を除外
-        syasyu,
-        kata,
-        enginekata,
-        sk_y,
-        sk_m,
-        spec,
-        intcode,
-        extcode,
-        destcode,
-        plantcode,
-        pscexlk,
-        idline
-    )
+    t41.spec200_siyo            -- SPEC対応4桁仕様
 from t30        -- 中間30_URN装備(ALL)
 left join t41   -- 中間41_URN装備(ALL)
 on (
