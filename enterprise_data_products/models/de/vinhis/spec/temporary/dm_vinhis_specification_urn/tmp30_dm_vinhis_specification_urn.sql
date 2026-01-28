@@ -81,11 +81,12 @@ with t20 as (
 )
 select
     t20.*,                              -- t20の全項目
-    alc.* exclude(psc_alccode),         -- alcのPSC1桁＆工場コードを除いた項目
-    skm.* exclude(table_data_id),       -- skmのテーブルデータIDを除いた項目
-    inc.* exclude(gclrno),              -- incのカラーNoを除いた項目
-    outc.* exclude(gclrno),             -- outcのカラーNoを除いた項目
-    km.* exclude(r_country_code)        -- kmの国コードを除いた項目
+    alc.psc_alcname,                    -- PSC1桁＆工場名
+    skm.veh_plnt_code_name,             -- 車両工場名(日本語)
+    skm.veh_plnt_code_name_en,          -- 車両工場名(英語)
+    inc.int_cd_iromei,                  -- 内張色
+    outc.ext_cd_iromei,                 -- 外鈑色
+    km.r_country_name                   -- 仕向国
 from t20         -- 中間20_URN装備(ALL)
 left join alc    -- ALC工場コード
 on (
