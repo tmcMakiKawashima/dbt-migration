@@ -40,10 +40,7 @@ with t30 as (
         int_cd_iromei,          -- 内張色
         ext_cd_iromei,          -- 外鈑色
         r_country_name          -- 仕向国
-    from {{source('vinhis_db_spec','raw_tmp30_dm_vinhis_specification_urn')}}
-{% raw %}
-	--from {{ref('tmp30_dm_vinhis_specification_urn')}}
-{% endraw %}
+	from {{ref('tmp30_dm_vinhis_specification_urn')}}
 ), t41 as (
 -- 中間41_URN装備(ALL)
     select
@@ -60,10 +57,7 @@ with t30 as (
         pscexlk,                -- PSC
         idline,                 -- アイデントライン
         spec200_siyo            -- SPEC対応4桁仕様
-    from {{source('vinhis_db_spec','raw_tmp41_dm_vinhis_specification_urn')}}
-{% raw %}
-	--from {{ref('tmp41_dm_vinhis_specification_urn')}}
-{% endraw %}
+	from {{ref('tmp41_dm_vinhis_specification_urn')}}
 )
 select
     t30.*,                      -- t30の全項目

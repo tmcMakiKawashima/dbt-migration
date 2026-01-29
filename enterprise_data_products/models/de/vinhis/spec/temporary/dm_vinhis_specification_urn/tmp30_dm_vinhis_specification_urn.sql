@@ -34,50 +34,38 @@ with t20 as (
         ktfgomeijp,         -- 工程符号名称(和)
         ktfgomeien,         -- 工程符号名称(英)
         veh_plnt_code       -- 車両工場コード
-    from {{source('vinhis_db_spec','raw_tmp20_dm_vinhis_specification_urn')}}
-{% raw %}
-	--from {{ref('tmp20_dm_vinhis_specification_urn')}}
-{% endraw %}
+	from {{ref('tmp20_dm_vinhis_specification_urn')}}
 ), alc as (
 -- ALC工場コード
     select
         psc_alccode,        -- PSC1桁＆工場コード
         psc_alcname         -- PSC1桁＆工場名
-    --from {{source('common_tbl_db_public','raw_m_hostalc_psc_plantcode')}}
-    from {{source('common_tbl_db_public','raw_m_hostalc_psc_plantcode_test')}}
+    from {{source('common_tbl_db_public','raw_m_hostalc_psc_plantcode')}}
 ), skm as (
 -- 車両工場名称
     select
         table_data_id,                                                                      -- テーブルデータID
         right(value_ja,(len(value_ja) - charindex(':',value_ja))) as veh_plnt_code_name,    -- 表示名(日)
         right(value_en,(len(value_en) - charindex(':',value_en))) as veh_plnt_code_name_en  -- 表示名(英)
-    --from {{source('common_tbl_db_iqas_name_convert','raw_mst_041veh_plnt_code_name')}}
-    from {{source('common_tbl_db_iqas_name_convert','raw_mst_041veh_plnt_code_name_test')}}
+    from {{source('common_tbl_db_iqas_name_convert','raw_mst_041veh_plnt_code_name')}}
 ), inc as (
 -- カラーNO(内張)
     select
         gclrno,                     -- カラーNo
         iromei as int_cd_iromei     -- 色名
-    from {{source('engineering_db_public','raw_stg_color_no')}}
-{% raw %}
-	--from {{ref('stg_color_no')}}
-{% endraw %}
+	from {{ref('stg_color_no')}}
 ), outc as (
 -- カラーNO(外鈑)
     select
         gclrno,                     -- カラーNo
         iromei as ext_cd_iromei     -- 色名
-    from {{source('engineering_db_public','raw_stg_color_no')}}
-{% raw %}
-	--from {{ref('stg_color_no')}}
-{% endraw %}
+	from {{ref('stg_color_no')}}
 ), km as (
 -- 国マスター
     select 
         r_country_code,             -- 国コード
         r_country_name              -- 国名
-    --from {{source('supplydemand_db_public','raw_m_cuad001')}}
-    from {{source('supplydemand_db_public','raw_m_cuad001_test')}}
+    from {{source('supplydemand_db_public','raw_m_cuad001')}}
 )
 select
     t20.*,                              -- t20の全項目

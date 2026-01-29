@@ -13,10 +13,7 @@ with t30 as (
         plantcode,                              -- 工場コード
         pscexlk,                                -- PSC
         idline                                  -- アイデントライン
-    from {{source('vinhis_db_spec','raw_tmp30_dm_vinhis_specification_urn')}}
-{% raw %}
-	--from {{ref('tmp30_dm_vinhis_specification_urn')}}
-{% endraw %}
+	from {{ref('tmp30_dm_vinhis_specification_urn')}}
 ), seq as(
 -- SPECを200分割するためのシーケンス
     select
