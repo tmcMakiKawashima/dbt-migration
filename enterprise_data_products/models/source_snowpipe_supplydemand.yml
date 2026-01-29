@@ -458,6 +458,8 @@ sources:
     # AQUA
       - name: raw_nojfa560
         identifier: nojfa560
+        config:
+          tags: ["0535", "Tue", "Wed", "Thu", "Fri", "Sat", "no_vacation"]
         columns:
           - name: raw_data
             data_tests:
@@ -466,6 +468,8 @@ sources:
                     length: 1563
       - name: raw_da5a212b
         identifier: da5a212b
+        config:
+          tags: ["0535", "Tue", "Wed", "Thu", "Fri", "Sat", "no_vacation"]
         columns:
           - name: raw_data
             data_tests:
@@ -522,6 +526,8 @@ sources:
                     length: 645
       - name: raw_da5a213a
         identifier: da5a213a
+        config:
+          tags: ["0535", "Tue", "Wed", "Thu", "Fri", "Sat", "no_vacation"]
         columns:
           - name: raw_data
             data_tests:
@@ -530,6 +536,8 @@ sources:
                     length: 147
       - name: raw_da5a214a
         identifier: da5a214a
+        config:
+          tags: ["0535", "Tue", "Wed", "Thu", "Fri", "Sat", "no_vacation"]
         columns:
           - name: raw_data
             data_tests:
