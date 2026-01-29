@@ -11,10 +11,6 @@ sources:
     # SMS工程
       - name: raw_dm_syasyu_kata_sijino_plant
         identifier: dm_syasyu_kata_sijino_plant
-  #2026/01/21～ 342 テスト用
-      - name: raw_dm_syasyu_kata_sijino_plant_test
-        identifier: dm_syasyu_kata_sijino_plant_test
-  #2026/01/21～ 342 テスト用
   
   - name: katashiki_db_spec
     database: katashiki_db

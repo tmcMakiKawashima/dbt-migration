@@ -15,10 +15,7 @@ with t40 as (
         idline,                                 -- アイデントライン
         keta_no,                                -- 桁番号
         kigo                                    -- 記号
-    from {{source('vinhis_db_spec','raw_tmp40_dm_vinhis_specification_urn')}}
-{% raw %}
-	--from {{ref('tmp40_dm_vinhis_specification_urn')}}
-{% endraw %}
+	from {{ref('tmp40_dm_vinhis_specification_urn')}}
 ), sh as (
 -- 仕様変換マスタ
     select
@@ -27,10 +24,7 @@ with t40 as (
         s1kigo,                                 -- spec記号
         siyoudai4,                              -- 仕様コード(4桁)大分類
         siyousai4                               -- 仕様コード(4桁)細目
-    from {{source('supplydemand_db_public','raw_stg_siyouhenkan')}}
-{% raw %}
-    --from {{ref('stg_siyouhenkan')}}
-{% endraw %}
+    from {{ref('stg_siyouhenkan')}}
 )
 select
     t40.* exclude(keta_no,kigo),                                            -- t40の桁番号、記号を除外した項目

@@ -28,10 +28,7 @@ with t10 as (
         substr(lodate,5,2)::varchar(2) as sk_m,     -- 終検日月
         left(lodate,4)::varchar(4) as loj_y,        -- ラインオフ実績日年
         substr(lodate,5,2)::varchar(2) as loj_m     -- ラインオフ実績日月
-    from {{source('vinhis_db_spec','raw_tmp10_dm_vinhis_specification_urn')}}
-{% raw %}
-	--from {{ref('tmp10_dm_vinhis_specification_urn')}}
-{% endraw %}
+	from {{ref('tmp10_dm_vinhis_specification_urn')}}
 ), sksk as(
 -- 車種型式車両工場
     select
@@ -42,23 +39,20 @@ with t10 as (
         enginekata,                                 -- エンジン型式
         ktfgomeijp,                                 -- 工程符号名称(和)
         ktfgomeien                                  -- 工程符号名称(英)
-    --from {{source('katashiki_db_basespec','raw_dm_syasyu_kata_sijino_plant')}}
-    from {{source('katashiki_db_basespec','raw_dm_syasyu_kata_sijino_plant_test')}}
+    from {{source('katashiki_db_basespec','raw_dm_syasyu_kata_sijino_plant')}}
 ), kh2 as (
 -- 抽出結果_工場変換2桁
     select
         veh_plnt_code,                              -- 車両工場コード
         ktfgo                                       -- 工程符号
-    --from {{source('engineering_db_public','raw_m_koujyomaster')}}
-    from {{source('engineering_db_public','raw_m_koujyomaster_test')}}
+    from {{source('engineering_db_public','raw_m_koujyomaster')}}
     where length(ktfgo) = 2
 ), kh3 as (
 -- 抽出結果_工場変換3桁
     select
         veh_plnt_code,                              -- 車両工場コード
         ktfgo                                       -- 工程符号
-    --from {{source('engineering_db_public','raw_m_koujyomaster')}}
-    from {{source('engineering_db_public','raw_m_koujyomaster_test')}}
+    from {{source('engineering_db_public','raw_m_koujyomaster')}}
     where length(ktfgo) = 3
 )
 select
