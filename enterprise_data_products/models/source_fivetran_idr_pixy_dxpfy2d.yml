@@ -4,11 +4,12 @@ sources:
   - name: fivetran_database_idr_pixy_dxpfy2d
     database: fivetran_database
     schema: idr_pixy_dxpfy2d
-    freshness:
-      warn_after: { count: 1, period: hour }
-      error_after: { count: 24, period: hour }
-    loaded_at_field: _fivetran_synced
-
+    config:
+      freshness:
+        warn_after: {count: 1, period: hour}
+        error_after: {count: 24, period: hour}
+      loaded_at_field: _fivetran_synced
+      
     tables:
       - name: raw_cva97dxyohinm
         identifier: cva97dxyohinm
@@ -48,4 +49,3 @@ sources:
         identifier: cva33syaryosya
       - name: raw_cva31avnsyohin
         identifier: cva31avnsyohin
-        

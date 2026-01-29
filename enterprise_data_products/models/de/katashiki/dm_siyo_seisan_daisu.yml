@@ -4,21 +4,22 @@ models:
   - name: dm_siyo_seisan_daisu
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu
-            - haisya_kt
-            - spec200
-            - int_cd
-            - ext_cd
-            - dest_cd
-            - koujyou_cd
-            - eng_kt
-            - psc
-            - o_idline
-            - sk_y
-            - sk_m
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - haisya_kt
+              - spec200
+              - int_cd
+              - ext_cd
+              - dest_cd
+              - koujyou_cd
+              - eng_kt
+              - psc
+              - o_idline
+              - sk_y
+              - sk_m
     columns:
       - name: syasyu
         data_tests:

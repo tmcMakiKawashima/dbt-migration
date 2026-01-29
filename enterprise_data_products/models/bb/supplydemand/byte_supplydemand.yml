@@ -7,4 +7,5 @@ models:
       - name: raw_data
         data_tests:
           - fixed_length:
-              length: 120
+              arguments:
+                length: 120
