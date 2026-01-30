@@ -775,3 +775,6 @@ sources:
               - fixed_length:
                   arguments:
                     length: 2860
+    # aisac
+      - name: raw_swvarireprorireki_vin
+        identifier: swvarireprorireki_vin
