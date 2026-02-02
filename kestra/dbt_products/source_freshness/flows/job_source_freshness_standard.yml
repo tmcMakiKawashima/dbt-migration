@@ -45,14 +45,14 @@ triggers:
       - type: io.kestra.plugin.core.condition.Not
         conditions:
           - type: io.kestra.plugin.core.condition.DateTimeBetween
-            after: "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-04-26T00:00:00+09:00"
-            before: "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-05-07T23:59:59+09:00"
+            after: "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-04-25T00:00:00+09:00"
+            before: "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-05-06T23:59:59+09:00"
       # お盆
       - type: io.kestra.plugin.core.condition.Not
         conditions:
           - type: io.kestra.plugin.core.condition.DateTimeBetween
             after: "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-08-07T00:00:00+09:00"
-            before: "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-08-19T23:59:59+09:00"
+            before: "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-08-18T23:59:59+09:00"
       # 年末年始
       - type: io.kestra.plugin.core.condition.Not
         conditions:
@@ -63,7 +63,7 @@ triggers:
         conditions:
           - type: io.kestra.plugin.core.condition.DateTimeBetween
             after: "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-01-01T00:00:00+09:00"
-            before: "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-01-07T23:59:59+09:00"
+            before: "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-01-06T23:59:59+09:00"
     inputs:
       schedule_type: no_vacation
 
@@ -91,14 +91,14 @@ finally:
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
       - "trigger.date -> {{ trigger.date }}"
       - "trigger.date (Day of week) -> {{ trigger.date | date('EEE', timeZone='Asia/Tokyo') }}"
-      - "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-04-26T00:00:00+09:00"
-      - "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-05-07T23:59:59+09:00"
+      - "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-04-25T00:00:00+09:00"
+      - "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-05-06T23:59:59+09:00"
       - "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-08-07T00:00:00+09:00"
-      - "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-08-19T23:59:59+09:00"
+      - "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-08-18T23:59:59+09:00"
       - "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-12-25T00:00:00+09:00"
       - "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-12-31T23:59:59+09:00"
       - "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-01-01T00:00:00+09:00"
-      - "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-01-07T23:59:59+09:00"
+      - "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-01-06T23:59:59+09:00"
       - "--select tag:{{ inputs.schedule_type ?? 'no' }},tag:{{ trigger.date | date('EEE', timeZone='Asia/Tokyo') ?? 'no' }},tag:{{ trigger.date | date('HHmm', timeZone='Asia/Tokyo') ?? 'no' }}"
       
 disabled: false
