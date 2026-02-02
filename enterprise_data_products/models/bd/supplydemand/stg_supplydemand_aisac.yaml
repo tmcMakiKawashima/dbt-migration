@@ -13,12 +13,6 @@ models:
             combination_of_columns:
               - vin
               - compositekey1
-              - rireki_renban
-              - sw_vari_id
-              - sw_vari_ver
-              - write_kbn
-              - write_means
-              - write_code
     columns:
       - name: vin
         data_tests:
