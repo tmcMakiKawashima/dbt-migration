@@ -7,18 +7,21 @@ models:
       - name: raw_data
         data_tests:
           - fixed_length:
-              length: 368
+              arguments:
+                length: 368
 # BOファイル
   - name: replace_tbbofll
     columns:
       - name: raw_data
         data_tests:
           - fixed_length:
-              length: 274
+              arguments:
+                length: 274
 # 納期受注蓄積ファイル
   - name: replace_tbnokjs
     columns:
       - name: raw_data
         data_tests:
           - fixed_length:
-              length: 327
+              arguments:
+                length: 327

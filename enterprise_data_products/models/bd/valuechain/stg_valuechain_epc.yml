@@ -6,25 +6,26 @@ models:
       tags: ["epc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ctlgcd
-            - hinmeicd
-            - syasyu_cd
-            - hinban
-            - kosu
-            - jissijikik
-            - jissijikim
-            - siyoptno
-            - epckataptno
-            - kiricdk
-            - kiricdm
-            - trmcdmlt
-            - clrcdmlt
-            - tkstkbn
-            - hktkgaikbn
-            - hosemhin
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - ctlgcd
+              - hinmeicd
+              - syasyu_cd
+              - hinban
+              - kosu
+              - jissijikik
+              - jissijikim
+              - siyoptno
+              - epckataptno
+              - kiricdk
+              - kiricdm
+              - trmcdmlt
+              - clrcdmlt
+              - tkstkbn
+              - hktkgaikbn
+              - hosemhin
     columns:
       - name: ctlgcd
         data_tests:
@@ -112,26 +113,27 @@ models:
       tags: ["epc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - langkbn
-            - ctlgcd
-            - hinmeicd
-            - syasyu_cd
-            - hinban
-            - kosu
-            - jissijikik
-            - jissijikim
-            - siyoptno
-            - epckataptno
-            - kiricdk
-            - kiricdm
-            - trmcdmlt
-            - clrcdmlt
-            - tkstkbn
-            - hktkgaikbn
-            - hosemhin
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - langkbn
+              - ctlgcd
+              - hinmeicd
+              - syasyu_cd
+              - hinban
+              - kosu
+              - jissijikik
+              - jissijikim
+              - siyoptno
+              - epckataptno
+              - kiricdk
+              - kiricdm
+              - trmcdmlt
+              - clrcdmlt
+              - tkstkbn
+              - hktkgaikbn
+              - hosemhin
     columns:
       - name: langkbn
         data_tests:
@@ -224,13 +226,14 @@ models:
       tags: ["epc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - frmnokata
-            - frmno
-            - mdlyearkbn
-            - vin
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - frmnokata
+              - frmno
+              - mdlyearkbn
+              - vin
     columns:
       - name: frmnokata
         data_tests:
@@ -258,12 +261,13 @@ models:
       tags: ["epc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu_cd
-            - siyoptno
-            - siyocd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu_cd
+              - siyoptno
+              - siyocd
     columns:
       - name: syasyu_cd
         data_tests:
@@ -286,14 +290,15 @@ models:
       tags: ["epc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ctlgcd
-            - syasyu_cd
-            - hinban
-            - trmcd
-            - figno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - ctlgcd
+              - syasyu_cd
+              - hinban
+              - trmcd
+              - figno
     columns:
       - name: ctlgcd
         data_tests:
@@ -326,12 +331,13 @@ models:
       tags: ["epc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - dntikicd
-            - cthin
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - hinban
+              - dntikicd
+              - cthin
     columns:
       - name: hinban
         data_tests:
@@ -354,12 +360,13 @@ models:
       tags: ["epc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ctlgcd
-            - kiricd
-            - prtren
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - ctlgcd
+              - kiricd
+              - prtren
     columns:
       - name: ctlgcd
         data_tests:
@@ -382,14 +389,15 @@ models:
       tags: ["epc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ctlgcd
-            - syakata
-            - syasyu_cd
-            - vinwmivds
-            - katano
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - ctlgcd
+              - syakata
+              - syasyu_cd
+              - vinwmivds
+              - katano
     columns:
       - name: ctlgcd
         data_tests:
@@ -422,14 +430,15 @@ models:
       tags: ["epc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ctlgcd
-            - figno
-            - bnkren4
-            - jissijikik
-            - jissijikim
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - ctlgcd
+              - figno
+              - bnkren4
+              - jissijikik
+              - jissijikim
     columns:
       - name: ctlgcd
         data_tests:
@@ -475,12 +484,13 @@ models:
       tags: ["epc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ctlgcd
-            - emkjgrpcd
-            - figno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - ctlgcd
+              - emkjgrpcd
+              - figno
     columns:
       - name: ctlgcd
         data_tests:
@@ -503,13 +513,14 @@ models:
       tags: ["epc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ctlgcd
-            - hinban
-            - pnc
-            - figno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - ctlgcd
+              - hinban
+              - pnc
+              - figno
     columns:
       - name: ctlgcd
         data_tests:
@@ -537,11 +548,12 @@ models:
       tags: ["epc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - langkbn
-            - figno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - langkbn
+              - figno
     columns:
       - name: langkbn
         data_tests:
@@ -559,11 +571,12 @@ models:
       tags: ["epc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - langkbn
-            - pnc
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - langkbn
+              - pnc
     columns:
       - name: langkbn
         data_tests:
@@ -581,11 +594,12 @@ models:
       tags: ["epc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - langkbn
-            - ilstcmtno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - langkbn
+              - ilstcmtno
     columns:
       - name: langkbn
         data_tests:
@@ -616,12 +630,13 @@ models:
       tags: ["epc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - hnbtikicd
-            - dthin
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - hinban
+              - hnbtikicd
+              - dthin
     columns:
       - name: hinban
         data_tests:
@@ -644,12 +659,13 @@ models:
       tags: ["epc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - ctlgcd
-            - epckataptno
-            - katano
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - ctlgcd
+              - epckataptno
+              - katano
     columns:
       - name: ctlgcd
         data_tests:
@@ -672,13 +688,14 @@ models:
       tags: ["epc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - langkbn
-            - syasyu
-            - siyoptno
-            - siyocd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - langkbn
+              - syasyu
+              - siyoptno
+              - siyocd
     columns:
       - name: langkbn
         data_tests:
@@ -706,12 +723,13 @@ models:
       tags: ["epc"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - toyotahin
-            - siirecd
-            - rentacti
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - toyotahin
+              - siirecd
+              - rentacti
     columns:
       - name: toyotahin
         data_tests:
@@ -740,40 +758,44 @@ models:
               config:
                 severity: error
           - relationships:
-              to: source('snowpipe_db_valuechain','raw_k9jfv221')
-              field: langkbn
               config:
                 severity: error
+              arguments:
+                to: source('snowpipe_db_valuechain','raw_k9jfv221')
+                field: langkbn
       - name: ctlgcd
         data_tests:
           - not_null:
               config:
                 severity: error
           - relationships:
-              to: source('snowpipe_db_valuechain','raw_k9jfv221')
-              field: ctlgcd
               config:
                 severity: error
+              arguments:
+                to: source('snowpipe_db_valuechain','raw_k9jfv221')
+                field: ctlgcd
       - name: tokukbn
         data_tests:
           - not_null:
               config:
                 severity: error
           - relationships:
-              to: source('snowpipe_db_valuechain','raw_k9jfv221')
-              field: tokukbn
               config:
                 severity: error
+              arguments:
+                to: source('snowpipe_db_valuechain','raw_k9jfv221')
+                field: tokukbn
       - name: tokukg
         data_tests:
           - not_null:
               config:
                 severity: error
           - relationships:
-              to: source('snowpipe_db_valuechain','raw_k9jfv221')
-              field: tokukg
               config:
                 severity: error
+              arguments:
+                to: source('snowpipe_db_valuechain','raw_k9jfv221')
+                field: tokukg
 # 部位大分類検索情報
   - name: stg_buidaibunruikensakujoho
     config:
@@ -785,21 +807,22 @@ models:
               config:
                 severity: error
           - relationships:
-              to: ref('substr_k9jfv217')
-              field: ctlgcd
               config:
                 severity: error
-
+              arguments:
+                to: ref('substr_k9jfv217')
+                field: ctlgcd
       - name: daibnrcd
         data_tests:
           - not_null:
               config:
                 severity: error
           - relationships:
-              to: ref('substr_k9jfv217')
-              field: daibnrcd
               config:
                 severity: error
+              arguments:
+                to: ref('substr_k9jfv217')
+                field: daibnrcd
 # 部位中分類検索情報
   - name: stg_buicyubunruikensakujoho
     config:
@@ -811,30 +834,33 @@ models:
               config:
                 severity: error
           - relationships:
-              to: ref('substr_k9jfv218')
-              field: ctlgcd
               config:
                 severity: error
+              arguments:
+                to: ref('substr_k9jfv218')
+                field: ctlgcd
       - name: daibnrcd
         data_tests:
           - not_null:
               config:
                 severity: error
           - relationships:
-              to: ref('substr_k9jfv218')
-              field: daibnrcd
               config:
                 severity: error
+              arguments:
+                to: ref('substr_k9jfv218')
+                field: daibnrcd
       - name: chubnrcd
         data_tests:
           - not_null:
               config:
                 severity: error
           - relationships:
-              to: ref('substr_k9jfv218')
-              field: chubnrcd
               config:
                 severity: error
+              arguments:
+                to: ref('substr_k9jfv218')
+                field: chubnrcd
 # 部位グループ検索情報
   - name: stg_buigroupkensakujoho
     config:
@@ -846,30 +872,33 @@ models:
               config:
                 severity: error
           - relationships:
-              to: ref('substr_k9jfv219')
-              field: ctlgcd
               config:
                 severity: error
+              arguments:
+                to: ref('substr_k9jfv219')
+                field: ctlgcd
       - name: chubnrcd
         data_tests:
           - not_null:
               config:
                 severity: error
           - relationships:
-              to: ref('substr_k9jfv219')
-              field: chubnrcd
               config:
                 severity: error
+              arguments:
+                to: ref('substr_k9jfv219')
+                field: chubnrcd
       - name: svglayermei
         data_tests:
           - not_null:
               config:
                 severity: error
           - relationships:
-              to: ref('substr_k9jfv219')
-              field: svglayermei
               config:
                 severity: error
+              arguments:
+                to: ref('substr_k9jfv219')
+                field: svglayermei
 # 部位小分類検索情報
   - name: stg_buisyobunruikensakujoho
     config:
@@ -881,37 +910,41 @@ models:
               config:
                 severity: error
           - relationships:
-              to: ref('substr_k9jfv220')
-              field: ctlgcd
               config:
                 severity: error
+              arguments:
+                to: ref('substr_k9jfv220')
+                field: ctlgcd
       - name: chubnrcd
         data_tests:
           - not_null:
               config:
                 severity: error
           - relationships:
-              to: ref('substr_k9jfv220')
-              field: chubnrcd
               config:
                 severity: error
+              arguments:
+                to: ref('substr_k9jfv220')
+                field: chubnrcd
       - name: svglayermei
         data_tests:
           - not_null:
               config:
                 severity: error
           - relationships:
-              to: ref('substr_k9jfv220')
-              field: svglayermei
               config:
                 severity: error
+              arguments:
+                to: ref('substr_k9jfv220')
+                field: svglayermei
       - name: figno
         data_tests:
           - not_null:
               config:
                 severity: error
           - relationships:
-              to: ref('substr_k9jfv220')
-              field: figno
               config:
                 severity: error
+              arguments:
+                to: ref('substr_k9jfv220')
+                field: figno
