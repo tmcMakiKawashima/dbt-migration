@@ -1344,3 +1344,16 @@ sources:
               - fixed_length:
                   arguments:
                     length: 2860
+    # IoTPF
+      - name: raw_iotalcjfy1g4ctr
+        identifier: iotalcjfy1g4ctr
+      - name: raw_iotalcjfy1g4sf0
+        identifier: iotalcjfy1g4sf0
+      - name: raw_iotalcjfy1g4sfk
+        identifier: iotalcjfy1g4sfk
+      - name: raw_iotalcjfy1g4sft
+        identifier: iotalcjfy1g4sft
+      - name: raw_iotalcjfy1g4sfh
+        identifier: iotalcjfy1g4sfh
+      - name: raw_iotalcjfy1g4tra
+        identifier: iotalcjfy1g4tra
