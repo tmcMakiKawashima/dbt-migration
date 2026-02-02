@@ -14,6 +14,7 @@ tasks:
     type: io.kestra.plugin.aws.sns.Publish
 
 triggers:
+  # エラーのみ検知用
   - id: flow_trigger_failed
     type: io.kestra.plugin.core.trigger.Flow
     inputs:
@@ -30,7 +31,7 @@ triggers:
         in:
           - FAILED
           - RETRIED
-
+  # エラーとワーニング検知用
   - id: flow_trigger_failed_warning
     type: io.kestra.plugin.core.trigger.Flow
     inputs:
@@ -48,5 +49,22 @@ triggers:
           - FAILED
           - WARNING
           - RETRIED
+  # SLA検知用
+  - id: flow_trigger_sla
+    type: io.kestra.plugin.core.trigger.Flow
+    inputs:
+      error_log: "{{ trigger.outputs.output_error_log ?? 'SLA missed.' }}"
+      state: "{{ trigger.outputs.output_state ?? 'No state' }}"
+    conditions:
+      - type: io.kestra.plugin.core.condition.ExecutionLabels
+        labels:
+          sla: miss
+      - type: io.kestra.plugin.core.condition.ExecutionNamespace
+        namespace: "kestra_dbt_project"
+        prefix: true
+      - type: io.kestra.plugin.core.condition.ExecutionStatus
+        in:
+          - WARNING
+          - SUCCESS
           
 disabled: false
