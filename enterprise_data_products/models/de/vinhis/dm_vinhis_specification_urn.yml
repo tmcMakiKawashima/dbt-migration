@@ -4,13 +4,14 @@ models:
   - name: dm_vinhis_specification_urn
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - urn
-            - lodate
-            - psc
-            - koujyou_cd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - urn
+              - lodate
+              - psc
+              - koujyou_cd
     columns:
       - name: urn
         data_tests:

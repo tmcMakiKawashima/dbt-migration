@@ -1,5 +1,6 @@
 id: job_build_dm_variation_seisan_daisu
 namespace: kestra_dbt_project.proj-job-seisan-shiyou-jisseki
+
 labels:
   error: default_failed
   dbt: build
