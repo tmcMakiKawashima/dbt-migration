@@ -32,13 +32,13 @@ with t10 as (
 ), sksk as(
 -- 車種型式車両工場
     select
-        syasyu,                                     -- 車種コード
-        ktfgo,                                      -- 生産場所(工程符号)
-        kata,                                       -- 呼称型式
-        ctlkata,                                    -- コントロール型式
-        enginekata,                                 -- エンジン型式
-        ktfgomeijp,                                 -- 工程符号名称(和)
-        ktfgomeien                                  -- 工程符号名称(英)
+        syasyu,                                         -- 車種コード
+        ktfgo,                                          -- 生産場所(工程符号)
+        kata,                                           -- 呼称型式
+        rtrim(ctlkata, ' 　')::varchar(20) as ctlkata,  -- コントロール型式
+        enginekata,                                     -- エンジン型式
+        ktfgomeijp,                                     -- 工程符号名称(和)
+        ktfgomeien                                      -- 工程符号名称(英)
     from {{source('katashiki_db_basespec','raw_dm_syasyu_kata_sijino_plant')}}
 ), kh2 as (
 -- 抽出結果_工場変換2桁
