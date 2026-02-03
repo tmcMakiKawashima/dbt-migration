@@ -1,7 +1,7 @@
 version: 2
 
 models:
-# リプロ履歴(SWバリ) 
+# SWバリリプロ履歴VIN  
   - name: stg_swvarireprorireki_vin_aisac
     config:
       tags: ["aisac"]

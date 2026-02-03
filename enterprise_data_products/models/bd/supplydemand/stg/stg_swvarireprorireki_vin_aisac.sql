@@ -4,28 +4,26 @@
         unique_key = ['vin','compositekey1'],
         incremental_strategy = 'merge',
         post_hook ="
-            {% if is_incremental() %}
-              update {{ this }} as t
-              set t.delflg = true, t.ldts = current_timestamp
-              from (
-              select vin,compositekey1,event_name,
-                row_number() over (
-                  partition by
-                      vin,
-                      compositekey1
-                  order by
-                      ldts desc,
-                      event_time desc,
-                      line_number desc
-              ) aggkey 
-              from {{ ref('extract_swvarireprorireki_vin') }}
-              where ldts > dateadd(hour, -12, current_timestamp())
-              ) as s
-                where t.vin = s.vin
-                and t.compositekey1 = s.compositekey1
-                and s.aggkey = 1
-                and s.event_name = 'delete'
-            {% endif %}  
+            update {{ this }} as t
+            set t.delflg = true, t.ldts = current_timestamp
+            from (
+            select vin,compositekey1,event_name,
+              row_number() over (
+                partition by
+                    vin,
+                    compositekey1
+                order by
+                    ldts desc,
+                    event_time desc,
+                    line_number desc
+            ) aggkey 
+            from {{ ref('extract_swvarireprorireki_vin') }}
+            where ldts > dateadd(hour, -12, current_timestamp())
+            ) as s
+              where t.vin = s.vin
+              and t.compositekey1 = s.compositekey1
+              and s.aggkey = 1
+              and s.event_name = 'delete'
         "
     )
 }}
