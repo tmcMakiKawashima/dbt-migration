@@ -10,7 +10,7 @@ with t42 as (
         unittype,                                   -- ユニット区分
         equipmentline,                              -- 架装ライン
         scndasmvtp,                                 -- 架装車両区分
-        ''::varchar(8) as lodate,                   -- ラインオフ計画日
+        coalesce(lodate,'') as lodate,              -- ラインオフ計画日
         offopttype,                                 -- オフOPT区分
         importduty,                                 -- 再輸出区分
         discsign,                                   -- 識別記号
@@ -20,7 +20,7 @@ with t42 as (
         syasyu,                                     -- 車種コード
         kata as haisya_kt,                          -- 配車型式
         spec as spec200,                            -- SPEC200桁組合せ
-        spec200_siyo,                              -- SPEC対応4桁仕様
+        spec200_siyo,                               -- SPEC対応4桁仕様
         intcode as int_cd,                          -- 内張コード
         int_cd_iromei,                              -- 内張名
         extcode as ext_cd,                          -- 外鈑色コード

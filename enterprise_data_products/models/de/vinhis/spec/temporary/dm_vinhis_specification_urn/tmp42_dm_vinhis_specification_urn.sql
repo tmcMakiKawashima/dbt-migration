@@ -10,6 +10,7 @@ with t30 as (
         unittype,               -- ユニット区分
         equipmentline,          -- 架装ライン
         scndasmvtp,             -- 架装車両区分
+        lodate,                 -- ラインオフ計画日
         offopttype,             -- オフOPT区分
         importduty,             -- 再輸出区分
         discsign,               -- 識別記号
