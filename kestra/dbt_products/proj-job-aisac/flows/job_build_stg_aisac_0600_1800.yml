@@ -51,9 +51,11 @@ triggers:
 
 # エラーログを出力
 errors:
-  - id: error_log
-    type: io.kestra.plugin.core.debug.Return
-    format: "{{ errorLogs()[0]['message'] }}"
+  - id: fetch_error_logs
+    type: io.kestra.plugin.core.log.Fetch
+
+  - id: get_error_message
+    type: io.kestra.plugin.transform.jsonata.TransformItems
 
 outputs: 
   - id: output_error_log
@@ -71,5 +73,5 @@ finally:
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
       - "dbt options -> {{ inputs.dbt_options ?? '' }}"
       - "dbt commands -> {{ vars.dbt_command }}"
-            
+      
 disabled: false
