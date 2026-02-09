@@ -8,7 +8,7 @@ with stg_systemmei_aisac as (
         systorokukaisyacode::varchar(5) as systorokukaisyacode,
         systorokuuserid::varchar(20) as systorokuuserid,
         systorokuaplid::varchar(25) as systorokuaplid,
-        timestamp_ntz::timestamp_ntz as timestamp_ntz,
+        syskosintime::timestamp_ntz as timestamp_ntz,
         syskosinkaisyacode::varchar(5) as syskosinkaisyacode,
         syskosinuserid::varchar(20) as syskosinuserid,
         syskosinaplid::varchar(25) as masyskosinaplidker_kbn,
