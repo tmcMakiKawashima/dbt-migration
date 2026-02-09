@@ -11,7 +11,7 @@ with stg_systemmei_aisac as (
         syskosintime::timestamp_ntz as syskosintime,
         syskosinkaisyacode::varchar(5) as syskosinkaisyacode,
         syskosinuserid::varchar(20) as syskosinuserid,
-        syskosinaplid::varchar(25) as masyskosinaplidker_kbn,
+        syskosinaplid::varchar(25) as syskosinaplid,
         _fivetran_synced::timestamp_ntz as ldts
     from {{ source('fivetran_database_ogg_aisac_osqaeg0100db20', 'raw_cqa64jsystemmei') }}
     where _fivetran_deleted = 'false'
