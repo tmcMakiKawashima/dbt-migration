@@ -42,3 +42,21 @@ models:
           - not_null:
               config:
                 severity: error
+# システム名称台帳
+  - name: stg_systemmei_aisac
+    config:
+      tags: ["aisac"]
+    columns:
+      - name: system
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: ldts
+        data_tests:
+          - not_null:
+              config:
+                severity: error
