@@ -23,7 +23,7 @@
               where t.vin = s.vin
               and t.compositekey1 = s.compositekey1
               and s.aggkey = 1
-              and s.event_name = 'delete'
+              and s.event_name = 'DELETE'
         "
     )
 }}
@@ -56,7 +56,7 @@ with stg_swvarireprorireki_vin_aisac as (
                 line_number desc
         ) aggkey
     from {{ ref('extract_swvarireprorireki_vin') }}
-    where (event_name = 'insert' or event_name = 'update')
+    where (event_name = 'INSERT' or event_name = 'UPDATE')
 
     {% if is_incremental() %}
         and ldts > (select coalesce(max(ldts), '1970-01-01 00:00:00.000') from {{ this }})
