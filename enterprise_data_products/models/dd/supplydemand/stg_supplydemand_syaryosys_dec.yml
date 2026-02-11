@@ -7,11 +7,12 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - chumon
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - dlrcd
+              - chumon
     columns:
       - name: dlrcd
         data_tests:
@@ -29,11 +30,12 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - odno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - dlrcd
+              - odno
     columns:
       - name: dlrcd
         data_tests:

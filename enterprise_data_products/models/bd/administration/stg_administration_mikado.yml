@@ -35,25 +35,32 @@ models:
               config:
                 severity: error
       - name: jigsnymd
-        meta:
+        config:
+          meta:
             masking_policy: jigsnymd_mask
       - name: jigseb
-        meta:
+        config:
+          meta:
             masking_policy: jigseb_mask
       - name: gakrei
-        meta:
+        config:
+          meta:
             masking_policy: gakrei_mask
       - name: nnjgrk
-        meta:
+        config:
+          meta:
             masking_policy: nnjgrk_mask
       - name: hgsumf
-        meta:
+        config:
+          meta:
             masking_policy: hgsumf_mask
       - name: tgntkycd
-        meta:
+        config:
+          meta:
             masking_policy: tgntkycd_mask
       - name: sytkyf
-        meta:
+        config:
+          meta:
             masking_policy: sytkyf_mask
       - name: ldts
         data_tests:
@@ -65,11 +72,12 @@ models:
       tags: ["mikado_jnet"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - bucd
-            - stkcd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - bucd
+              - stkcd
     columns:
       - name: bucd
         data_tests:
@@ -86,9 +94,10 @@ models:
       tags: ["mikado_jnet"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - employee_cd
-            - namhnkyukymd
+          arguments:
+            combination_of_columns:
+              - employee_cd
+              - namhnkyukymd
     columns:
       - name: employee_cd
         data_tests:
@@ -144,9 +153,10 @@ models:
       tags: ["mikado_jnet"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - skkcd
-            - skktkkbncd
+          arguments:
+            combination_of_columns:
+              - skkcd
+              - skktkkbncd
     columns:
       - name: skkcd
         data_tests:
@@ -185,11 +195,12 @@ models:
       tags: ["mikado_jnet"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - sykicd
-            - slkbncd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - sykicd
+              - slkbncd
     columns:
       - name: sykicd
         data_tests:
@@ -290,7 +301,8 @@ models:
               config:
                 severity: error
       - name: r_birthday
-        meta:
+        config:
+          meta:
             masking_policy: r_birthday_mask
       - name: ldts
         data_tests:
@@ -346,13 +358,14 @@ models:
       tags: ["mikado_jnet"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - employee_cd
-            - h2ytstayr
-            - h2ytstamon
-            - h2ytstadt
-            - h2staampmflg
-            - h2ytseqno
+          arguments:
+            combination_of_columns:
+              - employee_cd
+              - h2ytstayr
+              - h2ytstamon
+              - h2ytstadt
+              - h2staampmflg
+              - h2ytseqno
     columns:
       - name: employee_cd
         data_tests:
@@ -394,13 +407,14 @@ models:
       tags: ["mikado_jnet"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - employee_cd
-            - h2ytstayr
-            - h2ytstamon
-            - h2ytstadt
-            - h2staampmflg
-            - h2ytseqno
+          arguments:
+            combination_of_columns:
+              - employee_cd
+              - h2ytstayr
+              - h2ytstamon
+              - h2ytstadt
+              - h2staampmflg
+              - h2ytseqno
     columns:
       - name: employee_cd
         data_tests:
@@ -442,11 +456,12 @@ models:
       tags: ["mikado_jnet"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syagai_cd
-            - h2ym
-            - h2dt
-            - h2kntsncnt
+          arguments:
+            combination_of_columns:
+              - syagai_cd
+              - h2ym
+              - h2dt
+              - h2kntsncnt
     columns:
       - name: syagai_cd
         data_tests:
@@ -478,10 +493,11 @@ models:
       tags: ["mikado_jnet"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - employee_cd
-            - h2gtjkntym
-            - h2knmtimcd
+          arguments:
+            combination_of_columns:
+              - employee_cd
+              - h2gtjkntym
+              - h2knmtimcd
     columns:
       - name: employee_cd
         data_tests:
@@ -508,9 +524,10 @@ models:
       tags: ["mikado_jnet"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - employee_cd
-            - h2ym
+          arguments:
+            combination_of_columns:
+              - employee_cd
+              - h2ym
     columns:
       - name: employee_cd
         data_tests:
@@ -532,9 +549,10 @@ models:
       tags: ["mikado_jnet"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - employee_cd
-            - kdtiym
+          arguments:
+            combination_of_columns:
+              - employee_cd
+              - kdtiym
     columns:
       - name: employee_cd
         data_tests:
@@ -556,9 +574,10 @@ models:
       tags: ["mikado_jnet"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - noshucho
-            - ddstart
+          arguments:
+            combination_of_columns:
+              - noshucho
+              - ddstart
     columns:
       - name: noshucho
         data_tests:
