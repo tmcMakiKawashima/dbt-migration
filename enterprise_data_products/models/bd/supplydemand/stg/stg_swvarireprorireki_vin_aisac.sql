@@ -23,7 +23,7 @@
               where t.vin = s.vin
               and t.compositekey1 = s.compositekey1
               and s.aggkey = 1
-              and s.event_name = 'delete'
+              and s.event_name = 'DELETE'
         "
     )
 }}
