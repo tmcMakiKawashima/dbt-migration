@@ -31,7 +31,7 @@
 with stg_swvarireprorireki_vin_aisac as (
     select
         vin::varchar(17) as vin,
-        compositekey1::varchar(16) as compositekey1,
+        compositekey1::varchar(18) as compositekey1,
         rireki_renban::numeric(5) as rireki_renban,
         sw_vari_id::varchar(10) as sw_vari_id,
         sw_vari_ver::varchar(3) as sw_vari_ver,
