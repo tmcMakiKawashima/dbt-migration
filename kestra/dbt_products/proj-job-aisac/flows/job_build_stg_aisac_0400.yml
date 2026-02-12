@@ -1,4 +1,4 @@
-id: job_build_stg_aisac_0500
+id: job_build_stg_aisac_0400
 namespace: kestra_dbt_project.proj-job-aisac
 
 labels:
@@ -26,7 +26,7 @@ inputs:
 variables: 
   dbt_command:
     --select +stg_systemmei_aisac_view
-    --vars '{"DBT_JOB_NAME":"_stg_aisac_0500"}'
+    --vars '{"DBT_JOB_NAME":"_stg_aisac_0400"}'
 
 tasks:
   - id: clone_dbt_build
@@ -46,7 +46,7 @@ tasks:
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
-    cron: "00 05 * * *"
+    cron: "00 04 * * *"
     timezone: Asia/Tokyo
 
 # エラーログを出力
