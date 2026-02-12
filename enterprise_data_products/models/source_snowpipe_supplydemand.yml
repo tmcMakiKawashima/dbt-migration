@@ -455,6 +455,14 @@ sources:
               - fixed_length:
                   arguments:
                     length: 20
+      - name: raw_tsjfae2b
+        identifier: tsjfae2b
+        columns:
+          - name: raw_data
+            data_tests:
+              - fixed_length:
+                  arguments:
+                    length: 500
     # AQUA
       - name: raw_nojfa560
         identifier: nojfa560
