@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  # 仕様変換(TMC車種限定)
+# 仕様変換(TMC車種限定)
   - name: stg_siyouhenkan_tmc_syaryosys
     config:
       tags: ["syaryosys"]
