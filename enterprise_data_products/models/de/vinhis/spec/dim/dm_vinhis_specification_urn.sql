@@ -22,7 +22,7 @@ with t42 as (
         spec as spec200,                            -- SPEC200桁組合せ
         spec200_siyo,                               -- SPEC対応4桁仕様
         intcode as int_cd,                          -- 内張コード
-        int_cd_iromei,                              -- 内張名
+        ''::varchar(4) as int_cd_iromei,            -- 内張名
         extcode as ext_cd,                          -- 外鈑色コード
         ext_cd_iromei,                              -- 外鈑色名
         destcode as dest_cd,                        -- 仕向地コード
@@ -34,7 +34,7 @@ with t42 as (
         veh_plnt_code,                              -- 車両工場コード
         veh_plnt_code_name,                         -- 車両工場名(日本語)
         veh_plnt_code_name_en,                      -- 車両工場名(英語)
-        ktfgo as seisanbasyo,                       -- 生産場所(工程符号)
+        seisanbasyo,                                -- 生産場所(工程符号)
         ktfgomeijp,                                 -- 工程符号名称(和)
         ktfgomeien,                                 -- 工程符号名称(英)
         ''::varchar(3) as prodkuni_cd,              -- 生産国コード
