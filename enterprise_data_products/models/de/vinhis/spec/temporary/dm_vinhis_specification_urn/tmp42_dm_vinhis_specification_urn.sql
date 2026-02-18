@@ -38,7 +38,7 @@ with t30 as (
         psc_alcname,            -- PSC1桁＆工場名
         veh_plnt_code_name,     -- 車両工場名(日本語)
         veh_plnt_code_name_en,  -- 車両工場名(英語)
-        ext_cd_iromei,          -- 外鈑色
+        iromei,                 -- 外鈑色
         r_country_name          -- 仕向国
 	from {{ref('tmp30_dm_vinhis_specification_urn')}}
 ), t41 as (

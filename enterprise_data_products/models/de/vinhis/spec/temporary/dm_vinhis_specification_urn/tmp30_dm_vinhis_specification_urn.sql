@@ -53,7 +53,7 @@ with t21 as (
 -- カラーNO
     select
         gclrno,                     -- カラーNo
-        iromei as ext_cd_iromei,    -- 外鈑色名
+        iromei,                     -- 外鈑色名
         -- カラーNoから空白を取り除いて同値になるデータでまとめ、空白除去前の昇順で採番する
         row_number() over(
             partition by
@@ -75,7 +75,7 @@ select
     alc.psc_alcname,                    -- PSC1桁＆工場名
     skm.veh_plnt_code_name,             -- 車両工場名(日本語)
     skm.veh_plnt_code_name_en,          -- 車両工場名(英語)
-    extc.ext_cd_iromei,                 -- 外鈑色
+    extc.iromei,                        -- 外鈑色
     km.r_country_name                   -- 仕向国
 from t21         -- 中間21_URN装備(ALL)
 left join alc    -- ALC工場コード

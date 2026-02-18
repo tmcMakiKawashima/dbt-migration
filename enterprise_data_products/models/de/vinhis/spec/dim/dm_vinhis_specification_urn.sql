@@ -24,7 +24,7 @@ with t42 as (
         intcode as int_cd,                          -- 内張コード
         ''::varchar(25) as int_cd_iromei,           -- 内張名
         extcode as ext_cd,                          -- 外鈑色コード
-        ext_cd_iromei,                              -- 外鈑色名
+        iromei as ext_cd_iromei,                    -- 外鈑色名
         destcode as dest_cd,                        -- 仕向地コード
         r_country_name as dest,                     -- 仕向国
         coalesce(pscexlk,'') as psc,                -- PSC
