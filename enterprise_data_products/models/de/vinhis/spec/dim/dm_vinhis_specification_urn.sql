@@ -10,7 +10,7 @@ with t42 as (
         unittype,                                   -- ユニット区分
         equipmentline,                              -- 架装ライン
         scndasmvtp,                                 -- 架装車両区分
-        ''::varchar(8) as lodate,                   -- ラインオフ計画日
+        coalesce(lodate,'') as lodate,              -- ラインオフ計画日
         offopttype,                                 -- オフOPT区分
         importduty,                                 -- 再輸出区分
         discsign,                                   -- 識別記号
@@ -20,11 +20,11 @@ with t42 as (
         syasyu,                                     -- 車種コード
         kata as haisya_kt,                          -- 配車型式
         spec as spec200,                            -- SPEC200桁組合せ
-        spec200_siyo,                              -- SPEC対応4桁仕様
+        spec200_siyo,                               -- SPEC対応4桁仕様
         intcode as int_cd,                          -- 内張コード
-        int_cd_iromei,                              -- 内張名
+        ''::varchar(25) as int_cd_iromei,           -- 内張名
         extcode as ext_cd,                          -- 外鈑色コード
-        ext_cd_iromei,                              -- 外鈑色名
+        iromei as ext_cd_iromei,                    -- 外鈑色名
         destcode as dest_cd,                        -- 仕向地コード
         r_country_name as dest,                     -- 仕向国
         coalesce(pscexlk,'') as psc,                -- PSC
@@ -34,7 +34,7 @@ with t42 as (
         veh_plnt_code,                              -- 車両工場コード
         veh_plnt_code_name,                         -- 車両工場名(日本語)
         veh_plnt_code_name_en,                      -- 車両工場名(英語)
-        ktfgo as seisanbasyo,                       -- 生産場所(工程符号)
+        seisanbasyo,                                -- 生産場所(工程符号)
         ktfgomeijp,                                 -- 工程符号名称(和)
         ktfgomeien,                                 -- 工程符号名称(英)
         ''::varchar(3) as prodkuni_cd,              -- 生産国コード

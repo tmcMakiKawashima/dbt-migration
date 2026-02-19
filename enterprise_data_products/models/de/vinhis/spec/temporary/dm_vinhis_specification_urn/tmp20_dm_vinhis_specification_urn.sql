@@ -10,6 +10,7 @@ with t10 as (
         unittype,                                   -- ユニット区分
         equipmentline,                              -- 架装ライン
         scndasmvtp,                                 -- 架装車両区分
+        lodate,                                     -- ラインオフ計画日
         offopttype,                                 -- オフOPT区分
         importduty,                                 -- 再輸出区分
         discsign,                                   -- 識別記号
@@ -33,44 +34,39 @@ with t10 as (
 -- 車種型式車両工場
     select
         syasyu,                                         -- 車種コード
-        ktfgo,                                          -- 生産場所(工程符号)
+        ktfgo as seisanbasyo,                           -- 生産場所(工程符号)
         kata,                                           -- 呼称型式
         rtrim(ctlkata, ' 　')::varchar(20) as ctlkata,  -- コントロール型式
         enginekata,                                     -- エンジン型式
         ktfgomeijp,                                     -- 工程符号名称(和)
         ktfgomeien                                      -- 工程符号名称(英)
     from {{source('katashiki_db_basespec','raw_dm_syasyu_kata_sijino_plant')}}
-), kh2 as (
--- 抽出結果_工場変換2桁
+), kh as (
+-- 抽出結果_工場変換マスター
     select
         veh_plnt_code,                              -- 車両工場コード
-        ktfgo                                       -- 工程符号
+        ktfgo,                                      -- 工程符号
+        psc,                                        -- PSC
+        plantcode                                   -- 工場コード
     from {{source('engineering_db_public','raw_m_koujyomaster')}}
-    where length(ktfgo) = 2
-), kh3 as (
--- 抽出結果_工場変換3桁
-    select
-        veh_plnt_code,                              -- 車両工場コード
-        ktfgo                                       -- 工程符号
-    from {{source('engineering_db_public','raw_m_koujyomaster')}}
-    where length(ktfgo) = 3
 )
 select
-    t10.*,                                                              -- t10の全項目
-    sksk.* exclude(syasyu,ctlkata),                                     -- skskの車種コード、コントロール型式を除いた項目
-    coalesce(kh3.veh_plnt_code, kh2.veh_plnt_code) as veh_plnt_code     -- 車両工場コード
+    t10.*,                              -- t10の全項目
+    sksk.* exclude(syasyu,ctlkata),     -- skskの車種コード、コントロール型式を除いた項目
+    kh.veh_plnt_code,                   -- 車両工場コード
+    kh.ktfgo                            -- 工程符号
 from t10        -- 中間10_URN装備(ALL)
+left join kh   -- 抽出結果_工場変換マスター
+on(
+    t10.pscexlk = kh.psc
+    and t10.plantcode = kh.plantcode
+)
 left join sksk  -- 車種型式車両工場
 on (
     t10.syasyu = sksk.syasyu
     and t10.ctlkata = sksk.ctlkata
-)
-left join kh3   -- 抽出結果_工場変換3桁
-on(
-    substr(sksk.ktfgo,1,3) = kh3.ktfgo
-)
-left join kh2   -- 抽出結果_工場変換2桁
-on(
-    substr(sksk.ktfgo,1,2) = kh2.ktfgo
-    and kh3.ktfgo is null
+    and (
+        kh.ktfgo = substr(sksk.seisanbasyo,1,3)
+        or kh.ktfgo = substr(sksk.seisanbasyo,1,2)
+    )
 )

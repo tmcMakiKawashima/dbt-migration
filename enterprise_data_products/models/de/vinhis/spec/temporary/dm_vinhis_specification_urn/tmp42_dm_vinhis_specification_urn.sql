@@ -10,6 +10,7 @@ with t30 as (
         unittype,               -- ユニット区分
         equipmentline,          -- 架装ライン
         scndasmvtp,             -- 架装車両区分
+        lodate,                 -- ラインオフ計画日
         offopttype,             -- オフOPT区分
         importduty,             -- 再輸出区分
         discsign,               -- 識別記号
@@ -28,7 +29,7 @@ with t30 as (
         sk_m,                   -- 終検日月
         loj_y,                  -- ラインオフ実績日年
         loj_m,                  -- ラインオフ実績日月
-        ktfgo,                  -- 生産場所(工程符号)
+        seisanbasyo,            -- 生産場所(工程符号)
         kata,                   -- 呼称型式
         enginekata,             -- エンジン型式
         ktfgomeijp,             -- 工程符号名称(和)
@@ -37,8 +38,7 @@ with t30 as (
         psc_alcname,            -- PSC1桁＆工場名
         veh_plnt_code_name,     -- 車両工場名(日本語)
         veh_plnt_code_name_en,  -- 車両工場名(英語)
-        int_cd_iromei,          -- 内張色
-        ext_cd_iromei,          -- 外鈑色
+        iromei,                 -- 外鈑色
         r_country_name          -- 仕向国
 	from {{ref('tmp30_dm_vinhis_specification_urn')}}
 ), t41 as (
