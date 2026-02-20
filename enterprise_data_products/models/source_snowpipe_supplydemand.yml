@@ -1365,3 +1365,13 @@ sources:
         identifier: iotalcjfy1g4sfh
       - name: raw_iotalcjfy1g4tra
         identifier: iotalcjfy1g4tra
+      - name: raw_iotalcjm41g4ctr
+        identifier: iotalcjm41g4ctr
+      - name: raw_iotalcjm41g4sf0
+        identifier: iotalcjm41g4sf0
+      - name: raw_iotalcjm41g4sfk
+        identifier: iotalcjm41g4sfk
+      - name: raw_iotalcjm41g4sft
+        identifier: iotalcjm41g4sft
+      - name: raw_iotalcjm41g4tra
+        identifier: iotalcjm41g4tra
