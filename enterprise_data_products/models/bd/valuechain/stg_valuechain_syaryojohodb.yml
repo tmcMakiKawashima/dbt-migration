@@ -6,14 +6,15 @@ models:
       tags: ["syaryojohodb"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - kbsyadai
-            - nosyadai
-            - seisanymd
-            - nyukohanbaitencd
-            - jutyuno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - kbsyadai
+              - nosyadai
+              - seisanymd
+              - nyukohanbaitencd
+              - jutyuno
     columns:
       - name: kbsyadai
         data_tests:
@@ -46,14 +47,15 @@ models:
       tags: ["syaryojohodb"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - nyukohanbaitencd
-            - jutyuno
-            - seisany
-            - seisanmd
-            - nyukono
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - nyukohanbaitencd
+              - jutyuno
+              - seisany
+              - seisanmd
+              - nyukono
     columns:
       - name: nyukohanbaitencd
         data_tests:
@@ -86,11 +88,12 @@ models:
       tags: ["syaryojohodb"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - nyukono
-            - meisaino
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - nyukono
+              - meisaino
     columns:
       - name: nyukono
         data_tests:
@@ -108,11 +111,12 @@ models:
       tags: ["syaryojohodb"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - nyukono
-            - meisaino
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - nyukono
+              - meisaino
     columns:
       - name: nyukono
         data_tests:
@@ -130,11 +134,12 @@ models:
       tags: ["syaryojohodb"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - nyukono
-            - meisaino
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - nyukono
+              - meisaino
     columns:
       - name: nyukono
         data_tests:
@@ -152,11 +157,12 @@ models:
       tags: ["syaryojohodb"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - nyukono
-            - meisaino
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - nyukono
+              - meisaino
     columns:
       - name: nyukono
         data_tests:
@@ -174,11 +180,12 @@ models:
       tags: ["syaryojohodb"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - codekbnid
-            - key
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - codekbnid
+              - key
     columns:
       - name: codekbnid
         data_tests:
@@ -209,11 +216,12 @@ models:
       tags: ["syaryojohodb"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hanbaitencd
-            - tenpocd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - hanbaitencd
+              - tenpocd
     columns:
       - name: hanbaitencd
         data_tests:
@@ -231,16 +239,16 @@ models:
       tags: ["syaryojohodb"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:        # パッケージで提供されているテストを仕様
-          combination_of_columns:
-            - kbsyadai
-            - nosyadai
-            - ddtorituke
-            - cdyouhinban
-            - cdtorihan
-            - cdtoritenpo
           config:
             severity: error
-
+          arguments:
+            combination_of_columns:
+              - kbsyadai
+              - nosyadai
+              - ddtorituke
+              - cdyouhinban
+              - cdtorihan
+              - cdtoritenpo
     columns:
       - name: kbsyadai
         data_tests:

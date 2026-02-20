@@ -17,7 +17,7 @@ ALERTS:
   REGION: ap-northeast-1
 DOCKER:
   IMAGE_VERSION:
-    DBT: ghcr.io/dbt-labs/dbt-snowflake:1.9.0
+    DBT: 433723560297.dkr.ecr.ap-northeast-1.amazonaws.com/pajp1-dxpf-edp-ecr-kestra-dbt-snowflake@sha256:4bf4f0f9393f30f76e6adc5ebb302a833f1433164c8a4aa740a08ee3967bcc44
     PYTHON: ghcr.io/jumpserver/python:3.11-slim
 PYTHON:
   SNOWFLAKE_CONNECTOR_VERSION: snowflake-connector-python[pandas]==3.15.0

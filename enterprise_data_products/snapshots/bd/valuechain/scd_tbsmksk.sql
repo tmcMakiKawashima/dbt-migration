@@ -14,7 +14,6 @@
                     'tsiwakecd2',
                     'filler'],
         invalidate_hard_deletes=True,
-        snowflake_warehouse='DBT_WH',
     )
 }}
 

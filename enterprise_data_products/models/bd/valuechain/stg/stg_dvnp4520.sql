@@ -1,5 +1,10 @@
-{{ config(snowflake_warehouse='DBT_WH') }}
-
+{{
+    config (
+        materialized = 'incremental',
+        unique_key = ['JUSINNO', 'RENBAN2', 'SHINBAN', 'JUCHUYMD'],
+        incremental_strategy = 'merge',
+    )
+}}
 with stg_dvnp4520 as (
     select
         rtrim(DATAKBN4,' 　')::VARCHAR(4) as DATAKBN4,  -- 英数字
@@ -51,6 +56,9 @@ with stg_dvnp4520 as (
         LDTS,  --B層のLDTS
         RANK() over (partition by JUSINNO, RENBAN2, SHINBAN, JUCHUYMD order by LDTS desc) aggkey
     from {{ ref('substr_dvnp4520') }}
+    {% if is_incremental() %}
+        where ldts > (select max(ldts) from {{this}})
+    {% endif %}
 )
 select * from stg_dvnp4520
 where aggkey = 1
