@@ -4,8 +4,7 @@
     config( 
         unique_key="concat_ws('-',
                     syasyu_cd,
-                    kumitate
-                    )",
+                    kumitate)",
 
         strategy='timestamp',
         updated_at='ldts',
