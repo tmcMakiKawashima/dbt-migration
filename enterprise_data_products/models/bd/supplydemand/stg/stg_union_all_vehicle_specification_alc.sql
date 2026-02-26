@@ -15,7 +15,7 @@
         "
   )
  }}
- -- 最新日付以外のレコードを削除
+ -- トランザクションデータであるが最新日付のデータのみが必要な要件のため、それ以外のレコードを削除
 
 with stg_union_all_vehicle_specification_alc as (
   select
