@@ -13,3 +13,5 @@ sources:
     tables:
       - name: raw_cqa68jeventmtnaiyo
         identifier: cqa68jeventmtnaiyo
+      - name: raw_cqa64jsystemmei
+        identifier: cqa64jsystemmei
