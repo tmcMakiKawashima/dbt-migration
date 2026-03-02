@@ -1,61 +1,50 @@
 version: 2
 
 models:
-# 車種
-  - name: stg_syasyu
+# 仕様変換(TMC車種限定)
+  - name: stg_siyouhenkan_tmc_syaryosys
     config:
-      tags: ["aisac"]
-    columns:
-      - name: syasyu
-        data_tests:
-          - unique:
-              config:
-                severity: error
-          - not_null:
-              config:
-                severity: error
-# イベント変更内容一覧
-  - name: stg_swevent_ebidensu_aisac
-    config:
-      tags: ["aisac"]
+      tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           config:
             severity: error
           arguments:
             combination_of_columns:
-              - eventno
               - syasyu
+              - shiyodai
+              - shiyosai
+              - s1keta
+              - s1kigo
+              - ctlkata
+
     columns:
-      - name: eventno
-        data_tests:
-          - not_null:
-              config:
-                severity: error
       - name: syasyu
         data_tests:
           - not_null:
               config:
                 severity: error
-      - name: ldts
+      - name: shiyodai
         data_tests:
           - not_null:
               config:
                 severity: error
-# システム名称台帳
-  - name: stg_systemmei_aisac
-    config:
-      tags: ["aisac"]
-    columns:
-      - name: system
+      - name: shiyosai
         data_tests:
-          - unique:
-              config:
-                severity: error
           - not_null:
               config:
                 severity: error
-      - name: ldts
+      - name: s1keta
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: s1kigo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ctlkata
         data_tests:
           - not_null:
               config:
