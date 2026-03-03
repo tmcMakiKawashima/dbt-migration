@@ -29,7 +29,7 @@
             threads: 16
             type: snowflake
             user: "{{ namespace.DBT.SNOWFLAKE_USER }}"
-            warehouse: dbt_default_wh
+            warehouse: common_tbl_wh
     projectDir: "{{ namespace.DBT.PROJ_DIR }}"
     taskRunner:
       type: io.kestra.plugin.ee.kubernetes.runner.Kubernetes
@@ -51,7 +51,6 @@
           memory: 128Mi
       pullPolicy: IF_NOT_PRESENT
     beforeCommands:
-      - apt-get install git
       - git clone -b {{ namespace.GIT.BRANCH ?? inputs.branch }} http://{{ namespace.GIT.USER }}:{{ secret('GIT_PASS') }}@{{ namespace.GIT.URL_PATH }}
       - cp --force profiles.yml {{ namespace.NAME }}/{{ namespace.DBT.PROJ_DIR }}/profiles.yml
       - cd {{ namespace.NAME }}/{{ namespace.DBT.PROJ_DIR }}
@@ -152,3 +151,13 @@
     beforeCommands:
       - pip install "{{ namespace.PYTHON.SNOWFLAKE_CONNECTOR_VERSION }}"
     containerImage: "{{ namespace.DOCKER.IMAGE_VERSION.PYTHON }}"
+- type: io.kestra.plugin.core.log.Fetch
+  forced: false
+  values:
+    level: ERROR
+    executionId: "{{ execution.id }}"
+- type: io.kestra.plugin.transform.jsonata.TransformItems
+  forced: false
+  values:
+    from: "{{ outputs.fetch_error_logs.uri }}"
+    expression: $.message

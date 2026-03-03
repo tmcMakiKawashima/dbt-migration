@@ -7,17 +7,18 @@ models:
       tags: ["koutei-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu
-            - tantoseikan
-            - jyokenno
-            - kata
-            - jigyoutai
-            - seisuffix
-            - genteikbn
-            - seisanbasyo
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - tantoseikan
+              - jyokenno
+              - kata
+              - jigyoutai
+              - seisuffix
+              - genteikbn
+              - seisanbasyo
     columns:
       - name: syasyu
         data_tests:
@@ -85,18 +86,19 @@ models:
       tags: ["koutei-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - seppenno
-            - siryono
-            - syasyu
-            - syurui
-            - maker
-            - koumoku
-            - minor
-            - bunsi
-            - bunbo
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - seppenno
+              - siryono
+              - syasyu
+              - syurui
+              - maker
+              - koumoku
+              - minor
+              - bunsi
+              - bunbo
     columns:
       - name: seppenno
         data_tests:
@@ -114,11 +116,12 @@ models:
       tags: ["koutei-sms"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - seppenno
-            - siryono
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - seppenno
+              - siryono
     columns:
       - name: seppenno
         data_tests:

@@ -23,13 +23,14 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - segmei
-            - renkey_hkata
-            - renkey_sedai
-            - ldts
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - segmei
+              - renkey_hkata
+              - renkey_sedai
+              - ldts
     columns:
       - name: segmei
         data_tests:
@@ -387,17 +388,18 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - segmei
-            - renkey_hkata
-            - renkey_sedai
-            - renkey_psign
-            - renkey_keykbn
-            - renkey_chk
-            - renkey_renban
-            - ldts
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - segmei
+              - renkey_hkata
+              - renkey_sedai
+              - renkey_psign
+              - renkey_keykbn
+              - renkey_chk
+              - renkey_renban
+              - ldts
     columns:
       - name: segmei
         data_tests:
@@ -595,26 +597,27 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - segmei
-            - renkey_hkata
-            - renkey_sedai
-            - renkey_keykbn
-            - renkey_keykmk
-            - ldts
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - segmei
+              - renkey_hkata
+              - renkey_sedai
+              - renkey_keykbn
+              - renkey_keykmk
+              - ldts
     columns:
       - name: segmei
         data_tests:
-         - not_null:
-             config:
-               severity: error
+          - not_null:
+              config:
+                severity: error
       - name: renkey_hkata
         data_tests:
-            - not_null:
-                config:
-                  severity: error
+          - not_null:
+              config:
+                severity: error
       - name: renkey_sedai
         data_tests:
           - not_null:
@@ -1051,12 +1054,13 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu
-            - sno
-            - ldts
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - sno
+              - ldts
     columns:
       - name: syasyu
         data_tests:
@@ -1134,15 +1138,16 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu
-            - shiyodai
-            - shiyosai
-            - s1keta
-            - s1kigo
-            - ctlkata
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - shiyodai
+              - shiyosai
+              - s1keta
+              - s1kigo
+              - ctlkata
     columns:
       - name: syasyu
         data_tests:
@@ -1180,11 +1185,12 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - odno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - dlrcd
+              - odno
     columns:
       - name: dlrcd
         data_tests:
@@ -1202,11 +1208,12 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - chumon
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - dlrcd
+              - chumon
     columns:
       - name: dlrcd
         data_tests:
@@ -1224,16 +1231,17 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - renkey_shamei
-            - renkey_sno
-            - renkey_nen
-            - renkey_tuki
-            - renkey_kncode
-            - renkey_knkubn
-            - dsyubetum
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - renkey_shamei
+              - renkey_sno
+              - renkey_nen
+              - renkey_tuki
+              - renkey_kncode
+              - renkey_knkubn
+              - dsyubetum
     columns:
       - name: renkey_shamei
         data_tests:
@@ -1276,14 +1284,15 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - shamei
-            - sno
-            - nengetu
-            - kncode
-            - dsyubetum
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - shamei
+              - sno
+              - nengetu
+              - kncode
+              - dsyubetum
     columns:
       - name: shamei
         data_tests:
@@ -1316,13 +1325,14 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - sno
-            - shamei
-            - dfsc
-            - kncode
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - sno
+              - shamei
+              - dfsc
+              - kncode
     columns:
       - name: sno
         data_tests:
@@ -1350,15 +1360,16 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - shamei
-            - sno
-            - shinq
-            - firmymj
-            - kncode
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - dlrcd
+              - shamei
+              - sno
+              - shinq
+              - firmymj
+              - kncode
     columns:
       - name: dlrcd
         data_tests:
@@ -1396,11 +1407,12 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - maker
-            - idline
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - maker
+              - idline
     columns:
       - name: maker
         data_tests:
@@ -1418,12 +1430,13 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - nen
-            - tuki
-            - kline
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - nen
+              - tuki
+              - kline
     columns:
       - name: nen
         data_tests:
@@ -1446,17 +1459,18 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - shamei
-            - sno
-            - bukbn
-            - kncode
-            - dlrcd
-            - firmyy
-            - firmmm
-            - firmjn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - shamei
+              - sno
+              - bukbn
+              - kncode
+              - dlrcd
+              - firmyy
+              - firmmm
+              - firmjn
     columns:
       - name: shamei
         data_tests:
@@ -1504,11 +1518,12 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syoribi
-            - stime
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syoribi
+              - stime
     columns:
       - name: syoribi
         data_tests:
@@ -1526,17 +1541,18 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - chumon
-            - jyuhasei
-            - simuke
-            - odno
-            - ojyy
-            - frmkbn
-            - frmno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - dlrcd
+              - chumon
+              - jyuhasei
+              - simuke
+              - odno
+              - ojyy
+              - frmkbn
+              - frmno
     columns:
       - name: dlrcd
         data_tests:
@@ -1584,11 +1600,12 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - chumon
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - dlrcd
+              - chumon
     columns:
       - name: dlrcd
         data_tests:
@@ -1606,11 +1623,12 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - odno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - dlrcd
+              - odno
     columns:
       - name: dlrcd
         data_tests:
@@ -1648,11 +1666,12 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - idntno
-            - load_date
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - idntno
+              - load_date
     columns:
       - name: idntno
         data_tests:
@@ -1670,17 +1689,18 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - line
-            - sno
-            - odno
-            - ssyy
-            - ssmm
-            - ssdd
-            - symei
-            - load_date
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - line
+              - sno
+              - odno
+              - ssyy
+              - ssmm
+              - ssdd
+              - symei
+              - load_date
     columns:
       - name: line
         data_tests:
@@ -1746,13 +1766,14 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - shamei
-            - sno
-            - dlrcd
-            - dfsc
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - shamei
+              - sno
+              - dlrcd
+              - dfsc
     columns:
       - name: shamei
         data_tests:
@@ -1820,11 +1841,12 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dfsc
-            - funcdtl_cd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - dfsc
+              - funcdtl_cd
     columns:
       - name: dfsc
         data_tests:
@@ -1847,11 +1869,12 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dfsc
-            - opt_cd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - dfsc
+              - opt_cd
     columns:
       - name: dfsc
         data_tests:
@@ -1874,16 +1897,17 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - sle_model
-            - che_fil_clss
-            - eqp_typ
-            - eqp_cond_cd
-            - set_contno
-            - set_eqp_typ
-            - set_eqp_cd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - sle_model
+              - che_fil_clss
+              - eqp_typ
+              - eqp_cond_cd
+              - set_contno
+              - set_eqp_typ
+              - set_eqp_cd
     columns:
       - name: sle_model
         data_tests:
@@ -1931,24 +1955,25 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - spec_no
-            - carnm_cd
-            - funcdtl_cd
-            - ctl_model
-            - bdcol_cd
-            - inner_cd
-            - eqp_cond1
-            - eqp_cond2
-            - eqp_cond3
-            - eqp_cond4
-            - eqp_cond5
-            - eqp_cond6
-            - eqp_cond7
-            - eqp_cond8
-            - tire_cd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - spec_no
+              - carnm_cd
+              - funcdtl_cd
+              - ctl_model
+              - bdcol_cd
+              - inner_cd
+              - eqp_cond1
+              - eqp_cond2
+              - eqp_cond3
+              - eqp_cond4
+              - eqp_cond5
+              - eqp_cond6
+              - eqp_cond7
+              - eqp_cond8
+              - tire_cd
     columns:
       - name: spec_no
         data_tests:
@@ -2036,11 +2061,12 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlr_cd
-            - sle_model
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - dlr_cd
+              - sle_model
     columns:
       - name: dlr_cd
         data_tests:
@@ -2063,13 +2089,14 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlr_cd
-            - sle_model
-            - eqp_clss
-            - eqp_itm
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - dlr_cd
+              - sle_model
+              - eqp_clss
+              - eqp_itm
     columns:
       - name: dlr_cd
         data_tests:
@@ -2102,12 +2129,13 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - carnm_cd
-            - spec_no
-            - inner_cd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - carnm_cd
+              - spec_no
+              - inner_cd
     columns:
       - name: carnm_cd
         data_tests:
@@ -2135,12 +2163,13 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - carnm_cd
-            - spec_no
-            - bdcol_cd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - carnm_cd
+              - spec_no
+              - bdcol_cd
     columns:
       - name: carnm_cd
         data_tests:
@@ -2168,12 +2197,13 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - carnm_cd
-            - spec_no
-            - opt_cd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - carnm_cd
+              - spec_no
+              - opt_cd
     columns:
       - name: carnm_cd
         data_tests:
@@ -2201,12 +2231,13 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - spec_no
-            - carnm_cd
-            - lineoff_beto_ymd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - spec_no
+              - carnm_cd
+              - lineoff_beto_ymd
     columns:
       - name: spec_no
         data_tests:
@@ -2234,13 +2265,14 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - spec_no
-            - carnm_cd
-            - funcdtl_cd
-            - lineoff_beto_ymd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - spec_no
+              - carnm_cd
+              - funcdtl_cd
+              - lineoff_beto_ymd
     columns:
       - name: spec_no
         data_tests:
@@ -2273,14 +2305,15 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlr_cd
-            - carnm_cd
-            - spec_no
-            - obj_ym_jun
-            - funcdtl_cd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - dlr_cd
+              - carnm_cd
+              - spec_no
+              - obj_ym_jun
+              - funcdtl_cd
     columns:
       - name: dlr_cd
         data_tests:
@@ -2331,12 +2364,13 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - spec_no
-            - carnm_cd
-            - odr_dcson_ymd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - spec_no
+              - carnm_cd
+              - odr_dcson_ymd
     columns:
       - name: spec_no
         data_tests:
@@ -2364,12 +2398,13 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - shamei
-            - sno
-            - dfsc
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - shamei
+              - sno
+              - dfsc
     columns:
       - name: shamei
         data_tests:
@@ -2437,11 +2472,12 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - shamei
-            - sno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - shamei
+              - sno
     columns:
       - name: shamei
         data_tests:
@@ -2484,14 +2520,15 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlrcd
-            - odno
-            - jrdate
-            - shamei
-            - sno
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - dlrcd
+              - odno
+              - jrdate
+              - shamei
+              - sno
     columns:
       - name: dlrcd
         data_tests:
@@ -2574,12 +2611,13 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - dlr_cd
-            - carnm_cd
-            - spec_no
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - dlr_cd
+              - carnm_cd
+              - spec_no
     columns:
       - name: dlr_cd
         data_tests:
@@ -2602,11 +2640,12 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - carnm_cd
-            - spec_no
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - carnm_cd
+              - spec_no
     columns:
       - name: carnm_cd
         data_tests:
@@ -2637,12 +2676,13 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - sle_model
-            - bdcol_cd
-            - inner_cd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - sle_model
+              - bdcol_cd
+              - inner_cd
     columns:
       - name: sle_model
         data_tests:
@@ -2665,13 +2705,14 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - sle_model
-            - bdcol_cd
-            - inner_cd
-            - opt_cd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - sle_model
+              - bdcol_cd
+              - inner_cd
+              - opt_cd
     columns:
       - name: sle_model
         data_tests:
@@ -2712,13 +2753,14 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - shamei
-            - sno
-            - dfsc
-            - kncode
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - shamei
+              - sno
+              - dfsc
+              - kncode
     columns:
       - name: shamei
         data_tests:
@@ -2746,12 +2788,13 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - shamei
-            - sno
-            - kncode
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - shamei
+              - sno
+              - kncode
     columns:
       - name: shamei
         data_tests:
@@ -2815,15 +2858,16 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - shamei
-            - sno
-            - kncode
-            - sym
-            - odt
-            - ln
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - shamei
+              - sno
+              - kncode
+              - sym
+              - odt
+              - ln
     columns:
       - name: shamei
         data_tests:
@@ -2861,14 +2905,15 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - shamei
-            - sno
-            - yyyymm
-            - kncode
-            - kbn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - shamei
+              - sno
+              - yyyymm
+              - kncode
+              - kbn
     columns:
       - name: shamei
         data_tests:
@@ -3056,12 +3101,13 @@ models:
       tags: ["syaryosys"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - shamei
-            - sno
-            - kncode
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - shamei
+              - sno
+              - kncode
     columns:
       - name: shamei
         data_tests:
@@ -3079,6 +3125,59 @@ models:
               config:
                 severity: error
       - name: knmsortjun
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# SUBARU月度生計
+  - name: stg_subarugetsudoseikei_syaryosys
+    config:
+      tags: ["syaryosys"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - ktsk
+              - sp
+              - op
+              - onkn_kbn
+              - gsclr
+              - nsclr
+              - dfsc
+    columns:
+      - name: ktsk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: op
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: onkn_kbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: gsclr
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nsclr
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: dfsc
         data_tests:
           - not_null:
               config:

@@ -61,11 +61,12 @@ models:
       tags: ["j-net"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - knmtyostaym
-            - knmtyocd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - knmtyostaym
+              - knmtyocd
     columns:
       - name: knmtyostaym
         data_tests:
@@ -160,32 +161,40 @@ models:
       tags: ["j-net"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - employee_cd
-            - syozoku_cd_honrai
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - employee_cd
+              - syozoku_cd_honrai
     columns:
       - name: jigsnymd
-        meta:
+        config:
+          meta:
             masking_policy: jigsnymd_mask
       - name: jigseb
-        meta:
+        config:
+          meta:
             masking_policy: jigseb_mask
       - name: gakrei
-        meta:
+        config:
+          meta:
             masking_policy: gakrei_mask
       - name: nnjgrk
-        meta:
+        config:
+          meta:
             masking_policy: nnjgrk_mask
       - name: hgsumf
-        meta:
+        config:
+          meta:
             masking_policy: hgsumf_mask
       - name: tgntkycd
-        meta:
+        config:
+          meta:
             masking_policy: tgntkycd_mask
       - name: sytkyf
-        meta:
+        config:
+          meta:
             masking_policy: sytkyf_mask
       - name: employee_cd
         data_tests:
@@ -208,13 +217,14 @@ models:
       tags: ["j-net"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - employee_cd
-            - htrymd
-            - syozoku_cd
-            - ykwrcd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - employee_cd
+              - htrymd
+              - syozoku_cd
+              - ykwrcd
     columns:
       - name: employee_cd
         data_tests:
