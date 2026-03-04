@@ -1311,6 +1311,8 @@ sources:
               - fixed_length:
                   arguments:
                     length: 80
+      - name: raw_ktrla038zz0kadda01
+        identifier: ktrla038zz0kadda01
       - name: raw_ktrla038zz0kaddb03
         identifier: ktrla038zz0kaddb03
         columns:
