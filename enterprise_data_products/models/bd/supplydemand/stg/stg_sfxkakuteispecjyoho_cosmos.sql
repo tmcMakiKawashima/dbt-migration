@@ -1,17 +1,22 @@
 {{ 
   config(
     materialized='incremental',
-    incremental_strategy = 'append',
-    transient = false,
-    pre_hook = "
-      {% if is_incremental() %}
-      delete from {{this}}
-      {% endif %}
-    "
+    incremental_strategy = 'merge',
+    unique_key = ['r_prod_month', 'r_edno', 'r_spec_keta'],
+        post_hook="
+            {% if is_incremental() %}
+                delete from {{this}}
+                where (r_prod_month, r_edno, r_spec_keta) in (select r_prod_month, r_edno, r_spec_keta
+                from {{ source('fivetran_database_oracle_rds_osamsp01sam201', 'raw_cam2148') }}
+                where _fivetran_deleted = 'true'
+                and _fivetran_synced >= (select max(ldts) from {{ this }}))
+            {% endif %}
+        "
   )
  }}
--- 洗い替えであるため、pre_hookで全件削除を行う。
-with stg_cam2148_jyukyujyoho as (
+-- 削除フラグがtrueに更新されたレコードを削除
+
+with stg_sfxkakuteispecjyoho_cosmos as (
     select
         r_prod_month::varchar(6) as r_prod_month, -- 生産年月
         r_edno::varchar(6) as r_edno, -- ＥＤ№
@@ -29,5 +34,8 @@ with stg_cam2148_jyukyujyoho as (
         _fivetran_synced::timestamp_ntz(9) as ldts
     from {{ source('fivetran_database_oracle_rds_osamsp01sam201', 'raw_cam2148') }}
     where _fivetran_deleted = 'false'
+    {% if is_incremental() %}
+        and _fivetran_synced > (select max(ldts) from {{this}})
+    {% endif %}
 )
-select * from stg_cam2148_jyukyujyoho
+select * from stg_sfxkakuteispecjyoho_cosmos
