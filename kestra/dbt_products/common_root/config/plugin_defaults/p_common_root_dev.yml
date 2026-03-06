@@ -2,7 +2,7 @@
   forced: false
   values:
     profiles: |
-      enterprise_data_products:
+      {{ namespace.DBT.PROJ_DIR }}:
         target: dev
         outputs:
           dev:
@@ -30,7 +30,6 @@
             type: snowflake
             user: "{{ namespace.DBT.SNOWFLAKE_USER }}"
             warehouse: common_tbl_wh
-    projectDir: "{{ namespace.DBT.PROJ_DIR }}"
     taskRunner:
       type: io.kestra.plugin.ee.kubernetes.runner.Kubernetes
       namespace: "{{ namespace.KUBERNETES.NAMESPACE }}"
@@ -51,7 +50,8 @@
           memory: 128Mi
       pullPolicy: IF_NOT_PRESENT
     beforeCommands:
-      - git clone -b {{ namespace.GIT.BRANCH ?? inputs.branch }} http://{{ namespace.GIT.USER }}:{{ secret('GIT_PASS') }}@{{ namespace.GIT.URL_PATH }}
+      - git clone -b {{ namespace.GIT.BRANCH ?? inputs.branch }} --depth 1 --filter=blob:none --sparse http://{{ namespace.GIT.USER }}:{{ secret('GIT_PASS') }}@{{ namespace.GIT.URL_PATH }}
+      - git -C {{ namespace.NAME }} sparse-checkout set {{ namespace.DBT.PROJ_DIR }}
       - cp --force profiles.yml {{ namespace.NAME }}/{{ namespace.DBT.PROJ_DIR }}/profiles.yml
       - cd {{ namespace.NAME }}/{{ namespace.DBT.PROJ_DIR }}
       - dbt deps
@@ -104,26 +104,26 @@
   forced: false
   values:
     from:
-      - data: |
-          The Kestra workflow execution {{ inputs.state == 'FAILED' or inputs.state == 'SUCCESS' or inputs.state == 'WARNING' ? inputs.state : 'RETRIED' }}. [{{ namespace.ENV }}]
+      data: |
+        The Kestra workflow execution {{ inputs.state == 'FAILED' or inputs.state == 'SUCCESS' or inputs.state == 'WARNING' ? inputs.state : 'RETRIED' }}. [{{ namespace.ENV }}]
 
-          -----------------------------------------------------------------------------------------------------------------------------
-          - Namespace: {{ trigger.namespace }}
-          - Flow ID: {{ trigger.flowId }}
-          - Execution ID: {{ trigger.executionId }}
-          - Error Info: {{ inputs.error_log }}
-          -----------------------------------------------------------------------------------------------------------------------------
+        -----------------------------------------------------------------------------------------------------------------------------
+        - Namespace: {{ trigger.namespace }}
+        - Flow ID: {{ trigger.flowId }}
+        - Execution ID: {{ trigger.executionId }}
+        - Error Info: {{ inputs.error_log }}
+        -----------------------------------------------------------------------------------------------------------------------------
 
-          ※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
-          ※  下の「unsubscribe」のリンクをクリックしないでください（1番目のリンク）       ※
-          ※  リンクをクリックするとKestraのエラー通知が一切飛ばなくなってしまいます       ※
-          ※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
-          -
-          -
-          -
-          -
-          -
-        subject: "[{{ namespace.ENV }}] Kestra Workflow {{ inputs.state == 'FAILED' or inputs.state == 'SUCCESS' or inputs.state == 'WARNING' ? inputs.state : 'RETRIED' }}: {{ trigger.flowId }}"
+        ※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
+        ※  下の「unsubscribe」のリンクをクリックしないでください（1番目のリンク）       ※
+        ※  リンクをクリックするとKestraのエラー通知が一切飛ばなくなってしまいます       ※
+        ※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
+        -
+        -
+        -
+        -
+        -
+      subject: "[{{ namespace.ENV }}] Kestra Workflow {{ inputs.state == 'FAILED' or inputs.state == 'SUCCESS' or inputs.state == 'WARNING' ? inputs.state : 'RETRIED' }}: {{ trigger.flowId }}"
     region: "{{ namespace.ALERTS.REGION }}"
     topicArn: "{{ namespace.ALERTS.TOPIC }}"
 - type: io.kestra.plugin.scripts.python.Commands
@@ -161,3 +161,8 @@
   values:
     from: "{{ outputs.fetch_error_logs.uri }}"
     expression: $.message
+- type: io.kestra.plugin.core.trigger.Schedule
+  forced: false
+  values:
+    recoverMissedSchedules: NONE
+    lateMaximumDelay: PT1H
