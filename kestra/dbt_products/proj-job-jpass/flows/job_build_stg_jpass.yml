@@ -13,6 +13,14 @@ retry:
   maxInterval: PT720S
   delayFactor: 30
 
+sla:
+  - id: maxDuration
+    type: MAX_DURATION
+    duration: PT7H
+    behavior: NONE
+    labels:
+      sla: miss
+
 # 手動実行時に指定できるdbtオプション
 inputs:
   - id: dbt_options
