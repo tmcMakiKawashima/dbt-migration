@@ -204,6 +204,12 @@ models:
           dim:
             +access: public
             +materialized: table
+        vinspec:
+          +group: vinhis_vinspec
+          +schema: vinspec
+          dim:
+            +access: public
+            +materialized: table
       employee:
         +snowflake_warehouse: employee_wh
         +database: employee_db
