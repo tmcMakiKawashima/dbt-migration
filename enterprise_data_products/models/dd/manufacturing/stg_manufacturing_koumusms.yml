@@ -1,0 +1,278 @@
+version: 2
+
+models:
+# 品番引当(TMC車種限定)
+  - name: stg_hinban_hikiate_tmc_koumusms
+    config:
+      tags: ["koumusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - jigyoutaicd
+              - kouku
+              - renban
+              - syasyu
+              - siyoubui
+              - oyahin
+              - gc
+              - kohin
+              - ruibetu
+              - kanrikt
+              - ktkigo
+              - jikt01
+              - jikt02
+              - jikt03
+              - jikt04
+              - jikt05
+              - jikt06
+              - jikt07
+              - jikt08
+              - jikt09
+              - jikt10
+              - jikt11
+              - jikt12
+              - jikt13
+              - jikt14
+              - oyakt
+              - tck
+              - naigaikbn
+              - tehaishogokey
+              - idline
+              - unitkbn
+              - nisugata
+              - oderkbn
+              - shimukecd
+              - shimukekouku
+              - multisspkbn
+              - blkcd
+
+    columns:
+      - name: jigyoutaicd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kouku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: renban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: siyoubui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: oyahin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: gc
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kohin
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ruibetu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kanrikt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: ktkigo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt01
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt02
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt03
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt04
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt05
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt06
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt07
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt08
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt09
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt10
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt11
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt12
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt13
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: jikt14
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: oyakt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tck
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: naigaikbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tehaishogokey
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: idline
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: unitkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: nisugata
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: oderkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shimukecd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: shimukekouku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: multisspkbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: blkcd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# ﾕｰｻﾞｺｰﾄﾞ管理工程対応ﾏｽﾀ(項目修正)
+  - name: stg_usercode_koumusms
+    config:
+      tags: ["koumusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - jigyoutaicd
+              - kouku
+              - renban
+              - kanrikt
+
+    columns:
+      - name: jigyoutaicd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kouku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: renban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kanrikt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: timestamp
+        data_tests:
+          - not_null:
+              config:
+                severity: error

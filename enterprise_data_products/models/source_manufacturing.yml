@@ -62,3 +62,6 @@ sources:
         identifier: stg_yhinbanhenko
       - name: raw_stg_kessairoute
         identifier: stg_kessairoute
+    # koumusms
+      - name: raw_m_cb408pusercode
+        identifier: m_cb408pusercode

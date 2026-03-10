@@ -772,3 +772,6 @@ sources:
               - fixed_length:
                   arguments:
                     length: 80
+    # KINTO
+      - name: raw_vinhisfile
+        identifier: vinhisfile
