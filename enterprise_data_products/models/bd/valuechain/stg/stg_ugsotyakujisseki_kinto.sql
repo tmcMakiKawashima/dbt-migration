@@ -40,28 +40,29 @@
     )
 }}
 
-with stg_ugsotyakujisseki_kinto as (
-    select
-        iff(syadai_kt = '', null, syadai_kt)::varchar(9) as syadai_kt, --なし
-        iff(frm_no = '', null, frm_no)::varchar(7) as frm_no, --なし
-        iff(daibun_4 = '', null, daibun_4)::varchar(3) as daibun_4, --なし
-        iff(saimoku_4 = '', null, saimoku_4)::varchar(1) as saimoku_4, --なし
-        null::varchar(800) as dai_kanji_name, --なし
-        iff(sai_kana_name = '', null, sai_kana_name)::varchar(800) as sai_kana_name, --なし
-        iff(parts_cd = '', null, parts_cd)::varchar(10) as parts_cd, --なし
-        iff(ruibetsu = '', null, ruibetsu)::varchar(2) as ruibetsu, --なし
-        iff(parts_name = '', null, parts_name)::varchar(60) as parts_name, --なし
-        iff(kosu = '', null, kosu)::varchar(3) as kosu, --なし
-        iff(nyuko_dealer_cd = '', null, nyuko_dealer_cd)::varchar(400) as nyuko_dealer_cd, --なし
-        iff(odo = '', null, odo)::varchar(7) as odo, --なし
-        iff(ug_date = '', null, ug_date)::varchar(8) as ug_date, --なし
-        ldts::timestamp_ntz(9) as ldts -- timestamp型
-    from {{ ref('extract_vinhisfile') }}
-    where
-        (ug_date is not null) and trim(ug_date) <> '' and updatekbn = '0'
+with
+    stg_ugsotyakujisseki_kinto as (
+        select
+            iff(syadai_kt = '', null, syadai_kt)::varchar(9) as syadai_kt, --なし
+            iff(frm_no = '', null, frm_no)::varchar(7) as frm_no, --なし
+            iff(daibun_4 = '', null, daibun_4)::varchar(3) as daibun_4, --なし
+            iff(saimoku_4 = '', null, saimoku_4)::varchar(1) as saimoku_4, --なし
+            null::varchar(800) as dai_kanji_name, --なし
+            iff(sai_kana_name = '', null, sai_kana_name)::varchar(800) as sai_kana_name, --なし
+            iff(parts_cd = '', null, parts_cd)::varchar(10) as parts_cd, --なし
+            iff(ruibetsu = '', null, ruibetsu)::varchar(2) as ruibetsu, --なし
+            iff(parts_name = '', null, parts_name)::varchar(60) as parts_name, --なし
+            iff(kosu = '', null, kosu)::varchar(3) as kosu, --なし
+            iff(nyuko_dealer_cd = '', null, nyuko_dealer_cd)::varchar(400) as nyuko_dealer_cd, --なし
+            iff(odo = '', null, odo)::varchar(7) as odo, --なし
+            iff(ug_date = '', null, ug_date)::varchar(8) as ug_date, --なし
+            ldts::timestamp_ntz(9) as ldts -- timestamp型
+        from {{ ref('extract_vinhisfile') }}
+        where
+            (ug_date is not null) and trim(ug_date) <> '' and updatekbn = '0'
 
-        {% if is_incremental() %}
-            and ldts > (select max(ldts) from {{ this }})
-        {% endif %}
-)
+            {% if is_incremental() %}
+                and ldts > (select max(ldts) from {{ this }})
+            {% endif %}
+    )
 select * from stg_ugsotyakujisseki_kinto
