@@ -1,6 +1,7 @@
-with stg_ugsotyakujisseki_kinto as (
-    select * from {{ ref('stg_ugsotyakujisseki_kinto') }}
-)
+with
+    stg_ugsotyakujisseki_kinto as (
+        select * from {{ ref('stg_ugsotyakujisseki_kinto') }}
+    )
 select
     rtrim(syadai_kt) as syadai_kt,
     rtrim(frm_no) as frm_no,
