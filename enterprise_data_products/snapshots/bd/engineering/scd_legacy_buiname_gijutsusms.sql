@@ -1,4 +1,4 @@
-{% snapshot scd_legacy_buiname_gijutsusms%}
+{% snapshot scd_legacy_buiname_gijutsusms %}
 
 {{
     config( 
@@ -13,6 +13,5 @@
     )
 }}
 
-select * from {{ ref('stg_legacy_buiname_gijutsusms') }} 
-
- {% endsnapshot %}
+select * from {{ ref('stg_legacy_buiname_gijutsusms') }}
+{% endsnapshot %}
