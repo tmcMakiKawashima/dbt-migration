@@ -11,7 +11,7 @@ sources:
     # SMS工程
       - name: raw_dm_syasyu_kata_sijino_plant
         identifier: dm_syasyu_kata_sijino_plant
-
+  
   - name: katashiki_db_spec
     database: katashiki_db
     schema: spec
