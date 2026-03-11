@@ -235,3 +235,44 @@ models:
           - not_null:
               config:
                 severity: error
+# ﾕｰｻﾞｺｰﾄﾞ管理工程対応ﾏｽﾀ(項目修正)
+  - name: stg_usercode_koumusms
+    config:
+      tags: ["koumusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - jigyoutaicd
+              - kouku
+              - renban
+              - kanrikt
+
+    columns:
+      - name: jigyoutaicd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kouku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: renban
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kanrikt
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: timestamp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
