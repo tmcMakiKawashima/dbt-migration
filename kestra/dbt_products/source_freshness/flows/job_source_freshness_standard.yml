@@ -89,7 +89,7 @@ finally:
     type: io.kestra.plugin.core.log.Log
     message: 
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
-      - "trigger.date -> {{ trigger.date }}"
+      - "trigger.date -> {{ trigger.date ?? 'no' }}"
       - "trigger.date (Day of week) -> {{ trigger.date | date('EEE', timeZone='Asia/Tokyo') }}"
       - "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-04-25T00:00:00+09:00"
       - "{{ trigger.date | date('YYYY', timeZone='Asia/Tokyo') }}-05-06T23:59:59+09:00"

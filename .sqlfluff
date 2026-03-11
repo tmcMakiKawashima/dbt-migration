@@ -1,22 +1,23 @@
 [sqlfluff]
 dialect = snowflake
+templater = dbt
 output_line_length = 200
 max_line_length = 200
 # TODO confluence hanei
-exclude_rules = RF01,RF02,RF03,AL05,AM02,AM04,CV02,LT04,LT08,LT09,ST02,ST05,ST06,TQ01
+exclude_rules = RF01,RF02,RF03,AL04,AL05,AL09,AM02,AM04,CV02,LT04,LT14,LT08,LT09,ST02,ST05,ST06,TQ01,CV11
 large_file_skip_char_limit = 0
 large_file_skip_byte_limit = 0
-#templater = dbt
 
-#[sqlfluff:templater:dbt]
-#project_dir = ./
-#profiles_dir = ./dbt_products/enterprise_data_products/
-#profile = default
-#target = dev
+[sqlfluff:templater:dbt]
+project_dir = ./enterprise_data_products/
+profiles_dir = ./enterprise_data_products/
+profile = enterprise_data_products
+target = dev
+dbt_skip_compilation_error = True
 
-[sqlfluff:rules:aliasing.table]
-# AL01
-aliasing = implicit
+[sqlfluff:templater:jinja]
+apply_dbt_builtins = True
+# load_macros_from_path = ./enterprise_data_products/macros/
 
 [sqlfluff:rules:aliasing.length]
 # AL06
@@ -73,6 +74,10 @@ extended_capitalisation_policy = lower
 blocked_words = None
 blocked_regex = None
 match_source = False
+
+[sqlfluff:indentation]
+# LT02
+indented_ctes=True
 
 [sqlfluff:rules:layout.long_lines]
 # LT05
