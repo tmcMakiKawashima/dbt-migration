@@ -1,5 +1,5 @@
-id: job_build_dm_variation_seisan_daisu
-namespace: kestra_dbt_project.proj-job-seisan-shiyou-jisseki
+id: job_build_stg_aisac_0400
+namespace: kestra_dbt_project.proj-job-aisac
 
 labels:
   error: default_failed
@@ -24,10 +24,9 @@ inputs:
     allowCustomValue: true
 
 variables: 
-  dbt_command: 
-    --select +dm_variation_seisan_daisu
-    --exclude +dm_vinhis_spec200_allsalecar +stg_color_no +stg_siyouhenkan +stg_syasyu_siyousho
-    --vars '{"DBT_JOB_NAME":"_dm_variation_seisan_daisu"}'
+  dbt_command:
+    --select +stg_systemmei_aisac_view
+    --vars '{"DBT_JOB_NAME":"_stg_aisac_0400"}'
 
 tasks:
   - id: clone_dbt_build
@@ -47,7 +46,7 @@ tasks:
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
-    cron: "00 09 05 * *"
+    cron: "00 04 * * *"
     timezone: Asia/Tokyo
 
 # エラーログを出力
