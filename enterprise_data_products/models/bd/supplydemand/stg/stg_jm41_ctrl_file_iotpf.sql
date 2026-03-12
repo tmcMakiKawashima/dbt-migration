@@ -22,7 +22,8 @@ with
                 partition by
                     sfkey
                 order by
-                    ldts desc, line_number desc
+                    ldts desc,
+                    line_number desc
             ) as aggkey
         from {{ ref('extract_iotalcjm41g4ctr') }}
 
@@ -31,5 +32,6 @@ with
         {% endif %}
 
     )
-select * exclude (aggkey) from stg_jm41_ctrl_file_iotpf
+select * exclude (aggkey)
+from stg_jm41_ctrl_file_iotpf
 where aggkey = 1
