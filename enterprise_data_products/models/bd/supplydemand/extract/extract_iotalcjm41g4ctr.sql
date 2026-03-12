@@ -12,5 +12,5 @@ with extract_iotalcjm41g4ctr as (
         line_number
     from
         {{ source('snowpipe_db_supplydemand', 'raw_iotalcjm41g4ctr') }}
-    )
+)
 select * from extract_iotalcjm41g4ctr

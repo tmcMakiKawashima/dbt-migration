@@ -18,19 +18,17 @@ with stg_jm41_ctrl_file_iotpf as (
         to_timestamp_ntz(trim(__updated_at, ' 　'))::timestamp_ntz(6) as __updated_at,  -- 右左ブランク
         ldts,  -- B層のldts
         row_number() over (
-            partition by
-                sfkey
-            order by
-                ldts desc,
-                line_number desc
+                partition by
+                    sfkey
+                order by
+                    ldts desc,line_number desc
         ) aggkey
-    from {{ ref('extract_iotalcjm41g4ctr')}}
+    from {{ ref('extract_iotalcjm41g4ctr') }}
 
     {% if is_incremental() %}
         where ldts > (select coalesce(max(ldts), '1970-01-01 00:00:00.000') from {{ this }})
     {% endif %}
 
 )
-select * exclude(aggkey)
-from stg_jm41_ctrl_file_iotpf
+select * exclude(aggkey) from stg_jm41_ctrl_file_iotpf
 where aggkey = 1
