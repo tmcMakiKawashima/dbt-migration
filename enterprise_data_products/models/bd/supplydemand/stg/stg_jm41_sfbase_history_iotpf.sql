@@ -6,216 +6,1221 @@
     )
 }}
 
-with stg_jm41_sfbase_history_iotpf as (
-    select
-        trim(sfkey, ' 　')::varchar(16) as sfkey,  -- 右左ブランク
-        trim(vin_type2, ' 　')::varchar(2) as vin_type2,  -- 右左ブランク
-        trim(vin_type, ' 　')::varchar(1) as vin_type,  -- 右左ブランク
-        trim(vin_wmi, ' 　')::varchar(3) as vin_wmi,  -- 右左ブランク
-        trim(vin_vds, ' 　')::varchar(6) as vin_vds,  -- 右左ブランク
-        trim(vin_kata, ' 　')::varchar(9) as vin_kata,  -- 右左ブランク
-        trim(vin_fr67, ' 　')::varchar(1) as vin_fr67,  -- 右左ブランク
-        trim(vin_my, ' 　')::varchar(1) as vin_my,  -- 右左ブランク
-        trim(maker, ' 　')::varchar(4) as maker,  -- 右左ブランク
-        trim(sno, ' 　')::varchar(2) as sno,  -- 右左ブランク
-        trim(odr_type, ' 　')::varchar(1) as odr_type,  -- 右左ブランク
-        trim(dfsc, ' 　')::varchar(5) as dfsc,  -- 右左ブランク
-        trim(lo_date, ' 　')::varchar(8) as lo_date,  -- 右左ブランク
-        trim(pack_month, ' 　')::varchar(6) as pack_month,  -- 右左ブランク
-        trim(car_name, ' 　')::varchar(2) as car_name,  -- 右左ブランク
-        trim(figure, ' 　')::varchar(1) as figure,  -- 右左ブランク
-        trim(dest_type, ' 　')::varchar(2) as dest_type,  -- 右左ブランク
-        trim(gov_aprvl, ' 　')::varchar(1) as gov_aprvl,  -- 右左ブランク
-        trim(int_code, ' 　')::varchar(4) as int_code,  -- 右左ブランク
-        trim(ext_code, ' 　')::varchar(4) as ext_code,  -- 右左ブランク
-        trim(prd_week, ' 　')::varchar(2) as prd_week,  -- 右左ブランク
-        trim(prdctn_sfx, ' 　')::varchar(2) as prdctn_sfx,  -- 右左ブランク
-        trim(sales_sfx, ' 　')::varchar(2) as sales_sfx,  -- 右左ブランク
-        trim(import_duty, ' 　')::varchar(1) as import_duty,  -- 右左ブランク
-        trim(kata_code, ' 　')::varchar(5) as kata_code,  -- 右左ブランク
-        trim(katashiki, ' 　')::varchar(20) as katashiki,  -- 右左ブランク
-        trim(ctlkata, ' 　')::varchar(20) as ctlkata,  -- 右左ブランク
-        trim(lo_katacode, ' 　')::varchar(5) as lo_katacode,  -- 右左ブランク
-        trim(lo_kata, ' 　')::varchar(20) as lo_kata,  -- 右左ブランク
-        trim(eng_b_kata, ' 　')::varchar(5) as eng_b_kata,  -- 右左ブランク
-        trim(mot_b_kata, ' 　')::varchar(5) as mot_b_kata,  -- 右左ブランク
-        trim(mot_b_katarr, ' 　')::varchar(5) as mot_b_katarr,  -- 右左ブランク
-        trim(receipt_type, ' 　')::varchar(3) as receipt_type,  -- 右左ブランク
-        trim(kd_lot, ' 　')::varchar(8) as kd_lot,  -- 右左ブランク
-        trim(asd_frmstamp, ' 　')::varchar(17) as asd_frmstamp,  -- 右左ブランク
-        trim(asd_vinno, ' 　')::varchar(17) as asd_vinno,  -- 右左ブランク
-        trim(car_family, ' 　')::varchar(4) as car_family,  -- 右左ブランク
-        trim(prdreq_month, ' 　')::varchar(6) as prdreq_month,  -- 右左ブランク
-        trim(brand, ' 　')::varchar(1) as brand,  -- 右左ブランク
-        trim(katashiki2, ' 　')::varchar(20) as katashiki2,  -- 右左ブランク
-        trim(dum_v, ' 　')::varchar(1) as dum_v,  -- 右左ブランク
-        concat(spec001,spec002,spec003,spec004,spec005,spec006,spec007,spec008,spec009,spec010,spec011,spec012,spec013,spec014,spec015,spec016,spec017,spec018,spec019,spec020,spec021,spec022,spec023,spec024,spec025,spec026,spec027,spec028,spec029,spec030,spec031,spec032,spec033,spec034,spec035,spec036,spec037,spec038,spec039,spec040,spec041,spec042,spec043,spec044,spec045,spec046,spec047,spec048,spec049,spec050,spec051,spec052,spec053,spec054,spec055,spec056,spec057,spec058,spec059,spec060,spec061,spec062,spec063,spec064,spec065,spec066,spec067,spec068,spec069,spec070,spec071,spec072,spec073,spec074,spec075,spec076,spec077,spec078,spec079,spec080,spec081,spec082,spec083,spec084,spec085,spec086,spec087,spec088,spec089,spec090,spec091,spec092,spec093,spec094,spec095,spec096,spec097,spec098,spec099,spec100,spec101,spec102,spec103,spec104,spec105,spec106,spec107,spec108,spec109,spec110,spec111,spec112,spec113,spec114,spec115,spec116,spec117,spec118,spec119,spec120,spec121,spec122,spec123,spec124,spec125,spec126,spec127,spec128,spec129,spec130,spec131,spec132,spec133,spec134,spec135,spec136,spec137,spec138,spec139,spec140,spec141,spec142,spec143,spec144,spec145,spec146,spec147,spec148,spec149,spec150,spec151,spec152,spec153,spec154,spec155,spec156,spec157,spec158,spec159,spec160,spec161,spec162,spec163,spec164,spec165,spec166,spec167,spec168,spec169,spec170,spec171,spec172,spec173,spec174,spec175,spec176,spec177,spec178,spec179,spec180,spec181,spec182,spec183,spec184,spec185,spec186,spec187,spec188,spec189,spec190,spec191,spec192,spec193,spec194,spec195,spec196,spec197,spec198,spec199,spec200)::varchar(200) as spec001_200,
-        trim(dest_code, ' 　')::varchar(5) as dest_code,  -- 右左ブランク
-        trim(dest, ' 　')::varchar(20) as dest,  -- 右左ブランク
-        trim(psc, ' 　')::varchar(2) as psc,  -- 右左ブランク
-        trim(plant_code, ' 　')::varchar(1) as plant_code,  -- 右左ブランク
-        trim(dummy_spec, ' 　')::varchar(71) as dummy_spec,  -- 右左ブランク
-        trim(tecs_odrno, ' 　')::varchar(12) as tecs_odrno,  -- 右左ブランク
-        trim(tecs_kata, ' 　')::varchar(25) as tecs_kata,  -- 右左ブランク
-        trim(tecs_maker, ' 　')::varchar(5) as tecs_maker,  -- 右左ブランク
-        trim(tecs_dealer, ' 　')::varchar(5) as tecs_dealer,  -- 右左ブランク
-        trim(equipment_line, ' 　')::varchar(2) as equipment_line,  -- 右左ブランク
-        trim(approval_no2_flag, ' 　')::varchar(1) as approval_no2_flag,  -- 右左ブランク
-        trim(vin_stop_mark_front, ' 　')::varchar(1) as vin_stop_mark_front,  -- 右左ブランク
-        trim(vin_stop_mark_rear, ' 　')::varchar(1) as vin_stop_mark_rear,  -- 右左ブランク
-        trim(namc_reference_no, ' 　')::varchar(7) as namc_reference_no,  -- 右左ブランク
-        trim(dum_vsect, ' 　')::varchar(41) as dum_vsect,  -- 右左ブランク
-        concat(spec201,spec202,spec203,spec204,spec205,spec206,spec207,spec208,spec209,spec210,spec211,spec212,spec213,spec214,spec215,spec216,spec217,spec218,spec219,spec220,spec221,spec222,spec223,spec224,spec225,spec226,spec227,spec228,spec229,spec230,spec231,spec232,spec233,spec234,spec235,spec236,spec237,spec238,spec239,spec240,spec241,spec242,spec243,spec244,spec245,spec246,spec247,spec248,spec249,spec250,spec251,spec252,spec253,spec254,spec255,spec256,spec257,spec258,spec259,spec260,spec261,spec262,spec263,spec264,spec265,spec266,spec267,spec268,spec269,spec270,spec271,spec272,spec273,spec274,spec275,spec276,spec277,spec278,spec279,spec280,spec281,spec282,spec283,spec284,spec285,spec286,spec287,spec288,spec289,spec290,spec291,spec292,spec293,spec294,spec295,spec296,spec297,spec298,spec299,spec300,spec301,spec302,spec303,spec304,spec305,spec306,spec307,spec308,spec309,spec310,spec311,spec312,spec313,spec314,spec315,spec316,spec317,spec318,spec319,spec320,spec321,spec322,spec323,spec324,spec325,spec326,spec327,spec328,spec329,spec330,spec331,spec332,spec333,spec334,spec335,spec336,spec337,spec338,spec339,spec340,spec341,spec342,spec343,spec344,spec345,spec346,spec347,spec348,spec349,spec350,spec351,spec352,spec353,spec354,spec355,spec356,spec357,spec358,spec359,spec360,spec361,spec362,spec363,spec364,spec365,spec366,spec367,spec368,spec369,spec370,spec371,spec372,spec373,spec374,spec375,spec376,spec377,spec378,spec379,spec380,spec381,spec382,spec383,spec384,spec385,spec386,spec387,spec388,spec389,spec390,spec391,spec392,spec393,spec394,spec395,spec396,spec397,spec398,spec399,spec400)::varchar(200) as spec201_400,
-        concat(spec401,spec402,spec403,spec404,spec405,spec406,spec407,spec408,spec409,spec410,spec411,spec412,spec413,spec414,spec415,spec416,spec417,spec418,spec419,spec420,spec421,spec422,spec423,spec424,spec425,spec426,spec427,spec428,spec429,spec430,spec431,spec432,spec433,spec434,spec435,spec436,spec437,spec438,spec439,spec440,spec441,spec442,spec443,spec444,spec445,spec446,spec447,spec448,spec449,spec450,spec451,spec452,spec453,spec454,spec455,spec456,spec457,spec458,spec459,spec460,spec461,spec462,spec463,spec464,spec465,spec466,spec467,spec468,spec469,spec470,spec471,spec472,spec473,spec474,spec475,spec476,spec477,spec478,spec479,spec480,spec481,spec482,spec483,spec484,spec485,spec486,spec487,spec488,spec489,spec490,spec491,spec492,spec493,spec494,spec495,spec496,spec497,spec498,spec499,spec500,spec501,spec502,spec503,spec504,spec505,spec506,spec507,spec508,spec509,spec510,spec511,spec512,spec513,spec514,spec515,spec516,spec517,spec518,spec519,spec520,spec521,spec522,spec523,spec524,spec525,spec526,spec527,spec528,spec529,spec530,spec531,spec532,spec533,spec534,spec535,spec536,spec537,spec538,spec539,spec540,spec541,spec542,spec543,spec544,spec545,spec546,spec547,spec548,spec549,spec550,spec551,spec552,spec553,spec554,spec555,spec556,spec557,spec558,spec559,spec560,spec561,spec562,spec563,spec564,spec565,spec566,spec567,spec568,spec569,spec570,spec571,spec572,spec573,spec574,spec575,spec576,spec577,spec578,spec579,spec580,spec581,spec582,spec583,spec584,spec585,spec586,spec587,spec588,spec589,spec590,spec591,spec592,spec593,spec594,spec595,spec596,spec597,spec598,spec599,spec600)::varchar(200) as spec401_600,
-        concat(spec601,spec602,spec603,spec604,spec605,spec606,spec607,spec608,spec609,spec610,spec611,spec612,spec613,spec614,spec615,spec616,spec617,spec618,spec619,spec620,spec621,spec622,spec623,spec624,spec625,spec626,spec627,spec628,spec629,spec630,spec631,spec632,spec633,spec634,spec635,spec636,spec637,spec638,spec639,spec640,spec641,spec642,spec643,spec644,spec645,spec646,spec647,spec648,spec649,spec650,spec651,spec652,spec653,spec654,spec655,spec656,spec657,spec658,spec659,spec660,spec661,spec662,spec663,spec664,spec665,spec666,spec667,spec668,spec669,spec670,spec671,spec672,spec673,spec674,spec675,spec676,spec677,spec678,spec679,spec680,spec681,spec682,spec683,spec684,spec685,spec686,spec687,spec688,spec689,spec690,spec691,spec692,spec693,spec694,spec695,spec696,spec697,spec698,spec699,spec700,spec701,spec702,spec703,spec704,spec705,spec706,spec707,spec708,spec709,spec710,spec711,spec712,spec713,spec714,spec715,spec716,spec717,spec718,spec719,spec720,spec721,spec722,spec723,spec724,spec725,spec726,spec727,spec728,spec729,spec730,spec731,spec732,spec733,spec734,spec735,spec736,spec737,spec738,spec739,spec740,spec741,spec742,spec743,spec744,spec745,spec746,spec747,spec748,spec749,spec750,spec751,spec752,spec753,spec754,spec755,spec756,spec757,spec758,spec759,spec760,spec761,spec762,spec763,spec764,spec765,spec766,spec767,spec768,spec769,spec770,spec771,spec772,spec773,spec774,spec775,spec776,spec777,spec778,spec779,spec780,spec781,spec782,spec783,spec784,spec785,spec786,spec787,spec788,spec789,spec790,spec791,spec792,spec793,spec794,spec795,spec796,spec797,spec798,spec799,spec800)::varchar(200) as spec601_800,
-        concat(spec801,spec802,spec803,spec804,spec805,spec806,spec807,spec808,spec809,spec810,spec811,spec812,spec813,spec814,spec815,spec816,spec817,spec818,spec819,spec820,spec821,spec822,spec823,spec824,spec825,spec826,spec827,spec828,spec829,spec830,spec831,spec832,spec833,spec834,spec835,spec836,spec837,spec838,spec839,spec840,spec841,spec842,spec843,spec844,spec845,spec846,spec847,spec848,spec849,spec850,spec851,spec852,spec853,spec854,spec855,spec856,spec857,spec858,spec859,spec860,spec861,spec862,spec863,spec864,spec865,spec866,spec867,spec868,spec869,spec870,spec871,spec872,spec873,spec874,spec875,spec876,spec877,spec878,spec879,spec880,spec881,spec882,spec883,spec884,spec885,spec886,spec887,spec888,spec889,spec890,spec891,spec892,spec893,spec894,spec895,spec896,spec897,spec898,spec899,spec900,spec901,spec902,spec903,spec904,spec905,spec906,spec907,spec908,spec909,spec910,spec911,spec912,spec913,spec914,spec915,spec916,spec917,spec918,spec919,spec920,spec921,spec922,spec923,spec924,spec925,spec926,spec927,spec928,spec929,spec930,spec931,spec932,spec933,spec934,spec935,spec936,spec937,spec938,spec939,spec940,spec941,spec942,spec943,spec944,spec945,spec946,spec947,spec948,spec949,spec950,spec951,spec952,spec953,spec954,spec955,spec956,spec957,spec958,spec959,spec960,spec961,spec962,spec963,spec964,spec965,spec966,spec967,spec968,spec969,spec970,spec971,spec972,spec973,spec974,spec975,spec976,spec977,spec978,spec979,spec980,spec981,spec982,spec983,spec984,spec985,spec986,spec987,spec988,spec989,spec990,spec991,spec992,spec993,spec994,spec995,spec996,spec997,spec998,spec999)::varchar(199) as spec801_999,
-        trim(dummy, ' 　')::varchar(1) as dummy,  -- 右左ブランク
-        trim(bdline, ' 　')::varchar(1) as bdline,  -- 右左ブランク
-        trim(proc_code, ' 　')::varchar(2) as proc_code,  -- 右左ブランク
-        trim(bctype, ' 　')::varchar(1) as bctype,  -- 右左ブランク
-        trim(theft_lbl, ' 　')::varchar(1) as theft_lbl,  -- 右左ブランク
-        trim(sub_frcode, ' 　')::varchar(1) as sub_frcode,  -- 右左ブランク
-        trim(sub_bdcode, ' 　')::varchar(1) as sub_bdcode,  -- 右左ブランク
-        trim(nofrno_flg, ' 　')::varchar(1) as nofrno_flg,  -- 右左ブランク
-        trim(vehcl_type, ' 　')::varchar(1) as vehcl_type,  -- 右左ブランク
-        trim(fr_line, ' 　')::varchar(1) as fr_line,  -- 右左ブランク
-        trim(fin_line, ' 　')::varchar(1) as fin_line,  -- 右左ブランク
-        trim(fin_tp, ' 　')::varchar(2) as fin_tp,  -- 右左ブランク
-        trim(copy_flg, ' 　')::varchar(1) as copy_flg,  -- 右左ブランク
-        trim(dollylocks, ' 　')::varchar(20) as dollylocks,  -- 右左ブランク
-        trim(dolly_condit, ' 　')::varchar(1) as dolly_condit,  -- 右左ブランク
-        trim(chassis_line, ' 　')::varchar(1) as chassis_line,  -- 右左ブランク
-        trim(bat_bdline, ' 　')::varchar(1) as bat_bdline,  -- 右左ブランク
-        trim(w_ctrl_s, ' 　')::varchar(1) as w_ctrl_s,  -- 右左ブランク
-        trim(ast_bdodr_s, ' 　')::varchar(1) as ast_bdodr_s,  -- 右左ブランク
-        trim(vin_editor_s, ' 　')::varchar(1) as vin_editor_s,  -- 右左ブランク
-        trim(splprt_type, ' 　')::varchar(2) as splprt_type,  -- 右左ブランク
-        trim(kd_type, ' 　')::varchar(1) as kd_type,  -- 右左ブランク
-        trim(oem_type, ' 　')::varchar(1) as oem_type,  -- 右左ブランク
-        trim(bridge_prod_type, ' 　')::varchar(1) as bridge_prod_type,  -- 右左ブランク
-        trim(vehicle_ctg_code, ' 　')::varchar(2) as vehicle_ctg_code,  -- 右左ブランク
-        trim(dum_alc, ' 　')::varchar(52) as dum_alc,  -- 右左ブランク
-        trim(asmline, ' 　')::varchar(1) as asmline,  -- 右左ブランク
-        trim(paintline, ' 　')::varchar(1) as paintline,  -- 右左ブランク
-        trim(fbltype, ' 　')::varchar(1) as fbltype,  -- 右左ブランク
-        trim(prg_mngflg, ' 　')::varchar(1) as prg_mngflg,  -- 右左ブランク
-        trim(gateptn, ' 　')::varchar(1) as gateptn,  -- 右左ブランク
-        trim(gateno, ' 　')::varchar(2) as gateno,  -- 右左ブランク
-        trim(convrt_flg, ' 　')::varchar(3) as convrt_flg,  -- 右左ブランク
-        trim(sch_date, ' 　')::varchar(8) as sch_date,  -- 右左ブランク
-        trim(linename, ' 　')::varchar(1) as linename,  -- 右左ブランク
-        trim(clr_lot, ' 　')::varchar(2) as clr_lot,  -- 右左ブランク
-        trim(tecs_info, ' 　')::varchar(15) as tecs_info,  -- 右左ブランク
-        trim(dum_sch1, ' 　')::varchar(1) as dum_sch1,  -- 右左ブランク
-        trim(delivr_regn, ' 　')::varchar(3) as delivr_regn,  -- 右左ブランク
-        trim(dlr_odrno, ' 　')::varchar(17) as dlr_odrno,  -- 右左ブランク
-        trim(cust_flg, ' 　')::varchar(2) as cust_flg,  -- 右左ブランク
-        trim(alloc_flg, ' 　')::varchar(2) as alloc_flg,  -- 右左ブランク
-        trim(cust_inf, ' 　')::varchar(2) as cust_inf,  -- 右左ブランク
-        trim(dlr_name, ' 　')::varchar(17) as dlr_name,  -- 右左ブランク
-        trim(wrap, ' 　')::varchar(3) as wrap,  -- 右左ブランク
-        trim(wrap_flg, ' 　')::varchar(1) as wrap_flg,  -- 右左ブランク
-        trim(carryin_dest, ' 　')::varchar(8) as carryin_dest,  -- 右左ブランク
-        trim(dum_cust, ' 　')::varchar(5) as dum_cust,  -- 右左ブランク
-        trim(sch_sndflg, ' 　')::varchar(1) as sch_sndflg,  -- 右左ブランク
-        trim(temp_seqflg, ' 　')::varchar(1) as temp_seqflg,  -- 右左ブランク
-        trim(fix_seqflg, ' 　')::varchar(1) as fix_seqflg,  -- 右左ブランク
-        trim(rej_flg, ' 　')::varchar(1) as rej_flg,  -- 右左ブランク
-        trim(carryfwd_flg, ' 　')::varchar(1) as carryfwd_flg,  -- 右左ブランク
-        trim(seqfl_ln, ' 　')::varchar(1) as seqfl_ln,  -- 右左ブランク
-        trim(ltadd_code, ' 　')::varchar(10) as ltadd_code,  -- 右左ブランク
-        trim(chas_rej_flg, ' 　')::varchar(1) as chas_rej_flg,  -- 右左ブランク
-        trim(bd_resnd_flg, ' 　')::varchar(1) as bd_resnd_flg,  -- 右左ブランク
-        trim(ch_resnd_flg, ' 　')::varchar(1) as ch_resnd_flg,  -- 右左ブランク
-        trim(dum_host, ' 　')::varchar(31) as dum_host,  -- 右左ブランク
-        trim(int_deliv, ' 　')::varchar(3) as int_deliv,  -- 右左ブランク
-        trim(ecas, ' 　')::varchar(16) as ecas,  -- 右左ブランク
-        trim(vl_route_code, ' 　')::varchar(2) as vl_route_code,  -- 右左ブランク
-        trim(vl_nextdest_code, ' 　')::varchar(5) as vl_nextdest_code,  -- 右左ブランク
-        trim(dum_sys, ' 　')::varchar(17) as dum_sys,  -- 右左ブランク
-        trim(seqno, ' 　')::varchar(5) as seqno,  -- 右左ブランク
-        trim(fix_seqno, ' 　')::varchar(6) as fix_seqno,  -- 右左ブランク
-        trim(fix_bdseq, ' 　')::varchar(8) as fix_bdseq,  -- 右左ブランク
-        trim(fix_paintseq, ' 　')::varchar(8) as fix_paintseq,  -- 右左ブランク
-        trim(fix_asmseq, ' 　')::varchar(8) as fix_asmseq,  -- 右左ブランク
-        trim(seqno_date, ' 　')::varchar(8) as seqno_date,  -- 右左ブランク
-        trim(proc_qty, ' 　')::varchar(4) as proc_qty,  -- 右左ブランク
-        trim(asmseq_date, ' 　')::varchar(8) as asmseq_date,  -- 右左ブランク
-        trim(tmp_chseqno, ' 　')::varchar(6) as tmp_chseqno,  -- 右左ブランク
-        trim(fix_chseqno, ' 　')::varchar(6) as fix_chseqno,  -- 右左ブランク
-        trim(fixc_chseqno, ' 　')::varchar(8) as fixc_chseqno,  -- 右左ブランク
-        trim(spldst_seqno, ' 　')::varchar(8) as spldst_seqno,  -- 右左ブランク
-        trim(splsrc_seqno, ' 　')::varchar(8) as splsrc_seqno,  -- 右左ブランク
-        trim(dum_seq, ' 　')::varchar(109) as dum_seq,  -- 右左ブランク
-        trim(ship_prty_rank, ' 　')::varchar(1) as ship_prty_rank,  -- 右左ブランク
-        trim(pio_opt, ' 　')::varchar(1) as pio_opt,  -- 右左ブランク
-        trim(load_port_code, ' 　')::varchar(5) as load_port_code,  -- 右左ブランク
-        trim(ship_assign, ' 　')::varchar(1) as ship_assign,  -- 右左ブランク
-        trim(ship_org_etd, ' 　')::varchar(8) as ship_org_etd,  -- 右左ブランク
-        trim(dum_exp_info, ' 　')::varchar(84) as dum_exp_info,  -- 右左ブランク
-        trim(approval, ' 　')::varchar(21) as approval,  -- 右左ブランク
-        trim(maxweight, ' 　')::varchar(5) as maxweight,  -- 右左ブランク
-        trim(maxconbi, ' 　')::varchar(5) as maxconbi,  -- 右左ブランク
-        trim(fr_axleload, ' 　')::varchar(4) as fr_axleload,  -- 右左ブランク
-        trim(rr_axleload, ' 　')::varchar(4) as rr_axleload,  -- 右左ブランク
-        trim(fr_tiresize, ' 　')::varchar(14) as fr_tiresize,  -- 右左ブランク
-        trim(rr_tiresize, ' 　')::varchar(14) as rr_tiresize,  -- 右左ブランク
-        trim(fr_rimsize, ' 　')::varchar(11) as fr_rimsize,  -- 右左ブランク
-        trim(rr_rimsize, ' 　')::varchar(11) as rr_rimsize,  -- 右左ブランク
-        trim(fr_tireprsr, ' 　')::varchar(2) as fr_tireprsr,  -- 右左ブランク
-        trim(rr_tireprsr, ' 　')::varchar(2) as rr_tireprsr,  -- 右左ブランク
-        trim(trans, ' 　')::varchar(6) as trans,  -- 右左ブランク
-        trim(axle, ' 　')::varchar(4) as axle,  -- 右左ブランク
-        trim(engine_kata, ' 　')::varchar(8) as engine_kata,  -- 右左ブランク
-        trim(engine_disp, ' 　')::varchar(4) as engine_disp,  -- 右左ブランク
-        trim(category, ' 　')::varchar(8) as category,  -- 右左ブランク
-        trim(printno, ' 　')::varchar(2) as printno,  -- 右左ブランク
-        trim(maxweight2, ' 　')::varchar(5) as maxweight2,  -- 右左ブランク
-        trim(maxconbi2, ' 　')::varchar(5) as maxconbi2,  -- 右左ブランク
-        trim(fr_axleload2, ' 　')::varchar(4) as fr_axleload2,  -- 右左ブランク
-        trim(rr_axleload2, ' 　')::varchar(4) as rr_axleload2,  -- 右左ブランク
-        trim(fr_tireprsr2, ' 　')::varchar(3) as fr_tireprsr2,  -- 右左ブランク
-        trim(rr_tireprsr2, ' 　')::varchar(3) as rr_tireprsr2,  -- 右左ブランク
-        trim(plate_kata, ' 　')::varchar(22) as plate_kata,  -- 右左ブランク
-        trim(emitn_code, ' 　')::varchar(5) as emitn_code,  -- 右左ブランク
-        trim(approval2, ' 　')::varchar(21) as approval2,  -- 右左ブランク
-        trim(motor1_kata, ' 　')::varchar(11) as motor1_kata,  -- 右左ブランク
-        trim(motor1_qty, ' 　')::varchar(3) as motor1_qty,  -- 右左ブランク
-        trim(motor1_out, ' 　')::varchar(5) as motor1_out,  -- 右左ブランク
-        trim(motor2_kata, ' 　')::varchar(11) as motor2_kata,  -- 右左ブランク
-        trim(motor2_qty, ' 　')::varchar(3) as motor2_qty,  -- 右左ブランク
-        trim(motor2_out, ' 　')::varchar(5) as motor2_out,  -- 右左ブランク
-        trim(battery_voltage, ' 　')::varchar(6) as battery_voltage,  -- 右左ブランク
-        trim(battery_capacity, ' 　')::varchar(5) as battery_capacity,  -- 右左ブランク
-        trim(hydr_tank1_kata, ' 　')::varchar(2) as hydr_tank1_kata,  -- 右左ブランク
-        trim(hydr_tank2_kata, ' 　')::varchar(2) as hydr_tank2_kata,  -- 右左ブランク
-        trim(hydr_tank1_capa, ' 　')::varchar(5) as hydr_tank1_capa,  -- 右左ブランク
-        trim(hydr_tank1_qty, ' 　')::varchar(3) as hydr_tank1_qty,  -- 右左ブランク
-        trim(hydr_tank_press, ' 　')::varchar(3) as hydr_tank_press,  -- 右左ブランク
-        trim(engine_rpm, ' 　')::varchar(4) as engine_rpm,  -- 右左ブランク
-        trim(iwvta_approval, ' 　')::varchar(18) as iwvta_approval,  -- 右左ブランク
-        trim(japanese_year_model, ' 　')::varchar(3) as japanese_year_model,  -- 右左ブランク
-        trim(dum_cr, ' 　')::varchar(214) as dum_cr,  -- 右左ブランク
-        trim(comment1, ' 　')::varchar(50) as comment1,  -- 右左ブランク
-        trim(comment2, ' 　')::varchar(50) as comment2,  -- 右左ブランク
-        trim(comment3, ' 　')::varchar(50) as comment3,  -- 右左ブランク
-        trim(comment4, ' 　')::varchar(50) as comment4,  -- 右左ブランク
-        to_timestamp_ntz(trim(his_create_date, ' 　'))::timestamp_ntz(6) as his_create_date,  -- 右左ブランク
-        to_timestamp_ntz(trim(__created_at, ' 　'))::timestamp_ntz(6) as __created_at,  -- 右左ブランク
-        to_timestamp_ntz(trim(__updated_at, ' 　'))::timestamp_ntz(6) as __updated_at,  -- 右左ブランク
-        ldts,  -- b層のldts
-        row_number() over (
+with
+    stg_jm41_sfbase_history_iotpf as (
+        select
+            trim(sfkey, ' 　')::varchar(16) as sfkey,  -- 右左ブランク
+            trim(vin_type2, ' 　')::varchar(2) as vin_type2,  -- 右左ブランク
+            trim(vin_type, ' 　')::varchar(1) as vin_type,  -- 右左ブランク
+            trim(vin_wmi, ' 　')::varchar(3) as vin_wmi,  -- 右左ブランク
+            trim(vin_vds, ' 　')::varchar(6) as vin_vds,  -- 右左ブランク
+            trim(vin_kata, ' 　')::varchar(9) as vin_kata,  -- 右左ブランク
+            trim(vin_fr67, ' 　')::varchar(1) as vin_fr67,  -- 右左ブランク
+            trim(vin_my, ' 　')::varchar(1) as vin_my,  -- 右左ブランク
+            trim(maker, ' 　')::varchar(4) as maker,  -- 右左ブランク
+            trim(sno, ' 　')::varchar(2) as sno,  -- 右左ブランク
+            trim(odr_type, ' 　')::varchar(1) as odr_type,  -- 右左ブランク
+            trim(dfsc, ' 　')::varchar(5) as dfsc,  -- 右左ブランク
+            trim(lo_date, ' 　')::varchar(8) as lo_date,  -- 右左ブランク
+            trim(pack_month, ' 　')::varchar(6) as pack_month,  -- 右左ブランク
+            trim(car_name, ' 　')::varchar(2) as car_name,  -- 右左ブランク
+            trim(figure, ' 　')::varchar(1) as figure,  -- 右左ブランク
+            trim(dest_type, ' 　')::varchar(2) as dest_type,  -- 右左ブランク
+            trim(gov_aprvl, ' 　')::varchar(1) as gov_aprvl,  -- 右左ブランク
+            trim(int_code, ' 　')::varchar(4) as int_code,  -- 右左ブランク
+            trim(ext_code, ' 　')::varchar(4) as ext_code,  -- 右左ブランク
+            trim(prd_week, ' 　')::varchar(2) as prd_week,  -- 右左ブランク
+            trim(prdctn_sfx, ' 　')::varchar(2) as prdctn_sfx,  -- 右左ブランク
+            trim(sales_sfx, ' 　')::varchar(2) as sales_sfx,  -- 右左ブランク
+            trim(import_duty, ' 　')::varchar(1) as import_duty,  -- 右左ブランク
+            trim(kata_code, ' 　')::varchar(5) as kata_code,  -- 右左ブランク
+            trim(katashiki, ' 　')::varchar(20) as katashiki,  -- 右左ブランク
+            trim(ctlkata, ' 　')::varchar(20) as ctlkata,  -- 右左ブランク
+            trim(lo_katacode, ' 　')::varchar(5) as lo_katacode,  -- 右左ブランク
+            trim(lo_kata, ' 　')::varchar(20) as lo_kata,  -- 右左ブランク
+            trim(eng_b_kata, ' 　')::varchar(5) as eng_b_kata,  -- 右左ブランク
+            trim(mot_b_kata, ' 　')::varchar(5) as mot_b_kata,  -- 右左ブランク
+            trim(mot_b_katarr, ' 　')::varchar(5) as mot_b_katarr,  -- 右左ブランク
+            trim(receipt_type, ' 　')::varchar(3) as receipt_type,  -- 右左ブランク
+            trim(kd_lot, ' 　')::varchar(8) as kd_lot,  -- 右左ブランク
+            trim(asd_frmstamp, ' 　')::varchar(17) as asd_frmstamp,  -- 右左ブランク
+            trim(asd_vinno, ' 　')::varchar(17) as asd_vinno,  -- 右左ブランク
+            trim(car_family, ' 　')::varchar(4) as car_family,  -- 右左ブランク
+            trim(prdreq_month, ' 　')::varchar(6) as prdreq_month,  -- 右左ブランク
+            trim(brand, ' 　')::varchar(1) as brand,  -- 右左ブランク
+            trim(katashiki2, ' 　')::varchar(20) as katashiki2,  -- 右左ブランク
+            trim(dum_v, ' 　')::varchar(1) as dum_v,  -- 右左ブランク
+            concat(
+                spec001,
+                spec002,
+                spec003,
+                spec004,
+                spec005,
+                spec006,
+                spec007,
+                spec008,
+                spec009,
+                spec010,
+                spec011,
+                spec012,
+                spec013,
+                spec014,
+                spec015,
+                spec016,
+                spec017,
+                spec018,
+                spec019,
+                spec020,
+                spec021,
+                spec022,
+                spec023,
+                spec024,
+                spec025,
+                spec026,
+                spec027,
+                spec028,
+                spec029,
+                spec030,
+                spec031,
+                spec032,
+                spec033,
+                spec034,
+                spec035,
+                spec036,
+                spec037,
+                spec038,
+                spec039,
+                spec040,
+                spec041,
+                spec042,
+                spec043,
+                spec044,
+                spec045,
+                spec046,
+                spec047,
+                spec048,
+                spec049,
+                spec050,
+                spec051,
+                spec052,
+                spec053,
+                spec054,
+                spec055,
+                spec056,
+                spec057,
+                spec058,
+                spec059,
+                spec060,
+                spec061,
+                spec062,
+                spec063,
+                spec064,
+                spec065,
+                spec066,
+                spec067,
+                spec068,
+                spec069,
+                spec070,
+                spec071,
+                spec072,
+                spec073,
+                spec074,
+                spec075,
+                spec076,
+                spec077,
+                spec078,
+                spec079,
+                spec080,
+                spec081,
+                spec082,
+                spec083,
+                spec084,
+                spec085,
+                spec086,
+                spec087,
+                spec088,
+                spec089,
+                spec090,
+                spec091,
+                spec092,
+                spec093,
+                spec094,
+                spec095,
+                spec096,
+                spec097,
+                spec098,
+                spec099,
+                spec100,
+                spec101,
+                spec102,
+                spec103,
+                spec104,
+                spec105,
+                spec106,
+                spec107,
+                spec108,
+                spec109,
+                spec110,
+                spec111,
+                spec112,
+                spec113,
+                spec114,
+                spec115,
+                spec116,
+                spec117,
+                spec118,
+                spec119,
+                spec120,
+                spec121,
+                spec122,
+                spec123,
+                spec124,
+                spec125,
+                spec126,
+                spec127,
+                spec128,
+                spec129,
+                spec130,
+                spec131,
+                spec132,
+                spec133,
+                spec134,
+                spec135,
+                spec136,
+                spec137,
+                spec138,
+                spec139,
+                spec140,
+                spec141,
+                spec142,
+                spec143,
+                spec144,
+                spec145,
+                spec146,
+                spec147,
+                spec148,
+                spec149,
+                spec150,
+                spec151,
+                spec152,
+                spec153,
+                spec154,
+                spec155,
+                spec156,
+                spec157,
+                spec158,
+                spec159,
+                spec160,
+                spec161,
+                spec162,
+                spec163,
+                spec164,
+                spec165,
+                spec166,
+                spec167,
+                spec168,
+                spec169,
+                spec170,
+                spec171,
+                spec172,
+                spec173,
+                spec174,
+                spec175,
+                spec176,
+                spec177,
+                spec178,
+                spec179,
+                spec180,
+                spec181,
+                spec182,
+                spec183,
+                spec184,
+                spec185,
+                spec186,
+                spec187,
+                spec188,
+                spec189,
+                spec190,
+                spec191,
+                spec192,
+                spec193,
+                spec194,
+                spec195,
+                spec196,
+                spec197,
+                spec198,
+                spec199,
+                spec200
+            )::varchar(200) as spec001_200,
+            trim(dest_code, ' 　')::varchar(5) as dest_code,  -- 右左ブランク
+            trim(dest, ' 　')::varchar(20) as dest,  -- 右左ブランク
+            trim(psc, ' 　')::varchar(2) as psc,  -- 右左ブランク
+            trim(plant_code, ' 　')::varchar(1) as plant_code,  -- 右左ブランク
+            trim(dummy_spec, ' 　')::varchar(71) as dummy_spec,  -- 右左ブランク
+            trim(tecs_odrno, ' 　')::varchar(12) as tecs_odrno,  -- 右左ブランク
+            trim(tecs_kata, ' 　')::varchar(25) as tecs_kata,  -- 右左ブランク
+            trim(tecs_maker, ' 　')::varchar(5) as tecs_maker,  -- 右左ブランク
+            trim(tecs_dealer, ' 　')::varchar(5) as tecs_dealer,  -- 右左ブランク
+            trim(equipment_line, ' 　')::varchar(2) as equipment_line,  -- 右左ブランク
+            trim(approval_no2_flag, ' 　')::varchar(1) as approval_no2_flag,  -- 右左ブランク
+            trim(vin_stop_mark_front, ' 　')::varchar(1) as vin_stop_mark_front,  -- 右左ブランク
+            trim(vin_stop_mark_rear, ' 　')::varchar(1) as vin_stop_mark_rear,  -- 右左ブランク
+            trim(namc_reference_no, ' 　')::varchar(7) as namc_reference_no,  -- 右左ブランク
+            trim(dum_vsect, ' 　')::varchar(41) as dum_vsect,  -- 右左ブランク
+            concat(
+                spec201,
+                spec202,
+                spec203,
+                spec204,
+                spec205,
+                spec206,
+                spec207,
+                spec208,
+                spec209,
+                spec210,
+                spec211,
+                spec212,
+                spec213,
+                spec214,
+                spec215,
+                spec216,
+                spec217,
+                spec218,
+                spec219,
+                spec220,
+                spec221,
+                spec222,
+                spec223,
+                spec224,
+                spec225,
+                spec226,
+                spec227,
+                spec228,
+                spec229,
+                spec230,
+                spec231,
+                spec232,
+                spec233,
+                spec234,
+                spec235,
+                spec236,
+                spec237,
+                spec238,
+                spec239,
+                spec240,
+                spec241,
+                spec242,
+                spec243,
+                spec244,
+                spec245,
+                spec246,
+                spec247,
+                spec248,
+                spec249,
+                spec250,
+                spec251,
+                spec252,
+                spec253,
+                spec254,
+                spec255,
+                spec256,
+                spec257,
+                spec258,
+                spec259,
+                spec260,
+                spec261,
+                spec262,
+                spec263,
+                spec264,
+                spec265,
+                spec266,
+                spec267,
+                spec268,
+                spec269,
+                spec270,
+                spec271,
+                spec272,
+                spec273,
+                spec274,
+                spec275,
+                spec276,
+                spec277,
+                spec278,
+                spec279,
+                spec280,
+                spec281,
+                spec282,
+                spec283,
+                spec284,
+                spec285,
+                spec286,
+                spec287,
+                spec288,
+                spec289,
+                spec290,
+                spec291,
+                spec292,
+                spec293,
+                spec294,
+                spec295,
+                spec296,
+                spec297,
+                spec298,
+                spec299,
+                spec300,
+                spec301,
+                spec302,
+                spec303,
+                spec304,
+                spec305,
+                spec306,
+                spec307,
+                spec308,
+                spec309,
+                spec310,
+                spec311,
+                spec312,
+                spec313,
+                spec314,
+                spec315,
+                spec316,
+                spec317,
+                spec318,
+                spec319,
+                spec320,
+                spec321,
+                spec322,
+                spec323,
+                spec324,
+                spec325,
+                spec326,
+                spec327,
+                spec328,
+                spec329,
+                spec330,
+                spec331,
+                spec332,
+                spec333,
+                spec334,
+                spec335,
+                spec336,
+                spec337,
+                spec338,
+                spec339,
+                spec340,
+                spec341,
+                spec342,
+                spec343,
+                spec344,
+                spec345,
+                spec346,
+                spec347,
+                spec348,
+                spec349,
+                spec350,
+                spec351,
+                spec352,
+                spec353,
+                spec354,
+                spec355,
+                spec356,
+                spec357,
+                spec358,
+                spec359,
+                spec360,
+                spec361,
+                spec362,
+                spec363,
+                spec364,
+                spec365,
+                spec366,
+                spec367,
+                spec368,
+                spec369,
+                spec370,
+                spec371,
+                spec372,
+                spec373,
+                spec374,
+                spec375,
+                spec376,
+                spec377,
+                spec378,
+                spec379,
+                spec380,
+                spec381,
+                spec382,
+                spec383,
+                spec384,
+                spec385,
+                spec386,
+                spec387,
+                spec388,
+                spec389,
+                spec390,
+                spec391,
+                spec392,
+                spec393,
+                spec394,
+                spec395,
+                spec396,
+                spec397,
+                spec398,
+                spec399,
+                spec400
+            )::varchar(200) as spec201_400,
+            concat(
+                spec401,
+                spec402,
+                spec403,
+                spec404,
+                spec405,
+                spec406,
+                spec407,
+                spec408,
+                spec409,
+                spec410,
+                spec411,
+                spec412,
+                spec413,
+                spec414,
+                spec415,
+                spec416,
+                spec417,
+                spec418,
+                spec419,
+                spec420,
+                spec421,
+                spec422,
+                spec423,
+                spec424,
+                spec425,
+                spec426,
+                spec427,
+                spec428,
+                spec429,
+                spec430,
+                spec431,
+                spec432,
+                spec433,
+                spec434,
+                spec435,
+                spec436,
+                spec437,
+                spec438,
+                spec439,
+                spec440,
+                spec441,
+                spec442,
+                spec443,
+                spec444,
+                spec445,
+                spec446,
+                spec447,
+                spec448,
+                spec449,
+                spec450,
+                spec451,
+                spec452,
+                spec453,
+                spec454,
+                spec455,
+                spec456,
+                spec457,
+                spec458,
+                spec459,
+                spec460,
+                spec461,
+                spec462,
+                spec463,
+                spec464,
+                spec465,
+                spec466,
+                spec467,
+                spec468,
+                spec469,
+                spec470,
+                spec471,
+                spec472,
+                spec473,
+                spec474,
+                spec475,
+                spec476,
+                spec477,
+                spec478,
+                spec479,
+                spec480,
+                spec481,
+                spec482,
+                spec483,
+                spec484,
+                spec485,
+                spec486,
+                spec487,
+                spec488,
+                spec489,
+                spec490,
+                spec491,
+                spec492,
+                spec493,
+                spec494,
+                spec495,
+                spec496,
+                spec497,
+                spec498,
+                spec499,
+                spec500,
+                spec501,
+                spec502,
+                spec503,
+                spec504,
+                spec505,
+                spec506,
+                spec507,
+                spec508,
+                spec509,
+                spec510,
+                spec511,
+                spec512,
+                spec513,
+                spec514,
+                spec515,
+                spec516,
+                spec517,
+                spec518,
+                spec519,
+                spec520,
+                spec521,
+                spec522,
+                spec523,
+                spec524,
+                spec525,
+                spec526,
+                spec527,
+                spec528,
+                spec529,
+                spec530,
+                spec531,
+                spec532,
+                spec533,
+                spec534,
+                spec535,
+                spec536,
+                spec537,
+                spec538,
+                spec539,
+                spec540,
+                spec541,
+                spec542,
+                spec543,
+                spec544,
+                spec545,
+                spec546,
+                spec547,
+                spec548,
+                spec549,
+                spec550,
+                spec551,
+                spec552,
+                spec553,
+                spec554,
+                spec555,
+                spec556,
+                spec557,
+                spec558,
+                spec559,
+                spec560,
+                spec561,
+                spec562,
+                spec563,
+                spec564,
+                spec565,
+                spec566,
+                spec567,
+                spec568,
+                spec569,
+                spec570,
+                spec571,
+                spec572,
+                spec573,
+                spec574,
+                spec575,
+                spec576,
+                spec577,
+                spec578,
+                spec579,
+                spec580,
+                spec581,
+                spec582,
+                spec583,
+                spec584,
+                spec585,
+                spec586,
+                spec587,
+                spec588,
+                spec589,
+                spec590,
+                spec591,
+                spec592,
+                spec593,
+                spec594,
+                spec595,
+                spec596,
+                spec597,
+                spec598,
+                spec599,
+                spec600
+            )::varchar(200) as spec401_600,
+            concat(
+                spec601,
+                spec602,
+                spec603,
+                spec604,
+                spec605,
+                spec606,
+                spec607,
+                spec608,
+                spec609,
+                spec610,
+                spec611,
+                spec612,
+                spec613,
+                spec614,
+                spec615,
+                spec616,
+                spec617,
+                spec618,
+                spec619,
+                spec620,
+                spec621,
+                spec622,
+                spec623,
+                spec624,
+                spec625,
+                spec626,
+                spec627,
+                spec628,
+                spec629,
+                spec630,
+                spec631,
+                spec632,
+                spec633,
+                spec634,
+                spec635,
+                spec636,
+                spec637,
+                spec638,
+                spec639,
+                spec640,
+                spec641,
+                spec642,
+                spec643,
+                spec644,
+                spec645,
+                spec646,
+                spec647,
+                spec648,
+                spec649,
+                spec650,
+                spec651,
+                spec652,
+                spec653,
+                spec654,
+                spec655,
+                spec656,
+                spec657,
+                spec658,
+                spec659,
+                spec660,
+                spec661,
+                spec662,
+                spec663,
+                spec664,
+                spec665,
+                spec666,
+                spec667,
+                spec668,
+                spec669,
+                spec670,
+                spec671,
+                spec672,
+                spec673,
+                spec674,
+                spec675,
+                spec676,
+                spec677,
+                spec678,
+                spec679,
+                spec680,
+                spec681,
+                spec682,
+                spec683,
+                spec684,
+                spec685,
+                spec686,
+                spec687,
+                spec688,
+                spec689,
+                spec690,
+                spec691,
+                spec692,
+                spec693,
+                spec694,
+                spec695,
+                spec696,
+                spec697,
+                spec698,
+                spec699,
+                spec700,
+                spec701,
+                spec702,
+                spec703,
+                spec704,
+                spec705,
+                spec706,
+                spec707,
+                spec708,
+                spec709,
+                spec710,
+                spec711,
+                spec712,
+                spec713,
+                spec714,
+                spec715,
+                spec716,
+                spec717,
+                spec718,
+                spec719,
+                spec720,
+                spec721,
+                spec722,
+                spec723,
+                spec724,
+                spec725,
+                spec726,
+                spec727,
+                spec728,
+                spec729,
+                spec730,
+                spec731,
+                spec732,
+                spec733,
+                spec734,
+                spec735,
+                spec736,
+                spec737,
+                spec738,
+                spec739,
+                spec740,
+                spec741,
+                spec742,
+                spec743,
+                spec744,
+                spec745,
+                spec746,
+                spec747,
+                spec748,
+                spec749,
+                spec750,
+                spec751,
+                spec752,
+                spec753,
+                spec754,
+                spec755,
+                spec756,
+                spec757,
+                spec758,
+                spec759,
+                spec760,
+                spec761,
+                spec762,
+                spec763,
+                spec764,
+                spec765,
+                spec766,
+                spec767,
+                spec768,
+                spec769,
+                spec770,
+                spec771,
+                spec772,
+                spec773,
+                spec774,
+                spec775,
+                spec776,
+                spec777,
+                spec778,
+                spec779,
+                spec780,
+                spec781,
+                spec782,
+                spec783,
+                spec784,
+                spec785,
+                spec786,
+                spec787,
+                spec788,
+                spec789,
+                spec790,
+                spec791,
+                spec792,
+                spec793,
+                spec794,
+                spec795,
+                spec796,
+                spec797,
+                spec798,
+                spec799,
+                spec800
+            )::varchar(200) as spec601_800,
+            concat(
+                spec801,
+                spec802,
+                spec803,
+                spec804,
+                spec805,
+                spec806,
+                spec807,
+                spec808,
+                spec809,
+                spec810,
+                spec811,
+                spec812,
+                spec813,
+                spec814,
+                spec815,
+                spec816,
+                spec817,
+                spec818,
+                spec819,
+                spec820,
+                spec821,
+                spec822,
+                spec823,
+                spec824,
+                spec825,
+                spec826,
+                spec827,
+                spec828,
+                spec829,
+                spec830,
+                spec831,
+                spec832,
+                spec833,
+                spec834,
+                spec835,
+                spec836,
+                spec837,
+                spec838,
+                spec839,
+                spec840,
+                spec841,
+                spec842,
+                spec843,
+                spec844,
+                spec845,
+                spec846,
+                spec847,
+                spec848,
+                spec849,
+                spec850,
+                spec851,
+                spec852,
+                spec853,
+                spec854,
+                spec855,
+                spec856,
+                spec857,
+                spec858,
+                spec859,
+                spec860,
+                spec861,
+                spec862,
+                spec863,
+                spec864,
+                spec865,
+                spec866,
+                spec867,
+                spec868,
+                spec869,
+                spec870,
+                spec871,
+                spec872,
+                spec873,
+                spec874,
+                spec875,
+                spec876,
+                spec877,
+                spec878,
+                spec879,
+                spec880,
+                spec881,
+                spec882,
+                spec883,
+                spec884,
+                spec885,
+                spec886,
+                spec887,
+                spec888,
+                spec889,
+                spec890,
+                spec891,
+                spec892,
+                spec893,
+                spec894,
+                spec895,
+                spec896,
+                spec897,
+                spec898,
+                spec899,
+                spec900,
+                spec901,
+                spec902,
+                spec903,
+                spec904,
+                spec905,
+                spec906,
+                spec907,
+                spec908,
+                spec909,
+                spec910,
+                spec911,
+                spec912,
+                spec913,
+                spec914,
+                spec915,
+                spec916,
+                spec917,
+                spec918,
+                spec919,
+                spec920,
+                spec921,
+                spec922,
+                spec923,
+                spec924,
+                spec925,
+                spec926,
+                spec927,
+                spec928,
+                spec929,
+                spec930,
+                spec931,
+                spec932,
+                spec933,
+                spec934,
+                spec935,
+                spec936,
+                spec937,
+                spec938,
+                spec939,
+                spec940,
+                spec941,
+                spec942,
+                spec943,
+                spec944,
+                spec945,
+                spec946,
+                spec947,
+                spec948,
+                spec949,
+                spec950,
+                spec951,
+                spec952,
+                spec953,
+                spec954,
+                spec955,
+                spec956,
+                spec957,
+                spec958,
+                spec959,
+                spec960,
+                spec961,
+                spec962,
+                spec963,
+                spec964,
+                spec965,
+                spec966,
+                spec967,
+                spec968,
+                spec969,
+                spec970,
+                spec971,
+                spec972,
+                spec973,
+                spec974,
+                spec975,
+                spec976,
+                spec977,
+                spec978,
+                spec979,
+                spec980,
+                spec981,
+                spec982,
+                spec983,
+                spec984,
+                spec985,
+                spec986,
+                spec987,
+                spec988,
+                spec989,
+                spec990,
+                spec991,
+                spec992,
+                spec993,
+                spec994,
+                spec995,
+                spec996,
+                spec997,
+                spec998,
+                spec999
+            )::varchar(199) as spec801_999,
+            trim(dummy, ' 　')::varchar(1) as dummy,  -- 右左ブランク
+            trim(bdline, ' 　')::varchar(1) as bdline,  -- 右左ブランク
+            trim(proc_code, ' 　')::varchar(2) as proc_code,  -- 右左ブランク
+            trim(bctype, ' 　')::varchar(1) as bctype,  -- 右左ブランク
+            trim(theft_lbl, ' 　')::varchar(1) as theft_lbl,  -- 右左ブランク
+            trim(sub_frcode, ' 　')::varchar(1) as sub_frcode,  -- 右左ブランク
+            trim(sub_bdcode, ' 　')::varchar(1) as sub_bdcode,  -- 右左ブランク
+            trim(nofrno_flg, ' 　')::varchar(1) as nofrno_flg,  -- 右左ブランク
+            trim(vehcl_type, ' 　')::varchar(1) as vehcl_type,  -- 右左ブランク
+            trim(fr_line, ' 　')::varchar(1) as fr_line,  -- 右左ブランク
+            trim(fin_line, ' 　')::varchar(1) as fin_line,  -- 右左ブランク
+            trim(fin_tp, ' 　')::varchar(2) as fin_tp,  -- 右左ブランク
+            trim(copy_flg, ' 　')::varchar(1) as copy_flg,  -- 右左ブランク
+            trim(dollylocks, ' 　')::varchar(20) as dollylocks,  -- 右左ブランク
+            trim(dolly_condit, ' 　')::varchar(1) as dolly_condit,  -- 右左ブランク
+            trim(chassis_line, ' 　')::varchar(1) as chassis_line,  -- 右左ブランク
+            trim(bat_bdline, ' 　')::varchar(1) as bat_bdline,  -- 右左ブランク
+            trim(w_ctrl_s, ' 　')::varchar(1) as w_ctrl_s,  -- 右左ブランク
+            trim(ast_bdodr_s, ' 　')::varchar(1) as ast_bdodr_s,  -- 右左ブランク
+            trim(vin_editor_s, ' 　')::varchar(1) as vin_editor_s,  -- 右左ブランク
+            trim(splprt_type, ' 　')::varchar(2) as splprt_type,  -- 右左ブランク
+            trim(kd_type, ' 　')::varchar(1) as kd_type,  -- 右左ブランク
+            trim(oem_type, ' 　')::varchar(1) as oem_type,  -- 右左ブランク
+            trim(bridge_prod_type, ' 　')::varchar(1) as bridge_prod_type,  -- 右左ブランク
+            trim(vehicle_ctg_code, ' 　')::varchar(2) as vehicle_ctg_code,  -- 右左ブランク
+            trim(dum_alc, ' 　')::varchar(52) as dum_alc,  -- 右左ブランク
+            trim(asmline, ' 　')::varchar(1) as asmline,  -- 右左ブランク
+            trim(paintline, ' 　')::varchar(1) as paintline,  -- 右左ブランク
+            trim(fbltype, ' 　')::varchar(1) as fbltype,  -- 右左ブランク
+            trim(prg_mngflg, ' 　')::varchar(1) as prg_mngflg,  -- 右左ブランク
+            trim(gateptn, ' 　')::varchar(1) as gateptn,  -- 右左ブランク
+            trim(gateno, ' 　')::varchar(2) as gateno,  -- 右左ブランク
+            trim(convrt_flg, ' 　')::varchar(3) as convrt_flg,  -- 右左ブランク
+            trim(sch_date, ' 　')::varchar(8) as sch_date,  -- 右左ブランク
+            trim(linename, ' 　')::varchar(1) as linename,  -- 右左ブランク
+            trim(clr_lot, ' 　')::varchar(2) as clr_lot,  -- 右左ブランク
+            trim(tecs_info, ' 　')::varchar(15) as tecs_info,  -- 右左ブランク
+            trim(dum_sch1, ' 　')::varchar(1) as dum_sch1,  -- 右左ブランク
+            trim(delivr_regn, ' 　')::varchar(3) as delivr_regn,  -- 右左ブランク
+            trim(dlr_odrno, ' 　')::varchar(17) as dlr_odrno,  -- 右左ブランク
+            trim(cust_flg, ' 　')::varchar(2) as cust_flg,  -- 右左ブランク
+            trim(alloc_flg, ' 　')::varchar(2) as alloc_flg,  -- 右左ブランク
+            trim(cust_inf, ' 　')::varchar(2) as cust_inf,  -- 右左ブランク
+            trim(dlr_name, ' 　')::varchar(17) as dlr_name,  -- 右左ブランク
+            trim(wrap, ' 　')::varchar(3) as wrap,  -- 右左ブランク
+            trim(wrap_flg, ' 　')::varchar(1) as wrap_flg,  -- 右左ブランク
+            trim(carryin_dest, ' 　')::varchar(8) as carryin_dest,  -- 右左ブランク
+            trim(dum_cust, ' 　')::varchar(5) as dum_cust,  -- 右左ブランク
+            trim(sch_sndflg, ' 　')::varchar(1) as sch_sndflg,  -- 右左ブランク
+            trim(temp_seqflg, ' 　')::varchar(1) as temp_seqflg,  -- 右左ブランク
+            trim(fix_seqflg, ' 　')::varchar(1) as fix_seqflg,  -- 右左ブランク
+            trim(rej_flg, ' 　')::varchar(1) as rej_flg,  -- 右左ブランク
+            trim(carryfwd_flg, ' 　')::varchar(1) as carryfwd_flg,  -- 右左ブランク
+            trim(seqfl_ln, ' 　')::varchar(1) as seqfl_ln,  -- 右左ブランク
+            trim(ltadd_code, ' 　')::varchar(10) as ltadd_code,  -- 右左ブランク
+            trim(chas_rej_flg, ' 　')::varchar(1) as chas_rej_flg,  -- 右左ブランク
+            trim(bd_resnd_flg, ' 　')::varchar(1) as bd_resnd_flg,  -- 右左ブランク
+            trim(ch_resnd_flg, ' 　')::varchar(1) as ch_resnd_flg,  -- 右左ブランク
+            trim(dum_host, ' 　')::varchar(31) as dum_host,  -- 右左ブランク
+            trim(int_deliv, ' 　')::varchar(3) as int_deliv,  -- 右左ブランク
+            trim(ecas, ' 　')::varchar(16) as ecas,  -- 右左ブランク
+            trim(vl_route_code, ' 　')::varchar(2) as vl_route_code,  -- 右左ブランク
+            trim(vl_nextdest_code, ' 　')::varchar(5) as vl_nextdest_code,  -- 右左ブランク
+            trim(dum_sys, ' 　')::varchar(17) as dum_sys,  -- 右左ブランク
+            trim(seqno, ' 　')::varchar(5) as seqno,  -- 右左ブランク
+            trim(fix_seqno, ' 　')::varchar(6) as fix_seqno,  -- 右左ブランク
+            trim(fix_bdseq, ' 　')::varchar(8) as fix_bdseq,  -- 右左ブランク
+            trim(fix_paintseq, ' 　')::varchar(8) as fix_paintseq,  -- 右左ブランク
+            trim(fix_asmseq, ' 　')::varchar(8) as fix_asmseq,  -- 右左ブランク
+            trim(seqno_date, ' 　')::varchar(8) as seqno_date,  -- 右左ブランク
+            trim(proc_qty, ' 　')::varchar(4) as proc_qty,  -- 右左ブランク
+            trim(asmseq_date, ' 　')::varchar(8) as asmseq_date,  -- 右左ブランク
+            trim(tmp_chseqno, ' 　')::varchar(6) as tmp_chseqno,  -- 右左ブランク
+            trim(fix_chseqno, ' 　')::varchar(6) as fix_chseqno,  -- 右左ブランク
+            trim(fixc_chseqno, ' 　')::varchar(8) as fixc_chseqno,  -- 右左ブランク
+            trim(spldst_seqno, ' 　')::varchar(8) as spldst_seqno,  -- 右左ブランク
+            trim(splsrc_seqno, ' 　')::varchar(8) as splsrc_seqno,  -- 右左ブランク
+            trim(dum_seq, ' 　')::varchar(109) as dum_seq,  -- 右左ブランク
+            trim(ship_prty_rank, ' 　')::varchar(1) as ship_prty_rank,  -- 右左ブランク
+            trim(pio_opt, ' 　')::varchar(1) as pio_opt,  -- 右左ブランク
+            trim(load_port_code, ' 　')::varchar(5) as load_port_code,  -- 右左ブランク
+            trim(ship_assign, ' 　')::varchar(1) as ship_assign,  -- 右左ブランク
+            trim(ship_org_etd, ' 　')::varchar(8) as ship_org_etd,  -- 右左ブランク
+            trim(dum_exp_info, ' 　')::varchar(84) as dum_exp_info,  -- 右左ブランク
+            trim(approval, ' 　')::varchar(21) as approval,  -- 右左ブランク
+            trim(maxweight, ' 　')::varchar(5) as maxweight,  -- 右左ブランク
+            trim(maxconbi, ' 　')::varchar(5) as maxconbi,  -- 右左ブランク
+            trim(fr_axleload, ' 　')::varchar(4) as fr_axleload,  -- 右左ブランク
+            trim(rr_axleload, ' 　')::varchar(4) as rr_axleload,  -- 右左ブランク
+            trim(fr_tiresize, ' 　')::varchar(14) as fr_tiresize,  -- 右左ブランク
+            trim(rr_tiresize, ' 　')::varchar(14) as rr_tiresize,  -- 右左ブランク
+            trim(fr_rimsize, ' 　')::varchar(11) as fr_rimsize,  -- 右左ブランク
+            trim(rr_rimsize, ' 　')::varchar(11) as rr_rimsize,  -- 右左ブランク
+            trim(fr_tireprsr, ' 　')::varchar(2) as fr_tireprsr,  -- 右左ブランク
+            trim(rr_tireprsr, ' 　')::varchar(2) as rr_tireprsr,  -- 右左ブランク
+            trim(trans, ' 　')::varchar(6) as trans,  -- 右左ブランク
+            trim(axle, ' 　')::varchar(4) as axle,  -- 右左ブランク
+            trim(engine_kata, ' 　')::varchar(8) as engine_kata,  -- 右左ブランク
+            trim(engine_disp, ' 　')::varchar(4) as engine_disp,  -- 右左ブランク
+            trim(category, ' 　')::varchar(8) as category,  -- 右左ブランク
+            trim(printno, ' 　')::varchar(2) as printno,  -- 右左ブランク
+            trim(maxweight2, ' 　')::varchar(5) as maxweight2,  -- 右左ブランク
+            trim(maxconbi2, ' 　')::varchar(5) as maxconbi2,  -- 右左ブランク
+            trim(fr_axleload2, ' 　')::varchar(4) as fr_axleload2,  -- 右左ブランク
+            trim(rr_axleload2, ' 　')::varchar(4) as rr_axleload2,  -- 右左ブランク
+            trim(fr_tireprsr2, ' 　')::varchar(3) as fr_tireprsr2,  -- 右左ブランク
+            trim(rr_tireprsr2, ' 　')::varchar(3) as rr_tireprsr2,  -- 右左ブランク
+            trim(plate_kata, ' 　')::varchar(22) as plate_kata,  -- 右左ブランク
+            trim(emitn_code, ' 　')::varchar(5) as emitn_code,  -- 右左ブランク
+            trim(approval2, ' 　')::varchar(21) as approval2,  -- 右左ブランク
+            trim(motor1_kata, ' 　')::varchar(11) as motor1_kata,  -- 右左ブランク
+            trim(motor1_qty, ' 　')::varchar(3) as motor1_qty,  -- 右左ブランク
+            trim(motor1_out, ' 　')::varchar(5) as motor1_out,  -- 右左ブランク
+            trim(motor2_kata, ' 　')::varchar(11) as motor2_kata,  -- 右左ブランク
+            trim(motor2_qty, ' 　')::varchar(3) as motor2_qty,  -- 右左ブランク
+            trim(motor2_out, ' 　')::varchar(5) as motor2_out,  -- 右左ブランク
+            trim(battery_voltage, ' 　')::varchar(6) as battery_voltage,  -- 右左ブランク
+            trim(battery_capacity, ' 　')::varchar(5) as battery_capacity,  -- 右左ブランク
+            trim(hydr_tank1_kata, ' 　')::varchar(2) as hydr_tank1_kata,  -- 右左ブランク
+            trim(hydr_tank2_kata, ' 　')::varchar(2) as hydr_tank2_kata,  -- 右左ブランク
+            trim(hydr_tank1_capa, ' 　')::varchar(5) as hydr_tank1_capa,  -- 右左ブランク
+            trim(hydr_tank1_qty, ' 　')::varchar(3) as hydr_tank1_qty,  -- 右左ブランク
+            trim(hydr_tank_press, ' 　')::varchar(3) as hydr_tank_press,  -- 右左ブランク
+            trim(engine_rpm, ' 　')::varchar(4) as engine_rpm,  -- 右左ブランク
+            trim(iwvta_approval, ' 　')::varchar(18) as iwvta_approval,  -- 右左ブランク
+            trim(japanese_year_model, ' 　')::varchar(3) as japanese_year_model,  -- 右左ブランク
+            trim(dum_cr, ' 　')::varchar(214) as dum_cr,  -- 右左ブランク
+            trim(comment1, ' 　')::varchar(50) as comment1,  -- 右左ブランク
+            trim(comment2, ' 　')::varchar(50) as comment2,  -- 右左ブランク
+            trim(comment3, ' 　')::varchar(50) as comment3,  -- 右左ブランク
+            trim(comment4, ' 　')::varchar(50) as comment4,  -- 右左ブランク
+            to_timestamp_ntz(trim(his_create_date, ' 　'))::timestamp_ntz(6) as his_create_date,  -- 右左ブランク
+            to_timestamp_ntz(trim(__created_at, ' 　'))::timestamp_ntz(6) as __created_at,  -- 右左ブランク
+            to_timestamp_ntz(trim(__updated_at, ' 　'))::timestamp_ntz(6) as __updated_at,  -- 右左ブランク
+            ldts,  -- b層のldts
+            row_number() over (
                 partition by
                     sfkey
                 order by
-                    ldts desc,line_number desc
-        ) aggkey
-    from {{ ref('extract_iotalcjm41g4sf0') }}
+                    ldts desc, line_number desc
+            ) as aggkey
+        from {{ ref('extract_iotalcjm41g4sf0') }}
 
-    {% if is_incremental() %}
-        where ldts > (select coalesce(max(ldts), '1970-01-01 00:00:00.000') from {{ this }})
-    {% endif %}
+        {% if is_incremental() %}
+            where ldts > (select coalesce(max(ldts), '1970-01-01 00:00:00.000') from {{ this }})
+        {% endif %}
 
-)
-select * exclude(aggkey) from stg_jm41_sfbase_history_iotpf
+    )
+select * exclude (aggkey) from stg_jm41_sfbase_history_iotpf
 where aggkey = 1
