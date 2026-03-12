@@ -6,11 +6,12 @@ models:
       tags: ["jnet"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - jcd
-            - hriszcd
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - jcd
+              - hriszcd
     columns:
       - name: jcd
         data_tests:

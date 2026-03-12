@@ -6,18 +6,19 @@ models:
       tags: ["smshokyu"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu32
-            - syasyu
-            - kumitate
-            - bui
-            - vari
-            - oyahin
-            - gc
-            - kohin
-            - sepjunk
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu32
+              - syasyu
+              - kumitate
+              - bui
+              - vari
+              - oyahin
+              - gc
+              - kohin
+              - sepjunk
     columns:
       - name: syasyu32
         data_tests:
@@ -70,18 +71,19 @@ models:
       tags: ["smshokyu"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu
-            - kumitate
-            - bui
-            - vari
-            - oyahin
-            - gc
-            - kohin
-            - ruibetu
-            - sepjunk
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - kumitate
+              - bui
+              - vari
+              - oyahin
+              - gc
+              - kohin
+              - ruibetu
+              - sepjunk
     columns:
       - name: syasyu
         data_tests:
@@ -134,15 +136,16 @@ models:
       tags: ["smshokyu"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syusbetu
-            - hinban
-            - ruibetu
-            - daihin
-            - daihinrui
-            - kerekijun
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syusbetu
+              - hinban
+              - ruibetu
+              - daihin
+              - daihinrui
+              - kerekijun
     columns:
       - name: syusbetu
         data_tests:
@@ -163,7 +166,7 @@ models:
         data_tests:
           - not_null:
               config:
-                severty: error
+                severity: error
       - name: daihinrui
         data_tests:
           - not_null:
@@ -180,13 +183,14 @@ models:
       tags: ["smshokyu"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syusbetu
-            - hinban
-            - ruibetu
-            - kerekijun
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syusbetu
+              - hinban
+              - ruibetu
+              - kerekijun
     columns:
       - name: syusbetu
         data_tests:
@@ -214,13 +218,14 @@ models:
       tags: ["smshokyu"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syusbetu
-            - hinban
-            - ruibetu
-            - comkbn
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syusbetu
+              - hinban
+              - ruibetu
+              - comkbn
     columns:
       - name: syusbetu
         data_tests:
@@ -248,14 +253,15 @@ models:
       tags: ["smshokyu"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syusbetu
-            - hinban
-            - ruibetu
-            - kyokucd
-            - kerekijun
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syusbetu
+              - hinban
+              - ruibetu
+              - kyokucd
+              - kerekijun
     columns:
       - name: syusbetu
         data_tests:
@@ -288,14 +294,15 @@ models:
       tags: ["smshokyu"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - ruibetu
-            - syaryoszoco
-            - dounyutiikicd
-            - tkerekijun
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - hinban
+              - ruibetu
+              - syaryoszoco
+              - dounyutiikicd
+              - tkerekijun
     columns:
       - name: hinban
         data_tests:
@@ -328,14 +335,15 @@ models:
       tags: ["smshokyu"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - hinban
-            - ruibetu
-            - syaryoszoco
-            - dounyutiikicd
-            - kerekijun
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - hinban
+              - ruibetu
+              - syaryoszoco
+              - dounyutiikicd
+              - kerekijun
     columns:
       - name: hinban
         data_tests:
@@ -368,30 +376,31 @@ models:
       tags: ["smshokyu"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syusbetu
-            - syutuhin
-            - kyokucd
-            - oyahin
-            - kohin
-            - jikt1
-            - jikt2
-            - jikt3
-            - jikt4
-            - jikt5
-            - jikt6
-            - jikt7
-            - jikt8
-            - jikt9
-            - jikt10
-            - jikt11
-            - jikt12
-            - jikt13
-            - jikt14
-            - oyakt
-            - sepjunk
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syusbetu
+              - syutuhin
+              - kyokucd
+              - oyahin
+              - kohin
+              - jikt1
+              - jikt2
+              - jikt3
+              - jikt4
+              - jikt5
+              - jikt6
+              - jikt7
+              - jikt8
+              - jikt9
+              - jikt10
+              - jikt11
+              - jikt12
+              - jikt13
+              - jikt14
+              - oyakt
+              - sepjunk
     columns:
       - name: syusbetu
         data_tests:
@@ -497,31 +506,32 @@ models:
         data_tests:
           - not_null:
               config:
-                severity: error               
+                severity: error
 #補給設定地域限定
   - name: stg_hokyusetteitiikigenntei_smshokyu
     config:
       tags: ["smshokyu"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu
-            - kumitate
-            - bui
-            - vari
-            - oyahin
-            - gc
-            - kohin
-            - sepjunk
-            - gentetiki
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - kumitate
+              - bui
+              - vari
+              - oyahin
+              - gc
+              - kohin
+              - sepjunk
+              - gentetiki
     columns:
       - name: syasyu
         data_tests:
           - not_null:
               config:
-                severity: error 
+                severity: error
       - name: kumitate
         data_tests:
           - not_null:
@@ -568,25 +578,26 @@ models:
       tags: ["smshokyu"]
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - syasyu
-            - kumitate
-            - bui
-            - vari
-            - oyahin
-            - gc
-            - kohin
-            - ruibetu
-            - sepjunk
-            - gentetiki
           config:
             severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - kumitate
+              - bui
+              - vari
+              - oyahin
+              - gc
+              - kohin
+              - ruibetu
+              - sepjunk
+              - gentetiki
     columns:
       - name: syasyu
         data_tests:
           - not_null:
               config:
-                severity: error  
+                severity: error
       - name: kumitate
         data_tests:
           - not_null:

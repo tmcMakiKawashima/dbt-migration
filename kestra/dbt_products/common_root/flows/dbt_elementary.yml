@@ -89,7 +89,7 @@ triggers:
           - SUCCESS
   - id: schedule_prod
     type: io.kestra.plugin.core.trigger.Schedule
-    cron: "0 * * * *"
+    cron: "0 8-22 * * 1-5"
     timezone: Asia/Tokyo
     conditions:
       - type: io.kestra.plugin.core.condition.Expression

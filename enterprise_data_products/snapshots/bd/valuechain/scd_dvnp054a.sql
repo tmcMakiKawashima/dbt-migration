@@ -2,12 +2,12 @@
 
 {{
     config(
-        unique_key="dlrcd",
+        unique_key="concat_ws('-',
+                    dlrcd)",
 
         strategy='timestamp',
         updated_at='mttime',
         invalidate_hard_deletes=True,
-        snowflake_warehouse='DBT_WH',
     )
 }}
 
