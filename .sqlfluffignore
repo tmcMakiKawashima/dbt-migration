@@ -1,0 +1,4 @@
+enterprise_data_products/macros/
+enterprise_data_products/dbt_packages/
+enterprise_data_products/target/
+enterprise_data_products/tests/
