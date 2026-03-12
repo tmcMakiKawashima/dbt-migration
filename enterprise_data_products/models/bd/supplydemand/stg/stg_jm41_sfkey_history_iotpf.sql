@@ -6,7 +6,8 @@
     )
 }}
 
-with stg_jm41_sfkey_history_iotpf as (
+with
+stg_jm41_sfkey_history_iotpf as (
     select
         trim(sf_kind, ' 　')::numeric(1) as sf_kind,  -- 右左ブランク
         trim(sfkey, ' 　')::varchar(16) as sfkey,  -- 右左ブランク
@@ -32,14 +33,14 @@ with stg_jm41_sfkey_history_iotpf as (
             order by
                 ldts desc,
                 line_number desc
-        ) aggkey
-     from {{ ref('extract_iotalcjm41g4sfk') }}
+        ) as aggkey
+    from {{ ref('extract_iotalcjm41g4sfk') }}
 
     {% if is_incremental() %}
         where ldts > (select coalesce(max(ldts), '1970-01-01 00:00:00.000') from {{ this }})
     {% endif %}
 
 )
-select * exclude(aggkey)
+select * exclude (aggkey)
 from stg_jm41_sfkey_history_iotpf
 where aggkey = 1

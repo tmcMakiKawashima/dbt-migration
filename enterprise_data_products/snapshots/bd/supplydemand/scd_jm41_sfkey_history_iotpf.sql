@@ -1,4 +1,4 @@
-{% snapshot scd_jm41_sfkey_history_iotpf%}
+{% snapshot scd_jm41_sfkey_history_iotpf %}
 
 {{
     config( 
