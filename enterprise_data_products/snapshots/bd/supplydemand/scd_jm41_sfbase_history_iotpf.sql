@@ -1,4 +1,4 @@
-{% snapshot scd_jm41_sfbase_history_iotpf%}
+{% snapshot scd_jm41_sfbase_history_iotpf %}
 
 {{
     config( 
@@ -11,6 +11,5 @@
     )
 }}
 
-select * from {{ ref('stg_jm41_sfbase_history_iotpf') }} 
-
- {% endsnapshot %}
+select * from {{ ref('stg_jm41_sfbase_history_iotpf') }}
+{% endsnapshot %}
