@@ -1,0 +1,180 @@
+version: 2
+
+models:
+# JFY1 制御ファイル
+  - name: stg_jfy1_ctrl_file_iotpf
+    config:
+      tags: ["iotpf"]
+    columns:
+      - name: sfkey
+        data_tests:
+          - unique: 
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# JFY1 SF基本データ
+  - name: stg_jfy1_sfbase_history_iotpf
+    config:
+      tags: ["iotpf"]
+    columns:
+      - name: sfkey
+        data_tests:
+          - unique: 
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# JFY1 SFキーデータ
+  - name: stg_jfy1_sfkey_history_iotpf
+    config:
+      tags: ["iotpf"]
+    columns:
+      - name: sfkey
+        data_tests:
+          - unique: 
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: sf_kind
+        data_tests:
+          - not_null:
+              config:
+                severity: error        
+# JFY1 SF生産ステータスデータ
+  - name: stg_jfy1_sft_history_iotpf
+    config:
+      tags: ["iotpf"]
+    columns:
+      - name: sfkey
+        data_tests:
+          - unique: 
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+# JFY1 SFトラッキング履歴データ
+  - name: stg_jfy1_sfh_history_iotpf
+    config:
+      tags: ["iotpf"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - sfkey
+              - line
+              - tp
+              - keycount
+    columns:
+      - name: sfkey
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: line
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tp
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: keycount
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# JFY1 トレーサビリティデータ
+  - name: stg_jfy1_tracedata_iotpf
+    config:
+      tags: ["iotpf"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - data_id
+              - pro_key_cd
+              - trace_tag_cd
+              - value  
+    columns:
+      - name: data_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: line
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: pro_tag_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: pro_tag_name
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: pro_key_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: pro_serial_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: trace_tag_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: trace_tag_name
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: tag_type
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: trace_key_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: value
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: rec_date_time
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: expire_date
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: his_create_date
+        data_tests:
+          - not_null:
+              config:
+                severity: error

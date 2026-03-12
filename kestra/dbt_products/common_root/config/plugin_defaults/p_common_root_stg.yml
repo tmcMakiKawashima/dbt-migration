@@ -151,3 +151,13 @@
     beforeCommands:
       - pip install "{{ namespace.PYTHON.SNOWFLAKE_CONNECTOR_VERSION }}"
     containerImage: "{{ namespace.DOCKER.IMAGE_VERSION.PYTHON }}"
+- type: io.kestra.plugin.core.log.Fetch
+  forced: false
+  values:
+    level: ERROR
+    executionId: "{{ execution.id }}"
+- type: io.kestra.plugin.transform.jsonata.TransformItems
+  forced: false
+  values:
+    from: "{{ outputs.fetch_error_logs.uri }}"
+    expression: $.message
