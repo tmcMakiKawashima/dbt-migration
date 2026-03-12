@@ -11,6 +11,5 @@
     )
 }}
 
-select * from {{ ref('stg_jm41_sfkey_history_iotpf') }} 
-
- {% endsnapshot %}
+select * from {{ ref('stg_jm41_sfkey_history_iotpf') }}
+{% endsnapshot %}
