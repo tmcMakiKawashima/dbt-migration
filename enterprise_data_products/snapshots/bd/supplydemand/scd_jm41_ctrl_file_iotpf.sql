@@ -1,4 +1,4 @@
-{% snapshot scd_jm41_ctrl_file_iotpf%}
+{% snapshot scd_jm41_ctrl_file_iotpf %}
 
 {{
     config( 
