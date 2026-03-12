@@ -1213,7 +1213,8 @@ with
                 partition by
                     sfkey
                 order by
-                    ldts desc, line_number desc
+                    ldts desc,
+                    line_number desc
             ) as aggkey
         from {{ ref('extract_iotalcjm41g4sf0') }}
 
@@ -1222,5 +1223,6 @@ with
         {% endif %}
 
     )
-select * exclude (aggkey) from stg_jm41_sfbase_history_iotpf
+select * exclude (aggkey)
+from stg_jm41_sfbase_history_iotpf
 where aggkey = 1
