@@ -1,4 +1,4 @@
-{% snapshot scd_jm41_tracedata_iotpf%}
+{% snapshot scd_jm41_tracedata_iotpf %}
 
 {{
     config( 
@@ -14,6 +14,5 @@
     )
 }}
 
-select * from {{ ref('stg_jm41_tracedata_iotpf') }} 
-
- {% endsnapshot %}
+select * from {{ ref('stg_jm41_tracedata_iotpf') }}
+{% endsnapshot %}
