@@ -2,11 +2,11 @@ id: job_build_dm_vinhis_spec200_allsalecar
 namespace: kestra_dbt_project.proj-job-vois-ninsyohusei-hinban
 
 labels:
-  error: default_failed                                      # ★　←デフォルトのエラー通知を適用する場合はラベルを付与
-  dbt: build                                                 # ★　←dbt build処理を実行する場合はラベルを付与（dbt elementaryを出力するため）
+  error: default_failed
+  dbt: build
 
 retry:
-  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK        ★　←リトライの実装を入れる（テンプレートは標準仕様）
+  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK
   type: exponential
   interval: PT5S
   maxAttempts: 7
@@ -19,13 +19,13 @@ inputs:
     type: SELECT
     displayName: Choose dbt options
     values:
-      - --full-refresh                                        # ★　←mergeでもテーブルを作り変えられるオプション
+      - --full-refresh
     required: false
     allowCustomValue: true
 
 variables:
   dbt_command:
-    --select stg_color_no tmp10_dm_vinhis_spec200_allsalecar tmp20_dm_vinhis_spec200_allsalecar tmp30_dm_vinhis_spec200_allsalecar dm_vinhis_spec200_allsalecar
+    --select stg_color_no_sms tmp10_dm_vinhis_spec200_allsalecar tmp20_dm_vinhis_spec200_allsalecar tmp30_dm_vinhis_spec200_allsalecar dm_vinhis_spec200_allsalecar
     --vars '{"DBT_JOB_NAME":"_dm_vinhis_spec200_allsalecar"}'
 
 tasks:
@@ -35,6 +35,14 @@ tasks:
       - dbt build {{ vars.dbt_command }}
         {{ inputs.dbt_options ?? "" }}
 
+  - id: fetch_warning_logs
+    type: io.kestra.plugin.core.log.Fetch
+    level: WARN
+
+  - id: get_warning_message
+    type: io.kestra.plugin.transform.jsonata.TransformItems
+    from: "{{ outputs.fetch_warning_logs.uri }}"
+
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
@@ -43,14 +51,16 @@ triggers:
 
 # エラーログを出力
 errors:
-  - id: error_log
-    type: io.kestra.plugin.core.debug.Return
-    format: "{{ errorLogs()[0]['message'] }}"
+  - id: fetch_error_logs
+    type: io.kestra.plugin.core.log.Fetch
+
+  - id: get_error_message
+    type: io.kestra.plugin.transform.jsonata.TransformItems
 
 outputs: 
   - id: output_error_log
     type: STRING
-    value: "{{ outputs.error_log.value ?? 'No message found.' }}"
+    value: "{{ read(outputs.get_error_message.uri) ?? read(outputs.get_warning_message.uri) | default('No message found.') }}"
   - id: output_state
     type: STRING
     value: "{{ tasks.clone_dbt_build.state ?? 'No state' }}"
@@ -63,5 +73,5 @@ finally:
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
       - "dbt options -> {{ inputs.dbt_options ?? '' }}"
       - "dbt commands -> {{ vars.dbt_command }}"
-      
+
 disabled: false
