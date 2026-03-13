@@ -775,6 +775,7 @@ models:
               - sekkei
               - sochaku
               - hikisiyo
+              - vari
     columns:
       - name: jigyoutai
         data_tests:
@@ -827,6 +828,11 @@ models:
               config:
                 severity: error
       - name: hikisiyo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vari
         data_tests:
           - not_null:
               config:

@@ -1,4 +1,4 @@
-{% snapshot scd_legacy_mokuji_gijutsusms%}
+{% snapshot scd_legacy_mokuji_gijutsusms %}
 
 {{
     config( 
@@ -13,7 +13,8 @@
                     sakuseikbn,
                     sekkei,
                     sochaku,
-                    hikisiyo)",
+                    hikisiyo,
+                    vari)",
 
         strategy='timestamp',
         updated_at='ldts',
@@ -22,5 +23,4 @@
 }}
 
 select * from {{ ref('stg_legacy_mokuji_gijutsusms') }}
-
- {% endsnapshot %}
+{% endsnapshot %}
