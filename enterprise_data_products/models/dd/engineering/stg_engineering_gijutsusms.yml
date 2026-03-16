@@ -14,7 +14,7 @@ models:
               - syasyu_cd
               - kumitate
     columns:
-      - name: jsyasyu_cdi
+      - name: syasyu_cd
         data_tests:
           - not_null:
               config:
