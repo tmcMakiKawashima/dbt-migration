@@ -39,6 +39,7 @@
         "
     )
 }}
+--更新区分'1'(削除)の場合pre_hookにて該当データ削除を行う
 
 with
     stg_ugsotyakujisseki_kinto as (
