@@ -164,5 +164,4 @@
 - type: io.kestra.plugin.core.trigger.Schedule
   forced: false
   values:
-    recoverMissedSchedules: NONE
-    lateMaximumDelay: PT1H
+    recoverMissedSchedules: LAST
