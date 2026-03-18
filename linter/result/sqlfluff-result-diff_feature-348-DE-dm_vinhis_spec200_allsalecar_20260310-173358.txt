@@ -1,9 +1,0 @@
-==================================
-[SQL Fluff Scan Result Summary]
-Scanned: 3 files
-Success: 3 files
-Failure: 0 files
-==================================
-== enterprise_data_products/models/de/vinhis/spec/temporary/dm_vinhis_spec200_allsalecar/tmp10_dm_vinhis_spec200_allsalecar.sql PASS
-== enterprise_data_products/models/de/vinhis/spec/temporary/dm_vinhis_spec200_allsalecar/tmp20_dm_vinhis_spec200_allsalecar.sql PASS
-== enterprise_data_products/models/de/vinhis/spec/temporary/dm_vinhis_specification_urn/tmp30_dm_vinhis_specification_urn.sql PASS
