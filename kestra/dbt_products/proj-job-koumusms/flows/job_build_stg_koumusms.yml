@@ -1,5 +1,5 @@
-id: job_build_stg_siyouhenkan_tmc_syaryosys
-namespace: kestra_dbt_project.proj-job-udc-kokai-kaisyu
+id: job_build_stg_koumusms
+namespace: kestra_dbt_project.proj-job-koumusms
 
 labels:
   error: default_failed
@@ -13,14 +13,6 @@ retry:
   maxInterval: PT720S
   delayFactor: 30
 
-sla:
-  - id: maxDuration
-    type: MAX_DURATION
-    duration: PT30M
-    behavior: NONE
-    labels:
-      sla: miss
-
 # 手動実行時に指定できるdbtオプション
 inputs:
   - id: dbt_options
@@ -31,11 +23,10 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables:
+variables: 
   dbt_command:
-    --select stg_siyouhenkan_tmc_syaryosys
-    --exclude +stg_siyouhenkan +stg_syasyu_tmc_sms
-    --vars '{"DBT_JOB_NAME":"_stg_siyouhenkan_tmc_syaryosys"}'
+    --select +stg_jigyoutai_koumusms
+    --vars '{"DBT_JOB_NAME":"_stg_koumusms"}'
 
 tasks:
   - id: clone_dbt_build
@@ -55,7 +46,7 @@ tasks:
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
-    cron: "00 06 * * *"
+    cron: "00 03 * * *"
     timezone: Asia/Tokyo
 
 # エラーログを出力
@@ -82,5 +73,5 @@ finally:
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
       - "dbt options -> {{ inputs.dbt_options ?? '' }}"
       - "dbt commands -> {{ vars.dbt_command }}"
-
+      
 disabled: false
