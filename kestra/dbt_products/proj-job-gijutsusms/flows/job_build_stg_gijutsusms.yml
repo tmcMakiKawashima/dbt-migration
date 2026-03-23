@@ -26,6 +26,9 @@ inputs:
 variables:
   dbt_command:
     --select +stg_legacy_mokuji_tmc_gijutsusms
+             +stg_legacy_kumitatename_tmc_gijutsusms
+             +stg_legacy_buiname_tmc_gijutsusms
+             +stg_legacy_variationname_tmc_gijutsusms
     --vars '{"DBT_JOB_NAME":"_stg_gijutsusms"}'
 
 tasks:
