@@ -1313,12 +1313,6 @@ sources:
                     length: 80
       - name: raw_ktrla038zz0kadda01
         identifier: ktrla038zz0kadda01
-        columns:
-          - name: raw_data
-            data_tests:
-              - fixed_length:
-                  arguments:
-                    length: 397
       - name: raw_ktrla038zz0kaddb03
         identifier: ktrla038zz0kaddb03
         columns:

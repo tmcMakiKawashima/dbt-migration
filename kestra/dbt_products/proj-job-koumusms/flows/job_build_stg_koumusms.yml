@@ -1,25 +1,17 @@
-id: job_build_stg_jpass
-namespace: kestra_dbt_project.proj-job-jpass
+id: job_build_stg_koumusms
+namespace: kestra_dbt_project.proj-job-koumusms
 
 labels:
   error: default_failed
   dbt: build
 
 retry:
-  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK 
+  behavior: CREATE_NEW_EXECUTION # or RETRY_FAILED_TASK
   type: exponential
   interval: PT5S
   maxAttempts: 7
   maxInterval: PT720S
   delayFactor: 30
-
-sla:
-  - id: maxDuration
-    type: MAX_DURATION
-    duration: PT7H
-    behavior: NONE
-    labels:
-      sla: miss
 
 # 手動実行時に指定できるdbtオプション
 inputs:
@@ -31,10 +23,10 @@ inputs:
     required: false
     allowCustomValue: true
 
-variables:
+variables: 
   dbt_command:
-    --select +stg_jyuchu_shosai_seiyakukakunin_jpass +stg_jyuchu_seiyakukinosyukei_seiyakukakunin_jpass +stg_haishayoubo_jpass +stg_jyuchu_kinosyukei_seiyakukakunin_jpass
-    --vars '{"DBT_JOB_NAME":"_stg_jpass"}'
+    --select +stg_jigyoutai_koumusms
+    --vars '{"DBT_JOB_NAME":"_stg_koumusms"}'
 
 tasks:
   - id: clone_dbt_build
@@ -54,7 +46,7 @@ tasks:
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
-    cron: "00 02 * * *"
+    cron: "00 03 * * *"
     timezone: Asia/Tokyo
 
 # エラーログを出力

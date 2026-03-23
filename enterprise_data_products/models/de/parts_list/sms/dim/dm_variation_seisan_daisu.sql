@@ -2,8 +2,7 @@
   config(
     materialized = 'incremental',
     unique_key = ['syasyu','kumitate','bui','vari','seppen_no_kara','haisya_kt','spec200','sk_y','sk_m'],
-    incremental_strategy = 'merge',
-    transient = false
+    incremental_strategy = 'merge'
   )
  }}
 
