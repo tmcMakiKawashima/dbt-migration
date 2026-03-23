@@ -84,3 +84,90 @@ models:
           - not_null:
               config:
                 severity: error
+# 旧型組立番号名称(TMC車種限定)
+  - name: stg_legacy_kumitatename_tmc_gijutsusms
+    config:
+      tags: ["gijutsusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu_cd
+              - kumitate
+    columns:
+      - name: syasyu_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kumitate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 旧型部位名称(TMC車種限定)
+  - name: stg_legacy_buiname_tmc_gijutsusms
+    config:
+      tags: ["gijutsusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu_cd
+              - kumitate
+              - bui
+    columns:
+      - name: syasyu_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kumitate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 旧型バリエーション名称(TMC車種限定)
+  - name: stg_legacy_variationname_tmc_gijutsusms
+    config:
+      tags: ["gijutsusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu_cd
+              - kumitate
+              - bui
+              - vari
+    columns:
+      - name: syasyu_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kumitate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vari
+        data_tests:
+          - not_null:
+              config:
+                severity: error
