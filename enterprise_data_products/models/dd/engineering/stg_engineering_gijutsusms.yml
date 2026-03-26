@@ -1,0 +1,86 @@
+version: 2
+
+models:
+# 旧型目次(TMC車種限定)
+  - name: stg_legacy_mokuji_tmc_gijutsusms
+    config:
+      tags: ["gijutsusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - jigyoutai
+              - syasyu32
+              - syasyu
+              - kumitate
+              - bui
+              - kata
+              - torokujunk
+              - sakuseikbn
+              - sekkei
+              - sochaku
+              - hikisiyo
+              - vari
+    columns:
+      - name: jigyoutai
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu32
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kumitate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kata
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: torokujunk
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sakuseikbn
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sekkei
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: sochaku
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: hikisiyo
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vari
+        data_tests:
+          - not_null:
+              config:
+                severity: error
