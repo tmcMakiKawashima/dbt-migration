@@ -1313,12 +1313,6 @@ sources:
                     length: 80
       - name: raw_ktrla038zz0kadda01
         identifier: ktrla038zz0kadda01
-        columns:
-          - name: raw_data
-            data_tests:
-              - fixed_length:
-                  arguments:
-                    length: 397
       - name: raw_ktrla038zz0kaddb03
         identifier: ktrla038zz0kaddb03
         columns:
@@ -1365,3 +1359,13 @@ sources:
         identifier: iotalcjfy1g4sfh
       - name: raw_iotalcjfy1g4tra
         identifier: iotalcjfy1g4tra
+      - name: raw_iotalcjm41g4ctr
+        identifier: iotalcjm41g4ctr
+      - name: raw_iotalcjm41g4sf0
+        identifier: iotalcjm41g4sf0
+      - name: raw_iotalcjm41g4sfk
+        identifier: iotalcjm41g4sfk
+      - name: raw_iotalcjm41g4sft
+        identifier: iotalcjm41g4sft
+      - name: raw_iotalcjm41g4tra
+        identifier: iotalcjm41g4tra
