@@ -2,9 +2,9 @@ version: 2
 
 models:
 # カラーNo
-  - name: stg_color_no
+  - name: stg_color_no_sms
     config:
-      tags: ["koumu-sms"]
+      tags: ["sms"]
     columns:
       - name: gclrno
         data_tests:
