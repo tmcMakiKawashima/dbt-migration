@@ -1,4 +1,4 @@
-{% snapshot scd_matocode_gijutsusms%}
+{% snapshot scd_matocode_gijutsusms %}
 
 {{
     config( 
@@ -12,6 +12,5 @@
     )
 }}
 
-select * from {{ ref('stg_matocode_gijutsusms') }} 
-
- {% endsnapshot %}
+select * from {{ ref('stg_matocode_gijutsusms') }}
+{% endsnapshot %}
