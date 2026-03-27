@@ -1,4 +1,4 @@
-{% snapshot scd_matojyoken_gijutsusms%}
+{% snapshot scd_matojyoken_gijutsusms %}
 
 {{
     config( 
@@ -15,6 +15,5 @@
     )
 }}
 
-select * from {{ ref('stg_matojyoken_gijutsusms') }} 
-
- {% endsnapshot %}
+select * from {{ ref('stg_matojyoken_gijutsusms') }}
+{% endsnapshot %}
