@@ -9,3 +9,11 @@ models:
           - fixed_length:
               arguments:
                 length: 120
+# 配車要望最終仕様別
+  - name: byte_ktrla038zz0kadda01
+    columns:
+      - name: raw_data
+        data_tests:
+          - fixed_length:
+              arguments:
+                length: 397
