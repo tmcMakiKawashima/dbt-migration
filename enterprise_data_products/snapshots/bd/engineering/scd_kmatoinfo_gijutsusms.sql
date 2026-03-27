@@ -1,4 +1,4 @@
-{% snapshot scd_kmatoinfo_gijutsusms%}
+{% snapshot scd_kmatoinfo_gijutsusms %}
 
 {{
     config( 
@@ -12,6 +12,5 @@
     )
 }}
 
-select * from {{ ref('stg_kmatoinfo_gijutsusms') }} 
-
- {% endsnapshot %}
+select * from {{ ref('stg_kmatoinfo_gijutsusms') }}
+{% endsnapshot %}
