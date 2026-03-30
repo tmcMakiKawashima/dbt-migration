@@ -1,4 +1,0 @@
-- type: io.kestra.plugin.core.trigger.Schedule
-  forced: false
-  values:
-    recoverMissedSchedules: ALL
