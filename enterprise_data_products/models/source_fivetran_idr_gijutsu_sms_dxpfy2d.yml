@@ -71,3 +71,11 @@ sources:
         identifier: cyp26jtaizoku
       - name: raw_cyl15mokuji
         identifier: cyl15mokuji
+      - name: raw_cy727jyoken
+        identifier: cy727jyoken
+      - name: raw_cy727kmatoinfo
+        identifier: cy727kmatoinfo
+      - name: raw_cy727matokan
+        identifier: cy727matokan
+      - name: raw_cy727matocode
+        identifier: cy727matocode
