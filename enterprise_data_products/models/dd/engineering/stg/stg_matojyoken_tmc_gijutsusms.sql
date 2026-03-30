@@ -1,16 +1,16 @@
 with
-    matojyoken as (
+    stg_matojyoken_gijutsusms as (
         select
             *
         from {{ ref('stg_matojyoken_gijutsusms') }}
     ),
-    syasyu_tmc as (
+    stg_syasyu_tmc_sms as (
         select
             syasyu
         from {{ ref('stg_syasyu_tmc_sms') }}
     )
 select
-    matojyoken.*
-from matojyoken
-inner join syasyu_tmc
-    on matojyoken.syasyu = syasyu_tmc.syasyu
+    stg_matojyoken_gijutsusms.*
+from stg_matojyoken_gijutsusms
+inner join stg_syasyu_tmc_sms
+    on stg_matojyoken_gijutsusms.syasyu = stg_syasyu_tmc_sms.syasyu
