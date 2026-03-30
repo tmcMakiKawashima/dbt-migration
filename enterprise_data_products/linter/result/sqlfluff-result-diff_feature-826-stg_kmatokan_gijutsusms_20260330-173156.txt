@@ -1,6 +1,0 @@
-==================================
-[SQL Fluff Scan Result Summary]
-Scanned: 0 files
-Success: 0 files
-Failure: 0 files
-==================================
