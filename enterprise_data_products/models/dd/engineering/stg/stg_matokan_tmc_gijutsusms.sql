@@ -7,7 +7,7 @@ with
     stg_syasyu_tmc_sms as (
         select
             syasyu
-        from {{ ref('stg_syasyu_tmc_sms')S }}
+        from {{ ref('stg_syasyu_tmc_sms') }}
     )
 select
     stg_matokan_gijutsusms.*
