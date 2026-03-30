@@ -1,11 +1,10 @@
-{% snapshot scd_cam2148_jyukyujyoho %}
+{% snapshot scd_sfxkakuteikihonjyoho_cosmos %}
 
 {{
   config(
     unique_key="concat_ws('-',
           r_prod_month,
-          r_edno,
-          r_spec_keta)",
+          r_edno)",
 
     strategy='timestamp',
     updated_at='ldts',
@@ -13,6 +12,6 @@
   )
 }}
 
-select * from {{ ref('stg_cam2148_jyukyujyoho') }}
+select * from {{ ref('stg_sfxkakuteikihonjyoho_cosmos') }}
 
 {% endsnapshot %}

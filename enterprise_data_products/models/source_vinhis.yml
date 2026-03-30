@@ -8,6 +8,9 @@ sources:
       - name: raw_mst_vinhis_specification_nameconvert
         identifier: mst_vinhis_specification_nameconvert
 
+      - name: raw_dm_vinhis_specification_spec_allsalecar
+        identifier: dm_vinhis_specification_spec_allsalecar
+
   - name: vinhis_db_iqas
     database: vinhis_db
     schema: iqas
