@@ -1,16 +1,16 @@
 with
-    matoinfo as (
+    stg_kmatoinfo_gijutsusms as (
         select
             *
         from {{ ref('stg_kmatoinfo_gijutsusms') }}
     ),
-    syasyu_tmc as (
+    stg_syasyu_tmc_sms as (
         select
             syasyu
         from {{ ref('stg_syasyu_tmc_sms') }}
     )
 select
-    matoinfo.*
-from matoinfo
-inner join syasyu_tmc
-    on matoinfo.syasyu = syasyu_tmc.syasyu
+    stg_kmatoinfo_gijutsusms.*
+from stg_kmatoinfo_gijutsusms
+inner join stg_syasyu_tmc_sms
+    on stg_kmatoinfo_gijutsusms.syasyu = stg_syasyu_tmc_sms.syasyu
