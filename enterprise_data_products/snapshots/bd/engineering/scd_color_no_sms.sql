@@ -1,4 +1,4 @@
-{% snapshot scd_color_no %}
+{% snapshot scd_color_no_sms %}
 
 {{
     config(
@@ -12,6 +12,6 @@
     )
 }}
 
-select * from {{ ref('stg_color_no') }}
+select * from {{ ref('stg_color_no_sms') }}
 
 {% endsnapshot %}

@@ -77,3 +77,11 @@ sources:
         identifier: cyl15buimei
       - name: raw_cyl15varimei
         identifier: cyl15varimei
+      - name: raw_cy727jyoken
+        identifier: cy727jyoken
+      - name: raw_cy727kmatoinfo
+        identifier: cy727kmatoinfo
+      - name: raw_cy727matokan
+        identifier: cy727matokan
+      - name: raw_cy727matocode
+        identifier: cy727matocode

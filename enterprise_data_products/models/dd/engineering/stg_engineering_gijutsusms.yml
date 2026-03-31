@@ -171,3 +171,119 @@ models:
           - not_null:
               config:
                 severity: error
+# マトリックス条件
+  - name: stg_matojyoken_tmc_gijutsusms
+    config:
+      tags: ["gijutsusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - mato
+              - oyamato
+              - komato
+              - clkara
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mato
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: oyamato
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: komato
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: clkara
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 即廃止マトリックス情報
+  - name: stg_kmatoinfo_tmc_gijutsusms
+    config:
+      tags: ["gijutsusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - mato
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mato
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# マトリックス管理
+  - name: stg_matokan_tmc_gijutsusms
+    config:
+      tags: ["gijutsusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - mato
+              - cl
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mato
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cl
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# マトリックスコード
+  - name: stg_matocode_tmc_gijutsusms
+    config:
+      tags: ["gijutsusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - mato
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mato
+        data_tests:
+          - not_null:
+              config:
+                severity: error
