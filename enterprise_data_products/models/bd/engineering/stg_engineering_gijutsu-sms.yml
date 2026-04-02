@@ -1087,3 +1087,26 @@ models:
           - not_null:
               config:
                 severity: error
+# トリムカラー
+  - name: stg_trimcolor_gijutsusms
+    config:
+      tags: ["gijutsusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - trimclr
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: trimclr
+        data_tests:
+          - not_null:
+              config:
+                severity: error
