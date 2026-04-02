@@ -334,7 +334,7 @@ models:
           - not_null:
               config:
                 severity: error
-# トリムカラー
+# トリムカラー(TMC車種限定)
   - name: stg_trimcolor_tmc_gijutsusms
     config:
       tags: ["gijutsusms"]
