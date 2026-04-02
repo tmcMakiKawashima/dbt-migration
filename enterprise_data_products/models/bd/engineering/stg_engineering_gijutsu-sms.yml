@@ -837,3 +837,253 @@ models:
           - not_null:
               config:
                 severity: error
+# 旧型組立番号名称
+  - name: stg_legacy_kumitatename_gijutsusms
+    config:
+      tags: ["gijutsusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu_cd
+              - kumitate
+    columns:
+      - name: syasyu_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kumitate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 旧型部位名称
+  - name: stg_legacy_buiname_gijutsusms
+    config:
+      tags: ["gijutsusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu_cd
+              - kumitate
+              - bui
+    columns:
+      - name: syasyu_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kumitate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 旧型バリエーション名称
+  - name: stg_legacy_variationname_gijutsusms
+    config:
+      tags: ["gijutsusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu_cd
+              - kumitate
+              - bui
+              - vari
+    columns:
+      - name: syasyu_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kumitate
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: bui
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vari
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# マトリックス条件
+  - name: stg_matojyoken_gijutsusms
+    config:
+      tags: ["gijutsusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - mato
+              - oyamato
+              - komato
+              - clkara
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mato
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: oyamato
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: komato
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: clkara
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# 即廃止マトリックス情報
+  - name: stg_kmatoinfo_gijutsusms
+    config:
+      tags: ["gijutsusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - mato
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mato
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# マトリックス管理
+  - name: stg_matokan_gijutsusms
+    config:
+      tags: ["gijutsusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - mato
+              - cl
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mato
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: cl
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# マトリックスコード
+  - name: stg_matocode_gijutsusms
+    config:
+      tags: ["gijutsusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu
+              - mato
+    columns:
+      - name: syasyu
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mato
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+# マトリックス
+  - name: stg_matrix_gijutsusms
+    config:
+      tags: ["gijutsusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu_cd
+              - mato
+              - submato
+              - vari
+              - clkara
+              - kumikekka
+    columns:
+      - name: syasyu_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mato
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: submato
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vari
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: clkara
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kumikekka
+        data_tests:
+          - not_null:
+              config:
+                severity: error
