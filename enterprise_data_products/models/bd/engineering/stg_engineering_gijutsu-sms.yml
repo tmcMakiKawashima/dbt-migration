@@ -1040,3 +1040,50 @@ models:
           - not_null:
               config:
                 severity: error
+# マトリックス
+  - name: stg_matrix_gijutsusms
+    config:
+      tags: ["gijutsusms"]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          config:
+            severity: error
+          arguments:
+            combination_of_columns:
+              - syasyu_cd
+              - mato
+              - submato
+              - vari
+              - clkara
+              - kumikekka
+    columns:
+      - name: syasyu_cd
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: mato
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: submato
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: vari
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: clkara
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: kumikekka
+        data_tests:
+          - not_null:
+              config:
+                severity: error
