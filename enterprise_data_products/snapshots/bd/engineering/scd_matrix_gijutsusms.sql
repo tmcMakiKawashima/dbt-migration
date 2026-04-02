@@ -3,7 +3,7 @@
 {{
     config( 
         unique_key="concat_ws('-',
-                    syasyu,
+                    syasyu_cd,
                     mato,
                     submato,
                     vari,

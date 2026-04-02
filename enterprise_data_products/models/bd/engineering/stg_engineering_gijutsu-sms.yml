@@ -847,14 +847,14 @@ models:
             severity: error
           arguments:
             combination_of_columns:
-              - syasyu
+              - syasyu_cd
               - mato
               - submato
               - vari
               - clkara
               - kumikekka
     columns:
-      - name: syasyu
+      - name: syasyu_cd
         data_tests:
           - not_null:
               config:
