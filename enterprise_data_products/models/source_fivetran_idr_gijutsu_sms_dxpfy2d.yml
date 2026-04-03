@@ -69,3 +69,11 @@ sources:
         identifier: cyp26tiikizoku
       - name: raw_cyp26jtaizoku
         identifier: cyp26jtaizoku
+      - name: raw_cyl15mokuji
+        identifier: cyl15mokuji
+      - name: raw_cyl15kumimei
+        identifier: cyl15kumimei
+      - name: raw_cyl15buimei
+        identifier: cyl15buimei
+      - name: raw_cyl15varimei
+        identifier: cyl15varimei

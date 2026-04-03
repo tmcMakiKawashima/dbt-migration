@@ -1,5 +1,5 @@
-id: job_build_dm_vinhis_spec200_allsalecar
-namespace: kestra_dbt_project.proj-job-vois-ninsyohusei-hinban
+id: job_build_stg_gijutsusms
+namespace: kestra_dbt_project.proj-job-gijutsusms
 
 labels:
   error: default_failed
@@ -25,8 +25,11 @@ inputs:
 
 variables:
   dbt_command:
-    --select stg_color_no_sms tmp10_dm_vinhis_spec200_allsalecar tmp20_dm_vinhis_spec200_allsalecar tmp30_dm_vinhis_spec200_allsalecar dm_vinhis_spec200_allsalecar
-    --vars '{"DBT_JOB_NAME":"_dm_vinhis_spec200_allsalecar"}'
+    --select +stg_legacy_mokuji_tmc_gijutsusms
+             +stg_legacy_kumitatename_tmc_gijutsusms
+             +stg_legacy_buiname_tmc_gijutsusms
+             +stg_legacy_variationname_tmc_gijutsusms
+    --vars '{"DBT_JOB_NAME":"_stg_gijutsusms"}'
 
 tasks:
   - id: clone_dbt_build
@@ -46,7 +49,7 @@ tasks:
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
-    cron: "00 10 * * *"
+    cron: "30 05 * * *"
     timezone: Asia/Tokyo
 
 # エラーログを出力
@@ -73,5 +76,5 @@ finally:
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
       - "dbt options -> {{ inputs.dbt_options ?? '' }}"
       - "dbt commands -> {{ vars.dbt_command }}"
-
+      
 disabled: false

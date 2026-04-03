@@ -25,7 +25,7 @@ inputs:
 
 variables: 
   dbt_command:
-    --select +stg_jfy1_ctrl_file_iotpf +stg_jfy1_sfbase_history_iotpf +stg_jfy1_sfh_history_iotpf +stg_jfy1_sfkey_history_iotpf +stg_jfy1_sft_history_iotpf +stg_jfy1_tracedata_iotpf
+    --select +stg_jfy1_ctrl_file_iotpf +stg_jfy1_sfbase_history_iotpf +stg_jfy1_sfh_history_iotpf +stg_jfy1_sfkey_history_iotpf +stg_jfy1_sft_history_iotpf +stg_jfy1_tracedata_iotpf +stg_jm41_ctrl_file_iotpf +stg_jm41_sfbase_history_iotpf +stg_jm41_sfkey_history_iotpf +stg_jm41_sft_history_iotpf +stg_jm41_tracedata_iotpf
     --vars '{"DBT_JOB_NAME":"_stg_iotpf"}'
 
 tasks:
@@ -35,22 +35,32 @@ tasks:
       - dbt build {{ vars.dbt_command }}
         {{ inputs.dbt_options ?? "" }}
 
+  - id: fetch_warning_logs
+    type: io.kestra.plugin.core.log.Fetch
+    level: WARN
+
+  - id: get_warning_message
+    type: io.kestra.plugin.transform.jsonata.TransformItems
+    from: "{{ outputs.fetch_warning_logs.uri }}"
+
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
-    cron: "00 5,17 * * *"
+    cron: "00 05,17 * * *"
     timezone: Asia/Tokyo
 
 # エラーログを出力
 errors:
-  - id: error_log
-    type: io.kestra.plugin.core.debug.Return
-    format: "{{ errorLogs()[0]['message'] }}"
+  - id: fetch_error_logs
+    type: io.kestra.plugin.core.log.Fetch
+
+  - id: get_error_message
+    type: io.kestra.plugin.transform.jsonata.TransformItems
 
 outputs: 
   - id: output_error_log
     type: STRING
-    value: "{{ outputs.error_log.value ?? 'No message found.' }}"
+    value: "{{ read(outputs.get_error_message.uri) ?? read(outputs.get_warning_message.uri) | default('No message found.') }}"
   - id: output_state
     type: STRING
     value: "{{ tasks.clone_dbt_build.state ?? 'No state' }}"
@@ -63,5 +73,5 @@ finally:
       - "Git branch -> {{ namespace.GIT.BRANCH }}"
       - "dbt options -> {{ inputs.dbt_options ?? '' }}"
       - "dbt commands -> {{ vars.dbt_command }}"
-            
+      
 disabled: false
