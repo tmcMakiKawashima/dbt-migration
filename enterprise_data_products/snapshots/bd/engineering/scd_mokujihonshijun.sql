@@ -4,7 +4,6 @@
         unique_key="concat_ws('-',
                     jigyoutai,
                     syasyu_cd,
-                    iff(seppenno is null, '', seppenno),
                     torokujun
                     )",
 
