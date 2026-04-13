@@ -1,4 +1,4 @@
-id: job_build_stg_gijutsusms
+id: job_build_stg_gijutsusms_0400
 namespace: kestra_dbt_project.proj-job-gijutsusms
 
 labels:
@@ -25,11 +25,13 @@ inputs:
 
 variables:
   dbt_command:
-    --select +stg_legacy_mokuji_tmc_gijutsusms
-             +stg_legacy_kumitatename_tmc_gijutsusms
-             +stg_legacy_buiname_tmc_gijutsusms
-             +stg_legacy_variationname_tmc_gijutsusms
-    --vars '{"DBT_JOB_NAME":"_stg_gijutsusms"}'
+    --select +stg_kmatoinfo_tmc_gijutsusms
+             +stg_matocode_tmc_gijutsusms
+             +stg_matojyoken_tmc_gijutsusms
+             +stg_matokan_tmc_gijutsusms
+             +stg_matrix_tmc_gijutsusms
+             +stg_trimcolor_tmc_gijutsusms
+    --vars '{"DBT_JOB_NAME":"_stg_gijutsusms_0400"}'
 
 tasks:
   - id: clone_dbt_build
@@ -49,7 +51,7 @@ tasks:
 triggers:
   - id: schedule
     type: io.kestra.plugin.core.trigger.Schedule
-    cron: "30 05 * * *"
+    cron: "00 04 * * *"
     timezone: Asia/Tokyo
 
 # エラーログを出力

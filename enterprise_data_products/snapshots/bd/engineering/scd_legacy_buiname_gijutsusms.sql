@@ -1,16 +1,17 @@
-{% snapshot scd_mokujihonshijun %}
+{% snapshot scd_legacy_buiname_gijutsusms %}
+
 {{
-    config(
+    config( 
         unique_key="concat_ws('-',
-                    jigyoutai,
                     syasyu_cd,
-                    torokujun
-                    )",
+                    kumitate,
+                    bui)",
 
         strategy='timestamp',
         updated_at='ldts',
         invalidate_hard_deletes=true,
     )
 }}
-select * from {{ ref('stg_mokujihonshijun') }}
+
+select * from {{ ref('stg_legacy_buiname_gijutsusms') }}
 {% endsnapshot %}
