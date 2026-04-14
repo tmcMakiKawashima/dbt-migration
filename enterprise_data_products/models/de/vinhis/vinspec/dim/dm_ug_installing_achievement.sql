@@ -5,8 +5,8 @@ with
 select
     rtrim(syadai_kt) as syadai_kt,
     rtrim(frm_no) as frm_no,
-    rtrim(daibun_4) as daibun_4,
-    rtrim(saimoku_4) as saimoku_4,
+    rtrim(daibun_4) as daibun4,
+    rtrim(saimoku_4) as saimoku4,
     rtrim(dai_kanji_name) as dai_kanji_name,
     rtrim(sai_kana_name) as sai_kana_name,
     rtrim(parts_cd) as parts_cd,
