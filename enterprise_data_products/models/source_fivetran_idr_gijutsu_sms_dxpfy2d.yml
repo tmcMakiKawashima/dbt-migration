@@ -85,3 +85,5 @@ sources:
         identifier: cy727matokan
       - name: raw_cy727matocode
         identifier: cy727matocode
+      - name: raw_cy603trimcolor
+        identifier: cy603trimcolor

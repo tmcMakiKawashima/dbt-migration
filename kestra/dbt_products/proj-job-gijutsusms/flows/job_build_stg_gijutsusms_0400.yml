@@ -29,6 +29,7 @@ variables:
              +stg_matocode_tmc_gijutsusms
              +stg_matojyoken_tmc_gijutsusms
              +stg_matokan_tmc_gijutsusms
+             +stg_trimcolor_tmc_gijutsusms
     --vars '{"DBT_JOB_NAME":"_stg_gijutsusms_0400"}'
 
 tasks:
