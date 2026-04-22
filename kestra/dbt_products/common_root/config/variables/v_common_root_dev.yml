@@ -39,7 +39,7 @@ KUBERNETES:
 EXPORT_AUDIT_LOGS:
   MONTHLY:
     BASE_PATH: Kestra
-    S3_BUCKET: dajp1-dxpf-edp-s3-kestra11
+    S3_BUCKET: dajp1-dxpf-edp-dev-s3-logs01
   MANUALLY:
     BASE_PATH: Kestra/manually
-    S3_BUCKET: dajp1-dxpf-edp-s3-kestra11
+    S3_BUCKET: dajp1-dxpf-edp-dev-s3-ope01
