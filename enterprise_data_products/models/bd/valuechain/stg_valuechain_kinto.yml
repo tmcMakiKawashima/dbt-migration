@@ -1,0 +1,7 @@
+version: 2
+models:
+
+# UG装着実績
+  - name: stg_ugsotyakujisseki_kinto
+    config:
+      tags: ["kinto"]
